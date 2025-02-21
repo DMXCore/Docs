@@ -45,3 +45,4 @@
 * [Customizations](customizations/README.md)
   * [Menu Background](customizations/menu-background.md)
   * [Main/Home screen logo](customizations/main-home-screen-logo.md)
+* [Release Notes](release-notes.md)
