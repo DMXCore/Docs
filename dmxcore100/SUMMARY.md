@@ -40,6 +40,7 @@
   * [Custom Menu](screenshots/custom-menu.md)
   * [External Control](screenshots/external-control.md)
   * [Admin Features](screenshots/admin-features.md)
+  * [Q-Sys Remote Control](screenshots/q-sys-remote-control.md)
 * [Troubleshooting](troubleshooting/README.md)
   * [Re-flash instructions](troubleshooting/re-flash-instructions.md)
 * [Customizations](customizations/README.md)

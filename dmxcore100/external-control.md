@@ -12,7 +12,7 @@ The DMX Core 100 can act as a remote or GUI for two popular DSP cores, the Q-SYS
 
 As an admin, go to the System Settings on the DMX Core 100, under the **Plugins** header you'll find the setting called `QSC Q-SYS DSP Address` and the `Symetrix Address`, this is where you enter the IP of your DSP Core.
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Once saved you'll have a new option under the Utilities menu called `QSC Q-SYS Remote` and `Symetrix Remote` respectively.
 
