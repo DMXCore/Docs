@@ -47,3 +47,4 @@
   * [Menu Background](customizations/menu-background.md)
   * [Main/Home screen logo](customizations/main-home-screen-logo.md)
 * [Release Notes](release-notes.md)
+* [Demo Software (on Win PC)](demo-software-on-win-pc.md)
