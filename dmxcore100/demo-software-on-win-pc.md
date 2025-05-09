@@ -4,7 +4,7 @@ description: Run the full DMX Core 100 software on Windows
 
 # Demo Software (on Win PC)
 
-We have an experimental version of the software for the DMX Core 100 that runs on a modern Windows 10-11 PC. Please note that it has some limitations, it's not meant to be used in any production capability, but it can be a good start to learn about the features of the DMX Core 100.
+We have an experimental version of the software for the DMX Core 100 that runs on a modern Windows 10-11 PC. Please note that it has some limitations, it's not meant to be used in any production capability, but it can be a good start to learn about the features of the DMX Core 100. _Every 16 minutes it will disable the output for 1 minute._
 
 Using Microsoft Edge, open this URL: [ClickOnce](https://clickonce.dmxcore.com/DMXCore100.application)
 
