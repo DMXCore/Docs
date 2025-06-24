@@ -10,4 +10,4 @@ Using Microsoft Edge, open this URL: [ClickOnce](https://clickonce.dmxcore.com/D
 
 Select Open and then Install (it will give you a warning that it's not verified as safe, since this is just experimental, we don't have it signed with a commercial certificate. There's nothing unsafe about it though). You also need to select to allow it access to your network to be able to record/playback DMX data. Depending on what's installed in your computer it may also prompt you to install dependencies like .NET 9 that it will download from Microsoft's website.
 
-Once running you have access to the full DMX Core 100 software where you can test out the features prior to purchasing the hardware.
+Once running you have access to the full DMX Core 100 software where you can test out the features prior to purchasing the hardware. The web server is available on port 5000 for HTTP and 5001 for HTTPS when running on Windows.
