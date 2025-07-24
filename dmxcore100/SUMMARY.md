@@ -47,4 +47,6 @@
   * [Menu Background](customizations/menu-background.md)
   * [Main/Home screen logo](customizations/main-home-screen-logo.md)
 * [Release Notes](release-notes.md)
+* [Common Tasks](common-tasks/README.md)
+  * [Move data between DMX Core 100 units](common-tasks/move-data-between-dmx-core-100-units.md)
 * [Demo Software (on Win PC)](demo-software-on-win-pc.md)
