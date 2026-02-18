@@ -43,6 +43,7 @@
   * [Q-Sys Remote Control](screenshots/q-sys-remote-control.md)
 * [Troubleshooting](troubleshooting/README.md)
   * [Re-flash instructions](troubleshooting/re-flash-instructions.md)
+  * [Config Issues](troubleshooting/config-issues.md)
 * [Customizations](customizations/README.md)
   * [Menu Background](customizations/menu-background.md)
   * [Main/Home screen logo](customizations/main-home-screen-logo.md)
