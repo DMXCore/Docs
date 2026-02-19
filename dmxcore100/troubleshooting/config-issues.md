@@ -6,6 +6,14 @@ description: Describe common configuration issues and how to correct them
 
 Especially when running on non-DMX Core 100 hardware there are some configuration issues that the system detects that can cause incorrect functionality and degraded performance. Here's a list of a few of them and how to correct them.
 
+#### Script to fix config issues
+
+We have developed a script that will set the proper settings on your system. You can execute it with this command:
+
+```bash
+curl -s -L https://github.com/DMXCore/DmxCore100/raw/refs/heads/main/init-scripts/set-network-config.sh | sudo bash
+```
+
 #### IGMP Max Memberships for Multicast
 
 Since the DMX Core 100 software supports up to 100 universes we must tell the Linux subsystem to support that many multicast memberships. The recommended value is 400 to allow for advanced configurations with triggers and sync packets as well. Setting the value requires root privileges on the host system.
