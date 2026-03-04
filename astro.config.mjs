@@ -6,7 +6,7 @@ export default defineConfig({
   site: 'https://docs.dmxcore.com',
   integrations: [
     starlight({
-      title: 'DMX Core 100',
+      title: 'DMX Core',
       logo: {
         light: './src/assets/logo.png',
         dark: './src/assets/logo.png',
@@ -18,127 +18,155 @@ export default defineConfig({
       head: [],
       sidebar: [
         {
-          label: 'Main',
+          label: 'DMX Core 100',
+          collapsed: true,
           items: [
-            { label: 'Overview', slug: '' },
-            { label: 'Features', slug: 'main/features' },
-            { label: 'Applications', slug: 'main/applications' },
-            { label: 'FAQ', slug: 'main/faq' },
-            { label: 'Specifications', slug: 'main/specifications' },
-            { label: 'Warranty', slug: 'main/warranty' },
-          ],
-        },
-        {
-          label: 'Getting Started',
-          items: [
-            { label: 'Overview', slug: 'getting-started' },
-            { label: 'Installation', slug: 'getting-started/installation' },
-            { label: 'Home Screen', slug: 'getting-started/home-screen' },
-            { label: 'Main Menu', slug: 'getting-started/main-menu' },
-          ],
-        },
-        {
-          label: 'Lighting',
-          items: [
-            { label: 'Overview', slug: 'lighting' },
-            { label: 'Passthrough', slug: 'lighting/passthrough' },
-          ],
-        },
-        {
-          label: 'Configuration',
-          items: [
-            { label: 'Overview', slug: 'configuration' },
-            { label: 'Admin Mode', slug: 'configuration/admin-mode' },
-            { label: 'Settings', slug: 'configuration/settings' },
-            { label: 'Output Config', slug: 'configuration/output-config' },
-          ],
-        },
-        { label: 'Cues', slug: 'cues' },
-        {
-          label: 'Basics',
-          items: [
-            { label: 'Overview', slug: 'basics' },
-            { label: 'Navigation', slug: 'basics/navigation' },
-            { label: 'Numeric Input', slug: 'basics/numeric-input' },
-            { label: 'Text Edit', slug: 'basics/text-edit' },
-            { label: 'Blackout and Stop', slug: 'basics/blackout-and-stop' },
-          ],
-        },
-        { label: 'Patterns', slug: 'patterns' },
-        { label: 'Presets', slug: 'presets' },
-        { label: 'Recording', slug: 'recording' },
-        { label: 'Schedules', slug: 'schedules' },
-        { label: 'Utilities', slug: 'utilities' },
-        { label: 'External Control', slug: 'external-control' },
-        {
-          label: 'Integrations',
-          items: [
-            { label: 'Overview', slug: 'integrations' },
-            { label: 'OSC – Open Sound Control', slug: 'integrations/osc-open-sound-control' },
-          ],
-        },
-        {
-          label: 'Screenshots',
-          items: [
-            { label: 'Overview', slug: 'screenshots' },
+            { label: 'Overview', slug: 'dmx-core-100' },
             {
-              label: 'Presets',
+              label: 'Main',
               items: [
-                { label: 'Presets', slug: 'screenshots/presets' },
-                { label: 'Configuration', slug: 'screenshots/presets/configuration' },
+                { label: 'Features', slug: 'dmx-core-100/main/features' },
+                { label: 'Applications', slug: 'dmx-core-100/main/applications' },
+                { label: 'FAQ', slug: 'dmx-core-100/main/faq' },
+                { label: 'Specifications', slug: 'dmx-core-100/main/specifications' },
+                { label: 'Warranty', slug: 'dmx-core-100/main/warranty' },
               ],
             },
             {
-              label: 'Cues',
+              label: 'Getting Started',
               items: [
-                { label: 'Cues', slug: 'screenshots/cues' },
-                { label: 'Configuration/Recording', slug: 'screenshots/cues/configuration-recording' },
+                { label: 'Overview', slug: 'dmx-core-100/getting-started' },
+                { label: 'Installation', slug: 'dmx-core-100/getting-started/installation' },
+                { label: 'Home Screen', slug: 'dmx-core-100/getting-started/home-screen' },
+                { label: 'Main Menu', slug: 'dmx-core-100/getting-started/main-menu' },
               ],
             },
             {
-              label: 'Light Fixtures',
+              label: 'Lighting',
               items: [
-                { label: 'Light Fixtures', slug: 'screenshots/light-fixtures' },
-                { label: 'Configuration', slug: 'screenshots/light-fixtures/configuration' },
+                { label: 'Overview', slug: 'dmx-core-100/lighting' },
+                { label: 'Passthrough', slug: 'dmx-core-100/lighting/passthrough' },
               ],
             },
-            { label: 'Custom Menu', slug: 'screenshots/custom-menu' },
-            { label: 'External Control', slug: 'screenshots/external-control' },
-            { label: 'Admin Features', slug: 'screenshots/admin-features' },
-            { label: 'Q-Sys Remote Control', slug: 'screenshots/q-sys-remote-control' },
+            {
+              label: 'Configuration',
+              items: [
+                { label: 'Overview', slug: 'dmx-core-100/configuration' },
+                { label: 'Admin Mode', slug: 'dmx-core-100/configuration/admin-mode' },
+                { label: 'Settings', slug: 'dmx-core-100/configuration/settings' },
+                { label: 'Output Config', slug: 'dmx-core-100/configuration/output-config' },
+              ],
+            },
+            { label: 'Cues', slug: 'dmx-core-100/cues' },
+            {
+              label: 'Basics',
+              items: [
+                { label: 'Overview', slug: 'dmx-core-100/basics' },
+                { label: 'Navigation', slug: 'dmx-core-100/basics/navigation' },
+                { label: 'Numeric Input', slug: 'dmx-core-100/basics/numeric-input' },
+                { label: 'Text Edit', slug: 'dmx-core-100/basics/text-edit' },
+                { label: 'Blackout and Stop', slug: 'dmx-core-100/basics/blackout-and-stop' },
+              ],
+            },
+            { label: 'Patterns', slug: 'dmx-core-100/patterns' },
+            { label: 'Presets', slug: 'dmx-core-100/presets' },
+            { label: 'Recording', slug: 'dmx-core-100/recording' },
+            { label: 'Schedules', slug: 'dmx-core-100/schedules' },
+            { label: 'Utilities', slug: 'dmx-core-100/utilities' },
+            { label: 'External Control', slug: 'dmx-core-100/external-control' },
+            {
+              label: 'Integrations',
+              items: [
+                { label: 'Overview', slug: 'dmx-core-100/integrations' },
+                { label: 'OSC – Open Sound Control', slug: 'dmx-core-100/integrations/osc-open-sound-control' },
+              ],
+            },
+            {
+              label: 'Screenshots',
+              items: [
+                { label: 'Overview', slug: 'dmx-core-100/screenshots' },
+                {
+                  label: 'Presets',
+                  items: [
+                    { label: 'Presets', slug: 'dmx-core-100/screenshots/presets' },
+                    { label: 'Configuration', slug: 'dmx-core-100/screenshots/presets/configuration' },
+                  ],
+                },
+                {
+                  label: 'Cues',
+                  items: [
+                    { label: 'Cues', slug: 'dmx-core-100/screenshots/cues' },
+                    { label: 'Configuration/Recording', slug: 'dmx-core-100/screenshots/cues/configuration-recording' },
+                  ],
+                },
+                {
+                  label: 'Light Fixtures',
+                  items: [
+                    { label: 'Light Fixtures', slug: 'dmx-core-100/screenshots/light-fixtures' },
+                    { label: 'Configuration', slug: 'dmx-core-100/screenshots/light-fixtures/configuration' },
+                  ],
+                },
+                { label: 'Custom Menu', slug: 'dmx-core-100/screenshots/custom-menu' },
+                { label: 'External Control', slug: 'dmx-core-100/screenshots/external-control' },
+                { label: 'Admin Features', slug: 'dmx-core-100/screenshots/admin-features' },
+                { label: 'Q-Sys Remote Control', slug: 'dmx-core-100/screenshots/q-sys-remote-control' },
+              ],
+            },
+            {
+              label: 'Troubleshooting',
+              items: [
+                { label: 'Overview', slug: 'dmx-core-100/troubleshooting' },
+                { label: 'Re-flash Instructions', slug: 'dmx-core-100/troubleshooting/re-flash-instructions' },
+                { label: 'Config Issues', slug: 'dmx-core-100/troubleshooting/config-issues' },
+              ],
+            },
+            {
+              label: 'Customizations',
+              items: [
+                { label: 'Overview', slug: 'dmx-core-100/customizations' },
+                { label: 'Menu Background', slug: 'dmx-core-100/customizations/menu-background' },
+                { label: 'Main/Home Screen Logo', slug: 'dmx-core-100/customizations/main-home-screen-logo' },
+              ],
+            },
+            { label: 'Release Notes', slug: 'dmx-core-100/release-notes' },
+            {
+              label: 'Common Tasks',
+              items: [
+                { label: 'Overview', slug: 'dmx-core-100/common-tasks' },
+                { label: 'Move Data Between Units', slug: 'dmx-core-100/common-tasks/move-data-between-dmx-core-100-units' },
+              ],
+            },
+            {
+              label: 'Desktop Software',
+              items: [
+                { label: 'Overview', slug: 'dmx-core-100/desktop-software' },
+                { label: 'Windows', slug: 'dmx-core-100/desktop-software/windows' },
+                { label: 'macOS', slug: 'dmx-core-100/desktop-software/mac' },
+                { label: 'Linux', slug: 'dmx-core-100/desktop-software/linux' },
+              ],
+            },
           ],
         },
         {
-          label: 'Troubleshooting',
+          label: 'DMX Core Pico 2',
+          collapsed: true,
           items: [
-            { label: 'Overview', slug: 'troubleshooting' },
-            { label: 'Re-flash Instructions', slug: 'troubleshooting/re-flash-instructions' },
-            { label: 'Config Issues', slug: 'troubleshooting/config-issues' },
+            { label: 'Overview', slug: 'dmx-core-pico-2' },
+            { label: 'FAQ', slug: 'dmx-core-pico-2/faq' },
+            { label: 'Pin out', slug: 'dmx-core-pico-2/pin-out' },
+            { label: 'Software', slug: 'dmx-core-pico-2/software' },
+            { label: 'Errata', slug: 'dmx-core-pico-2/errata' },
           ],
         },
         {
-          label: 'Customizations',
+          label: 'DMX Core Pico 2 Re-Mapper',
+          collapsed: true,
           items: [
-            { label: 'Overview', slug: 'customizations' },
-            { label: 'Menu Background', slug: 'customizations/menu-background' },
-            { label: 'Main/Home Screen Logo', slug: 'customizations/main-home-screen-logo' },
-          ],
-        },
-        { label: 'Release Notes', slug: 'release-notes' },
-        {
-          label: 'Common Tasks',
-          items: [
-            { label: 'Overview', slug: 'common-tasks' },
-            { label: 'Move Data Between Units', slug: 'common-tasks/move-data-between-dmx-core-100-units' },
-          ],
-        },
-        {
-          label: 'Desktop Software',
-          items: [
-            { label: 'Overview', slug: 'desktop-software' },
-            { label: 'Windows', slug: 'desktop-software/windows' },
-            { label: 'macOS', slug: 'desktop-software/mac' },
-            { label: 'Linux', slug: 'desktop-software/linux' },
+            { label: 'Overview', slug: 'dmx-core-pico-2-re-mapper' },
+            { label: 'FAQ', slug: 'dmx-core-pico-2-re-mapper/faq' },
+            { label: 'Config Utility', slug: 'dmx-core-pico-2-re-mapper/config-utility' },
+            { label: 'Pin out', slug: 'dmx-core-pico-2-re-mapper/pin-out' },
+            { label: 'Software', slug: 'dmx-core-pico-2-re-mapper/software' },
           ],
         },
       ],
