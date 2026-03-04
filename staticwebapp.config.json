@@ -1,0 +1,24 @@
+{
+  "routes": [
+    {
+      "route": "/demo-software-on-win-pc",
+      "redirect": "/desktop-software/",
+      "statusCode": 301
+    },
+    {
+      "route": "/dmx-core-100/demo-software-on-win-pc",
+      "redirect": "/desktop-software/",
+      "statusCode": 301
+    },
+    {
+      "route": "/dmx-core-100/*",
+      "redirect": "/",
+      "statusCode": 301
+    }
+  ],
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/404.html"
+    }
+  }
+}

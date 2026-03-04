@@ -1,0 +1,4 @@
+root: ./dmxcore100/
+
+redirects:
+  demo-software-on-win-pc: desktop-software/README.md
