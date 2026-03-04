@@ -9,7 +9,7 @@ The DMX Core 100 desktop software is available for Windows 10 and Windows 11 (x6
 
 Open this URL in **Microsoft Edge** to install:
 
-[https://clickonce.dmxcore.com/DMXCore100.application](https://clickonce.dmxcore.com/DMXCore100.application)
+[https://downloads.dmxcore.com/DMXCore100.application](https://downloads.dmxcore.com/DMXCore100.application)
 
 1. Select **Open** and then **Install**.
 2. You will see a security warning that the application is not verified — this is expected, as the installer is not signed with a commercial certificate. The software is safe to install.
