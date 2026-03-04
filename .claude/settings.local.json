@@ -30,7 +30,8 @@
       "Bash(git mv src/content/docs/recording.md src/content/docs/dmx-core-100/recording.md)",
       "Bash(git mv src/content/docs/release-notes.md src/content/docs/dmx-core-100/release-notes.md)",
       "Bash(git mv src/content/docs/schedules.md src/content/docs/dmx-core-100/schedules.md)",
-      "Bash(git mv src/content/docs/utilities.md src/content/docs/dmx-core-100/utilities.md)"
+      "Bash(git mv src/content/docs/utilities.md src/content/docs/dmx-core-100/utilities.md)",
+      "Bash(curl -I \"https://docs.dmxcore.com/dmx-core-100/demo-software-on-win-pc\")"
     ]
   }
 }
