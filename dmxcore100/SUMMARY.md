@@ -50,4 +50,7 @@
 * [Release Notes](release-notes.md)
 * [Common Tasks](common-tasks/README.md)
   * [Move data between DMX Core 100 units](common-tasks/move-data-between-dmx-core-100-units.md)
-* [Demo Software (on Win PC)](demo-software-on-win-pc.md)
+* [Desktop Software](desktop-software/README.md)
+  * [Windows](desktop-software/windows.md)
+  * [macOS](desktop-software/mac.md)
+  * [Linux](desktop-software/linux.md)
