@@ -4,6 +4,11 @@
       "route": "/dmx-core-100/demo-software-on-win-pc",
       "redirect": "/dmx-core-100/desktop-software/",
       "statusCode": 301
+    },
+    {
+      "route": "/dmx-core-100/demo-software-on-win-pc/",
+      "redirect": "/dmx-core-100/desktop-software/",
+      "statusCode": 301
     }
   ],
   "responseOverrides": {
