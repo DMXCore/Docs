@@ -28,8 +28,8 @@ The built-in web server defaults to:
 
 | Protocol | Port |
 |----------|------|
-| HTTP | 5000 |
-| HTTPS | 5001 |
+| HTTP | 8000 |
+| HTTPS | 8001 |
 
 If those ports are unavailable, a dynamic port is assigned instead. The current port number is always shown in the **About** view inside the application.
 
