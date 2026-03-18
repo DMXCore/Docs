@@ -14,7 +14,7 @@ Open this URL in **Microsoft Edge** to install:
 1. Select **Open** and then **Install**.
 2. You will see a security warning that the application is not verified — this is expected, as the installer is not signed with a commercial certificate. The software is safe to install.
 3. When prompted, allow the application access to your network (required for DMX recording and playback).
-4. If prompted, allow installation of **.NET 9** — it will be downloaded directly from Microsoft's website.
+4. If prompted, allow installation of **.NET 10** — it will be downloaded directly from Microsoft's website.
 
 ## Web Interface
 
