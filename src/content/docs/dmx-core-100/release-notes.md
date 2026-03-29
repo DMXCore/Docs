@@ -5,6 +5,13 @@ description: Release notes and highlights
 
 | Date | Highlights |
 |------|------------|
+| 3/29/2026 | Cloud tunnel for remote access |
+| 3/27/2026 | Multi-function fixture support, effect fade durations, large screen layout improvements |
+| 3/24/2026 | Effects engine with zone support, fixture control and setup in Web UI, preset editing with copy/paste, presets in timeline |
+| 3/23/2026 | Fixture management in Web UI, duplicate presets and schedules |
+| 3/19/2026 | Help sections, demo data import, pin hints for easier setup |
+| 3/12/2026 | Improved version management and release screen, MacOS and platform fixes |
+| 3/10/2026 | Status reporting on Linux |
 | 3/4/2026 | Available for macOS and Linux Snap |
 | 2/10/2026 | Device scanning |
 | 2/3/2026 | Timeline editor improvements |
