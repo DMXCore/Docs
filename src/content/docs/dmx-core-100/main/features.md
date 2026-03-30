@@ -7,25 +7,33 @@ title: Features
 ### Main
 
 * Record and playback of dynamic DMX, up to 200 universes
-* Playback of WAV audio files via USB or onboard optional audio board
-* Light fixture control with profiles
-* Multi-room/zone support
-* Presets with smooth fades
-* Scheduler
+* Playback of WAV and FLAC audio files via USB or onboard optional audio board, with pause/scrub controls
+* Light fixture control with profiles and multi-function support
+* Multi-room/zone support with zone-based fixture grouping
+* Presets with smooth fades, copy/paste, and effect assignment
+* Effects engine with built-in generators (breathing, fire, pulse, and more) and zone-level control
+* Timeline editor for sequencing cues, presets, and sounds with seek/scrub and loop
+* Scheduler with dimmer settings and stop-at-completion
+* Favorites for quick access to frequently used cues, presets, and sounds
 * Remote control for QSys and Symetrix DSP cores
-* Installer-customizable menu options
+* Installer-customizable menu options with nested levels, icons, schedule toggles, and status indicators
 * Set up multiple units as remote control/server
 * Map outputs to a combination of ArtNet/sACN/KiNet/DMX universes
 * Support for optional 2-port DMX-512 board
 * Record from any source (DMX-512, ArtNet, sACN or KiNet), plus live monitor feature
+* Input triggers via DMX, OSC, MQTT, HTTP, TCP, and UDP
+* Output events for external notifications when actions occur
 
 ### Security
 
 * Three main modes of access: admin, user and lock-down
 * Screen lock with 4-digit PIN code
-* Admin Web UI
+* Multiple user accounts with role-based permissions
+* Admin Web UI with auto log-off
 * Lock-down mode prevents admin access via touch screen (only accessible via Web UI)
 * Installer-configured custom menus with multiple levels and icons
+* User tokens for programmatic access
+* Audit log tracking all system actions
 
 ### Hardware
 
@@ -46,6 +54,8 @@ title: Features
 
 ### Administration
 
+* Full-featured Web UI accessible from any browser on the network (HTTP/HTTPS)
+* Cloud tunnel for remote access from anywhere (no VPN required)
 * Remote configuration via BalenaCloud (secure VPN access)
 * Configure settings via Web UI and API
 * Remote software upgrade (requires internet connectivity)
@@ -53,12 +63,13 @@ title: Features
 * DHCP or Static IP configuration on device or Web UI
 * Device nickname (displays on-screen)
 * Device network hostname override
-* Time zone support
+* Time zone support with NTP server configuration and browser sync
 * Auto log-off of admin user
 * Web Admin UI with features to view screenshot of the device, perform upgrades, view log file, restart and more
 * VNC remote control to remotely operate the touch screen
-* Backup/Restore to local files and cloud
+* Backup/Restore to local files and cloud, including S-Play backup import
 * Custom menu for locked-down device operation
+* Demo data import for quick setup and testing
 
 ### Lighting
 
@@ -69,7 +80,9 @@ title: Features
 * Optional 2-port isolated DMX512 board (mounts at the back of the DMX Core 100)
 * Trigger cues, playback, presets, dimmers and more via custom LUA script on QSC Q-Sys and Symetrix DSP cores
 * Remote control via OSC (to be used with software like TouchOSC and more)
+* Remote control via MQTT for IoT integration
 * Remote control via MIDI (trigger via pads and knobs on equipment like Akai LPD8 and others)
+* Satellite support for Key Digital WP8 keypads and Stream Deck MK2
 * Import light fixture profiles from [Lightkey](https://www.lightkeyapp.com/en/fixtures) and [Daslight (SSL2)](https://store.daslight.com/en/ssl)
 * Passthrough feature on DMX ports
 * Fade in/out and cross-fade cues, including masking for DMX channels that shouldn't fade

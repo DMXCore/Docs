@@ -30,6 +30,12 @@ Purchase a full license at [dmxprosales.com](https://dmxprosales.com/products/dm
 | macOS | x64 (Intel) | Direct download |
 | Linux | x64, ARM64 | Snap Store |
 
+## Web Interface
+
+The desktop software includes the same built-in Web UI as the hardware device. Once the software is running, you can access the Web UI from any browser on the same network. See [Connecting to the Web UI](/dmx-core-100/getting-started/connecting-to-the-web-ui) for details.
+
+The default ports are **HTTP 8000** and **HTTPS 8001**.
+
 See the platform-specific pages for installation instructions:
 
 * [Windows](windows)

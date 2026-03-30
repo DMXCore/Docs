@@ -35,3 +35,9 @@ Tools like recording snapshots and cues.
 #### About
 
 Display system information.
+
+---
+
+:::tip
+All of these features and more are also available in the **Web UI**. The Web UI provides additional capabilities not available on the touchscreen, including fixture control, effects, timelines, input triggers, and user management. See [Connecting to the Web UI](/dmx-core-100/getting-started/connecting-to-the-web-ui) to get started.
+:::

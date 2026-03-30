@@ -15,3 +15,13 @@ Click the logon/logoff button again to go back to user mode.
 ![Logoff button](https://github.com/DMXCore/DmxCore100/assets/407941/aec31e58-7f08-42d5-ab23-39699a0cc3fa)
 
 Admin Mode gives you access to change output settings, general settings, schedules, etc.
+
+## Logging In via the Web UI
+
+In the Web UI, you log in with your PIN on the login page when you first connect. See [Connecting to the Web UI](/dmx-core-100/getting-started/connecting-to-the-web-ui) for details.
+
+The Web UI session stays active until you log out or the auto log-off timeout expires. You can configure the auto log-off timeout in **Settings > System**.
+
+## Multiple Users
+
+The DMX Core 100 supports multiple user accounts with different roles and permissions. See [Users & Roles](/dmx-core-100/configuration/users-and-roles) for details on setting up additional users beyond the default admin account.

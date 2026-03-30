@@ -3,12 +3,30 @@ title: Lighting
 description: DMX Lighting Engine
 ---
 
-### General
+The DMX Core 100 supports ArtNet, sACN, and KiNet over network, direct DMX-512 ports via the optional board, and USB-based DMX interfaces like the DMXking MAX devices.
 
-The DMX Core 100 can operate as a DMX light fixture controller. It supports ArtNet and sACN over network, but also direct DMX-512 ports via the optional board and a few USB-based DMX interfaces like the DMXking MAX devices.
+There are [two main workflows](/dmx-core-100) for the DMX Core 100, and the Lighting section covers the **Fixture Control** workflow in particular — where you set up fixtures directly in the system and control them with presets and effects, without needing external lighting software.
 
-There are two main modes of operation: fixture control and cue playback. You can set up fixtures that match your physical and connected DMX light fixtures. They have to be configured in the DMX Core 100 with the correct profile and personality, but configuration is easy since you can import profiles from popular fixture libraries like [Lightkey](https://www.lightkeyapp.com/en/fixtures) and [Daslight](https://store.daslight.com/en/ssl). For cue playback, the DMX Core 100 can record DMX streams from other lighting software — basically any software that can output ArtNet, sACN or DMX-512 (via DMX ports). It's also possible to import capture files from the DMXking products (stored on SD cards).
+:::note
+If you're using the **Record & Playback** workflow instead (recording shows from external lighting software), the key pages for you are [Recording](/dmx-core-100/playback/recording) and [Cues](/dmx-core-100/playback/cues). You may still want to browse this section if you plan to supplement recorded cues with fixture-based presets or effects.
+:::
 
-### Fixture Profile Import
+## Getting Started with Fixture Control
 
-The process is to download the profile either to a USB memory stick and attach directly to the DMX Core 100, or via the Admin Web UI where you can upload the profile to the transfer folder. Then from the touch screen, go to **Utilities > File Explorer** and import the profile.
+The typical setup flow is:
+
+1. **[Fixture Setup](/dmx-core-100/lighting/fixture-setup)** — Import profiles and add your fixtures with the correct DMX addresses
+2. **[Zones](/dmx-core-100/lighting/zones)** — Organize fixtures into groups (rooms, areas, fixture types)
+3. **[Fixture Control](/dmx-core-100/lighting/fixture-control)** — Test and interactively adjust colors, dimmers, and positions
+4. **[Presets](/dmx-core-100/playback/presets)** — Save fixture states as reusable scenes
+5. **[Effects](/dmx-core-100/lighting/effects)** — Add dynamic animations (breathing, fire, pulse, etc.)
+6. **[Timelines](/dmx-core-100/playback/timelines)** — Sequence presets and effects into timed shows
+
+## All Sections
+
+- [Fixture Setup](/dmx-core-100/lighting/fixture-setup) — Add and configure fixtures with profiles
+- [Fixture Control](/dmx-core-100/lighting/fixture-control) — Interactively control fixture colors, dimmers, and more
+- [Zones](/dmx-core-100/lighting/zones) — Organize fixtures into groups for zone-based control
+- [Effects](/dmx-core-100/lighting/effects) — Apply dynamic lighting effects to fixtures and zones
+- [Passthrough](/dmx-core-100/lighting/passthrough) — DMX passthrough on the optional DMX-512 board
+- [Patterns](/dmx-core-100/lighting/patterns) — Built-in test patterns for output verification
