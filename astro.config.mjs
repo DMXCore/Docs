@@ -27,7 +27,7 @@ export default defineConfig({
       plugins: [
         starlightUtils({
           multiSidebar: {
-            switcherStyle: 'horizontalList',
+            switcherStyle: 'hidden',
           },
         }),
       ],
