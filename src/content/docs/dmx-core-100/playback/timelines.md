@@ -9,7 +9,7 @@ Timelines let you create complex, multi-step lighting sequences by arranging cue
 The timeline editor is a Web UI feature, available under **Lighting > Timelines**. Timelines can be played back from both the touchscreen (via schedules and custom menus) and the Web UI.
 :::
 
-<!-- SCREENSHOT: Web UI timeline editor showing events on the timeline -->
+<!-- SCREENSHOT: Web UI timeline editor showing events on the timeline (dark mode) -->
 
 ## Creating a Timeline
 

@@ -5,7 +5,7 @@ description: Overview of the Web UI layout and navigation
 
 After logging in, the Web UI displays the Dashboard — your central hub for monitoring and controlling the DMX Core 100.
 
-<!-- SCREENSHOT: Web UI dashboard showing sidebar and main content area -->
+<!-- SCREENSHOT: Web UI dashboard showing sidebar and main content area (dark mode) -->
 
 ## Layout
 
@@ -42,7 +42,7 @@ The Dashboard shows:
 - **System status** including device temperatures, CPU/memory usage, storage, and network speed
 - **Quick actions** for common operations
 
-<!-- SCREENSHOT: Web UI dashboard with playback status and system info -->
+<!-- SCREENSHOT: Web UI dashboard with playback status and system info (dark mode) -->
 
 ## Theme
 

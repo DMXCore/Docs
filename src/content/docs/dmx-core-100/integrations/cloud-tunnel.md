@@ -17,7 +17,7 @@ When enabled, the DMX Core 100 establishes a secure outbound connection to the D
 
 The cloud tunnel can be enabled in the **Web UI** under system settings.
 
-<!-- SCREENSHOT: Web UI cloud tunnel settings -->
+<!-- SCREENSHOT: Web UI cloud tunnel settings (dark mode) -->
 
 ## Requirements
 

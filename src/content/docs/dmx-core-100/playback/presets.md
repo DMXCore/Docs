@@ -13,7 +13,7 @@ On the **touchscreen**, navigate to **Main Menu > Presets**. Tap a preset to act
 
 In the **Web UI**, go to **Lighting > Presets**. Click the play icon to activate, or click the preset name to open its detail page for editing.
 
-<!-- SCREENSHOT: Web UI presets list with action buttons -->
+<!-- SCREENSHOT: Web UI presets list with action buttons (dark mode) -->
 
 :::note[Interface differences]
 - **Touchscreen**: Tap to activate, long-hold for settings.

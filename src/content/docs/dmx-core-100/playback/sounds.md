@@ -15,7 +15,7 @@ Audio playback requires a USB sound card or the optional onboard audio board con
 Sound management is available in the Web UI under **Lighting > Sounds**. The touchscreen can trigger sound playback (via cues, schedules, or custom menus) but does not provide a dedicated sound management interface.
 :::
 
-<!-- SCREENSHOT: Web UI sounds list page -->
+<!-- SCREENSHOT: Web UI sounds list page (dark mode) -->
 
 ### Uploading Sounds
 

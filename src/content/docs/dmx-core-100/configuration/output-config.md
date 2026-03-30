@@ -19,7 +19,7 @@ Click **Add** to create a new output. Select an existing output to edit its sett
 
 In the Web UI, go to **Settings > Outputs** for the same configuration with additional detail.
 
-<!-- SCREENSHOT: Web UI output configuration list -->
+<!-- SCREENSHOT: Web UI output configuration list (dark mode) -->
 
 ## Output Settings
 

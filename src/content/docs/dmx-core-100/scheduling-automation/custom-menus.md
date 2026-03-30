@@ -11,7 +11,7 @@ Custom menus are designed and configured in the **Web UI**, and displayed on the
 
 In the **Web UI**, go to **Settings > Custom Menu** (under Settings) to configure the menu structure, or **Operation > Custom Menu** to preview the menu.
 
-<!-- SCREENSHOT: Web UI custom menu editor -->
+<!-- SCREENSHOT: Web UI custom menu editor (dark mode) -->
 
 ## Menu Items
 

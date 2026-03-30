@@ -2,17 +2,19 @@
 title: Admin Mode
 ---
 
-Access Admin Mode by logging in with a PIN code. The default PIN is 1 1 1 1. You can use the +/– buttons, or you can turn the rotary knob and click to go to the next number.
+Access Admin Mode by logging in with a PIN code. The default PIN is 1 1 1 1. You can enter the PIN using the on-screen keypad or the +/– buttons — tap the digit field to switch between styles.
 
-![Admin login screen](https://github.com/DMXCore/DmxCore100/assets/407941/25af46f1-36b0-4ff7-9826-6950ea58e82a)
+![Admin login — keypad style](/assets/device/admin-login-keypad.png)
+
+![Admin login — +/– style](/assets/device/admin-login-slider.png)
 
 Once logged in, the bottom bar turns red to indicate that you're now in Admin Mode.
 
-![Admin mode active — red bottom bar](https://github.com/DMXCore/DmxCore100/assets/407941/c69fecb3-03d1-482c-8486-47125077f672)
+![Home screen with Admin Mode active — red bottom bar](/assets/device/home-screen-admin-active.png)
 
-Click the logon/logoff button again to go back to user mode.
+To log off, tap the user icon in the bottom bar and confirm.
 
-![Logoff button](https://github.com/DMXCore/DmxCore100/assets/407941/aec31e58-7f08-42d5-ab23-39699a0cc3fa)
+![Log off confirmation dialog](/assets/device/logoff-confirm.png)
 
 Admin Mode gives you access to change output settings, general settings, schedules, etc.
 

@@ -19,7 +19,7 @@ Zone management is available in the Web UI under **Settings > Zones**.
 4. Assign fixtures to the zone by selecting from the available fixtures list
 5. Click **Save**
 
-<!-- SCREENSHOT: Web UI zone editor showing fixture assignment -->
+<!-- SCREENSHOT: Web UI zone editor showing fixture assignment (dark mode) -->
 
 ### Editing a Zone
 

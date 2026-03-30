@@ -13,7 +13,7 @@ On the **touchscreen**, navigate to **Main Menu > Cues** to see the list. Tap a 
 
 In the **Web UI**, go to **Lighting > Cues**. The list view shows additional details including duration and file size. Click a cue name to open its detail page, or use the play button to start playback directly from the list.
 
-<!-- SCREENSHOT: Web UI cue list showing columns and play button -->
+<!-- SCREENSHOT: Web UI cue list showing columns and play button (dark mode) -->
 
 :::note[Interface differences]
 - **Touchscreen**: Tap to play, long-hold for settings.

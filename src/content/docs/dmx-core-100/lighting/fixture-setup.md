@@ -23,7 +23,7 @@ To import a profile:
    - **Web UI**: Go to **File Explorer**, upload the file, then import it
    - **USB**: Copy the file to a USB memory stick, plug it into the DMX Core 100, and use **Utilities > File Explorer** on the touchscreen to import
 
-<!-- SCREENSHOT: Web UI File Explorer showing fixture profile import -->
+<!-- SCREENSHOT: Web UI File Explorer showing fixture profile import (dark mode) -->
 
 ## Adding Fixtures
 
@@ -39,7 +39,7 @@ Fixture setup is managed in the Web UI under **Settings > Fixtures**.
 6. Optionally assign the fixture to a [Zone](/dmx-core-100/lighting/zones)
 7. Click **Save**
 
-<!-- SCREENSHOT: Web UI fixture setup page with profile and personality selection -->
+<!-- SCREENSHOT: Web UI fixture setup page with profile and personality selection (dark mode) -->
 
 ### Personality Selection
 

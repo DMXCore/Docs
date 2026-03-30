@@ -9,7 +9,7 @@ The audit log records all significant actions performed on the DMX Core 100, pro
 The audit log is available in the Web UI under **Utilities > Audit Log**.
 :::
 
-<!-- SCREENSHOT: Web UI audit log page -->
+<!-- SCREENSHOT: Web UI audit log page (dark mode) -->
 
 ## Tracked Events
 

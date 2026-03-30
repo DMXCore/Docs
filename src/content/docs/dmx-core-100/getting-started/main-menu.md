@@ -2,7 +2,7 @@
 title: Main Menu
 ---
 
-![Main Menu](https://github.com/DMXCore/DmxCore100/assets/407941/b416491d-6132-4cff-8dd5-ed494d155ede)
+![Main Menu](/assets/device/main-menu.png)
 
 #### Patterns
 

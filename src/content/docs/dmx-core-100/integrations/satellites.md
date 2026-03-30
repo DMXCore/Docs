@@ -9,7 +9,7 @@ Satellites are external control devices that connect to the DMX Core 100 for phy
 Satellite configuration is available in the Web UI under **Settings > Satellites**.
 :::
 
-<!-- SCREENSHOT: Web UI satellite configuration -->
+<!-- SCREENSHOT: Web UI satellite configuration (dark mode) -->
 
 ## Supported Devices
 

@@ -9,7 +9,7 @@ Output events let the DMX Core 100 send notifications to external systems when s
 Output event configuration is available in the Web UI under **Settings > Output Events**.
 :::
 
-<!-- SCREENSHOT: Web UI output events list -->
+<!-- SCREENSHOT: Web UI output events list (dark mode) -->
 
 ## Creating an Output Event
 

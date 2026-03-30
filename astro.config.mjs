@@ -138,6 +138,7 @@ export default defineConfig({
               label: 'Customizations',
               items: [
                 { label: 'Overview', slug: 'dmx-core-100/customizations' },
+                { label: 'Themes', slug: 'dmx-core-100/customizations/themes' },
                 { label: 'Menu Background', slug: 'dmx-core-100/customizations/menu-background' },
                 { label: 'Main/Home Screen Logo', slug: 'dmx-core-100/customizations/main-home-screen-logo' },
               ],

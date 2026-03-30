@@ -9,7 +9,7 @@ The DMX Core 100 supports MQTT (Message Queuing Telemetry Transport), a lightwei
 
 MQTT settings are available in the **Web UI** under **Settings > Protocol**.
 
-<!-- SCREENSHOT: Web UI MQTT configuration -->
+<!-- SCREENSHOT: Web UI MQTT configuration (dark mode) -->
 
 ### Broker Connection
 

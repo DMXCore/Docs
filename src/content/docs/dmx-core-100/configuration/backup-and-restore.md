@@ -21,7 +21,7 @@ Back up your data to the DMX Core cloud (api.dmxcore.com). Cloud backups can be 
 
 In the **Web UI**, go to **Backup & Restore** and select the cloud backup option.
 
-<!-- SCREENSHOT: Web UI backup & restore page -->
+<!-- SCREENSHOT: Web UI backup & restore page (dark mode) -->
 
 ### USB Backup
 

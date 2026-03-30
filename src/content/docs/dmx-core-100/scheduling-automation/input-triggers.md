@@ -9,7 +9,7 @@ Input triggers let you start playback, recording, or other actions in response t
 Input trigger configuration is available in the Web UI under **Settings > Input Triggers**.
 :::
 
-<!-- SCREENSHOT: Web UI input triggers list -->
+<!-- SCREENSHOT: Web UI input triggers list (dark mode) -->
 
 ## Creating an Input Trigger
 

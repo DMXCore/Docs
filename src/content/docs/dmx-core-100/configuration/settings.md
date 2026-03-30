@@ -20,7 +20,7 @@ If you select the top option with the X then the selection is not changed. The c
 
 The Web UI provides access to all settings, organized into categories under the **Settings** group in the sidebar:
 
-<!-- SCREENSHOT: Web UI settings sidebar expanded -->
+<!-- SCREENSHOT: Web UI settings sidebar expanded (dark mode) -->
 
 | Category | Description |
 |----------|-------------|

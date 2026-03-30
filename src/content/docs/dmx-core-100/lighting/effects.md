@@ -9,7 +9,7 @@ The effects engine lets you apply dynamic, animated lighting effects to your fix
 Effects are managed in the Web UI under **Lighting > Effects**. Effects can be previewed and assigned to presets for use from both the touchscreen and the Web UI.
 :::
 
-<!-- SCREENSHOT: Web UI Effects list page -->
+<!-- SCREENSHOT: Web UI Effects list page (dark mode) -->
 
 ## Built-in Effect Generators
 
@@ -35,7 +35,7 @@ Each generator has configurable parameters that control speed, intensity, and be
 4. Configure the effect parameters (speed, intensity, etc.)
 5. Click **Save**
 
-<!-- SCREENSHOT: Web UI effect editor with generator selection and parameters -->
+<!-- SCREENSHOT: Web UI effect editor with generator selection and parameters (dark mode) -->
 
 ## Previewing Effects
 

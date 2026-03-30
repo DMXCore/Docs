@@ -13,7 +13,7 @@ On the **touchscreen**, navigate to **Main Menu > Schedules** to see the list. S
 
 In the **Web UI**, go to **Lighting > Schedules**. The list shows all schedules with their enabled/disabled status. Click a schedule name to edit it.
 
-<!-- SCREENSHOT: Web UI schedules list -->
+<!-- SCREENSHOT: Web UI schedules list (dark mode) -->
 
 ## Schedule Settings
 

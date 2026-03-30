@@ -12,7 +12,9 @@ To connect to the Web UI, you need the device's IP address. You can find it on t
 1. Navigate to **Main Menu > About** on the touchscreen
 2. The IP address is displayed on the About screen
 
-<!-- SCREENSHOT: Touchscreen About screen showing IP address -->
+![About screen — device details and version](/assets/device/about-screen-top.png)
+
+![About screen — network address and Cloud Tunnel status](/assets/device/about-screen-bottom.png)
 
 :::tip
 If your network supports mDNS/Bonjour, you can also access the device using its hostname (e.g., `dmxcore100.local`).
@@ -26,7 +28,7 @@ If your network supports mDNS/Bonjour, you can also access the device using its 
    - **HTTPS**: `https://<device-ip>:8001` (recommended)
 3. If using HTTPS, your browser may show a certificate warning for the self-signed certificate — this is expected. Accept the warning to continue.
 
-<!-- SCREENSHOT: Browser address bar with device IP and login screen -->
+<!-- SCREENSHOT: Browser address bar with device IP and login screen (dark mode) -->
 
 ## Logging In
 

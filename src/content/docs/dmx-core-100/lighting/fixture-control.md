@@ -9,7 +9,7 @@ The Fixture Control page provides real-time interactive control over your config
 Fixture Control is available in the Web UI under **Lighting > Fixture Control**. The touchscreen provides a basic fixture list under **Main Menu > Utilities**, but interactive control is a Web UI feature.
 :::
 
-<!-- SCREENSHOT: Web UI Fixture Control page showing color picker and fixture list -->
+<!-- SCREENSHOT: Web UI Fixture Control page showing color picker and fixture list (dark mode) -->
 
 ## Controlling Fixtures
 
