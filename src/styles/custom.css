@@ -1,0 +1,10 @@
+/* Reduce main content font size */
+.sl-markdown-content {
+  font-size: 0.9rem;
+}
+
+/* Scale down headings proportionally */
+.sl-markdown-content h1 { font-size: 1.75rem; }
+.sl-markdown-content h2 { font-size: 1.35rem; }
+.sl-markdown-content h3 { font-size: 1.1rem; }
+.sl-markdown-content h4 { font-size: 1rem; }
