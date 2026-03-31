@@ -9,7 +9,11 @@ Presets are saved snapshots of DMX fixture states — colors, dimmers, positions
 
 On the **touchscreen**, navigate to **Main Menu > Presets**. Tap a preset to activate it. If a cue is playing, it will be stopped when a preset is selected. Long-hold for settings.
 
-![Presets list](https://github.com/DMXCore/DmxCore100/assets/407941/c91d7ffb-b6b1-46f3-bc31-5f83bbbf8867)
+![Presets list](/assets/device/presets-list.png)
+
+The top bar expands to show global controls — tap the arrow to toggle it. Controls include Fade to Black, Fade to 100%, master Dimmer level, and Fade Speed.
+
+![Presets list with controls expanded](/assets/device/presets-list-controls.png)
 
 In the **Web UI**, go to **Lighting > Presets**. Click the play icon to activate, or click the preset name to open its detail page for editing.
 
@@ -30,7 +34,7 @@ A preset with a single universe will be output to all configured universes when 
 
 ## Preset Settings
 
-![Preset settings](https://github.com/DMXCore/DmxCore100/assets/407941/187bc4ff-33f9-4cd6-8a12-eebfc8ff1f56)
+![Preset settings](/assets/device/preset-settings.png)
 
 - **Code** — Unique identifier for API and external control
 - **Name** — Display name

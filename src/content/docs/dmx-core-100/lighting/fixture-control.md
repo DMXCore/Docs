@@ -5,9 +5,7 @@ description: Interactively control fixture colors, dimmers, and more
 
 The Fixture Control page provides real-time interactive control over your configured fixtures. You can adjust colors, dimmers, pan/tilt, and other fixture functions directly from the Web UI.
 
-:::tip[Web UI only]
-Fixture Control is available in the Web UI under **Lighting > Fixture Control**. The touchscreen provides a basic fixture list under **Main Menu > Utilities**, but interactive control is a Web UI feature.
-:::
+Fixture Control is available on both the **touchscreen** (Main Menu > Fixture Control) and the **Web UI** (Lighting > Fixture Control). The Web UI provides additional capabilities including the effects engine and detailed per-fixture editing.
 
 <!-- SCREENSHOT: Web UI Fixture Control page showing color picker and fixture list (dark mode) -->
 
@@ -33,6 +31,10 @@ When you adjust a fixture's properties through Fixture Control, these are applie
 :::note
 Modifiers are temporary adjustments. To save a fixture state permanently, create a [Preset](/dmx-core-100/playback/presets).
 :::
+
+## Effects
+
+The Fixture Control page also gives access to the [effects engine](/dmx-core-100/lighting/effects). Select a fixture or zone and use the effects controls to apply animated lighting effects — breathing, fire, pulsing, and more. If multiple zones are configured, each zone has independent effects controls.
 
 ## Fade Speed
 

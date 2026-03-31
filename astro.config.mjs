@@ -10,7 +10,7 @@ export default defineConfig({
     '/dmx-core-100/presets/': '/dmx-core-100/playback/presets/',
     '/dmx-core-100/recording/': '/dmx-core-100/playback/recording/',
     '/dmx-core-100/schedules/': '/dmx-core-100/scheduling-automation/schedules/',
-    '/dmx-core-100/patterns/': '/dmx-core-100/lighting/patterns/',
+    '/dmx-core-100/patterns/': '/dmx-core-100/lighting/effects/',
     '/dmx-core-100/utilities/': '/dmx-core-100/configuration/utilities/',
   },
   integrations: [
@@ -78,7 +78,6 @@ export default defineConfig({
                 { label: 'Fixture Setup', slug: 'dmx-core-100/lighting/fixture-setup' },
                 { label: 'Effects', slug: 'dmx-core-100/lighting/effects' },
                 { label: 'Passthrough', slug: 'dmx-core-100/lighting/passthrough' },
-                { label: 'Patterns', slug: 'dmx-core-100/lighting/patterns' },
               ],
             },
             {

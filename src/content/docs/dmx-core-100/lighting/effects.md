@@ -5,9 +5,7 @@ description: Apply dynamic lighting effects to fixtures and zones
 
 The effects engine lets you apply dynamic, animated lighting effects to your fixtures. Effects run continuously, creating patterns like breathing, fire, pulsing, and more — without needing to record cues.
 
-:::tip[Web UI only]
-Effects are managed in the Web UI under **Lighting > Effects**. Effects can be previewed and assigned to presets for use from both the touchscreen and the Web UI.
-:::
+Effects are accessed through **Fixture Control** — select a fixture or zone and apply an effect from there. If you have multiple zones configured, each zone has its own effects controls.
 
 <!-- SCREENSHOT: Web UI Effects list page (dark mode) -->
 
@@ -27,31 +25,17 @@ The DMX Core 100 includes several built-in effect generators:
 
 Each generator has configurable parameters that control speed, intensity, and behavior.
 
-## Creating an Effect
+## Applying Effects
 
-1. Go to **Lighting > Effects** in the Web UI
-2. Click **Add** to create a new effect
-3. Select an **Effect Generator** from the list
-4. Configure the effect parameters (speed, intensity, etc.)
-5. Click **Save**
+Open **Fixture Control** and select the fixture or zone you want to animate. The effects controls appear in the panel. Choose a generator, configure the parameters, and the effect starts immediately.
+
+If you have multiple zones, effects can be applied per zone — navigate to a zone in the Fixture Control page to see its effects controls.
 
 <!-- SCREENSHOT: Web UI effect editor with generator selection and parameters (dark mode) -->
 
-## Previewing Effects
-
-You can preview an effect before applying it to your fixtures. Click the **Preview** button on the effect detail page to see the effect in action on the selected fixtures.
-
-## Applying Effects
-
-Effects can be applied at different levels:
-
-- **Global** — Apply an effect to all fixtures
-- **Zone** — Apply an effect to all fixtures within a specific [zone](/dmx-core-100/lighting/zones)
-- **Fixture** — Apply an effect to an individual fixture
-
 ### Effect Assignment via Presets
 
-The most common way to use effects is by assigning them to a [preset](/dmx-core-100/playback/presets). When the preset is activated, the effect starts running. When the preset is stopped, the effect stops.
+Effects can be saved as part of a [preset](/dmx-core-100/playback/presets). When the preset is activated, the effect starts running. When the preset is stopped, the effect stops. This is the main way to trigger effects from the touchscreen or via schedules and external control.
 
 ## Effect Dimmer
 

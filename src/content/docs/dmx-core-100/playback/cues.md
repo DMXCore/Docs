@@ -9,7 +9,11 @@ Cues are recorded DMX sequences (shows) that can be played back on demand, on a 
 
 On the **touchscreen**, navigate to **Main Menu > Cues** to see the list. Tap a cue to instantly start playback. Long-hold a cue to access its settings.
 
-![Cues list](https://github.com/DMXCore/DmxCore100/assets/407941/301c68c9-e8e3-4e28-ad8e-aa1bfa84f8cb)
+![Cues list](/assets/device/cues-list.png)
+
+The top bar expands to show playback controls — tap the arrow to toggle it. Controls include global Fade Out, Stop, and adjustable Loop, Fade In, and Fade Out settings.
+
+![Cues list with playback controls expanded](/assets/device/cues-list-controls.png)
 
 In the **Web UI**, go to **Lighting > Cues**. The list view shows additional details including duration and file size. Click a cue name to open its detail page, or use the play button to start playback directly from the list.
 
@@ -22,7 +26,11 @@ In the **Web UI**, go to **Lighting > Cues**. The list view shows additional det
 
 ## Cue Settings
 
-![Cue settings](https://github.com/DMXCore/DmxCore100/assets/407941/894bb4c4-7262-40f5-a259-ce9d88f1e65d)
+Long-hold a cue on the touchscreen to open its settings. The settings page scrolls to show all fields and actions.
+
+![Cue settings — fields](/assets/device/cue-settings.png)
+
+![Cue settings — actions](/assets/device/cue-settings-actions.png)
 
 Each cue has the following settings:
 

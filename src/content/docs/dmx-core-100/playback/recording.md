@@ -9,13 +9,13 @@ The DMX Core 100 can record DMX data from external sources (lighting software, c
 
 Navigate to **Main Menu > Utilities > Record**.
 
-![Recording screen](https://github.com/DMXCore/DmxCore100/assets/407941/7ac45aca-0ddc-442c-a28c-b06ac0ee0a0c)
+![Record Cue screen](/assets/device/record-cue.png)
 
 1. Press **Preview** to start listening for ArtNet or sACN packets (depending on output configuration). The universe IDs are taken from the output configuration. Any active playback will be stopped.
 
 2. You'll see a graphical representation of all the DMX channels per universe during preview:
 
-![DMX channel preview](https://github.com/DMXCore/DmxCore100/assets/407941/e7ec4b68-f3d3-478c-bbce-c35101c30d52)
+![Record Cue — previewing with DMX channel monitor](/assets/device/record-cue-preview.png)
 
 3. While previewing, choose what to record:
    - **Preset** — Captures a single snapshot of the current DMX state
