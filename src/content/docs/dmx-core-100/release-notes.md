@@ -5,6 +5,10 @@ description: Release notes and highlights
 
 | Date | Highlights |
 |------|------------|
+| 4/3/2026 | TPM2.net output support, tunnel stability and logging improvements |
+| 4/2/2026 | Ambient presets — set a persistent fallback preset that activates when nothing else is playing; assignable from schedules and input triggers |
+| 3/31/2026 | Chaser effect (sequence fixtures through a list of colors), hide individual fixture functions, preset favorites, improved preset builder |
+| 3/30/2026 | Solid light fixture control improvements, scrollable fixture list, fixture Excel export enhancements |
 | 3/29/2026 | Cloud tunnel for remote access |
 | 3/27/2026 | Multi-function fixture support, effect fade durations, large screen layout improvements |
 | 3/24/2026 | Effects engine with zone support, fixture control and setup in Web UI, preset editing with copy/paste, presets in timeline |
