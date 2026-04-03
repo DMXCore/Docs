@@ -30,7 +30,7 @@ In the **Web UI**, go to **Lighting > Schedules**. The list shows all schedules 
 | **Start Time** | Time of day when the schedule triggers |
 | **End Time** | Optional end time (cue playback may end earlier) |
 | **Output** | Which output to use (if multiple are configured) |
-| **Type** | Type of event: cue, preset, sound, or timeline |
+| **Type** | Type of event: cue, preset, sound, timeline, or ambient preset |
 | **Play** | Which item to play at the scheduled time |
 | **Dimmer** | Brightness level for the scheduled playback |
 | **Stop at Completion** | When enabled, playback stops when the cue/sound finishes rather than looping |

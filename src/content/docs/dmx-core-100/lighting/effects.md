@@ -16,6 +16,7 @@ The DMX Core 100 includes several built-in effect generators:
 | Generator | Description |
 |-----------|-------------|
 | Breathing | Smooth fade up and down, like a breathing rhythm |
+| Chaser | Sequences fixtures through a configurable list of colors in order |
 | Crackling | Random flickering similar to crackling embers |
 | Fire | Simulates a flickering fire effect |
 | Flickering | Random brightness variations |

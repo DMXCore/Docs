@@ -36,6 +36,7 @@ Input trigger configuration is available in the Web UI under **Settings > Input 
 When a trigger fires, it can perform actions such as:
 
 - Play a cue, preset, sound, or timeline
+- Activate or deactivate the [ambient preset](/dmx-core-100/playback/presets#ambient-preset)
 - Start recording
 - Stop playback
 - Toggle a schedule

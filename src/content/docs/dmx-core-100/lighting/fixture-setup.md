@@ -57,6 +57,16 @@ From the **Settings > Fixtures** page in the Web UI, you can:
 - **Enable/Disable** — Toggle a fixture on or off without deleting it
 - **Delete** — Remove a fixture from the configuration
 
+## Hiding Fixture Functions
+
+If a fixture profile includes functions you don't use — for example, a strobe channel on a simple par can — you can hide individual functions to keep the Fixture Control view uncluttered.
+
+In the Web UI, open the fixture's settings and use the **Hidden Functions** list to select which functions to hide. Hidden functions remain in the profile but are excluded from the Fixture Control display.
+
+## Exporting Fixtures
+
+You can export your fixture list to an Excel file from **Settings > Fixtures** in the Web UI. The export includes fixture names, profiles, personalities, DMX addresses, and universe assignments — useful for documentation or handoff to a lighting programmer.
+
 ## Multi-Function Fixtures
 
 Fixtures with multiple instances of the same function type (e.g., dual color wheels, multiple gobos) are fully supported. The system automatically detects and exposes all function instances for control.

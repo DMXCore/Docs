@@ -25,9 +25,13 @@ In the Web UI, go to **Settings > Outputs** for the same configuration with addi
 
 Each output can be configured with:
 
-- **Protocol** — ArtNet, sACN (E1.31), KiNet (v1/v2), or USB DMX
+- **Protocol** — ArtNet, sACN (E1.31), KiNet (v1/v2), TPM2.net, or USB DMX
 - **Universe** — The DMX universe number
 - **Start Channel** — Starting DMX channel within the universe
-- **Pixel Type** — Used for built-in patterns only (has no effect on cues and presets)
+- **Pixel Type** — Used for TPM2.net and built-in patterns (has no effect on cues and presets)
 
 The DMX Core 100 supports up to 100 universes at 40 Hz for network streams, and up to 4 universes via USB DMX devices (Enttec Pro, DMXking).
+
+### TPM2.net
+
+TPM2.net is a UDP-based protocol for pixel LED controllers. Select **TPM2.net** as the protocol and set the target IP address and port to send pixel data to compatible controllers on the network.
