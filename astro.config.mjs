@@ -120,6 +120,7 @@ export default defineConfig({
                 { label: 'Admin Mode', slug: 'dmx-core-100/configuration/admin-mode' },
                 { label: 'Settings', slug: 'dmx-core-100/configuration/settings' },
                 { label: 'Output Config', slug: 'dmx-core-100/configuration/output-config' },
+                { label: 'Output Monitor', slug: 'dmx-core-100/configuration/output-monitor' },
                 { label: 'Users & Roles', slug: 'dmx-core-100/configuration/users-and-roles' },
                 { label: 'Backup & Restore', slug: 'dmx-core-100/configuration/backup-and-restore' },
                 { label: 'Utilities', slug: 'dmx-core-100/configuration/utilities' },

@@ -63,9 +63,28 @@ If a fixture profile includes functions you don't use — for example, a strobe 
 
 In the Web UI, open the fixture's settings and use the **Hidden Functions** list to select which functions to hide. Hidden functions remain in the profile but are excluded from the Fixture Control display.
 
+## Splitting and Combining Fixtures
+
+If you have a fixture with multiple copies, you can **split** it into individual fixtures — each copy becomes its own entry with an automatically assigned code (e.g., `Front_Wash_1`, `Front_Wash_2`). This is useful when you need to assign copies to different zones or adjust settings independently.
+
+To reverse a split, open any of the split fixtures and click **Combine**. This merges all matching split fixtures back into a single multi-copy fixture. The button shows the total count of fixtures that will be combined.
+
+:::note
+Split is available when a fixture has between 2 and 50 copies. Combine is available when the system detects matching split siblings (same profile, personality, and code pattern).
+:::
+
+## Fixture Warnings
+
+When editing a fixture, the system checks whether the fixture's assigned slot has an enabled output configured. If not, a warning is displayed with a direct link to the [Output Config](/dmx-core-100/configuration/output-config) page so you can set one up. This helps catch configuration issues before they affect your show.
+
 ## Exporting Fixtures
 
-You can export your fixture list to an Excel file from **Settings > Fixtures** in the Web UI. The export includes fixture names, profiles, personalities, DMX addresses, and universe assignments — useful for documentation or handoff to a lighting programmer.
+You can export your fixture list from **Settings > Fixtures** in the Web UI in two formats:
+
+- **Excel** — Full export with formatting, suitable for documentation
+- **CSV** — Lightweight export for spreadsheet tools and data processing
+
+The export includes fixture names, profiles, personalities, DMX addresses, and universe assignments — useful for documentation or handoff to a lighting programmer.
 
 ## Multi-Function Fixtures
 
