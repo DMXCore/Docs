@@ -1,0 +1,212 @@
+name: Generate Release Notes
+
+on:
+  workflow_dispatch:
+    inputs:
+      since_date:
+        description: >
+          Fetch commits since this date (YYYY-MM-DD).
+          Defaults to the date of the latest entry already in release-notes.md.
+        required: false
+        type: string
+      model:
+        description: GitHub Models model name to use for summarisation.
+        required: false
+        type: string
+        default: gpt-4o-mini
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch commits and generate release notes
+        id: generate
+        env:
+          BITBUCKET_API_TOKEN: ${{ secrets.BITBUCKET_API_TOKEN }}
+          BITBUCKET_WORKSPACE: ${{ secrets.BITBUCKET_WORKSPACE }}
+          BITBUCKET_REPO_SLUG: ${{ secrets.BITBUCKET_REPO_SLUG }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SINCE_DATE: ${{ inputs.since_date }}
+          GH_MODEL: ${{ inputs.model }}
+        run: |
+          cat > /tmp/gen_notes.py << 'PYEOF'
+          import os, json, re, sys, urllib.request, urllib.error
+          from datetime import datetime, timezone
+          from collections import defaultdict
+
+          RELEASE_NOTES_PATH = 'src/content/docs/dmx-core-100/release-notes.md'
+
+          # ── Read current release notes ────────────────────────────────────────
+          with open(RELEASE_NOTES_PATH) as f:
+              content = f.read()
+
+          # Parse existing dates (M/D/YYYY format) – first match is the newest
+          existing_dates = re.findall(r'\|\s*(\d+/\d+/\d+)\s*\|', content)
+
+          # ── Determine the "since" boundary ───────────────────────────────────
+          since_date_input = os.environ.get('SINCE_DATE', '').strip()
+          if since_date_input:
+              since_dt = datetime.strptime(since_date_input, '%Y-%m-%d').replace(tzinfo=timezone.utc)
+          elif existing_dates:
+              since_dt = datetime.strptime(existing_dates[0], '%m/%d/%Y').replace(tzinfo=timezone.utc)
+          else:
+              since_dt = datetime(2024, 1, 1, tzinfo=timezone.utc)
+
+          print(f'Fetching commits after {since_dt.date()}')
+
+          # ── Fetch commits from Bitbucket ──────────────────────────────────────
+          workspace  = os.environ['BITBUCKET_WORKSPACE']
+          repo_slug  = os.environ['BITBUCKET_REPO_SLUG']
+          api_token  = os.environ['BITBUCKET_API_TOKEN']
+
+          commits = []
+          url = (
+              f'https://api.bitbucket.org/2.0/repositories/'
+              f'{workspace}/{repo_slug}/commits?pagelen=100'
+          )
+          stop = False
+          while url and not stop:
+              req = urllib.request.Request(url)
+              req.add_header('Authorization', f'Bearer {api_token}')
+              try:
+                  with urllib.request.urlopen(req) as resp:
+                      data = json.loads(resp.read())
+              except urllib.error.HTTPError as e:
+                  print(f'Bitbucket API error {e.code}: {e.read().decode()}', file=sys.stderr)
+                  sys.exit(1)
+
+              for commit in data.get('values', []):
+                  raw_date = commit.get('date', '')
+                  commit_dt = datetime.fromisoformat(raw_date.replace('Z', '+00:00'))
+                  if commit_dt <= since_dt:
+                      stop = True
+                      break
+                  msg = commit.get('message', '').strip().splitlines()[0]  # first line only
+                  commits.append({
+                      'message': msg,
+                      'date':    commit_dt.strftime('%Y-%m-%d'),
+                  })
+
+              url = data.get('next') if not stop else None
+
+          if not commits:
+              print('No new commits found – nothing to do.')
+              out = os.environ.get('GITHUB_OUTPUT', '/dev/null')
+              with open(out, 'a') as gho:
+                  gho.write('has_changes=false\n')
+              sys.exit(0)
+
+          print(f'Found {len(commits)} new commits.')
+
+          # ── Group commits by date ─────────────────────────────────────────────
+          by_date = defaultdict(list)
+          for c in commits:
+              by_date[c['date']].append(c['message'])
+
+          sorted_dates = sorted(by_date.keys(), reverse=True)
+
+          # ── Build the prompt ──────────────────────────────────────────────────
+          commits_block = ''
+          for d in sorted_dates:
+              commits_block += f'\n## {d}\n'
+              for msg in by_date[d]:
+                  commits_block += f'- {msg}\n'
+
+          prompt = (
+              'You are writing concise release notes for a DMX lighting controller '
+              'product called DMX Core 100.\n'
+              'Given the git commit messages grouped by date below, produce a short, '
+              'user-friendly "highlights" phrase for each date (aim for ≤ 100 chars, '
+              'but prioritise clarity over strict length).\n'
+              'Focus on what changed from the user\'s perspective, not implementation details.\n'
+              'Return ONLY a JSON array of objects with "date" (M/D/YYYY format) and '
+              '"highlights" fields, newest date first.\n'
+              'Example: [{"date": "4/3/2026", "highlights": "TPM2.net output support, '
+              'tunnel stability improvements"}]\n\n'
+              f'Commits:{commits_block}'
+          )
+
+          # ── Call GitHub Models ────────────────────────────────────────────────
+          github_token = os.environ['GITHUB_TOKEN']
+          model = os.environ.get('GH_MODEL', 'gpt-4o-mini')
+          payload = json.dumps({
+              'model': model,
+              'messages': [{'role': 'user', 'content': prompt}],
+              'temperature': 0.3,
+          }).encode()
+
+          req = urllib.request.Request(
+              'https://models.inference.ai.azure.com/chat/completions',
+              data=payload, method='POST',
+          )
+          req.add_header('Authorization', f'Bearer {github_token}')
+          req.add_header('Content-Type', 'application/json')
+
+          try:
+              with urllib.request.urlopen(req) as resp:
+                  result = json.loads(resp.read())
+          except urllib.error.HTTPError as e:
+              print(f'GitHub Models API error {e.code}: {e.read().decode()}', file=sys.stderr)
+              sys.exit(1)
+
+          raw = result['choices'][0]['message']['content'].strip()
+          # Strip markdown code fences if the model wrapped the JSON
+          raw = re.sub(r'^```[^\n]*\n', '', raw)
+          raw = re.sub(r'\n```$', '', raw.strip())
+
+          try:
+              entries = json.loads(raw)
+          except json.JSONDecodeError as e:
+              print(f'Could not parse model response as JSON: {e}\nResponse:\n{raw}', file=sys.stderr)
+              sys.exit(1)
+
+          # ── Update release-notes.md ───────────────────────────────────────────
+          new_rows = ''.join(f'| {e["date"]} | {e["highlights"]} |\n' for e in entries)
+          header_separator = '|------|------------|\n'
+          if header_separator not in content:
+              print('Could not locate table header in release-notes.md', file=sys.stderr)
+              sys.exit(1)
+
+          updated = content.replace(header_separator, header_separator + new_rows, 1)
+          with open(RELEASE_NOTES_PATH, 'w') as f:
+              f.write(updated)
+
+          print(f'Wrote {len(entries)} new entries to {RELEASE_NOTES_PATH}.')
+
+          # ── Set step outputs ──────────────────────────────────────────────────
+          today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+          out = os.environ.get('GITHUB_OUTPUT', '/dev/null')
+          with open(out, 'a') as gho:
+              gho.write('has_changes=true\n')
+              gho.write(f'branch_date={today}\n')
+          PYEOF
+          python3 /tmp/gen_notes.py
+
+      - name: Create branch and open PR
+        if: steps.generate.outputs.has_changes == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_DATE: ${{ steps.generate.outputs.branch_date }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          BRANCH="release-notes/${BRANCH_DATE}"
+          git checkout -b "$BRANCH"
+          git add src/content/docs/dmx-core-100/release-notes.md
+          git commit -m "docs: add release notes for ${BRANCH_DATE}"
+          git push origin "$BRANCH"
+
+          gh pr create \
+            --title "Release notes: ${BRANCH_DATE}" \
+            --body "Automated release notes generated from Bitbucket commit history.
+
+          Review the new entries in \`src/content/docs/dmx-core-100/release-notes.md\` and merge when satisfied." \
+            --base main \
+            --head "$BRANCH"
