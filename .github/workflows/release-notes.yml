@@ -55,6 +55,11 @@ jobs:
 
           # Parse existing dates (M/D/YYYY format) – first match is the newest
           existing_dates = re.findall(r'\|\s*(\d+/\d+/\d+)\s*\|', content)
+          existing_rows = re.findall(r'^\|\s*(\d+/\d+/\d+)\s*\|\s*(.*?)\s*\|$', content, flags=re.MULTILINE)
+          recent_entries = existing_rows[:8]
+          recent_entries_block = ''.join(
+              f'- {date}: {highlights}\n' for date, highlights in recent_entries
+          ) or '- (none)\n'
 
           # ── Determine the "since" boundary ───────────────────────────────────
           since_date_input = os.environ.get('SINCE_DATE', '').strip()
@@ -151,12 +156,15 @@ jobs:
               'Do NOT mention internal-only engineering work such as NuGet or dependency updates, refactors, '
               'code cleanup, CI changes, logging changes, build changes, or other implementation details unless '
               'they directly produce a clear end-user benefit.\n'
-              'If a date has no meaningful end-user-facing changes, omit it.\n'
+              'Compare the suggested notes against the recent release note entries provided below. '
+              'If the new commit history is already adequately covered by those recent entries, return an empty JSON array: [].\n'
+              'If a date has no meaningful new end-user-facing changes, omit it.\n'
               'Return ONLY a JSON array of objects with "date" (M/D/YYYY format, using America/Chicago local date) and '
               '"highlights" fields, newest date first.\n'
               'Example: [{"date": "4/3/2026", "highlights": "TPM2.net output support, '
               'tunnel stability improvements"}]\n\n'
-              f'Commits:{commits_block}'
+              f'Recent release notes already published:\n{recent_entries_block}\n'
+              f'New commits to summarise:{commits_block}'
           )
 
           # ── Call GitHub Models ────────────────────────────────────────────────
@@ -192,6 +200,35 @@ jobs:
           except json.JSONDecodeError as e:
               print(f'Could not parse model response as JSON: {e}\nResponse:\n{raw}', file=sys.stderr)
               sys.exit(1)
+
+          if not isinstance(entries, list):
+              print(f'Expected a JSON array from the model, got: {type(entries).__name__}', file=sys.stderr)
+              sys.exit(1)
+
+          existing_recent_pairs = {
+              (date.strip(), re.sub(r'\s+', ' ', highlights.strip()).lower())
+              for date, highlights in recent_entries
+          }
+          filtered_entries = []
+          for entry in entries:
+              if not isinstance(entry, dict):
+                  continue
+              date = str(entry.get('date', '')).strip()
+              highlights = re.sub(r'\s+', ' ', str(entry.get('highlights', '')).strip())
+              if not date or not highlights:
+                  continue
+              if (date, highlights.lower()) in existing_recent_pairs:
+                  print(f'Skipping duplicate recent release note entry already covered: {date} | {highlights}')
+                  continue
+              filtered_entries.append({'date': date, 'highlights': highlights})
+
+          entries = filtered_entries
+          if not entries:
+              print('No new end-user-facing release note entries were needed – changes are already covered or internal-only.')
+              out = os.environ.get('GITHUB_OUTPUT', '/dev/null')
+              with open(out, 'a') as gho:
+                  gho.write('has_changes=false\n')
+              sys.exit(0)
 
           # ── Update release-notes.md ───────────────────────────────────────────
           new_rows = ''.join(f'| {e["date"]} | {e["highlights"]} |\n' for e in entries)
