@@ -10,3 +10,7 @@ node_modules/
 # OS
 .DS_Store
 Thumbs.db
+
+# Screenshot intake folder (local working files, not for version control)
+_image_intake/
+.claude
