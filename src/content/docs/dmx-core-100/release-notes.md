@@ -5,6 +5,8 @@ description: Release notes and highlights
 
 | Date | Highlights |
 |------|------------|
+| 4/9/2026 | Output monitor added, fixture control issue resolved |
+| 4/8/2026 | Nuget updates, fixture warnings, Effect UI issue fixed |
 | 4/8/2026 | [Output Monitor](/dmx-core-100/configuration/output-monitor) for real-time DMX channel visualization, fixture CSV export, combine split fixtures, fixture slot warnings, preset status improvements, color wheel and effect UI fixes |
 | 4/3/2026 | TPM2.net output support, tunnel stability and logging improvements |
 | 4/2/2026 | Ambient presets — set a persistent fallback preset that activates when nothing else is playing; assignable from schedules and input triggers |
