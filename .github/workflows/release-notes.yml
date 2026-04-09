@@ -218,12 +218,17 @@ jobs:
           git checkout -b "$BRANCH"
           git add src/content/docs/dmx-core-100/release-notes.md
           git commit -m "docs: add release notes for ${BRANCH_DATE}"
-          git push origin "$BRANCH"
+          git push -u origin "$BRANCH"
 
-          gh pr create \
+          PR_URL="https://github.com/${GITHUB_REPOSITORY}/compare/main...${BRANCH}?expand=1"
+
+          if ! gh pr create \
             --title "Release notes: ${BRANCH_DATE}" \
             --body "Automated release notes generated from Bitbucket commit history.
 
           Review the new entries in \`src/content/docs/dmx-core-100/release-notes.md\` and merge when satisfied." \
             --base main \
-            --head "$BRANCH"
+            --head "$BRANCH"; then
+            echo "::warning::GitHub Actions is not permitted to create pull requests in this repository. Open one manually: ${PR_URL}"
+            echo "Manual PR URL: ${PR_URL}"
+          fi
