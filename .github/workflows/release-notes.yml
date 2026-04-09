@@ -1,5 +1,8 @@
 name: Generate Release Notes
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   workflow_dispatch:
     inputs:
@@ -40,9 +43,11 @@ jobs:
           cat > /tmp/gen_notes.py << 'PYEOF'
           import os, json, re, sys, base64, urllib.request, urllib.error
           from datetime import datetime, timezone
+          from zoneinfo import ZoneInfo
           from collections import defaultdict
 
           RELEASE_NOTES_PATH = 'src/content/docs/dmx-core-100/release-notes.md'
+          LOCAL_TZ = ZoneInfo('America/Chicago')
 
           # ── Read current release notes ────────────────────────────────────────
           with open(RELEASE_NOTES_PATH) as f:
@@ -54,13 +59,13 @@ jobs:
           # ── Determine the "since" boundary ───────────────────────────────────
           since_date_input = os.environ.get('SINCE_DATE', '').strip()
           if since_date_input:
-              since_dt = datetime.strptime(since_date_input, '%Y-%m-%d').replace(tzinfo=timezone.utc)
+              since_dt = datetime.strptime(since_date_input, '%Y-%m-%d').replace(tzinfo=LOCAL_TZ)
           elif existing_dates:
-              since_dt = datetime.strptime(existing_dates[0], '%m/%d/%Y').replace(tzinfo=timezone.utc)
+              since_dt = datetime.strptime(existing_dates[0], '%m/%d/%Y').replace(tzinfo=LOCAL_TZ)
           else:
-              since_dt = datetime(2024, 1, 1, tzinfo=timezone.utc)
+              since_dt = datetime(2024, 1, 1, tzinfo=LOCAL_TZ)
 
-          print(f'Fetching commits after {since_dt.date()}')
+          print(f'Fetching commits after {since_dt.date()} ({LOCAL_TZ.key})')
 
           # ── Validate required Bitbucket credentials ───────────────────────────
           bb_email  = os.environ.get('BITBUCKET_EMAIL', '').strip()
@@ -100,7 +105,7 @@ jobs:
 
               for commit in data.get('values', []):
                   raw_date = commit.get('date', '')
-                  commit_dt = datetime.fromisoformat(raw_date.replace('Z', '+00:00'))
+                  commit_dt = datetime.fromisoformat(raw_date.replace('Z', '+00:00')).astimezone(LOCAL_TZ)
                   if commit_dt <= since_dt:
                       stop = True
                       break
@@ -136,13 +141,18 @@ jobs:
                   commits_block += f'- {msg}\n'
 
           prompt = (
-              'You are writing concise release notes for a DMX lighting controller '
+              'You are writing concise release notes for end-users of a DMX lighting controller '
               'product called DMX Core 100.\n'
               'Given the git commit messages grouped by date below, produce a short, '
               'user-friendly "highlights" phrase for each date (aim for ≤ 100 chars, '
               'but prioritise clarity over strict length).\n'
-              'Focus on what changed from the user\'s perspective, not implementation details.\n'
-              'Return ONLY a JSON array of objects with "date" (M/D/YYYY format) and '
+              'Focus strictly on changes that matter to end-users: new features, usability improvements, '
+              'bug fixes, stability improvements, hardware support, and workflow improvements.\n'
+              'Do NOT mention internal-only engineering work such as NuGet or dependency updates, refactors, '
+              'code cleanup, CI changes, logging changes, build changes, or other implementation details unless '
+              'they directly produce a clear end-user benefit.\n'
+              'If a date has no meaningful end-user-facing changes, omit it.\n'
+              'Return ONLY a JSON array of objects with "date" (M/D/YYYY format, using America/Chicago local date) and '
               '"highlights" fields, newest date first.\n'
               'Example: [{"date": "4/3/2026", "highlights": "TPM2.net output support, '
               'tunnel stability improvements"}]\n\n'
@@ -197,7 +207,7 @@ jobs:
           print(f'Wrote {len(entries)} new entries to {RELEASE_NOTES_PATH}.')
 
           # ── Set step outputs ──────────────────────────────────────────────────
-          today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+          today = datetime.now(LOCAL_TZ).strftime('%Y-%m-%d')
           out = os.environ.get('GITHUB_OUTPUT', '/dev/null')
           with open(out, 'a') as gho:
               gho.write('has_changes=true\n')
