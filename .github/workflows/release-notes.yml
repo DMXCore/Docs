@@ -214,7 +214,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          BRANCH="release-notes/${BRANCH_DATE}"
+          RUN_SUFFIX="${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          BRANCH="release-notes/${BRANCH_DATE}-${RUN_SUFFIX}"
           git checkout -b "$BRANCH"
           git add src/content/docs/dmx-core-100/release-notes.md
           git commit -m "docs: add release notes for ${BRANCH_DATE}"
