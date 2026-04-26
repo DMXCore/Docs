@@ -11,7 +11,6 @@ description: Release notes and highlights
 | 4/23/2026 | Flash mode added and control surface color fixes |
 | 4/22/2026 | Improved control surface functionality and takeover fixes |
 | 4/21/2026 | Fixed navigation issue for OSC clients |
-| 4/20/2026 | Added tooltips for effect details |
 | 4/19/2026 | NetworkMidi2 support for control surfaces |
 | 4/18/2026 | Added OSC Control Surface support |
 | 4/17/2026 | RtpMidi support and control surface template updates |
