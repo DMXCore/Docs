@@ -5,6 +5,20 @@ description: Release notes and highlights
 
 | Date | Highlights |
 |------|------------|
+| 4/26/2026 | Stream Deck support enhancements and metronome fix |
+| 4/25/2026 | Added Stream Deck Dock support |
+| 4/24/2026 | Improved control surface navigation and connection status |
+| 4/23/2026 | Flash mode added and control surface color fixes |
+| 4/22/2026 | Improved control surface functionality and takeover fixes |
+| 4/21/2026 | Fixed navigation issue for OSC clients |
+| 4/20/2026 | Added tooltips for effect details |
+| 4/19/2026 | NetworkMidi2 support for control surfaces |
+| 4/18/2026 | Added OSC Control Surface support |
+| 4/17/2026 | RtpMidi support and control surface template updates |
+| 4/16/2026 | Improvements to effects, tempo, and metronome |
+| 4/15/2026 | Control Surface editor and operator view enhancements |
+| 4/14/2026 | Custom menu updates and effect control improvements |
+| 4/9/2026 | Monitor device feature and Advatek scanner added |
 | 4/8/2026 | [Output Monitor](/dmx-core-100/configuration/output-monitor) for real-time DMX channel visualization, fixture CSV export, combine split fixtures, fixture slot warnings, preset status improvements, color wheel and effect UI fixes |
 | 4/3/2026 | TPM2.net output support, tunnel stability and logging improvements |
 | 4/2/2026 | Ambient presets — set a persistent fallback preset that activates when nothing else is playing; assignable from schedules and input triggers |
