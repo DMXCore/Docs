@@ -5,6 +5,11 @@ description: Release notes and highlights
 
 | Date | Highlights |
 |------|------------|
+| 6/3/2026 | RDM device monitoring over Art-Net and Advatek board temperature added |
+| 5/28/2026 | Stream Deck Plus features: LCD bank label and swipe-to-switch added |
+| 5/23/2026 | Improved device monitoring: snapshots sent on connect/startup |
+| 5/22/2026 | Enhanced device monitoring with electrical monitoring and UI polish |
+| 5/14/2026 | New Device Status page with per-port Create Output functionality |
 | 4/26/2026 | Stream Deck support enhancements and metronome fix |
 | 4/25/2026 | Added Stream Deck Dock support |
 | 4/24/2026 | Improved control surface navigation and connection status |
