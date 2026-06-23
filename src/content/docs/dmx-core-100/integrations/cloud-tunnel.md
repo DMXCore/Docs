@@ -33,3 +33,7 @@ The cloud tunnel can be enabled in the **Web UI** under system settings.
 :::note
 The cloud tunnel provides access to the Web UI only. Direct DMX output (ArtNet/sACN) still requires local network connectivity.
 :::
+
+:::tip[Part of the cloud portal]
+The cloud tunnel is one part of the [DMX Core portal](/dmx-core-100/remote-management), which also provides remote fleet monitoring, health alerts, remote operations, and software updates.
+:::

@@ -56,6 +56,7 @@ title: Features
 
 * Full-featured Web UI accessible from any browser on the network (HTTP/HTTPS)
 * Cloud tunnel for remote access from anywhere (no VPN required)
+* Cloud portal for remote fleet management — device monitoring, email health alerts, remote reboot/backup, and software updates ([portal.dmxcore.com](https://portal.dmxcore.com))
 * Remote configuration via BalenaCloud (secure VPN access)
 * Configure settings via Web UI and API
 * Remote software upgrade (requires internet connectivity)

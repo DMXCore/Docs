@@ -139,6 +139,7 @@ export default defineConfig({
                 { label: 'Cloud Tunnel', slug: 'dmx-core-100/integrations/cloud-tunnel' },
               ],
             },
+            { label: 'Remote Management', slug: 'dmx-core-100/remote-management' },
             { label: 'External Control', slug: 'dmx-core-100/external-control' },
             {
               label: 'Desktop Software',
