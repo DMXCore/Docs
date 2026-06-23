@@ -3,7 +3,7 @@ title: Linux
 description: Install and run DMX Core 100 on Linux via the Snap Store
 ---
 
-The DMX Core 100 desktop software is available for Linux through the **Snap Store**, supporting both x64 and ARM64 architectures.
+The DMX Core 100 desktop software is available for Linux through the **Snap Store**, supporting both x64 and ARM64 architectures — including the **Raspberry Pi 4 and newer**.
 
 ## Install via Snap Store
 
@@ -24,7 +24,7 @@ sudo snap install dmxcore100 --edge
 ## Requirements
 
 * A Linux distribution that supports [snapd](https://snapcraft.io/docs/installing-snapd) (Ubuntu, Debian, Fedora, and most others)
-* x64 or ARM64 architecture
+* x64 or ARM64 architecture — ARM64 covers the Raspberry Pi 4 and newer (Raspberry Pi OS 64-bit or another 64-bit distribution)
 
 ## Web Interface
 
