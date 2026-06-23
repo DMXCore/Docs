@@ -9,7 +9,7 @@ The DMX Core portal at [portal.dmxcore.com](https://portal.dmxcore.com) is a clo
 Remote features require the device to have internet access and an active remote-access subscription. The portal manages devices; live DMX output (Art-Net/sACN) still happens on the local network.
 :::
 
-<!-- SCREENSHOT: Portal dashboard showing the device fleet (dark mode) -->
+![DMX Core portal showing the device fleet](/assets/device/portal-devices.png)
 
 ## Signing In
 
