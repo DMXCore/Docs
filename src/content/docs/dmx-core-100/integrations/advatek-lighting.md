@@ -13,7 +13,7 @@ This page covers the deeper Advatek-specific integration. For basic setup — co
 Advatek device discovery and monitoring are available in the Web UI under **Settings > Device Status**.
 :::
 
-<!-- SCREENSHOT: Web UI Device Status page showing a discovered Advatek controller (dark mode) -->
+![Device Status page for a discovered Advatek PixLite controller](/assets/device/advatek-device-status.png)
 
 ## Supported Devices
 
@@ -33,7 +33,7 @@ The DMX Core 100 talks to your Advatek controller in two ways:
 3. The DMX Core 100 scans the network and lists any Advatek controllers it finds, along with their model, firmware version, and IP address.
 4. Click a device to open its detail view.
 
-<!-- SCREENSHOT: Device Status list with an Advatek controller discovered (dark mode) -->
+![Discovered Advatek controller in the device list](/assets/device/advatek-discovery-list.png)
 
 ## Authenticating (Password-Protected Devices)
 
@@ -45,7 +45,7 @@ If your Advatek controller has an operator password set, the DMX Core 100 needs 
 
 The password is stored securely and used automatically for all future reads from that device, so you only enter it once.
 
-<!-- SCREENSHOT: Advatek password entry on the device detail panel (dark mode) -->
+![Operator password entry on the Advatek device detail panel](/assets/device/advatek-password.png)
 
 ## Creating an Output
 
@@ -62,7 +62,7 @@ Each pixel and auxiliary port on the controller is listed in the device's port t
 
 The DMX Core 100 now streams DMX data to that port over the chosen protocol. Repeat for each port you want to drive. See [Output Config](/dmx-core-100/configuration/output-config) for how outputs map to your zones and fixtures.
 
-<!-- SCREENSHOT: Create Output dialog for an Advatek pixel port (dark mode) -->
+![Create Output dialog for an Advatek pixel port](/assets/device/advatek-create-output.png)
 
 ## Monitoring Device Health
 
@@ -72,7 +72,7 @@ Beyond sending data, the DMX Core 100 reads live health information from Advatek
 - **Supply voltage** — Per power bank, read directly from the device.
 - **Per-output current and fuse status** — Current draw on each pixel power output, along with fuse and status indicators, to catch overcurrent conditions or disconnected runs.
 
-<!-- SCREENSHOT: Electrical details panel showing temperature, voltage, and per-output current (dark mode) -->
+![Electrical details: board temperature, supply voltage, and per-output current](/assets/device/advatek-electrical.png)
 
 ### Drift Detection
 
