@@ -9,6 +9,10 @@ Before you can use fixture control, presets, or effects, you need to configure y
 
 A fixture profile describes the capabilities of a specific light fixture model — its DMX channels, functions (color, dimmer, pan/tilt, etc.), and personalities (channel modes).
 
+### Built-in Generic Profiles
+
+The DMX Core 100 ships with built-in generic profiles for common **RGB and RGBW** fixtures — PAR washes and LED strips/pixels. For these simple fixtures you don't need to import anything; just select the matching generic profile when [adding a fixture](#adding-fixtures).
+
 ### Importing Profiles
 
 The DMX Core 100 supports importing profiles from two popular fixture libraries:

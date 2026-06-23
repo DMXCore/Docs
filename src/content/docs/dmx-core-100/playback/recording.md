@@ -5,6 +5,10 @@ description: Capture DMX data as cues or presets
 
 The DMX Core 100 can record DMX data from external sources (lighting software, consoles, etc.) and save it as cues or presets for later playback.
 
+:::tip[No external source handy?]
+You don't need external lighting software to get started. Use **Create Demo Data** under **Settings > Backup & Restore** to load ready-made [demo cues, presets, sounds, and effects](/dmx-core-100/configuration/backup-and-restore#demo-data).
+:::
+
 ## Recording on the Touchscreen
 
 Navigate to **Main Menu > Utilities > Record**.
@@ -17,11 +21,11 @@ Navigate to **Main Menu > Utilities > Record**.
 
 ![Record Cue — previewing with DMX channel monitor](/assets/device/record-cue-preview.png)
 
-3. While previewing, choose what to record:
-   - **Preset** — Captures a single snapshot of the current DMX state
-   - **Cue** — Records a full show (dynamic sequence) until you stop recording
+3. While previewing, capture what you need:
+   - Press **Save Cue** to record a full show (dynamic sequence) until you stop recording
+   - Press **Save Snapshot** to capture a single moment of the current DMX state as a preset
 
-4. Press **Save** to save the recording. You can rename it later from the [Cues](/dmx-core-100/playback/cues) or [Presets](/dmx-core-100/playback/presets) list.
+4. You can rename the recording later from the [Cues](/dmx-core-100/playback/cues) or [Presets](/dmx-core-100/playback/presets) list.
 
 Use the **Stop** button to stop preview without capturing anything.
 

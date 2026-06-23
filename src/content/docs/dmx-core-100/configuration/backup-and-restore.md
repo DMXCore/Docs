@@ -60,9 +60,9 @@ The DMX Core 100 can import backup files from Enttec S-Play devices, making migr
 
 ## Demo Data
 
-The system includes a demo data import feature that creates sample fixtures, cues, presets, timelines, and schedules. This is useful for testing and learning the system before setting up your own data.
+The system includes a demo data feature that creates ready-made sample content — cues, presets, sounds, and effects — with no external hardware required. This is useful for testing and learning the system before setting up your own data.
 
-In the **Web UI**, you can import demo data from the utilities section.
+In the **Web UI**, go to **Backup & Restore** and click **Create Demo Data**. Filter by type, select the items you want, and click **Create Selected**.
 
 ## What's Included in a Backup
 

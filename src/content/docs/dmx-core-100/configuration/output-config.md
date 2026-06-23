@@ -5,6 +5,10 @@ description: Configure DMX output universes and protocols
 
 Output configuration defines how the DMX Core 100 sends DMX data to your lighting fixtures — which protocols, universes, and physical ports to use.
 
+:::note[Default output]
+A new install already includes a default **sACN** output on **universe 1**, so basic single-universe setups work out of the box. You can edit or remove it, or add more outputs as needed.
+:::
+
 ## Touchscreen
 
 On the touchscreen, navigate to **Main Menu > Output Config** to see the list of outputs.

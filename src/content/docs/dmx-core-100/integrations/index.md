@@ -6,6 +6,7 @@ The DMX Core 100 is built to support different kinds of integrations and trigger
 
 * [Open Sound Control (OSC)](/dmx-core-100/integrations/osc-open-sound-control) with popular applications like TouchOSC
 * [MQTT](/dmx-core-100/integrations/mqtt) for IoT device integration
+* [Advatek Lighting](/dmx-core-100/integrations/advatek-lighting) — discover, drive, and monitor Advatek PixLite pixel controllers
 * QSC Q-SYS and Symetrix DSP cores (see [External Control](/dmx-core-100/external-control))
 * [Satellites](/dmx-core-100/integrations/satellites) — Key Digital WP8 keypads and Stream Deck MK2
 * [Cloud Tunnel](/dmx-core-100/integrations/cloud-tunnel) for remote access from anywhere

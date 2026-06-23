@@ -65,6 +65,7 @@ export default defineConfig({
               label: 'Getting Started',
               items: [
                 { label: 'Overview', slug: 'dmx-core-100/getting-started' },
+                { label: 'Quick Start', slug: 'dmx-core-100/getting-started/quick-start' },
                 { label: 'Installation', slug: 'dmx-core-100/getting-started/installation' },
                 { label: 'Connecting to the Web UI', slug: 'dmx-core-100/getting-started/connecting-to-the-web-ui' },
                 { label: 'Home Screen', slug: 'dmx-core-100/getting-started/home-screen' },
@@ -133,6 +134,7 @@ export default defineConfig({
                 { label: 'Overview', slug: 'dmx-core-100/integrations' },
                 { label: 'OSC – Open Sound Control', slug: 'dmx-core-100/integrations/osc-open-sound-control' },
                 { label: 'MQTT', slug: 'dmx-core-100/integrations/mqtt' },
+                { label: 'Advatek Lighting', slug: 'dmx-core-100/integrations/advatek-lighting' },
                 { label: 'Satellites', slug: 'dmx-core-100/integrations/satellites' },
                 { label: 'Cloud Tunnel', slug: 'dmx-core-100/integrations/cloud-tunnel' },
               ],

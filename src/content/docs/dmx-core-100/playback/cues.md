@@ -5,6 +5,10 @@ description: Record and play back DMX lighting shows
 
 Cues are recorded DMX sequences (shows) that can be played back on demand, on a schedule, or triggered externally. They capture the exact DMX data from your lighting software so it can be replayed at any time.
 
+:::tip[No cues yet?]
+To get example cues without recording anything, use **Create Demo Data** under **Settings > Backup & Restore**. See [Demo Data](/dmx-core-100/configuration/backup-and-restore#demo-data).
+:::
+
 ## Viewing and Playing Cues
 
 On the **touchscreen**, navigate to **Main Menu > Cues** to see the list. Tap a cue to instantly start playback. Long-hold a cue to access its settings.
