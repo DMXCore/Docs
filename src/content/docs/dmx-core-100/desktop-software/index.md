@@ -25,7 +25,7 @@ Purchase a full license at [dmxprosales.com](https://dmxprosales.com/products/dm
 
 | Platform | Architecture | Distribution |
 |----------|-------------|--------------|
-| Windows 10/11 | x64 | ClickOnce installer |
+| Windows 10/11 | x64 | Signed installer (.exe) |
 | macOS | ARM64 (Apple Silicon) | Direct download |
 | macOS | x64 (Intel) | Direct download |
 | Linux | x64, ARM64 | Snap Store |

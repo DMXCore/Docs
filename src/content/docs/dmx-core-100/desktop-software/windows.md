@@ -3,18 +3,18 @@ title: Windows
 description: Install and run DMX Core 100 on Windows
 ---
 
-The DMX Core 100 desktop software is available for Windows 10 and Windows 11 (x64) via a ClickOnce installer.
+The DMX Core 100 desktop software is available for Windows 10 and Windows 11 (x64) as a signed, self-updating installer.
 
 ## Installation
 
-Open this URL in **Microsoft Edge** to install:
+Download and run the installer:
 
-[https://downloads.dmxcore.com/DMXCore100.application](https://downloads.dmxcore.com/DMXCore100.application)
+[Download DMX Core 100 for Windows](https://downloads.dmxcore.com/velopack/win/DMXCore100App-stable-Setup.exe)
 
-1. Select **Open** and then **Install**.
-2. You will see a security warning that the application is not verified — this is expected, as the installer is not signed with a commercial certificate. The software is safe to install.
+1. Run the downloaded **DMXCore100App-stable-Setup.exe**.
+2. The installer is signed by **DMX Pro Sales**. For a brand-new release, Windows SmartScreen may still show a "Windows protected your PC" prompt until the signature accumulates reputation — if it appears, select **More info** and then **Run anyway**.
 3. When prompted, allow the application access to your network (required for DMX recording and playback).
-4. If prompted, allow installation of **.NET 10** — it will be downloaded directly from Microsoft's website.
+4. The app installs and launches automatically, and keeps itself up to date after that.
 
 ## Web Interface
 
