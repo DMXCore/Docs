@@ -137,6 +137,7 @@ export default defineConfig({
                 { label: 'Advatek Lighting', slug: 'dmx-core-100/integrations/advatek-lighting' },
                 { label: 'Satellites', slug: 'dmx-core-100/integrations/satellites' },
                 { label: 'Cloud Tunnel', slug: 'dmx-core-100/integrations/cloud-tunnel' },
+                { label: 'Internet Passthrough', slug: 'dmx-core-100/integrations/internet-passthrough' },
               ],
             },
             { label: 'Remote Management', slug: 'dmx-core-100/remote-management' },
