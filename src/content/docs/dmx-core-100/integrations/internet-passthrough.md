@@ -31,7 +31,7 @@ This covers **all** of the DMX Core's traffic, including software updates, Host 
 5. Wait for the status to show green: **Internet access** and **Cloud connection** confirm the DMX Core is online. You can now install updates as usual.
 6. When you're finished, select **Deactivate**.
 
-<!-- SCREENSHOT: Web UI Utilities → Internet Passthrough, active with green status -->
+![Internet Passthrough section on the Utilities page, showing a discovered computer running DMX Core Connect](/assets/device/internet-passthrough.png)
 
 :::note[Lighting output briefly restarts]
 Activating and deactivating the passthrough briefly restarts the DMX Core's services, so lighting output may blink and the Web UI will reconnect after a moment. Avoid doing it in the middle of a live show.
