@@ -7,12 +7,8 @@ description: Release notes and highlights
 |------|------------|
 | 7/10/2026 | Admin PIN recovery feature added for enhanced security |
 | 7/9/2026 | Web UI now supports per-user password login |
-| 7/8/2026 | ConnectApp window size improved for Retina Macs |
 | 7/7/2026 | Restart/Reboot functionality restored for Balena devices |
-| 7/6/2026 | Improved OpenBalena migration process for better stability |
 | 7/5/2026 | OSC triggers enhanced for better payload handling |
-| 7/4/2026 | Improved OpenBalena migration with better device registration |
-| 7/3/2026 | OpenBalena migration process streamlined for user convenience |
 | 7/2/2026 | Speed improvements for first boot and database operations |
 | 7/1/2026 | Web UI enhancements for smoother user experience |
 | 6/30/2026 | Velopack updates improve installation and signing processes |
