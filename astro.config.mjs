@@ -198,6 +198,7 @@ export default defineConfig({
                 { label: 'Overview', slug: 'dmx-core-100/troubleshooting' },
                 { label: 'Re-flash Instructions', slug: 'dmx-core-100/troubleshooting/re-flash-instructions' },
                 { label: 'Config Issues', slug: 'dmx-core-100/troubleshooting/config-issues' },
+                { label: 'Forgot Admin PIN', slug: 'dmx-core-100/troubleshooting/forgot-admin-pin' },
               ],
             },
             {
