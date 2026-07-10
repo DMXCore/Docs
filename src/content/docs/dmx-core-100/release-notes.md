@@ -5,6 +5,28 @@ description: Release notes and highlights
 
 | Date | Highlights |
 |------|------------|
+| 7/10/2026 | Admin PIN recovery feature added for enhanced security |
+| 7/9/2026 | Web UI now supports per-user password login |
+| 7/8/2026 | ConnectApp window size improved for Retina Macs |
+| 7/7/2026 | Restart/Reboot functionality restored for Balena devices |
+| 7/6/2026 | Improved OpenBalena migration process for better stability |
+| 7/5/2026 | OSC triggers enhanced for better payload handling |
+| 7/4/2026 | Improved OpenBalena migration with better device registration |
+| 7/3/2026 | OpenBalena migration process streamlined for user convenience |
+| 7/2/2026 | Speed improvements for first boot and database operations |
+| 7/1/2026 | Web UI enhancements for smoother user experience |
+| 6/30/2026 | Velopack updates improve installation and signing processes |
+| 6/29/2026 | System state logging improved for better recovery |
+| 6/28/2026 | New global Merge Mode setting for cue management |
+| 6/27/2026 | Velopack update channel now defaults to installed channel |
+| 6/26/2026 | Restart/Reboot buttons hidden for non-Balena deployments |
+| 6/25/2026 | Improved macOS Velopack signing and bundling |
+| 6/24/2026 | New Velopack release pipeline for Windows and macOS |
+| 6/23/2026 | Enhanced file upload capabilities for large files |
+| 6/22/2026 | Minor updates and fixes for overall stability |
+| 6/21/2026 | UI bug fix for timeline editor in light theme |
+| 6/17/2026 | Configurable OSC server port for better customization |
+| 6/8/2026 | Stabilized Data Protection keyring across platforms |
 | 6/3/2026 | RDM device monitoring over Art-Net and Advatek board temperature added |
 | 5/28/2026 | Stream Deck Plus features: LCD bank label and swipe-to-switch added |
 | 5/23/2026 | Improved device monitoring: snapshots sent on connect/startup |
