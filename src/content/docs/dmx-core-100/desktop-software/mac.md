@@ -5,14 +5,14 @@ description: Install and run DMX Core 100 on macOS
 
 The DMX Core 100 desktop software is available for macOS in two variants:
 
-* **ARM64** — for Macs with Apple Silicon (M1, M2, M3, and later)
+* **ARM64** — for Macs with Apple Silicon (M1 or later)
 * **x64** — for Macs with Intel processors
 
 ## Download
 
 Download the version that matches your Mac:
 
-* [Apple Silicon (M1, M2, M3, and later)](https://downloads.dmxcore.com/velopack/osx-arm64/DMXCore100App-stable-Setup.pkg)
+* [Apple Silicon (M1 or later)](https://downloads.dmxcore.com/velopack/osx-arm64/DMXCore100App-stable-Setup.pkg)
 * [Intel](https://downloads.dmxcore.com/velopack/osx-x64/DMXCore100App-stable-Setup.pkg)
 
 If you are unsure which version to download, click the Apple menu () > **About This Mac**. If it says "Apple M1" (or M2, M3, etc.) download the Apple Silicon version. If it shows an Intel processor, download the Intel version.
