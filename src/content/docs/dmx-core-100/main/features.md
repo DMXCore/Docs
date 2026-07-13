@@ -84,7 +84,7 @@ title: Features
 * Remote control via MQTT for IoT integration
 * Remote control via MIDI (trigger via pads and knobs on equipment like Akai LPD8 and others)
 * Satellite support for Key Digital WP8 keypads and Stream Deck MK2
-* Import light fixture profiles from [Lightkey](https://www.lightkeyapp.com/en/fixtures) and [Daslight (SSL2)](https://store.daslight.com/en/ssl)
+* Import light fixture profiles from [Lightkey](https://www.lightkeyapp.com/en/fixtures), [Daslight (SSL2)](https://store.daslight.com/en/ssl), and [GDTF](https://gdtf-share.com), or generate a profile from the fixture manual with an [AI assistant](/dmx-core-100/lighting/ai-fixture-profiles)
 * Passthrough feature on DMX ports
 * Fade in/out and cross-fade cues, including masking for DMX channels that shouldn't fade
 * Bounce playback (play cues forward and backwards for simple seamless looping)

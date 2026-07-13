@@ -15,12 +15,13 @@ The DMX Core 100 ships with built-in generic profiles for common **RGB and RGBW*
 
 ### Importing Profiles
 
-The DMX Core 100 supports importing profiles from two popular fixture libraries:
+The DMX Core 100 supports importing profiles from three popular fixture libraries:
 
 - [Lightkey](https://www.lightkeyapp.com/en/fixtures) — Download the fixture profile file
 - [Daslight (SSL2)](https://store.daslight.com/en/ssl) — Download the SSL2 profile file
+- [GDTF Share](https://gdtf-share.com) — Download the GDTF (General Device Type Format) file, an open standard supported by many fixture manufacturers
 
-If neither library has your fixture — common with unbranded fixtures — an AI assistant can build a profile from photos of the fixture's manual. See [AI-Generated Fixture Profiles](/dmx-core-100/lighting/ai-fixture-profiles).
+If none of these libraries has your fixture — common with unbranded fixtures — an AI assistant can build a profile from photos of the fixture's manual. See [AI-Generated Fixture Profiles](/dmx-core-100/lighting/ai-fixture-profiles).
 
 To import a profile:
 

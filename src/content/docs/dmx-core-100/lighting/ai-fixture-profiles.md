@@ -3,7 +3,7 @@ title: AI-Generated Fixture Profiles
 description: Create a fixture profile from photos of the fixture's manual using an AI assistant
 ---
 
-Many light fixtures — especially unbranded ones — have no ready-made profile in the [Lightkey](https://www.lightkeyapp.com/en/fixtures) or [Daslight](https://store.daslight.com/en/ssl) libraries. Often the only documentation is a printed manual with a DMX channel table. The DMX Core 100 supports a JSON profile format designed so that an AI assistant (Claude, ChatGPT, Gemini, etc.) can create the profile for you directly from photos of that manual.
+Many light fixtures — especially unbranded ones — have no ready-made profile in the [Lightkey](https://www.lightkeyapp.com/en/fixtures), [Daslight](https://store.daslight.com/en/ssl), or [GDTF Share](https://gdtf-share.com) libraries. Often the only documentation is a printed manual with a DMX channel table. The DMX Core 100 supports a JSON profile format designed so that an AI assistant (Claude, ChatGPT, Gemini, etc.) can create the profile for you directly from photos of that manual.
 
 ## How It Works
 
