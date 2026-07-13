@@ -90,6 +90,7 @@ export default defineConfig({
                 { label: 'Zones', slug: 'dmx-core-100/lighting/zones' },
                 { label: 'Fixture Control', slug: 'dmx-core-100/lighting/fixture-control' },
                 { label: 'Fixture Setup', slug: 'dmx-core-100/lighting/fixture-setup' },
+                { label: 'AI-Generated Fixture Profiles', slug: 'dmx-core-100/lighting/ai-fixture-profiles' },
                 { label: 'Effects', slug: 'dmx-core-100/lighting/effects' },
                 { label: 'Passthrough', slug: 'dmx-core-100/lighting/passthrough' },
               ],

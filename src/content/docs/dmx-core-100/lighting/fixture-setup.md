@@ -20,6 +20,8 @@ The DMX Core 100 supports importing profiles from two popular fixture libraries:
 - [Lightkey](https://www.lightkeyapp.com/en/fixtures) — Download the fixture profile file
 - [Daslight (SSL2)](https://store.daslight.com/en/ssl) — Download the SSL2 profile file
 
+If neither library has your fixture — common with unbranded fixtures — an AI assistant can build a profile from photos of the fixture's manual. See [AI-Generated Fixture Profiles](/dmx-core-100/lighting/ai-fixture-profiles).
+
 To import a profile:
 
 1. Download the profile file from one of the supported libraries
