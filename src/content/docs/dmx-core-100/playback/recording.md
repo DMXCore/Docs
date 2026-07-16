@@ -50,6 +50,10 @@ The DMX Core 100 can record from the following input sources:
 | DMX-512 | Direct DMX input via optional 2-port DMX board |
 | KiNet | Color Kinetics network protocol |
 
+## Timing Accuracy
+
+Every incoming packet is timestamped when it arrives, so the recording preserves the original timing of the source. On the DMX Core 100 hardware unit this is always wire-accurate. When recording with the desktop software on Windows, wire-accurate timestamps require a one-time network adapter setting — see [Wire-Accurate Recording Timestamps](/dmx-core-100/desktop-software/windows#wire-accurate-recording-timestamps). Without it, recording still works with slightly less precise application-level timestamps.
+
 ## Input Triggers for Recording
 
 You can also configure [input triggers](/dmx-core-100/scheduling-automation/input-triggers) to start recording automatically when a specific event occurs — for example, when a DMX channel exceeds a threshold value, or when an OSC message is received.
