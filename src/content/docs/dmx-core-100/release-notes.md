@@ -5,10 +5,9 @@ description: Release notes and highlights
 
 | Date | Highlights |
 |------|------------|
-| 7/15/2026 | Improved recording stability and added new CLI tools for traffic generation |
+| 7/15/2026 | Improved recording and playback stability |
 | 7/14/2026 | Enhanced output pacing and added timed level ramps for smoother control |
 | 7/13/2026 | Improved OSC feedback and control surface responsiveness |
-| 7/11/2026 | Operator sliders now seed from target values for disabled surfaces |
 | 7/10/2026 | Timeline editor enhancements with waveform overlays and intensity profiles |
 | 7/10/2026 | Admin PIN recovery feature added for enhanced security |
 | 7/9/2026 | Web UI now supports per-user password login |
