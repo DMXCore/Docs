@@ -33,7 +33,7 @@ jobs:
           BITBUCKET_EMAIL: ${{ vars.BITBUCKET_EMAIL || secrets.BITBUCKET_EMAIL }}
           BITBUCKET_WORKSPACE: ${{ vars.BITBUCKET_WORKSPACE || secrets.BITBUCKET_WORKSPACE }}
           BITBUCKET_REPO_SLUG: ${{ vars.BITBUCKET_REPO_SLUG || secrets.BITBUCKET_REPO_SLUG }}
-          BITBUCKET_MAGNUS_REPO_SLUG: ${{ vars.BITBUCKET_MAGNUS_REPO_SLUG || secrets.BITBUCKET_MAGNUS_REPO_SLUG || 'magnusengine' }}
+          BITBUCKET_MAGNUSENGINE_REPO_SLUG: ${{ vars.BITBUCKET_MAGNUSENGINE_REPO_SLUG || secrets.BITBUCKET_MAGNUSENGINE_REPO_SLUG || vars.BITBUCKET_MAGNUS_REPO_SLUG || secrets.BITBUCKET_MAGNUS_REPO_SLUG }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SINCE_DATE: ${{ inputs.since_date }}
           GH_MODEL: ${{ inputs.model }}
@@ -75,24 +75,27 @@ jobs:
           api_token = os.environ.get('BITBUCKET_API_TOKEN', '').strip()
           workspace = os.environ.get('BITBUCKET_WORKSPACE', '').strip()
           repo_slug = os.environ.get('BITBUCKET_REPO_SLUG', '').strip()
-          magnus_repo_slug = os.environ.get('BITBUCKET_MAGNUS_REPO_SLUG', '').strip()
+          # Defaults to "magnusengine" based on https://bitbucket.org/dmxcore/magnusengine/src/main/
+          magnus_repo_slug = (
+              os.environ.get('BITBUCKET_MAGNUSENGINE_REPO_SLUG', '').strip()
+              or 'magnusengine'
+          )
 
           missing = [name for name, val in [
               ('BITBUCKET_EMAIL',     bb_email),
               ('BITBUCKET_API_TOKEN', api_token),
               ('BITBUCKET_WORKSPACE', workspace),
               ('BITBUCKET_REPO_SLUG', repo_slug),
-              ('BITBUCKET_MAGNUS_REPO_SLUG', magnus_repo_slug),
           ] if not val]
           if missing:
               print('Missing required env vars: ' + ', '.join(missing), file=sys.stderr)
               sys.exit(1)
 
-          def fetch_commits_from_repo(target_repo_slug, source_label):
+          def fetch_commits_from_repo(repo_slug, source_label):
               repo_commits = []
               url = (
                   f'https://api.bitbucket.org/2.0/repositories/'
-                  f'{workspace}/{target_repo_slug}/commits?pagelen=100'
+                  f'{workspace}/{repo_slug}/commits?pagelen=100'
               )
               stop = False
               while url and not stop:
@@ -124,9 +127,12 @@ jobs:
               return repo_commits
 
           commits = []
-          commits.extend(fetch_commits_from_repo(repo_slug, 'dmxcore'))
+          commits.extend(fetch_commits_from_repo(repo_slug, repo_slug))
+          # Avoid duplicate fetches if MagnusEngine slug is intentionally set to the same repo.
           if magnus_repo_slug != repo_slug:
-              commits.extend(fetch_commits_from_repo(magnus_repo_slug, 'magnusengine'))
+              commits.extend(fetch_commits_from_repo(magnus_repo_slug, magnus_repo_slug))
+          # Keep deterministic ordering when multiple repos have commits on the same date.
+          commits.sort(key=lambda c: (c['date'], c['source'], c['message']), reverse=True)
 
           if not commits:
               print('No new commits found – nothing to do.')
