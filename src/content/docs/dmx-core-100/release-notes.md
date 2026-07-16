@@ -5,6 +5,7 @@ description: Release notes and highlights
 
 | Date | Highlights |
 |------|------------|
+| 7/15/2026 | Major playback performance improvements: now supports 800 universes at 40 Hz, or 600 universes at 60 Hz |
 | 7/15/2026 | Improved recording and playback stability |
 | 7/14/2026 | Enhanced output pacing and added timed level ramps for smoother control |
 | 7/13/2026 | Improved OSC feedback and control surface responsiveness |

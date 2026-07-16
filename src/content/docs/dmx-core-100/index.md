@@ -3,7 +3,7 @@ title: DMX Core 100
 description: Documentation for the DMX Core 100 lighting controller
 ---
 
-DMX Core 100 is a powerful DMX lighting controller available as dedicated wall-mount hardware and as desktop software for Windows, macOS, and Linux. It features a full browser-based Web UI for configuration and control, and supports up to 200 universes of DMX output over ArtNet, sACN, KiNet, and USB.
+DMX Core 100 is a powerful DMX lighting controller available as dedicated wall-mount hardware and as desktop software for Windows, macOS, and Linux. It features a full browser-based Web UI for configuration and control, and supports up to 800 universes of DMX output over ArtNet, sACN, KiNet, and USB.
 
 ## Two Workflows
 

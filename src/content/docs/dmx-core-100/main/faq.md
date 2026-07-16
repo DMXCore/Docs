@@ -4,7 +4,7 @@ title: FAQ
 
 #### How many universes can the DMX Core 100 support?
 
-You can output up to 100 universes at 40 Hz. It's possible to run more in some scenarios.
+You can output up to 800 universes at 40 Hz, or 600 universes at 60 Hz. It's possible to run more in some scenarios.
 
 #### Can the DMX Core 100 run offline/disconnected?
 

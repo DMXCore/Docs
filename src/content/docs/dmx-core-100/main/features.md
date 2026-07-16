@@ -6,7 +6,7 @@ title: Features
 
 ### Main
 
-* Record and playback of dynamic DMX, up to 200 universes
+* Record and playback of dynamic DMX, up to 800 universes
 * Playback of WAV and FLAC audio files via USB or onboard optional audio board, with pause/scrub controls
 * Light fixture control with profiles and multi-function support
 * Multi-room/zone support with zone-based fixture grouping
@@ -45,7 +45,7 @@ title: Features
 * Uses max 8 watts of power
 * Black bezel (3D-printed, STL files are available to customers)
 * Aluminum mounting frame
-* 1 GbE Ethernet, supporting up to 100 universes at 40 Hz for network streams
+* 1 GbE Ethernet, supporting up to 800 universes at 40 Hz (or 600 universes at 60 Hz) for network streams
 * MicroSD and USB-A for file storage/bootloader updating
 * Supports USB DMX output via Enttec Pro/DMXking USB device (up to 4 universes)
 * Supports 2-port DMX512 board via piggy-back connector
@@ -74,7 +74,7 @@ title: Features
 
 ### Lighting
 
-* ArtNet, sACN (E1.31) and KiNet (v1 and v2) support up to 100 universes at 40 Hz
+* ArtNet, sACN (E1.31) and KiNet (v1 and v2) support up to 800 universes at 40 Hz (or 600 universes at 60 Hz)
 * Supports sync packets over ArtNet, sACN and KiNet for multi-universe sync
 * Supports sACN send priority
 * Support for USB devices (Enttec Pro and DMXking devices)

@@ -15,10 +15,10 @@ curl -s -L https://github.com/DMXCore/DmxCore100/raw/refs/heads/main/init-script
 
 #### IGMP Max Memberships for Multicast
 
-Since the DMX Core 100 software supports up to 100 universes we must tell the Linux subsystem to support that many multicast memberships. The recommended value is 400 to allow for advanced configurations with triggers and sync packets as well. Setting the value requires root privileges on the host system.
+Since the DMX Core 100 software supports up to 800 universes we must tell the Linux subsystem to support that many multicast memberships. The recommended value is 1024 to allow for advanced configurations with triggers and sync packets as well. Setting the value requires root privileges on the host system.
 
 ```bash
-sudo echo 400 > /proc/sys/net/ipv4/igmp_max_memberships
+sudo echo 1024 > /proc/sys/net/ipv4/igmp_max_memberships
 ```
 
 #### Network receive/send buffer memory

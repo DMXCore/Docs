@@ -34,7 +34,7 @@ Each output can be configured with:
 - **Start Channel** — Starting DMX channel within the universe
 - **Pixel Type** — Used for TPM2.net and built-in patterns (has no effect on cues and presets)
 
-The DMX Core 100 supports up to 100 universes at 40 Hz for network streams, and up to 4 universes via USB DMX devices (Enttec Pro, DMXking).
+The DMX Core 100 supports up to 800 universes at 40 Hz (or 600 universes at 60 Hz) for network streams, and up to 4 universes via USB DMX devices (Enttec Pro, DMXking).
 
 ### TPM2.net
 
