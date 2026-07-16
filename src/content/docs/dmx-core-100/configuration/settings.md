@@ -24,13 +24,43 @@ The Web UI provides access to all settings, organized into categories under the 
 
 | Category | Description |
 |----------|-------------|
-| **System** | Device nickname, show name, timezone, display theme, NTP server |
+| **System** | Device nickname, show name, timezone, location, display theme, NTP server |
 | **Network** | DHCP/static IP, netmask, gateway, hostname override |
 | **Protocol** | Output protocol (ArtNet/sACN), sync settings |
 | **Preferences** | Fade speed, auto log-off timeout, theme (light/dark) |
 | **Installer** | Installation-specific settings |
 | **Remote Control** | External control device configuration |
 | **White Label** | Custom branding (when enabled) |
+
+### Device Location
+
+The **Location (latitude, longitude)** setting under **Settings > System**
+tells the device where it is installed. It is used to calculate the local
+sunrise and sunset times for
+[schedules](/dmx-core-100/scheduling-automation/schedules#sunrise-and-sunset-times).
+The calculation runs entirely on the device — no internet connection is
+needed.
+
+Enter the coordinates as latitude and longitude separated by a comma, for
+example:
+
+```
+30.2672, -97.7431
+```
+
+Two easy ways to find your coordinates:
+
+- Use the **Find your coordinates** link below the setting (latlong.net):
+  search for your address and copy the values.
+- In Google Maps, right-click your location on the map and click the
+  coordinates at the top of the menu to copy them.
+
+Coordinates only need to be approximate — being off by a few miles changes
+sunrise/sunset by well under a minute. Make sure the **Timezone** setting is
+also correct, since sun times are shown and evaluated in the device's local
+time.
+
+<!-- SCREENSHOT: Web UI System settings showing the Location setting with the latlong.net link (dark mode) -->
 
 ### NTP Time Synchronization
 

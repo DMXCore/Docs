@@ -27,7 +27,9 @@ In the **Web UI**, go to **Lighting > Schedules**. The list shows all schedules 
 | **Start Date** | When the schedule starts |
 | **End Date** | Optional end date (inclusive) |
 | **Days** | Days of the week the schedule runs on |
-| **Start Time** | Time of day when the schedule triggers |
+| **Start** | How the start time is determined: a fixed time of day, or sunrise/sunset with an offset (Web UI) |
+| **Start Time** | Time of day when the schedule triggers (when Start is a fixed time) |
+| **End** | How the end time is determined: none, a fixed time, or sunrise/sunset with an offset (Web UI) |
 | **End Time** | Optional end time (cue playback may end earlier) |
 | **Output** | Which output to use (if multiple are configured) |
 | **Type** | Type of event: cue, preset, sound, timeline, or ambient preset |
@@ -38,6 +40,43 @@ In the **Web UI**, go to **Lighting > Schedules**. The list shows all schedules 
 Schedules are triggered on whole minutes (e.g., 8:00:00, 8:01:00).
 
 **Delete Schedule** will remove the schedule from the system. Note that changes don't take effect until you exit the settings screen.
+
+## Sunrise and Sunset Times
+
+Instead of a fixed time of day, a schedule can start and/or end at the
+calculated sunrise or sunset for your location — for example, turn lights on
+30 minutes before sunset and off 30 minutes after sunrise. The times are
+calculated on the device itself, so no internet connection is required, and
+they automatically track the seasons and daylight saving time.
+
+Sunrise/sunset schedules are configured in the **Web UI** schedule editor:
+
+1. Set the device location first, under **Settings > System** — see
+   [Device Location](/dmx-core-100/configuration/settings#device-location).
+2. In the schedule editor, change **Start** (and/or **End**) from
+   **Fixed time** to **Sunrise** or **Sunset**.
+3. Optionally enter an **Offset** in minutes: positive values are after the
+   event, negative values are before. For example, Start = **Sunset** with
+   offset **-30** triggers 30 minutes before sunset.
+
+While editing, the editor shows today's calculated sunrise and sunset for
+your location so you can sanity-check the configuration.
+
+<!-- SCREENSHOT: Web UI schedule editor with Start set to Sunset and the sun times hint visible (dark mode) -->
+
+A start of **Sunset** with an end of **Sunrise** creates an overnight
+schedule that runs through midnight, just like fixed times where the end is
+earlier than the start.
+
+Notes:
+
+- If no device location is configured, sunrise/sunset schedules do not run
+  and show a **Set device location for sunrise/sunset** status in the
+  schedule list.
+- Offsets can be up to ±720 minutes (12 hours). If an offset would push the
+  time past midnight, it is limited to the same day.
+- The schedule list and status displays always show the resolved time for
+  the current day (e.g., "Start at 8:03 PM").
 
 ## Snoozing Schedules
 
