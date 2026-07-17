@@ -5,9 +5,10 @@ description: Release notes and highlights
 
 | Date | Highlights |
 |------|------------|
-| 7/17/2026 | Web UI settings reorganized for easier navigation; branding leaks hidden |
+| 7/17/2026 | Web UI settings reorganized for easier navigation |
 | 7/16/2026 | New audio-reactive effects and enhanced scheduling with sunrise/sunset options |
 | 7/16/2026 | Schedules can now start/end at sunrise or sunset with an offset, using a new device location setting |
+| 7/16/2026 | Scripting feature |
 | 7/15/2026 | Major playback performance improvements: now supports 800 universes at 40 Hz, or 600 universes at 60 Hz |
 | 7/15/2026 | Improved recording and playback stability |
 | 7/14/2026 | Enhanced output pacing and added timed level ramps for smoother control |
