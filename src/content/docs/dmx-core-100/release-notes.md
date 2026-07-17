@@ -8,21 +8,30 @@ description: Release notes and highlights
 | 7/17/2026 | Web UI settings reorganized for easier navigation |
 | 7/16/2026 | New audio-reactive effects and enhanced scheduling with sunrise/sunset options |
 | 7/16/2026 | Schedules can now start/end at sunrise or sunset with an offset, using a new device location setting |
-| 7/16/2026 | Scripting feature |
+| 7/16/2026 | User scripting: write JavaScript to control fixtures, presets, cues, Control Values, OSC/MQTT, and schedules — run scripts from input triggers, timelines, lifecycle events, or as value transforms, with a built-in web editor |
+| 7/16/2026 | OSC and HTTP Output Events now execute |
 | 7/15/2026 | Major playback performance improvements: now supports 800 universes at 40 Hz, or 600 universes at 60 Hz |
 | 7/15/2026 | Improved recording and playback stability |
+| 7/15/2026 | Recording UI now shows recorded size and remaining recording space |
+| 7/14/2026 | Control Values: connect Symetrix/Q-SYS DSP audio levels to faders, custom menu sliders, control surfaces, input triggers, and timelines |
 | 7/14/2026 | Enhanced output pacing and added timed level ramps for smoother control |
-| 7/13/2026 | Improved OSC feedback and control surface responsiveness |
+| 7/13/2026 | Import fixture profiles from GDTF files and AI-generated JSON profiles |
+| 7/13/2026 | Guest-accessible custom menus in the Web UI — use menus without logging in |
+| 7/13/2026 | External MQTT broker connection setting |
+| 7/13/2026 | sACN send priority moved from system settings to a per-output setting |
+| 7/13/2026 | Improved OSC feedback and control surface responsiveness; Absolute/Relative input mode for sliders and press-and-hold auto-repeat for Up/Down keys |
 | 7/10/2026 | Timeline editor enhancements with waveform overlays and intensity profiles |
 | 7/10/2026 | Admin PIN recovery feature added for enhanced security |
 | 7/9/2026 | Web UI now supports per-user password login |
+| 7/8/2026 | New DMX Core Connect desktop app: give a device internet access through a computer on the same network |
 | 7/7/2026 | Restart/Reboot functionality restored for Balena devices |
 | 7/5/2026 | OSC triggers enhanced for better payload handling |
 | 7/2/2026 | Speed improvements for first boot and database operations |
 | 7/1/2026 | Web UI enhancements for smoother user experience |
 | 6/30/2026 | Velopack updates improve installation and signing processes |
 | 6/29/2026 | System state logging improved for better recovery |
-| 6/28/2026 | New global Merge Mode setting for cue management |
+| 6/29/2026 | macOS: fixed sACN/TPM2 "No route to host" errors after upgrading |
+| 6/28/2026 | New global Merge Mode setting and Playback Layers for per-cue concurrency control |
 | 6/27/2026 | Velopack update channel now defaults to installed channel |
 | 6/26/2026 | Restart/Reboot buttons hidden for non-Balena deployments |
 | 6/25/2026 | Improved macOS Velopack signing and bundling |
