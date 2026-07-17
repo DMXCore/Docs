@@ -111,6 +111,8 @@ export default defineConfig({
                 { label: 'Schedules', slug: 'dmx-core-100/scheduling-automation/schedules' },
                 { label: 'Input Triggers', slug: 'dmx-core-100/scheduling-automation/input-triggers' },
                 { label: 'Output Events', slug: 'dmx-core-100/scheduling-automation/output-events' },
+                { label: 'Scripting', slug: 'dmx-core-100/scheduling-automation/scripting' },
+                { label: 'Scripting API', slug: 'dmx-core-100/scheduling-automation/scripting-api' },
                 { label: 'Custom Menus', slug: 'dmx-core-100/scheduling-automation/custom-menus' },
                 { label: 'Favorites', slug: 'dmx-core-100/scheduling-automation/favorites' },
               ],
