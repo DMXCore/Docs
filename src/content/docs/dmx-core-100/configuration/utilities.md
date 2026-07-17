@@ -8,6 +8,10 @@ title: Utilities
 
 This is where you can record new cues and presets using settings from the configured output.
 
+#### Schedules
+
+Create and edit [schedules](/dmx-core-100/scheduling-automation/schedules) directly on the device (admin mode).
+
 #### Snooze Schedules
 
 ![Snooze schedules screen](https://github.com/DMXCore/DmxCore100/assets/407941/baf0baa1-cd6a-47b5-a5fe-be3792bebe7a)

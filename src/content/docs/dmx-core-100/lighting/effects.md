@@ -3,45 +3,53 @@ title: Effects
 description: Apply dynamic lighting effects to fixtures and zones
 ---
 
-The effects engine lets you apply dynamic, animated lighting effects to your fixtures. Effects run continuously, creating patterns like breathing, fire, pulsing, and more — without needing to record cues.
+The effects engine applies dynamic, animated looks to your fixtures — breathing, fire, chases, strobes, and audio-reactive movement — without recording cues. Effects run continuously until stopped, and can sync to a [metronome beat or live audio](/dmx-core-100/lighting/tempo).
 
-Effects are accessed through **Fixture Control** — select a fixture or zone and apply an effect from there. If you have multiple zones configured, each zone has its own effects controls.
+Effects are managed under **Lighting > Effects** in the Web UI, and applied from **Fixture Control** (per zone or globally) or via [presets](/dmx-core-100/playback/presets).
 
-<!-- SCREENSHOT: Web UI Effects list page (dark mode) -->
+<!-- SCREENSHOT: Effects list with generator column (dark mode) -->
 
 ## Built-in Effect Generators
-
-The DMX Core 100 includes several built-in effect generators:
 
 | Generator | Description |
 |-----------|-------------|
 | Breathing | Smooth fade up and down, like a breathing rhythm |
-| Chaser | Sequences fixtures through a configurable list of colors in order |
+| Chaser | Sequences fixtures through a configurable list of colors |
 | Crackling | Random flickering similar to crackling embers |
-| Fire | Simulates a flickering fire effect |
-| Flickering | Random brightness variations |
-| Full Sinus | Smooth sinusoidal wave pattern |
+| Fire | Simulates a flickering fire |
+| Flickering | Random brightness variations (candle-like) |
 | Lightning | Dramatic random flashes |
 | Pulse | Sharp on/off pulsing |
+| Rainbow | Cycles fixtures through the color spectrum |
+| Ramp Up/Down | Repeated rising or falling intensity ramps |
+| Sinus | Smooth sinusoidal wave |
+| Sound Reactive | Animates fixtures from the live audio spectrum |
+| Strobe | Classic strobe flashing |
+| TV Simulation | Mimics the shifting glow of a television |
+| Welding | Harsh, irregular bursts like arc welding |
 
-Each generator has configurable parameters that control speed, intensity, and behavior.
+Each generator has its own parameters — speed, length, attack/decay, smoothing, secondary intensity, colors — and a **Preview** so you can tune it in the editor. **Test** runs the effect live, and **Apply Globally** puts it on all fixtures immediately.
+
+## Sync Modes
+
+An effect's **Mode** controls its clock:
+
+- **Single / Double — Internal** — free-running on the effect's own speed
+- **Metronome — Downbeat / All Beats** — steps fire on the beat from the [Tempo](/dmx-core-100/lighting/tempo) page
+- **Audio Trigger** — steps, flashes, or pulses on hits detected in live audio
 
 ## Applying Effects
 
-Open **Fixture Control** and select the fixture or zone you want to animate. The effects controls appear in the panel. Choose a generator, configure the parameters, and the effect starts immediately.
-
-If you have multiple zones, effects can be applied per zone — navigate to a zone in the Fixture Control page to see its effects controls.
-
-<!-- SCREENSHOT: Web UI effect editor with generator selection and parameters (dark mode) -->
+Open **Fixture Control** and select the fixture or zone to animate — the effect controls appear in the panel and start immediately. With multiple zones configured, each zone has independent effect controls.
 
 ### Effect Assignment via Presets
 
-Effects can be saved as part of a [preset](/dmx-core-100/playback/presets). When the preset is activated, the effect starts running. When the preset is stopped, the effect stops. This is the main way to trigger effects from the touchscreen or via schedules and external control.
+Effects can be saved as part of a [preset](/dmx-core-100/playback/presets): activating the preset starts the effect, stopping it stops the effect. This is the main way to trigger effects from the touchscreen, schedules, custom menus, and external control.
 
 ## Effect Dimmer
 
-Each effect has a dimmer level that controls the overall intensity of the effect. You can set the dimmer at the global, zone, or fixture level, giving you fine-grained control over how strongly the effect is applied.
+Each effect has a dimmer that scales its intensity, settable at the global, zone, or fixture level.
 
 ## Fade Duration
 
-Effects support configurable fade durations that control how quickly the effect starts and stops. You can set a default fade duration for all effects, or override it per effect.
+Effects support configurable fade durations controlling how quickly they start and stop — a default for all effects, or per effect.

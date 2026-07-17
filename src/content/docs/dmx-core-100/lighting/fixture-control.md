@@ -11,7 +11,7 @@ Fixture Control is available on both the **touchscreen** (Main Menu > Fixture Co
 
 ## Controlling Fixtures
 
-The Fixture Control page displays all configured fixtures with their current state. Select one or more fixtures to control them:
+The Fixture Control page displays all configured fixtures with their current state. Three view modes — **Normal**, **Compact**, and **Diagnostic** — trade detail for density, and the **All Settings** toggle reveals every fixture function, including ones normally hidden. Select one or more fixtures to control them:
 
 - **Color** — Use the color picker to set RGB/RGBA values for fixtures that support color mixing
 - **Dimmer** — Adjust the intensity/brightness level
@@ -29,7 +29,7 @@ Fixtures with multiple instances of the same function type (e.g., multiple color
 When you adjust a fixture's properties through Fixture Control, these are applied as **modifiers** — runtime adjustments that layer on top of the fixture's base state. A badge indicator shows when a fixture has active modifiers.
 
 :::note
-Modifiers are temporary adjustments. To save a fixture state permanently, create a [Preset](/dmx-core-100/playback/presets).
+Modifiers are temporary adjustments. To save a fixture state permanently, create a [Preset](/dmx-core-100/playback/presets) — the **Build Preset** button captures the current look directly.
 :::
 
 ## Effects
@@ -38,4 +38,4 @@ The Fixture Control page also gives access to the [effects engine](/dmx-core-100
 
 ## Fade Speed
 
-You can configure the fade speed for fixture control changes in **Settings > Preferences** in the Web UI. This controls how quickly fixtures transition when you adjust their values.
+The fade speed for fixture control changes — how quickly fixtures transition when you adjust their values — is configurable, along with the priority the fixture engine outputs at (see [Layers & Priority](/dmx-core-100/playback/layers-and-priority)).

@@ -32,15 +32,20 @@ If your network supports mDNS/Bonjour, you can also access the device using its 
 
 ## Logging In
 
-1. Enter your **PIN** (the default admin PIN is `1111`)
-2. Click **Login**
+1. Select your **user** (a fresh device has just the Administrator)
+2. Enter your **PIN** (the default admin PIN is `1111`) — or your **password**, if your account uses password login
+3. Click **Login**
 
 After logging in, you'll see the [Web UI Dashboard](/dmx-core-100/getting-started/web-ui-dashboard).
 
 :::note
-The Web UI uses the same user accounts and PINs as the touchscreen. If you have multiple users configured, each user sees only the features their role permits. See [Users & Roles](/dmx-core-100/configuration/users-and-roles) for details.
+The Web UI uses the same user accounts as the touchscreen. Each user signs in with their PIN or, if configured, a per-user web password, and sees only the features their role permits. See [Users & Roles](/dmx-core-100/configuration/users-and-roles) for details.
+:::
+
+:::tip[Guest access]
+If a [custom menu](/dmx-core-100/scheduling-automation/custom-menus#guest-access) is marked **Available to Guests**, it can be used from the browser without logging in at all.
 :::
 
 ## Auto Log-off
 
-For security, the Web UI will automatically log you out after a period of inactivity. This timeout can be configured in **Settings > System** on the Web UI, or in **Settings** on the touchscreen.
+For security, the Web UI automatically logs you out after a period of inactivity. The timeout is configurable per user under [User Management](/dmx-core-100/configuration/users-and-roles).

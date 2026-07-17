@@ -8,12 +8,12 @@ Zones let you group fixtures together for easier management. For example, you mi
 ## Managing Zones
 
 :::tip[Web UI only]
-Zone management is available in the Web UI under **Settings > Zones**.
+Zone management is available in the Web UI under **Lighting Setup > Zones**. Enable **Multi-Zone Playback** under **Device > System** to turn on zone support.
 :::
 
 ### Creating a Zone
 
-1. In the Web UI, go to **Settings > Zones**
+1. In the Web UI, go to **Lighting Setup > Zones**
 2. Click **Add** to create a new zone
 3. Enter a name for the zone
 4. Assign fixtures to the zone by selecting from the available fixtures list
@@ -32,4 +32,5 @@ Once zones are configured, they appear throughout the system:
 - **[Presets](/dmx-core-100/playback/presets)** — Create zone-specific presets that only affect fixtures in a particular zone
 - **[Effects](/dmx-core-100/lighting/effects)** — Apply effects to an entire zone
 - **[Fixture Control](/dmx-core-100/lighting/fixture-control)** — Filter and control fixtures by zone
-- **[External Control](/dmx-core-100/external-control)** — Switch between zone levels on a single fader
+- **[Input Triggers](/dmx-core-100/scheduling-automation/input-triggers)** and **[Control Surfaces](/dmx-core-100/control-surfaces)** — Bind a fader or knob to a zone's intensity
+- **[Q-SYS & Symetrix](/dmx-core-100/external-control)** — Switch between zone levels on a single fader

@@ -3,11 +3,11 @@ title: Schedules
 description: Automate playback on a timed schedule
 ---
 
-Schedules let you automatically trigger cues, presets, sounds, or timelines at specific times. Use schedules for recurring lighting scenes — for example, turning on lobby lights at sunset or running a show every evening.
+Schedules let you automatically trigger cues, presets, sounds, timelines, or scripts at specific times. Use schedules for recurring lighting scenes — for example, turning on lobby lights at sunset or running a show every evening.
 
 ## Viewing Schedules
 
-On the **touchscreen**, navigate to **Main Menu > Schedules** to see the list. Select one to modify its settings, or choose **Add** to create a new schedule.
+On the **touchscreen**, navigate to **Main Menu > Utilities > Schedules** to see the list. Select one to modify its settings, or choose **Add** to create a new schedule.
 
 ![Schedules list](https://github.com/DMXCore/DmxCore100/assets/407941/bb842a30-a66a-4956-a8a4-72e2704865e0)
 
@@ -32,7 +32,7 @@ In the **Web UI**, go to **Lighting > Schedules**. The list shows all schedules 
 | **End** | How the end time is determined: none, a fixed time, or sunrise/sunset with an offset (Web UI) |
 | **End Time** | Optional end time (cue playback may end earlier) |
 | **Output** | Which output to use (if multiple are configured) |
-| **Type** | Type of event: cue, preset, sound, timeline, or ambient preset |
+| **Type** | Type of event: cue, preset, sound, timeline, ambient preset, or script |
 | **Play** | Which item to play at the scheduled time |
 | **Dimmer** | Brightness level for the scheduled playback |
 | **Stop at Completion** | When enabled, playback stops when the cue/sound finishes rather than looping |
@@ -51,7 +51,7 @@ they automatically track the seasons and daylight saving time.
 
 Sunrise/sunset schedules are configured in the **Web UI** schedule editor:
 
-1. Set the device location first, under **Settings > System** — see
+1. Set the device location first, under **Device > System** — see
    [Device Location](/dmx-core-100/configuration/settings#device-location).
 2. In the schedule editor, change **Start** (and/or **End**) from
    **Fixed time** to **Sunrise** or **Sunset**.

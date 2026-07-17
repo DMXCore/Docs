@@ -19,7 +19,7 @@ Change the theme on the touchscreen under **Main Menu > Settings > Display Theme
 
 ## Web UI
 
-Change the Web UI theme under **Settings > Preferences > Theme**.
+Change the Web UI theme with the light/dark toggle in the top bar.
 
 ### Light
 

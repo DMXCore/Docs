@@ -22,7 +22,7 @@ Admin Mode gives you access to change output settings, general settings, schedul
 
 In the Web UI, you log in with your PIN on the login page when you first connect. See [Connecting to the Web UI](/dmx-core-100/getting-started/connecting-to-the-web-ui) for details.
 
-The Web UI session stays active until you log out or the auto log-off timeout expires. You can configure the auto log-off timeout in **Settings > System**.
+The Web UI session stays active until you log out or the auto log-off timeout expires. You can configure the auto log-off timeout in **Device > System**.
 
 ## Multiple Users
 

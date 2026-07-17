@@ -7,7 +7,7 @@ The DMX Core 100 supports audio playback synchronized with your lighting. Sounds
 
 ## Audio Requirements
 
-Audio playback requires a USB sound card or the optional onboard audio board connected via the piggy-back connector. The system supports **WAV** and **FLAC** audio file formats.
+On the hardware unit, audio playback requires a USB sound card or the optional onboard audio board connected via the piggy-back connector; the [desktop software](/dmx-core-100/desktop-software) uses the computer's own audio output. Select the audio device and sample rate under **Device > System**. The system supports **WAV** and **FLAC** audio file formats.
 
 ## Managing Sounds
 

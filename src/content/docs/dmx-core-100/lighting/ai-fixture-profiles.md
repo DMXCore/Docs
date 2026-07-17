@@ -11,7 +11,7 @@ Many light fixtures — especially unbranded ones — have no ready-made profile
 2. **Ask the AI to build the profile.** Start a chat with an AI assistant that accepts images, attach the photos, and paste the prompt below.
 3. **Save the result.** The AI outputs a JSON file (for example `Unknown-RGBW-Bar.dmxprofile.json`). Save it to your computer.
 4. **Upload and import.** In the Web UI, go to **File Explorer**, select the **Transfer** folder, upload the file, then choose **Import** on it. (Or copy it to a USB stick and use **Utilities > File Explorer** on the touchscreen.)
-5. **Use the profile.** Add your fixture under **Settings > Fixtures** and select the new profile and the personality (channel mode) matching your fixture's setting.
+5. **Use the profile.** Add your fixture under **Lighting Setup > Fixtures** and select the new profile and the personality (channel mode) matching your fixture's setting.
 
 If the import reports problems, see [Fixing Validation Errors](#fixing-validation-errors) below.
 

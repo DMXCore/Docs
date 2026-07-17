@@ -10,7 +10,7 @@ This page covers the deeper Advatek-specific integration. For basic setup — co
 :::
 
 :::tip[Web UI only]
-Advatek device discovery and monitoring are available in the Web UI under **Settings > Device Status**.
+Advatek device discovery and monitoring are available in the Web UI under **Utilities > Device Monitor**.
 :::
 
 ![Device Status page for a discovered Advatek PixLite controller](/assets/device/advatek-device-status.png)
@@ -29,7 +29,7 @@ The DMX Core 100 talks to your Advatek controller in two ways:
 ## Discovering Your Controller
 
 1. Make sure the Advatek controller is powered on and connected to the same network as the DMX Core 100.
-2. In the Web UI, go to **Settings > Device Status**.
+2. In the Web UI, go to **Utilities > Device Monitor**.
 3. The DMX Core 100 scans the network and lists any Advatek controllers it finds, along with their model, firmware version, and IP address.
 4. Click a device to open its detail view.
 
@@ -81,7 +81,7 @@ To be alerted when a device changes unexpectedly, enable monitoring on the devic
 - **Firmware pinning** — Pin the current firmware version so you are notified if it changes (for example, after an unplanned update).
 - **Port configuration pinning** — Snapshot the port settings (universe, pixel count, color order) so you are notified if someone reconfigures the controller.
 
-Monitored devices are checked periodically for reachability, and events flow into the system for alerting and history. See [Output Monitor](/dmx-core-100/configuration/output-monitor) for related output diagnostics.
+Monitored devices are checked periodically for reachability, and events flow into the system for alerting and history — see [Device Monitor](/dmx-core-100/configuration/device-monitor). For real-time inspection of the DMX data itself, see the [Output Monitor](/dmx-core-100/configuration/output-monitor).
 
 ## Use Cases
 

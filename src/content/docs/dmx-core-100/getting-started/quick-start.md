@@ -24,13 +24,13 @@ See [Connecting to the Web UI](/dmx-core-100/getting-started/connecting-to-the-w
 
 An output tells the DMX Core 100 where to send DMX data — which protocol and universe. A new install already includes a default **sACN** output on **universe 1**, so for a simple single-universe setup you may not need to change anything here.
 
-1. In the Web UI, go to **Settings > Outputs** to review the configured outputs.
+1. In the Web UI, go to **Lighting Setup > Outputs** to review the configured outputs.
 2. If you need a different protocol or more universes, edit the default output or click **Add**: choose a **Protocol** (Art-Net or sACN are the most common for network setups), set the **Universe**, and save.
 
 See [Output Config](/dmx-core-100/configuration/output-config) for all options.
 
 :::tip[Using an Advatek controller?]
-If you're driving an Advatek PixLite pixel controller, you can skip the manual entry above. Go to **Settings > Device Status**, let the DMX Core 100 discover the controller, and click **Create Output** directly on the port you want to drive — the protocol and start universe are filled in from the device. See the [Advatek Lighting](/dmx-core-100/integrations/advatek-lighting) guide.
+If you're driving an Advatek PixLite pixel controller, you can skip the manual entry above. Go to **Utilities > Device Monitor**, let the DMX Core 100 discover the controller, and click **Create Output** directly on the port you want to drive — the protocol and start universe are filled in from the device. See the [Advatek Lighting](/dmx-core-100/integrations/advatek-lighting) guide.
 :::
 
 ## Path A — Control a Fixture and Save a Preset
@@ -40,7 +40,7 @@ If you're driving an Advatek PixLite pixel controller, you can skip the manual e
 The DMX Core 100 ships with built-in generic profiles for common **RGB and RGBW** fixtures — PAR washes and LED strips/pixels. For a simple RGB light you don't need to find or import a profile; just pick one of the built-ins when adding the fixture.
 
 1. *(Other fixtures only)* If your light isn't a generic RGB/RGBW type, import its profile first: download one from [Lightkey](https://www.lightkeyapp.com/en/fixtures), [Daslight (SSL2)](https://store.daslight.com/en/ssl), or [GDTF Share](https://gdtf-share.com), then upload it in the Web UI under **File Explorer**.
-2. Go to **Settings > Fixtures** and click **Add**.
+2. Go to **Lighting Setup > Fixtures** and click **Add**.
 3. Select the **Profile** — a built-in generic RGB/RGBW profile, or one you imported — and the **Personality** (channel mode), then set the **DMX address** and **universe** to match your physical fixture.
 4. Click **Save**.
 
@@ -58,7 +58,7 @@ See [Fixture Control](/dmx-core-100/lighting/fixture-control) and [Presets](/dmx
 ## Path B — Record and Play Back a Show
 
 :::tip[No lighting software handy?]
-To try playback right away without an external source, load ready-made example content: go to **Settings > Backup & Restore**, click **Create Demo Data**, select a cue or two, and create them. Then skip straight to [Play it back](#play-it-back) below.
+To try playback right away without an external source, load ready-made example content: go to **Backup & Restore**, click **Create Demo Data**, select a cue or two, and create them. Then skip straight to [Play it back](#play-it-back) below.
 :::
 
 ### Record a cue

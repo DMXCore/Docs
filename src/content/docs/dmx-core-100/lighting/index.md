@@ -25,8 +25,9 @@ The typical setup flow is:
 ## All Sections
 
 - [Fixture Setup](/dmx-core-100/lighting/fixture-setup) — Add and configure fixtures with profiles
+- [AI-Generated Fixture Profiles](/dmx-core-100/lighting/ai-fixture-profiles) — Build a profile from photos of the fixture's manual
 - [Fixture Control](/dmx-core-100/lighting/fixture-control) — Interactively control fixture colors, dimmers, and more
 - [Zones](/dmx-core-100/lighting/zones) — Organize fixtures into groups for zone-based control
 - [Effects](/dmx-core-100/lighting/effects) — Apply dynamic lighting effects to fixtures and zones
+- [Tempo & Audio Sync](/dmx-core-100/lighting/tempo) — Sync effects to a beat or live audio
 - [Passthrough](/dmx-core-100/lighting/passthrough) — DMX passthrough on the optional DMX-512 board
-- [Patterns](/dmx-core-100/lighting/patterns) — Built-in test patterns for output verification

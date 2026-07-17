@@ -4,7 +4,7 @@ title: Specifications
 
 * Internal storage: 16 GB of which about 15 GB is available for cues/presets
 * Power usage: Max 8 W
-* Screen size: 4.3"
+* Screen size: 4.3", or 7" on the larger model (same capabilities)
 * Interface: touch screen or rotary knob/encoder with push button
 * Power options: Power over Ethernet or 8–28 VDC via connector (max 0.5 A at 12 VDC)
 * Bezel color: Black (3D printed, STL files are available)

@@ -3,33 +3,27 @@ title: MQTT
 description: IoT integration via MQTT messaging protocol
 ---
 
-The DMX Core 100 supports MQTT (Message Queuing Telemetry Transport), a lightweight messaging protocol commonly used in IoT and building automation systems. MQTT integration allows you to trigger lighting actions from IoT devices and publish lighting state changes to other systems.
+The DMX Core 100 supports MQTT (Message Queuing Telemetry Transport), a lightweight messaging protocol common in IoT and building automation. MQTT lets IoT devices trigger lighting actions, and lets the DMX Core 100 publish its own state changes for other systems to react to.
 
-## Configuration
+## Broker Connection
 
-MQTT settings are available in the **Web UI** under **Settings > Protocol**.
+Connect to an external MQTT broker under **Control & Integrations > MQTT** in the Web UI:
 
-<!-- SCREENSHOT: Web UI MQTT configuration (dark mode) -->
+- **Enable External MQTT** — turn the broker connection on
+- **MQTT Server / Port** — the broker's hostname or IP (default port 1883)
+- **MQTT Username / Password** — credentials, if the broker requires them
 
-### Broker Connection
+<!-- SCREENSHOT: MQTT settings with external broker fields (dark mode) -->
 
-Configure the MQTT broker connection:
+## Ways to Use MQTT
 
-- **Broker address** — The hostname or IP address of your MQTT broker
-- **Port** — The broker port (default: 1883)
-- **Username / Password** — Credentials for broker authentication (if required)
-
-## MQTT Input Triggers
-
-You can create [input triggers](/dmx-core-100/scheduling-automation/input-triggers) that fire when a message is published to a specific MQTT topic. This lets you control the DMX Core 100 from any MQTT-capable device — smart buttons, sensors, home automation systems, etc.
-
-## MQTT Output Events
-
-[Output events](/dmx-core-100/scheduling-automation/output-events) can publish MQTT messages when actions occur on the DMX Core 100. For example, publish a message when a cue starts playing so other systems can react.
+- **Input triggers** — fire an action when a message is published to a topic, or drive a level from a numeric payload (Value mode). See [Input Triggers](/dmx-core-100/scheduling-automation/input-triggers).
+- **Output events** — publish a message when something happens on the DMX Core 100 (a cue starts, a schedule fires). See [Output Events](/dmx-core-100/scheduling-automation/output-events).
+- **Scripts** — publish from JavaScript with `dmx.mqtt.publish(topic, payload)`, e.g. to bridge lighting state into a home automation bus. See the [Scripting API](/dmx-core-100/scheduling-automation/scripting-api#messaging).
+- **MQTT output** — an [output](/dmx-core-100/configuration/output-config) can be of type MQTT, publishing DMX level data for downstream consumers such as Shelly RGBW devices (experimental).
 
 ## Use Cases
 
-- **Smart home integration** — Trigger lighting scenes from smart switches or sensors
-- **Building management** — Integrate with BMS systems that use MQTT
-- **IoT automation** — Coordinate lighting with other IoT devices
-- **Shelly devices** — Experimental support for controlling Shelly RGBW devices via MQTT
+- **Smart home integration** — trigger lighting scenes from smart switches or sensors
+- **Building management** — integrate with BMS systems that use MQTT
+- **IoT automation** — coordinate lighting with other IoT devices

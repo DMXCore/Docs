@@ -35,10 +35,10 @@ To import a profile:
 ## Adding Fixtures
 
 :::tip[Web UI only]
-Fixture setup is managed in the Web UI under **Settings > Fixtures**.
+Fixture setup is managed in the Web UI under **Lighting Setup > Fixtures**.
 :::
 
-1. Go to **Settings > Fixtures** in the Web UI
+1. Go to **Lighting Setup > Fixtures** in the Web UI
 2. Click **Add** to create a new fixture
 3. Select the **Profile** from the list of imported profiles
 4. Select the **Personality** (channel mode) — this determines which DMX channels the fixture uses
@@ -58,7 +58,7 @@ Some fixtures support custom configuration options beyond the standard profile s
 
 ## Managing Fixtures
 
-From the **Settings > Fixtures** page in the Web UI, you can:
+From the **Lighting Setup > Fixtures** page in the Web UI, you can:
 
 - **Edit** a fixture — Click the fixture name to modify its settings
 - **Enable/Disable** — Toggle a fixture on or off without deleting it
@@ -86,7 +86,7 @@ When editing a fixture, the system checks whether the fixture's assigned slot ha
 
 ## Exporting Fixtures
 
-You can export your fixture list from **Settings > Fixtures** in the Web UI in two formats:
+You can export your fixture list from **Lighting Setup > Fixtures** in the Web UI in two formats:
 
 - **Excel** — Full export with formatting, suitable for documentation
 - **CSV** — Lightweight export for spreadsheet tools and data processing

@@ -1,23 +1,38 @@
 ---
-title: External Control
-description: Control QSC Q-Sys and Symetrix DSP Cores
+title: Q-SYS & Symetrix
+description: Two-way integration with QSC Q-SYS and Symetrix DSP cores
 ---
 
-### General
+The DMX Core 100 integrates two ways with the two most common DSP platforms — the **Q-SYS** system from QSC and the **Symetrix** line of cores:
 
-The DMX Core 100 can act as a remote or GUI for two popular DSP cores: the Q-SYS system from QSC and the Symetrix line of cores. This allows an integrator to use the DMX Core 100 as an inexpensive UI to control full building automation. It's also possible to have the DSP control the lighting features of the DMX Core 100, like selecting presets and triggering cue playback. Both QSC and Symetrix offer the same features so this document covers both types of integrations.
+- **As a wall controller for the DSP** — the touchscreen displays buttons and faders wired to named controls on the DSP, giving an integrator an inexpensive UI for building automation: change audio inputs, ride levels, toggle power.
+- **As a lighting controller driven by the DSP** — the DSP (or anything that talks to it) selects presets, triggers cues, and rides lighting levels on the DMX Core 100.
 
-### Configuration
+Both platforms use the DSP's built-in control interface — no scripting or extra licenses required on the DSP side.
 
-As an admin, go to System Settings on the DMX Core 100. Under the **Plugins** header you'll find the setting called `QSC Q-SYS DSP Address` and `Symetrix Address` — this is where you enter the IP of your DSP Core.
+## Configuration
 
-![System Settings — plugin addresses](/assets/image%20(1)%20(1).png)
+1. In the Web UI, go to **Control & Integrations > Plugins**.
+2. Set the **External Control Type** (Q-Sys or Symetrix) and enter the **DSP address** for your core.
+3. Save. Connectivity is indicated in the touchscreen status bar — red means disconnected, white means connected.
 
-Once saved you'll have a new option under the Utilities menu called `QSC Q-SYS Remote` and `Symetrix Remote` respectively.
+<!-- SCREENSHOT: Plugins settings with External Control Type and DSP addresses (dark mode) -->
 
-![Utilities menu with remote options](/assets/image%20(2).png)
+## Control Values
 
-Now open the web UI of the DMX Core 100 by opening a browser and entering the IP of the device (supports both HTTP and HTTPS; we recommend HTTPS, but you must accept the self-signed certificate). You can find the IP in the About screen, or by holding down the clock for a few seconds. Login with your admin PIN and under **PLUGINS** you'll see **Q-SYS** and **Symetrix**. Select the type of system you have — this is where you configure what buttons should display on the screen. You also have to select which of the two systems to use under **Settings**. You'll find samples at the [public GitHub repository](https://github.com/DMXCore/DmxCore100/tree/main/samples), but here's a sample to get you started:
+For levels, selectors, and mutes, define [Control Values](/dmx-core-100/integrations/control-values) that map to the DSP's controller numbers. They can then be bound anywhere — custom menu sliders, control surface knobs, input triggers, timelines, and scripts — with two-way state sync against the DSP. This is the recommended way to bridge DSP audio controls into the system.
+
+## Touchscreen Remote Pages
+
+To build DSP control pages for the touchscreen, open **Q-SYS** or **Symetrix** under the Web UI's plugin settings and define the pages as JSON. Once configured, the remote appears on the device under **Utilities > QSC Q-SYS Remote** / **Symetrix Remote**.
+
+- Up to **4 columns** of controls mixing **buttons** and **faders**
+- **Multiple levels on a single fader** — switch between rooms/zones, with the push knob assignable to mute or zone switching
+- **Two-way updates** — current status and levels are reflected on all connected devices
+- **Customizable** buttons, icons, colors, and multiple pages accessible via [custom menus](/dmx-core-100/scheduling-automation/custom-menus)
+- **Dynamic reload** — saved changes appear on the touchscreen immediately, completely remotely
+
+You'll find complete samples in the [public GitHub repository](https://github.com/DMXCore/DmxCore100/tree/main/samples). Here's one to get started:
 
 ```json
 {
@@ -62,18 +77,6 @@ Now open the web UI of the DMX Core 100 by opening a browser and entering the IP
               "Name": "Apple TV",
               "Description": "Apple TV",
               "ControlId": "DMXCORE1_Input2"
-            },
-            {
-              "ControlType": "BUTTON",
-              "Name": "BluRay",
-              "Description": "BluRay Player",
-              "ControlId": "DMXCORE1_Input3"
-            },
-            {
-              "ControlType": "BUTTON",
-              "Name": "Input 4",
-              "Description": "Xbox",
-              "ControlId": "DMXCORE1_Input4"
             }
           ]
         },
@@ -93,8 +96,8 @@ Now open the web UI of the DMX Core 100 by opening a browser and entering the IP
 }
 ```
 
-Click **Save** and you should immediately see the changes on the touch screen. Connect the buttons/slider using named control IDs on your DSP in Q-Sys Designer/Composer. Connectivity to the DSP is indicated by this icon in the status bar: ![DSP connectivity icon](/assets/image%20(3).png). Red means disconnected, white means connected.
+Connect the buttons and sliders using named control IDs on your DSP in Q-Sys Designer / SymNet Composer.
 
-### Next Steps
+## Lock-Down Deployments
 
-From here you can set up the custom menu to only display the external control remote when in lock-down mode.
+Combine the remote pages with [lock-down mode](/dmx-core-100/configuration/settings) and a [custom menu](/dmx-core-100/scheduling-automation/custom-menus) so a wall-mounted unit only exposes the DSP remote — a dedicated room controller in a 2-gang box.

@@ -1,52 +1,48 @@
 ---
 title: Input Triggers
-description: Trigger actions from external signals
+description: Trigger actions and drive levels from external signals
 ---
 
-Input triggers let you start playback, recording, or other actions in response to external signals. For example, you can trigger a cue when a DMX channel exceeds a threshold, when an OSC message is received, or when an MQTT topic publishes a value.
+Input triggers make the DMX Core 100 react to the outside world — a DMX channel crossing a threshold, an OSC or MQTT message, an HTTP request, a contact closure. A trigger either **runs an action** (play a cue, apply a preset, run a script) or **drives a level** directly from the signal's value.
 
 :::tip[Web UI only]
-Input trigger configuration is available in the Web UI under **Settings > Input Triggers**.
+Input triggers are configured under **Control & Integrations > Input Triggers**.
 :::
 
 <!-- SCREENSHOT: Web UI input triggers list (dark mode) -->
-
-## Creating an Input Trigger
-
-1. In the Web UI, go to **Settings > Input Triggers**
-2. Click **Add** to create a new trigger
-3. Select the **Input Type** (see below)
-4. Configure the trigger conditions
-5. Set the **Action** — what should happen when the trigger fires
-6. Click **Save**
 
 ## Input Types
 
 | Type | Description |
 |------|-------------|
-| **DMX** | Triggers when a specific DMX channel reaches a threshold value. Configure the universe, channel, threshold level, and trigger mode (rising edge, falling edge, or both). |
-| **OSC** | Triggers when a specific OSC message is received on the configured port. Specify the OSC address pattern to match. |
-| **MQTT** | Triggers when a message is published to a specific MQTT topic. Requires [MQTT integration](/dmx-core-100/integrations/mqtt) to be configured. |
-| **HTTP** | Triggers via HTTP request to a specific endpoint. |
-| **TCP** | Triggers when data is received on a TCP port. |
-| **UDP** | Triggers when data is received on a UDP port. |
+| **Art-Net / sACN** | A DMX channel in an incoming network stream reaching a threshold |
+| **DMX Serial** | A DMX channel on the optional DMX-512 board's input |
+| **OSC** | An OSC message on the configured address |
+| **MQTT** | A message published to an MQTT topic (requires the [MQTT integration](/dmx-core-100/integrations/mqtt)) |
+| **HTTP** | An HTTP request to a path you define (e.g. `/hooks/party-mode`) |
+| **TCP / UDP** | Raw data arriving on a TCP or UDP port |
+| **Digital Input** | A physical contact closure / GPIO input |
 
-## Trigger Actions
+## Two Modes
 
-When a trigger fires, it can perform actions such as:
+- **On/Off — run an action.** The trigger fires its action when the signal arrives (or crosses the threshold).
+- **Value — set a level from the payload.** The numeric payload drives a target level continuously — a [Control Value](/dmx-core-100/integrations/control-values) (e.g. a Symetrix volume), the master dimmer, or a zone intensity. A wall fader sending OSC or DMX becomes a live level control.
 
-- Play a cue, preset, sound, or timeline
-- Activate or deactivate the [ambient preset](/dmx-core-100/playback/presets#ambient-preset)
-- Start recording
-- Stop playback
-- Toggle a schedule
+Value-mode triggers can name a **[Transform Script](/dmx-core-100/scheduling-automation/scripting#transform-scripts)** that reshapes the normalized 0–1 value before it lands — response curves, dead zones, thresholds.
+
+## Actions
+
+An On/Off trigger can: Apply Ambient Preset, Apply Preset, set/step a [Control Value](/dmx-core-100/integrations/control-values), Fade Out, Fire Output Event, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), Stop Playback, Tap Tempo, Toggle Mute, or Toggle Schedule.
+
+For complex logic — conditions, sequencing, payload parsing — use **Run Script**: the raw payload arrives in the script as `ctx.payload`.
 
 ## Trigger Settings
 
-- **Name** — Display name for the trigger
-- **Enabled** — Turn the trigger on or off without deleting it
-- **Code** — Unique identifier
+- **Code** — unique identifier (checked for duplicates)
+- **Name** — display name
+- **Enabled** — turn the trigger on or off without deleting it
+- **Address** — the OSC address, HTTP path, MQTT topic, port, or channel to match
 
-## Duplicate Code Detection
+## Recording Triggers
 
-The system checks for empty and duplicate trigger codes to prevent conflicts. Each trigger must have a unique, non-empty code.
+Starting a [recording](/dmx-core-100/playback/recording) from an external signal is configured on the Record page itself, as part of the recorder configuration.

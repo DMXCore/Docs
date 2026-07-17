@@ -18,14 +18,14 @@ if (sunset === null || ctx.now.minutesSinceMidnight >= sunset.minutesSinceMidnig
 ```
 
 :::tip[Web UI only]
-Scripts are created and edited in the Web UI under **Settings > Scripts**. Editing requires an administrator account.
+Scripts are created and edited in the Web UI under **Control & Integrations > Scripts**. Editing requires an administrator account.
 :::
 
 <!-- SCREENSHOT: Web UI script editor with source, Run On Events switches, and Last Run panel (dark mode) -->
 
 ## Creating a Script
 
-1. In the Web UI, go to **Settings > Scripts**
+1. In the Web UI, go to **Control & Integrations > Scripts**
 2. Click **Add New**
 3. Write the JavaScript in the **Source** editor
 4. Click **Save**, then **Run** to test it

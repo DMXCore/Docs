@@ -6,7 +6,7 @@ description: Capture DMX data as cues or presets
 The DMX Core 100 can record DMX data from external sources (lighting software, consoles, etc.) and save it as cues or presets for later playback.
 
 :::tip[No external source handy?]
-You don't need external lighting software to get started. Use **Create Demo Data** under **Settings > Backup & Restore** to load ready-made [demo cues, presets, sounds, and effects](/dmx-core-100/configuration/backup-and-restore#demo-data).
+You don't need external lighting software to get started. Use **Create Demo Data** under **Backup & Restore** to load ready-made [demo cues, presets, sounds, and effects](/dmx-core-100/configuration/backup-and-restore#demo-data).
 :::
 
 ## Recording on the Touchscreen
@@ -35,8 +35,9 @@ In the **Web UI**, go to **Utilities > Record**. The Web UI recording interface 
 
 <!-- SCREENSHOT: Web UI recording page with preview and input mapping (dark mode) -->
 
-- **Input mapping configuration** — Configure which input sources (ArtNet, sACN, DMX-512, KiNet) to listen to and which universes to capture
-- **Real-time monitoring** — View incoming DMX data as it arrives
+- **Input mapping configuration** — Configure which input source (ArtNet, sACN, DMX-512, KiNet) to listen to and how incoming universes map to slots
+- **Trigger** — Start recording manually, or automatically from an external signal (DMX threshold, HTTP, TCP, UDP, or OSC)
+- **Real-time monitoring** — View incoming DMX data as it arrives, with the recorded size and remaining recording space shown while recording
 - **Audio association** — Link an audio file to a cue during recording
 
 ## Input Sources
@@ -54,6 +55,6 @@ The DMX Core 100 can record from the following input sources:
 
 Every incoming packet is timestamped when it arrives, so the recording preserves the original timing of the source. On the DMX Core 100 hardware unit this is always wire-accurate. When recording with the desktop software on Windows, wire-accurate timestamps require a one-time network adapter setting — see [Wire-Accurate Recording Timestamps](/dmx-core-100/desktop-software/windows#wire-accurate-recording-timestamps). Without it, recording still works with slightly less precise application-level timestamps.
 
-## Input Triggers for Recording
+## Triggered Recording
 
-You can also configure [input triggers](/dmx-core-100/scheduling-automation/input-triggers) to start recording automatically when a specific event occurs — for example, when a DMX channel exceeds a threshold value, or when an OSC message is received.
+The recorder's **Trigger** setting starts recording automatically when a specific event occurs — for example, when a DMX channel exceeds a threshold value, or when an HTTP, TCP, UDP, or OSC message arrives. This is configured on the Record page as part of the recorder configuration.

@@ -12,7 +12,7 @@ Yes, the DMX Core 100 can run without internet access, but will not receive soft
 
 #### Can the DMX Core 100 be configured for static IP?
 
-The DMX Core 100 is configured for DHCP by default, but it is possible to change to a static IP. However, that process is currently not exposed in the UI and has to be done manually. Please contact us for more details.
+Yes. The DMX Core 100 is configured for DHCP by default; change to a static IP under **Device > Network** in the Web UI (IP address, netmask, and gateway). If a unit becomes unreachable because of a bad static configuration, see [Force DHCP mode](/dmx-core-100/troubleshooting/#force-dhcp-mode).
 
 #### I have a question that isn't answered here, or I have an issue with the product
 

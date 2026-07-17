@@ -25,7 +25,11 @@ To create a new user:
 4. Assign a **Role** that defines their permissions
 5. Click **Save**
 
-Each user logs in with their own PIN on both the touchscreen and the Web UI.
+Per-user options include:
+
+- **Web Login Method** — how the user signs in to the Web UI: their **PIN code** or a **password**. A password is the better choice for accounts used remotely; the touchscreen always uses the PIN.
+- **Auto log-off** — an inactivity timeout in minutes (0 = never), per user.
+- **Enabled** — disable an account without deleting it.
 
 ### User Tokens
 
@@ -33,38 +37,28 @@ Users can be given access tokens for programmatic access to the API. This is use
 
 ## Roles and Permissions
 
-Roles define what a user can do. Go to **User Management > Roles** to create and manage roles.
+Roles define what a user can do. The system ships with **Admin**, **Operator**, and **Standard** roles, and you can create your own under **User Management > Roles**.
 
-Each role is a set of permissions that can be individually toggled:
+Each role is a set of individually toggleable permissions covering:
 
-| Permission | Description |
-|------------|-------------|
-| Edit Cue / Delete Cue | Create, modify, and remove cues |
-| Edit Preset / Delete Preset | Create, modify, and remove presets |
-| Edit Effect | Create and modify effects |
-| Edit Timeline / Delete Timeline | Create, modify, and remove timelines |
-| Edit Schedule / Delete Schedule | Create, modify, and remove schedules |
-| Edit Sound / Delete Sound | Create, modify, and remove sounds |
-| Edit Input Trigger / Delete Input Trigger | Manage input triggers |
-| Edit Output Event / Delete Output Event | Manage output events |
-| Edit Output / Delete Output | Manage output configuration |
-| Edit Remote Control | Configure satellite devices |
-| Record | Access the recording feature |
-| Snooze Schedules | Temporarily disable schedules |
-| Device Operations | Restart services, reboot device |
-| Change Network Settings | Modify network configuration |
-| Change System Settings | Modify system-level settings |
-| Change Plugin Settings | Configure integration plugins |
-| Create Local Backup | Create backups to local storage |
-| Create Cloud Backup | Create backups to cloud storage |
-| User Management | Manage users and roles |
-| Change Custom Menu | Edit custom menu configuration |
-| File Explorer | Access the file browser |
+| Area | Permissions |
+|------|------------|
+| Content | Edit/Delete Cue, Preset, Effect, Timeline, Schedule, Sound |
+| Automation | Edit/Delete Input Trigger, Output Event; Snooze Schedules |
+| Control | Edit Remote Control (control surfaces and DSP remotes), Change Custom Menu |
+| Outputs | Edit/Delete Output, Record |
+| System | Device Operations (restart/reboot), Change Network Settings, Change System Settings, Change Plugin Settings |
+| Data | Create Local Backup, Create Cloud Backup, File Explorer |
+| Admin | User Management |
 
 :::note
 Non-admin users can rename and delete cues they created within 24 hours of creation, even without the full Edit/Delete Cue permissions.
 :::
 
+## Guests
+
+[Custom menus](/dmx-core-100/scheduling-automation/custom-menus#guest-access) marked **Available to Guests** can be used from the Web UI without any login — guests see only those menus and nothing else.
+
 ## Auto Log-off
 
-Both the touchscreen and Web UI support automatic log-off after a period of inactivity. Configure the timeout in **Settings > System**.
+Both the touchscreen and Web UI support automatic log-off after a period of inactivity, configurable per user.
