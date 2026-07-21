@@ -56,7 +56,7 @@ title: Features
 * Supports USB DMX output via Enttec Pro/DMXking USB device (up to 4 universes)
 * Supports 2-port DMX512 board via piggy-back connector
 * Support stereo audio playback via USB or audio interface board via piggy-back connector
-* Designed to be installed in a 2-gang electrical box
+* Designed to be installed in a 2-gang electrical box; optional [desk stand](https://dmxprosales.com/products/dmx-core-100-desk-stand) and [19" rack mount](https://dmxprosales.com/products/dmx-core-100-19-rack-mount) (3U) available
 
 ### Administration
 

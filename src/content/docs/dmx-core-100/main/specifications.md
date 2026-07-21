@@ -8,7 +8,7 @@ title: Specifications
 * Interface: touch screen or rotary knob/encoder with push button
 * Power options: Power over Ethernet or 8–28 VDC via connector (max 0.5 A at 12 VDC)
 * Bezel color: Black (3D printed, STL files are available)
-* Mounting: 2-gang electrical box or optional [desk stand](https://dmxprosales.com/products/dmx-core-100-desk-stand)
+* Mounting: 2-gang electrical box, optional [desk stand](https://dmxprosales.com/products/dmx-core-100-desk-stand), or optional [19" rack mount](https://dmxprosales.com/products/dmx-core-100-19-rack-mount) (3U, 4.3" model)
 * Universes: Up to 800 universes at 40 Hz, or 600 universes at 60 Hz
 * Supports USB DMX output via Enttec Pro/DMXking USB device (up to 4 universes)
 * Optional 2-port isolated DMX512 board, directly attached

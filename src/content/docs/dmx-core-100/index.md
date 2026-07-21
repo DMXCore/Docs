@@ -29,7 +29,7 @@ DMX Core 100 is available as **dedicated hardware** and as **desktop software** 
 
 ### Dedicated Hardware
 
-A standalone controller with a touchscreen — available in 4.3" and 7" models — mountable in a 2-gang electrical box or used freestanding with the optional [desk stand](https://dmxprosales.com/products/dmx-core-100-desk-stand). Powered over Ethernet (PoE) or 8-28 VDC input. Similar to Enttec S-PLAY, CueServer, and Pharos Control, but with a touch-friendly interface and complete remote access. See [Installation](/dmx-core-100/getting-started/installation) to get started.
+A standalone controller with a touchscreen — available in 4.3" and 7" models — mountable in a 2-gang electrical box, in a 19" rack with the optional [rack mount](https://dmxprosales.com/products/dmx-core-100-19-rack-mount), or used freestanding with the optional [desk stand](https://dmxprosales.com/products/dmx-core-100-desk-stand). Powered over Ethernet (PoE) or 8-28 VDC input. Similar to Enttec S-PLAY, CueServer, and Pharos Control, but with a touch-friendly interface and complete remote access. See [Installation](/dmx-core-100/getting-started/installation) to get started.
 
 ### Desktop Software
 

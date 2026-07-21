@@ -4,7 +4,10 @@ title: Installation
 
 The DMX Core 100 is designed to fit into a standard 2-gang electrical box and can be powered either by Power Over Ethernet, or with a 8–28 VDC power supply (not included).
 
-An optional [desk stand](https://dmxprosales.com/products/dmx-core-100-desk-stand) is also available for freestanding use on a desk, table, or shelf — no electrical box required.
+Two optional mounting accessories are also available:
+
+* A [desk stand](https://dmxprosales.com/products/dmx-core-100-desk-stand) for freestanding use on a desk, table, or shelf — no electrical box required.
+* A [19" rack mount](https://dmxprosales.com/products/dmx-core-100-19-rack-mount) that mounts the 4.3" DMX Core 100 in a standard 19" equipment rack, using 3U of rack height.
 
 #### Parts
 
