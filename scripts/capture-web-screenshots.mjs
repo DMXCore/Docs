@@ -98,6 +98,7 @@ const SHOTS = [
   { name: 'system-settings', path: '/settings/SYSTEM' },
   { name: 'touchscreen-settings', path: '/settings/PREFERENCES' },
   { name: 'custom-menus-list', path: '/custommenus' },
+  { name: 'file-explorer', path: '/fileexplorer' },
   // Utilities
   { name: 'audit-log', path: '/utilities/auditlog' },
   { name: 'device-monitor', path: '/device-monitor' },

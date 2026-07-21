@@ -11,13 +11,7 @@ A new install already includes a default **sACN** output on **universe 1**, so b
 
 ## Touchscreen
 
-On the touchscreen, navigate to **Main Menu > Output Config** to see the list of outputs.
-
-![Output Config screen](https://github.com/DMXCore/DmxCore100/assets/407941/b38029cf-e53f-4915-a4d6-88ee4d025df3)
-
-Click **Add** to create a new output. Select an existing output to edit its settings.
-
-![Output configuration detail](https://github.com/DMXCore/DmxCore100/assets/407941/31494897-eb63-4102-9b56-2aa5ecbf5c27)
+On the touchscreen, navigate to **Main Menu > Output Config** to see the list of outputs. Click **Add** to create a new output, or select an existing output to edit its settings.
 
 ## Web UI
 

@@ -9,15 +9,13 @@ Schedules let you automatically trigger cues, presets, sounds, timelines, or scr
 
 On the **touchscreen**, navigate to **Main Menu > Utilities > Schedules** to see the list. Select one to modify its settings, or choose **Add** to create a new schedule.
 
-![Schedules list](https://github.com/DMXCore/DmxCore100/assets/407941/bb842a30-a66a-4956-a8a4-72e2704865e0)
+![Schedules list](/assets/device/uno-schedules.png)
 
 In the **Web UI**, go to **Lighting > Schedules**. The list shows all schedules with their enabled/disabled status. Click a schedule name to edit it.
 
 ![Schedules list in the Web UI](/assets/web/schedules-list.png)
 
 ## Schedule Settings
-
-![Schedule settings](https://github.com/DMXCore/DmxCore100/assets/407941/d3873c31-d141-4a1a-b11f-e4b8eaa17858)
 
 | Setting | Description |
 |---------|-------------|

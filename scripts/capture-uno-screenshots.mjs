@@ -41,6 +41,8 @@ const SHOTS = [
   { screen: 'fixturecontrol', name: 'uno-fixture-control' },
   { screen: 'settings', name: 'uno-settings' },
   { screen: 'utilities', name: 'uno-utilities' },
+  { screen: 'utilities/schedules', name: 'uno-schedules' },
+  { screen: 'utilities/snooze schedules', name: 'uno-snooze' },
   { screen: 'about', name: 'uno-about' },
 ];
 
