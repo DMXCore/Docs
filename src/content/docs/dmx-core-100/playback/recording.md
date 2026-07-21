@@ -33,7 +33,7 @@ Use the **Stop** button to stop preview without capturing anything.
 
 In the **Web UI**, go to **Utilities > Record**. The Web UI recording interface provides additional features:
 
-<!-- SCREENSHOT: Web UI recording page with preview and input mapping (dark mode) -->
+![Recording page with the input mapping](/assets/web/record.png)
 
 - **Input mapping configuration** — Configure which input source (ArtNet, sACN, DMX-512, KiNet) to listen to and how incoming universes map to slots
 - **Trigger** — Start recording manually, or automatically from an external signal (DMX threshold, HTTP, TCP, UDP, or OSC)

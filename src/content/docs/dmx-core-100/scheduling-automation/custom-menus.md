@@ -19,7 +19,7 @@ Menus are designed under **Device > Custom Menus** in the Web UI. Each menu has:
 
 Menus can be exported and imported as JSON — see the [custom menu samples on GitHub](https://github.com/DMXCore/DmxCore100/tree/main/samples) for ready-made layouts.
 
-<!-- SCREENSHOT: Custom menu editor with the item list and item property panel (dark mode) -->
+![Custom menu editor — item list and item properties](/assets/web/custom-menu-editor.png)
 
 ## Menu Items
 

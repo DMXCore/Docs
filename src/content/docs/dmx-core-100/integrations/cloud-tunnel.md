@@ -17,8 +17,6 @@ When enabled, the DMX Core 100 establishes a secure outbound connection to the D
 
 Enable **Remote Access** under **Device > System** in the Web UI. The tunnel status is shown on the touchscreen's About screen.
 
-<!-- SCREENSHOT: Web UI cloud tunnel settings (dark mode) -->
-
 ## Requirements
 
 - The DMX Core 100 must have internet access

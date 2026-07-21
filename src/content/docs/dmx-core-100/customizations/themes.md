@@ -11,11 +11,11 @@ Change the theme on the touchscreen under **Main Menu > Settings > Display Theme
 
 ### Light
 
-![Home screen — light theme](/assets/device/home-screen-light.png)
+![Home screen — light theme](/assets/device/uno-home-light.png)
 
 ### Dark
 
-![Home screen — dark theme](/assets/device/home-screen-dark.png)
+![Home screen — dark theme](/assets/device/uno-home.png)
 
 ## Web UI
 
@@ -23,8 +23,8 @@ Change the Web UI theme with the light/dark toggle in the top bar.
 
 ### Light
 
-<!-- SCREENSHOT: Web UI dashboard in light theme -->
+![Web UI dashboard — light theme](/assets/web/dashboard-light.png)
 
 ### Dark
 
-<!-- SCREENSHOT: Web UI dashboard in dark theme -->
+![Web UI dashboard — dark theme](/assets/web/dashboard.png)

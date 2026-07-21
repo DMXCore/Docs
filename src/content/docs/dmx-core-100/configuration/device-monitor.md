@@ -9,7 +9,7 @@ The Device Monitor discovers hardware on your network and keeps an eye on it —
 The Device Monitor is available under **Utilities > Device Monitor**. (Earlier releases called this page *Device Status*.)
 :::
 
-<!-- SCREENSHOT: Device Monitor page with monitored devices and discovered devices lists (dark mode) -->
+![Device Monitor with discovered Advatek, DMXking, and Stream Deck devices](/assets/web/device-monitor.png)
 
 ## Discovering Devices
 

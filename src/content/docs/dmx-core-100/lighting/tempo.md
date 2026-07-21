@@ -5,7 +5,7 @@ description: Sync effects to a metronome beat or live audio
 
 Effects don't have to run on their own internal clock — they can fire on a musical beat or react to live audio. The **Tempo** page (under **Operation** in the Web UI) is the control center for both.
 
-<!-- SCREENSHOT: Tempo page with BPM/tap section and Audio Trigger levels (dark mode) -->
+![Tempo page — metronome BPM/tap and the audio trigger levels](/assets/web/tempo.png)
 
 ## Metronome
 

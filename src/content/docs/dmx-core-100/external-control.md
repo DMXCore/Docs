@@ -16,7 +16,7 @@ Both platforms use the DSP's built-in control interface — no scripting or extr
 2. Set the **External Control Type** (Q-Sys or Symetrix) and enter the **DSP address** for your core.
 3. Save. Connectivity is indicated in the touchscreen status bar — red means disconnected, white means connected.
 
-<!-- SCREENSHOT: Plugins settings with External Control Type and DSP addresses (dark mode) -->
+![Plugins settings with the External Control Type and DSP address](/assets/web/plugins-settings.png)
 
 ## Control Values
 

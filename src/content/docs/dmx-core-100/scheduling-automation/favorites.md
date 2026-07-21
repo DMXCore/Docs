@@ -11,7 +11,7 @@ In the **Web UI**, open the detail page for any cue, preset, sound, or timeline 
 
 On the **touchscreen**, favorites appear on the dashboard alongside the custom menu when configured.
 
-<!-- SCREENSHOT: Web UI favorites list (dark mode) -->
+![Favorites list](/assets/web/favorites.png)
 
 ## Accessing Favorites
 

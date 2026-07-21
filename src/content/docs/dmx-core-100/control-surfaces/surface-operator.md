@@ -5,7 +5,7 @@ description: Operate any control surface from the browser
 
 The **Surface Operator** page (under **Operation** in the Web UI sidebar) renders any configured [control surface](/dmx-core-100/control-surfaces) as a live, interactive panel in the browser. Every pad, knob, and slider works exactly like the physical control it mirrors, with the same real-time feedback.
 
-<!-- SCREENSHOT: Surface Operator view of a Stream Deck + showing button pads, knob sliders, and bank state (dark mode) -->
+![Surface Operator view of a TouchOSC panel — faders, rotaries, and pads](/assets/web/surface-operator.png)
 
 Pick a surface from the list and click **Operate**. The operator view shows each section of the surface — buttons as tappable pads with their configured colors and state, knobs and faders as sliders with live values — grouped and labeled just like the [surface configuration](/dmx-core-100/control-surfaces/configuring).
 

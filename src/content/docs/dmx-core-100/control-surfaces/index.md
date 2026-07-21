@@ -11,7 +11,7 @@ Earlier releases called these devices *satellites*. The feature has been rebuilt
 
 Control surfaces are managed in the Web UI under **Control & Integrations > Control Surfaces**. The list shows each surface's transport, binding, and live connection status.
 
-<!-- SCREENSHOT: Web UI Control Surfaces list showing transport, binding, and status columns (dark mode) -->
+![Control Surfaces list showing transport, binding, and status](/assets/web/control-surfaces-list.png)
 
 ## Surface Types
 

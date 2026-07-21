@@ -21,7 +21,7 @@ The top bar expands to show playback controls — tap the arrow to toggle it. Co
 
 In the **Web UI**, go to **Lighting > Cues**. The list shows duration and size, with play buttons and per-cue download. Click a cue name to open its detail page.
 
-<!-- SCREENSHOT: Web UI cue list showing columns and play button (dark mode) -->
+![Cues list in the Web UI](/assets/web/cues-list.png)
 
 :::note[Interface differences]
 - **Touchscreen**: Tap to play, long-hold for settings.

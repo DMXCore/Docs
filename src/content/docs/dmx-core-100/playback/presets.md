@@ -17,7 +17,7 @@ The top bar expands to show global controls — tap the arrow to toggle it. Cont
 
 In the **Web UI**, go to **Lighting > Presets**. Click the play icon to activate, or click the preset name to open its editor.
 
-<!-- SCREENSHOT: Web UI presets list with action buttons (dark mode) -->
+![Presets list in the Web UI](/assets/web/presets-list.png)
 
 ## Preset Types
 
@@ -65,7 +65,7 @@ The ambient preset is a persistent background state that is always active when n
 
 Mark presets as ambient candidates with the **Ambient** flag, then pick the active one on the **Operation > Ambient Presets** page (or via a [schedule](/dmx-core-100/scheduling-automation/schedules) or [input trigger](/dmx-core-100/scheduling-automation/input-triggers) with the *Apply Ambient Preset* action — for example, a warmer ambient state in the evening).
 
-<!-- SCREENSHOT: Ambient Presets page with an ambient candidate and Activate button (dark mode) -->
+![Ambient Presets page](/assets/web/ambient-presets.png)
 
 ### Temporary Presets
 

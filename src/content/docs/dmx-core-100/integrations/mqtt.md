@@ -13,7 +13,7 @@ Connect to an external MQTT broker under **Control & Integrations > MQTT** in th
 - **MQTT Server / Port** — the broker's hostname or IP (default port 1883)
 - **MQTT Username / Password** — credentials, if the broker requires them
 
-<!-- SCREENSHOT: MQTT settings with external broker fields (dark mode) -->
+![MQTT broker settings](/assets/web/mqtt-settings.png)
 
 ## Ways to Use MQTT
 

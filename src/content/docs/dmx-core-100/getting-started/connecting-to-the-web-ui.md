@@ -28,7 +28,7 @@ If your network supports mDNS/Bonjour, you can also access the device using its 
    - **HTTPS**: `https://<device-ip>:8001` (recommended)
 3. If using HTTPS, your browser may show a certificate warning for the self-signed certificate — this is expected. Accept the warning to continue.
 
-<!-- SCREENSHOT: Browser address bar with device IP and login screen (dark mode) -->
+![Web UI login — pick a user and enter the PIN](/assets/web/login.png)
 
 ## Logging In
 

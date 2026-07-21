@@ -7,7 +7,7 @@ The Fixture Control page provides real-time interactive control over your config
 
 Fixture Control is available on both the **touchscreen** (Main Menu > Fixture Control) and the **Web UI** (Lighting > Fixture Control). The Web UI provides additional capabilities including the effects engine and detailed per-fixture editing.
 
-<!-- SCREENSHOT: Web UI Fixture Control page showing color picker and fixture list (dark mode) -->
+![Fixture Control page](/assets/web/fixture-control.png)
 
 ## Controlling Fixtures
 

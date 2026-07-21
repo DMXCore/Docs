@@ -19,7 +19,7 @@ Zone management is available in the Web UI under **Lighting Setup > Zones**. Ena
 4. Assign fixtures to the zone by selecting from the available fixtures list
 5. Click **Save**
 
-<!-- SCREENSHOT: Web UI zone editor showing fixture assignment (dark mode) -->
+![Zones list in the Web UI](/assets/web/zones-list.png)
 
 ### Editing a Zone
 

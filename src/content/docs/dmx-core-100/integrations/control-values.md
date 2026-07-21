@@ -11,7 +11,7 @@ A typical install: a wall fader (via input trigger), a Stream Deck knob, and a c
 Control Values are managed under **Control & Integrations > Control Values**. The DSP connection itself is configured under **Control & Integrations > Plugins** — see [Q-SYS & Symetrix](/dmx-core-100/external-control).
 :::
 
-<!-- SCREENSHOT: Control Values list showing code, kind, mapping, and live value columns (dark mode) -->
+![Control Values list with live Symetrix status](/assets/web/control-values-list.png)
 
 ## Kinds
 

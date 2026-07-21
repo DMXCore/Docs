@@ -5,7 +5,7 @@ description: Stream Deck, MIDI controllers, Key Digital keypads, and OSC surface
 
 This page covers the device-specific details for each [control surface](/dmx-core-100/control-surfaces) type. To add a device, go to **Control & Integrations > Control Surfaces**, click **Add New**, and pick the surface type — the type cannot be changed later.
 
-<!-- SCREENSHOT: New Control Surface page showing the four surface type cards (dark mode) -->
+![New Control Surface — choosing a surface type and transport](/assets/web/control-surface-new.png)
 
 ## Stream Deck
 

@@ -5,7 +5,7 @@ description: Banks, sections, assignments, and appearance in the control surface
 
 Open a surface from **Control & Integrations > Control Surfaces** to edit it. The editor shows the live device connection status at the top, and is organized around three concepts: **banks**, **sections**, and **assignments**.
 
-<!-- SCREENSHOT: Control surface editor showing banks, sections tabs, and the assignment grid (dark mode) -->
+![Control surface editor with banks, sections, and the assignment grid](/assets/web/control-surface-editor.png)
 
 ## Sections
 

@@ -15,7 +15,7 @@ The system comes with a default admin account with PIN `1111`. It is recommended
 
 ## Managing Users
 
-<!-- SCREENSHOT: Web UI user management list (dark mode) -->
+![User management list](/assets/web/users-list.png)
 
 To create a new user:
 

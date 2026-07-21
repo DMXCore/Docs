@@ -27,7 +27,7 @@ For everything else — cues, presets, scripts, levels — define an [input trig
 
 Register the controllers you want two-way communication with under **Control & Integrations > OSC Clients** — each client has a name, a source IP (or *any*), and a **feedback port** (default 9000). Status messages — what's playing, current levels, active states — are sent back to each client's feedback port, so your TouchOSC layout's buttons and faders track reality.
 
-<!-- SCREENSHOT: OSC Clients list with source IP and feedback port columns (dark mode) -->
+![OSC Clients list with source IP and feedback port](/assets/web/osc-clients-list.png)
 
 ## Three Ways to Use OSC
 

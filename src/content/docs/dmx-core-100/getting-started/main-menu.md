@@ -2,7 +2,7 @@
 title: Main Menu
 ---
 
-![Main Menu](/assets/device/main-menu.png)
+![Main Menu](/assets/device/uno-main-menu.png)
 
 #### Cues
 

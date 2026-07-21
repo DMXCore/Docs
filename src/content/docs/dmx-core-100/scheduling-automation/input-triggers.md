@@ -9,7 +9,7 @@ Input triggers make the DMX Core 100 react to the outside world — a DMX channe
 Input triggers are configured under **Control & Integrations > Input Triggers**.
 :::
 
-<!-- SCREENSHOT: Web UI input triggers list (dark mode) -->
+![Input triggers list](/assets/web/input-triggers-list.png)
 
 ## Input Types
 

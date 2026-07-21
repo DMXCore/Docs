@@ -5,7 +5,7 @@ description: Overview of the Web UI layout and navigation
 
 After logging in, the Web UI displays the Dashboard — your central hub for monitoring and controlling the DMX Core 100.
 
-<!-- SCREENSHOT: Web UI dashboard showing sidebar and main content area (dark mode) -->
+![The Web UI dashboard and sidebar](/assets/web/dashboard.png)
 
 ## Layout
 
@@ -40,8 +40,6 @@ The Dashboard shows:
 - **Currently playing** items (cues, sounds, timelines) with playback controls (pause, stop, seek)
 - **System status** including device temperatures, CPU/memory usage, storage, and network speed
 - **Quick actions** for common operations, plus [favorites](/dmx-core-100/scheduling-automation/favorites) when configured
-
-<!-- SCREENSHOT: Web UI dashboard with playback status and system info (dark mode) -->
 
 ## Theme
 

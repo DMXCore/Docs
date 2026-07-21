@@ -6,15 +6,13 @@ title: Settings
 
 On the touchscreen, navigate to **Main Menu > Settings** to access basic system settings, including the output protocol, timezone, and available software releases.
 
-![Settings screen](https://github.com/DMXCore/DmxCore100/assets/407941/ebe9a874-3ad8-4b6d-86c9-cdd772e437b2)
+![Settings on the touchscreen](/assets/device/uno-settings.png)
 
 Tap a setting (or select it with the rotary knob) to change it in a popup. The top option with the X leaves the selection unchanged; the current selection is marked with a checkmark. Long-hold also cancels.
 
 ## Web UI Settings
 
 The Web UI exposes all settings, organized in the sidebar under **Lighting Setup**, **Control & Integrations**, and **Device**:
-
-<!-- SCREENSHOT: Web UI sidebar with the System groups expanded (dark mode) -->
 
 | Page | Description |
 |------|-------------|
@@ -69,7 +67,7 @@ sunrise/sunset by well under a minute. Make sure the **Timezone** setting is
 also correct, since sun times are shown and evaluated in the device's local
 time.
 
-<!-- SCREENSHOT: Web UI System settings showing the Location setting with the latlong.net link (dark mode) -->
+![System settings with the device Location field](/assets/web/system-settings.png)
 
 ### NTP Time Synchronization
 

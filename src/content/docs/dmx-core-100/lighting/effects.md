@@ -7,7 +7,7 @@ The effects engine applies dynamic, animated looks to your fixtures — breathin
 
 Effects are managed under **Lighting > Effects** in the Web UI, and applied from **Fixture Control** (per zone or globally) or via [presets](/dmx-core-100/playback/presets).
 
-<!-- SCREENSHOT: Effects list with generator column (dark mode) -->
+![Effects list showing each generator](/assets/web/effects-list.png)
 
 ## Built-in Effect Generators
 

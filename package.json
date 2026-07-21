@@ -6,11 +6,17 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "screenshots": "node scripts/capture-web-screenshots.mjs",
+    "screenshots:light": "node scripts/capture-web-screenshots.mjs --light",
+    "screenshots:uno": "node scripts/capture-uno-screenshots.mjs"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.32.0",
     "@lorenzo_lewis/starlight-utils": "^0.3.2",
     "astro": "^5.0.0"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.3.0"
   }
 }

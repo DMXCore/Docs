@@ -2,7 +2,7 @@
 title: Utilities
 ---
 
-![Utilities screen](https://github.com/DMXCore/DmxCore100/assets/407941/dc77e1f6-ad55-4ed1-a39d-0756e7ea56b5)
+![Utilities on the touchscreen](/assets/device/uno-utilities.png)
 
 #### Record
 

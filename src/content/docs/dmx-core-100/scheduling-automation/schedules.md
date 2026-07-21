@@ -13,7 +13,7 @@ On the **touchscreen**, navigate to **Main Menu > Utilities > Schedules** to see
 
 In the **Web UI**, go to **Lighting > Schedules**. The list shows all schedules with their enabled/disabled status. Click a schedule name to edit it.
 
-<!-- SCREENSHOT: Web UI schedules list (dark mode) -->
+![Schedules list in the Web UI](/assets/web/schedules-list.png)
 
 ## Schedule Settings
 
@@ -62,7 +62,7 @@ Sunrise/sunset schedules are configured in the **Web UI** schedule editor:
 While editing, the editor shows today's calculated sunrise and sunset for
 your location so you can sanity-check the configuration.
 
-<!-- SCREENSHOT: Web UI schedule editor with Start set to Sunset and the sun times hint visible (dark mode) -->
+![Schedule editor with a sunset start and the sun-times hint](/assets/web/schedule-editor.png)
 
 A start of **Sunset** with an end of **Sunrise** creates an overnight
 schedule that runs through midnight, just like fixed times where the end is
