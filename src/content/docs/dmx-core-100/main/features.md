@@ -2,7 +2,7 @@
 title: Features
 ---
 
-![DMX Core 100 Wall Controller](https://github.com/DMXCore/DmxCore100/assets/407941/f598b288-2556-4a73-a0f8-5af8776f89fa)
+![DMX Core 100 home screen](/assets/device/uno-home.png)
 
 ### Main
 
