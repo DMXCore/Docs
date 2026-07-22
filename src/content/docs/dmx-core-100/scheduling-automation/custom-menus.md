@@ -37,7 +37,7 @@ Each item has a name, optional subtitle/description, icon, background color, and
 
 ### Actions
 
-An Action item can: Apply Ambient Preset, Apply Preset, set/step a Control Value, Fade Out, Fire Output Event, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), Stop Playback, Tap Tempo, Toggle Mute, or Toggle Schedule.
+An Action item can: Apply Ambient Preset, Apply Preset, set/step a Control Value, Fade Out, Fire Output Event, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), Stop Playback, Tap Tempo, Toggle Mute, or Toggle Schedule.
 
 Per-item options:
 

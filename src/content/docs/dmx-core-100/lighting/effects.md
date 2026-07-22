@@ -37,6 +37,7 @@ An effect's **Mode** controls its clock:
 - **Single / Double — Internal** — free-running on the effect's own speed
 - **Metronome — Downbeat / All Beats** — steps fire on the beat from the [Tempo](/dmx-core-100/lighting/tempo) page
 - **Audio Trigger** — steps, flashes, or pulses on hits detected in live audio
+- **External Trigger** — steps, flashes, or pulses each time a **Step Effect** action fires — bind it to a [control surface](/dmx-core-100/control-surfaces) button (MIDI pad, Stream Deck key), an [input trigger](/dmx-core-100/scheduling-automation/input-triggers) (OSC, HTTP, DMX threshold, contact closure), a [custom menu](/dmx-core-100/scheduling-automation/custom-menus) button, or a [script](/dmx-core-100/scheduling-automation/scripting), and tap through a chaser's colors by hand. The action can target one effect or all effects listening for external triggers.
 
 ## Applying Effects
 

@@ -32,7 +32,7 @@ Value-mode triggers can name a **[Transform Script](/dmx-core-100/scheduling-aut
 
 ## Actions
 
-An On/Off trigger can: Apply Ambient Preset, Apply Preset, set/step a [Control Value](/dmx-core-100/integrations/control-values), Fade Out, Fire Output Event, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), Stop Playback, Tap Tempo, Toggle Mute, or Toggle Schedule.
+An On/Off trigger can: Apply Ambient Preset, Apply Preset, set/step a [Control Value](/dmx-core-100/integrations/control-values), Fade Out, Fire Output Event, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), Stop Playback, Tap Tempo, Toggle Mute, or Toggle Schedule.
 
 For complex logic — conditions, sequencing, payload parsing — use **Run Script**: the raw payload arrives in the script as `ctx.payload`.
 
