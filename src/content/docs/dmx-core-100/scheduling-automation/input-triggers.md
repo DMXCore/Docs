@@ -22,6 +22,19 @@ Input triggers are configured under **Control & Integrations > Input Triggers**.
 | **HTTP** | An HTTP request to a path you define (e.g. `/hooks/party-mode`) |
 | **TCP / UDP** | Raw data arriving on a TCP or UDP port |
 | **Digital Input** | A physical contact closure / GPIO input |
+| **Control Value** | A [Control Value](/dmx-core-100/integrations/control-values) changing on the DSP side — a Q-SYS or Symetrix button, fader, or selector |
+
+## Control Value Triggers
+
+A Control Value trigger makes the DSP the *source*: a wall panel button wired to a Symetrix controller plays a cue, a Q-SYS UCI fader crossing a threshold starts a scene. Pick the Control Value to watch; the remaining settings depend on its kind:
+
+- **Toggle** — fires when the control turns on.
+- **Level** — set a **Threshold %**; fires when the level rises to or above it, and re-arms when it drops below.
+- **Selector** — set a **Start Choice** (choice name or index); fires when that choice becomes active. An optional **Stop Choice** controls what clears the triggered state.
+
+Only changes made **on the DSP side** fire the trigger — changing the same Control Value from the DMX Core 100 itself (a custom menu slider, a schedule, another trigger) updates the state silently. On startup or reconnect the first reported value arms the trigger without firing, so a control that is already on never replays its edge.
+
+In **Value mode**, the Control Value's live 0–100% position drives the target level instead — turning any DSP fader into a live lighting fader.
 
 ## Two Modes
 

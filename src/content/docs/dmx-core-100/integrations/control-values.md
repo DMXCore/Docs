@@ -43,6 +43,10 @@ Anything that targets a Control Value can perform:
 
 Value-mode [input triggers](/dmx-core-100/scheduling-automation/input-triggers) feed their numeric payload straight into a Level — optionally shaped by a [transform script](/dmx-core-100/scheduling-automation/scripting#transform-scripts) for response curves and dead zones. Timed ramps fade a level smoothly to its target instead of jumping.
 
+## Triggering From the DSP
+
+Control Values also work in the other direction: a **Control Value [input trigger](/dmx-core-100/scheduling-automation/input-triggers#control-value-triggers)** watches a Control Value and fires an action when it changes *on the DSP side* — a wall panel button plays a cue, a source selector landing on "Party" starts a timeline, a level crossing a threshold brings up the lights. Changes made from the DMX Core 100 itself never fire these triggers, so bound sliders and schedules can share the same Control Value without feedback.
+
 ## Live State Everywhere
 
 The current value is shown in the Control Values list and is pushed to every bound surface: LED colors on keypads, knob displays on a Stream Deck, OSC feedback to TouchOSC layouts, highlight states on custom menu items, and `dmx.controlValue.get()`/`status()` in scripts.

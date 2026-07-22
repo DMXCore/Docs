@@ -6,7 +6,7 @@ description: Two-way integration with QSC Q-SYS and Symetrix DSP cores
 The DMX Core 100 integrates two ways with the two most common DSP platforms — the **Q-SYS** system from QSC and the **Symetrix** line of cores:
 
 - **As a wall controller for the DSP** — the touchscreen displays buttons and faders wired to named controls on the DSP, giving an integrator an inexpensive UI for building automation: change audio inputs, ride levels, toggle power.
-- **As a lighting controller driven by the DSP** — the DSP (or anything that talks to it) selects presets, triggers cues, and rides lighting levels on the DMX Core 100.
+- **As a lighting controller driven by the DSP** — a button, fader, or selector on the DSP (or anything that talks to it) selects presets, triggers cues, and rides lighting levels on the DMX Core 100 via [Control Value input triggers](/dmx-core-100/scheduling-automation/input-triggers#control-value-triggers).
 
 Both platforms use the DSP's built-in control interface — no scripting or extra licenses required on the DSP side.
 
@@ -21,6 +21,8 @@ Both platforms use the DSP's built-in control interface — no scripting or extr
 ## Control Values
 
 For levels, selectors, and mutes, define [Control Values](/dmx-core-100/integrations/control-values) that map to the DSP's controller numbers. They can then be bound anywhere — custom menu sliders, control surface knobs, input triggers, timelines, and scripts — with two-way state sync against the DSP. This is the recommended way to bridge DSP audio controls into the system.
+
+The same Control Values also carry the reverse direction: a [Control Value input trigger](/dmx-core-100/scheduling-automation/input-triggers#control-value-triggers) fires DMX Core actions when a control changes on the DSP side — no command strings or extra wiring, just the controller numbers you already mapped.
 
 ## Touchscreen Remote Pages
 
