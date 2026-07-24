@@ -37,6 +37,16 @@ The DMX Core 100 supports up to 800 universes at 40 Hz (or 600 universes at 60 H
 The [Device Monitor](/dmx-core-100/configuration/device-monitor) can create an output directly from a discovered Advatek controller's port, pre-filled with the right protocol and universes. See [Advatek Lighting](/dmx-core-100/integrations/advatek-lighting).
 :::
 
+## Toggling All Output
+
+The **Toggle Output** action switches all DMX output off and back on with a single button press. It is available wherever actions can be assigned: [custom menus](/dmx-core-100/scheduling-automation/custom-menus), [input triggers](/dmx-core-100/scheduling-automation/input-triggers), [control surfaces](/dmx-core-100/control-surfaces/configuring), and [schedules](/dmx-core-100/scheduling-automation/schedules).
+
+While output is toggled off, the device stops transmitting entirely — exactly as if every output had been disabled in the configuration. No blackout is sent, so receivers keep running on their own hold/fade behavior or seamlessly fall back to another sACN source.
+
+This is designed for redundant installations with a backup unit: keep the second DMX Core 100 running with its output toggled off, and switch over by toggling output off on the primary and on on the backup. The state is stored in the output configuration, so a unit that is parked as standby stays silent even after a power cycle.
+
+A button assigned to Toggle Output shows an active state while output is suppressed — glow in the Web UI, highlight on the touchscreen, and a lit key on a Stream Deck.
+
 ### TPM2.net
 
 TPM2.net is a UDP-based protocol for pixel LED controllers. Select **TPM2.net** as the output type and set the target IP address to send pixel data to compatible controllers, with a configurable pixel type (used for TPM2.net and built-in test patterns; it has no effect on cues and presets).
