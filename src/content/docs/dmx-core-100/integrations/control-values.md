@@ -8,7 +8,7 @@ Control Values connect named controls on a **QSC Q-SYS** or **Symetrix** DSP cor
 A typical install: a wall fader (via input trigger), a Stream Deck knob, and a custom menu slider all bound to the same `VOL1` Control Value, which maps to a Symetrix volume controller. Move any of them — or change the volume from the DSP side — and every surface updates.
 
 :::tip[Web UI]
-Control Values are managed under **Control & Integrations > Control Values**. The DSP connection itself is configured under **Control & Integrations > Plugins** — see [Q-SYS & Symetrix](/dmx-core-100/external-control).
+Control Values are managed under **Control & Integrations > Control Values**. The DSP connection itself is configured in the DSP plugin's settings on the [Plugins page](/dmx-core-100/integrations/plugins) — see [Q-SYS & Symetrix](/dmx-core-100/external-control).
 :::
 
 ![Control Values list with live Symetrix status](/assets/web/control-values-list.png)

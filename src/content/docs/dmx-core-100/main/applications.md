@@ -19,4 +19,4 @@ Control DMX light fixtures and pixels, set up presets and recorded patterns. Add
 
 ### Q-Sys and Symetrix Remote
 
-In a building using the QSC Q-Sys Core or Symetrix DSPs for automation you can install DMX Core 100s in 2-gang electrical boxes to allow access to named controls in the DSP — for example to change audio inputs, level and more. You can have different pages/screens for different rooms, maybe add permission settings to limit volume range in select locations and much more.
+In a building using the QSC Q-Sys Core or Symetrix DSPs for automation you can install DMX Core 100s in 2-gang electrical boxes to allow access to named controls in the DSP — for example to change audio inputs, level and more. Map the DSP's controls to [Control Values](/dmx-core-100/integrations/control-values), build custom menus per room with sliders and buttons bound to them, and lock units down so each location only exposes its own controls.

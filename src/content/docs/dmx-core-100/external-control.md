@@ -12,94 +12,33 @@ Both platforms use the DSP's built-in control interface — no scripting or extr
 
 ## Configuration
 
-1. In the Web UI, go to **Control & Integrations > Plugins**.
-2. Set the **External Control Type** (Q-Sys or Symetrix) and enter the **DSP address** for your core.
-3. Save. Connectivity is indicated in the touchscreen status bar — red means disconnected, white means connected.
+The integrations ship as [plugins](/dmx-core-100/integrations/plugins) included with every install:
 
-![Plugins settings with the External Control Type and DSP address](/assets/web/plugins-settings.png)
+1. In the Web UI, go to **Control & Integrations > Plugins**.
+2. Open the settings for the **Symetrix DSP** or **QSys DSP** plugin and enter the **Server address** of your core. The port only needs changing if it differs from the platform default (Symetrix 48631, Q-SYS 1702).
+3. Save Settings. The plugin connects immediately — no restart needed.
+
+Connectivity is indicated by the link icon next to the plugin's state on the Plugins page, and in the touchscreen status bar — red means disconnected, white means connected.
+
+![Plugins page with the Symetrix DSP settings open](/assets/web/plugins-settings.png)
 
 ## Control Values
 
-For levels, selectors, and mutes, define [Control Values](/dmx-core-100/integrations/control-values) that map to the DSP's controller numbers. They can then be bound anywhere — custom menu sliders, control surface knobs, input triggers, timelines, and scripts — with two-way state sync against the DSP. This is the recommended way to bridge DSP audio controls into the system.
+For levels, selectors, and mutes, define [Control Values](/dmx-core-100/integrations/control-values) that map to the DSP's controller numbers (Symetrix) or named controls (Q-SYS). They can then be bound anywhere — custom menu sliders, control surface knobs, input triggers, timelines, and scripts — with two-way state sync against the DSP. This is the way to bridge DSP audio controls into the system.
 
 The same Control Values also carry the reverse direction: a [Control Value input trigger](/dmx-core-100/scheduling-automation/input-triggers#control-value-triggers) fires DMX Core actions when a control changes on the DSP side — no command strings or extra wiring, just the controller numbers you already mapped.
 
-## Touchscreen Remote Pages
+## Building a Wall Controller
 
-To build DSP control pages for the touchscreen, open **Q-SYS** or **Symetrix** under the Web UI's plugin settings and define the pages as JSON. Once configured, the remote appears on the device under **Utilities > QSC Q-SYS Remote** / **Symetrix Remote**.
+To turn the touchscreen into a DSP remote, build a [custom menu](/dmx-core-100/scheduling-automation/custom-menus) from the Control Values you defined:
 
-- Up to **4 columns** of controls mixing **buttons** and **faders**
-- **Multiple levels on a single fader** — switch between rooms/zones, with the push knob assignable to mute or zone switching
-- **Two-way updates** — current status and levels are reflected on all connected devices
-- **Customizable** buttons, icons, colors, and multiple pages accessible via [custom menus](/dmx-core-100/scheduling-automation/custom-menus)
-- **Dynamic reload** — saved changes appear on the touchscreen immediately, completely remotely
+- **Sliders** bound to Level Control Values ride audio levels, with live two-way updates — move a fader on the DSP (or any other surface) and the menu follows
+- **Buttons** set Toggle or Selector Control Values: source select, mute, power
+- **Up/Down buttons** step a level by its configured step size
+- Mix in lighting controls freely — the same menu can play presets and cues next to the audio controls
 
-You'll find complete samples in the [public GitHub repository](https://github.com/DMXCore/DmxCore100/tree/main/samples). Here's one to get started:
-
-```json
-{
-  "Pages": [
-    {
-      "Code": "PAGE1",
-      "Title": "Q-Sys Sample page",
-      "Sections": [
-        {
-          "Title": "Power",
-          "Controls": [
-            {
-              "ControlType": "BUTTON",
-              "Name": "ON",
-              "Description": "Power On",
-              "ControlId": "AudioPower",
-              "SelectorValue": 0,
-              "Icon": "start"
-            },
-            {
-              "ControlType": "BUTTON",
-              "Name": "OFF",
-              "Description": "Power Off",
-              "ControlId": "AudioPower",
-              "SelectorValue": 1,
-              "Confirm": true
-            }
-          ]
-        },
-        {
-          "Title": "Input",
-          "Controls": [
-            {
-              "ControlType": "BUTTON",
-              "Name": "Cable TV",
-              "Description": "Cable TV Receiver",
-              "ControlId": "DMXCORE1_Input1",
-              "Icon": "input"
-            },
-            {
-              "ControlType": "BUTTON",
-              "Name": "Apple TV",
-              "Description": "Apple TV",
-              "ControlId": "DMXCORE1_Input2"
-            }
-          ]
-        },
-        {
-          "Title": "Volume",
-          "Controls": [
-            {
-              "ControlType": "LEVEL",
-              "Name": "Volume",
-              "ControlId": "DMXCORE1_Level"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-Connect the buttons and sliders using named control IDs on your DSP in Q-Sys Designer / SymNet Composer.
+Custom menus support multiple pages, custom colors and icons, and saved changes appear on the touchscreen immediately — completely remotely.
 
 ## Lock-Down Deployments
 
-Combine the remote pages with [lock-down mode](/dmx-core-100/configuration/settings) and a [custom menu](/dmx-core-100/scheduling-automation/custom-menus) so a wall-mounted unit only exposes the DSP remote — a dedicated room controller in a 2-gang box.
+Combine a custom menu with [lock-down mode](/dmx-core-100/configuration/settings) so a wall-mounted unit only exposes the DSP controls — a dedicated room controller in a 2-gang box.

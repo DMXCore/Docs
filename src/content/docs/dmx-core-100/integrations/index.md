@@ -8,6 +8,7 @@ The DMX Core 100 is built to talk to the rest of your installation — audio DSP
 * [MQTT](/dmx-core-100/integrations/mqtt) — IoT and building automation messaging
 * [Control Values](/dmx-core-100/integrations/control-values) — bridge Q-SYS and Symetrix audio controls to faders, menus, and triggers
 * [Q-SYS & Symetrix](/dmx-core-100/external-control) — use the DMX Core 100 as a DSP wall controller, and vice versa
+* [Plugins](/dmx-core-100/integrations/plugins) — manage the on-device integration plugins (the DSP integrations ship as plugins)
 * [Advatek Lighting](/dmx-core-100/integrations/advatek-lighting) — discover, drive, and monitor Advatek PixLite pixel controllers
 * [Cloud Tunnel](/dmx-core-100/integrations/cloud-tunnel) — remote access from anywhere
 * [Internet Passthrough](/dmx-core-100/integrations/internet-passthrough) — temporary internet access via a computer on the same network
