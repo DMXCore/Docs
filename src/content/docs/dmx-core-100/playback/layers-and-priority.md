@@ -14,6 +14,8 @@ Every cue has a **Playback Layer** number (default 0):
 
 Set the layer on each cue's detail page. See [Cues](/dmx-core-100/playback/cues).
 
+Timeline **sound events** have a **Layer** field with the same behavior: a starting sound stops other sounds on its layer with a short fade, while different layers (or no layer) mix freely. Timeline cue events can override their cue's layer per event. See [Hold Milestones](/dmx-core-100/playback/hold-milestones#looping-sounds--layers) for the classic looping-sound use.
+
 ## Merge Mode
 
 When two sources are active on the same universe with equal priority, the global **Merge Mode** decides how they combine:

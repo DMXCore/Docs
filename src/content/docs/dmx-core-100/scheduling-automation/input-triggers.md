@@ -49,6 +49,21 @@ An On/Off trigger can: Apply Ambient Preset, Apply Preset, set/step a [Control V
 
 For complex logic — conditions, sequencing, payload parsing — use **Run Script**: the raw payload arrives in the script as `ctx.payload`.
 
+## Press Modes
+
+Actions that respond to a button-like signal have a **Press Mode**:
+
+| Mode | Behavior |
+|------|----------|
+| **Normal** | Fires the action on each press |
+| **Toggle on/off** | First press starts, second press stops |
+| **Flash (hold)** | Active only while held — the preset applies on press and releases on release |
+| **Momentary (release continues past Hold)** | For **Play Timeline** actions: press plays the timeline, release continues it past a [Hold milestone](/dmx-core-100/playback/hold-milestones) |
+
+**Momentary** is the timeline counterpart to Flash — but where releasing a Flash button turns its preset *off*, releasing a Momentary button lets the timeline *continue*. It's how a tap handle, doorbell, or held button drives an interactive show: pull to start, hold to keep it going, let go to move on.
+
+With a **Normal**-mode Play Timeline action, pressing again while the timeline waits at a Hold also continues it — press to start, press again to continue.
+
 ## Trigger Settings
 
 - **Code** — unique identifier (checked for duplicates)

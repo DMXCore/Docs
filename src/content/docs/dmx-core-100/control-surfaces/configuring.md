@@ -32,7 +32,7 @@ Click a control in the section grid to edit its assignment:
 
 - **Label** — the text shown on LCD keys and in the operator view
 - **Action** — what the control does. Available action types: Apply Ambient Preset, Apply Preset, [Control Value](/dmx-core-100/integrations/control-values) (set / up / down), Fade Out, Fire Output Event, Next Bank / Switch Bank, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), Stop Playback, Tap Tempo, Toggle Mute, [Toggle Output](/dmx-core-100/configuration/output-config#toggling-all-output), and Toggle Schedule
-- **Press mode** — Normal, Toggle on/off, or Flash (hold)
+- **Press mode** — Normal, Toggle on/off, Flash (hold), or — for Play Timeline actions — Momentary (release continues past a [Hold milestone](/dmx-core-100/playback/hold-milestones))
 
 ### Appearance and LED feedback
 
