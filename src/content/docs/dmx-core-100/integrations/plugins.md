@@ -4,9 +4,9 @@ description: Manage the plugins that extend the DMX Core 100 with external integ
 ---
 
 Plugins extend the DMX Core 100 with integrations that run on the device
-itself. The DSP integrations ship as plugins out of the box — **Symetrix
-DSP** and **QSys DSP** are included with every install — and additional
-plugins can be added per device.
+itself. Three plugins ship out of the box with every install — **Symetrix
+DSP**, **QSys DSP**, and **[Home Assistant](/dmx-core-100/integrations/home-assistant)** —
+and additional plugins can be added per device.
 
 :::tip[Web UI]
 Plugins are managed under **Control & Integrations > Plugins**.

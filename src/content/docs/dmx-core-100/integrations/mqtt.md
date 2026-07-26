@@ -24,6 +24,7 @@ Connect to an external MQTT broker under **Control & Integrations > MQTT** in th
 
 ## Use Cases
 
+- **Home Assistant** — the broker connection is also what powers the native [Home Assistant integration](/dmx-core-100/integrations/home-assistant): the device and its scenes, dimmers, and switches appear in Home Assistant automatically
 - **Smart home integration** — trigger lighting scenes from smart switches or sensors
 - **Building management** — integrate with BMS systems that use MQTT
 - **IoT automation** — coordinate lighting with other IoT devices

@@ -148,6 +148,7 @@ export default defineConfig({
                 { label: 'Overview', slug: 'dmx-core-100/integrations' },
                 { label: 'OSC – Open Sound Control', slug: 'dmx-core-100/integrations/osc-open-sound-control' },
                 { label: 'MQTT', slug: 'dmx-core-100/integrations/mqtt' },
+                { label: 'Home Assistant', slug: 'dmx-core-100/integrations/home-assistant' },
                 { label: 'Control Values', slug: 'dmx-core-100/integrations/control-values' },
                 { label: 'Q-SYS & Symetrix', slug: 'dmx-core-100/external-control' },
                 { label: 'Plugins', slug: 'dmx-core-100/integrations/plugins' },
