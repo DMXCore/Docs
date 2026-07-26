@@ -12,8 +12,7 @@ Assistant plugin** publishes everything via MQTT Discovery.
 The same discovery format is understood by openHAB, ioBroker, and Domoticz,
 so those platforms work the same way.
 
-<!-- TODO screenshot: HA device page with the DMX Core entities
-![The DMX Core 100 device in Home Assistant](/assets/web/home-assistant-device.png) -->
+![The DMX Core 100 device in Home Assistant](/assets/web/home-assistant-device.png)
 
 ## What You Get
 
