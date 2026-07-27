@@ -5,6 +5,14 @@ description: Release notes and highlights
 
 | Date | Highlights |
 |------|------------|
+| 7/27/2026 | macOS: fixed duplicated Dock icons after updates |
+| 7/26/2026 | Timeline hold milestones: pause a timeline at a milestone and release it from input triggers, the operator page, or a momentary button press — ideal for pour/dispense and step-through shows |
+| 7/26/2026 | [Home Assistant integration](/dmx-core-100/integrations/home-assistant): bundled plugin exposes zones, presets, cues, schedules, and Control Values to Home Assistant via MQTT discovery |
+| 7/26/2026 | Improved update safety: the database is backed up and automatically restored if a software update fails |
+| 7/25/2026 | New [plugin system](/dmx-core-100/integrations/plugins) with a Plugins page (upload, enable/disable, per-plugin settings) and a stable public plugin SDK on NuGet; Symetrix and Q-SYS DSP integrations now ship as bundled plugins |
+| 7/24/2026 | New Toggle Output action to suppress all DMX output, for backup-unit switchover |
+| 7/24/2026 | Windows desktop app can start hidden in the system tray with the -tray switch |
+| 7/22/2026 | Control Value input triggers: fire actions when a DSP value crosses a threshold |
 | 7/22/2026 | New close-to-tray option for the Windows desktop app |
 | 7/21/2026 | Added External Trigger effect stepping for enhanced control |
 | 7/20/2026 | Unified brand color theme across Web UI and Uno UI |
