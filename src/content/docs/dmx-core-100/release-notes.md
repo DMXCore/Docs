@@ -8,7 +8,6 @@ description: Release notes and highlights
 | 7/22/2026 | New close-to-tray option for the Windows desktop app |
 | 7/21/2026 | Added External Trigger effect stepping for enhanced control |
 | 7/20/2026 | Unified brand color theme across Web UI and Uno UI |
-| 7/19/2026 | Improved stability with various bug fixes |
 | 7/17/2026 | Web UI settings reorganized for easier navigation |
 | 7/16/2026 | New audio-reactive effects and enhanced scheduling with sunrise/sunset options |
 | 7/16/2026 | Schedules can now start/end at sunrise or sunset with an offset, using a new device location setting |
