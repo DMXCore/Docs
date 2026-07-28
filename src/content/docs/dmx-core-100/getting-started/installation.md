@@ -19,7 +19,7 @@ The DMX Core 100 is delivered in a padded box with:
 * 4 flat screws to attach the main unit to the aluminum bracket
 * 4 countersunk black screws to attach the bezel to the main unit
 * Black bezel/frame
-* 2-port DMX512 board, if ordered
+* Expansion board (2-port DMX512, ADIO, or audio board), if ordered
 
 #### Unboxing
 
@@ -53,7 +53,7 @@ Here you'll see all the features of the rear of the main unit:
 * USB-B for connecting memory stick, USB-DMX adapter, MIDI controller or loading the initial bootloader to the unit
 * 8–28 VDC power connector (if not using PoE)
 * Battery holder for an optional CR1220 battery used to power the RTC clock when disconnected from power and internet
-* Board-to-board connector for DMX-512 expansion board
+* Board-to-board connector for expansion boards (DMX-512, ADIO, or audio board)
 * Flex cable that connects to the display board
 
 #### Optional DMX-512 board

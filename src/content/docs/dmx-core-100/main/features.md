@@ -23,7 +23,7 @@ title: Features
 * Installer-customizable menus with nested levels, sliders, icons, schedule toggles, status indicators, and guest access
 * Set up multiple units as remote control/server
 * Map outputs to a combination of ArtNet/sACN/KiNet/TPM2.net/DMX universes
-* Support for optional 2-port DMX-512 board
+* Support for optional 2-port DMX-512 board and [ADIO board](https://dmxprosales.com/products/dmx-core-100-audio-2xdmx-input-board-adio) (audio, 2x DMX-512, 4 digital inputs)
 * Record from any source (DMX-512, ArtNet, sACN or KiNet), plus live monitor feature
 * Input triggers via DMX, OSC, MQTT, HTTP, TCP, UDP, and digital inputs — run actions or drive levels
 * Output events for external notifications (MQTT, HTTP, OSC, serial) when actions occur
@@ -54,8 +54,8 @@ title: Features
 * 1 GbE Ethernet, supporting up to 800 universes at 40 Hz (or 600 universes at 60 Hz) for network streams
 * MicroSD and USB-A for file storage/bootloader updating
 * Supports USB DMX output via Enttec Pro/DMXking USB device (up to 4 universes)
-* Supports 2-port DMX512 board via piggy-back connector
-* Support stereo audio playback via USB or audio interface board via piggy-back connector
+* Supports 2-port DMX512 board or ADIO board (audio, 2x DMX-512, 4 digital inputs) via piggy-back connector
+* Support stereo audio playback via USB, or audio interface/ADIO board via piggy-back connector
 * Designed to be installed in a 2-gang electrical box; optional [desk stand](https://dmxprosales.com/products/dmx-core-100-desk-stand) and [19" rack mount](https://dmxprosales.com/products/dmx-core-100-19-rack-mount) (3U) available
 
 ### Administration
@@ -87,7 +87,7 @@ title: Features
 * Supports sync packets over ArtNet, sACN and KiNet for multi-universe sync
 * Per-output sACN send priority, with per-cue priority overrides and a global merge mode (Blend/HTP)
 * Support for USB devices (Enttec Pro and DMXking devices)
-* Optional 2-port isolated DMX512 board (mounts at the back of the DMX Core 100)
+* Optional 2-port isolated DMX512 board or ADIO board (audio, 2x DMX-512, 4 digital inputs) — both mount at the back of the DMX Core 100
 * Trigger cues, playback, presets, dimmers and more from QSC Q-Sys and Symetrix DSP cores
 * Remote control via OSC (to be used with software like TouchOSC and more), MQTT, and MIDI
 * Import light fixture profiles from [Lightkey](https://www.lightkeyapp.com/en/fixtures), [Daslight (SSL2)](https://store.daslight.com/en/ssl), and [GDTF](https://gdtf-share.com), or generate a profile from the fixture manual with an [AI assistant](/dmx-core-100/lighting/ai-fixture-profiles)

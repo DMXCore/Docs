@@ -12,3 +12,5 @@ title: Specifications
 * Universes: Up to 800 universes at 40 Hz, or 600 universes at 60 Hz
 * Supports USB DMX output via Enttec Pro/DMXking USB device (up to 4 universes)
 * Optional 2-port isolated DMX512 board, directly attached
+* Optional [ADIO board](https://dmxprosales.com/products/dmx-core-100-audio-2xdmx-input-board-adio) (audio, 2x DMX-512, 4 digital inputs), directly attached — 32-bit/192 kHz audio with concurrent balanced and unbalanced line outputs
+* Optional [audio board](https://dmxprosales.com/products/dmx-core-100-audio-board), directly attached — 32-bit/192 kHz audio with concurrent balanced and unbalanced line outputs
