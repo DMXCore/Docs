@@ -22,7 +22,7 @@ The Web UI exposes all settings, organized in the sidebar under **Lighting Setup
 | **Lighting Setup > Cue Fade Masks** | Which DMX channels participate in cue fades — see [Cues](/dmx-core-100/playback/cues#fade-mask) |
 | **Control & Integrations** | Triggers, events, [control surfaces](/dmx-core-100/control-surfaces), [control values](/dmx-core-100/integrations/control-values), OSC clients, MQTT, scripts, and [plugins](/dmx-core-100/integrations/plugins) |
 | **Device > System** | Timezone, location, language, device nickname, lock-down options, ports, audio (see below) |
-| **Device > Network** | DHCP/static IP, netmask, gateway, hostname override |
+| **Device > Network** | Per-adapter IP configuration — DHCP or static address, netmask, gateway (see below) |
 | **Device > Touchscreen** | Backlight and front LED brightness, display dim/off timeouts, navigation behavior, on-screen display options |
 | **Device > Custom Menus** | End-user menus — see [Custom Menus](/dmx-core-100/scheduling-automation/custom-menus) |
 | **Device > Installer** | Installation-specific settings and white-label branding |
@@ -68,6 +68,45 @@ also correct, since sun times are shown and evaluated in the device's local
 time.
 
 ![System settings with the device Location field](/assets/web/system-settings.png)
+
+### Device > Network
+
+**Device > Network** lists the network adapters the DMX Core 100 has, one card
+per adapter. Each card shows the adapter name and its system interface name, a
+**Connected** / **Not connected** badge, and — when connected — the current IP
+address, whether it came from **DHCP** or is **Static**, and the gateway.
+
+Under **IP settings** on each card:
+
+- **Use DHCP** — on by default. The address is assigned by your network.
+- Turn **Use DHCP** off to enter an **IP address**, **Netmask** and
+  **Gateway** yourself, then press **Apply**.
+
+IP settings can only be applied while the adapter is connected; on a
+disconnected adapter the **Apply** button is unavailable and the page says so.
+
+:::caution
+Changing the IP settings of the adapter you are currently connected through
+will drop your connection to the Web UI. You will need to reconnect using the
+new address.
+:::
+
+If a bad static configuration makes a unit unreachable, see
+[Force DHCP mode](/dmx-core-100/troubleshooting/#force-dhcp-mode).
+
+**Override Host Name** and **Custom NTP Server** are not on this page — follow
+the **network settings** link at the bottom of it to reach them.
+
+On the touchscreen the same per-adapter configuration is under
+**Main Menu > Settings > Network Adapters...**.
+
+#### If no Wi-Fi adapter is present
+
+A DMX Core 100 with no wireless adapter shows an extra card reading **No Wi-Fi
+adapter detected**, below the wired adapter. This is informational — the card
+appears whenever the device has no wireless hardware, which is the normal state
+for a standard unit, and nothing on the page is broken or missing because of it.
+Wired configuration is unaffected.
 
 ### NTP Time Synchronization
 
