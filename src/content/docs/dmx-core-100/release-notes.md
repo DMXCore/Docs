@@ -10,7 +10,6 @@ description: Release notes and highlights
 | 7/28/2026 | Fixed device discovery (mDNS) reliability on multi-adapter and multi-homed networks |
 | 7/27/2026 | Mute and Toggle Output trigger actions now support Set To (Toggle/On/Off) |
 | 7/27/2026 | DMX Core Connect: more reliable Internet Passthrough — picks a reachable helper address and steps aside automatically when the device already has internet |
-| 7/27/2026 | macOS: fixed duplicated Dock icons after updates |
 | 7/26/2026 | Timeline hold milestones: pause a timeline at a milestone and release it from input triggers, the operator page, or a momentary button press — ideal for pour/dispense and step-through shows |
 | 7/26/2026 | [Home Assistant integration](/dmx-core-100/integrations/home-assistant): bundled plugin exposes zones, presets, cues, schedules, and Control Values to Home Assistant via MQTT discovery |
 | 7/26/2026 | Improved update safety: the database is backed up and automatically restored if a software update fails |
