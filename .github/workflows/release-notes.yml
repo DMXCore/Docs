@@ -10,10 +10,10 @@ on:
         required: false
         type: string
       model:
-        description: GitHub Models model name to use for summarisation.
+        description: Anthropic model to use for summarisation.
         required: false
         type: string
-        default: openai/gpt-4o-mini
+        default: claude-opus-5
 
 jobs:
   generate:
@@ -34,9 +34,9 @@ jobs:
           BITBUCKET_WORKSPACE: ${{ vars.BITBUCKET_WORKSPACE || secrets.BITBUCKET_WORKSPACE }}
           BITBUCKET_REPO_SLUG: ${{ vars.BITBUCKET_REPO_SLUG || secrets.BITBUCKET_REPO_SLUG }}
           BITBUCKET_MAGNUSENGINE_REPO_SLUG: ${{ vars.BITBUCKET_MAGNUSENGINE_REPO_SLUG || secrets.BITBUCKET_MAGNUSENGINE_REPO_SLUG || vars.BITBUCKET_MAGNUS_REPO_SLUG || secrets.BITBUCKET_MAGNUS_REPO_SLUG }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           SINCE_DATE: ${{ inputs.since_date }}
-          GH_MODEL: ${{ inputs.model }}
+          ANTHROPIC_MODEL: ${{ inputs.model }}
         run: |
           cat > /tmp/gen_notes.py << 'PYEOF'
           import os, json, re, sys, base64, urllib.request, urllib.error
@@ -179,33 +179,41 @@ jobs:
               f'New commits to summarise:{commits_block}'
           )
 
-          # ── Call GitHub Models ────────────────────────────────────────────────
-          github_token = os.environ['GITHUB_TOKEN']
-          model = os.environ.get('GH_MODEL', '').strip() or 'openai/gpt-4o-mini'
-          # The new GitHub Models endpoint requires publisher-namespaced model IDs.
-          if '/' not in model:
-              model = f'openai/{model}'
+          # ── Call the Anthropic API ────────────────────────────────────────────
+          anthropic_api_key = os.environ.get('ANTHROPIC_API_KEY', '').strip()
+          if not anthropic_api_key:
+              print('Missing required env var: ANTHROPIC_API_KEY', file=sys.stderr)
+              sys.exit(1)
+          model = os.environ.get('ANTHROPIC_MODEL', '').strip() or 'claude-opus-5'
           payload = json.dumps({
               'model': model,
+              'max_tokens': 16000,
               'messages': [{'role': 'user', 'content': prompt}],
-              'temperature': 0.3,
           }).encode()
 
           req = urllib.request.Request(
-              'https://models.github.ai/inference/chat/completions',
+              'https://api.anthropic.com/v1/messages',
               data=payload, method='POST',
           )
-          req.add_header('Authorization', f'Bearer {github_token}')
+          req.add_header('x-api-key', anthropic_api_key)
+          req.add_header('anthropic-version', '2023-06-01')
           req.add_header('Content-Type', 'application/json')
 
           try:
               with urllib.request.urlopen(req) as resp:
                   result = json.loads(resp.read())
           except urllib.error.HTTPError as e:
-              print(f'GitHub Models API error {e.code}: {e.read().decode()}', file=sys.stderr)
+              print(f'Anthropic API error {e.code}: {e.read().decode()}', file=sys.stderr)
               sys.exit(1)
 
-          raw = result['choices'][0]['message']['content'].strip()
+          if result.get('stop_reason') == 'refusal':
+              print('Anthropic API declined the request (stop_reason: refusal).', file=sys.stderr)
+              sys.exit(1)
+
+          raw = ''.join(
+              block['text'] for block in result.get('content', [])
+              if block.get('type') == 'text'
+          ).strip()
           # Strip markdown code fences if the model wrapped the JSON
           raw = re.sub(r'^```[^\n]*\n', '', raw)
           raw = re.sub(r'\n```$', '', raw.strip())
