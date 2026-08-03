@@ -6,6 +6,10 @@ description: Release notes and highlights
 | Date | Highlights |
 |------|------------|
 | 8/3/2026 | [Channel Rules](/dmx-core-100/playback/channel-rules): cap, scale, or copy (multipatch) DMX channels during cue playback — tame too-bright recordings or mirror channels to fixtures added after the show was recorded, without modifying the cue files |
+| 7/28/2026 | USB Wi-Fi adapter support and a new per-adapter [Device > Network page](/dmx-core-100/configuration/settings): join Wi-Fi networks (including hidden SSIDs) and configure DHCP/static addressing per adapter, from both the web and touchscreen UIs |
+| 7/28/2026 | Fixed device discovery (mDNS) reliability on multi-adapter and multi-homed networks |
+| 7/27/2026 | Mute and Toggle Output trigger actions now support Set To (Toggle/On/Off) |
+| 7/27/2026 | DMX Core Connect: more reliable Internet Passthrough — picks a reachable helper address and steps aside automatically when the device already has internet |
 | 7/27/2026 | macOS: fixed duplicated Dock icons after updates |
 | 7/26/2026 | Timeline hold milestones: pause a timeline at a milestone and release it from input triggers, the operator page, or a momentary button press — ideal for pour/dispense and step-through shows |
 | 7/26/2026 | [Home Assistant integration](/dmx-core-100/integrations/home-assistant): bundled plugin exposes zones, presets, cues, schedules, and Control Values to Home Assistant via MQTT discovery |
@@ -16,6 +20,7 @@ description: Release notes and highlights
 | 7/22/2026 | Control Value input triggers: fire actions when a DSP value crosses a threshold |
 | 7/22/2026 | New close-to-tray option for the Windows desktop app |
 | 7/21/2026 | Added External Trigger effect stepping for enhanced control |
+| 7/20/2026 | Seamless cue and timeline loops: no more blackout frame at the loop point — playback holds the last frame through transitions and restarts |
 | 7/20/2026 | Unified brand color theme across Web UI and Uno UI |
 | 7/17/2026 | Web UI settings reorganized for easier navigation |
 | 7/16/2026 | New audio-reactive effects and enhanced scheduling with sunrise/sunset options |
