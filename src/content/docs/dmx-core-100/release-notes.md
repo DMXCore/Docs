@@ -5,6 +5,7 @@ description: Release notes and highlights
 
 | Date | Highlights |
 |------|------------|
+| 8/3/2026 | [Channel Rules](/dmx-core-100/playback/channel-rules): cap, scale, or copy (multipatch) DMX channels during cue playback — tame too-bright recordings or mirror channels to fixtures added after the show was recorded, without modifying the cue files |
 | 7/27/2026 | macOS: fixed duplicated Dock icons after updates |
 | 7/26/2026 | Timeline hold milestones: pause a timeline at a milestone and release it from input triggers, the operator page, or a momentary button press — ideal for pour/dispense and step-through shows |
 | 7/26/2026 | [Home Assistant integration](/dmx-core-100/integrations/home-assistant): bundled plugin exposes zones, presets, cues, schedules, and Control Values to Home Assistant via MQTT discovery |

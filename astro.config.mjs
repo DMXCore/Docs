@@ -119,6 +119,7 @@ export default defineConfig({
                 { label: 'Hold Milestones', slug: 'dmx-core-100/playback/hold-milestones' },
                 { label: 'Recording', slug: 'dmx-core-100/playback/recording' },
                 { label: 'Layers & Priority', slug: 'dmx-core-100/playback/layers-and-priority' },
+                { label: 'Channel Rules', slug: 'dmx-core-100/playback/channel-rules' },
               ],
             },
             {

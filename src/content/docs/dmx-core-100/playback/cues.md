@@ -63,6 +63,10 @@ See [Layers & Priority](/dmx-core-100/playback/layers-and-priority) for how conc
 The **Cue Fade Masks** editor (under **Lighting Setup**) selects which DMX channels participate in fades. Channels excluded from the mask switch instantly instead of fading — useful for non-dimmable functions like gobos or color wheels.
 :::
 
+### Channel Rules
+
+[Channel Rules](/dmx-core-100/playback/channel-rules) adjust recorded data during playback without modifying the cue files: cap or scale channels that were recorded too bright, or copy channels to fixtures added after the show was recorded (multipatch).
+
 ## Playback Controls
 
 During playback, the **Web UI** shows a progress bar with **pause/resume**, **scrub** (drag to any position), and **stop**. On the **touchscreen**, the home screen shows the currently playing cue with a stop button.
