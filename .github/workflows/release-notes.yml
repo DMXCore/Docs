@@ -13,7 +13,7 @@ on:
         description: GitHub Models model name to use for summarisation.
         required: false
         type: string
-        default: gpt-4o-mini
+        default: openai/gpt-4o-mini
 
 jobs:
   generate:
@@ -181,7 +181,10 @@ jobs:
 
           # ── Call GitHub Models ────────────────────────────────────────────────
           github_token = os.environ['GITHUB_TOKEN']
-          model = os.environ.get('GH_MODEL', 'gpt-4o-mini')
+          model = os.environ.get('GH_MODEL', '').strip() or 'openai/gpt-4o-mini'
+          # The new GitHub Models endpoint requires publisher-namespaced model IDs.
+          if '/' not in model:
+              model = f'openai/{model}'
           payload = json.dumps({
               'model': model,
               'messages': [{'role': 'user', 'content': prompt}],
@@ -189,7 +192,7 @@ jobs:
           }).encode()
 
           req = urllib.request.Request(
-              'https://models.inference.ai.azure.com/chat/completions',
+              'https://models.github.ai/inference/chat/completions',
               data=payload, method='POST',
           )
           req.add_header('Authorization', f'Bearer {github_token}')
