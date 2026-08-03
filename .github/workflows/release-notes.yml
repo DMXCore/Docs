@@ -40,7 +40,7 @@ jobs:
         run: |
           cat > /tmp/gen_notes.py << 'PYEOF'
           import os, json, re, sys, base64, urllib.request, urllib.error
-          from datetime import datetime, timezone
+          from datetime import datetime, timezone, date as date_cls
           from zoneinfo import ZoneInfo
           from collections import defaultdict
 
@@ -53,7 +53,8 @@ jobs:
 
           # Parse existing dates (M/D/YYYY format) – first match is the newest
           existing_dates = re.findall(r'\|\s*(\d+/\d+/\d+)\s*\|', content)
-          existing_rows = re.findall(r'^\|\s*(\d+/\d+/\d+)\s*\|\s*(.*?)\s*\|$', content, flags=re.MULTILINE)
+          # Rows are | Version | Date | Highlights |
+          existing_rows = re.findall(r'^\|\s*\S+\s*\|\s*(\d+/\d+/\d+)\s*\|\s*(.*?)\s*\|$', content, flags=re.MULTILINE)
           recent_entries = existing_rows[:8]
           recent_entries_block = ''.join(
               f'- {date}: {highlights}\n' for date, highlights in recent_entries
@@ -257,9 +258,72 @@ jobs:
                   gho.write('has_changes=false\n')
               sys.exit(0)
 
+          # ── Fetch version tags from the product repo ─────────────────────────
+          # Tags encode the build date: vYYYY.M.D.N (until 7/3/2026) or
+          # vYYYY.MDD.N where MDD = month*100+day (after). Each entry gets the
+          # highest build tagged on its date, falling back to the next release.
+          def parse_tag_name(name):
+              m = re.fullmatch(r'v(\d{4})\.(\d{1,2})\.(\d{1,2})\.(\d+)', name)
+              if m:
+                  y, mo, d, n = map(int, m.groups())
+                  try:
+                      return date_cls(y, mo, d), n
+                  except ValueError:
+                      return None
+              m = re.fullmatch(r'v(\d{4})\.(\d{3,4})\.(\d+)', name)
+              if m:
+                  y, mdd, n = map(int, m.groups())
+                  mo, d = divmod(mdd, 100)
+                  try:
+                      return date_cls(y, mo, d), n
+                  except ValueError:
+                      return None
+              return None
+
+          tags = []
+          url = (
+              f'https://api.bitbucket.org/2.0/repositories/'
+              f'{workspace}/{repo_slug}/refs/tags?pagelen=100'
+          )
+          while url:
+              req = urllib.request.Request(url)
+              creds = f'{bb_email}:{api_token}'.encode('utf-8')
+              b64 = base64.b64encode(creds).decode('utf-8')
+              req.add_header('Authorization', f'Basic {b64}')
+              try:
+                  with urllib.request.urlopen(req) as resp:
+                      data = json.loads(resp.read())
+              except urllib.error.HTTPError as e:
+                  print(f'Bitbucket API error {e.code} when requesting {url}: {e.read().decode()}', file=sys.stderr)
+                  sys.exit(1)
+              for tag in data.get('values', []):
+                  parsed = parse_tag_name(tag.get('name', ''))
+                  if parsed:
+                      tags.append((parsed[0], parsed[1], tag['name']))
+              url = data.get('next')
+          tags.sort()
+          print(f'Fetched {len(tags)} version tags.')
+
+          version_by_date = {d: name for d, n, name in tags}  # ascending sort → highest build wins
+
+          def version_for(entry_date):
+              if not tags:
+                  return '—'
+              if entry_date in version_by_date:
+                  return version_by_date[entry_date]
+              later = [t for t in tags if t[0] > entry_date]
+              return later[0][2] if later else tags[-1][2]
+
+          for e in entries:
+              try:
+                  mo, d, y = map(int, e['date'].split('/'))
+                  e['version'] = version_for(date_cls(y, mo, d))
+              except ValueError:
+                  e['version'] = '—'
+
           # ── Update release-notes.md ───────────────────────────────────────────
-          new_rows = ''.join(f'| {e["date"]} | {e["highlights"]} |\n' for e in entries)
-          header_separator = '|------|------------|\n'
+          new_rows = ''.join(f'| {e["version"]} | {e["date"]} | {e["highlights"]} |\n' for e in entries)
+          header_separator = '|---------|------|------------|\n'
           if header_separator not in content:
               print('Could not locate table header in release-notes.md', file=sys.stderr)
               sys.exit(1)
