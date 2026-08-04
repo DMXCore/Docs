@@ -11,6 +11,7 @@ You can create **multiple menus**, each with its own items, look, and audience. 
 
 Menus are designed under **Device > Custom Menus** in the Web UI. Each menu has:
 
+- **Code** — a short unique code (auto-generated, e.g. `MENU1`, but freely changeable) used for [direct links](#direct-links-and-qr-codes)
 - **Enabled** — turn the whole menu on or off
 - **Only Admin** — restrict the menu to admin users
 - **Available to Guests** — expose the menu in the Web UI *without login*, so anyone on the network (or a wall tablet) can use it
@@ -54,6 +55,17 @@ Menus support **multiple levels** via SubMenu items — a top-level menu with a 
 ## Guest Access
 
 A menu marked **Available to Guests** can be used from a browser without logging in — ideal for a lobby tablet or letting staff trigger scenes from their phones without handing out PINs. Guests see only guest-enabled menus; everything else still requires a login.
+
+## Direct Links and QR Codes
+
+Every menu has a **code** that opens it directly by URL — perfect for a QR code posted at the site, a wall-tablet home page, or a browser bookmark:
+
+```
+http://<device>/guest/custommenu?code=LOBBY
+http://<device>/op/custommenu?code=LOBBY
+```
+
+The `guest/` form works without login for menus marked **Available to Guests**; the `op/` form is for logged-in users. Codes are matched case-insensitively and stay stable even as you rename or reorganize the menu, so printed QR codes keep working. The menu editor shows ready-made direct links next to the preview link once a code is set.
 
 ## Favorites
 
