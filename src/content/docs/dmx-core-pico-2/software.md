@@ -2,7 +2,7 @@
 title: Software
 ---
 
-The Pico 2 runs software/firmware that you create yourself using the Raspberry Pi Pico ecosystem. We have provided examples using PicoSDK (C/C++), but it is also possible to use MicroPython.
+The Pico 2 runs software/firmware that you create yourself using the Raspberry Pi Pico ecosystem. We have provided examples for both the Pico SDK (C/C++) and MicroPython. The MicroPython examples include a small support library (`dmxcore.py`) with the board pin definitions and ready-to-use DMX input/output classes.
 
 [Example code on GitHub](https://github.com/DMXCore/Pico-Examples)
 
