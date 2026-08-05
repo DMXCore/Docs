@@ -94,8 +94,11 @@ new address.
 If a bad static configuration makes a unit unreachable, see
 [Force DHCP mode](/dmx-core-100/troubleshooting/#force-dhcp-mode).
 
-**Override Host Name** and **Custom NTP Server** are not on this page — follow
-the **network settings** link at the bottom of it to reach them.
+**Override Host Name**, **Custom NTP Server**, and
+**Enable Internet Passthrough** (shows the
+[Internet Passthrough](/dmx-core-100/integrations/internet-passthrough) section
+on the Utilities page) are not on this page — follow the **network settings**
+link at the bottom of it to reach them.
 
 On the touchscreen the same per-adapter configuration is under
 **Main Menu > Settings > Network Adapters...**.

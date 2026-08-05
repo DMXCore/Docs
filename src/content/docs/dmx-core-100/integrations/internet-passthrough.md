@@ -24,6 +24,11 @@ This covers **all** of the DMX Core's traffic, including software updates, Host 
 
 ## Using It
 
+The Internet Passthrough section is **hidden by default** to keep the Utilities
+page uncluttered. To show it, go to **Device > Network** in the Web UI, follow
+the **network settings** link at the bottom of the page, and turn on
+**Enable Internet Passthrough**. This only needs to be done once.
+
 1. Connect the computer to the same network as the DMX Core (usually by Ethernet), and make sure it also has internet access.
 2. Install and run **DMX Core Connect** on the computer.
 3. In the DMX Core **Web UI**, go to **Utilities** and find the **Internet Passthrough** section.
