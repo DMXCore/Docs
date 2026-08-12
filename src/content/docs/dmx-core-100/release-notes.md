@@ -5,6 +5,9 @@ description: Release notes and highlights
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| v2026.804.2 | 8/4/2026 | Internet Passthrough is now opt-in: a new [Enable Internet Passthrough](/dmx-core-100/integrations/internet-passthrough) toggle in the Network settings shows the passthrough card on the Utilities page (off by default) |
+| v2026.803.4 | 8/3/2026 | [Custom menus](/dmx-core-100/scheduling-automation/custom-menus) get an auto-generated menu code for direct links and QR codes — open a specific menu straight from a URL without navigating |
+| v2026.803.4 | 8/3/2026 | Documentation links added to Web UI page headers; fixed inflated memory readings in health data on macOS |
 | v2026.803.1 | 8/3/2026 | [Channel Rules](/dmx-core-100/playback/channel-rules): cap, scale, or copy (multipatch) DMX channels during cue playback — tame too-bright recordings or mirror channels to fixtures added after the show was recorded, without modifying the cue files |
 | v2026.728.9 | 7/28/2026 | USB Wi-Fi adapter support and a new per-adapter [Device > Network page](/dmx-core-100/configuration/settings): join Wi-Fi networks (including hidden SSIDs) and configure DHCP/static addressing per adapter, from both the web and touchscreen UIs |
 | v2026.728.9 | 7/28/2026 | Fixed device discovery (mDNS) reliability on multi-adapter and multi-homed networks |
