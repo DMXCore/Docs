@@ -2,7 +2,7 @@
 title: Specifications
 ---
 
-* Internal storage: 16 GB of which about 15 GB is available for cues/presets
+* Internal storage: 32 GB eMMC of which about 30 GB is available for cues/presets
 * Power usage: Max 8 W
 * Screen size: 4.3", or 7" on the larger model (same capabilities)
 * Interface: touch screen or rotary knob/encoder with push button
