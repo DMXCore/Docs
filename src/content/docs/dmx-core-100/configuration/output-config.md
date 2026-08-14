@@ -65,7 +65,7 @@ A plugin output maps one device per output:
 - **Destination Address** — which device to drive (for Shelly: the device id,
   e.g. `shellyrgbw2-A4CF12F45478`). Use the **Discover** button to pick from
   devices found on the network.
-- **Channel Offset** — where the device's channels start within the slot
+- **Start Channel** — the DMX start address of the device's channels within the slot (matching the fixture's start channel)
 
 The device's channels live in a normal slot/universe, so anything that writes
 DMX can drive it — cues, presets, effects, or externally received sACN. For
