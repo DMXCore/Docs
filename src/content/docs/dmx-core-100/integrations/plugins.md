@@ -4,9 +4,9 @@ description: Manage the plugins that extend the DMX Core 100 with external integ
 ---
 
 Plugins extend the DMX Core 100 with integrations that run on the device
-itself. Three plugins ship out of the box with every install — **Symetrix
-DSP**, **QSys DSP**, and **[Home Assistant](/dmx-core-100/integrations/home-assistant)** —
-and additional plugins can be added per device.
+itself. Four plugins ship out of the box with every install — **Symetrix
+DSP**, **QSys DSP**, **[Home Assistant](/dmx-core-100/integrations/home-assistant)**,
+and **Shelly** — and additional plugins can be added per device.
 
 :::tip[Web UI]
 Plugins are managed under **Control & Integrations > Plugins**.
@@ -38,11 +38,39 @@ example a DSP core), a red broken-link icon when it isn't.
 
 ## The DSP Plugins
 
-The two bundled plugins implement the [Q-SYS & Symetrix](/dmx-core-100/external-control)
+The two bundled DSP plugins implement the [Q-SYS & Symetrix](/dmx-core-100/external-control)
 integrations. Their settings are simply the DSP core's address (and port, if
 changed from the platform default). Once connected, define
 [Control Values](/dmx-core-100/integrations/control-values) to bridge the
 DSP's controls into faders, menus, and triggers.
+
+## The Shelly Plugin
+
+The bundled Shelly plugin drives **Shelly Gen1 color devices** (RGBW2 and
+similar) from DMX data over MQTT. It adds a **SHELLY** output type on the
+[Outputs page](/dmx-core-100/configuration/output-config) with RGB, RGBW, and
+RGBW+intensity protocols, a **Discover** button that finds Shelly devices on
+the network, and a **Shelly** fixture profile so the device can be patched
+and controlled like any fixture. See
+[Output Config](/dmx-core-100/configuration/output-config#plugin-output-types-shelly)
+for setup.
+
+The plugin's source is public at
+[DMXCore/DMXCore100.ShellyPlugin](https://github.com/DMXCore/DMXCore100.ShellyPlugin) —
+it doubles as the reference example for building output plugins.
+
+## Developing Plugins
+
+Plugins are .NET class libraries built against the
+[DMXCore.PluginSdk](https://www.nuget.org/packages/DMXCore.PluginSdk) NuGet
+package and packaged as a `.dmxplugin` archive. Two public repositories show
+the way:
+
+- [DMXCore100.ExamplePlugin](https://github.com/DMXCore/DMXCore100.ExamplePlugin) —
+  minimal starting point covering the plugin lifecycle, settings, and triggers
+- [DMXCore100.ShellyPlugin](https://github.com/DMXCore/DMXCore100.ShellyPlugin) —
+  a complete real-world plugin: output protocols, device discovery, and
+  plugin-provided fixture profiles
 
 ## Updates
 

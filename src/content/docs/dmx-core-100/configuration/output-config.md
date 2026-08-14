@@ -24,7 +24,7 @@ In the Web UI, go to **Lighting Setup > Outputs** for the same configuration wit
 Each output can be configured with:
 
 - **Code / Name** — identifier and display name
-- **Output Type** — sACN (E1.31), ArtNet, KiNet (v1/v2), TPM2.net, MQTT, or USB DMX
+- **Output Type** — sACN (E1.31), ArtNet, KiNet (v1/v2), TPM2.net, MQTT, USB DMX, or a plugin-provided type such as SHELLY
 - **Start Slot Id / Start Universe Id** — which internal slot maps to which on-the-wire universe
 - **Universe Count** — how many consecutive universes this output spans
 - **Destination IP** — unicast target (protocol dependent; leave empty for multicast/broadcast)
@@ -53,4 +53,31 @@ TPM2.net is a UDP-based protocol for pixel LED controllers. Select **TPM2.net** 
 
 ### MQTT
 
-An MQTT output publishes level data to the configured [MQTT broker](/dmx-core-100/integrations/mqtt) — including experimental support for Shelly RGBW devices.
+An MQTT output publishes level data to the configured [MQTT broker](/dmx-core-100/integrations/mqtt) for downstream consumers.
+
+### Plugin Output Types (Shelly)
+
+[Plugins](/dmx-core-100/integrations/plugins) can add their own output types
+that drive networked lighting devices — WiFi bulbs and similar — from a slice
+of DMX channels. The bundled **Shelly** plugin adds a SHELLY output type for
+Shelly Gen1 color devices (RGBW2 and similar) over MQTT.
+
+A plugin output maps one device per output:
+
+- **Protocol** — the device's channel layout (for Shelly: RGB, RGBW, or
+  RGBW+intensity)
+- **Destination Address** — which device to drive (for Shelly: the device id,
+  e.g. `shellyrgbw2-A4CF12F45478`). Use the **Discover** button to pick from
+  devices found on the network.
+- **Channel Offset** — where the device's channels start within the slot
+
+The device's channels live in a normal slot/universe, so anything that writes
+DMX can drive it — cues, presets, effects, or externally received sACN. For
+native control, patch a fixture at the same slot and channels: the plugin
+provides a matching fixture profile (e.g. **Shelly — Gen1 Color**), and the
+fixture editor's **Mapped Device** selector prefills the slot, start channel,
+and personality straight from the output mapping.
+
+Updates are rate-limited per device to what the hardware handles (about 10
+commands per second for Shelly Gen1), with unchanged values deduplicated
+automatically.
