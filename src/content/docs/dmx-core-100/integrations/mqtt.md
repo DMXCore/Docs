@@ -20,7 +20,7 @@ Connect to an external MQTT broker under **Control & Integrations > MQTT** in th
 - **Input triggers** — fire an action when a message is published to a topic, or drive a level from a numeric payload (Value mode). See [Input Triggers](/dmx-core-100/scheduling-automation/input-triggers).
 - **Output events** — publish a message when something happens on the DMX Core 100 (a cue starts, a schedule fires). See [Output Events](/dmx-core-100/scheduling-automation/output-events).
 - **Scripts** — publish from JavaScript with `dmx.mqtt.publish(topic, payload)`, e.g. to bridge lighting state into a home automation bus. See the [Scripting API](/dmx-core-100/scheduling-automation/scripting-api#messaging).
-- **MQTT output** — an [output](/dmx-core-100/configuration/output-config) can be of type MQTT, publishing DMX level data for downstream consumers. Shelly RGBW devices are driven by the bundled [Shelly plugin](/dmx-core-100/integrations/plugins#the-shelly-plugin) over the same broker connection.
+- **Shelly devices** — the bundled [Shelly plugin](/dmx-core-100/integrations/plugins#the-shelly-plugin) drives Shelly RGBW devices over the broker connection via its own [output type](/dmx-core-100/configuration/output-config#plugin-output-types-shelly).
 
 ## Use Cases
 

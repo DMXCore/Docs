@@ -24,7 +24,7 @@ In the Web UI, go to **Lighting Setup > Outputs** for the same configuration wit
 Each output can be configured with:
 
 - **Code / Name** — identifier and display name
-- **Output Type** — sACN (E1.31), ArtNet, KiNet (v1/v2), TPM2.net, MQTT, USB DMX, or a plugin-provided type such as SHELLY
+- **Output Type** — sACN (E1.31), ArtNet, KiNet (v1/v2), TPM2.net, USB DMX, or a plugin-provided type such as SHELLY
 - **Start Slot Id / Start Universe Id** — which internal slot maps to which on-the-wire universe
 - **Universe Count** — how many consecutive universes this output spans
 - **Destination IP** — unicast target (protocol dependent; leave empty for multicast/broadcast)
@@ -50,10 +50,6 @@ A button assigned to Toggle Output shows an active state while output is suppres
 ### TPM2.net
 
 TPM2.net is a UDP-based protocol for pixel LED controllers. Select **TPM2.net** as the output type and set the target IP address to send pixel data to compatible controllers, with a configurable pixel type (used for TPM2.net and built-in test patterns; it has no effect on cues and presets).
-
-### MQTT
-
-An MQTT output publishes level data to the configured [MQTT broker](/dmx-core-100/integrations/mqtt) for downstream consumers.
 
 ### Plugin Output Types (Shelly)
 
