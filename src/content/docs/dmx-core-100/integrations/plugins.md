@@ -21,16 +21,20 @@ that maintain a connection to external equipment — a live connection
 indicator: a green link icon when the plugin is connected to its device (for
 example a DSP core), a red broken-link icon when it isn't.
 
-- **Enabled** — turn a plugin off without uninstalling it. Enabling or
-  disabling takes effect at the next restart.
+- **Enabled** — turn a plugin off without uninstalling it. Takes effect
+  immediately: disabling stops a running plugin, enabling starts it.
 - **Settings** — each plugin declares its own settings (server addresses,
   ports, options), edited right on the page. Settings changes apply
   **immediately**, no restart needed — for the DSP plugins, saving a new
   address reconnects on the spot.
+- **Reload** — restart just that plugin, without restarting the device.
+  Useful if an integration is stuck or after changing something on the
+  external system's side.
 - **Upload** — install or update a plugin from a `.dmxplugin` package.
-  Uploaded plugins are staged and applied at the next restart.
-- **Delete** — remove an uploaded plugin. The bundled plugins are part of
-  the product install and can be disabled but not deleted.
+  The uploaded version starts running immediately.
+- **Delete** — remove an uploaded plugin, effective immediately. The
+  bundled plugins are part of the product install and can be disabled but
+  not deleted.
 
 ## The DSP Plugins
 
@@ -43,5 +47,5 @@ DSP's controls into faders, menus, and triggers.
 ## Updates
 
 Bundled plugins update together with the device firmware. Uploaded plugins
-are updated by uploading a newer `.dmxplugin` — the version is applied at
-the next restart, and the plugin's settings are kept.
+are updated by uploading a newer `.dmxplugin` — the new version takes over
+immediately, and the plugin's settings are kept.
