@@ -5,6 +5,8 @@ description: Release notes and highlights
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| v2026.815.x | 8/15/2026 | [Home Assistant](/dmx-core-100/integrations/home-assistant#triggering-home-assistant-from-the-device): the device can now fire Home Assistant scenes, scripts, and automations — a new **Home Assistant** [Output Event](/dmx-core-100/scheduling-automation/output-events) type with a live target picker, bindable to control surfaces, custom menus, input triggers, timelines, and scripts (plugin SDK 1.7 output action providers) |
+| v2026.815.x | 8/15/2026 | Output Events get a **Test** button in the Web UI that reports delivery failures; plugin secret settings (tokens, passwords) are no longer sent to the browser |
 | v2026.812.1 | 8/12/2026 | Status page now shows app-specific CPU and memory usage alongside system metrics, with CPU averaged over the reporting interval |
 | v2026.804.2 | 8/4/2026 | Internet Passthrough is now opt-in: a new [Enable Internet Passthrough](/dmx-core-100/integrations/internet-passthrough) toggle in the Network settings shows the passthrough card on the Utilities page (off by default) |
 | v2026.803.4 | 8/3/2026 | [Custom menus](/dmx-core-100/scheduling-automation/custom-menus) get an auto-generated menu code for direct links and QR codes — open a specific menu straight from a URL without navigating |

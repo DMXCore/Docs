@@ -27,6 +27,14 @@ Output events can send notifications via:
 - **HTTP** — Make an HTTP request to an external URL
 - **OSC** — Send an OSC message to a network target
 - **Serial** — Send data over a serial port
+- **Home Assistant** (and other integration plugins) — Activate a Home
+  Assistant scene, script, or automation, picked from a live list. Requires
+  the Home Assistant URL and token in the plugin's settings; see
+  [Home Assistant](/dmx-core-100/integrations/home-assistant#triggering-home-assistant-from-the-device).
+  Plugins that provide actions appear here as their own type.
+
+Use the **Test** button on a saved Output Event to fire it once; delivery
+problems (unreachable host, rejected token) are reported right there.
 
 Output events can also be fired manually from [scripts](/dmx-core-100/scheduling-automation/scripting-api) (`dmx.fireOutputEvent(code)`), [control surfaces](/dmx-core-100/control-surfaces), and [custom menus](/dmx-core-100/scheduling-automation/custom-menus) via the *Fire Output Event* action.
 

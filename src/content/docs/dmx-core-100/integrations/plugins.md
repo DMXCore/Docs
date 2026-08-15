@@ -72,6 +72,13 @@ the way:
   a complete real-world plugin: output protocols, device discovery, and
   plugin-provided fixture profiles
 
+Plugins can register input triggers, Control Value backends (DSPs), output
+protocols and fixture profiles (networked lights), and — since SDK 1.7 —
+**output action providers**: actions the device fires into the plugin's
+integration, which appear as their own type on the
+[Output Events](/dmx-core-100/scheduling-automation/output-events) page
+(the Home Assistant plugin's scenes, scripts, and automations are one).
+
 ## Updates
 
 Bundled plugins update together with the device firmware. Uploaded plugins
