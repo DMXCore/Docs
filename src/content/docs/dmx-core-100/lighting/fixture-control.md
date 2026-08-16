@@ -36,6 +36,24 @@ Modifiers are temporary adjustments. To save a fixture state permanently, create
 
 The Fixture Control page also gives access to the [effects engine](/dmx-core-100/lighting/effects). Select a fixture or zone and use the effects controls to apply animated lighting effects — breathing, fire, pulsing, and more. If multiple zones are configured, each zone has independent effects controls.
 
+## Copy Trims
+
+A fixture configured with more than one **copy** (see [Fixture Setup](/dmx-core-100/lighting/fixture-setup)) is treated as one unit — every copy gets the same color and intensity. In practice one or two of those units are often a little too bright or too dim compared to the rest: mounted closer to a wall, older LEDs, a slightly different batch. Rather than splitting the fixture apart just to fix that, you can give each copy its own **intensity trim**.
+
+Select a multi-copy, dimmable fixture and open the **Copy Trims** card below the effect controls (it is collapsed by default — flip **Show**; the header always tells you how many copies are trimmed). Each copy gets a row with its DMX address, a slider (0–100 %), and a reset arrow:
+
+- Drag a slider to preview the change on the physical fixture immediately; release to save it.
+- **S (Solo)** lights only that copy — with every other copy of the fixture dark — so you can tell which physical unit is which before trimming it. Solo is a temporary preview only: it is never saved, and it ends when you toggle it off, hide the card, pick another fixture, or leave the page. Only one copy can be soloed at a time.
+- **Reset all** returns every copy to 100 %.
+
+Trims are stored on the fixture and apply whenever the fixture engine drives it — live control, presets, ambient presets, effects, and timelines that play presets. A trim only scales brightness (the intensity channel, or the color channels for fixtures without a dedicated intensity channel); it never changes color. Trims are kept when you clone the fixture, and when you split or combine copies each copy keeps its own value.
+
+:::note
+Copy trims do not affect **cue playback** — recorded DMX bypasses the fixture engine. To tame recorded channels use [Channel Rules](/dmx-core-100/playback/channel-rules) instead. Solo needs the fixture to be lit: if the fixture's intensity is at 0 % the soloed copy stays dark, and the card says so.
+:::
+
+A copy trimmed all the way to 0 % stays dark whatever you do on this page — the fixture's settings page warns about that so a forgotten trim doesn't look like a dead unit. Editing trims requires the *Edit Fixtures* permission; anyone who can use Fixture Control can still Solo to identify copies.
+
 ## Fade Speed
 
 The fade speed for fixture control changes — how quickly fixtures transition when you adjust their values — is configurable, along with the priority the fixture engine outputs at (see [Layers & Priority](/dmx-core-100/playback/layers-and-priority)).

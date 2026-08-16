@@ -72,6 +72,10 @@ In the Web UI, open the fixture's settings and use the **Hidden Functions** list
 
 ## Splitting and Combining Fixtures
 
+:::tip
+If all you need is to make one copy a little brighter or dimmer than the others, you don't have to split — set a per-copy [intensity trim](/dmx-core-100/lighting/fixture-control#copy-trims) on the Fixture Control page instead.
+:::
+
 If you have a fixture with multiple copies, you can **split** it into individual fixtures — each copy becomes its own entry with an automatically assigned code (e.g., `Front_Wash_1`, `Front_Wash_2`). This is useful when you need to assign copies to different zones or adjust settings independently.
 
 To reverse a split, open any of the split fixtures and click **Combine**. This merges all matching split fixtures back into a single multi-copy fixture. The button shows the total count of fixtures that will be combined.
