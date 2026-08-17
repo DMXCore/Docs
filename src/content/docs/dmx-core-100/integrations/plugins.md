@@ -1,12 +1,14 @@
 ---
 title: Plugins
-description: Manage the plugins that extend the DMX Core 100 with external integrations
+description: Install, update, and manage the plugins that extend the DMX Core 100 with external integrations
 ---
 
 Plugins extend the DMX Core 100 with integrations that run on the device
-itself. Four plugins ship out of the box with every install — **Symetrix
-DSP**, **QSys DSP**, **[Home Assistant](/dmx-core-100/integrations/home-assistant)**,
-and **Shelly** — and additional plugins can be added per device.
+itself — DSP control (**Symetrix**, **Q-SYS**), smart-home platforms
+(**[Home Assistant](/dmx-core-100/integrations/home-assistant)**), networked
+lighting (**Shelly**, **LIFX**), and more. Plugins are installed per device
+from the **plugin registry**, straight from the Plugins page, and updated
+independently of the device software.
 
 :::tip[Web UI]
 Plugins are managed under **Control & Integrations > Plugins**.
@@ -14,7 +16,32 @@ Plugins are managed under **Control & Integrations > Plugins**.
 
 ![Plugins page with the Symetrix DSP settings open](/assets/web/plugins-settings.png)
 
-## The Plugins Page
+## Installing a Plugin
+
+Open the **Browse** tab. It lists every plugin available in the registry,
+with a description, the publisher, and links to the plugin's website and
+license. Plugins published by DMX Core carry a **DMX Core** mark. Use the
+search box to filter the list.
+
+Press **Install** next to a plugin — the device downloads the package,
+verifies it, and starts it right away. Newly installed plugins appear on the
+**Installed** tab, where you enable/disable them and edit their settings.
+
+Only versions that this device's software can run are offered. If a plugin
+(or a newer version of it) needs a newer device software than you have, the
+Browse tab says so instead of offering it — update the device software first.
+
+:::caution[Plugins run with full access]
+Plugins run inside the DMX Core process with full access to the device and
+your network. Install plugins only from publishers you trust. The device
+shows this notice once, the first time you install a plugin.
+:::
+
+The device needs internet access to reach the registry. Sites without it can
+still install plugins by **uploading** a `.dmxplugin` package on the
+Installed tab (see below).
+
+## The Installed Tab
 
 Each installed plugin is listed with its version, state, and — for plugins
 that maintain a connection to external equipment — a live connection
@@ -26,28 +53,68 @@ example a DSP core), a red broken-link icon when it isn't.
 - **Settings** — each plugin declares its own settings (server addresses,
   ports, options), edited right on the page. Settings changes apply
   **immediately**, no restart needed — for the DSP plugins, saving a new
-  address reconnects on the spot.
+  address reconnects on the spot. The same panel shows which registry
+  package the plugin came from and its per-plugin auto-update choice.
+- **Update** — shown (with an arrow badge next to the version) when the
+  registry has a newer version this device can run. One click downloads and
+  applies it; the plugin's settings are kept.
 - **Reload** — restart just that plugin, without restarting the device.
   Useful if an integration is stuck or after changing something on the
   external system's side.
-- **Upload** — install or update a plugin from a `.dmxplugin` package.
-  The uploaded version starts running immediately.
-- **Delete** — remove an uploaded plugin, effective immediately. The
-  bundled plugins are part of the product install and can be disabled but
-  not deleted.
+- **Delete** — remove the plugin, effective immediately, together with its
+  settings.
+- **Upload** — install or update a plugin from a `.dmxplugin` package file
+  instead of the registry, for example on a device without internet access
+  or for a plugin that is not published. The uploaded version starts running
+  immediately.
+
+## Updates
+
+The device checks the registry for plugin updates about once an hour and
+whenever you press **Check for updates** on the Browse tab. What happens
+when an update is found is set by the **update policy** under **Browse >
+Registry settings**:
+
+- **Notify** (default) — the update is shown on the Plugins page (badge on
+  the plugin, count on the Installed tab); you apply it with **Update**.
+- **Auto** — the device downloads and applies updates as it finds them. The
+  plugin restarts for a few seconds when the update is applied.
+- **Off** — no update checks.
+
+Individual plugins can override the device policy in their settings panel
+(**Auto-update**: follow the device policy / always / never) — for example
+to auto-update everything except a DSP integration you'd rather update
+during a maintenance window.
+
+Only versions this device's software can run are ever offered or applied.
+Updating the device software may unlock newer plugin versions.
+
+## Registry Settings
+
+**Browse > Registry settings** holds the update policy above plus:
+
+- **Pre-release versions** — also offer plugin versions marked as
+  pre-release (for testing; off by default).
+- **Feeds** — the plugin registry is a standard NuGet feed; the default is
+  nuget.org, where all public DMX Core plugins are published. Additional
+  feeds (one per line, as NuGet V3 service index URLs — Azure Artifacts,
+  BaGet, and similar) let organizations distribute private plugins or run a
+  local mirror; a feed that needs a login takes the credentials in the URL
+  (`https://user:token@host/...`).
 
 ## The DSP Plugins
 
-The two bundled DSP plugins implement the [Q-SYS & Symetrix](/dmx-core-100/external-control)
-integrations. Their settings are simply the DSP core's address (and port, if
-changed from the platform default). Once connected, define
+The Symetrix DSP and QSys DSP plugins implement the
+[Q-SYS & Symetrix](/dmx-core-100/external-control) integrations. Their
+settings are simply the DSP core's address (and port, if changed from the
+platform default). Once connected, define
 [Control Values](/dmx-core-100/integrations/control-values) to bridge the
 DSP's controls into faders, menus, and triggers.
 
 ## The Shelly Plugin
 
-The bundled Shelly plugin drives **Shelly Gen1 color devices** (RGBW2 and
-similar) from DMX data over MQTT. It adds a **SHELLY** output type on the
+The Shelly plugin drives **Shelly Gen1 color devices** (RGBW2 and similar)
+from DMX data over MQTT. It adds a **SHELLY** output type on the
 [Outputs page](/dmx-core-100/configuration/output-config) with RGB, RGBW, and
 RGBW+intensity protocols, a **Discover** button that finds Shelly devices on
 the network, and a **Shelly** fixture profile so the device can be patched
@@ -59,28 +126,7 @@ The plugin's source is public at
 [DMXCore/DMXCore100.ShellyPlugin](https://github.com/DMXCore/DMXCore100.ShellyPlugin) —
 it doubles as the reference example for building output plugins.
 
-## Developing Plugins
+## Building Your Own
 
-Plugins are .NET class libraries built against the
-[DMXCore.PluginSdk](https://www.nuget.org/packages/DMXCore.PluginSdk) NuGet
-package and packaged as a `.dmxplugin` archive. Two public repositories show
-the way:
-
-- [DMXCore100.ExamplePlugin](https://github.com/DMXCore/DMXCore100.ExamplePlugin) —
-  minimal starting point covering the plugin lifecycle, settings, and triggers
-- [DMXCore100.ShellyPlugin](https://github.com/DMXCore/DMXCore100.ShellyPlugin) —
-  a complete real-world plugin: output protocols, device discovery, and
-  plugin-provided fixture profiles
-
-Plugins can register input triggers, Control Value backends (DSPs), output
-protocols and fixture profiles (networked lights), and — since SDK 1.7 —
-**output action providers**: actions the device fires into the plugin's
-integration, which appear as their own type on the
-[Output Events](/dmx-core-100/scheduling-automation/output-events) page
-(the Home Assistant plugin's scenes, scripts, and automations are one).
-
-## Updates
-
-Bundled plugins update together with the device firmware. Uploaded plugins
-are updated by uploading a newer `.dmxplugin` — the new version takes over
-immediately, and the plugin's settings are kept.
+Anyone can build a plugin and publish it to the registry — see
+[Building & Publishing Plugins](/dmx-core-100/integrations/publishing-plugins).

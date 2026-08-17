@@ -153,6 +153,7 @@ export default defineConfig({
                 { label: 'Control Values', slug: 'dmx-core-100/integrations/control-values' },
                 { label: 'Q-SYS & Symetrix', slug: 'dmx-core-100/external-control' },
                 { label: 'Plugins', slug: 'dmx-core-100/integrations/plugins' },
+                { label: 'Building & Publishing Plugins', slug: 'dmx-core-100/integrations/publishing-plugins' },
                 { label: 'Advatek Lighting', slug: 'dmx-core-100/integrations/advatek-lighting' },
                 { label: 'Cloud Tunnel', slug: 'dmx-core-100/integrations/cloud-tunnel' },
                 { label: 'Internet Passthrough', slug: 'dmx-core-100/integrations/internet-passthrough' },

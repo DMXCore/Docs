@@ -55,7 +55,7 @@ TPM2.net is a UDP-based protocol for pixel LED controllers. Select **TPM2.net** 
 
 [Plugins](/dmx-core-100/integrations/plugins) can add their own output types
 that drive networked lighting devices — WiFi bulbs and similar — from a slice
-of DMX channels. The bundled **Shelly** plugin adds a SHELLY output type for
+of DMX channels. The **Shelly** plugin (installed from **Plugins > Browse**) adds a SHELLY output type for
 Shelly Gen1 color devices (RGBW2 and similar) over MQTT.
 
 A plugin output maps one device per output:

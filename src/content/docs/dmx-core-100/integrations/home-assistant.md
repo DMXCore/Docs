@@ -9,8 +9,8 @@ in both directions:
 - **Home Assistant → DMX Core 100:** point both at the same MQTT broker and
   the device appears in Home Assistant automatically, with all of its
   presets, cues, dimmers, and switches as ready-to-use entities. No custom
-  component, no YAML — the built-in **Home Assistant plugin** publishes
-  everything via MQTT Discovery.
+  component, no YAML — the **Home Assistant plugin** (installed from
+  **Plugins > Browse**) publishes everything via MQTT Discovery.
 - **DMX Core 100 → Home Assistant:** fire Home Assistant scenes, scripts,
   and automations from the device — from a Stream Deck key, a touchscreen
   custom menu, an input trigger, a timeline, or a script — picked from a
@@ -79,8 +79,8 @@ only need Home Assistant to control the device.
 1. **Home Assistant**: open your **profile > Security** and create a
    **Long-lived access token** (name it e.g. `DMX Core`). Copy it — Home
    Assistant shows it only once.
-2. **DMX Core 100**: under **Control & Integrations > Plugins**, open the
-   Home Assistant plugin's settings and enter the **Home Assistant URL**
+2. **DMX Core 100**: under **Control & Integrations > Plugins**, install the
+   **Home Assistant** plugin from the Browse tab if you haven't yet, then open its settings and enter the **Home Assistant URL**
    (e.g. `http://homeassistant.local:8123`) and paste the token into
    **Long-lived access token**. Save. The plugin's status shows *HA API ok*
    once the token is accepted; a bad URL or token is reported there too.

@@ -12,10 +12,10 @@ Both platforms use the DSP's built-in control interface — no scripting or extr
 
 ## Configuration
 
-The integrations ship as [plugins](/dmx-core-100/integrations/plugins) included with every install:
+The integrations are [plugins](/dmx-core-100/integrations/plugins), installed from the plugin registry:
 
-1. In the Web UI, go to **Control & Integrations > Plugins**.
-2. Open the settings for the **Symetrix DSP** or **QSys DSP** plugin and enter the **Server address** of your core. The port only needs changing if it differs from the platform default (Symetrix 48631, Q-SYS 1702).
+1. In the Web UI, go to **Control & Integrations > Plugins** and install the **Symetrix DSP** or **QSys DSP** plugin from the **Browse** tab.
+2. Open the plugin's settings and enter the **Server address** of your core. The port only needs changing if it differs from the platform default (Symetrix 48631, Q-SYS 1702).
 3. Save Settings. The plugin connects immediately — no restart needed.
 
 Connectivity is indicated by the link icon next to the plugin's state on the Plugins page, and in the touchscreen status bar — red means disconnected, white means connected.

@@ -104,7 +104,8 @@ Use a **fixed browser window** (1440×900 recommended). Enable dark mode with th
 - [ ] Control Values list *(code, kind, mapping, live value)*
 - [ ] OSC Clients list *(source IP, feedback port)*
 - [ ] MQTT settings *(external broker fields)*
-- [ ] Plugins settings *(External Control Type + DSP addresses)*
+- [ ] Plugins — Installed tab with a plugin's settings open *(replaces plugins-settings.png)*
+- [ ] Plugins — Browse tab *(registry list with DMX Core marks; save as plugins-browse.png)*
 - [ ] Cloud tunnel settings
 - [ ] Device Monitor *(monitored + discovered devices)*
 
