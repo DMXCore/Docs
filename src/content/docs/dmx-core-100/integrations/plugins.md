@@ -14,7 +14,7 @@ independently of the device software.
 Plugins are managed under **Control & Integrations > Plugins**.
 :::
 
-![Plugins page with the Symetrix DSP settings open](/assets/web/plugins-settings.png)
+![Plugins page, Installed tab, with the Symetrix DSP settings open](/assets/web/plugins-settings.png)
 
 ## Installing a Plugin
 
@@ -22,6 +22,8 @@ Open the **Browse** tab. It lists every plugin available in the registry,
 with a description, the publisher, and links to the plugin's website and
 license. Plugins published by DMX Core carry a **DMX Core** mark. Use the
 search box to filter the list.
+
+![The Browse tab listing the plugins in the registry](/assets/web/plugins-browse.png)
 
 Press **Install** next to a plugin — the device downloads the package,
 verifies it, and starts it right away. When a plugin has several versions,
