@@ -126,7 +126,7 @@ and controlled like any fixture. See
 for setup.
 
 The plugin's source is public at
-[DMXCore/DMXCore100.ShellyPlugin](https://github.com/DMXCore/DMXCore100.ShellyPlugin) —
+[DMXCore/DMXCore100.Plugin.Shelly](https://github.com/DMXCore/DMXCore100.Plugin.Shelly) —
 it doubles as the reference example for building output plugins.
 
 ## Building Your Own

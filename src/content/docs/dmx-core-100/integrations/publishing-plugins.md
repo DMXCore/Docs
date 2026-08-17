@@ -36,11 +36,11 @@ the device down.
 
 Two public repositories show the way:
 
-- [DMXCore100.ExamplePlugin](https://github.com/DMXCore/DMXCore100.ExamplePlugin) —
+- [DMXCore100.Plugin.Example](https://github.com/DMXCore/DMXCore100.Plugin.Example) —
   the starting point: exercises the whole SDK surface with comments, ships an
   interactive dev harness (`DevHost`, no device needed) and MSTest tests
   against the SDK's `TestPluginHost`.
-- [DMXCore100.ShellyPlugin](https://github.com/DMXCore/DMXCore100.ShellyPlugin) —
+- [DMXCore100.Plugin.Shelly](https://github.com/DMXCore/DMXCore100.Plugin.Shelly) —
   a complete, shipping output plugin in one small file.
 
 The essentials:
