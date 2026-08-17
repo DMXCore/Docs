@@ -24,7 +24,10 @@ license. Plugins published by DMX Core carry a **DMX Core** mark. Use the
 search box to filter the list.
 
 Press **Install** next to a plugin — the device downloads the package,
-verifies it, and starts it right away. Newly installed plugins appear on the
+verifies it, and starts it right away. When a plugin has several versions,
+the version dropdown lets you pick one — including an older version of an
+installed plugin, if a newer one misbehaves (the update check will offer the
+newer version again). Newly installed plugins appear on the
 **Installed** tab, where you enable/disable them and edit their settings.
 
 Only versions that this device's software can run are offered. If a plugin
