@@ -145,6 +145,9 @@ light with a short device-side fade so effects look smooth. See
 [Output Config](/dmx-core-100/configuration/output-config#plugin-output-types-shelly-lifx-wiz)
 for setup.
 
+The plugin's source is public at
+[DMXCore/DMXCore100.Plugin.LIFX](https://github.com/DMXCore/DMXCore100.Plugin.LIFX).
+
 ## The WiZ Plugin
 
 The WiZ plugin drives **WiZ (Signify) WiFi lights** — full-color, tunable-white
