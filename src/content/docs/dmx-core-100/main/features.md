@@ -84,6 +84,7 @@ title: Features
 
 * ArtNet, sACN (E1.31) and KiNet (v1 and v2) support up to 800 universes at 40 Hz (or 600 universes at 60 Hz)
 * TPM2.net output for pixel controllers, and MQTT output for IoT devices
+* Legacy protocols such as Strand ShowNet available on request — [open an issue](https://github.com/DMXCore/DmxCore100/issues) or contact DMX Pro Sales if you have a site that needs one
 * Supports sync packets over ArtNet, sACN and KiNet for multi-universe sync
 * Per-output sACN send priority, with per-cue priority overrides and a global merge mode (Blend/HTP)
 * Support for USB devices (Enttec Pro and DMXking devices)
