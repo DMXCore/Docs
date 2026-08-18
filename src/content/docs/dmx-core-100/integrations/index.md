@@ -9,7 +9,7 @@ The DMX Core 100 is built to talk to the rest of your installation — audio DSP
 * [Home Assistant](/dmx-core-100/integrations/home-assistant) — the device and all its scenes, dimmers, and switches appear in Home Assistant automatically
 * [Control Values](/dmx-core-100/integrations/control-values) — bridge Q-SYS and Symetrix audio controls to faders, menus, and triggers
 * [Q-SYS & Symetrix](/dmx-core-100/external-control) — use the DMX Core 100 as a DSP wall controller, and vice versa
-* [Plugins](/dmx-core-100/integrations/plugins) — install and update on-device integration plugins from the plugin registry (DSP, Home Assistant, Shelly, LIFX, ...)
+* [Plugins](/dmx-core-100/integrations/plugins) — install and update on-device integration plugins from the plugin registry (DSP, Home Assistant, Shelly, LIFX, WiZ, ...)
 * [Building & Publishing Plugins](/dmx-core-100/integrations/publishing-plugins) — write your own plugin with the .NET SDK and publish it to the registry
 * [Advatek Lighting](/dmx-core-100/integrations/advatek-lighting) — discover, drive, and monitor Advatek PixLite pixel controllers
 * [Cloud Tunnel](/dmx-core-100/integrations/cloud-tunnel) — remote access from anywhere
