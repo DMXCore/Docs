@@ -6,7 +6,8 @@ description: Install, update, and manage the plugins that extend the DMX Core 10
 Plugins extend the DMX Core 100 with integrations that run on the device
 itself — DSP control (**Symetrix**, **Q-SYS**), smart-home platforms
 (**[Home Assistant](/dmx-core-100/integrations/home-assistant)**), networked
-lighting (**Shelly**, **LIFX**, **WiZ**), and more. Plugins are installed per device
+lighting (**Shelly**, **LIFX**, **WiZ**), show import
+(**[Lightjams](/dmx-core-100/integrations/lightjams)**), and more. Plugins are installed per device
 from the **plugin registry**, straight from the Plugins page, and updated
 independently of the device software.
 
@@ -169,6 +170,16 @@ plugin or the Core; the WiZ app behaves the same way.
 
 The plugin's source is public at
 [DMXCore/DMXCore100.Plugin.WiZ](https://github.com/DMXCore/DMXCore100.Plugin.WiZ).
+
+## The Lightjams Plugin
+
+The Lightjams Recorder Import plugin imports
+**[Lightjams](https://www.lightjams.com/) Art-Net recorder video files**
+(`.mp4`/`.avi`) as [cues](/dmx-core-100/playback/cues): upload a recording in
+the File Explorer and pick **Import Lightjams recording**. Values are
+bit-exact, original frame timing and ArtSync synchronization are preserved,
+and unused universes are dropped. No settings are required. See
+[Lightjams Recorder Import](/dmx-core-100/integrations/lightjams).
 
 ## Building Your Own
 

@@ -55,6 +55,16 @@ The DMX Core 100 can record from the following input sources:
 
 Every incoming packet is timestamped when it arrives, so the recording preserves the original timing of the source. On the DMX Core 100 hardware unit this is always wire-accurate. When recording with the desktop software on Windows, wire-accurate timestamps require a one-time network adapter setting — see [Wire-Accurate Recording Timestamps](/dmx-core-100/desktop-software/windows#wire-accurate-recording-timestamps). Without it, recording still works with slightly less precise application-level timestamps.
 
+## Importing Existing Recordings
+
+Shows recorded elsewhere can be imported as cues instead of re-recorded:
+upload the file in **Utilities > File Explorer** and pick the import action
+offered for it. Supported out of the box are PCAP captures (`.pcap`,
+`.pcapng`, `.cap` — e.g. from Wireshark) and Pharos recordings (`.pdrec`);
+with the Lightjams plugin installed,
+[Lightjams recorder videos](/dmx-core-100/integrations/lightjams)
+(`.mp4`/`.avi`) import the same way.
+
 ## Triggered Recording
 
 The recorder's **Trigger** setting starts recording automatically when a specific event occurs — for example, when a DMX channel exceeds a threshold value, or when an HTTP, TCP, UDP, or OSC message arrives. This is configured on the Record page as part of the recorder configuration.

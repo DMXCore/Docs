@@ -153,6 +153,7 @@ export default defineConfig({
                 { label: 'Home Assistant', slug: 'dmx-core-100/integrations/home-assistant' },
                 { label: 'Control Values', slug: 'dmx-core-100/integrations/control-values' },
                 { label: 'Q-SYS & Symetrix', slug: 'dmx-core-100/external-control' },
+                { label: 'Lightjams Recorder Import', slug: 'dmx-core-100/integrations/lightjams' },
                 { label: 'Plugins', slug: 'dmx-core-100/integrations/plugins' },
                 { label: 'Building & Publishing Plugins', slug: 'dmx-core-100/integrations/publishing-plugins' },
                 { label: 'Advatek Lighting', slug: 'dmx-core-100/integrations/advatek-lighting' },
