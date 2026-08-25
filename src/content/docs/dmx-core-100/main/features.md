@@ -91,7 +91,7 @@ title: Features
 * Optional 2-port isolated DMX512 board or ADIO board (audio, 2x DMX-512, 4 digital inputs) — both mount at the back of the DMX Core 100
 * Trigger cues, playback, presets, dimmers and more from QSC Q-Sys and Symetrix DSP cores
 * Remote control via OSC (to be used with software like TouchOSC and more), MQTT, and MIDI
-* Import light fixture profiles from [Lightkey](https://www.lightkeyapp.com/en/fixtures), [Daslight (SSL2)](https://store.daslight.com/en/ssl), and [GDTF](https://gdtf-share.com), or generate a profile from the fixture manual with an [AI assistant](/dmx-core-100/lighting/ai-fixture-profiles)
+* Import light fixture profiles from [Lightkey](https://www.lightkeyapp.com/en/fixtures), [Daslight (SSL2)](https://store.daslight.com/en/ssl), [GDTF](https://gdtf-share.com), and the [Avolites Personality Library](/dmx-core-100/lighting/avolites-fixture-profiles), or generate a profile from the fixture manual with an [AI assistant](/dmx-core-100/lighting/ai-fixture-profiles)
 * Passthrough feature on DMX ports
 * Fade in/out and cross-fade cues, including masking for DMX channels that shouldn't fade
 * Bounce playback (play cues forward and backwards for simple seamless looping)
