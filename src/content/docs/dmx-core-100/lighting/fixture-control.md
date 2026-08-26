@@ -32,6 +32,12 @@ When you adjust a fixture's properties through Fixture Control, these are applie
 Modifiers are temporary adjustments. To save a fixture state permanently, create a [Preset](/dmx-core-100/playback/presets) — the **Build Preset** button captures the current look directly.
 :::
 
+## Fading to a Value
+
+Slider changes normally apply live as you drag. Enable **Fade** in the header (with the duration select next to it, 0.5–30 s) and a slider gesture fades instead: release the slider and the DMX Core 100 fades the fixture smoothly to that value over the selected duration — the fade runs on the device itself, so it continues even if you close the browser. On a desktop browser, holding **Shift** while clicking a slider does the same thing without turning fade mode on.
+
+Fading applies to the percentage sliders — intensity, extra color channels, and custom channels. The color wheel and multi-function selectors always apply immediately. The fade mode toggle and duration are remembered per browser and shared with the [Faders](/dmx-core-100/lighting/faders) page, where the same gesture works on the vertical faders and masters (see [Fading to a Level](/dmx-core-100/lighting/faders#fading-to-a-level)).
+
 ## Effects
 
 The Fixture Control page also gives access to the [effects engine](/dmx-core-100/lighting/effects). Select a fixture or zone and use the effects controls to apply animated lighting effects — breathing, fire, pulsing, and more. If multiple zones are configured, each zone has independent effects controls.

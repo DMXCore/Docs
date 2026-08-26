@@ -21,6 +21,15 @@ Each fixture gets a channel strip showing its current color, name and code, and 
 
 Dragging a fader sideways first and then vertically switches to **fine mode**: vertical movement adjusts the value at a quarter of the normal rate for precise levels.
 
+## Fading to a Level
+
+Faders normally follow your finger — the value changes the moment you press and drag. **Fade mode** turns a press into a smooth transition instead: enable **Fade** in the header, pick a duration next to it (0.5–30 s), and pressing a fader shows a ghost cap at the target level rather than jumping there. Slide the ghost to adjust it (fine mode works here too), then release — the DMX Core 100 fades the fixture to the target over the selected duration while the real cap glides along. On a desktop browser, holding **Shift** while clicking a fader does the same thing without turning fade mode on.
+
+- Fades run on the DMX Core 100 itself, so they continue even if you navigate away or close the browser.
+- Grabbing a fader mid-fade (a normal press) stops the fade and gives you live control again.
+- The gesture works on the fixture faders, the **Master**, and zone **submasters**. **FLASH** and the per-copy trim faders always act instantly.
+- The fade mode toggle and duration are remembered per browser and shared with [Fixture Control](/dmx-core-100/lighting/fixture-control#fading-to-a-value).
+
 ## Banks and Paging
 
 Fixtures are grouped by [Zone](/dmx-core-100/lighting/zones) — each zone is a bank. Chips at the top switch between **All** (with zone separators between groups) and a single zone. With more fixtures than fit on screen, swipe or use the paging arrows; the indicator shows which strips are visible ("13–24 of 61"). The **Filter** box narrows the strips by fixture name or code.
@@ -32,6 +41,8 @@ The selected bank is remembered per browser.
 The **Master** fader on the right edge is the master dimmer — it scales the brightness of everything the fixture engine outputs, and is the same master dimmer that [Custom Menu](/dmx-core-100/scheduling-automation/custom-menus) sliders and OSC can control; changes from anywhere show up here live.
 
 When a single zone bank is selected, that zone's **submaster** fader appears next to the Master. It scales only that zone's fixtures and multiplies with the master dimmer.
+
+**BLACKOUT**, below the Master fader, latches the master dimmer at 0 — press it again to return to the previous level. It is instant by default, and fades over the selected fade duration when fade mode is on (or Shift is held). The button lights whenever the master dimmer is at 0, no matter which client or protocol took it there.
 
 :::note
 Whether the master dimmer also affects **cue playback** is controlled by the *Master Dimmer Cue Control* output setting.
