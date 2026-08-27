@@ -35,6 +35,7 @@ The Web UI exposes all settings, organized in the sidebar under **Lighting Setup
 - **Lock-down options** — lock down the device, show only the custom menu, only allow admins to record, allow stop output when locked down, hide fixture or remote control functionality
 - **Multi-Zone Playback** — enables [zones](/dmx-core-100/lighting/zones)
 - **Enable Remote Access** — the [cloud tunnel](/dmx-core-100/integrations/cloud-tunnel)
+- **Enable MCP Server** — expose the [MCP](/dmx-core-100/integrations/mcp-server) endpoint for AI clients; use **Issue MCP API Key** on the same page (or **User Management > API Keys**)
 - **OSC Port**, **Local HTTP/HTTPS Ports** — network ports (changes require a restart)
 - **Audio Device** and **Sample Rate** — output device for [sound playback](/dmx-core-100/playback/sounds)
 - **Fixed VNC Password** — for VNC access to the touchscreen

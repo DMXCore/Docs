@@ -6,6 +6,7 @@ The DMX Core 100 is built to talk to the rest of your installation — audio DSP
 
 * [Open Sound Control (OSC)](/dmx-core-100/integrations/osc-open-sound-control) — two-way control with apps like TouchOSC
 * [MQTT](/dmx-core-100/integrations/mqtt) — IoT and building automation messaging
+* [MCP Server](/dmx-core-100/integrations/mcp-server) — AI clients (Cursor, Claude Desktop, and others) control lights over the Model Context Protocol
 * [Home Assistant](/dmx-core-100/integrations/home-assistant) — the device and all its scenes, dimmers, and switches appear in Home Assistant automatically
 * [Control Values](/dmx-core-100/integrations/control-values) — bridge Q-SYS and Symetrix audio controls to faders, menus, and triggers
 * [Q-SYS & Symetrix](/dmx-core-100/external-control) — use the DMX Core 100 as a DSP wall controller, and vice versa

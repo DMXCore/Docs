@@ -35,6 +35,17 @@ Per-user options include:
 
 Users can be given access tokens for programmatic access to the API. This is useful for integration with external systems that need to authenticate without a PIN.
 
+### API Keys
+
+Long-lived API keys are managed under **User Management > API Keys**. Today this is used for the [MCP Server](/dmx-core-100/integrations/mcp-server):
+
+- Create an **MCP** key from that page, or from **Device > System** with **Issue MCP API Key** when MCP is enabled
+- The secret is shown once at creation — store it securely
+- MCP keys authenticate only on `/mcp`; they cannot be exchanged for a Web UI JWT
+- Revoke a key anytime; the list shows first-used and last-used times
+
+Creating MCP keys requires **User Management** or **Change System Settings**.
+
 ## Roles and Permissions
 
 Roles define what a user can do. The system ships with **Admin**, **Operator**, and **Standard** roles, and you can create your own under **User Management > Roles**.
