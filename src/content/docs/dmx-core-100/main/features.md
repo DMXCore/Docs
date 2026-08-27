@@ -9,6 +9,7 @@ title: Features
 * Record and playback of dynamic DMX, up to 800 universes at 40 Hz (or 600 at 60 Hz)
 * Playback of WAV and FLAC audio files via USB or onboard optional audio board, with pause/scrub controls
 * Light fixture control with profiles and multi-function support
+* [Faders page](/dmx-core-100/lighting/faders): console-style vertical faders for every dimmable fixture — zone submasters, grand master, FLASH buttons, fine-drag precision, and fade-to-level (0.5–30 s device-side fades)
 * Multi-room/zone support with zone-based fixture grouping
 * Presets with smooth fades, copy/paste, effect assignment, and ambient (fallback) presets
 * Effects engine with 14 built-in generators — breathing, fire, chaser, strobe, sound-reactive, and more — with zone-level control
@@ -27,6 +28,7 @@ title: Features
 * Record from any source (DMX-512, ArtNet, sACN or KiNet), plus live monitor feature
 * Input triggers via DMX, OSC, MQTT, HTTP, TCP, UDP, and digital inputs — run actions or drive levels
 * Output events for external notifications (MQTT, HTTP, OSC, serial) when actions occur
+* [MCP Server](/dmx-core-100/integrations/mcp-server): AI clients such as Claude Desktop and Cursor can list entities, play cues, set levels, and control fixtures over the Model Context Protocol, secured with MCP-only API keys
 
 ### Security
 
@@ -95,7 +97,7 @@ title: Features
 * Passthrough feature on DMX ports
 * Fade in/out and cross-fade cues, including masking for DMX channels that shouldn't fade
 * Bounce playback (play cues forward and backwards for simple seamless looping)
-* Import cues from DMXking products and from [Pharos Controls DMX Recorder](https://www.pharoscontrols.com/support/designer/software-downloads/#dmx-record)
+* Import cues from DMXking products, [Pharos Controls DMX Recorder](https://www.pharoscontrols.com/support/designer/software-downloads/#dmx-record), and [Lightjams Art-Net recorder videos](/dmx-core-100/integrations/lightjams)
 
 ### External Control
 
