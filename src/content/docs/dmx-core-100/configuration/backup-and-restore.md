@@ -80,3 +80,9 @@ Network settings (IP address, etc.) are not included in backups by default, sinc
 :::
 
 For moving data between units, see [Move Data Between DMX Core 100 Units](/dmx-core-100/common-tasks/move-data-between-dmx-core-100-units).
+
+## Factory Reset
+
+To wipe the device back to empty first-start defaults without restoring a backup, use **Factory Reset** on **Utilities > System**. Local backup files are kept so you can restore afterward. Network settings and the device license are also kept.
+
+See [Factory Reset](/dmx-core-100/configuration/utilities#factory-reset).

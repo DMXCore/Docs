@@ -11,4 +11,5 @@ This section covers the configuration options available in the DMX Core 100. Mos
 - [Device Monitor](/dmx-core-100/configuration/device-monitor) — Discover and monitor network hardware
 - [Users & Roles](/dmx-core-100/configuration/users-and-roles) — Manage user accounts and permissions
 - [Backup & Restore](/dmx-core-100/configuration/backup-and-restore) — Back up and restore your configuration and content
+- [Utilities](/dmx-core-100/configuration/utilities) — Touchscreen tools, Web UI System page, and factory reset
 - [Audit Log](/dmx-core-100/configuration/audit-log) — View system activity history

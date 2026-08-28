@@ -4,6 +4,8 @@ title: Re-flash Instructions
 
 If you need to recover the device back to factory default (you will lose all settings, presets and cues) then you can re-flash the boot image.
 
+To wipe show content and return to empty defaults **without** rewriting the OS — keeping network settings and the device license — use [Factory Reset](/dmx-core-100/configuration/utilities#factory-reset) in the Web UI instead.
+
 :::caution
 Re-flashing erases all settings, presets, and cues. Make a backup first if possible.
 :::

@@ -5,6 +5,7 @@ description: Release notes and highlights
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| v2026.827.x | 8/27/2026 | [Factory reset](/dmx-core-100/configuration/utilities#factory-reset) from **Utilities > System**: type RESET to wipe show content, users, and settings while keeping network, license, and local backups — sign in afterward as Administrator with PIN 1111 |
 | v2026.826.x | 8/26/2026 | [MCP Server](/dmx-core-100/integrations/mcp-server): control lighting from AI clients such as Claude Desktop and Cursor over the Model Context Protocol — list entities, play cues, adjust levels, and drive fixture colors, secured with MCP-only API keys issued from the Web UI |
 | v2026.826.x | 8/26/2026 | Snappier live control: Faders and Fixture Control changes now stream over the persistent SignalR connection, and sliders animate locally during device-side fades; ambient, sound, and fixture intensity entities added to the integration catalog for Home Assistant and other plugins |
 | v2026.825.x | 8/25/2026 | New [Faders](/dmx-core-100/lighting/faders) page: console-style vertical faders for every dimmable fixture — zone banks with submasters, grand master, FLASH buttons, fine-drag precision mode, per-copy trim fan-out, name/code filtering, and per-strip or Release All |

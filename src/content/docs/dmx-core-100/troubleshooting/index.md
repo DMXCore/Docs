@@ -6,6 +6,8 @@ We have worked hard to ensure the DMX Core 100 is as stable as possible; however
 
 The DMX Core 100 connects to a central web service to get updates and allow support personnel to analyze log files. The first thing you should try is to make sure the unit is on a network connected to the internet.
 
+To wipe show content and return to empty first-start defaults while keeping the OS, network, and license, use [Factory Reset](/dmx-core-100/configuration/utilities#factory-reset) in the Web UI. Re-flashing the boot image is only needed if the device will not boot — see [Re-flash Instructions](/dmx-core-100/troubleshooting/re-flash-instructions).
+
 ### Force DHCP mode
 
 If you can't access the GUI to change the network settings, and the device was on an isolated network without internet access and a static IP, you need to make sure it has internet access. In some networks that is tricky when set up with a static IP, perhaps without a default gateway. If your device is on release rev223 or later there's a feature to reset the unit back to DHCP using a USB stick.

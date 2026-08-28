@@ -17,6 +17,7 @@ The audit log records events including:
 
 - **Login/Logoff** — User sessions, including failed login attempts
 - **Backup operations** — When backups are created or restored
+- **Factory reset** — When a [factory reset](/dmx-core-100/configuration/utilities#factory-reset) is requested and after it completes
 - **Recording** — When recording is started and stopped
 - **Configuration changes** — Modifications to settings, outputs, schedules, etc.
 - **Playback events** — Cue, preset, and timeline playback actions
