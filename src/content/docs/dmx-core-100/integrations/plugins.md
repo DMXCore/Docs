@@ -192,6 +192,13 @@ but strobes, fast chases, and hard blackouts smear together. The LAN API
 also drives the whole device as a single zone, so per-segment (RGBIC)
 control is not available. Both are the device, not the plugin or the Core.
 
+For instant rendering the plugin setting **Enable Realtime protocols
+(experimental)** adds Realtime RGB (whole device, no firmware fade —
+strobes and snaps work) and Realtime Pixel (per-segment RGBIC control)
+protocols, streamed over the reverse-engineered mode Govee's own desktop
+app uses for music sync. Not part of the documented LAN API and only
+verified on the **H618A**; off by default.
+
 The plugin's source is public at
 [DMXCore/DMXCore100.Plugin.Govee](https://github.com/DMXCore/DMXCore100.Plugin.Govee).
 
