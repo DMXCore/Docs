@@ -6,7 +6,7 @@ description: Install, update, and manage the plugins that extend the DMX Core 10
 Plugins extend the DMX Core 100 with integrations that run on the device
 itself — DSP control (**Symetrix**, **Q-SYS**), smart-home platforms
 (**[Home Assistant](/dmx-core-100/integrations/home-assistant)**), networked
-lighting (**Shelly**, **LIFX**, **WiZ**), show import
+lighting (**Shelly**, **LIFX**, **WiZ**, **Govee**), show import
 (**[Lightjams](/dmx-core-100/integrations/lightjams)**), and more. Plugins are installed per device
 from the **plugin registry**, straight from the Plugins page, and updated
 independently of the device software.
@@ -125,7 +125,7 @@ from DMX data over MQTT. It adds a **SHELLY** output type on the
 RGBW+intensity protocols, a **Discover** button that finds Shelly devices on
 the network, and a **Shelly** fixture profile so the device can be patched
 and controlled like any fixture. See
-[Output Config](/dmx-core-100/configuration/output-config#plugin-output-types-shelly-lifx-wiz)
+[Output Config](/dmx-core-100/configuration/output-config#plugin-output-types-shelly-lifx-wiz-govee)
 for setup.
 
 The plugin's source is public at
@@ -143,7 +143,7 @@ multizone device individually, a **Discover** button that finds the lights
 (and their zone counts), and a **LIFX — Color Bulb** fixture profile whose
 personalities match the protocols. Updates stream at up to 20 per second per
 light with a short device-side fade so effects look smooth. See
-[Output Config](/dmx-core-100/configuration/output-config#plugin-output-types-shelly-lifx-wiz)
+[Output Config](/dmx-core-100/configuration/output-config#plugin-output-types-shelly-lifx-wiz-govee)
 for setup.
 
 The plugin's source is public at
@@ -160,7 +160,7 @@ RGB + cool/warm white) and white protocols (Dimmer+CT in kelvin mode,
 Dimmer), a **Discover** button that finds the lights and shows what each
 module can do, and **WiZ — Color Bulb** / **WiZ — White Bulb** fixture
 profiles. Updates are rate-limited to 10 per second per light. See
-[Output Config](/dmx-core-100/configuration/output-config#plugin-output-types-shelly-lifx-wiz)
+[Output Config](/dmx-core-100/configuration/output-config#plugin-output-types-shelly-lifx-wiz-govee)
 for setup.
 
 WiZ firmware smooths every color change over a fraction of a second and
@@ -170,6 +170,30 @@ plugin or the Core; the WiZ app behaves the same way.
 
 The plugin's source is public at
 [DMXCore/DMXCore100.Plugin.WiZ](https://github.com/DMXCore/DMXCore100.Plugin.WiZ).
+
+## The Govee Plugin
+
+The Govee plugin drives **Govee WiFi lights** — LED strips, neon ropes,
+panels, and lamps that support Govee's local LAN API (the H618x/H619x strip
+series and similar; the ordinary Govee A19 bulbs do not) — with no cloud
+account needed at show time. Each light must have **LAN Control** switched
+on once in its Govee Home app settings, and only then answers on the
+network. The plugin adds a **GOVEE** output type with an RGB color protocol
+and white protocols (Dimmer+CT in kelvin mode, Dimmer), a **Discover**
+button that finds the lights and shows their model, and **Govee — Color
+Light** / **Govee — White Light** fixture profiles. Updates are rate-limited
+to 10 per second per light. See
+[Output Config](/dmx-core-100/configuration/output-config#plugin-output-types-shelly-lifx-wiz-govee)
+for setup.
+
+Govee firmware smooths every change — color, brightness, and power — over a
+fixed fade the protocol cannot shorten: fades and gentle effects look great,
+but strobes, fast chases, and hard blackouts smear together. The LAN API
+also drives the whole device as a single zone, so per-segment (RGBIC)
+control is not available. Both are the device, not the plugin or the Core.
+
+The plugin's source is public at
+[DMXCore/DMXCore100.Plugin.Govee](https://github.com/DMXCore/DMXCore100.Plugin.Govee).
 
 ## The Lightjams Plugin
 

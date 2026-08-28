@@ -24,7 +24,7 @@ In the Web UI, go to **Lighting Setup > Outputs** for the same configuration wit
 Each output can be configured with:
 
 - **Code / Name** — identifier and display name
-- **Output Type** — sACN (E1.31), ArtNet, KiNet (v1/v2), TPM2.net, USB DMX, or a plugin-provided type such as SHELLY, LIFX, or WIZ
+- **Output Type** — sACN (E1.31), ArtNet, KiNet (v1/v2), TPM2.net, USB DMX, or a plugin-provided type such as SHELLY, LIFX, WIZ, or GOVEE
 - **Start Slot Id / Start Universe Id** — which internal slot maps to which on-the-wire universe
 - **Universe Count** — how many consecutive universes this output spans
 - **Destination IP** — unicast target (protocol dependent; leave empty for multicast/broadcast)
@@ -51,36 +51,41 @@ A button assigned to Toggle Output shows an active state while output is suppres
 
 TPM2.net is a UDP-based protocol for pixel LED controllers. Select **TPM2.net** as the output type and set the target IP address to send pixel data to compatible controllers, with a configurable pixel type (used for TPM2.net and built-in test patterns; it has no effect on cues and presets).
 
-### Plugin Output Types (Shelly, LIFX, WiZ)
+### Plugin Output Types (Shelly, LIFX, WiZ, Govee)
 
 [Plugins](/dmx-core-100/integrations/plugins) can add their own output types
 that drive networked lighting devices — WiFi bulbs and similar — from a slice
 of DMX channels. Installed from **Plugins > Browse**, the **Shelly** plugin
 adds a SHELLY output type for Shelly Gen1 color devices (RGBW2 and similar)
 over MQTT, the **LIFX** plugin a LIFX type for LIFX bulbs and multizone
-fixtures over the LIFX LAN protocol, and the **WiZ** plugin a WIZ type for
-WiZ (Signify) bulbs over the WiZ local UDP protocol.
+fixtures over the LIFX LAN protocol, the **WiZ** plugin a WIZ type for
+WiZ (Signify) bulbs over the WiZ local UDP protocol, and the **Govee**
+plugin a GOVEE type for Govee strips, neon ropes, panels, and lamps over the
+Govee LAN API (each light needs **LAN Control** switched on once in the
+Govee Home app).
 
 A plugin output maps one device per output:
 
 - **Protocol** — the device's channel layout, e.g. RGB, RGBW, or
   RGBW+intensity for Shelly; RGB / RGB+CT / RGBW / RGBW+CT (8- or 16-bit) or
-  Pixel for LIFX; RGB / RGBW+CT / RGB+CW+WW, Dimmer+CT, or Dimmer for WiZ
+  Pixel for LIFX; RGB / RGBW+CT / RGB+CW+WW, Dimmer+CT, or Dimmer for WiZ;
+  RGB, Dimmer+CT, or Dimmer for Govee
 - **Destination Address** — which device to drive: the device id for Shelly
-  (e.g. `shellyrgbw2-A4CF12F45478`), the light's IP address for LIFX and WiZ
-  (give those lights a static DHCP lease). Use the **Discover** button to pick
-  from devices found on the network; for LIFX pixel devices it also fills the
-  mapping's **Pixels** field.
+  (e.g. `shellyrgbw2-A4CF12F45478`), the light's IP address for LIFX, WiZ,
+  and Govee (give those lights a static DHCP lease). Use the **Discover**
+  button to pick from devices found on the network; for LIFX pixel devices
+  it also fills the mapping's **Pixels** field.
 - **Start Channel** — the DMX start address of the device's channels within the slot (matching the fixture's start channel)
 
 The device's channels live in a normal slot/universe, so anything that writes
 DMX can drive it — cues, presets, effects, or externally received sACN. For
 native control, patch a fixture at the same slot and channels: the plugin
 provides a matching fixture profile (e.g. **Shelly — Gen1 Color**, **LIFX —
-Color Bulb**, **WiZ — Color Bulb**), and the fixture editor's **Mapped
+Color Bulb**, **WiZ — Color Bulb**, **Govee — Color Light**), and the
+fixture editor's **Mapped
 Device** selector prefills the slot, start channel, and personality straight
 from the output mapping.
 
 Updates are rate-limited per device to what the hardware handles (about 10
-commands per second for Shelly Gen1 and WiZ, 20 for LIFX), with unchanged
-values deduplicated automatically.
+commands per second for Shelly Gen1, WiZ, and Govee, 20 for LIFX), with
+unchanged values deduplicated automatically.
