@@ -27,9 +27,9 @@ If none of these libraries has your fixture — common with unbranded fixtures �
 To import a profile:
 
 1. Download the profile file from one of the supported libraries
-2. Upload it to the device using one of these methods:
-   - **Web UI**: Go to **File Explorer**, upload the file, then import it
-   - **USB**: Copy the file to a USB memory stick, plug it into the DMX Core 100, and use **Utilities > File Explorer** on the touchscreen to import
+2. In the Web UI, go to **File Explorer**, open the **Transfer** folder, upload the file, then choose **Import**. On a wall-mounted unit you can instead copy the file to a USB stick and import it from **Utilities > File Explorer** on the touchscreen.
+
+The **Profile** dropdown on Fixture Details only lists built-in generic profiles and profiles you have already imported. You cannot add a new profile from that form.
 
 ![File Explorer — where fixture profiles are uploaded and imported](/assets/web/file-explorer.png)
 
@@ -41,7 +41,7 @@ Fixture setup is managed in the Web UI under **Lighting Setup > Fixtures**.
 
 1. Go to **Lighting Setup > Fixtures** in the Web UI
 2. Click **Add** to create a new fixture
-3. Select the **Profile** from the list of imported profiles
+3. Select the **Profile** — a built-in generic RGB/RGBW profile, or one you imported
 4. Select the **Personality** (channel mode) — this determines which DMX channels the fixture uses
 5. Set the **DMX address** (start channel) and **universe**
 6. Optionally assign the fixture to a [Zone](/dmx-core-100/lighting/zones)
