@@ -64,6 +64,22 @@ const SHOTS = [
   { name: 'sounds-list', path: '/sounds' },
   { name: 'timelines-list', path: '/timelines' },
   { name: 'fixture-control', path: '/fixturecontrol' },
+  {
+    name: 'visualizer',
+    path: '/visualizer',
+    waitFor: 'canvas',
+    // Shoot a scenery-based view: venue photos on the dev instance may not be
+    // redistributable. Falls back to the default view if the tab is missing.
+    before: async (page) => {
+      await page.evaluate(() => {
+        const tab = [...document.querySelectorAll('button')].find(
+          (b) => b.textContent.trim() === 'Stage truss',
+        );
+        tab?.click();
+      });
+      await new Promise((r) => setTimeout(r, 800));
+    },
+  },
   { name: 'timeline-editor', path: '/timelines/editor/1', waitFor: 'canvas, svg, .timeline' },
   // Operation
   { name: 'surface-operator-list', path: '/surface-operator' },

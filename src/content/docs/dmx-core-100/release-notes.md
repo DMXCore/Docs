@@ -5,6 +5,7 @@ description: Release notes and highlights
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| v2026.831.x | 8/31/2026 | [Visualizer](/dmx-core-100/lighting/visualizer): 2D live visualizer — place fixtures on photos of your venue (or a truss canvas with a small scenery kit) and watch presets, fixture control, and effects light them up live; cone/wash/glow/strip overlays, the same fixture on many views (and many times on one — nine pendants on one address), place multi-copy fixtures as a strip, per-copy trims with Solo right from the photo |
 | v2026.827.x | 8/27/2026 | [Factory reset](/dmx-core-100/configuration/utilities#factory-reset) from **Utilities > System**: type RESET to wipe show content, users, and settings while keeping network, license, and local backups — sign in afterward as Administrator with PIN 1111 |
 | v2026.826.x | 8/26/2026 | [MCP Server](/dmx-core-100/integrations/mcp-server): control lighting from AI clients such as Claude Desktop and Cursor over the Model Context Protocol — list entities, play cues, adjust levels, and drive fixture colors, secured with MCP-only API keys issued from the Web UI |
 | v2026.826.x | 8/26/2026 | Snappier live control: Faders and Fixture Control changes now stream over the persistent SignalR connection, and sliders animate locally during device-side fades; ambient, sound, and fixture intensity entities added to the integration catalog for Home Assistant and other plugins |
