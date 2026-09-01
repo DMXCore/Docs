@@ -105,6 +105,7 @@ export default defineConfig({
                 { label: 'Avolites Fixture Profiles', slug: 'dmx-core-100/lighting/avolites-fixture-profiles' },
                 { label: 'Fixture Control', slug: 'dmx-core-100/lighting/fixture-control' },
                 { label: 'Faders', slug: 'dmx-core-100/lighting/faders' },
+                { label: 'Visualizer', slug: 'dmx-core-100/lighting/visualizer' },
                 { label: 'Zones', slug: 'dmx-core-100/lighting/zones' },
                 { label: 'Effects', slug: 'dmx-core-100/lighting/effects' },
                 { label: 'Tempo & Audio Sync', slug: 'dmx-core-100/lighting/tempo' },
