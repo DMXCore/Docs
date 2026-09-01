@@ -68,12 +68,13 @@ const SHOTS = [
     name: 'visualizer',
     path: '/visualizer',
     waitFor: 'canvas',
-    // Shoot a scenery-based view: venue photos on the dev instance may not be
-    // redistributable. Falls back to the default view if the tab is missing.
+    // Shoot the royalty-free demo view (Pexels 11923047): venue photos from
+    // customer sites may not be redistributable. Falls back to the default
+    // view if the tab is missing.
     before: async (page) => {
       await page.evaluate(() => {
         const tab = [...document.querySelectorAll('button')].find(
-          (b) => b.textContent.trim() === 'Stage truss',
+          (b) => b.textContent.trim() === 'Booths',
         );
         tab?.click();
       });
