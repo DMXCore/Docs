@@ -83,6 +83,7 @@ Use a **fixed browser window** (1440×900 recommended). Enable dark mode with th
 - [ ] Ambient Presets page *(candidate with Activate button)*
 - [ ] Sounds list
 - [ ] Timeline editor *(cue, sound, control value, and script events on tracks)*
+- [x] Timeline editor — Timecode chase settings on *(timeline-timecode-chase.png)*
 - [ ] Recording page *(preview and input mapping)*
 
 ### Scheduling & Automation

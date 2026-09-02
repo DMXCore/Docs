@@ -5,6 +5,7 @@ description: Release notes and highlights
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| v2026.902.x | 9/2/2026 | [Timecode chase](/dmx-core-100/playback/timecode-chase): lock a timeline to incoming Art-Net ArtTimeCode — Play joins the live clock instead of t=0, with per-timeline stream, offset, dropout, and auto-join settings; after a restart the timeline re-locks at the current timecode when **When TC appears** is on |
 | v2026.831.x | 8/31/2026 | [Visualizer](/dmx-core-100/lighting/visualizer): 2D live visualizer — place fixtures on photos of your venue (or a truss canvas with a small scenery kit) and watch presets, fixture control, and effects light them up live; cone/wash/glow/strip overlays, the same fixture on many views (and many times on one — nine pendants on one address), place multi-copy fixtures as a strip, per-copy trims with Solo right from the photo |
 | v2026.827.x | 8/27/2026 | [Factory reset](/dmx-core-100/configuration/utilities#factory-reset) from **Utilities > System**: type RESET to wipe show content, users, and settings while keeping network, license, and local backups — sign in afterward as Administrator with PIN 1111 |
 | v2026.826.x | 8/26/2026 | [MCP Server](/dmx-core-100/integrations/mcp-server): control lighting from AI clients such as Claude Desktop and Cursor over the Model Context Protocol — list entities, play cues, adjust levels, and drive fixture colors, secured with MCP-only API keys issued from the Web UI |

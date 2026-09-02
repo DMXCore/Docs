@@ -20,6 +20,8 @@ npm run screenshots          # dark theme (default) → public/assets/web/*.png
 npm run screenshots:light    # light theme
 # single page:
 node scripts/capture-web-screenshots.mjs --only timeline-editor
+# Vite proxy 502 on /api: log in against the backend directly
+node scripts/capture-web-screenshots.mjs --only timeline-timecode-chase --api http://localhost:8000
 ```
 
 Logs in via `POST /api/website/login`, seeds the auth token + `coreuiTheme` into

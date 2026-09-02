@@ -15,6 +15,7 @@ title: Features
 * Effects engine with 14 built-in generators — breathing, fire, chaser, strobe, sound-reactive, and more — with zone-level control
 * Beat-synced effects: tap tempo, metronome modes, and audio-trigger detection
 * Timeline editor for sequencing cues, presets, sounds, levels, and scripts — with audio waveforms and intensity profiles
+* [Timecode chase](/dmx-core-100/playback/timecode-chase): lock a timeline to incoming Art-Net ArtTimeCode so Play joins the site clock instead of starting at t=0
 * Playback layers and priorities for concurrent playback control
 * Scheduler with fixed and sunrise/sunset times, dimmer settings, and stop-at-completion
 * User scripting in JavaScript — automate fixtures, playback, levels, and messaging with a built-in editor

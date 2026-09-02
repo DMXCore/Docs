@@ -119,6 +119,7 @@ export default defineConfig({
                 { label: 'Presets', slug: 'dmx-core-100/playback/presets' },
                 { label: 'Sounds', slug: 'dmx-core-100/playback/sounds' },
                 { label: 'Timelines', slug: 'dmx-core-100/playback/timelines' },
+                { label: 'Timecode Chase', slug: 'dmx-core-100/playback/timecode-chase' },
                 { label: 'Hold Milestones', slug: 'dmx-core-100/playback/hold-milestones' },
                 { label: 'Recording', slug: 'dmx-core-100/playback/recording' },
                 { label: 'Layers & Priority', slug: 'dmx-core-100/playback/layers-and-priority' },

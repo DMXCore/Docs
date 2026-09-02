@@ -6,7 +6,7 @@
 // public/assets/web/.
 //
 // Usage:
-//   node scripts/capture-web-screenshots.mjs [--base http://localhost:8080] [--pin 1111] [--light]
+//   node scripts/capture-web-screenshots.mjs [--base http://localhost:8080] [--api http://localhost:8000] [--pin 1111] [--light]
 //
 // Prereqs: the DMX Core 100 app (or desktop software) running and reachable at
 // --base, with the documentation sample content loaded.
@@ -26,6 +26,7 @@ const getArg = (name, def) => {
   return i >= 0 && args[i + 1] ? args[i + 1] : def;
 };
 const BASE = getArg('base', 'http://localhost:8080').replace(/\/$/, '');
+const API = getArg('api', BASE).replace(/\/$/, '');
 const PIN = getArg('pin', '1111');
 const USER_ID = Number(getArg('user', '1'));
 const THEME = args.includes('--light') ? 'light' : 'dark';
@@ -47,11 +48,12 @@ if (!chromePath) {
 }
 
 // ---- shot list ------------------------------------------------------------
-// Each shot: { name, path, waitFor?, before?, fullPage? }
+// Each shot: { name, path, waitFor?, before?, fullPage?, selector? }
 //  - path is appended to `${BASE}/op`
 //  - waitFor: extra CSS selector/text to wait for before the shot
 //  - before: async (page) => {}  runs after nav, before the screenshot
 //    (e.g. click a row, open the editor). Keep these resilient.
+//  - selector: screenshot that element instead of the full viewport
 const SHOTS = [
   // Dashboard & navigation
   { name: 'dashboard', path: '' },
@@ -82,6 +84,27 @@ const SHOTS = [
     },
   },
   { name: 'timeline-editor', path: '/timelines/editor/1', waitFor: 'canvas, svg, .timeline' },
+  {
+    // Chase knobs are per-timeline. This lab unit's Chuckies (id 2) has chase
+    // saved on; Grand Hall sample data should use whatever timeline has chase
+    // enabled (or the before-hook turns the switch on for the shot).
+    name: 'timeline-timecode-chase',
+    path: '/timelines/editor/2',
+    waitFor: '.timecode-sync',
+    before: async (page) => {
+      await page.evaluate(() => {
+        const expand = document.querySelector('button.settings-toggle[title="Expand timeline settings"]');
+        expand?.click();
+      });
+      await sleep(400);
+      await page.evaluate(() => {
+        const input = document.querySelector('.timecode-sync input[type="checkbox"]');
+        if (input && !input.checked) input.click();
+      });
+      await sleep(400);
+    },
+    selector: '.section-header',
+  },
   // Operation
   { name: 'surface-operator-list', path: '/surface-operator' },
   { name: 'surface-operator', path: '/controlsurfaces/1/operator' },
@@ -130,7 +153,7 @@ const SHOTS = [
 
 // ---- helpers --------------------------------------------------------------
 async function login() {
-  const res = await fetch(`${BASE}/api/website/login`, {
+  const res = await fetch(`${API}/api/website/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ userId: USER_ID, pin: PIN }),
@@ -203,7 +226,16 @@ async function main() {
       });
       await sleep(700); // let fades / charts settle
       const file = join(OUT, `${shot.name}.png`);
-      await page.screenshot({ path: file });
+      if (shot.selector) {
+        const el = await page.$(shot.selector);
+        if (!el) {
+          console.warn(`  ✗ ${shot.name}  (${url})  — selector ${shot.selector} not found`);
+          continue;
+        }
+        await el.screenshot({ path: file });
+      } else {
+        await page.screenshot({ path: file });
+      }
       console.log(`  ✓ ${shot.name}  ←  ${shot.path || '/'}`);
       ok++;
     } catch (err) {
