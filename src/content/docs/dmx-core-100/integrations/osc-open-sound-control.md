@@ -9,12 +9,13 @@ The DMX Core 100 speaks OSC (Open Sound Control), so applications like [TouchOSC
 
 The OSC server listens on UDP port **8000** by default. The port is configurable under **Device > System > OSC Port** in the Web UI (requires a restart). No other setup is needed — the built-in addresses below work as soon as the device is on the network.
 
-## Two Ways to Use Incoming OSC
+## Three Ways to Use Incoming OSC
 
-- **Built-in addresses** — a fixed set of `/dmxcore/...` addresses that play cues, apply presets, start effects, and set levels by *code*. Nothing to configure: send `/dmxcore/cue/ACT1` and the cue with code `ACT1` plays. See the [reference](#built-in-address-reference) below.
+- **Built-in addresses** — a fixed set of `/dmxcore/...` addresses that play cues, apply presets, start effects, and set levels by *code*. Nothing to configure: send `/dmxcore/cue/ACT1` and the cue with code `ACT1` plays. See the [reference](#built-in-address-reference) below. This is the right fit for a show controller or playback software that just needs to fire saved cues.
 - **Input triggers** — for your own address space, or for actions the built-in set doesn't cover (timelines, sounds, scripts, output events, stepping a Control Value, toggling output), define an [input trigger](/dmx-core-100/scheduling-automation/input-triggers) of type OSC with the address of your choice. A Value-mode trigger feeds a fader's value straight into a level.
+- **OSC control surfaces** — bind a whole OSC layout (TouchOSC, a console's OSC page) to a [control surface](/dmx-core-100/control-surfaces) for structured, bank-switchable panels with full two-way feedback, including Absolute/Relative slider modes and press-and-hold auto-repeat. The surface binds to a named [OSC client](#osc-clients-and-feedback), so it is the right fit for a dedicated operator panel rather than one-off cue triggers.
 
-Both work at the same time. A message that matches an input trigger *and* a built-in address does both.
+Built-in addresses and input triggers work at the same time: a message that matches an input trigger *and* a built-in address does both. A control surface, on the other hand, *owns* its sender: once an OSC client with a specific source IP is bound to an enabled surface, every message from that IP goes to the surface and neither the built-in addresses nor input triggers see it. A surface bound to an *any*-source client only claims the addresses it has assignments for and lets everything else through.
 
 ## Playing a Cue
 
