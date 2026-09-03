@@ -213,6 +213,7 @@ export default defineConfig({
               items: [
                 { label: 'Overview', slug: 'dmx-core-100/common-tasks' },
                 { label: 'Move Data Between Units', slug: 'dmx-core-100/common-tasks/move-data-between-dmx-core-100-units' },
+                { label: 'Play a Cue over OSC', slug: 'dmx-core-100/common-tasks/play-a-cue-over-osc' },
               ],
             },
             { label: 'Release Notes', slug: 'dmx-core-100/release-notes' },

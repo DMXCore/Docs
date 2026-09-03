@@ -25,7 +25,7 @@ The most common use is firing saved cues from a show controller. The address is 
 /dmxcore/cue/ACT1
 ```
 
-Send it with no arguments to play the cue normally. Codes must match exactly as entered, including upper/lower case. To stop playback:
+Send it with no arguments to play the cue normally. Codes must match exactly as entered, including upper/lower case. For a step-by-step walkthrough and troubleshooting, see [Play a Cue over OSC](/dmx-core-100/common-tasks/play-a-cue-over-osc). To stop playback:
 
 ```
 /dmxcore/cuecontrol/stop
