@@ -15,23 +15,26 @@ The DMX Core 100 ships with built-in generic profiles for common **RGB and RGBW*
 
 ### Importing Profiles
 
-The DMX Core 100 supports importing profiles from four popular fixture libraries:
+The DMX Core 100 supports importing profiles from four popular fixture libraries. Start with Lightkey when you can — public catalog, one file per fixture, no account.
 
-- [Lightkey](https://www.lightkeyapp.com/en/fixtures) — Download the fixture profile file
-- [Daslight (SSL2)](https://store.daslight.com/en/ssl) — Download the SSL2 profile file
-- [GDTF Share](https://gdtf-share.com) — Download the GDTF (General Device Type Format) file, an open standard supported by many fixture manufacturers
-- [Avolites Personality Library](https://personalities.avolites.com/) — Titan personality files (`.d4`); see [Avolites Fixture Profiles](/dmx-core-100/lighting/avolites-fixture-profiles) for how to find and extract them
+- [Lightkey](https://www.lightkeyapp.com/en/fixtures) — `.lightkeyfxt`
+- [Daslight (SSL2)](https://store.daslight.com/en/ssl) — `.ssl2` (may require a free login)
+- [GDTF Share](https://gdtf-share.com) — `.gdtf`
+- [Avolites Personality Library](https://personalities.avolites.com/) — `.d4`; last resort, because the site ships the whole library as an archive. See [Avolites Fixture Profiles](/dmx-core-100/lighting/avolites-fixture-profiles) for how to extract a single file.
 
 If none of these libraries has your fixture — common with unbranded fixtures — an AI assistant can build a profile from photos of the fixture's manual. See [AI-Generated Fixture Profiles](/dmx-core-100/lighting/ai-fixture-profiles).
 
-To import a profile:
+To import while adding or editing a fixture:
 
-1. Download the profile file from one of the supported libraries
-2. In the Web UI, go to **Lighting Setup > Profiles**, choose the file, and click **Import**. You can select several files at once.
+1. On Fixture Details, click **Add profile…** next to the Profile dropdown
+2. Open a library, download the file, then choose it in the dialog and click **Import**
+3. The new profile is selected — save the fixture to apply it
+
+To import several files, or to inspect and delete profiles, use **Lighting Setup > Profiles** and **Add profile…**.
 
 On a wall-mounted unit you can instead copy the file to a USB stick and import it from **Utilities > File Explorer** on the touchscreen. **File Explorer > Transfer** in the Web UI still works as a bulk/alternate path.
 
-The **Profile** dropdown on Fixture Details lists generic profiles, imported profiles, and any profiles provided by a loaded plugin. Add or remove library profiles from **Lighting Setup > Profiles**.
+The **Profile** dropdown on Fixture Details lists generic profiles, imported profiles, and any profiles provided by a loaded plugin.
 
 ![Profiles — import, inspect, and delete fixture profiles](/assets/web/fixture-profiles.png)
 
@@ -51,7 +54,7 @@ Fixture setup is managed in the Web UI under **Lighting Setup > Fixtures**.
 
 1. Go to **Lighting Setup > Fixtures** in the Web UI
 2. Click **Add** to create a new fixture
-3. Select the **Profile** — a built-in generic RGB/RGBW profile, or one you imported
+3. Select the **Profile** — a built-in generic RGB/RGBW profile, or one you imported. If it isn't in the list, click **Add profile…** next to the dropdown
 4. Select the **Personality** (channel mode) — this determines which DMX channels the fixture uses
 5. Set the **DMX address** (start channel) and **universe**
 6. Optionally assign the fixture to a [Zone](/dmx-core-100/lighting/zones)

@@ -39,9 +39,9 @@ If you're driving an Advatek PixLite pixel controller, you can skip the manual e
 
 The DMX Core 100 ships with built-in generic profiles for common **RGB and RGBW** fixtures — PAR washes and LED strips/pixels. For a simple RGB light you don't need to find or import a profile; just pick one of the built-ins when adding the fixture.
 
-1. *(Other fixtures only)* If your light isn't a generic RGB/RGBW type, import its profile first: download one from [Lightkey](https://www.lightkeyapp.com/en/fixtures), [Daslight (SSL2)](https://store.daslight.com/en/ssl), or [GDTF Share](https://gdtf-share.com), then import it in the Web UI under **Lighting Setup > Profiles**.
-2. Go to **Lighting Setup > Fixtures** and click **Add**.
-3. Select the **Profile** — a built-in generic RGB/RGBW profile, or one you imported — and the **Personality** (channel mode), then set the **DMX address** and **universe** to match your physical fixture.
+1. Go to **Lighting Setup > Fixtures** and click **Add**.
+2. *(Other fixtures only)* If your light isn't a generic RGB/RGBW type, click **Add profile…** next to the Profile dropdown. Lightkey is usually the easiest: search [the catalog](https://www.lightkeyapp.com/en/fixtures), download one `.lightkeyfxt` file, then import it in the dialog. [Daslight](https://store.daslight.com/en/ssl) and [GDTF Share](https://gdtf-share.com) are the next stops.
+3. Select the **Profile** and the **Personality** (channel mode), then set the **DMX address** and **universe** to match your physical fixture.
 4. Click **Save**.
 
 Full details are in [Fixture Setup](/dmx-core-100/lighting/fixture-setup).

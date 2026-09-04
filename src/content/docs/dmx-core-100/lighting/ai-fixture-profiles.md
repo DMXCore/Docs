@@ -10,7 +10,7 @@ Many light fixtures — especially unbranded ones — have no ready-made profile
 1. **Photograph the manual.** Take clear photos of the "Channel description" / "DMX channels" pages. Any orientation is fine — the AI handles rotated pages. Make sure every table row is readable.
 2. **Ask the AI to build the profile.** Start a chat with an AI assistant that accepts images, attach the photos, and paste the prompt below.
 3. **Save the result.** The AI outputs a JSON file (for example `Unknown-RGBW-Bar.dmxprofile.json`). Save it to your computer.
-4. **Upload and import.** In the Web UI, go to **Lighting Setup > Profiles**, choose the file, and click **Import**. (Or copy it to a USB stick and use **Utilities > File Explorer** on the touchscreen.)
+4. **Upload and import.** On Fixture Details, click **Add profile…** next to the Profile dropdown and choose the JSON file. You can also import from **Lighting Setup > Profiles**. (Or copy it to a USB stick and use **Utilities > File Explorer** on the touchscreen.)
 5. **Use the profile.** Add your fixture under **Lighting Setup > Fixtures** and select the new profile and the personality (channel mode) matching your fixture's setting.
 
 If the import reports problems, see [Fixing Validation Errors](#fixing-validation-errors) below.
@@ -171,7 +171,7 @@ Range rules: `from`/`to` are DMX values 0–255 as printed in the manual, ranges
 
 The import checks the file thoroughly — channel numbering, range overlaps, function names, and more — and reports **all** problems at once. If the import fails:
 
-1. Click **Copy** next to the error message on the Profiles page
+1. Click **Copy** next to the error message in the import dialog
 2. Paste the report back into your AI chat and ask it to fix the file
 3. Import the corrected file again
 
