@@ -5,7 +5,7 @@ description: Pause a timeline at a marker until a trigger releases it — while 
 
 A **Hold** milestone makes a timeline wait. Playback stops advancing at the marker until the hold is *released* — by letting go of the button that started the timeline, by another input trigger, from the Web UI, or by a timeout. While the timeline waits, looping sounds and cues keep playing and the lighting output holds its last frame.
 
-If the timeline is also using [Timecode chase](/dmx-core-100/playback/timecode-chase), it **leaves the clock** for the duration of the hold and applies **On return** when the hold is released.
+If the timeline is also using [Timecode chase](/dmx-core-100/playback/timecode-chase), it **leaves the clock** for the duration of the hold and applies **Auto Resume** when the hold is released.
 
 Holds turn a linear timeline into an interactive one: a sequence that pours while a handle is pulled, a show that waits for an operator's go, a step that only continues once a payment or sensor signal arrives.
 
