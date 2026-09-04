@@ -45,6 +45,7 @@ Once a surface is bound to a panel's IP address, every OSC message from that add
 
 ## Nothing happens when I send the message
 
-- Open **Control & Integrations > Input Triggers**. The page shows the most recent OSC messages the device received, with the exact address and payload. If your message is not listed, check the IP address, the port, and that the sender is using UDP.
+- Open **Control & Integrations > OSC Clients** in the Web UI. The **Discovered** section at the bottom lists every IP that has sent OSC to the device, with the message count and the last address received. Reload the page to see the latest message. If your sender's IP is not listed, check the IP address, the port, and that the sender is using UDP.
+- On the touchscreen, opening an OSC input trigger shows a **Global Received** line with the last OSC message the device heard, from any sender.
 - If the message is listed but the cue does not play, compare the address against the cue's Code / Short Name character by character. Case matters.
 - If the sender's IP is bound to an OSC Control Surface, the message went to the surface. Either use the surface's assignments or remove the binding.
