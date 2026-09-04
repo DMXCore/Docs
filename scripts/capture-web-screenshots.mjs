@@ -116,6 +116,7 @@ const SHOTS = [
   { name: 'output-editor', path: '/outputs/1' },
   { name: 'fixtures-list', path: '/fixturesettings' },
   { name: 'fixture-editor', path: '/fixturesettings/1' },
+  { name: 'fixture-profiles', path: '/fixtureprofiles' },
   { name: 'zones-list', path: '/zones' },
   { name: 'protocol', path: '/settings/PROTOCOL' },
   // Control & integrations

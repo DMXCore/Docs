@@ -10,7 +10,7 @@ Many light fixtures — especially unbranded ones — have no ready-made profile
 1. **Photograph the manual.** Take clear photos of the "Channel description" / "DMX channels" pages. Any orientation is fine — the AI handles rotated pages. Make sure every table row is readable.
 2. **Ask the AI to build the profile.** Start a chat with an AI assistant that accepts images, attach the photos, and paste the prompt below.
 3. **Save the result.** The AI outputs a JSON file (for example `Unknown-RGBW-Bar.dmxprofile.json`). Save it to your computer.
-4. **Upload and import.** In the Web UI, go to **File Explorer**, select the **Transfer** folder, upload the file, then choose **Import** on it. (Or copy it to a USB stick and use **Utilities > File Explorer** on the touchscreen.)
+4. **Upload and import.** In the Web UI, go to **Lighting Setup > Profiles**, choose the file, and click **Import**. (Or copy it to a USB stick and use **Utilities > File Explorer** on the touchscreen.)
 5. **Use the profile.** Add your fixture under **Lighting Setup > Fixtures** and select the new profile and the personality (channel mode) matching your fixture's setting.
 
 If the import reports problems, see [Fixing Validation Errors](#fixing-validation-errors) below.
@@ -171,9 +171,9 @@ Range rules: `from`/`to` are DMX values 0–255 as printed in the manual, ranges
 
 The import checks the file thoroughly — channel numbering, range overlaps, function names, and more — and reports **all** problems at once. If the import fails:
 
-1. Click **Copy error report** under the error message in the File Explorer
+1. Click **Copy** next to the error message on the Profiles page
 2. Paste the report back into your AI chat and ask it to fix the file
-3. Upload the corrected file and import again
+3. Import the corrected file again
 
 One round trip is usually enough.
 
@@ -184,6 +184,6 @@ Re-importing a corrected file may create a second profile if the AI didn't set a
 ## Tips for Good Results
 
 - **Sharp, complete photos.** Every row of the channel table must be legible. Retake blurry photos rather than letting the AI guess.
-- **Check the warnings.** After import, open the profile and read the comments — the AI records anything it interpolated or assumed there. Spot-check those channels against the manual.
+- **Check the warnings.** After import, open the profile under **Lighting Setup > Profiles** and read the comments — the AI records anything it interpolated or assumed there. Spot-check those channels against the manual.
 - **Test with the real fixture.** Add a fixture with the new profile, open [Fixture Control](/dmx-core-100/lighting/fixture-control), and verify colors and dimmer respond correctly. If red and green are swapped, the manual (or the AI) got the channel order wrong — ask the AI to fix it and re-import.
 - **Mind the fixture's mode setting.** The personality you select in DMX Core must match the channel mode configured on the fixture itself.

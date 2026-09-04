@@ -27,11 +27,21 @@ If none of these libraries has your fixture — common with unbranded fixtures �
 To import a profile:
 
 1. Download the profile file from one of the supported libraries
-2. In the Web UI, go to **File Explorer**, open the **Transfer** folder, upload the file, then choose **Import**. On a wall-mounted unit you can instead copy the file to a USB stick and import it from **Utilities > File Explorer** on the touchscreen.
+2. In the Web UI, go to **Lighting Setup > Profiles**, choose the file, and click **Import**. You can select several files at once.
 
-The **Profile** dropdown on Fixture Details only lists built-in generic profiles and profiles you have already imported. You cannot add a new profile from that form.
+On a wall-mounted unit you can instead copy the file to a USB stick and import it from **Utilities > File Explorer** on the touchscreen. **File Explorer > Transfer** in the Web UI still works as a bulk/alternate path.
 
-![File Explorer — where fixture profiles are uploaded and imported](/assets/web/file-explorer.png)
+The **Profile** dropdown on Fixture Details lists generic profiles, imported profiles, and any profiles provided by a loaded plugin. Add or remove library profiles from **Lighting Setup > Profiles**.
+
+![Profiles — import, inspect, and delete fixture profiles](/assets/web/fixture-profiles.png)
+
+### Managing Profiles
+
+**Lighting Setup > Profiles** lists every profile on the device: imported library profiles, the generic RGB/RGBW seeds, and read-only profiles from a loaded plugin.
+
+- Open a row to see personalities and the 1-based channel map (the same numbering as the fixture manual)
+- Hover the personalities summary to see each mode's channel count
+- **Delete** is available for unused library profiles. Plugin profiles cannot be deleted. A profile that fixtures still use is blocked until those fixtures are reassigned or removed.
 
 ## Adding Fixtures
 

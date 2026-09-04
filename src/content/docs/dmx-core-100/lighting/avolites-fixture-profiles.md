@@ -33,9 +33,8 @@ Avolites distributes the complete library as a single download:
 
 Import a `.d4` file the same way as other fixture profiles:
 
-1. In the Web UI, go to **File Explorer**, select the **Transfer** folder, and upload the `.d4` file
-2. Choose **Import** on the uploaded file
-3. Add your fixture under **Lighting Setup > Fixtures** and select the imported profile and the personality (channel mode) matching your fixture's setting
+1. In the Web UI, go to **Lighting Setup > Profiles**, choose the `.d4` file, and click **Import**
+2. Add your fixture under **Lighting Setup > Fixtures** and select the imported profile and the personality (channel mode) matching your fixture's setting
 
 See [Fixture Setup](/dmx-core-100/lighting/fixture-setup) for details.
 

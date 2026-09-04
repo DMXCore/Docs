@@ -69,7 +69,8 @@ Use a **fixed browser window** (1440×900 recommended). Enable dark mode with th
 - [ ] Sidebar with the System groups expanded *(Settings page)*
 
 ### Lighting — Fixture workflow
-- [ ] File Explorer *(fixture profile import)*
+- [ ] File Explorer *(alternate fixture profile import)*
+- [ ] Fixture profiles *(Lighting Setup > Profiles)*
 - [ ] Fixture setup *(profile and personality selection)*
 - [ ] Zone editor *(showing fixture assignment — enable Multi-Zone Playback first)*
 - [ ] Fixture Control *(color picker with fixture list)*
