@@ -30,17 +30,19 @@ To import while adding or editing a fixture:
 2. Open a library, download the file, then choose it in the dialog and click **Import**
 3. The new profile is selected — save the fixture to apply it
 
+![Add fixture profile — download a library file and import it](/assets/web/add-fixture-profile.png)
+
 To import several files, or to inspect and delete profiles, use **Lighting Setup > Profiles** and **Add profile…**.
 
 On a wall-mounted unit you can instead copy the file to a USB stick and import it from **Utilities > File Explorer** on the touchscreen. **File Explorer > Transfer** in the Web UI still works as a bulk/alternate path.
 
 The **Profile** dropdown on Fixture Details lists generic profiles, imported profiles, and any profiles provided by a loaded plugin.
 
-![Profiles — import, inspect, and delete fixture profiles](/assets/web/fixture-profiles.png)
-
 ### Managing Profiles
 
 **Lighting Setup > Profiles** lists every profile on the device: imported library profiles, the generic RGB/RGBW seeds, and read-only profiles from a loaded plugin.
+
+![Profiles — import, inspect, and delete fixture profiles](/assets/web/fixture-profiles.png)
 
 - Open a row to see personalities and the 1-based channel map (the same numbering as the fixture manual)
 - Hover the personalities summary to see each mode's channel count

@@ -116,6 +116,21 @@ const SHOTS = [
   { name: 'output-editor', path: '/outputs/1' },
   { name: 'fixtures-list', path: '/fixturesettings' },
   { name: 'fixture-editor', path: '/fixturesettings/1' },
+  {
+    name: 'add-fixture-profile',
+    path: '/fixturesettings/0',
+    waitFor: 'button',
+    before: async (page) => {
+      await page.evaluate(() => {
+        const btn = [...document.querySelectorAll('button')].find(
+          (b) => b.textContent.trim() === 'Add profile…',
+        );
+        btn?.click();
+      });
+      await page.waitForSelector('.modal.show, .modal.d-block, .modal', { timeout: 5000 });
+      await sleep(400);
+    },
+  },
   { name: 'fixture-profiles', path: '/fixtureprofiles' },
   { name: 'zones-list', path: '/zones' },
   { name: 'protocol', path: '/settings/PROTOCOL' },
