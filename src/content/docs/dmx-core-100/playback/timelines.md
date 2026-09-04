@@ -19,7 +19,7 @@ Each timeline has a **code** and **name**, plus:
 - **Loop** — how many times to repeat (0 = forever)
 - **Dimmer** — overall brightness for the timeline's playback
 - **Fade-In / Fade-Out** — smooth start and end for the whole timeline
-- **[Timecode chase](/dmx-core-100/playback/timecode-chase)** — lock playback to incoming Art-Net timecode instead of starting at t=0
+- **[Timecode chase](/dmx-core-100/playback/timecode-chase)** — lock playback to incoming Art-Net timecode instead of starting at t=0, or make the timeline **Timecode only** so nothing but the clock can run it
 - **Description**, **Favorite**, and **Only Admin** flags
 
 ## The Editor
@@ -39,7 +39,7 @@ A timeline doesn't have to run start-to-finish on its own. Drop a **[Hold milest
 
 ## Timecode Chase
 
-Turn on **[Timecode chase](/dmx-core-100/playback/timecode-chase)** to lock the playhead to incoming Art-Net ArtTimeCode. Play then joins *live* timecode (for example three minutes in after a reboot) instead of starting at the cursor. The editor status bar shows a **TC:** chip so you can confirm packets before the show.
+Turn on **[Timecode chase](/dmx-core-100/playback/timecode-chase)** to lock the playhead to incoming Art-Net ArtTimeCode. Play then joins *live* timecode (for example three minutes in after a reboot) instead of starting at the cursor. The editor status bar shows a **TC:** chip so you can confirm packets before the show. **Timecode only** goes further: Play, Jump, and Resume are refused unless they join live timecode, from every source.
 
 ## Playback Controls
 

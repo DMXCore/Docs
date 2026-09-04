@@ -85,21 +85,20 @@ const SHOTS = [
   },
   { name: 'timeline-editor', path: '/timelines/editor/1', waitFor: 'canvas, svg, .timeline' },
   {
-    // Chase knobs are per-timeline. This lab unit's Chuckies (id 2) has chase
-    // saved on; Grand Hall sample data should use whatever timeline has chase
-    // enabled (or the before-hook turns the switch on for the shot).
+    // Chase knobs are per-timeline. The before-hook picks Timecode only on
+    // Chuckies (id 2) for the shot without saving, so any timeline works.
     name: 'timeline-timecode-chase',
     path: '/timelines/editor/2',
     waitFor: '.timecode-sync',
     before: async (page) => {
       await page.evaluate(() => {
-        const expand = document.querySelector('button.settings-toggle[title="Expand timeline settings"]');
+        const expand = document.querySelector('button.settings-more:not(.settings-more-open)');
         expand?.click();
       });
       await sleep(400);
       await page.evaluate(() => {
-        const input = document.querySelector('.timecode-sync input[type="checkbox"]');
-        if (input && !input.checked) input.click();
+        const mode = [...document.querySelectorAll('.timecode-sync-mode')].find((b) => b.textContent.trim() === 'Timecode only');
+        if (mode && !mode.classList.contains('active')) mode.click();
       });
       await sleep(400);
     },

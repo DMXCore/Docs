@@ -10,7 +10,7 @@ Typical setup: QLab, TimeCore, Timecode Expert, or another ArtTimeCode generator
 This is a **playhead chase**, not a per-cue timecode trigger. Cues, presets, and sounds on the timeline still fire by their timeline times; the clock only decides *where* the playhead is. A join that lands inside a cue or sound starts it part-way through (a soundtrack picks up mid-file); events that were already over before the join point are skipped.
 
 :::tip[Web UI only]
-Chase is configured in the timeline editor, under **Lighting > Timelines**. Playback still starts from anywhere — touchscreen, schedules, custom menus, control surfaces, and [input triggers](/dmx-core-100/scheduling-automation/input-triggers).
+Chase is configured in the timeline editor, under **Lighting > Timelines**. Playback still starts from anywhere — touchscreen, schedules, custom menus, control surfaces, and [input triggers](/dmx-core-100/scheduling-automation/input-triggers) — unless the timeline is set to [Timecode only](#timecode-only).
 :::
 
 See [Timelines](/dmx-core-100/playback/timelines) for the editor itself.
@@ -38,9 +38,15 @@ Confirm this chip before opening day. Chase settings do not have to be on for th
 
 ## Enabling Chase
 
-Open the timeline editor, expand **timeline settings** (chevron next to the name), and turn on **Timecode chase**. Chase is off by default. The knobs below appear when it is on.
+Open the timeline editor, expand **timeline settings** (the **More...** pill next to the name), and pick a **Timecode chase** mode. **Off** is the default. The knobs below appear for either chase mode.
 
-![Timeline settings with Timecode chase enabled](/assets/web/timeline-timecode-chase.png)
+| Mode | Meaning |
+|------|---------|
+| **Off** | Timecode is ignored. Play starts at the cursor. |
+| **Chase** | Play joins live timecode when it is in range. Without timecode, the timeline runs on its own clock from the cursor, so an operator can still preview or run it by hand. |
+| **Timecode only** | Only the clock can drive the timeline. Play, Jump, and Resume are refused unless they join live timecode in range. See [Timecode only](#timecode-only). |
+
+![Timeline settings with Timecode chase set to Timecode only](/assets/web/timeline-timecode-chase.png)
 
 | Setting | Meaning |
 |---------|---------|
@@ -51,7 +57,7 @@ Open the timeline editor, expand **timeline settings** (chevron next to the name
 | **On return** | When timecode comes back after a dropout: **Follow again** or **Wait for Play**. Hidden when dropout is **Stop until Play** (that mode always waits for Play). |
 | **On start** | How the timeline first locks: **When TC appears** or **Join on Play**. |
 
-Save the timeline after changing these. Suggested defaults when you first enable chase: Stream **0**, t=0 **1 hour**, Dropout wait **500 ms**, On dropout **Pause**, On return **Follow again**, On start **Join on Play**.
+Save the timeline after changing these. Suggested defaults when you first enable chase: mode **Chase**, Stream **0**, t=0 **1 hour**, Dropout wait **500 ms**, On dropout **Pause**, On return **Follow again**, On start **Join on Play**.
 
 ### t=0 and range
 
@@ -72,7 +78,18 @@ When chase is on and live timecode is **in range** (matching **Stream**):
 
 A mid-show join takes about **one second**: the timeline is loaded one second ahead of the clock and started the moment the clock gets there, so the playhead lands within a few milliseconds of timecode instead of a load time behind it. Expect that short delay after pressing Play.
 
-To preview or run the timeline on its own clock, turn **Timecode chase** off.
+To preview or run the timeline on its own clock, set **Timecode chase** to **Off**. In **Chase** mode a Play with no live timecode also runs the timeline on its own clock from the cursor; in **Timecode only** it is refused.
+
+## Timecode Only
+
+Use **Timecode only** when the timeline must never run off the clock — a show that has to stay in sync with the site's audio or video, where a stray Play from a touchscreen, a schedule, or a control surface would run the lights out of sync.
+
+- **Play, Jump, and Resume are accepted only when they join live timecode in range.** Otherwise they are refused, from every source: the timeline editor, the Timelines page, the touchscreen, custom menus, control surfaces, input triggers, schedules, OSC, and the API. The Web UI shows the reason (for example *"Timeline SHOW is timecode only and no timecode is being received on stream 0"*); schedules and triggers log a warning and skip the action.
+- **Stop and Pause still work.** Stop stays the emergency override. A stopped timeline re-arms for the next pass of the clock exactly as in Chase mode; while the clock is still live and in range, Play or Resume rejoins it.
+- **On start** still applies. **When TC appears** starts the timeline by itself; **Join on Play** needs a Play while timecode is live and in range.
+- **Dropout settings are unchanged.** **Keep playing** still lets the timeline run on its own clock after a dropout, if that is what you chose.
+
+The editor header shows a **TC only** chip for such a timeline, and the settings panel turns amber with a lock icon.
 
 ## While Locked
 
@@ -123,7 +140,8 @@ A [Hold milestone](/dmx-core-100/playback/hold-milestones) **leaves chase** whil
 | Symptom | Check |
 |---------|--------|
 | TC chip stays on **waiting…** | Generator destination is the device IP (or broadcast) on UDP **6454**, not loopback. Device and generator are on the same subnet. Firewall is not blocking UDP 6454. |
-| Play starts at 0 instead of joining | Chase is saved **on**. Stream matches the generator. Live TC is **in range** (at or after t=0, before duration). |
+| Play starts at 0 instead of joining | Chase mode is saved as **Chase** or **Timecode only**. Stream matches the generator. Live TC is **in range** (at or after t=0, before duration). |
+| Play is refused with a "timecode only" message | The timeline is **Timecode only** and there is no live timecode in range on its **Stream**. Wait for the clock (check the TC chip), or switch the mode to **Chase** to run it by hand. |
 | One unit chases, another does not | Stream IDs match. Each unit's t=0 and duration cover the same clock window. |
 | Timeline stops when TC freezes | That is **Pause** or **Stop until Play**. Use **Keep playing** if a frozen frame should not hold the look. |
 | Auto-join never starts | **On start** is **Join on Play** (the default) — press Play. Or TC is still in pre-roll / past the end. Or the timeline was stopped or paused during this pass of the clock: press Play, or let the clock rewind for the next show. |
