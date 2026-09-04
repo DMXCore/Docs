@@ -11,7 +11,7 @@ You can buy the DMX Core Pico 2 directly from our web site at [dmxprosales.com](
 
 ## Features
 
-#### DMX features
+#### General features
 
 * 2x DMX512 ports, can be independently configured as input or output
 * Phoenix-style connectors for DMX, same as for the DMXking products
@@ -20,6 +20,7 @@ You can buy the DMX Core Pico 2 directly from our web site at [dmxprosales.com](
 * Takes standard RPi Pico programming, examples provided
 * Includes USB cable, power and Phoenix-style DMX plugs
 * Typical power consumption 30mA at 12V, less than 1w
+* Based on the Raspberry Pi RP2040 microprocessor
 
 #### Mounting
 
