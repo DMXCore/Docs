@@ -17,6 +17,8 @@ The OSC server listens on UDP port **8000** by default. The port is configurable
 
 Built-in addresses and input triggers work at the same time: a message that matches an input trigger *and* a built-in address does both. A control surface, on the other hand, *owns* its sender: once an OSC client with a specific source IP is bound to an enabled surface, every message from that IP goes to the surface and neither the built-in addresses nor input triggers see it. A surface bound to an *any*-source client only claims the addresses it has assignments for and lets everything else through.
 
+[Plugins](/dmx-core-100/integrations/plugins) add a fourth path: a plugin can subscribe to an address pattern (for example everything under `/myplugin/`) and reply to the sender from the device's OSC port. Plugin subscriptions sit between control surfaces and the paths above — a message a control surface owns never reaches a plugin, and a message a plugin matches is not passed on to input triggers. The `/dmxcore/...` addresses are reserved: a plugin can observe them, but the device always handles them itself. See [Building & Publishing Plugins](/dmx-core-100/integrations/publishing-plugins) if you want to write one.
+
 ## Playing a Cue
 
 The most common use is firing saved cues from a show controller. The address is the cue's **Code / Short Name** as entered on the cue's details page:

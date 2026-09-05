@@ -25,6 +25,11 @@ Through the SDK's `IPluginHost` a plugin can:
   providers** the device fires into your integration (how the Home
   Assistant plugin works),
 - discover devices on the network via the device's shared mDNS browser,
+- receive [OSC](/dmx-core-100/integrations/osc-open-sound-control) sent to
+  the device's OSC port by address pattern (`/myplugin//*` owns a whole
+  subtree; standard OSC `?`, `*`, `[...]`, `{a,b}` wildcards) and reply to
+  the sender from the same port — for bridging TouchOSC layouts, consoles,
+  and media servers (SDK 1.11),
 - persist state and declare **settings** that admins edit on the Plugins
   page (including secrets, which are stored masked).
 
