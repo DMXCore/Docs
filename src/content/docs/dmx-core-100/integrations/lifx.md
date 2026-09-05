@@ -15,7 +15,8 @@ and manage plugins.
 
 - A **LIFX** output type with single-zone color protocols (RGB, RGB+CT,
   RGBW, RGBW+CT, each in 8- or 16-bit) and a **Pixel** protocol that drives
-  every zone of a multizone device individually.
+  every zone of a multizone device individually, in the same eight layouts
+  via the mapping's **Color mode** field.
 - A **Discover** button on the output that finds the lights (and their zone
   counts).
 - A **LIFX — Color Bulb** fixture profile whose personalities match the

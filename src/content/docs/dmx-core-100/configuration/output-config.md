@@ -82,7 +82,9 @@ A plugin output maps one device per output:
   (e.g. `shellyrgbw2-A4CF12F45478`), the light's IP address for LIFX, WiZ,
   and Govee (give those lights a static DHCP lease). Use the **Discover**
   button to pick from devices found on the network; for LIFX pixel devices
-  it also fills the mapping's **Pixels** field.
+  it also fills the mapping's **Pixels** field. A LIFX Pixel mapping's
+  **Color mode** picks the per-pixel layout (RGB, RGB+CT, RGBW, RGBW+CT, each
+  8- or 16-bit) and must match the fixture's personality.
 - **Start Channel** — the DMX start address of the device's channels within the slot (matching the fixture's start channel)
 
 The device's channels live in a normal slot/universe, so anything that writes
