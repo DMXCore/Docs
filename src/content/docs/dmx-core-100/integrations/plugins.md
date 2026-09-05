@@ -20,8 +20,8 @@ Plugins are managed under **Control & Integrations > Plugins**.
 ## Installing a Plugin
 
 Open the **Browse** tab. It lists every plugin available in the registry,
-with a description, the publisher, and links to the plugin's website and
-license. Plugins published by DMX Core carry a **DMX Core** mark. Use the
+with a description, the publisher, and links to the plugin's website,
+registry package, and license. Plugins published by DMX Core carry a **DMX Core** mark. Use the
 search box to filter the list.
 
 ![The Browse tab listing the plugins in the registry](/assets/web/plugins-browse.png)
@@ -108,111 +108,24 @@ Updating the device software may unlock newer plugin versions.
   local mirror; a feed that needs a login takes the credentials in the URL
   (`https://user:token@host/...`).
 
-## The DSP Plugins
+## DMX Core Plugins
 
-The Symetrix DSP and QSys DSP plugins implement the
-[Q-SYS & Symetrix](/dmx-core-100/external-control) integrations. Their
-settings are simply the DSP core's address (and port, if changed from the
-platform default). Once connected, define
-[Control Values](/dmx-core-100/integrations/control-values) to bridge the
-DSP's controls into faders, menus, and triggers.
+Plugins published by DMX Core each have their own page:
 
-## The Shelly Plugin
+| Plugin | What it does |
+|--------|--------------|
+| [Symetrix DSP](/dmx-core-100/integrations/symetrix) | Two-way integration with Symetrix DSP cores |
+| [QSys DSP](/dmx-core-100/integrations/qsys) | Two-way integration with QSC Q-SYS cores |
+| [Home Assistant](/dmx-core-100/integrations/home-assistant) | Scenes, sliders, switches, and sensors via MQTT Discovery, both directions |
+| [Shelly](/dmx-core-100/integrations/shelly) | Shelly Gen1 color devices as fixtures, over MQTT |
+| [LIFX](/dmx-core-100/integrations/lifx) | LIFX bulbs and multizone fixtures as fixtures, over the LAN protocol |
+| [WiZ](/dmx-core-100/integrations/wiz) | WiZ / Philips Smart LED lights as fixtures, over the local UDP protocol |
+| [Govee](/dmx-core-100/integrations/govee) | Govee WiFi strips, ropes, panels, and lamps as fixtures, over the LAN API |
+| [Lightjams Recorder Import](/dmx-core-100/integrations/lightjams) | Import Lightjams Art-Net recorder videos as cues |
 
-The Shelly plugin drives **Shelly Gen1 color devices** (RGBW2 and similar)
-from DMX data over MQTT. It adds a **SHELLY** output type on the
-[Outputs page](/dmx-core-100/configuration/output-config) with RGB, RGBW, and
-RGBW+intensity protocols, a **Discover** button that finds Shelly devices on
-the network, and a **Shelly** fixture profile so the device can be patched
-and controlled like any fixture. See
-[Output Config](/dmx-core-100/configuration/output-config#plugin-output-types-shelly-lifx-wiz-govee)
-for setup.
-
-The plugin's source is public at
-[DMXCore/DMXCore100.Plugin.Shelly](https://github.com/DMXCore/DMXCore100.Plugin.Shelly) —
-it doubles as the reference example for building output plugins.
-
-## The LIFX Plugin
-
-The LIFX plugin drives **LIFX WiFi bulbs and SuperColour / pixel fixtures**
-(Tube, Beam, strips, tiles) over the LIFX LAN protocol — no cloud account
-needed, the lights only have to be on the same network. It adds a **LIFX**
-output type with single-zone color protocols (RGB, RGB+CT, RGBW, RGBW+CT,
-each in 8- or 16-bit) and a **Pixel** protocol that drives every zone of a
-multizone device individually, a **Discover** button that finds the lights
-(and their zone counts), and a **LIFX — Color Bulb** fixture profile whose
-personalities match the protocols. Updates stream at up to 20 per second per
-light with a short device-side fade so effects look smooth. See
-[Output Config](/dmx-core-100/configuration/output-config#plugin-output-types-shelly-lifx-wiz-govee)
-for setup.
-
-The plugin's source is public at
-[DMXCore/DMXCore100.Plugin.LIFX](https://github.com/DMXCore/DMXCore100.Plugin.LIFX).
-
-## The WiZ Plugin
-
-The WiZ plugin drives **WiZ (Signify) WiFi lights** — full-color, tunable-white
-and dimmable bulbs, strips, and lamps, including the WiZ-based Philips
-"Smart LED" range — over the WiZ local UDP protocol. No cloud account or hub
-is needed; the light only has to have been joined to the WiFi with the WiZ
-app once. It adds a **WiZ** output type with color protocols (RGB, RGBW+CT,
-RGB + cool/warm white) and white protocols (Dimmer+CT in kelvin mode,
-Dimmer), a **Discover** button that finds the lights and shows what each
-module can do, and **WiZ — Color Bulb** / **WiZ — White Bulb** fixture
-profiles. Updates are rate-limited to 10 per second per light. See
-[Output Config](/dmx-core-100/configuration/output-config#plugin-output-types-shelly-lifx-wiz-govee)
-for setup.
-
-WiZ firmware smooths every color change over a fraction of a second and
-fades power on/off over about a second — fades and effects look smooth, but
-hard snaps and blackouts land slightly late. That is the bulb, not the
-plugin or the Core; the WiZ app behaves the same way.
-
-The plugin's source is public at
-[DMXCore/DMXCore100.Plugin.WiZ](https://github.com/DMXCore/DMXCore100.Plugin.WiZ).
-
-## The Govee Plugin
-
-The Govee plugin drives **Govee WiFi lights** — LED strips, neon ropes,
-panels, and lamps that support Govee's local LAN API (the H618x/H619x strip
-series and similar; the ordinary Govee A19 bulbs do not) — with no cloud
-account needed at show time. Each light must have **LAN Control** switched
-on once in its Govee Home app settings, and only then answers on the
-network. The plugin adds a **GOVEE** output type with an RGB color protocol
-and white protocols (Dimmer+CT in kelvin mode, Dimmer), a **Discover**
-button that finds the lights and shows their model, and **Govee — Color
-Light** / **Govee — White Light** fixture profiles. Updates are rate-limited
-to 10 per second per light. See
-[Output Config](/dmx-core-100/configuration/output-config#plugin-output-types-shelly-lifx-wiz-govee)
-for setup.
-
-Govee firmware smooths every change — color, brightness, and power — over a
-fixed fade the protocol cannot shorten: fades and gentle effects look great,
-but strobes, fast chases, and hard blackouts smear together. The LAN API
-also drives the whole device as a single zone, so per-segment (RGBIC)
-control is not available. Both are the device, not the plugin or the Core.
-
-For cue and effect playback use the **Realtime** protocols (on by
-default): Realtime RGB (whole device, no firmware fade — strobes and
-snaps work) and Realtime Pixel (per-segment RGBIC control), streamed over
-the reverse-engineered mode Govee's own desktop app uses for music sync.
-Not part of the documented LAN API — verified on the **H618A**, and the
-format is shared across Govee's WiFi RGBIC line; if a model ignores it,
-switch the **Realtime protocols** plugin setting off and use the standard
-protocols.
-
-The plugin's source is public at
-[DMXCore/DMXCore100.Plugin.Govee](https://github.com/DMXCore/DMXCore100.Plugin.Govee).
-
-## The Lightjams Plugin
-
-The Lightjams Recorder Import plugin imports
-**[Lightjams](https://www.lightjams.com/) Art-Net recorder video files**
-(`.mp4`/`.avi`) as [cues](/dmx-core-100/playback/cues): upload a recording in
-the File Explorer and pick **Import Lightjams recording**. Values are
-bit-exact, original frame timing and ArtSync synchronization are preserved,
-and unused universes are dropped. No settings are required. See
-[Lightjams Recorder Import](/dmx-core-100/integrations/lightjams).
+The **Website** link on each plugin in the Browse tab opens its page here.
+The **Package** link opens the plugin on nuget.org, which shows its README
+and, for plugins with public source, links to the repository.
 
 ## Building Your Own
 
