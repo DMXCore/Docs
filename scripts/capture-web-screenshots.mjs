@@ -134,6 +134,25 @@ const SHOTS = [
   { name: 'fixture-profiles', path: '/fixtureprofiles' },
   { name: 'zones-list', path: '/zones' },
   { name: 'protocol', path: '/settings/PROTOCOL' },
+  {
+    name: 'effect-editor',
+    path: '/effects/19',
+    waitFor: 'select, .form-select',
+  },
+  {
+    name: 'cloud-tunnel',
+    path: '/settings/SYSTEM',
+    before: async (page) => {
+      await page.evaluate(() => {
+        const label = [...document.querySelectorAll('label, .key-text')].find((el) =>
+          /Enable Remote Access/i.test(el.textContent),
+        );
+        label?.closest('.row, .mb-3, .form-group')?.scrollIntoView({ block: 'center' });
+        label?.scrollIntoView({ block: 'center' });
+      });
+      await sleep(400);
+    },
+  },
   // Control & integrations
   { name: 'input-triggers-list', path: '/inputtriggers' },
   { name: 'input-trigger-editor', path: '/inputtriggers/1' },

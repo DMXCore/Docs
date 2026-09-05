@@ -30,6 +30,8 @@ Effects are managed under **Lighting > Effects** in the Web UI, and applied from
 
 Each generator has its own parameters — speed, length, attack/decay, smoothing, secondary intensity, colors — and a **Preview** so you can tune it in the editor. **Test** runs the effect live, and **Apply Globally** puts it on all fixtures immediately.
 
+![Effect editor — generator, parameters, and preview](/assets/web/effect-editor.png)
+
 ## Sync Modes
 
 An effect's **Mode** controls its clock:

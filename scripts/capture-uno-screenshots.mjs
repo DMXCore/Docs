@@ -44,6 +44,9 @@ const SHOTS = [
   { screen: 'utilities/schedules', name: 'uno-schedules' },
   { screen: 'utilities/snooze schedules', name: 'uno-snooze' },
   { screen: 'about', name: 'uno-about' },
+  { screen: 'settings/output configuration', name: 'uno-output-config' },
+  // Menu title is "{Code} ({OutputType})" for the first output in sample data.
+  { screen: 'settings/output configuration/PORT1 (sACN)', name: 'uno-output-detail' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

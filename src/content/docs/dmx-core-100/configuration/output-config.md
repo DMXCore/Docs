@@ -11,7 +11,13 @@ A new install already includes a default **sACN** output on **universe 1**, so b
 
 ## Touchscreen
 
-On the touchscreen, navigate to **Main Menu > Output Config** to see the list of outputs. Click **Add** to create a new output, or select an existing output to edit its settings.
+On the touchscreen, navigate to **Main Menu > Settings > Output Configuration** to see the list of outputs.
+
+![Output Configuration on the touchscreen](/assets/device/uno-output-config.png)
+
+Tap an output to edit it, or **Add** to create a new one.
+
+![Output settings on the touchscreen](/assets/device/uno-output-detail.png)
 
 ## Web UI
 
@@ -30,6 +36,8 @@ Each output can be configured with:
 - **Destination IP** — unicast target (protocol dependent; leave empty for multicast/broadcast)
 - **Send Sync** — emit sync packets for multi-universe synchronization
 - **sACN Send Priority** — the per-output sACN priority used by downstream receivers when merging against other sources (see [Layers & Priority](/dmx-core-100/playback/layers-and-priority))
+
+![Output details in the Web UI](/assets/web/output-editor.png)
 
 The DMX Core 100 supports up to 800 universes at 40 Hz (or 600 universes at 60 Hz) for network streams, and up to 4 universes via USB DMX devices (Enttec Pro, DMXking).
 
