@@ -33,7 +33,7 @@ Each item has a name, optional subtitle/description, icon, background color, and
 | **Slider** | A fader bound to a volume, dimmer, or [Control Value](/dmx-core-100/integrations/control-values) |
 | **Segmented selector** | A source/input picker bound to a Selector Control Value |
 | **Presets / Cues list** | A browsable list of presets or cues (touchscreen only) |
-| **Stop Output** | Stop all DMX output (touchscreen only) |
+| **Stop Output** | Blackout and stop all output |
 | **OSC direct message** | Send a raw OSC message when tapped |
 
 ### Actions
