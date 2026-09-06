@@ -33,12 +33,11 @@ Each item has a name, optional subtitle/description, icon, background color, and
 | **Slider** | A fader bound to a volume, dimmer, or [Control Value](/dmx-core-100/integrations/control-values) |
 | **Segmented selector** | A source/input picker bound to a Selector Control Value |
 | **Presets / Cues list** | A browsable list of presets or cues (touchscreen only) |
-| **Stop Output** | Blackout and stop all output |
 | **OSC direct message** | Send a raw OSC message when tapped |
 
 ### Actions
 
-An Action item can: Apply Ambient Preset, Apply Preset, set/step a Control Value, Fade Out, Fire Output Event, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), Stop Playback, Tap Tempo, Toggle Mute, [Toggle Output](/dmx-core-100/configuration/output-config#toggling-all-output), or Toggle Schedule.
+An Action item can: Apply Ambient Preset, Apply Preset, set/step a Control Value, Fade Out, Fire Output Event, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), [Stop or Blackout](/dmx-core-100/basics/blackout-and-stop), Tap Tempo, Toggle Mute, [Toggle Output](/dmx-core-100/configuration/output-config#toggling-all-output), or Toggle Schedule.
 
 Per-item options:
 

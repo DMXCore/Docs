@@ -48,4 +48,6 @@ When playback stops and nothing else is active, the **End of Data** setting (**L
 | **Stop output** | Stop the stream (receivers may time out) |
 | **Blackout and stop** | Send 0%, then stop the stream |
 
-If an [ambient preset](/dmx-core-100/playback/presets#ambient-presets) is configured, it takes over instead — the venue never goes unexpectedly dark. See also [Blackout and Stop](/dmx-core-100/basics/blackout-and-stop) for the touchscreen controls.
+If an [ambient preset](/dmx-core-100/playback/presets#ambient-presets) is configured, it takes over instead — the venue never goes unexpectedly dark. In practice the End of Data setting only applies on a rig with no fixtures defined: with fixtures, the fixture layer keeps the stream alive with its resting look.
+
+The setting also decides what a [Blackout](/dmx-core-100/basics/blackout-and-stop) does after sending 0%: **Repeat last** and **Blackout** keep the stream alive at zeros, **Stop output** and **Blackout and stop** end it.

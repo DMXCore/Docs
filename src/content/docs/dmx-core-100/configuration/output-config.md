@@ -49,9 +49,11 @@ The [Device Monitor](/dmx-core-100/configuration/device-monitor) can create an o
 
 The **Toggle Output** action switches all DMX output off and back on with a single button press. It is available wherever actions can be assigned: [custom menus](/dmx-core-100/scheduling-automation/custom-menus), [input triggers](/dmx-core-100/scheduling-automation/input-triggers), [control surfaces](/dmx-core-100/control-surfaces/configuring), and [schedules](/dmx-core-100/scheduling-automation/schedules).
 
-While output is toggled off, the device stops transmitting entirely — exactly as if every output had been disabled in the configuration. No blackout is sent, so receivers keep running on their own hold/fade behavior or seamlessly fall back to another sACN source.
+Toggling output off stops everything that is playing, sends a stream terminate so receivers drop the unit at once rather than waiting out their timeout, and then transmits nothing. No blackout frame is sent, so receivers fall back to their own hold behavior or to another sACN source. While output is off, nothing that plays can start: cues, timelines, sounds and output events fired by schedules or triggers are ignored. Presets and other fixture settings can still be changed, and take effect the moment output comes back on.
 
-This is designed for redundant installations with a backup unit: keep the second DMX Core 100 running with its output toggled off, and switch over by toggling output off on the primary and on on the backup. The state is stored in the output configuration, so a unit that is parked as standby stays silent even after a power cycle.
+Your fixture settings are kept. Toggling output back on restores them — like a reboot — and lets schedules re-derive what should be running; a cue that was playing when output went off does not resume. A scheduled "output off at night, on in the morning" works as expected, because the morning Toggle Output action is never ignored.
+
+This is designed for redundant installations with a backup unit: keep the second DMX Core 100 running with its output toggled off, and switch over by toggling output off on the primary and on on the backup. The state is stored in the output configuration, so a unit that is parked as standby stays silent even after a power cycle. For the difference between this and Stop or Blackout, see [Stop, Blackout and Output Off](/dmx-core-100/basics/blackout-and-stop).
 
 A button assigned to Toggle Output shows an active state while output is suppressed — glow in the Web UI, highlight on the touchscreen, and a lit key on a Stream Deck.
 
