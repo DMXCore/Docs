@@ -24,19 +24,19 @@ This covers **all** of the DMX Core's traffic, including software updates, Host 
 
 ## Using It
 
-The Internet Passthrough section is **hidden by default** to keep the Utilities
-page uncluttered. To show it, go to **Device > Network** in the Web UI, follow
-the **network settings** link at the bottom of the page, and turn on
-**Enable Internet Passthrough**. This only needs to be done once.
+The Internet Passthrough section is **hidden by default** to keep the
+**Utilities > System** page uncluttered. To show it, go to **Device > Network**
+in the Web UI, follow the **network settings** link at the bottom of the page,
+and turn on **Enable Internet Passthrough**. This only needs to be done once.
 
 1. Connect the computer to the same network as the DMX Core (usually by Ethernet), and make sure it also has internet access.
 2. Install and run **DMX Core Connect** on the computer.
-3. In the DMX Core **Web UI**, go to **Utilities** and find the **Internet Passthrough** section.
+3. In the DMX Core **Web UI**, go to **Utilities > System** and find the **Internet Passthrough** section.
 4. Pick your computer from the list of discovered computers and select **Activate**. (If your computer isn't listed, enter its IP address manually — DMX Core Connect shows the computer's addresses in its window.)
 5. Wait for the status to show green: **Internet access** and **Cloud connection** confirm the DMX Core is online. You can now install updates as usual.
 6. When you're finished, select **Deactivate**.
 
-![Internet Passthrough section on the Utilities page, showing a discovered computer running DMX Core Connect](/assets/device/internet-passthrough.png)
+![Internet Passthrough section on Utilities > System, showing a discovered computer running DMX Core Connect](/assets/device/internet-passthrough.png)
 
 :::note[Lighting output briefly restarts]
 Activating and deactivating the passthrough briefly restarts the DMX Core's services, so lighting output may blink and the Web UI will reconnect after a moment. Avoid doing it in the middle of a live show.
@@ -54,7 +54,7 @@ The DMX Core routes through any standard SOCKS5 proxy, so DMX Core Connect is op
 gost -L socks5://:1080
 ```
 
-Then enter that computer's IP address and port `1080` manually on the Internet Passthrough page.
+Then enter that computer's IP address and port `1080` manually in the Internet Passthrough section on **Utilities > System**.
 
 :::caution[Windows security software]
 On Windows, antivirus or security software often blocks third-party proxy tools like gost. DMX Core Connect is signed and is the recommended choice on Windows.

@@ -33,7 +33,7 @@ The **Utilities** sidebar group includes [Audit Log](/dmx-core-100/configuration
 
 On wall-mounted appliances, **Restart** and **Reboot** are also available to users with **Device Operations** permission.
 
-[Internet Passthrough](/dmx-core-100/integrations/internet-passthrough), when enabled, appears on this page as well.
+[Internet Passthrough](/dmx-core-100/integrations/internet-passthrough), when enabled, appears on this page as well. The section is hidden by default — turn on **Enable Internet Passthrough** from **Device > Network** (via the **network settings** link) to show it.
 
 ### Factory Reset
 

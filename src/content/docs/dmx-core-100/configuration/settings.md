@@ -98,7 +98,7 @@ If a bad static configuration makes a unit unreachable, see
 **Override Host Name**, **Custom NTP Server**, and
 **Enable Internet Passthrough** (shows the
 [Internet Passthrough](/dmx-core-100/integrations/internet-passthrough) section
-on the Utilities page) are not on this page — follow the **network settings**
+on **Utilities > System**) are not on this page — follow the **network settings**
 link at the bottom of it to reach them.
 
 On the touchscreen the same per-adapter configuration is under
