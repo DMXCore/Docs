@@ -1,6 +1,6 @@
 ---
 title: Configuring a Surface
-description: Banks, sections, assignments, and appearance in the control surface editor
+description: Banks, sections, assignments, hold to confirm, and appearance in the control surface editor
 ---
 
 Open a surface from **Control & Integrations > Control Surfaces** to edit it. The editor shows the live device connection status at the top, and is organized around three concepts: **banks**, **sections**, and **assignments**.
@@ -33,8 +33,22 @@ Click a control in the section grid to edit its assignment:
 - **Label** — the text shown on LCD keys and in the operator view
 - **Action** — what the control does. Available action types: Apply Ambient Preset, Apply Preset, [Control Value](/dmx-core-100/integrations/control-values) (set / up / down), Fade Out, Fire Output Event, Next Bank / Switch Bank, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), Stop Playback, Tap Tempo, Toggle Mute, [Toggle Output](/dmx-core-100/configuration/output-config#toggling-all-output), and Toggle Schedule
 - **Press mode** — Normal, Toggle on/off, Flash (hold), or — for Play Timeline actions — Momentary (release continues past a [Hold milestone](/dmx-core-100/playback/hold-milestones))
+- **Hold to confirm** — the operator must keep the button pressed before the action fires (see below)
 
-### Appearance and LED feedback
+## Hold to confirm
+
+Turn this on for actions that would be costly to hit by accident — [Blackout](/dmx-core-100/basics/blackout-and-stop), [Toggle Output](/dmx-core-100/configuration/output-config#toggling-all-output), Stop Playback, and similar. The operator keeps the button down for the duration set under **Device > System → Control surface hold to confirm (ms)** (default 1.5 seconds, 250–10000). Releasing early cancels; the action never fires.
+
+While the button is held:
+
+- **Stream Deck** — a ring sweeps around the key and the face darkens until the hold completes
+- **Key Digital KD-WP8** — the LED blinks red / off
+- **Akai LPD8 mk2** — the pad blinks
+- **[Surface Operator](/dmx-core-100/control-surfaces/surface-operator)** in the browser — a Yes/No dialog instead of a hold, the same prompt custom menus use for **Require confirmation**
+
+The option is disabled (with a reason) when the assignment already uses a hold gesture or has no release edge: Flash, Momentary, Control Value Up/Down, MIDI Program Change, OSC Toggle, and Stream Deck+ encoder-press buttons. Custom-menu **Require confirmation** is separate and unchanged.
+
+## Appearance and LED feedback
 
 Each assignment also controls how the button looks and how its LED behaves:
 

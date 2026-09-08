@@ -47,7 +47,7 @@ The [Device Monitor](/dmx-core-100/configuration/device-monitor) can create an o
 
 ## Toggling All Output
 
-The **Toggle Output** action switches all DMX output off and back on with a single button press. It is available wherever actions can be assigned: [custom menus](/dmx-core-100/scheduling-automation/custom-menus), [input triggers](/dmx-core-100/scheduling-automation/input-triggers), [control surfaces](/dmx-core-100/control-surfaces/configuring), and [schedules](/dmx-core-100/scheduling-automation/schedules).
+The **Toggle Output** action switches all DMX output off and back on with a single button press. It is available wherever actions can be assigned: [custom menus](/dmx-core-100/scheduling-automation/custom-menus), [input triggers](/dmx-core-100/scheduling-automation/input-triggers), [control surfaces](/dmx-core-100/control-surfaces/configuring), and [schedules](/dmx-core-100/scheduling-automation/schedules). On a control surface, [Hold to confirm](/dmx-core-100/control-surfaces/configuring#hold-to-confirm) keeps an accidental tap from killing the show.
 
 Toggling output off stops everything that is playing, sends a stream terminate so receivers drop the unit at once rather than waiting out their timeout, and then transmits nothing. No blackout frame is sent, so receivers fall back to their own hold behavior or to another sACN source. While output is off, nothing that plays can start: cues, timelines, sounds and output events fired by schedules or triggers are ignored. Presets and other fixture settings can still be changed, and take effect the moment output comes back on.
 

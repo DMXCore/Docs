@@ -35,7 +35,7 @@ Every button, pad, key, knob, and fader on a surface is an **assignment** that y
 - **Tempo** — Tap tempo in time with the music (see [Tempo & Audio Sync](/dmx-core-100/lighting/tempo))
 - **Navigation** — Switch to the next bank or a specific bank
 
-Buttons support three press modes: **Normal** (fire on press), **Toggle** (press to start, press again to stop), and **Flash** (active only while held).
+Buttons support three press modes: **Normal** (fire on press), **Toggle** (press to start, press again to stop), and **Flash** (active only while held). Assignments can also require [Hold to confirm](/dmx-core-100/control-surfaces/configuring#hold-to-confirm) so an accidental tap on Blackout, Toggle Output, or Stop does not fire until the button has been held.
 
 ## Feedback
 
@@ -48,5 +48,5 @@ A surface configuration can be exported to a file and imported on another device
 ## In This Section
 
 - [Supported Devices](/dmx-core-100/control-surfaces/supported-devices) — Stream Deck, MIDI, Key Digital KD-WP8, and OSC specifics
-- [Configuring a Surface](/dmx-core-100/control-surfaces/configuring) — banks, sections, assignments, and appearance
+- [Configuring a Surface](/dmx-core-100/control-surfaces/configuring) — banks, sections, assignments, hold to confirm, and appearance
 - [Surface Operator](/dmx-core-100/control-surfaces/surface-operator) — operate any surface from the browser

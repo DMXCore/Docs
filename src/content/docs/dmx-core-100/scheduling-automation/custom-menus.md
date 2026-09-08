@@ -44,7 +44,7 @@ Per-item options:
 - **Press mode** — **Normal**, **Toggle on/off**, or **Flash (hold)** — active only while the button is held
 - **Fade-in / fade-out time and loop count** — override the item's playback settings
 - **Dimmer** — playback brightness for this button
-- **Require confirmation** — ask before executing
+- **Require confirmation** — ask before executing. Control surface buttons use [Hold to confirm](/dmx-core-100/control-surfaces/configuring#hold-to-confirm) instead of a dialog (the [Surface Operator](/dmx-core-100/control-surfaces/surface-operator) still asks Yes/No)
 - **Live state** — highlight the item while a Control Value equals a given value (e.g. light up "Input B" while that source is selected), or automatically while its own action is active
 
 ## Menu Structure
