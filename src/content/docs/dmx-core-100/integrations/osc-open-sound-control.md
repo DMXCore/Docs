@@ -34,7 +34,7 @@ Send it with no arguments to play the cue normally. Codes must match exactly as 
 ```
 
 :::tip[Which address did the device hear?]
-The **Discovered** section at the bottom of **Control & Integrations > OSC Clients** lists every IP that has sent OSC to the device, with the message count and the last address received — the quickest way to confirm your controller's messages are arriving and spelled the way you expect. Reload the page to see the latest message.
+The **Recent OSC Senders** section at the bottom of **Control & Integrations > OSC Clients** lists every IP that has sent OSC to the device, with the message count and the last address received — the quickest way to confirm your controller's messages are arriving and spelled the way you expect. The list refreshes on its own while the page is open.
 :::
 
 ## Built-in Address Reference

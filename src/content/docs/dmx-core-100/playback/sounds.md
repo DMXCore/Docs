@@ -7,7 +7,7 @@ The DMX Core 100 supports audio playback synchronized with your lighting. Sounds
 
 ## Audio Requirements
 
-On the hardware unit, audio playback requires a USB sound card or the optional onboard audio board connected via the piggy-back connector; the [desktop software](/dmx-core-100/desktop-software) uses the computer's own audio output. Select the audio device and sample rate under **Device > System**. The system supports **WAV** and **FLAC** audio file formats.
+On the hardware unit, audio playback requires a USB sound card or the optional onboard audio board connected via the piggy-back connector; the [desktop software](/dmx-core-100/desktop-software) uses the computer's own audio output. Select the audio device and sample rate under **Device > System**. The system supports **WAV**, **MP3**, **FLAC**, **OGG**, and **AIFF** audio file formats.
 
 ## Managing Sounds
 
@@ -19,9 +19,11 @@ Sound management is available in the Web UI under **Lighting > Sounds**. The tou
 
 ### Uploading Sounds
 
-1. In the Web UI, go to **File Explorer**
-2. Upload your audio file (WAV or FLAC format)
-3. The file will be available for import as a sound
+1. In the Web UI, go to **Lighting > Sounds**
+2. Click **Import** and pick a WAV, MP3, FLAC, OGG, or AIFF file
+3. The sound is added to the list, named after the file, and ready to use
+
+Audio can also be placed with **File Explorer** instead — a file uploaded there is available for import as a sound.
 
 ### Sound Settings
 

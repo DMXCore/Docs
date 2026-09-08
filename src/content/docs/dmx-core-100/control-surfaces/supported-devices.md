@@ -34,6 +34,8 @@ The Key Digital KD-WP8 is an 8-button wall keypad that connects over the network
 - **Three-state LEDs** — off, blue, and red, mapped from each assignment's active/inactive colors. [Hold-to-confirm](/dmx-core-100/control-surfaces/configuring#hold-to-confirm) buttons blink red / off until the hold completes
 - **No banks** — the KD-WP8 always shows its 8 physical buttons
 
+The keypad has no mDNS announcement, so the surface editor can look for it instead: click **Scan** next to the network address to search the local network, then pick the keypad from the list to fill in its address and port.
+
 ## OSC
 
 An OSC surface turns any OSC-capable controller — TouchOSC on a tablet, a lighting console, custom software — into a control surface with two-way feedback.

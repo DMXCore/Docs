@@ -37,14 +37,19 @@ Users can be given access tokens for programmatic access to the API. This is use
 
 ### API Keys
 
-Long-lived API keys are managed under **User Management > API Keys**. Today this is used for the [MCP Server](/dmx-core-100/integrations/mcp-server):
+Long-lived API keys are managed under **User Management > API Keys**. Each key has a **type** that decides what it can reach:
 
-- Create an **MCP** key from that page, or from **Device > System** with **Issue MCP API Key** when MCP is enabled
+| Type | Used by | Authenticates on |
+|------|---------|------------------|
+| **MCP** | [MCP Server](/dmx-core-100/integrations/mcp-server) — AI clients such as Claude Desktop and Cursor | `/mcp` |
+| **Integration** | [Integration API](/dmx-core-100/integrations/integration-api) — Bitfocus Companion, Crestron, Node-RED and similar control systems | `/api/integration` |
+
+- Pick the type when creating the key on that page, or issue a key of the right type straight from **Device > System** with **Issue MCP API Key** / **Issue Integration API Key** when that feature is enabled
 - The secret is shown once at creation — store it securely
-- MCP keys authenticate only on `/mcp`; they cannot be exchanged for a Web UI JWT
-- Revoke a key anytime; the list shows first-used and last-used times
+- A key works only on its own surface; neither type can be exchanged for a Web UI JWT or used on the admin REST API
+- Revoke a key anytime; the list shows first-used and last-used times, and a revoked key is refused immediately
 
-Creating MCP keys requires **User Management** or **Change System Settings**.
+Creating API keys requires **User Management** or **Change System Settings**.
 
 ## Roles and Permissions
 
