@@ -42,7 +42,7 @@ The **Master** fader on the right edge is the master dimmer — it scales the br
 
 When a single zone bank is selected, that zone's **submaster** fader appears next to the Master. It scales only that zone's fixtures and multiplies with the master dimmer.
 
-**BLACKOUT**, below the Master fader, latches the master dimmer at 0 — press it again to return to the previous level. It is instant by default, and fades over the selected fade duration when fade mode is on (or Shift is held). The button lights whenever the master dimmer is at 0, no matter which client or protocol took it there.
+**BLACKOUT**, below the Master fader, switches the [blackout](/dmx-core-100/basics/blackout-and-stop) on and off: every channel goes to 0% (fade-masked channels hold), audio is muted, and everything keeps running underneath. The master dimmer is not touched. The button lights while the blackout is on, whichever client, surface or protocol switched it on.
 
 :::note
 Whether the master dimmer also affects **cue playback** is controlled by the *Master Dimmer Cue Control* output setting.
