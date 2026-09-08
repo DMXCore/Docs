@@ -22,12 +22,14 @@ Navigate to **Main Menu > Utilities > Record**.
 ![Record Cue — previewing with DMX channel monitor](/assets/device/record-cue-preview.png)
 
 3. While previewing, capture what you need:
-   - Press **Save Cue** to record a full show (dynamic sequence) until you stop recording
-   - Press **Save Snapshot** to capture a single moment of the current DMX state as a preset
+   - Press **Save Dynamic Cue** to record a full show until you stop recording
+   - Press **Save Static Cue** to capture a single moment of the current DMX state
 
-4. You can rename the recording later from the [Cues](/dmx-core-100/playback/cues) or [Presets](/dmx-core-100/playback/presets) list.
+4. After a successful **dynamic** save, **Play / Pause** and **Restart** appear on the Record page. Play the take on the real outputs to confirm it — once through, with no fade, loop, or linked sound. Pause holds the last look; Play again resumes. Restart plays from the beginning. The recorder session stays open so you can Preview and record another take without leaving. (Static snapshot saves do not get test play.)
 
-Use the **Stop** button to stop preview without capturing anything.
+5. You can rename the recording later from the [Cues](/dmx-core-100/playback/cues) list.
+
+Use the **Abort** button (touchscreen: **Stop**) to stop preview without capturing anything.
 
 ## Recording in the Web UI
 
@@ -38,7 +40,7 @@ In the **Web UI**, go to **Utilities > Record**. The Web UI recording interface 
 - **Input mapping configuration** — Configure which input source (ArtNet, sACN, DMX-512, KiNet) to listen to and how incoming universes map to slots
 - **Trigger** — Start recording manually, or automatically from an external signal (DMX threshold, HTTP, TCP, UDP, or OSC)
 - **Real-time monitoring** — View incoming DMX data as it arrives, with the recorded size and remaining recording space shown while recording
-- **Audio association** — Link an audio file to a cue during recording
+- **Stay on the page after save** — after Save Dynamic Cue, Play / Pause and Restart confirm the take. Disable Recorder when you are finished; the recorder no longer disables itself after a save
 
 ## Input Sources
 
