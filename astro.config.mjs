@@ -110,6 +110,7 @@ export default defineConfig({
                 { label: 'Effects', slug: 'dmx-core-100/lighting/effects' },
                 { label: 'Tempo & Audio Sync', slug: 'dmx-core-100/lighting/tempo' },
                 { label: 'Passthrough', slug: 'dmx-core-100/lighting/passthrough' },
+                { label: 'Stream Routing', slug: 'dmx-core-100/lighting/stream-routing' },
               ],
             },
             {

@@ -35,3 +35,9 @@ To stop everything *and* stay dark, press Stop and then Blackout. When a cue end
 Output Off is the [Toggle Output](/dmx-core-100/configuration/output-config#toggling-all-output) action: the unit stops everything, sends a stream terminate so receivers know it has gone, and then transmits nothing. Nothing that plays can start while output is off. Your fixture settings are kept, so **Output On** brings the room back exactly as it was — like a reboot — without restarting any cue that was playing.
 
 This is the switch a backup unit is parked with. Unlike Blackout it is saved, so a parked unit stays silent after a power cycle. Note that Output Off cannot promise a dark room: after a terminate, what a receiver shows is up to the receiver. Blackout can.
+
+## Routed input and the hardware passthrough
+
+Input that the DMX Core 100 [routes](/dmx-core-100/lighting/stream-routing) from a console is an external source, not something it plays: Stop leaves it streaming, Blackout masks it to zero until Blackout is switched off, and Output Off parks it until Output On.
+
+The 2-port DMX-512 board's firmware [Passthrough](/dmx-core-100/lighting/passthrough) is outside all three. It forwards port to port in the board itself, so while a console is connected to the input port, a Blackout darkens every other output and the passthrough port keeps showing the console. If the stop states must apply, route the input with stream routing instead of the firmware passthrough.
