@@ -113,6 +113,9 @@ const SHOTS = [
   { name: 'custom-menu-operate', path: '/custommenu' },
   // Lighting setup
   { name: 'outputs-list', path: '/outputs' },
+  // Stream routing (needs routing on and a console sending on a mapped universe).
+  { name: 'inputs', path: '/inputs', waitFor: 'table' },
+  { name: 'outputs-routing-conflict', path: '/outputs' },
   { name: 'output-editor', path: '/outputs/1' },
   { name: 'fixtures-list', path: '/fixturesettings' },
   { name: 'fixture-editor', path: '/fixturesettings/1' },

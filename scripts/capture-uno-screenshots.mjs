@@ -45,6 +45,8 @@ const SHOTS = [
   { screen: 'utilities/snooze schedules', name: 'uno-snooze' },
   { screen: 'about', name: 'uno-about' },
   { screen: 'settings/output configuration', name: 'uno-output-config' },
+  // Stream routing: routing on with a console sending gives the live status line.
+  { screen: 'settings/inputs', name: 'uno-inputs' },
   // Menu title is "{Code} ({OutputType})" for the first output in sample data.
   { screen: 'settings/output configuration/PORT1 (sACN)', name: 'uno-output-detail' },
 ];

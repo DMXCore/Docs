@@ -17,6 +17,8 @@ Stream routing is different from the [Passthrough](/dmx-core-100/lighting/passth
 
 Everything is on **Lighting Setup › Inputs** in the Web UI.
 
+![Inputs page with routing on and a console live on universe 1](/assets/web/inputs.png)
+
 1. **Input protocol.** The protocol the DMX Core 100 listens on: sACN / E1.31, Art-Net or DMX Serial. One protocol at a time. This is the same setting the recorder uses; changing it here changes it for recording too.
 2. **Input mapping.** Which received universes to accept and which slot id each lands on. An output mapped to that slot id receives the routed data, and the recorder captures it under that slot id. Universes that are not mapped are ignored.
 3. **Route input to outputs.** The switch. Configuring input alone never drives the outputs; only this switch does, so a device that has input mappings for recording does not start driving its lights from a console after an upgrade.
@@ -27,9 +29,13 @@ Routing is saved, and resumes on its own after a restart.
 
 On the touchscreen, **Main Menu › Settings › Inputs** has the input protocol, the routing switch with a live status line, and the mapping.
 
+![Inputs on the touchscreen](/assets/device/uno-inputs.png)
+
 ### Settings
 
 The finer settings are under **Lighting Setup › Protocol**:
+
+![Protocol settings with the input and routing options](/assets/web/protocol.png)
 
 | Setting | Meaning |
 |---|---|
@@ -64,6 +70,8 @@ A routed universe must not be sent back onto the same protocol and universe the 
 - Unicast to one of the DMX Core 100's own addresses on an input universe.
 - The DMX-512 port that is the input, or the destination port of the firmware [Passthrough](/dmx-core-100/lighting/passthrough).
 
-Such an output shows **Routing Conflict** in the Outputs list. It still works for normal playback; it is only left out of routing. Unicasting the same universe to a specific node's IP address, or sending on a different universe, is fine. A universe received on Art-Net universe 0 and sent as Art-Net broadcast on universe 1, for example, routes normally.
+Such an output shows **Routing Conflict** in the Outputs list, with a **?** that explains why. It still works for normal playback; it is only left out of routing.
+
+![Outputs list with sACN outputs marked Routing Conflict](/assets/web/outputs-routing-conflict.png) Unicasting the same universe to a specific node's IP address, or sending on a different universe, is fine. A universe received on Art-Net universe 0 and sent as Art-Net broadcast on universe 1, for example, routes normally.
 
 Zone-scoped outputs are not fed by routing; routed data goes to the outputs mapped for all zones.
