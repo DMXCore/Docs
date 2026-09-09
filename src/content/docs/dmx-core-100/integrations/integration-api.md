@@ -64,7 +64,7 @@ All responses are JSON. Errors are `{ "error": "…" }` with a 4xx status.
 | GET | `/api/integration/v1/catalog` | `{ "entities": [ { code, name, kind, choices? } ] }` |
 | GET | `/api/integration/v1/state` | `{ "states": [ { code, isOn? / level? / choice? / text? } ] }` |
 | GET | `/api/integration/v1/state/{code}` | One entity's state (404 for an unknown code) |
-| POST | `/api/integration/v1/execute` | `{ "code", "command", "level"?, "choice"? }` → 202 |
+| POST | `/api/integration/v1/execute` | `{ "code", "command", "level"?, "choice"?, "loop"?, "fadeInMs"?, "fadeOutMs"? }` → 202 |
 | WS | `/api/integration/v1/events` | Live event stream (below) |
 
 Example:
@@ -77,8 +77,29 @@ curl -sS -X POST "http://<device-host>:8080/api/integration/v1/execute" \
 
 `execute` answers **202** when the command was accepted (the state change is the
 confirmation), **400** when the command does not apply to the entity's kind or an
-argument is missing, **404** for an unknown code, and **429** when a key exceeds the
-execute rate limit (100 per second sustained, bursts to 200).
+argument is missing or invalid, **404** for an unknown code, and **429** when a key
+exceeds the execute rate limit (100 per second sustained, bursts to 200).
+
+### Playback options
+
+`activate` on a `cue.` or `sound.` entity accepts three optional fields:
+
+| Field | Meaning |
+|-------|---------|
+| `loop` | `0` = loop forever, `1` = play once, `N` = play N times |
+| `fadeInMs` | Fade-in in milliseconds; `0` = none |
+| `fadeOutMs` | Fade-out at the end or on stop, in milliseconds; `0` = none |
+
+```json
+{ "code": "cue.INTRO", "command": "activate", "loop": 0, "fadeInMs": 500, "fadeOutMs": 1000 }
+```
+
+Anything you leave out takes the device's own default from **Settings → Playback**
+(default loop and fades), the same values a tap on the touchscreen uses. So a bare
+`activate` follows the device defaults, and a control-surface button can either leave
+looping to the device or force it per button. Timelines carry their own Loop setting
+and ignore these fields; sending them with any other command or entity kind is
+rejected with 400.
 
 ## Event stream
 
