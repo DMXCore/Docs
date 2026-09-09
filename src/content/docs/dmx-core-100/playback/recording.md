@@ -37,7 +37,7 @@ In the **Web UI**, go to **Utilities > Record**. The Web UI recording interface 
 
 ![Recording page with the input mapping](/assets/web/record.png)
 
-- **Input mapping configuration** — Configure which input source (ArtNet, sACN, DMX-512, KiNet) to listen to and how incoming universes map to slots
+- **Input** — The input protocol and the universe-to-slot mapping are device settings shared with [stream routing](/dmx-core-100/lighting/stream-routing); the Record page shows them and links to **Lighting Setup > Inputs** to change them
 - **Trigger** — Start recording manually, or automatically from an external signal (DMX threshold, HTTP, TCP, UDP, or OSC)
 - **Real-time monitoring** — View incoming DMX data as it arrives, with the recorded size and remaining recording space shown while recording
 - **Stay on the page after save** — after Save Dynamic Cue, Play / Pause and Restart confirm the take. Disable Recorder when you are finished; the recorder no longer disables itself after a save
