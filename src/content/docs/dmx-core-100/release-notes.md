@@ -5,6 +5,7 @@ description: Release notes and highlights
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| v2026.909.x | 9/9/2026 | [Integration API](/dmx-core-100/integrations/integration-api) `GET /info` now returns a device snapshot with identity — show name, temperatures, CPU/memory/storage, recorder, and now-playing code/name — so a Companion-style module can poll health on this contract instead of the admin status endpoint; `protocolVersion` stays 1 |
 | v2026.908.x | 9/8/2026 | [Hold to confirm](/dmx-core-100/control-surfaces/configuring#hold-to-confirm) on control surface buttons: hold for the duration set under Device > System (default 1.5 s) before Blackout, Toggle Output, Stop, and similar fire; Stream Deck shows a sweeping ring, KD-WP8 and LPD8 mk2 blink, the web operator view asks Yes/No |
 | v2026.908.x | 9/8/2026 | [Key Digital KD-WP8](/dmx-core-100/control-surfaces/supported-devices) keypads can be found from the control surface editor: **Scan** looks for keypads on the local network and offers what it finds in a pick list, filling in the address and port instead of typing them |
 | v2026.908.x | 9/8/2026 | LPD8 mk2 pads and OSC buttons now light while **Blackout**, **Mute**, or **Output Off** is switched on, so a latched switch is visible on the surface |
