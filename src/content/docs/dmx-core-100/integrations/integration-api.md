@@ -29,11 +29,11 @@ every device running protocol version 1 speaks.
 3. Copy the key when it is shown — it is only displayed once.
 4. Point the control system at:
 
-   `https://\u003cdevice-host\u003e:\u003chttps-port\u003e/api/integration/v1`
+   `https://<device-host>:<https-port>/api/integration/v1`
 
    HTTP works on the local HTTP port when TLS is not used.
 
-5. Send `Authorization: Bearer \u003cintegration-api-key\u003e` on every request, including the
+5. Send `Authorization: Bearer <integration-api-key>` on every request, including the
    WebSocket upgrade.
 
 ### Ports
@@ -157,7 +157,7 @@ entity).
 ## HTTP endpoints
 
 All JSON, camelCase. Field names are exactly those in the examples. Errors are
-`{ "error": "\u003cmessage\u003e" }` with a 4xx status.
+`{ "error": "<message>" }` with a 4xx status.
 
 | Method | Path | Purpose |
 |--------|------|---------|
@@ -291,8 +291,8 @@ these fields.
 Example (desktop HTTP port; use **80** on a wall unit):
 
 ```bash
-curl -sS -X POST "http://\u003cdevice-host\u003e:8000/api/integration/v1/execute" \
-  -H "Authorization: Bearer \u003ckey\u003e" -H "Content-Type: application/json" \
+curl -sS -X POST "http://<device-host>:8000/api/integration/v1/execute" \
+  -H "Authorization: Bearer <key>" -H "Content-Type: application/json" \
   -d '{"code":"cue.INTRO","command":"activate"}'
 ```
 
@@ -393,7 +393,7 @@ Recommended connect flow:
 
 The Integration API covers catalog, state, execute, and a read-only device
 snapshot. There is no CRUD, no user management, no file access, and no direct
-fixture color control (`fixture.\u003ccode\u003e` exposes intensity as a `level`). Those
+fixture color control (`fixture.<code>` exposes intensity as a `level`). Those
 remain the domain of the admin Web UI, the
 [MCP Server](/dmx-core-100/integrations/mcp-server), and
 [plugins](/dmx-core-100/integrations/plugins). The admin REST API is not part of
