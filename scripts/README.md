@@ -54,5 +54,10 @@ sounds, timelines, presets, fixture control, settings, utilities, about. Deeper 
 (long-hold popups, numeric/keyboard input, specific settings dialogs) can be added to
 `NavigateToCore` in `App.xaml.cs` — they're menu-data-driven rather than named routes.
 
+A leaf item whose tap opens a dialog (for example `settings/inputs/input type`) returns as
+soon as the dialog is up; the API keeps working afterwards, but the screenshot endpoint
+renders the page content only, so dialogs do not appear in the captured PNG. Dismiss the
+dialog on the device before the next capture.
+
 > Touchscreen light/dark theme is a device setting (Settings → Display Theme), separate from
 > the Web UI theme. Set it on the device before capturing if a specific theme is needed.
