@@ -20,7 +20,7 @@ Timeline **sound events** have a **Layer** field with the same behavior: a start
 
 When two sources are active on the same universe with equal priority, the global **Merge Mode** decides how they combine:
 
-- **Blend** — channels are mixed together
+- **Blend** — channel values are added together, capped at full. A channel that both sources hold at 50 % comes out at 100 %, and a channel one source holds at full stays at full whatever the other sends
 - **HTP** — highest takes precedence, per channel
 
 Merge Mode is set under **Lighting Setup > Protocol** in the Web UI.

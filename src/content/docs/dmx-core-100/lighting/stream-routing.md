@@ -27,6 +27,8 @@ The **Live Sources** table on the same page shows every sender seen on the mappe
 
 Routing is saved, and resumes on its own after a restart.
 
+The DMX Core 100 ignores its own output when it comes back in on an input universe, so a routed universe never feeds itself. For sACN it recognizes itself by its sender id, so lighting software running on the same computer as the desktop software is routed normally. Art-Net carries no sender id, only the address, so Art-Net sent from the same computer as the desktop software is taken for the DMX Core 100's own output and ignored: send sACN from software on the same machine, or run the console on another device.
+
 On the touchscreen, **Main Menu › Settings › Inputs** has the input protocol, the routing switch with a live status line, and the mapping.
 
 ![Inputs on the touchscreen](/assets/device/uno-inputs.png)
