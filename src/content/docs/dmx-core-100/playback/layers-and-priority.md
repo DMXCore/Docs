@@ -45,7 +45,7 @@ When playback stops and nothing else is active, the **End of Data** setting (**L
 |--------|----------|
 | **Repeat last** | Keep sending the last frame |
 | **Blackout** | Send 0% on all channels, keep the stream alive |
-| **Stop output** | Stop the stream (receivers may time out) |
+| **Stop output** | Stop the stream (receivers may time out). On the 2-port DMX-512 board this stops transmitting on that port (board firmware 501 and later); other ports and inputs on the board are not affected |
 | **Blackout and stop** | Send 0%, then stop the stream |
 
 If an [ambient preset](/dmx-core-100/playback/presets#ambient-presets) is configured, it takes over instead — the venue never goes unexpectedly dark. In practice the End of Data setting only applies on a rig with no fixtures defined: with fixtures, the fixture layer keeps the stream alive with its resting look.
