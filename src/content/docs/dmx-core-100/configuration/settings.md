@@ -17,7 +17,7 @@ The Web UI exposes all settings, organized in the sidebar under **Lighting Setup
 | Page | Description |
 |------|-------------|
 | **Lighting Setup > Outputs** | DMX output universes and protocols — see [Output Config](/dmx-core-100/configuration/output-config) |
-| **Lighting Setup > Protocol** | Output frequency, [merge mode, priorities, and end-of-data behavior](/dmx-core-100/playback/layers-and-priority), the input protocol and the [stream routing](/dmx-core-100/lighting/stream-routing) switch, priority and input-loss settings |
+| **Lighting Setup > Protocol** | Output frequency, [merge mode, priorities, and end-of-data behavior](/dmx-core-100/playback/layers-and-priority), the 2-port board's [passthrough](/dmx-core-100/lighting/passthrough) function, the input protocol and the [stream routing](/dmx-core-100/lighting/stream-routing) switch, priority and input-loss settings |
 | **Lighting Setup > Fixtures** | Fixture definitions — see [Fixture Setup](/dmx-core-100/lighting/fixture-setup) |
 | **Lighting Setup > Cue Fade Masks** | Which DMX channels participate in cue fades — see [Cues](/dmx-core-100/playback/cues#fade-mask) |
 | **Control & Integrations** | Triggers, events, [control surfaces](/dmx-core-100/control-surfaces), [control values](/dmx-core-100/integrations/control-values), OSC clients, MQTT, scripts, and [plugins](/dmx-core-100/integrations/plugins) |
