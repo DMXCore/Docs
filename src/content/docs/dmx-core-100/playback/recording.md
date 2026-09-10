@@ -37,7 +37,7 @@ In the **Web UI**, go to **Utilities > Record**. The Web UI recording interface 
 
 ![Recording page with the input mapping](/assets/web/record.png)
 
-- **Input** — The input protocol and the universe-to-slot mapping are device settings shared with [stream routing](/dmx-core-100/lighting/stream-routing); the Record page shows them and links to **Lighting Setup > Inputs** to change them
+- **Input** — The universe-to-slot mapping is a device setting shared with [stream routing](/dmx-core-100/lighting/stream-routing), and each row names its own protocol. A recording captures **one** protocol: the **Recording protocol** on the Inputs page, which can only be one of the protocols that have mapping rows. The other mapped protocols keep routing while the recording runs. The Record page shows both and links to **Lighting Setup > Inputs** to change them
 - **Trigger** — Start recording manually, or automatically from an external signal (DMX threshold, HTTP, TCP, UDP, or OSC)
 - **Real-time monitoring** — View incoming DMX data as it arrives, with the recorded size and remaining recording space shown while recording
 - **Stay on the page after save** — after Save Dynamic Cue, Play / Pause and Restart confirm the take. Disable Recorder when you are finished; the recorder no longer disables itself after a save
