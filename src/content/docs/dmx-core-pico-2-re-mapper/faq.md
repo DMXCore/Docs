@@ -15,6 +15,16 @@ The Pico 2 draws about 30mA at 12V, less than 1 watt.
 
 Yes, the re-mapper is built on the exact same hardware as the DMX Core Pico 2, but it comes bundled and pre-loaded with the Re-Mapper firmware and config utility. You can run any Raspberry Pi Pico firmware on the hardware and later re-flash the Re-Mapper firmware.
 
+Programming is the standard RP2040 USB UF2 flow (hold BOOTSEL, copy a `.uf2` file). Arduino IDE works if you select **Raspberry Pi Pico (RP2040)**. J3 is the SWD debug port; a [Raspberry Pi Debug Probe](https://www.raspberrypi.com/products/debug-probe/) plugs in directly. See the [Pico 2 Software](/dmx-core-pico-2/software/) and [Pin out](/dmx-core-pico-2/pin-out/) pages.
+
+### Are the digital triggers pulled to GND to activate?
+
+No. Apply 3–24 VDC between the input (`i1`–`i4`) and `C`. For a push button, fit jumper J4 (Connect C to GND) and switch the onboard `3v3` onto the input. See [Pin out](/dmx-core-pico-2/pin-out/#digital-inputs).
+
+### What does the J4 jumper "Connect C to GND" mean?
+
+It connects the digital-input common (`C`) to board ground. Fit it when using onboard 3.3 V for buttons; leave it open when an external 3–24 V source has its own return on `C`.
+
 ### Is the Re-Mapper firmware source code available/open source?
 
 At this time the firmware and config utility are not made available as open source.
