@@ -19,6 +19,18 @@ Yes, the re-mapper is built on the exact same hardware as the DMX Core Pico 2, b
 
 At this time the firmware and config utility are not made available as open source.
 
+### I get "zsh: permission denied" when running DmxRemapperConfig on a Mac
+
+The macOS download is not marked executable, and the tool is not signed. From the unzipped folder in Terminal:
+
+```bash
+chmod +x DmxRemapperConfig
+xattr -d com.apple.quarantine DmxRemapperConfig
+./DmxRemapperConfig
+```
+
+See [Config Utility](/dmx-core-pico-2-re-mapper/config-utility/#macos) for the full macOS launch steps, including Gatekeeper ("developer cannot be verified").
+
 ### I have a suggestion for a new feature — can you add it?
 
 We're open to suggestions. Please [open an issue on GitHub](https://github.com/DMXCore/Pico2ReMapper-Public/issues) or [contact us](https://dmxprosales.com/pages/contact-us) directly.

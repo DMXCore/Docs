@@ -5,13 +5,66 @@ description: Instructions on how to use the Config Utility
 
 ## Download
 
-Download the latest version of the Config Utility from [GitHub releases](https://github.com/DMXCore/Pico2ReMapper-Public/releases). Binaries are provided for Windows and macOS. Note that the current version of the config utility is text-based.
+Download the latest version of the Config Utility from [GitHub releases](https://github.com/DMXCore/Pico2ReMapper-Public/releases). Note that the current version of the config utility is text-based.
+
+| Platform | File |
+|----------|------|
+| Windows | `DmxRemapperConfig.exe` |
+| macOS (Intel, or Apple Silicon via Rosetta) | `DmxRemapperMACOSX64.zip` |
 
 ## Start the application
 
-Launch the application by double-clicking `DmxRemapperConfig.exe` on Windows (currently only supporting Windows 64-bit; more platforms coming later).
-
 The Config Utility is a text-based, menu-driven application that interacts directly with the Pico 2 Re-Mapper. When launched it will iterate through all serial ports on your computer and query for the Re-Mapper firmware. Once found it will say: `Found Pico device, serial ******** on port COM**`.
+
+### Windows
+
+Double-click `DmxRemapperConfig.exe`.
+
+### macOS
+
+The macOS build is an unsigned command-line tool (not a signed `.app`), so macOS will not let it run until you mark it as executable and allow it through Gatekeeper. That is expected.
+
+1. Download `DmxRemapperMACOSX64.zip` and double-click it to unzip. Keep `DmxRemapperConfig` and `libSystem.IO.Ports.Native.dylib` in the same folder — do not run the `.zip` file itself.
+2. Open **Terminal** in that folder. In Finder you can right-click the folder and choose **New Terminal at Folder**, or `cd` to it.
+3. Run:
+
+```bash
+chmod +x DmxRemapperConfig
+xattr -d com.apple.quarantine DmxRemapperConfig
+./DmxRemapperConfig
+```
+
+The `./` prefix is required. If `xattr` reports that the quarantine attribute does not exist, that is fine — continue with `./DmxRemapperConfig`.
+
+On an Apple Silicon Mac (M1 or later), macOS runs this Intel (x64) build through Rosetta. If you are prompted to install Rosetta, accept it.
+
+#### "zsh: permission denied"
+
+This means the file is not marked executable, which is common after unzipping a download created on Windows. From the folder that contains `DmxRemapperConfig`:
+
+```bash
+chmod +x DmxRemapperConfig
+./DmxRemapperConfig
+```
+
+#### macOS says it cannot be opened / the developer cannot be verified
+
+Because the tool is not signed, Gatekeeper blocks it the first time. Use either of these:
+
+* In Finder, **Control-click** (or right-click) `DmxRemapperConfig`, choose **Open**, then **Open** again.
+* Or open **System Settings → Privacy & Security**, scroll to the message about `DmxRemapperConfig`, and choose **Open Anyway**.
+
+If Terminal still refuses to run it, remove the download quarantine flag and try again:
+
+```bash
+xattr -d com.apple.quarantine DmxRemapperConfig
+chmod +x DmxRemapperConfig
+./DmxRemapperConfig
+```
+
+:::note
+The Config Utility is a terminal program. Running it from Terminal (as shown above) is the most reliable way to use the menus.
+:::
 
 The menu options are:
 
