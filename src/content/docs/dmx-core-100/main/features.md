@@ -102,7 +102,7 @@ title: Features
 * Trigger cues, playback, presets, dimmers and more from QSC Q-Sys and Symetrix DSP cores
 * Remote control via OSC (to be used with software like TouchOSC and more), MQTT, and MIDI
 * Import light fixture profiles from [Lightkey](https://www.lightkeyapp.com/en/fixtures), [Daslight (SSL2)](https://store.daslight.com/en/ssl), [GDTF](https://gdtf-share.com), and the [Avolites Personality Library](/dmx-core-100/lighting/avolites-fixture-profiles), or generate a profile from the fixture manual with an [AI assistant](/dmx-core-100/lighting/ai-fixture-profiles)
-* [Stream routing](/dmx-core-100/lighting/stream-routing): route incoming sACN, Art-Net or DMX-512 to any output, including smart-bulb plugins, merged with the DMX Core 100's own playback
+* [Stream routing](/dmx-core-100/lighting/stream-routing): route incoming sACN, Art-Net or DMX-512 to any output, including smart-bulb plugins, merged with the DMX Core 100's own playback — several input protocols at once, so a console on sACN, one on Art-Net and a DMX-512 port route side by side, with loop protection
 * [Visualizer](/dmx-core-100/lighting/visualizer): 2D live view — place fixtures on photos of the venue and watch presets, fixture control and effects light them up
 * [Copy trims](/dmx-core-100/lighting/fixture-control#copy-trims): dim individual copies of a multi-copy fixture, with Solo to identify each unit
 * Passthrough feature on DMX ports

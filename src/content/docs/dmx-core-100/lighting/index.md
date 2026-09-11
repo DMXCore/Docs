@@ -31,5 +31,5 @@ The typical setup flow is:
 - [Zones](/dmx-core-100/lighting/zones) — Organize fixtures into groups for zone-based control
 - [Effects](/dmx-core-100/lighting/effects) — Apply dynamic lighting effects to fixtures and zones
 - [Tempo & Audio Sync](/dmx-core-100/lighting/tempo) — Sync effects to a beat or live audio
-- [Stream Routing](/dmx-core-100/lighting/stream-routing) — Route incoming sACN, Art-Net or DMX-512 to any output, including plugin outputs, merged with playback
+- [Stream Routing](/dmx-core-100/lighting/stream-routing) — Route incoming sACN, Art-Net or DMX-512 — several protocols at once — to any output, including plugin outputs, merged with playback
 - [Passthrough](/dmx-core-100/lighting/passthrough) — DMX passthrough on the optional DMX-512 board

@@ -3,12 +3,13 @@ title: Stream Routing
 description: Route incoming sACN, Art-Net or DMX input to any output, including plugin outputs, merged with the DMX Core 100's own playback
 ---
 
-Stream routing turns the DMX Core 100 into a live router: DMX it receives on the network or a DMX input port goes straight back out on every output mapped to the same slot id, including plugin outputs such as Govee, LIFX, WiZ and Shelly bulbs. A console or lighting software sends sACN or Art-Net, and the DMX Core 100 converts and fans it out, while its own cues, presets and fixture control keep working alongside.
+Stream routing turns the DMX Core 100 into a live router: DMX it receives on the network or a DMX input port goes straight back out on every output mapped to the same slot id, including plugin outputs such as Govee, LIFX, WiZ and Shelly bulbs. A console or lighting software sends sACN or Art-Net, and the DMX Core 100 converts and fans it out, while its own cues, presets and fixture control keep working alongside. Several input protocols are routed at once, so a console on sACN, another on Art-Net and a DMX-512 input port can all be live together.
 
 Typical uses:
 
 - Drive smart bulbs and other plugin outputs from a lighting console that only speaks sACN or Art-Net.
 - Convert between protocols: sACN in, Art-Net, KiNet, TPM2.net or DMX-512 out.
+- Bring several sources together: a console on sACN, a media server on Art-Net and a wall panel on DMX-512, each on its own slots.
 - Keep a console live on a rig that the DMX Core 100 also runs cues and schedules on. Both merge by priority.
 
 Stream routing is different from the [Passthrough](/dmx-core-100/lighting/passthrough) of the 2-port DMX-512 board: that one is done in the port's firmware, port to port only, and does not merge. Both can be on at the same time.
