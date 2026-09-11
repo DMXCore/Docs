@@ -36,7 +36,7 @@ Configuration via text-based configuration tool, connected via USB to a Windows 
 
 ### Hardware
 
-The Re-Mapper solution is software (firmware + configuration tool) that runs on the [DMX Core Pico 2](/dmx-core-pico-2/) hardware. The hardware has additional features like digital inputs/outputs that are not currently used by the Re-Mapper code.
+The Re-Mapper solution is software (firmware + configuration tool) that runs on the [DMX Core Pico 2](/dmx-core-pico-2/) hardware. Digital inputs, digital outputs, the USB UF2 bootloader, and the J3 SWD debug header are part of that hardware; see the [Pico 2 pin out](/dmx-core-pico-2/pin-out/) and [software](/dmx-core-pico-2/software/) pages.
 
 ### Mounting
 
