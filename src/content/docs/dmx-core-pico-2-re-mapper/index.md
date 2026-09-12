@@ -32,7 +32,7 @@ The 4 digital outputs are connected to DMX channels 1-4 on the DMX input. Any ti
 
 ### Configuration
 
-Configuration via text-based configuration tool, connected via USB to a Windows or Mac computer (see [releases](https://github.com/DMXCore/Pico2ReMapper-Public/releases) and [Config Utility](/dmx-core-pico-2-re-mapper/config-utility/)). Configuration is stored in a dedicated part of the 2MB flash memory. The config utility allows you to download/upload settings and store/load into YML text files locally on your computer.
+Configuration via a signed, text-based configuration tool on Windows or Mac, connected over USB (see [releases](https://github.com/DMXCore/Pico2ReMapper-Public/releases) and [Config Utility](/dmx-core-pico-2-re-mapper/config-utility/)). Configuration is stored in a dedicated part of the 2MB flash memory. The config utility allows you to download/upload settings and store/load into YML text files locally on your computer.
 
 ### Hardware
 

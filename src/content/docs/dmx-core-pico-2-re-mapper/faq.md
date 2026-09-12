@@ -29,17 +29,13 @@ It connects the digital-input common (`C`) to board ground. Fit it when using on
 
 At this time the firmware and config utility are not made available as open source.
 
-### I get "zsh: permission denied" when running DmxRemapperConfig on a Mac
+### macOS will not open the Config Utility / it offers Move to Trash
 
-The macOS download is not marked executable, and the tool is not signed. From the unzipped folder in Terminal:
+Use the current **`.dmg`** from [GitHub releases](https://github.com/DMXCore/Pico2ReMapper-Public/releases) (`osx-arm64` on Apple silicon, `osx-x64` on Intel). Open the disk image and double-click **DmxRemapperConfig** (the application). Do not run a raw Unix executable, a `.command` file, or an older `.zip`.
 
-```bash
-chmod +x DmxRemapperConfig
-xattr -d com.apple.quarantine DmxRemapperConfig
-./DmxRemapperConfig
-```
+The first launch may ask whether the app can control Terminal — choose **Allow**.
 
-See [Config Utility](/dmx-core-pico-2-re-mapper/config-utility/#macos) for the full macOS launch steps, including Gatekeeper ("developer cannot be verified").
+See [Config Utility](/dmx-core-pico-2-re-mapper/config-utility/#macos) for the full macOS launch steps.
 
 ### I have a suggestion for a new feature — can you add it?
 
