@@ -235,6 +235,7 @@ export default defineConfig({
             { label: 'Pin out', slug: 'dmx-core-pico-2/pin-out' },
             { label: 'Software', slug: 'dmx-core-pico-2/software' },
             { label: 'Errata', slug: 'dmx-core-pico-2/errata' },
+            { label: 'Product page', link: 'https://dmxcore.com/pico', attrs: { target: '_blank', rel: 'noopener' } },
           ],
         },
         {
@@ -245,6 +246,7 @@ export default defineConfig({
             { label: 'Config Utility', slug: 'dmx-core-pico-2-re-mapper/config-utility' },
             { label: 'Pin out', slug: 'dmx-core-pico-2-re-mapper/pin-out' },
             { label: 'Software', slug: 'dmx-core-pico-2-re-mapper/software' },
+            { label: 'Product page', link: 'https://dmxcore.com/pico', attrs: { target: '_blank', rel: 'noopener' } },
           ],
         },
       ],

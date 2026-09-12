@@ -9,7 +9,7 @@ Configuration is stored in the onboard non-volatile flash memory and can be easi
 
 ## Purchase Information
 
-You can buy the DMX Core Pico 2 Re-Mapper directly from our web site at [dmxprosales.com](https://dmxprosales.com/products/dmx-core-pico2-dmx-remapper). We also have these listed on our [Amazon](https://www.amazon.com/DMX-Core-Pico-Raspberry-Re-Mapper/dp/B0CSVFFGQW/) and [eBay](https://www.ebay.com/itm/116047338946) stores.
+See the [DMX Core Pico product page](https://dmxcore.com/pico) for specs and pricing. You can buy the Re-Mapper from [dmxprosales.com](https://dmxprosales.com/products/dmx-core-pico2-dmx-remapper), and it is also listed on our [Amazon](https://www.amazon.com/DMX-Core-Pico-Raspberry-Re-Mapper/dp/B0CSVFFGQW/) and [eBay](https://www.ebay.com/itm/116047338946) stores.
 
 ## Features
 

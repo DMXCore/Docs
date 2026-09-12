@@ -7,7 +7,7 @@ Raspberry Pi Pico based controller with two fully isolated DMX512 ports. Write y
 
 ## Purchase Information
 
-You can buy the DMX Core Pico 2 directly from our web site at [dmxprosales.com](https://dmxprosales.com/products/dmx-core-pico2). We also have these listed on our [Amazon](https://www.amazon.com/DMX-Core-Pico-Raspberry-Re-Mapper/dp/B0CSVFD4VY/) and [eBay](https://www.ebay.com/itm/126295214653) stores.
+See the [DMX Core Pico 2 product page](https://dmxcore.com/pico) for specs and pricing. You can buy it from [dmxprosales.com](https://dmxprosales.com/products/dmx-core-pico2), and it is also listed on our [Amazon](https://www.amazon.com/DMX-Core-Pico-Raspberry-Re-Mapper/dp/B0CSVFD4VY/) and [eBay](https://www.ebay.com/itm/126295214653) stores.
 
 ## Features
 
