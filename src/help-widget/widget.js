@@ -5,11 +5,13 @@
 // the answer. A slim progress bar above the input keeps the current step in view
 // when the card scrolls away. Checking a step PATCHes the session so the next turn
 // knows where the user is. The session id lives in localStorage so the thread
-// survives page navigation.
+// survives page navigation. Print opens the browser dialog so the transcript can
+// also be saved as a PDF.
 
 import { createHelpApi, HelpApiError } from './api.js';
 import { renderInline, renderMarkdown, resolveLink } from './markdown.js';
 import { isPortalSession, isSessionInPortal, portalContinueHref } from './portal.js';
+import { canPrintTranscript, printTranscript } from './print.js';
 
 const SESSION_KEY = 'dmxcore-help-session';
 const OPEN_KEY = 'dmxcore-help-open';
@@ -155,6 +157,12 @@ class HelpWidget {
             class: 'dmx-help-icon-button dmx-help-expand',
             onclick: () => this.setExpanded(!this.expanded),
           }),
+          this.printButton = el('button', {
+            type: 'button',
+            class: 'dmx-help-icon-button',
+            text: 'Print',
+            onclick: () => this.printChat(),
+          }),
           el('button', { type: 'button', class: 'dmx-help-icon-button', text: 'New chat', onclick: () => this.newChat() }),
           el('button', { type: 'button', class: 'dmx-help-icon-button', 'aria-label': 'Close help', text: '✕', onclick: () => this.close() }),
         ]),
@@ -168,6 +176,7 @@ class HelpWidget {
 
     this.root.append(this.launcher, this.panel, this.buildLightbox());
     this.updateContinueLink();
+    this.updatePrintButton();
   }
 
   /** Full-window screenshot viewer; the checklist thumbnails are too small to read. */
@@ -258,6 +267,7 @@ class HelpWidget {
       this.setWalkthrough(session.walkthrough);
       if (!session.messages.length) this.renderEmptyState();
       this.setTurnsLeft(session.turnsLeft);
+      this.updatePrintButton();
       this.scrollToEnd(true);
     } catch (err) {
       if (isSessionInPortal(err)) {
@@ -328,6 +338,7 @@ class HelpWidget {
     if (locked) this.input.placeholder = 'This chat continued in the portal.';
     else this.setTurnsLeft(null);
     this.updateContinueLink();
+    this.updatePrintButton();
   }
 
   /** Clears the portal-bound session and starts a fresh one right away. */
@@ -357,12 +368,14 @@ class HelpWidget {
       ]),
     );
     this.updateProgressBar();
+    this.updatePrintButton();
   }
 
   addUserBubble(text) {
     this.messages.querySelector('.dmx-help-empty')?.remove();
     const bubble = el('div', { class: 'dmx-help-bubble dmx-help-user', text });
     this.messages.append(bubble);
+    this.updatePrintButton();
     return bubble;
   }
 
@@ -759,6 +772,27 @@ class HelpWidget {
     const href = this.inPortal ? null : portalContinueHref(this.continueUrl, this.sessionId);
     this.continueLink.hidden = !href;
     if (href) this.continueLink.href = href;
+  }
+
+  updatePrintButton() {
+    const printable = canPrintTranscript(this.messages, this.inPortal);
+    this.printButton.disabled = !printable;
+    this.printButton.title = this.inPortal
+      ? 'This chat continued in the portal'
+      : printable
+        ? 'Print or save this chat as a PDF'
+        : 'Ask a question first to print this chat';
+  }
+
+  /** Browser print dialog; most browsers also offer Save as PDF. */
+  async printChat() {
+    if (this.printButton.disabled || this.printing) return;
+    this.printing = true;
+    try {
+      await printTranscript(this.messages);
+    } finally {
+      this.printing = false;
+    }
   }
 
   showNotice(text) {

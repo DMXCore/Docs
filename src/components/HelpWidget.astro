@@ -130,6 +130,16 @@ const enabled = Boolean(apiUrl) && Astro.url.pathname.startsWith('/dmx-core-100'
     border-color: var(--sl-color-gray-4);
   }
 
+  .dmx-help-icon-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .dmx-help-icon-button:disabled:hover {
+    color: var(--sl-color-gray-2);
+    border-color: var(--sl-color-hairline);
+  }
+
   .dmx-help-messages {
     flex: 1;
     min-height: 7rem;
