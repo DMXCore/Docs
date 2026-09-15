@@ -29,7 +29,7 @@ Merge Mode is set under **Lighting Setup > Protocol** in the Web UI. The default
 
 Priorities decide which source owns a universe when they overlap. Higher priority wins outright; equal priorities merge using the Merge Mode above.
 
-- **Cue priority** — cues normally replay with the sACN priority they were recorded with. A cue recorded from Art-Net (or DMX Serial) has no per-packet priority, so it plays at the default of **100** unless you set **Priority Override**. A cue's **Priority Override** (1–200) replaces the recorded or default priority, letting you pin a specific cue above or below other playback.
+- **Cue priority** — recorded cues play at **100** (the recorder writes that into the PCAP for both sACN and Art-Net). A cue's **Priority Override** (1–200) replaces that, letting you pin a specific cue above or below other playback. Live [routed input](/dmx-core-100/lighting/stream-routing) is different: sACN uses the priority each sender transmits, while Art-Net and DMX Serial use **Input Priority**.
 - **Fixture Control Priority** — the priority used by the fixture engine (fixture control, presets, effects), set under **Lighting Setup > Protocol** (default 100).
 - **Outputs** — each sACN output also has a per-output **Send Priority** ([Output Config](/dmx-core-100/configuration/output-config)), which is what downstream sACN receivers use when merging the DMX Core 100 against *other* consoles on the network.
 

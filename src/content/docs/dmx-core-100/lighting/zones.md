@@ -13,7 +13,7 @@ Zones are managed under **Lighting Setup > Zones** in the Web UI, or **Main Menu
 
 1. In the Web UI, go to **Lighting Setup > Zones** (touchscreen: **Settings > Zones**)
 2. Click **Add New** (touchscreen: **Add**)
-3. Set **Internal Id**, **Code / Short Name**, and **Name**
+3. Set **Code / Short Name** and **Name** (**Internal Id** is assigned and read-only)
 4. Click **Save**
 
 The zone editor does not assign fixtures. Open each fixture and set its **Zone** field instead — see [Fixture Setup](/dmx-core-100/lighting/fixture-setup).

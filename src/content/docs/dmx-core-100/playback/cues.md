@@ -25,7 +25,7 @@ In the **Web UI**, go to **Lighting > Cues**. The list shows duration and size, 
 
 ### Default Settings
 
-**Fade In**, **Fade Out**, and **Loop** are not per-cue fields. They live on the Cues list as **Default Settings** (Web UI: **Lighting > Cues**; touchscreen: the cue list top bar). New playback uses these defaults. **Loop** of `0` means loop forever.
+**Fade In (seconds)**, **Fade Out (seconds)**, and **Loop** are not per-cue fields. They live on the Cues list as **Default Settings** (Web UI: **Lighting > Cues**; touchscreen: the cue list top bar). New playback uses these defaults. **Loop** of `0` means loop forever.
 
 :::note[Interface differences]
 - **Touchscreen**: Tap to play, long-hold for settings.
@@ -50,12 +50,12 @@ Long-hold a cue on the touchscreen, or open it in the Web UI, to edit its settin
 
 ### Attached Sound
 
-A cue can have a **sound** attached so audio and lighting always start together. The attachment has its own loop count, **Restart Sound at Loop** option, volume adjustment, and a **Sound Offset** (milliseconds) to align audio with the lighting timeline. A **positive** offset delays the sound relative to the lighting (the sound starts later); a negative offset starts the sound earlier. There is no separate Audio Delay setting — for metronome compensation see [Output Latency](/dmx-core-100/lighting/tempo#output-latency).
+A cue can have a **sound** attached so audio and lighting always start together. The attachment has its own loop count, **Restart Sound at Loop** option, volume adjustment, and a **Sound Offset** (milliseconds, 0–10000) to delay the sound relative to the lighting. The editor does not accept a negative offset. There is no separate Audio Delay setting — for metronome compensation see [Output Latency](/dmx-core-100/lighting/tempo#output-latency).
 
 ### Layers and Priority
 
 - **Playback Layer** — cues on the same layer replace each other; cues on different layers play together (default 0)
-- **Priority Override** — an optional sACN priority (1–200) replacing the cue's recorded priority
+- **Priority Override** — an optional sACN priority (1–200) replacing the recorded **100**
 
 See [Layers & Priority](/dmx-core-100/playback/layers-and-priority) for how concurrent playback combines.
 

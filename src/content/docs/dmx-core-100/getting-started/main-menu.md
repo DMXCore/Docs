@@ -34,7 +34,7 @@ Display system information.
 
 #### Help
 
-Quick links to documentation, plus the Web UI address and the default PIN (when it still applies).
+Quick links to documentation. On desktop it also shows the Web UI address. The default PIN appears only when the database is empty. On an Appliance the Web UI address row is hidden (ports are always 8000 / 8001).
 
 ---
 

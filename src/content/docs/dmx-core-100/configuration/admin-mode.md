@@ -24,7 +24,7 @@ In the Web UI, you log in with your PIN on the login page when you first connect
 
 The Web UI session stays active until you log out or the auto log-off timeout expires. Auto log-off is a **per-user** field: **Auto log-off, minutes (0=never)** on the user editor under **User Management > Users**. It is not a Device > System setting.
 
-Before logout, the Web UI shows a warning dialog so you can stay signed in. Auto log-off **pauses** while a local recording or preview is running, so a long take is not cut off by the timeout.
+Before logout, the Web UI shows a warning dialog so you can stay signed in. Auto log-off **pauses** while a local recording is running, so a long take is not cut off by the timeout. Preview alone does not pause the Web UI timeout. On the touchscreen, log-off and screen lock also pause during local recording **or** preview.
 
 ## Multiple Users
 

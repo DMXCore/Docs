@@ -69,11 +69,11 @@ With a **Normal**-mode Play Timeline action, pressing again while the timeline w
 - **Name** — display name
 - **Enabled** — turn the trigger on or off without deleting it
 - **Address** — OSC address, HTTP path, or MQTT topic. UDP/TCP use a separate **Port** field. Art-Net / sACN / DMX Serial use **Universe Id/Sub Port** and **Channel** — Address does not cover those
-- **Start Payload** / **Stop Payload** — for TCP, UDP, OSC, MQTT, and HTTP. Put the text in **double quotes** to treat it as text; otherwise it is read as hex bytes. For UDP/TCP the packet only has to *start with* the payload (it may have extra bytes after it)
+- **Start Payload** / **Stop Payload** — for TCP, UDP, OSC, and MQTT (not HTTP; HTTP matches the path only). Put the text in **double quotes** to treat it as text; otherwise it is read as hex bytes (if that parse fails, the whole string is treated as text). For UDP/TCP the packet only has to *start with* the payload (it may have extra bytes after it)
 
 ### MQTT triggers
 
-MQTT topics must match **exactly** (case-insensitive). `+` and `#` wildcards never fire. Start/Stop payloads must match exactly, **including case**. With no payload configured, `true`/`false` payloads act as on/off and any other payload fires the start action.
+MQTT topics must match **exactly** (case-insensitive). `+` and `#` wildcards never fire. Start/Stop payloads must match exactly, **including case**. With no payload configured, boolean-like payloads (`true`/`false`, `on`/`off`, `1`/`0`, `yes`/`no`) act as on/off and any other payload fires the start action.
 
 MIDI notes are **not** Input Triggers. Bind MIDI on a [control surface](/dmx-core-100/control-surfaces/supported-devices#midi-keypad).
 

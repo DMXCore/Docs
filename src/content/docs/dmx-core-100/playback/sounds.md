@@ -33,7 +33,7 @@ Each sound's detail page has:
 - **Code** — Unique identifier for API and external control
 - **Volume** — Playback volume level
 
-**Loop** and **Fade Duration** are not per-sound fields. They live on the Sounds list as **Default Settings** (**Lighting > Sounds**), the same pattern as [cues](/dmx-core-100/playback/cues#default-settings).
+**Loop**, **Fade In (seconds)**, and **Fade Out (seconds)** are not per-sound fields. They live on the Sounds list as **Default Settings** (**Lighting > Sounds**), the same pattern as [cues](/dmx-core-100/playback/cues#default-settings).
 
 ## Playback Controls
 

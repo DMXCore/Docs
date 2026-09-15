@@ -41,7 +41,7 @@ The DMX Core 100 ships with built-in generic profiles for common **RGB and RGBW*
 
 1. Go to **Lighting Setup > Fixtures** and click **Add a fixture** (or **Add New**).
 2. *(Other fixtures only)* If your light isn't a generic RGB/RGBW type, click **Add profile…** next to the Profile dropdown. Lightkey is usually the easiest: search [the catalog](https://www.lightkeyapp.com/en/fixtures), download one `.lightkeyfxt` file, then import it in the dialog. [Daslight](https://store.daslight.com/en/ssl) and [GDTF Share](https://gdtf-share.com) are the next stops.
-3. Select the **Profile** and the **Personality** (channel mode), then set the **DMX address** and **universe** to match your physical fixture.
+3. Select the **Profile** and the **Personality** (channel mode), then set the **Start Channel** and **Slot/Universe Id** to match your physical fixture.
 4. Click **Save**.
 
 Full details are in [Fixture Setup](/dmx-core-100/lighting/fixture-setup).

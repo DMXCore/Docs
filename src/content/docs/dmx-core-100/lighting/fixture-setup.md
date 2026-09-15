@@ -56,7 +56,7 @@ Fixtures are managed under **Lighting Setup > Fixtures** in the Web UI, or **Mai
 2. Click **Add a fixture** or **Add New**
 3. Select the **Profile** — a built-in generic RGB/RGBW profile, or one you imported. If it isn't in the list, click **Add profile…** next to the dropdown
 4. Select the **Personality** (channel mode) — this determines which DMX channels the fixture uses
-5. Set the **DMX address** (start channel) and **universe**
+5. Set the **Start Channel** and **Slot/Universe Id**
 6. Optionally assign the fixture to a [Zone](/dmx-core-100/lighting/zones) with the **Zone** field on this fixture (not in the zone editor)
 7. Click **Save**
 
