@@ -53,10 +53,22 @@ Connect so it can download current software releases.
       "screenshotId": "internet-passthrough"
     },
     {
-      "id": "install-updates",
-      "label": "On an Appliance, install the current software from Utilities → Releases (Web UI) or Utilities → Device Operations → Releases on the touchscreen, then Deactivate passthrough. Snap Linux has no Releases page — snapd updates it outside the app",
+      "id": "install-updates-web",
+      "label": "In the Web UI of an Appliance, open Utilities → Releases and install the current software. Snap Linux has no Releases page — snapd updates it outside the app",
+      "docsUrl": "/dmx-core-100/configuration/software-updates/",
+      "screenshotId": null
+    },
+    {
+      "id": "install-updates-touchscreen",
+      "label": "Or on the touchscreen, open Utilities → Device Operations → Releases and install the current software",
       "docsUrl": "/dmx-core-100/configuration/software-updates/",
       "screenshotId": "uno-utilities"
+    },
+    {
+      "id": "deactivate",
+      "label": "Go back to Utilities → System and Deactivate Internet Passthrough",
+      "docsUrl": "/dmx-core-100/integrations/internet-passthrough/",
+      "screenshotId": "internet-passthrough"
     }
   ]
 }

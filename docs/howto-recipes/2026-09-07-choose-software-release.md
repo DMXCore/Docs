@@ -44,8 +44,14 @@ is running. An older entry in the Releases list is not installed.
       "screenshotId": null
     },
     {
-      "id": "open-releases",
-      "label": "On an Appliance or Windows/macOS desktop install, open Utilities → Releases (Web UI) or Utilities → Device Operations → Releases (touchscreen) and compare each listed build to the running version. Snap Linux has no Releases item — snapd updates the app outside the UI",
+      "id": "open-releases-web",
+      "label": "In the Web UI of an Appliance or Windows/macOS desktop install, open Utilities → Releases and compare each listed build to the running version. Snap Linux has no Releases item — snapd updates the app outside the UI",
+      "docsUrl": "/dmx-core-100/configuration/software-updates/",
+      "screenshotId": null
+    },
+    {
+      "id": "open-releases-touchscreen",
+      "label": "Or on the touchscreen, open Utilities → Device Operations → Releases and compare the listed builds the same way",
       "docsUrl": "/dmx-core-100/configuration/software-updates/",
       "screenshotId": "uno-utilities"
     },
