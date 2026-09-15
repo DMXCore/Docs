@@ -318,7 +318,7 @@ class HelpWidget {
     this.messages.replaceChildren(
       el('div', { class: 'dmx-help-portal', role: 'status' }, [
         el('p', { class: 'dmx-help-portal-title', text: 'This chat continued in the DMX Core portal.' }),
-        el('p', { class: 'dmx-help-hint', text: 'It can only be opened there now. Start a new chat to ask something here.' }),
+        el('p', { class: 'dmx-help-hint', text: 'It can only be opened there now. Ask a question below to start a new chat here.' }),
         el('div', { class: 'dmx-help-portal-actions' }, [
           href ? el('a', { class: 'dmx-help-portal-open', href, target: '_blank', rel: 'noopener', text: 'Open in the portal →' }) : null,
           startButton,
@@ -331,9 +331,10 @@ class HelpWidget {
 
   setPortalLocked(locked) {
     this.inPortal = locked;
-    this.input.disabled = locked;
-    this.sendButton.disabled = locked;
-    this.input.placeholder = locked ? 'This chat continued in the portal.' : 'How do I…?';
+    // The input stays usable: a question sent from here starts a new docs chat (submit → leavePortalChat).
+    this.input.disabled = false;
+    this.sendButton.disabled = false;
+    this.input.placeholder = locked ? 'Ask a question to start a new chat here' : 'How do I…?';
     this.updateContinueLink();
     this.updatePrintButton();
   }
@@ -350,6 +351,21 @@ class HelpWidget {
     } catch {
       // Not fatal: submit() creates the session with the first question.
     }
+  }
+
+  /**
+   * A question typed while the stored chat belongs to the portal: forget that chat and start a new docs
+   * chat with the question, keeping a link to the portal chat at the top so it isn't lost.
+   */
+  leavePortalChat() {
+    const href = portalContinueHref(this.continueUrl, this.sessionId);
+    this.newChat();
+    if (!href) return;
+
+    this.messages.prepend(el('p', { class: 'dmx-help-hint dmx-help-portal-note' }, [
+      'Your earlier chat continued in the DMX Core portal. ',
+      el('a', { href, target: '_blank', rel: 'noopener', text: 'Open it there →' }),
+    ]));
   }
 
   renderEmptyState() {
@@ -441,7 +457,8 @@ class HelpWidget {
 
   async submit(preset) {
     const text = (preset ?? this.input.value).trim();
-    if (!text || this.busy || this.inPortal) return;
+    if (!text || this.busy) return;
+    if (this.inPortal) this.leavePortalChat();
 
     // Lock and show the question before any await: starting the API can take several
     // seconds, and repeated clicks must not start more conversations.
