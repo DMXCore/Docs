@@ -17,7 +17,7 @@ Rules are global: once defined, they apply to every cue that touches the matchin
 
 ## Rule types
 
-Each rule targets a **Slot Id** (the internal universe id as recorded in the cue) and a channel range (1–512).
+Each rule targets a **Slot Id** (the internal universe id as recorded in the cue) and a channel range (1–512). To see which slots a cue uses, open the cue in the Web UI (**Lighting > Cues**, then the cue name) and read **Used Slot/Universe Ids**.
 
 ### Cap
 

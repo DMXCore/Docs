@@ -19,9 +19,9 @@ The monitor displays a 32x16 grid representing the 512 DMX channels of the selec
 
 ## Slot Selection
 
-The available slots correspond to your configured COSMOS output slots. Click a slot button to switch the view to that slot's DMX data. The selected slot is highlighted with a colored border.
+The available slots correspond to your configured outputs, listed under **Configured Slots (N)**. Click a slot button to switch the view to that slot's DMX data. The selected slot is highlighted with a colored border.
 
-Below the channel grid, an **output information table** shows which output interfaces are mapped to the selected slot, including the output code, protocol type, and universe mapping.
+Below the channel grid, an **output information table** shows which output interfaces are mapped to the selected slot. Columns are **Code**, **Type**, and **Slot => Universe**.
 
 ## Session Behavior
 

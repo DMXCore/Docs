@@ -50,16 +50,14 @@ The **Profile** dropdown on Fixture Details lists generic profiles, imported pro
 
 ## Adding Fixtures
 
-:::tip[Web UI only]
-Fixture setup is managed in the Web UI under **Lighting Setup > Fixtures**.
-:::
+Fixtures are managed under **Lighting Setup > Fixtures** in the Web UI, or **Main Menu > Settings > Fixtures** on the touchscreen. A touchscreen fixture also has a **Zone** field.
 
 1. Go to **Lighting Setup > Fixtures** in the Web UI
-2. Click **Add** to create a new fixture
+2. Click **Add a fixture** or **Add New**
 3. Select the **Profile** — a built-in generic RGB/RGBW profile, or one you imported. If it isn't in the list, click **Add profile…** next to the dropdown
 4. Select the **Personality** (channel mode) — this determines which DMX channels the fixture uses
 5. Set the **DMX address** (start channel) and **universe**
-6. Optionally assign the fixture to a [Zone](/dmx-core-100/lighting/zones)
+6. Optionally assign the fixture to a [Zone](/dmx-core-100/lighting/zones) with the **Zone** field on this fixture (not in the zone editor)
 7. Click **Save**
 
 ![Fixture setup — profile and personality selection](/assets/web/fixture-editor.png)

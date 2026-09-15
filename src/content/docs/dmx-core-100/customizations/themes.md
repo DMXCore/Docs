@@ -7,7 +7,7 @@ The DMX Core 100 supports both light and dark themes on the touchscreen and in t
 
 ## Touchscreen
 
-Change the theme on the touchscreen under **Main Menu > Settings > Display Theme**.
+Change the theme on the touchscreen under **Main Menu > Settings > System Settings > System Theme** (under the **Preferences** header). Options are **Light** and **Dark**.
 
 ### Light
 
@@ -19,7 +19,7 @@ Change the theme on the touchscreen under **Main Menu > Settings > Display Theme
 
 ## Web UI
 
-Change the Web UI theme with the light/dark toggle in the top bar.
+Change the Web UI theme with the light / dark / **Auto** control in the top bar. **Auto** follows the browser or OS preference.
 
 ### Light
 

@@ -17,7 +17,7 @@ and manage plugins.
 ## Settings
 
 - **Server address** — the address of the Q-SYS core.
-- **Port** — only needs changing if it differs from the Q-SYS default
+- **Server port** — only needs changing if it differs from the Q-SYS default
   (1702).
 
 Settings apply immediately; saving a new address reconnects on the spot. The

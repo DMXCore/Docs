@@ -17,7 +17,8 @@ docs_slugs:
 
 ## Original ask
 
-> Perhaps I do not have the most recent update? [device on 2026.717.2]
+> The unit is on an isolated network with no internet. Perhaps I do not have
+> the most recent update? [device on 2026.717.2]
 
 Follow-up while configuring another unit, after being told the unit was behind
 because it had no internet.

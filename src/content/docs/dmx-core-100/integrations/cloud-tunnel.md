@@ -15,7 +15,7 @@ When enabled, the DMX Core 100 establishes a secure outbound connection to the D
 
 ## Enabling the Cloud Tunnel
 
-Enable **Remote Access** under **Device > System** in the Web UI. The tunnel status is shown on the touchscreen's About screen.
+Turn on **Enable Remote Access** under **Device > System** in the Web UI. Remote Web UI access also requires an active remote-access subscription — see [Remote Management](/dmx-core-100/remote-management). The tunnel status is shown on the touchscreen's About screen.
 
 ![Enable Remote Access on Device > System](/assets/web/cloud-tunnel.png)
 
@@ -23,6 +23,7 @@ Enable **Remote Access** under **Device > System** in the Web UI. The tunnel sta
 
 - The DMX Core 100 must have internet access
 - An active connection to api.dmxcore.com
+- An active remote-access subscription on the portal account
 
 ## Use Cases
 
@@ -33,6 +34,10 @@ Enable **Remote Access** under **Device > System** in the Web UI. The tunnel sta
 :::note
 The cloud tunnel provides access to the Web UI only. Direct DMX output (ArtNet/sACN) still requires local network connectivity.
 :::
+
+## Expose another device's web UI via tunnel
+
+On **Utilities > Device Monitor**, an Advatek (and similar) monitored device can have **Expose web UI via tunnel** turned on. When the portal tunnel to this Core is open, that device's own web UI becomes reachable through the tunnel — this is not the Core's Web UI, and it is not on **Device > System**.
 
 :::tip[Part of the cloud portal]
 The cloud tunnel is one part of the [DMX Core portal](/dmx-core-100/remote-management), which also provides remote fleet monitoring, health alerts, remote operations, and software updates.

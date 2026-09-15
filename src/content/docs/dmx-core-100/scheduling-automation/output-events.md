@@ -5,16 +5,14 @@ description: Send notifications when actions occur
 
 Output events let the DMX Core 100 send notifications to external systems when specific actions occur. For example, you can send an MQTT message when a cue starts playing, or make an HTTP request when a schedule triggers.
 
-:::tip[Web UI only]
-Output event configuration is available in the Web UI under **Control & Integrations > Output Events**.
-:::
+Configure them under **Control & Integrations > Output Events** in the Web UI, or **Main Menu > Settings > Output Events** on the touchscreen.
 
 ![Output events list](/assets/web/output-events-list.png)
 
 ## Creating an Output Event
 
 1. In the Web UI, go to **Control & Integrations > Output Events**
-2. Click **Add** to create a new event
+2. Click **Add New** to create a new event
 3. Configure the trigger condition — what system event should fire this output
 4. Set the output type and destination
 5. Click **Save**

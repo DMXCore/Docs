@@ -22,7 +22,9 @@ Admin Mode gives you access to change output settings, general settings, schedul
 
 In the Web UI, you log in with your PIN on the login page when you first connect. See [Connecting to the Web UI](/dmx-core-100/getting-started/connecting-to-the-web-ui) for details.
 
-The Web UI session stays active until you log out or the auto log-off timeout expires. You can configure the auto log-off timeout in **Device > System**.
+The Web UI session stays active until you log out or the auto log-off timeout expires. Auto log-off is a **per-user** field: **Auto log-off, minutes (0=never)** on the user editor under **User Management > Users**. It is not a Device > System setting.
+
+Before logout, the Web UI shows a warning dialog so you can stay signed in. Auto log-off **pauses** while a local recording or preview is running, so a long take is not cut off by the timeout.
 
 ## Multiple Users
 

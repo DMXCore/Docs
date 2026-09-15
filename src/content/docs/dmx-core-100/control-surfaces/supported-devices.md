@@ -24,7 +24,7 @@ Generic MIDI controllers — pads, keys, and knobs on devices like the Akai LPD8
 - **RTP-MIDI** (Apple Network MIDI) — MIDI over the network
 - **Network MIDI 2** — the newer network MIDI standard
 
-Pads trigger button assignments; knobs and faders drive level assignments. Controllers with LED pads receive color feedback where the device supports it. On the **Akai LPD8 mk2**, [hold-to-confirm](/dmx-core-100/control-surfaces/configuring#hold-to-confirm) pads blink while held.
+Pads trigger button assignments; knobs and faders drive level assignments. Each assignment has a **MIDI Binding** row: **Note**, **Control Change**, or **Program Change**, MIDI channel **1–16**, number **0–127**, and **Learn** to capture the next message from the controller. MIDI does **not** go through [Input Triggers](/dmx-core-100/scheduling-automation/input-triggers). Controllers with LED pads receive color feedback where the device supports it. On the **Akai LPD8 mk2**, [hold-to-confirm](/dmx-core-100/control-surfaces/configuring#hold-to-confirm) pads blink while held.
 
 ## Key Digital KD-WP8
 

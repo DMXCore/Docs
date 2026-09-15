@@ -15,13 +15,17 @@ On the **touchscreen**, navigate to **Main Menu > Cues** to see the list. Tap a 
 
 ![Cues list](/assets/device/cues-list.png)
 
-The top bar expands to show playback controls — tap the arrow to toggle it. Controls include global Fade Out, Stop, and adjustable Loop, Fade In, and Fade Out settings.
+The top bar expands to show playback controls — tap the arrow to toggle it. Controls include Fade Out, Stop, and the list-wide **Default Settings** for Loop, Fade In, and Fade Out (the same defaults as on the Web UI Cues list).
 
 ![Cues list with playback controls expanded](/assets/device/cues-list-controls.png)
 
 In the **Web UI**, go to **Lighting > Cues**. The list shows duration and size, with play buttons and per-cue download. Click a cue name to open its detail page.
 
 ![Cues list in the Web UI](/assets/web/cues-list.png)
+
+### Default Settings
+
+**Fade In**, **Fade Out**, and **Loop** are not per-cue fields. They live on the Cues list as **Default Settings** (Web UI: **Lighting > Cues**; touchscreen: the cue list top bar). New playback uses these defaults. **Loop** of `0` means loop forever.
 
 :::note[Interface differences]
 - **Touchscreen**: Tap to play, long-hold for settings.
@@ -38,8 +42,6 @@ Long-hold a cue on the touchscreen, or open it in the Web UI, to edit its settin
 
 - **Code** — A unique identifier used in API trigger events and external control
 - **Name / Description** — Display name and notes
-- **Fade In / Fade Out** — Duration for smooth transitions when starting and stopping playback
-- **Loop** — Number of times to repeat playback (0 = forever)
 - **Bounce Playback** — Play forward then backward for seamless looping
 - **In-point / Out-point** — Trim playback to a portion of the recording
 - **Dimmer** — Overall brightness level for the cue output
@@ -48,7 +50,7 @@ Long-hold a cue on the touchscreen, or open it in the Web UI, to edit its settin
 
 ### Attached Sound
 
-A cue can have a **sound** attached so audio and lighting always start together. The attachment has its own loop count, **Restart Sound at Loop** option, volume adjustment, and a **sound offset** to align audio with the lighting timeline (see also the [audio delay setting](/dmx-core-100/playback/sounds#audio-delay)).
+A cue can have a **sound** attached so audio and lighting always start together. The attachment has its own loop count, **Restart Sound at Loop** option, volume adjustment, and a **Sound Offset** (milliseconds) to align audio with the lighting timeline. A **positive** offset delays the sound relative to the lighting (the sound starts later); a negative offset starts the sound earlier. There is no separate Audio Delay setting — for metronome compensation see [Output Latency](/dmx-core-100/lighting/tempo#output-latency).
 
 ### Layers and Priority
 
@@ -73,7 +75,7 @@ During playback, the **Web UI** shows a progress bar with **pause/resume**, **sc
 
 ## Duplicating Cues
 
-In the **Web UI**, duplicate a cue to create a copy with the same DMX data but a new name and code — useful for variations with different fade, loop, or layer settings.
+In the **Web UI**, duplicate a cue to create a copy with the same DMX data but a new name and code — useful for variations with different dimmer, in/out points, or layer settings. Fade and loop still come from the list **Default Settings**.
 
 ## Technical Details
 

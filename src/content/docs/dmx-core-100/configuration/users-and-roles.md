@@ -20,7 +20,7 @@ The system comes with a default admin account with PIN `1111`. It is recommended
 To create a new user:
 
 1. Go to **User Management > Users** in the Web UI
-2. Click **Add**
+2. Click **Add New**
 3. Set a **Name** and **PIN** for the user
 4. Assign a **Role** that defines their permissions
 5. Click **Save**
@@ -53,18 +53,23 @@ Creating API keys requires **User Management** or **Change System Settings**.
 
 ## Roles and Permissions
 
-Roles define what a user can do. The system ships with **Admin**, **Operator**, and **Standard** roles, and you can create your own under **User Management > Roles**.
+Roles define what a user can do. The system ships with **Admin**, **Operator**, and **Standard** roles, and you can create your own under **User Management > Roles** (**Add New**). The role editor has **Name**, **Is Admin**, and a **Permissions** list.
+
+The built-in **Operator** role includes Edit/Delete Schedule, Device Operations, Change Network Settings, Change Output Settings, Edit Output, Record, File Explorer (including upload/transfer), and local/cloud backup restore — enough for day-to-day show work without User Management or factory reset. **Standard** has Edit/Delete Schedule, Device Operations, and cloud backup only. Neither Operator nor Standard includes **Start/Stop output**, which is what the touchscreen [Stop/Blackout](/dmx-core-100/basics/blackout-and-stop) tile requires.
+
+Playing a cue in the Web UI only needs a signed-in user — it does not require a separate Play Cue permission.
 
 Each role is a set of individually toggleable permissions covering:
 
 | Area | Permissions |
 |------|------------|
 | Content | Edit/Delete Cue, Preset, Effect, Timeline, Schedule, Sound |
+| Playback | Start/Stop output, Manipulate Playback |
 | Automation | Edit/Delete Input Trigger, Output Event; Snooze Schedules |
 | Control | Edit Remote Control (control surfaces and DSP remotes), Change Custom Menu |
-| Outputs | Edit/Delete Output, Record |
-| System | Device Operations (restart/reboot), Change Network Settings, Change System Settings (including [factory reset](/dmx-core-100/configuration/utilities#factory-reset)), Change Plugin Settings |
-| Data | Create Local Backup, Create Cloud Backup, File Explorer |
+| Outputs | Edit/Delete Output, Record, Change Output Settings |
+| System | Device Operations (restart/reboot), Change Network Settings, Change System Settings (including [factory reset](/dmx-core-100/configuration/utilities#factory-reset)), Change Plugin Settings, Upgrade Software |
+| Data | Create Local Backup, Create Cloud Backup, File Explorer (and its sub-permissions), View Audit Log |
 | Admin | User Management |
 
 :::note

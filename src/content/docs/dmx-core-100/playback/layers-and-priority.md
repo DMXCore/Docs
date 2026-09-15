@@ -23,13 +23,13 @@ When two sources are active on the same universe with equal priority, the global
 - **Blend** — channel values are added together, capped at full. A channel that both sources hold at 50 % comes out at 100 %, and a channel one source holds at full stays at full whatever the other sends
 - **HTP** — highest takes precedence, per channel
 
-Merge Mode is set under **Lighting Setup > Protocol** in the Web UI.
+Merge Mode is set under **Lighting Setup > Protocol** in the Web UI. The default is **Blend**.
 
 ## Priorities
 
 Priorities decide which source owns a universe when they overlap. Higher priority wins outright; equal priorities merge using the Merge Mode above.
 
-- **Cue priority** — cues normally replay with the sACN priority they were recorded with. A cue's **Priority Override** (1–200) replaces that, letting you pin a specific cue above or below other playback.
+- **Cue priority** — cues normally replay with the sACN priority they were recorded with. A cue recorded from Art-Net (or DMX Serial) has no per-packet priority, so it plays at the default of **100** unless you set **Priority Override**. A cue's **Priority Override** (1–200) replaces the recorded or default priority, letting you pin a specific cue above or below other playback.
 - **Fixture Control Priority** — the priority used by the fixture engine (fixture control, presets, effects), set under **Lighting Setup > Protocol** (default 100).
 - **Outputs** — each sACN output also has a per-output **Send Priority** ([Output Config](/dmx-core-100/configuration/output-config)), which is what downstream sACN receivers use when merging the DMX Core 100 against *other* consoles on the network.
 

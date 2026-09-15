@@ -31,13 +31,14 @@ Banks multiply the addressable controls on a small device: each bank holds its o
 Click a control in the section grid to edit its assignment:
 
 - **Label** — the text shown on LCD keys and in the operator view
-- **Action** — what the control does. Available action types: Apply Ambient Preset, Apply Preset, [Control Value](/dmx-core-100/integrations/control-values) (set / up / down), Fade Out, Fire Output Event, Next Bank / Switch Bank, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), Stop Playback, Tap Tempo, Toggle Mute, [Toggle Output](/dmx-core-100/configuration/output-config#toggling-all-output), and Toggle Schedule
+- **Action** — what the control does. Available action types: Apply Ambient Preset, Apply Preset, [Control Value](/dmx-core-100/integrations/control-values) (set / up / down), Fade Out, Fire Output Event, Next Bank / Switch Bank, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), **Stop**, **Blackout**, Tap Tempo, **Audio Mute**, **DMX Output**, and Toggle Schedule
+- **MIDI Binding** (MIDI surfaces) — **Note**, **Control Change**, or **Program Change**; channel **1–16**; number **0–127**; **Learn** captures the next MIDI message. Assignments without a binding show **Web-only — no MIDI binding**
 - **Press mode** — Normal, Toggle on/off, Flash (hold), or — for Play Timeline actions — Momentary (release continues past a [Hold milestone](/dmx-core-100/playback/hold-milestones))
 - **Hold to confirm** — the operator must keep the button pressed before the action fires (see below)
 
 ## Hold to confirm
 
-Turn this on for actions that would be costly to hit by accident — [Blackout](/dmx-core-100/basics/blackout-and-stop), [Toggle Output](/dmx-core-100/configuration/output-config#toggling-all-output), Stop Playback, and similar. The operator keeps the button down for the duration set under **Device > System → Control surface hold to confirm (ms)** (default 1.5 seconds, 250–10000). Releasing early cancels; the action never fires.
+Turn this on for actions that would be costly to hit by accident — [Blackout](/dmx-core-100/basics/blackout-and-stop), [Toggle Output](/dmx-core-100/configuration/output-config#toggling-all-output), Stop, and similar. The operator keeps the button down for the duration set under **Device > System → Control surface hold to confirm (ms)** (default 1.5 seconds, 250–10000). Releasing early cancels; the action never fires.
 
 While the button is held:
 

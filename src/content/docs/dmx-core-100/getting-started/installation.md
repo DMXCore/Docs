@@ -2,7 +2,7 @@
 title: Installation
 ---
 
-The DMX Core 100 is designed to fit into a standard 2-gang electrical box and can be powered either by Power Over Ethernet, or with a 8–28 VDC power supply (not included).
+The DMX Core 100 is designed to fit into a standard 2-gang electrical box and can be powered either by Power Over Ethernet, or with a 8–28 VDC power supply (not included). There is no hardware power switch — connecting PoE or the DC plug powers the unit; disconnecting it turns it off. After power-up, look for the LED on the back; the screen takes about a minute. Software **Restart** and **Reboot** are under **Utilities** for users with Device Operations permission. Connector type, plug size, polarity, and PoE class are not specified; check that your adapter's plug fits the rear connector.
 
 Two optional mounting accessories are also available:
 

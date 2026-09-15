@@ -21,10 +21,15 @@ Everything is on **Lighting Setup › Inputs** in the Web UI.
 ![Inputs page with an sACN console and an Art-Net console routed at the same time](/assets/web/inputs.png)
 
 1. **Input mapping.** The device's input table: which received universes to accept, on which protocol, and which slot id each lands on. Every row names its own protocol — sACN / E1.31, Art-Net or DMX Serial — and **every protocol that has a row is listened to**, so a console on sACN and one on Art-Net are routed at the same time. An output mapped to a row's slot id receives the routed data. Universes that are not mapped are ignored.
+
+   Click **Add New** on **Lighting Setup > Inputs** to add a row, then open **Details** to edit it. The row editor has **Save** and **Save & Go Back**.
+
+   **Art-Net universe numbers start at 0** (the field help says "Art-Net counts from 0"). sACN universes start at 1. The UI formats Art-Net as net:subnet:universe by subtracting 1, so a typed **1** displays as **00:0:0**.
+
 2. **Recording protocol.** A recording still captures one protocol; this picks which of the mapped ones. With a single mapped protocol there is nothing to choose and the page just names it. See [Recording](/dmx-core-100/playback/recording).
 3. **Route input to outputs.** The switch. Configuring input alone never drives the outputs; only this switch does, so a device that has input mappings for recording does not start driving its lights from a console after an upgrade.
 
-Slot ranges have to be **disjoint between protocols**: sACN universe 1 and Art-Net universe 0 cannot both land on slot 1, because the merge and a recording both key on the slot id and the two consoles would be interleaved into one universe. Two universes of the *same* protocol may share a slot; they merge highest-takes-precedence as sACN receivers do.
+Slot ranges have to be **disjoint between protocols**: sACN universe 1 and Art-Net universe 0 cannot both land on slot 1, because the merge and a recording both key on the slot id and the two consoles would be interleaved into one universe. Two universes of the *same* protocol may share a slot; they merge highest-takes-precedence as sACN receivers do. Saving an overlapping mapping shows: **Slot {n} is already mapped from {protocol} {universe}. Input rows on different protocols must use different slot ids.**
 
 A DMX Serial row's "universe" is the board's port number: 1 is port A, 2 is port B. Serial rows sit in the same table as network rows, so a console on DMX-512 port A and one on sACN route side by side.
 
@@ -46,7 +51,7 @@ The finer settings are under **Lighting Setup › Protocol**:
 
 | Setting | Meaning |
 |---|---|
-| **Input Priority** | Merge priority (1–200) for routed input from protocols that carry no priority of their own, Art-Net and DMX Serial. sACN input uses the priority each sender transmits. With several protocols routed at once, each follows its own rule. |
+| **Input Priority** | Merge priority (1–200) for routed input from protocols that carry no priority of their own, Art-Net and DMX Serial. The default is **100**, the same as a cue's default, so routed Art-Net or DMX Serial blends with cues out of the box. sACN input uses the priority each sender transmits. With several protocols routed at once, each follows its own rule. |
 | **Override Input Priority** | Use Input Priority for all routed input, ignoring what sACN senders transmit. |
 | **Input Loss Timeout (ms)** | How long a routed universe may go without a packet before its source counts as lost. The default 2500 ms is the E1.31 value. |
 | **On Input Loss** | What happens then. **Release**: stop sending the universe, so a cue or preset underneath takes back over and otherwise the [End of Data](/dmx-core-100/playback/layers-and-priority#end-of-data) applies. **Hold last**: keep sending the last received frame. **Blackout and release**: send zeros once, then release. |
@@ -86,3 +91,12 @@ Such an output shows **Routing Conflict** in the Outputs list, with a **?** that
 A mapping that closes a **loop through a second input row** — slot 1 out on Art-Net universe 0, Art-Net universe 0 in to slot 2, slot 2 out on sACN universe 1, sACN universe 1 in to slot 1 — is refused when you save it, because every output on that path would be left out of routing and nothing could reach the wire. Sending a universe you also listen on straight to one node's IP address is not a loop and stays allowed.
 
 Zone-scoped outputs are not fed by routing; routed data goes to the outputs mapped for all zones.
+
+## Moving a port pair from firmware passthrough to stream routing
+
+Firmware [passthrough](/dmx-core-100/lighting/passthrough) is port-to-port only and does not merge. To merge a DMX-512 board input with cues, or to fan it out to network and plugin outputs:
+
+1. Set **Passthru function** to **None** (**Lighting Setup > Protocol**, or touchscreen **Settings > System Settings** under the **Protocol** header).
+2. On **Lighting Setup > Inputs**, **Add New** and create a **DMX Serial** row for the input port (universe 1 = port A, 2 = port B) onto the slot you want.
+3. Add or keep an output on port B (or A) at the **same slot**.
+4. Turn on **Route input to outputs**.

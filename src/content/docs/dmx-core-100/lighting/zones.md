@@ -7,23 +7,22 @@ Zones let you group fixtures together for easier management. For example, you mi
 
 ## Managing Zones
 
-:::tip[Web UI only]
-Zone management is available in the Web UI under **Lighting Setup > Zones**. Enable **Multi-Zone Playback** under **Device > System** to turn on zone support.
-:::
+Zones are managed under **Lighting Setup > Zones** in the Web UI, or **Main Menu > Settings > Zones** on the touchscreen. Enable **Multi-Zone Playback** under **Device > System** to turn on zone support.
 
 ### Creating a Zone
 
-1. In the Web UI, go to **Lighting Setup > Zones**
-2. Click **Add** to create a new zone
-3. Enter a name for the zone
-4. Assign fixtures to the zone by selecting from the available fixtures list
-5. Click **Save**
+1. In the Web UI, go to **Lighting Setup > Zones** (touchscreen: **Settings > Zones**)
+2. Click **Add New** (touchscreen: **Add**)
+3. Set **Internal Id**, **Code / Short Name**, and **Name**
+4. Click **Save**
+
+The zone editor does not assign fixtures. Open each fixture and set its **Zone** field instead — see [Fixture Setup](/dmx-core-100/lighting/fixture-setup).
 
 ![Zones list in the Web UI](/assets/web/zones-list.png)
 
 ### Editing a Zone
 
-Click a zone name in the list to open its settings. You can rename the zone, add or remove fixtures, and delete the zone.
+Click a zone name in the list to open its settings. You can change the code and name, or delete the zone. To add or remove fixtures, edit the fixture's **Zone** field.
 
 ## Using Zones
 

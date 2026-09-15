@@ -76,21 +76,13 @@ example a DSP core), a red broken-link icon when it isn't.
 
 ## Updates
 
-The device checks the registry for plugin updates about once an hour and
-whenever you press **Check for updates** on the Browse tab. What happens
-when an update is found is set by the **update policy** under **Browse >
-Registry settings**:
+The device checks the registry for plugin updates **1 minute after startup**, then about once an hour with a few minutes of jitter, and whenever you press **Check for updates** on the Browse tab. An **Auto** policy can therefore apply an update **mid-show**. What happens when an update is found is set by the **Update policy** under **Browse > Registry settings**:
 
-- **Notify** (default) — the update is shown on the Plugins page (badge on
-  the plugin, count on the Installed tab); you apply it with **Update**.
-- **Auto** — the device downloads and applies updates as it finds them. The
-  plugin restarts for a few seconds when the update is applied.
-- **Off** — no update checks.
+- **Notify — show available updates, apply manually** (default)
+- **Auto — download and apply updates automatically** — the plugin restarts for a few seconds when the update is applied
+- **Off — do not check for updates**
 
-Individual plugins can override the device policy in their settings panel
-(**Auto-update**: follow the device policy / always / never) — for example
-to auto-update everything except a DSP integration you'd rather update
-during a maintenance window.
+Individual plugins can override the device policy in their settings panel (**Auto-update**: **Follow the device policy** / **Always update automatically** / **Never update automatically**) — for example to auto-update everything except a DSP integration you'd rather update during a maintenance window.
 
 Only versions this device's software can run are ever offered or applied.
 Updating the device software may unlock newer plugin versions.

@@ -39,11 +39,11 @@ Log in and change the PIN right away — `1111` is the factory default and shoul
 
 If the device is on an isolated network — for example a wall-mounted appliance with no internet connection — you can still reset the admin PIN. The device and the DMX Core portal share a recovery key, so you can prove ownership by relaying two short codes between them. The device itself never needs to go online; you only need portal access on any other device, such as your phone.
 
-1. Open the device's Web UI from a computer on the same network and click **Forgot admin PIN?** on the login page
+1. Open the device's Web UI from a computer on the same network and click **Forgot admin PIN?** on the login page (white-label devices hide that link; open `/recover-pin` on the device URL instead)
 2. The page shows the device serial and a 9-digit **challenge code**, e.g. `483 291 507`
-3. Sign in at [portal.dmxcore.com](https://portal.dmxcore.com) from any device with internet access, open the device, and choose **Offline PIN Reset**
+3. Sign in at [portal.dmxcore.com](https://portal.dmxcore.com) from any device with internet access, open the device, and choose **Offline PIN Reset** (the device page itself is titled **Offline PIN reset**)
 4. Enter the challenge code — the portal displays a 9-digit **response code**
-5. Back on the device's Web UI, enter the response code together with a new 4-digit admin PIN and click **Reset PIN**
+5. Back on the device's Web UI, enter the response code together with a new 4-digit admin PIN, confirm the PIN, and click **Reset PIN**. The page also shows a QR code and a **Go to login** button after a successful reset
 6. Log in with the new PIN
 
 The codes are numeric so they are easy to read over the phone — if you don't have portal access yourself, our technical support can verify your ownership and read you the response code.

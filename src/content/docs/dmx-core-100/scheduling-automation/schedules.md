@@ -19,23 +19,27 @@ In the **Web UI**, go to **Lighting > Schedules**. The list shows all schedules 
 
 | Setting | Description |
 |---------|-------------|
-| **Name** | Display name of the schedule |
+| **Name** / **Code / Short Name** | Display name and identifier |
 | **Enabled** | Turn the schedule on or off |
-| **Override** | When on, this schedule overrides other schedules for the same period |
+| **Favorite** | Include the schedule on **Operation > Favorites** (Web UI). The touchscreen has no favorites list |
 | **Start Date** | When the schedule starts |
 | **End Date** | Optional end date (inclusive) |
 | **Days** | Days of the week the schedule runs on |
-| **Start** | How the start time is determined: a fixed time of day, or sunrise/sunset with an offset (Web UI) |
+| **Start** | How the start time is determined: a fixed time of day, or sunrise/sunset with **Start Offset (minutes)** (Web UI) |
 | **Start Time** | Time of day when the schedule triggers (when Start is a fixed time) |
-| **End** | How the end time is determined: none, a fixed time, or sunrise/sunset with an offset (Web UI) |
-| **End Time** | Optional end time (cue playback may end earlier) |
-| **Output** | Which output to use (if multiple are configured) |
-| **Type** | Type of event: cue, preset, sound, timeline, ambient preset, or script |
-| **Play** | Which item to play at the scheduled time |
-| **Dimmer** | Brightness level for the scheduled playback |
-| **Stop at Completion** | When enabled, playback stops when the cue/sound finishes rather than looping |
+| **End** | How the end time is determined: **None**, a fixed time, or sunrise/sunset with **End Offset (minutes)** (Web UI). **None** means the schedule never ends on its own |
+| **End Time** | Optional end time |
+| **Action Type** | What to run: cue, preset, sound, timeline, ambient preset, or script |
+| **Target** | Which item to play |
+| **Priority** | Playback priority |
+| **Loop** | Repeat count; **0 = forever** |
+| **Run to completion** | When on, playback runs to the end of the item rather than cutting at the schedule end |
+| **Fade-In Time (ms)** / **Fade-Out Time (ms)** | Transition times (Web UI) |
+| **Dimmer** / **Volume** | Brightness and attached-sound level (Web UI) |
 
-Schedules are triggered on whole minutes (e.g., 8:00:00, 8:01:00).
+The touchscreen editor has **Priority**, **Type**, **Play**, **Loop**, and **Run to completion**.
+
+Schedules are triggered on whole minutes (e.g., 8:00:00, 8:01:00). When a schedule ends, the item it started (for example a preset) is **stopped**. With **End = None** it never ends.
 
 **Delete Schedule** will remove the schedule from the system. Note that changes don't take effect until you exit the settings screen.
 
@@ -53,7 +57,7 @@ Sunrise/sunset schedules are configured in the **Web UI** schedule editor:
    [Device Location](/dmx-core-100/configuration/settings#device-location).
 2. In the schedule editor, change **Start** (and/or **End**) from
    **Fixed time** to **Sunrise** or **Sunset**.
-3. Optionally enter an **Offset** in minutes: positive values are after the
+3. Optionally enter **Start Offset (minutes)** or **End Offset (minutes)**: positive values are after the
    event, negative values are before. For example, Start = **Sunset** with
    offset **-30** triggers 30 minutes before sunset.
 
@@ -78,12 +82,16 @@ Notes:
 
 ## Snoozing Schedules
 
-You can temporarily disable all schedules using the **Snooze** feature:
+Snooze is a **touchscreen** feature. Go to **Main Menu > Utilities > Snooze Schedules**:
 
-- On the **touchscreen**, go to **Main Menu > Utilities > Snooze Schedules** for quick snooze shortcuts
-- In the **Web UI**, schedules can also be toggled via [custom menus](/dmx-core-100/scheduling-automation/custom-menus)
+- **Resume**
+- **Snooze 1h**
+- **Snooze until midnight**
+- **Snooze until 9am**
 
-Snoozing temporarily disables schedules with an auto-resume timer. The current snooze status is displayed on screen.
+Snooze stops schedules from *starting*. It does **not** end a schedule that is already running. The current snooze status is displayed on screen.
+
+The Web UI has no snooze. A custom-menu **Toggle Schedule** action only flips that schedule's **Enabled** flag and does not re-enable it later — it is not a snooze.
 
 ## Duplicating Schedules
 

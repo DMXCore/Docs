@@ -18,7 +18,7 @@ and manage plugins.
 ## Settings
 
 - **Server address** — the address of the Symetrix core.
-- **Port** — only needs changing if it differs from the Symetrix default
+- **Server port** — only needs changing if it differs from the Symetrix default
   (48631).
 
 Settings apply immediately; saving a new address reconnects on the spot. The

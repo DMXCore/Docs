@@ -52,7 +52,7 @@ showing live levels before Save.
     },
     {
       "id": "preview-save",
-      "label": "Go to Utilities → Record, press Preview until the channel monitor moves, then Save Dynamic Cue",
+      "label": "Go to Utilities → Record, press Enable Recorder, then Manual Trigger, then Save Dynamic Cue once the channel monitor is moving",
       "docsUrl": "/dmx-core-100/playback/recording/",
       "screenshotId": "record"
     }
@@ -72,7 +72,7 @@ showing live levels before Save.
 
 - Mentions `Lighting Setup > Inputs` before Record
 - Sets recording protocol to Art-Net
-- Mentions Preview before Save Dynamic Cue
+- Mentions Enable Recorder and Manual Trigger before Save Dynamic Cue
 - Mentions 0- vs 1-based and/or same-PC Art-Net ignore
 
 ## Gaps

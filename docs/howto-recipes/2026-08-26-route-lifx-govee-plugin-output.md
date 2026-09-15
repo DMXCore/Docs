@@ -63,7 +63,7 @@ and cues actually reach the physical devices.
     },
     {
       "id": "patch-fixture",
-      "label": "Go to Lighting Setup → Fixtures → Add, pick LIFX — Color Bulb or Govee — Color Light, use Mapped Device to prefill slot, start channel, and personality from that output, then Save",
+      "label": "Go to Lighting Setup → Fixtures, click Add a fixture (or Add New), pick LIFX — Color Bulb or Govee — Color Light, use Mapped Device to prefill slot, start channel, and personality from that output, then Save",
       "docsUrl": "/dmx-core-100/lighting/fixture-setup/",
       "screenshotId": "fixture-editor"
     }

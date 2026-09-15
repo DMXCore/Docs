@@ -4,11 +4,17 @@ title: Settings
 
 ## Touchscreen Settings
 
-On the touchscreen, navigate to **Main Menu > Settings** to access basic system settings, including the output protocol and timezone.
+On the touchscreen, navigate to **Main Menu > Settings** for the settings list, then **System Settings** for host options (timezone, lock-down, remote access, and more).
 
 ![Settings on the touchscreen](/assets/device/uno-settings.png)
 
 To install a software build, see [Software Updates](/dmx-core-100/configuration/software-updates). On the Appliance touchscreen that is **Utilities > Device Operations > Releases**, not this Settings page.
+
+**System Settings** also includes:
+
+- **Screen Unlock Pin** — exactly 4 characters with at least one digit, or it is cleared on save. Changing it on the touchscreen (**Settings > Screen Unlock Pin**) asks for the current PIN, then the new one twice. Once a PIN is set, a lock button appears in the footer.
+- **Screen lock timeout** (Appliance only; the Web UI name is **Lock Screen after X seconds**) — 0–600 seconds; **0** disables the lock.
+- **Change current user's pin** — change the signed-in user's login PIN.
 
 Tap a setting (or select it with the rotary knob) to change it in a popup. The top option with the X leaves the selection unchanged; the current selection is marked with a checkmark. Long-hold also cancels.
 
@@ -23,18 +29,17 @@ The Web UI exposes all settings, organized in the sidebar under **Lighting Setup
 | **Lighting Setup > Protocol** | Output frequency, [merge mode, priorities, and end-of-data behavior](/dmx-core-100/playback/layers-and-priority), the 2-port board's [passthrough](/dmx-core-100/lighting/passthrough) function, and the [stream routing](/dmx-core-100/lighting/stream-routing) priority and input-loss settings |
 | **Lighting Setup > Fixtures** | Fixture definitions — see [Fixture Setup](/dmx-core-100/lighting/fixture-setup) |
 | **Lighting Setup > Cue Fade Masks** | Which DMX channels participate in cue fades — see [Cues](/dmx-core-100/playback/cues#fade-mask) |
-| **Control & Integrations** | Triggers, events, [control surfaces](/dmx-core-100/control-surfaces), [control values](/dmx-core-100/integrations/control-values), OSC clients, MQTT, scripts, and [plugins](/dmx-core-100/integrations/plugins) |
+| **Control & Integrations** | Triggers, events, [control surfaces](/dmx-core-100/control-surfaces), [custom menus](/dmx-core-100/scheduling-automation/custom-menus), [control values](/dmx-core-100/integrations/control-values), OSC clients, MQTT, scripts, and [plugins](/dmx-core-100/integrations/plugins) |
 | **Device > System** | Timezone, location, language, device nickname, lock-down options, ports, audio (see below) |
 | **Device > Network** | Per-adapter IP configuration — DHCP or static address, netmask, gateway (see below) |
 | **Device > Touchscreen** | Backlight and front LED brightness, display dim/off timeouts, navigation behavior, on-screen display options |
-| **Device > Custom Menus** | End-user menus — see [Custom Menus](/dmx-core-100/scheduling-automation/custom-menus) |
 | **Device > Installer** | Installation-specific settings and white-label branding |
 
 ### Device > System Highlights
 
 - **Timezone**, **Language and Region**, and **Location** (below)
 - **Device Nickname** and **Show Name** — displayed on-screen and in the portal
-- **Screen Unlock PIN** and **Lock Screen after X seconds** — the touchscreen lock
+- **Screen Unlock Pin** and **Lock Screen after X seconds** — the touchscreen lock. The PIN must be exactly 4 characters with at least one digit or it is cleared on save. Lock timeout accepts 0–600; **0** disables the lock (same setting as **Screen lock timeout** on the Appliance touchscreen).
 - **Control surface hold to confirm (ms)** — how long a [Hold to confirm](/dmx-core-100/control-surfaces/configuring#hold-to-confirm) button must be held before the action fires (default 1500, range 250–10000). Changing it takes effect on the next press; no restart
 - **Lock-down options** — lock down the device, show only the custom menu, only allow admins to record, allow stop output when locked down, hide fixture or remote control functionality
 - **Multi-Zone Playback** — enables [zones](/dmx-core-100/lighting/zones)

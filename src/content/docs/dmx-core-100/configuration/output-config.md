@@ -31,7 +31,7 @@ Each output can be configured with:
 
 - **Code / Name** — identifier and display name
 - **Output Type** — sACN (E1.31), ArtNet, KiNet (v1/v2), TPM2.net, USB DMX, or a plugin-provided type such as SHELLY, LIFX, WIZ, or GOVEE
-- **Start Slot Id / Start Universe Id** — which internal slot maps to which on-the-wire universe
+- **Start Slot Id / Start Universe Id** — which internal slot maps to which on-the-wire universe. sACN universes start at **1**. Art-Net input rows count from **0** (the field help says so). The UI formats Art-Net as net:subnet:universe by subtracting 1, so a typed **1** displays as **00:0:0**.
 - **Universe Count** — how many consecutive universes this output spans
 - **Destination IP** — unicast target (protocol dependent; leave empty for multicast/broadcast)
 - **Send Sync** — emit sync packets for multi-universe synchronization
@@ -40,6 +40,18 @@ Each output can be configured with:
 ![Output details in the Web UI](/assets/web/output-editor.png)
 
 The DMX Core 100 supports up to 800 universes at 40 Hz (or 600 universes at 60 Hz) for network streams, and up to 4 universes via USB DMX devices (Enttec Pro, DMXking).
+
+## Mirroring Outputs
+
+Any number of outputs can use the same slots, and each of them sends the same DMX. That lets you mirror a universe in any combination of protocols and destinations — for example sACN and Art-Net at the same time, or sACN to a pixel controller, Art-Net to a node, a USB DMX interface and a plugin output, all fed from slot 1:
+
+1. In the Web UI, go to **Lighting Setup > Outputs** and click **Add New** for each destination (on the touchscreen, tap **Add** in **Main Menu > Settings > Output Configuration**).
+2. Choose each output's **Output Type** and give it a **Start Slot Id** range that covers the slots to mirror.
+3. Set each output's own **Start Universe Id** and **Destination IP** for the receiver it feeds.
+
+Everything that writes to those slots — cues, presets, effects and [routed input](/dmx-core-100/lighting/stream-routing) — reaches every output mapped to them.
+
+Each output must send somewhere different. Two outputs with the same output type, universe and destination would send the same packets twice, so the second one is not used. When you also route input, don't send a slot back onto a universe the DMX Core 100 receives on the same protocol; see [Loops and conflicts](/dmx-core-100/lighting/stream-routing#loops-and-conflicts).
 
 :::tip[Driving an Advatek controller?]
 The [Device Monitor](/dmx-core-100/configuration/device-monitor) can create an output directly from a discovered Advatek controller's port, pre-filled with the right protocol and universes. See [Advatek Lighting](/dmx-core-100/integrations/advatek-lighting).

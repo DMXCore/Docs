@@ -48,7 +48,7 @@ channel 100, universe 1.
     },
     {
       "id": "import-profile",
-      "label": "On the DMX Core, go to Lighting Setup → Fixtures → Add, click Add profile, and import the file",
+      "label": "On the DMX Core, go to Lighting Setup → Fixtures, click Add a fixture (or Add New), click Add profile, and import the file",
       "docsUrl": "/dmx-core-100/lighting/fixture-setup/",
       "screenshotId": "add-fixture-profile"
     },
@@ -81,7 +81,7 @@ channel 100, universe 1.
 ## Gaps
 
 - No screenshot of the Lightkey catalog (external site)
-- Touchscreen has no fixture setup; recipe must stay on Web UI
+- Touchscreen has **Settings > Fixtures**; this recipe stays on the Web UI for profile import
 
 ## Source notes
 

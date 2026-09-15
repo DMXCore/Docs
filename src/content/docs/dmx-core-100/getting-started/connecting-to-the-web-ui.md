@@ -10,7 +10,9 @@ The DMX Core 100 includes a built-in Web UI that provides full access to all fea
 To connect to the Web UI, you need the device's IP address. You can find it on the touchscreen:
 
 1. Navigate to **Main Menu > About** on the touchscreen
-2. The IP address is displayed on the About screen
+2. **Network Address** shows the IP with netmask, for example `192.168.1.50/24`. Use the address part (before the `/`) in the browser.
+
+On an Appliance there is no Web UI port row on About (the ports are always 8000 / 8001). A **default PIN** row appears only when the database is empty.
 
 ![About screen — device details and version](/assets/device/about-screen-top.png)
 

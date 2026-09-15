@@ -27,11 +27,17 @@ Each Control Value has:
 
 - **Code / Short Name** — the identifier used in menus, triggers, timelines, and scripts (e.g. `VOL1`)
 - **Kind** — Level, Selector, or Toggle
-- **Plugin** — Symetrix or Q-SYS
+- **Plugin** — which installed DSP plugin to use. The dropdown lists **only** plugins that are installed and register as a Control Value backend (Symetrix, Q-SYS, …)
 - **Controller Number** — the controller number assigned in SymNet Composer (or the named control in Q-SYS Designer)
 - **Status Controller** *(optional)* — read state from a different controller than the one written to. Use when a trigger writes one control but the real state is reported by another (e.g. a relay or wall panel)
 - **Step Size** — how far Up/Down operations move a Level (default 5%)
 - **Linked Mute Controller** *(optional)* — a mute controller linked to this level, with an optional **Unmute On Level Change** behavior
+
+For a **Selector**, define the choices on the same page:
+
+- **Add Choice** — add a named choice
+- **Prefill Values** — fill typical values
+- **Wrap Around** — when on, Up past the last choice wraps to the first (and Down from the first wraps to the last); when off, Up/Down stops at the ends
 
 ## Operations
 

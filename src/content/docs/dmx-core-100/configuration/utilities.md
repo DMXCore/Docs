@@ -9,9 +9,9 @@ Utilities are available on both the **touchscreen** and the **Web UI**. The touc
 
 ![Utilities on the touchscreen](/assets/device/uno-utilities.png)
 
-#### Record
+#### Record Cue
 
-This is where you can record new cues and presets using settings from the configured output.
+This is where you can record new cues using the [input mapping](/dmx-core-100/lighting/stream-routing) and **Recording protocol** on Inputs.
 
 #### Schedules
 
@@ -21,7 +21,7 @@ Create and edit [schedules](/dmx-core-100/scheduling-automation/schedules) direc
 
 ![Snooze schedules screen](/assets/device/uno-snooze.png)
 
-Here you have quick shortcuts to snooze the schedule for a period of time. For example, you can use this to temporarily turn off the evening's schedule to run a custom preset. The schedule will automatically resume so you won't forget to turn it back on. The top text shows the current snooze status.
+Here you have **Resume**, **Snooze 1h**, **Snooze until midnight**, and **Snooze until 9am**. Use this to keep tonight's schedule from starting so you can run a custom look. Snooze does not stop a schedule that is already running. The schedule will automatically resume so you won't forget to turn it back on. The top text shows the current snooze status. The Web UI has no snooze page.
 
 #### Device Operations
 
@@ -89,7 +89,7 @@ After the reset:
 #### What is kept
 
 - Network settings (IP address, Wi-Fi, hostname override, NTP server, internet passthrough)
-- Device license
+- Device license (a hardware appliance stays registered in the [portal](/dmx-core-100/remote-management); user accounts and API keys do not)
 - Local backup files, so you can restore a previous show afterward
 - Extra folders you added in the data directory that are not show data
 

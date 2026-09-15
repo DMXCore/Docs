@@ -61,7 +61,7 @@ Transform scripts are a special, minimal kind of script: they see only the globa
 value < 0.05 ? 0 : value * value;
 ```
 
-There is no `dmx` or `ctx` in a transform, the execution budget is much tighter, and a failing transform skips the update entirely rather than passing the raw value through.
+There is no `dmx` or `ctx` in a transform, the execution budget is much tighter, and a failing transform skips the update entirely rather than passing the raw value through. The transform script must be **Enabled**; otherwise every update is silently skipped.
 
 ## Examples
 

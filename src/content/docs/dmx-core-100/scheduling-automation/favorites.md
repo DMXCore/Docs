@@ -3,19 +3,16 @@ title: Favorites
 description: Quick access to frequently used items
 ---
 
-Favorites let you mark your most-used cues, presets, sounds, and timelines for quick access. Favorited items appear in a dedicated list and on the dashboard.
+Favorites let you mark your most-used cues, presets, sounds, timelines, and schedules for quick access in the **Web UI**. There is no favorites list on the touchscreen.
 
 ## Marking Favorites
 
-In the **Web UI**, open the detail page for any cue, preset, sound, or timeline and toggle the favorite star.
-
-On the **touchscreen**, favorites appear on the dashboard alongside the custom menu when configured.
+In the **Web UI**, open the detail page for a cue, preset, sound, timeline, or schedule and toggle **Favorite**.
 
 ![Favorites list](/assets/web/favorites.png)
 
 ## Accessing Favorites
 
-- **Web UI**: Go to **Operation > Favorites** to see all favorited items in one list
-- **Touchscreen**: Favorites appear on the home screen/dashboard when the custom menu is configured to show them
+Go to **Operation > Favorites**. The page lists favorited cues, sounds, timelines, and presets for one-tap playback. **Schedules** appear in a table with an enable/disable switch — that is how you turn a favorite schedule on or off from this page.
 
-Favorites work across the system — you can trigger playback directly from the favorites list without navigating to the full cues, presets, or sounds pages.
+Favorites are a Web UI / dashboard convenience. They do not appear on the touchscreen home screen.

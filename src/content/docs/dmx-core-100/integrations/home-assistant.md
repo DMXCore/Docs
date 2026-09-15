@@ -63,11 +63,9 @@ any standard broker works.
    Devices & Services > MQTT** in Home Assistant.
 
 :::tip[Plugin settings]
-The integration ships as a built-in plugin, enabled by default. Under
-**Control & Integrations > Plugins** you can adjust its settings: the
-discovery prefix (leave at `homeassistant` unless you changed it in Home
-Assistant) and per-category expose toggles — for example, hide individual
-cues from Home Assistant while keeping the dimmers and schedules.
+Install the Home Assistant plugin from **Control & Integrations > Plugins > Browse** if it is not already on the **Installed** tab (it is a registry package; some older builds shipped it bundled). Under **Plugins** you can adjust its settings: the discovery prefix (leave at `homeassistant` unless you changed it in Home Assistant) and per-category expose toggles — for example, hide individual cues from Home Assistant while keeping the dimmers and schedules.
+
+If Home Assistant uses a **different** MQTT broker from the DMX Core 100, fill in the plugin's **Home Assistant MQTT broker**, **port**, **username**, **password**, and **TLS**. Leave the broker empty to use **Control & Integrations > MQTT** only. Do not point both at the same broker. (The plugin's own help still says "Settings → Remote Control"; the Core MQTT page is **Control & Integrations > MQTT**.)
 See [Plugins](/dmx-core-100/integrations/plugins).
 :::
 

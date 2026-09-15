@@ -34,7 +34,7 @@ The look arriving from the console is stored on the unit as a **static cue**, ca
   "steps": [
     {
       "id": "open-record-cue",
-      "label": "On the touchscreen, go to Main Menu → Utilities → Record Cue (the docs call it Utilities > Record)",
+      "label": "On the touchscreen, go to Main Menu → Utilities → Record Cue",
       "docsUrl": "/dmx-core-100/playback/recording/#recording-on-the-touchscreen",
       "screenshotId": "record-cue"
     },
@@ -82,7 +82,7 @@ The look arriving from the console is stored on the unit as a **static cue**, ca
 
 ## Eval checks
 
-- Path is `Main Menu > Utilities` then `Record Cue` (accept `Utilities > Record`)
+- Path is `Main Menu > Utilities` then `Record Cue`
 - Mentions **Preview** before **Save Static Cue**
 - Uses **Save Static Cue**, not Save Dynamic Cue, for a single look
 - Playback from `Main Menu > Cues` (tap to play, long-hold for settings)
@@ -92,32 +92,9 @@ The look arriving from the console is stored on the unit as a **static cue**, ca
 
 ## Gaps
 
-- Docs `playback/recording.md` › Recording on the Touchscreen says **Main Menu > Utilities >
-  Record**. The touchscreen menu item and page title are **Record Cue**
-  (`src/UnoHost/Services/MenuManager.cs`, navigation `uno/utilities` item "Record Cue";
-  `src/UnoHost/Views/RecordPage.xaml` title "Record Cue").
-- Same page: "Use the **Abort** button (touchscreen: **Stop**)". The touchscreen button is
-  labelled **Abort** (`RecordPage.xaml` line 126 `Content="Abort"`; also visible in
-  screenshot `record-cue`).
-- Same page, step 1: "listening for ArtNet or sACN packets (depending on output configuration).
-  The universe IDs are taken from the output configuration." In v2026.914.3 the recorder uses
-  the input mapping and **Recording protocol** from Settings > Inputs, as documented on
-  `lighting/stream-routing.md` and in navigation `uno/settings/inputs`
-  (`RecordViewModel.cs` uses `storageManager.InputPortType` and the input mappings).
-- Same page, step 3 (touchscreen) and the Web UI section: "While previewing … Press **Save
-  Dynamic Cue**". **Save Dynamic Cue** is only enabled once recording has started, and
-  recording starts with **Manual Trigger** (or the configured input trigger). The docs never
-  mention Manual Trigger. The Web UI section also leaves out **Enable Recorder**, which is
-  needed first (it starts Preview automatically). Source: `RecordViewModel.cs` `RecordCommand`
-  (PreviewWithData) → `SaveCueCommand` (Recording only); `Record.vue` `canTrigger` /
-  `canSaveCue`, `activateRecorder`.
-- Docs `getting-started/quick-start.md` › Record a cue names the buttons **Save Cue** and
-  **Save Snapshot** ("capture a single moment as a preset"). The buttons are **Save Dynamic Cue**
-  and **Save Static Cue**, and a static save creates a static cue, not a preset (`Record.vue`,
-  `RecordViewModel.OnSaveSnapshot` "Saved static cue"). The page also leaves out Enable
-  Recorder and Manual Trigger.
-- Same page does not mention the **Send to output** checkbox on the touchscreen Record Cue
-  screen (`RecordPage.xaml` line 68).
+## Gaps
+
+- Docs `playback/recording.md` and `getting-started/quick-start.md` now use **Record Cue**, **Enable Recorder**, **Manual Trigger**, **Save Dynamic Cue**, and **Save Static Cue**. Re-verify gold against the published pages after this docs pass.
 
 ## Verification
 

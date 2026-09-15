@@ -9,7 +9,7 @@ You can create **multiple menus**, each with its own items, look, and audience. 
 
 ## Managing Menus
 
-Menus are designed under **Device > Custom Menus** in the Web UI. Each menu has:
+Menus are designed under **Control & Integrations > Custom Menus** in the Web UI. Each menu has:
 
 - **Code** — a short unique code (auto-generated, e.g. `MENU1`, but freely changeable) used for [direct links](#direct-links-and-qr-codes)
 - **Enabled** — turn the whole menu on or off
@@ -20,24 +20,26 @@ Menus are designed under **Device > Custom Menus** in the Web UI. Each menu has:
 
 Menus can be exported and imported as JSON — see the [custom menu samples on GitHub](https://github.com/DMXCore/DmxCore100/tree/main/samples) for ready-made layouts.
 
+On the **touchscreen**, open a menu from **Main Menu > Utilities > Custom Menu**. If **Only show custom menu** is on (**Device > System**), non-admin users start on the custom menu; admins are exempt.
+
 ![Custom menu editor — item list and item properties](/assets/web/custom-menu-editor.png)
 
 ## Menu Items
 
-Each item has a name, optional subtitle/description, icon, background color, and one of these types:
+Click **Add item** in the editor. Each item has a name, optional subtitle/description, icon, background color, and one of these types:
 
 | Type | Description |
 |------|-------------|
 | **Action** | A button that triggers an action (see below) |
 | **SubMenu** | Opens a nested menu level |
-| **Slider** | A fader bound to a volume, dimmer, or [Control Value](/dmx-core-100/integrations/control-values) |
+| **Slider** | A fader. The **Slider target** panel sets the target — for a DSP level pick **Control Value (Level)** and the Control Value from the dropdown |
 | **Segmented selector** | A source/input picker bound to a Selector Control Value |
 | **Presets / Cues list** | A browsable list of presets or cues (touchscreen only) |
 | **OSC direct message** | Send a raw OSC message when tapped |
 
 ### Actions
 
-An Action item can: Apply Ambient Preset, Apply Preset, set/step a Control Value, Fade Out, Fire Output Event, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), [Stop or Blackout](/dmx-core-100/basics/blackout-and-stop), Tap Tempo, Toggle Mute, [Toggle Output](/dmx-core-100/configuration/output-config#toggling-all-output), or Toggle Schedule.
+An Action item can: Apply Ambient Preset, Apply Preset, set/step a Control Value, Fade Out, Fire Output Event, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), [Stop or Blackout](/dmx-core-100/basics/blackout-and-stop), Tap Tempo, **Audio Mute**, **DMX Output**, or Toggle Schedule.
 
 Per-item options:
 
@@ -68,4 +70,4 @@ The `guest/` form works without login for menus marked **Available to Guests**; 
 
 ## Favorites
 
-Items marked as [favorites](/dmx-core-100/scheduling-automation/favorites) can appear on the dashboard alongside the custom menu for quick access.
+[Favorites](/dmx-core-100/scheduling-automation/favorites) are a Web UI list (**Operation > Favorites**). They are not shown on the touchscreen home screen.

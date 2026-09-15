@@ -9,7 +9,7 @@ The DMX Core 100 supports MQTT (Message Queuing Telemetry Transport), a lightwei
 
 Connect to an external MQTT broker under **Control & Integrations > MQTT** in the Web UI:
 
-- **Enable External MQTT** — turn the broker connection on
+- **Enable External MQTT** — turn the broker connection on. On an **Appliance**, leaving this off uses the unit's built-in local broker. On **desktop** (Windows/macOS/Linux) there is no built-in broker: when this is off, **no MQTT connection is made**, so Home Assistant discovery will not work until you enable it and point at a broker.
 - **MQTT Server / Port** — the broker's hostname or IP (default port 1883)
 - **MQTT Username / Password** — credentials, if the broker requires them
 

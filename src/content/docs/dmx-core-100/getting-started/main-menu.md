@@ -34,7 +34,7 @@ Display system information.
 
 #### Help
 
-Quick links to documentation.
+Quick links to documentation, plus the Web UI address and the default PIN (when it still applies).
 
 ---
 

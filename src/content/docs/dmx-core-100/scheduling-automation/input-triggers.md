@@ -5,9 +5,7 @@ description: Trigger actions and drive levels from external signals
 
 Input triggers make the DMX Core 100 react to the outside world — a DMX channel crossing a threshold, an OSC or MQTT message, an HTTP request, a contact closure. A trigger either **runs an action** (play a cue, apply a preset, run a script) or **drives a level** directly from the signal's value.
 
-:::tip[Web UI only]
-Input triggers are configured under **Control & Integrations > Input Triggers**.
-:::
+Configure them under **Control & Integrations > Input Triggers** in the Web UI, or **Main Menu > Settings > Input Triggers** on the touchscreen.
 
 ![Input triggers list](/assets/web/input-triggers-list.png)
 
@@ -20,9 +18,10 @@ Input triggers are configured under **Control & Integrations > Input Triggers**.
 | **OSC** | An OSC message on the configured address |
 | **MQTT** | A message published to an MQTT topic (requires the [MQTT integration](/dmx-core-100/integrations/mqtt)) |
 | **HTTP** | An HTTP request to a path you define (e.g. `/hooks/party-mode`) |
-| **TCP / UDP** | Raw data arriving on a TCP or UDP port |
+| **TCP / UDP** | Raw data arriving on a TCP or UDP port. Each has its own **Port** field. If a UDP port cannot be opened, the device reports a configuration issue: **UDP input trigger port N** |
 | **Digital Input** | A physical contact closure / GPIO input |
 | **Control Value** | A [Control Value](/dmx-core-100/integrations/control-values) changing on the DSP side — a Q-SYS or Symetrix button, fader, or selector |
+| **Plugin** | A signal from an installed plugin |
 
 ## Control Value Triggers
 
@@ -30,7 +29,7 @@ A Control Value trigger makes the DSP the *source*: a wall panel button wired to
 
 - **Toggle** — fires when the control turns on.
 - **Level** — set a **Threshold %**; fires when the level rises to or above it, and re-arms when it drops below.
-- **Selector** — set a **Start Choice** (choice name or index); fires when that choice becomes active. An optional **Stop Choice** controls what clears the triggered state.
+- **Selector** — set a **Start Choice** (choice name or index); fires when that choice becomes active. With no **Stop Choice**, leaving Start Choice for any other choice is a stop (so an applied Flash preset releases). With an explicit **Stop Choice**, other choices keep the triggered state until that stop choice is selected.
 
 Only changes made **on the DSP side** fire the trigger — changing the same Control Value from the DMX Core 100 itself (a custom menu slider, a schedule, another trigger) updates the state silently. On startup or reconnect the first reported value arms the trigger without firing, so a control that is already on never replays its edge.
 
@@ -39,13 +38,13 @@ In **Value mode**, the Control Value's live 0–100% position drives the target 
 ## Two Modes
 
 - **On/Off — run an action.** The trigger fires its action when the signal arrives (or crosses the threshold).
-- **Value — set a level from the payload.** The numeric payload drives a target level continuously — a [Control Value](/dmx-core-100/integrations/control-values) (e.g. a Symetrix volume), the master dimmer, or a zone intensity. A wall fader sending OSC or DMX becomes a live level control.
+- **Value — set a level from the payload.** The numeric payload drives a target level continuously. Configure **JSON Path** (when the payload is JSON), **Input Min** (default 0), **Input Max** (default 1), and the **Value Target** section: **Target**, **Min value**, **Max value**, and **Inverted**. Targets include a [Control Value](/dmx-core-100/integrations/control-values) (e.g. a Symetrix volume), the master dimmer, a zone intensity, and audio volume. An OSC value trigger needs **exactly one** argument. A wall fader sending OSC or DMX becomes a live level control.
 
 Value-mode triggers can name a **[Transform Script](/dmx-core-100/scheduling-automation/scripting#transform-scripts)** that reshapes the normalized 0–1 value before it lands — response curves, dead zones, thresholds.
 
 ## Actions
 
-An On/Off trigger can: Apply Ambient Preset, Apply Preset, set/step a [Control Value](/dmx-core-100/integrations/control-values), Fade Out, Fire Output Event, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), Stop Playback, Tap Tempo, Toggle Mute, [Toggle Output](/dmx-core-100/configuration/output-config#toggling-all-output), or Toggle Schedule.
+An On/Off trigger can: Apply Ambient Preset, Apply Preset, set/step a [Control Value](/dmx-core-100/integrations/control-values), Fade Out, Fire Output Event, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), **Stop**, **Blackout**, Tap Tempo, **Audio Mute**, **DMX Output**, or Toggle Schedule.
 
 For complex logic — conditions, sequencing, payload parsing — use **Run Script**: the raw payload arrives in the script as `ctx.payload`.
 
@@ -69,7 +68,14 @@ With a **Normal**-mode Play Timeline action, pressing again while the timeline w
 - **Code** — unique identifier (checked for duplicates)
 - **Name** — display name
 - **Enabled** — turn the trigger on or off without deleting it
-- **Address** — the OSC address, HTTP path, MQTT topic, port, or channel to match
+- **Address** — OSC address, HTTP path, or MQTT topic. UDP/TCP use a separate **Port** field. Art-Net / sACN / DMX Serial use **Universe Id/Sub Port** and **Channel** — Address does not cover those
+- **Start Payload** / **Stop Payload** — for TCP, UDP, OSC, MQTT, and HTTP. Put the text in **double quotes** to treat it as text; otherwise it is read as hex bytes. For UDP/TCP the packet only has to *start with* the payload (it may have extra bytes after it)
+
+### MQTT triggers
+
+MQTT topics must match **exactly** (case-insensitive). `+` and `#` wildcards never fire. Start/Stop payloads must match exactly, **including case**. With no payload configured, `true`/`false` payloads act as on/off and any other payload fires the start action.
+
+MIDI notes are **not** Input Triggers. Bind MIDI on a [control surface](/dmx-core-100/control-surfaces/supported-devices#midi-keypad).
 
 ## Recording Triggers
 

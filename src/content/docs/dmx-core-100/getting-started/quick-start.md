@@ -25,7 +25,7 @@ See [Connecting to the Web UI](/dmx-core-100/getting-started/connecting-to-the-w
 An output tells the DMX Core 100 where to send DMX data — which protocol and universe. A new install already includes a default **sACN** output on **universe 1**, so for a simple single-universe setup you may not need to change anything here.
 
 1. In the Web UI, go to **Lighting Setup > Outputs** to review the configured outputs.
-2. If you need a different protocol or more universes, edit the default output or click **Add**: choose a **Protocol** (Art-Net or sACN are the most common for network setups), set the **Universe**, and save.
+2. If you need a different protocol or more universes, edit the default output or click **Add New**: choose an **Output Type** (Art-Net or sACN are the most common for network setups), set the **Start Universe Id**, and save. **Protocol** is a separate field that appears only for some output types (plugin outputs such as LIFX or Govee).
 
 See [Output Config](/dmx-core-100/configuration/output-config) for all options.
 
@@ -39,7 +39,7 @@ If you're driving an Advatek PixLite pixel controller, you can skip the manual e
 
 The DMX Core 100 ships with built-in generic profiles for common **RGB and RGBW** fixtures — PAR washes and LED strips/pixels. For a simple RGB light you don't need to find or import a profile; just pick one of the built-ins when adding the fixture.
 
-1. Go to **Lighting Setup > Fixtures** and click **Add**.
+1. Go to **Lighting Setup > Fixtures** and click **Add a fixture** (or **Add New**).
 2. *(Other fixtures only)* If your light isn't a generic RGB/RGBW type, click **Add profile…** next to the Profile dropdown. Lightkey is usually the easiest: search [the catalog](https://www.lightkeyapp.com/en/fixtures), download one `.lightkeyfxt` file, then import it in the dialog. [Daslight](https://store.daslight.com/en/ssl) and [GDTF Share](https://gdtf-share.com) are the next stops.
 3. Select the **Profile** and the **Personality** (channel mode), then set the **DMX address** and **universe** to match your physical fixture.
 4. Click **Save**.
@@ -63,10 +63,11 @@ To try playback right away without an external source, load ready-made example c
 
 ### Record a cue
 
-1. Set your external lighting software (or console) to output Art-Net or sACN to the DMX Core 100 on the universe(s) from your output configuration.
+1. Set your external lighting software (or console) to output Art-Net or sACN to the DMX Core 100 on the universe(s) in your [input mapping](/dmx-core-100/lighting/stream-routing) (the **Recording protocol** on **Lighting Setup > Inputs**).
 2. In the Web UI, go to **Utilities > Record**.
-3. Press **Preview** to start listening — you'll see incoming DMX data on the channel monitor.
-4. Run your show, then press **Save Cue** to capture the full dynamic sequence (or **Save Snapshot** to capture a single moment as a preset).
+3. Press **Enable Recorder** to start Preview — you'll see incoming DMX data on the channel monitor.
+4. Press **Manual Trigger** to start the take, then run your show.
+5. Press **Save Dynamic Cue** to capture the full sequence, or **Save Static Cue** to capture a single moment. Both create a cue (a static save is not a preset).
 
 Full details are in [Recording](/dmx-core-100/playback/recording).
 
@@ -75,7 +76,7 @@ Full details are in [Recording](/dmx-core-100/playback/recording).
 1. Go to **Lighting > Cues**.
 2. Click the play icon next to your cue to start playback. Use the progress bar to pause, resume, or scrub.
 
-See [Cues](/dmx-core-100/playback/cues) for fade, loop, and dimmer settings.
+See [Cues](/dmx-core-100/playback/cues) for dimmer, in/out points, and the list-page Default Settings (fade and loop).
 
 ## Next Steps
 

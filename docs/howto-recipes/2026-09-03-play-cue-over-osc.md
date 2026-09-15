@@ -38,7 +38,7 @@ the device on UDP 8000, with no Input Trigger required.
       "id": "find-cue-code",
       "label": "In the Web UI, go to Lighting → Cues, open the cue, and copy its Code / Short Name exactly (case-sensitive)",
       "docsUrl": "/dmx-core-100/playback/cues/",
-      "screenshotId": "cue-editor"
+      "screenshotId": "cue-settings"
     },
     {
       "id": "send-builtin",

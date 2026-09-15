@@ -27,13 +27,13 @@ Audio can also be placed with **File Explorer** instead — a file uploaded ther
 
 ### Sound Settings
 
-Each sound has the following configurable properties:
+Each sound's detail page has:
 
 - **Name** — Display name
 - **Code** — Unique identifier for API and external control
 - **Volume** — Playback volume level
-- **Loop** — Number of times to repeat, or infinite loop
-- **Fade Duration** — Fade in/out time when starting and stopping playback
+
+**Loop** and **Fade Duration** are not per-sound fields. They live on the Sounds list as **Default Settings** (**Lighting > Sounds**), the same pattern as [cues](/dmx-core-100/playback/cues#default-settings).
 
 ## Playback Controls
 
@@ -44,9 +44,9 @@ During sound playback, the Web UI dashboard shows:
 - **Scrub** — Drag the progress bar to jump to any position
 - **Stop** button
 
-## Audio Delay
+## Aligning audio with lighting
 
-The audio delay setting lets you offset the audio playback timing relative to DMX output. This is useful when there is a noticeable delay between the audio system and lighting fixtures, allowing you to synchronize them precisely.
+There is no Audio Delay setting on a sound. To shift a cue's attached sound relative to the lighting, set that cue's **Sound Offset** (see [Attached Sound](/dmx-core-100/playback/cues#attached-sound)). To fire metronome-synced effects early to compensate for fixture lag, use **Output Latency** on the [Tempo](/dmx-core-100/lighting/tempo#output-latency) page (metronome only).
 
 ## Cloning Sounds
 
