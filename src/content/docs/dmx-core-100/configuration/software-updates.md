@@ -9,7 +9,7 @@ How you upgrade the DMX Core 100 depends on the platform. The Web UI only shows 
 
 | Platform | In-app Releases? | How upgrades actually happen |
 |----------|------------------|------------------------------|
-| Appliance (Linux / Balena) | Yes — **Utilities > Releases**. The touchscreen **Main Menu > Settings** also lists available releases | In-app picker. The Appliance needs internet (or [Internet Passthrough](/dmx-core-100/integrations/internet-passthrough)) so it can download the cloud catalog |
+| Appliance (Linux / Balena) | Yes — Web UI **Utilities > Releases**. Touchscreen **Utilities > Device Operations > Releases** | In-app picker. The Appliance needs internet (or [Internet Passthrough](/dmx-core-100/integrations/internet-passthrough)) so it can download the cloud catalog |
 | Windows (Velopack / ClickOnce) | Yes | **Utilities > Releases** |
 | macOS | Yes | **Utilities > Releases** |
 | Linux **Snap** | **No** — the sidebar item is hidden | snapd refreshes the app outside the UI. **Utilities > System** reports that updates are managed by the Snap Store |
@@ -44,9 +44,9 @@ The picker caption **Select version above to upgrade** does not mean every liste
 
 ### Touchscreen (Appliance)
 
-On an Appliance, **Main Menu > Settings** lists available software releases as well as timezone and output protocol.
+On an Appliance, open **Utilities > Device Operations > Releases**.
 
-![Settings on the touchscreen](/assets/device/uno-settings.png)
+![Utilities on the touchscreen](/assets/device/uno-utilities.png)
 
 Pick a listed release the same way: compare the version number to what the unit is already running.
 
@@ -74,7 +74,7 @@ The in-app picker needs a current cloud catalog. An Appliance on an isolated net
 
 1. Get the unit online — plug it into a network with internet, or use [Internet Passthrough](/dmx-core-100/integrations/internet-passthrough) (DMX Core Connect on a laptop that already has internet).
 2. Wait until **Internet access** and **Cloud connection** are green on **Utilities > System**.
-3. Then pick a **current** build from **Utilities > Releases** (or **Main Menu > Settings** on the touchscreen).
+3. Then pick a **current** build from **Utilities > Releases** in the Web UI, or **Utilities > Device Operations > Releases** on the Appliance touchscreen.
 4. Deactivate passthrough when you are done.
 
 Do not re-flash the boot image just to change software version. Re-flashing is for a unit that **will not boot** — see [Re-flash Instructions](/dmx-core-100/troubleshooting/re-flash-instructions).

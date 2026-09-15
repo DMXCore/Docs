@@ -45,9 +45,9 @@ is running. An older entry in the Releases list is not installed.
     },
     {
       "id": "open-releases",
-      "label": "On an Appliance or Windows/macOS desktop install, open Utilities → Releases (Web UI) or Main Menu → Settings (touchscreen) and compare each listed build to the running version. Snap Linux has no Releases item — snapd updates the app outside the UI",
+      "label": "On an Appliance or Windows/macOS desktop install, open Utilities → Releases (Web UI) or Utilities → Device Operations → Releases (touchscreen) and compare each listed build to the running version. Snap Linux has no Releases item — snapd updates the app outside the UI",
       "docsUrl": "/dmx-core-100/configuration/software-updates/",
-      "screenshotId": "uno-settings"
+      "screenshotId": "uno-utilities"
     },
     {
       "id": "skip-older",
@@ -86,7 +86,7 @@ is running. An older entry in the Releases list is not installed.
 
 - Explains year.month-day version numbering with `2026.717` vs `2026.4`
 - For an Appliance / Windows / macOS: menu path includes `Utilities > Releases`
-  and/or touchscreen `Main Menu > Settings`
+  and/or touchscreen `Utilities > Device Operations > Releases`
 - Does not tell a Snap Linux user to open Utilities > Releases
 - Tells them not to install a lower version number
 - Mentions the downgrade confirmation added in v2026.907.x
@@ -94,10 +94,10 @@ is running. An older entry in the Releases list is not installed.
 
 ## Gaps
 
-- No screenshot of **Utilities > Releases** (not in the capture-script
-  `SHOTS` list)
-- Touchscreen screenshot `uno-settings` shows Settings, not the Web UI
-  Releases picker. Published walkthrough is
+- No screenshot of **Utilities > Releases** (Web UI) or touchscreen
+  **Utilities > Device Operations > Releases** (not in the capture-script
+  `SHOTS` list). `uno-utilities` is the parent Utilities menu.
+- Published walkthrough is
   [Software Updates](/dmx-core-100/configuration/software-updates/).
 
 ## Source notes

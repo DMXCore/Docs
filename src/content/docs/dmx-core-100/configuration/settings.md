@@ -4,11 +4,11 @@ title: Settings
 
 ## Touchscreen Settings
 
-On the touchscreen, navigate to **Main Menu > Settings** to access basic system settings, including the output protocol and timezone. On an **Appliance** this page also lists available software releases.
+On the touchscreen, navigate to **Main Menu > Settings** to access basic system settings, including the output protocol and timezone.
 
 ![Settings on the touchscreen](/assets/device/uno-settings.png)
 
-How you upgrade depends on the platform. The Web UI **Utilities > Releases** item is present on the Appliance, Windows, and macOS — not on Linux Snap. See [Software Updates](/dmx-core-100/configuration/software-updates).
+To install a software build, see [Software Updates](/dmx-core-100/configuration/software-updates). On the Appliance touchscreen that is **Utilities > Device Operations > Releases**, not this Settings page.
 
 Tap a setting (or select it with the rotary knob) to change it in a popup. The top option with the X leaves the selection unchanged; the current selection is marked with a checkmark. Long-hold also cancels.
 

@@ -22,11 +22,11 @@ Control fixtures directly from the touchscreen.
 
 #### Settings
 
-Change host and output configuration settings like time zone, output protocol and more. On an Appliance this page also lists available [software releases](/dmx-core-100/configuration/software-updates).
+Change host and output configuration settings like time zone, output protocol and more.
 
 #### Utilities
 
-Tools like recording snapshots and cues.
+Tools like recording snapshots and cues. On an Appliance, [software updates](/dmx-core-100/configuration/software-updates) are under **Utilities > Device Operations > Releases**.
 
 #### About
 

@@ -54,9 +54,9 @@ Connect so it can download current software releases.
     },
     {
       "id": "install-updates",
-      "label": "On an Appliance, install the current software from Utilities → Releases (Web UI) or Main Menu → Settings on the touchscreen, then Deactivate passthrough. Snap Linux has no Releases page — snapd updates it outside the app",
+      "label": "On an Appliance, install the current software from Utilities → Releases (Web UI) or Utilities → Device Operations → Releases on the touchscreen, then Deactivate passthrough. Snap Linux has no Releases page — snapd updates it outside the app",
       "docsUrl": "/dmx-core-100/configuration/software-updates/",
-      "screenshotId": "uno-settings"
+      "screenshotId": "uno-utilities"
     }
   ]
 }
@@ -85,7 +85,7 @@ Connect so it can download current software releases.
 - Mentions **DMX Core Connect** and a computer that already has internet
 - Activate path is `Utilities > System`
 - For an Appliance: mentions `Utilities > Releases` and/or touchscreen
-  `Main Menu > Settings` for the actual upgrade
+  `Utilities > Device Operations > Releases` for the actual upgrade
 - Does not tell a Snap Linux user to open Utilities > Releases
 - Does not tell them to re-flash unless the device will not boot
 
@@ -93,9 +93,9 @@ Connect so it can download current software releases.
 
 - No screenshot of Device > Network → network settings (Enable Internet
   Passthrough)
-- No screenshot of **Utilities > Releases**; `uno-settings` is the
-  touchscreen Settings page that lists software releases. Published
-  walkthrough is
+- No screenshot of **Utilities > Releases** or touchscreen
+  **Utilities > Device Operations > Releases**; `uno-utilities` is the
+  parent Utilities menu. Published walkthrough is
   [Software Updates](/dmx-core-100/configuration/software-updates/).
 
 ## Source notes

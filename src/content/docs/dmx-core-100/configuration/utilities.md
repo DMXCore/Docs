@@ -23,13 +23,17 @@ Create and edit [schedules](/dmx-core-100/scheduling-automation/schedules) direc
 
 Here you have quick shortcuts to snooze the schedule for a period of time. For example, you can use this to temporarily turn off the evening's schedule to run a custom preset. The schedule will automatically resume so you won't forget to turn it back on. The top text shows the current snooze status.
 
+#### Device Operations
+
+On an Appliance, **Device Operations** includes **Releases** — the in-app software picker. See [Software Updates](/dmx-core-100/configuration/software-updates).
+
 ## Web UI
 
 The **Utilities** sidebar group includes [Audit Log](/dmx-core-100/configuration/audit-log), [Device Monitor](/dmx-core-100/configuration/device-monitor), [Output Monitor](/dmx-core-100/configuration/output-monitor), [Record](/dmx-core-100/playback/recording), **Releases** (Appliance, Windows, and macOS only), and **System**.
 
 ### Releases
 
-**Utilities > Releases** is the in-app software picker on the Appliance and on Windows and macOS desktop installs. A **Snap** Linux install hides this item — snapd updates the app outside the UI, and **Utilities > System** reports that instead.
+**Utilities > Releases** is the in-app software picker on the Appliance and on Windows and macOS desktop installs. On the Appliance touchscreen the same picker is **Utilities > Device Operations > Releases**. A **Snap** Linux install hides the Web UI item — snapd updates the app outside the UI, and **Utilities > System** reports that instead.
 
 See [Software Updates](/dmx-core-100/configuration/software-updates) for version numbering, the touchscreen path, isolated networks, and why you should not re-flash just to change software version.
 
