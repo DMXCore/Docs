@@ -11,7 +11,7 @@ account needed at show time.
 Each light must have **LAN Control** switched on once in its Govee Home app
 settings, and only then answers on the network.
 
-The plugin is installed from the plugin registry — see
+Install the plugin from **Control & Integrations > Plugins > Browse** in the Web UI — see
 [Plugins](/dmx-core-100/integrations/plugins) for how to install, update,
 and manage plugins.
 

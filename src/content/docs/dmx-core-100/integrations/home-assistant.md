@@ -10,7 +10,8 @@ in both directions:
   the device appears in Home Assistant automatically, with all of its
   presets, cues, dimmers, and switches as ready-to-use entities. No custom
   component, no YAML — the **Home Assistant plugin** (installed from
-  **Plugins > Browse**) publishes everything via MQTT Discovery.
+  **Control & Integrations > Plugins > Browse**) publishes everything via
+  MQTT Discovery.
 - **DMX Core 100 → Home Assistant:** fire Home Assistant scenes, scripts,
   and automations from the device — from a Stream Deck key, a touchscreen
   custom menu, an input trigger, a timeline, or a script — picked from a

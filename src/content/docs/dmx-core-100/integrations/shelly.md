@@ -7,7 +7,7 @@ The Shelly plugin drives **Shelly Gen1 color devices** (RGBW2 and similar)
 from DMX data over MQTT. Once installed, Shelly devices are patched and
 controlled like any other fixture.
 
-The plugin is installed from the plugin registry — see
+Install the plugin from **Control & Integrations > Plugins > Browse** in the Web UI — see
 [Plugins](/dmx-core-100/integrations/plugins) for how to install, update,
 and manage plugins.
 

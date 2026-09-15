@@ -7,7 +7,8 @@ DMX Core 100 plugins are .NET class libraries built against the
 [DMXCore.PluginSdk](https://www.nuget.org/packages/DMXCore.PluginSdk) NuGet
 package. Publishing one is a `dotnet nuget push` — the plugin registry the
 device browses **is nuget.org**, so a plugin you publish there appears on
-every DMX Core 100's **Plugins > Browse** page within minutes, and devices
+the **Browse** tab of every DMX Core 100's **Control & Integrations > Plugins**
+page within minutes, and devices
 that have it installed see the update.
 
 ## What a plugin can do

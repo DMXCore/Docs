@@ -7,7 +7,7 @@ The LIFX plugin drives **LIFX WiFi bulbs and SuperColour / pixel fixtures**
 (Tube, Beam, strips, tiles) over the LIFX LAN protocol — no cloud account
 needed, the lights only have to be on the same network.
 
-The plugin is installed from the plugin registry — see
+Install the plugin from **Control & Integrations > Plugins > Browse** in the Web UI — see
 [Plugins](/dmx-core-100/integrations/plugins) for how to install, update,
 and manage plugins.
 

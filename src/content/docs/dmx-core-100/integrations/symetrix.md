@@ -11,7 +11,7 @@ numbers on the core become
 bound to touchscreen faders and buttons, control surfaces, input triggers,
 timelines, and scripts — with two-way state sync against the DSP.
 
-The plugin is installed from the plugin registry — see
+Install the plugin from **Control & Integrations > Plugins > Browse** in the Web UI — see
 [Plugins](/dmx-core-100/integrations/plugins) for how to install, update,
 and manage plugins.
 

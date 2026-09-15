@@ -9,7 +9,7 @@ and dimmable bulbs, strips, and lamps, including the WiZ-based Philips
 is needed; the light only has to have been joined to the WiFi with the WiZ
 app once.
 
-The plugin is installed from the plugin registry — see
+Install the plugin from **Control & Integrations > Plugins > Browse** in the Web UI — see
 [Plugins](/dmx-core-100/integrations/plugins) for how to install, update,
 and manage plugins.
 
