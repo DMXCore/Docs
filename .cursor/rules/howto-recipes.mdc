@@ -1,0 +1,10 @@
+---
+description: Convert support tickets, emails, phone notes, or chats into how-to recipes under docs/howto-recipes/
+globs: docs/howto-recipes/**
+alwaysApply: false
+---
+
+When adding or editing how-to recipes, or when the user pastes a support
+ticket / email / phone notes / chat and wants it captured, follow
+`docs/howto-recipes/AGENTS.md`. Use `_template.md`. One task per file.
+Redact PII. Do not publish to Starlight Common Tasks unless asked.
