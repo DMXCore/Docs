@@ -1,0 +1,8 @@
+---
+// Starlight Footer override: the default footer plus the docs copilot widget.
+import Default from '@astrojs/starlight/components/Footer.astro';
+import HelpWidget from './HelpWidget.astro';
+---
+
+<Default><slot /></Default>
+<HelpWidget />

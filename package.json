@@ -5,8 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/build-help-index.mjs",
     "preview": "astro preview",
+    "help-index": "node scripts/build-help-index.mjs",
+    "test": "node --test",
     "screenshots": "node scripts/capture-web-screenshots.mjs",
     "screenshots:light": "node scripts/capture-web-screenshots.mjs --light",
     "screenshots:uno": "node scripts/capture-uno-screenshots.mjs"
@@ -17,6 +19,7 @@
     "astro": "^5.0.0"
   },
   "devDependencies": {
+    "github-slugger": "^2.0.0",
     "puppeteer-core": "^25.3.0"
   }
 }

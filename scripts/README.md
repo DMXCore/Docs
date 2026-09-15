@@ -1,3 +1,23 @@
+# Docs copilot index
+
+`npm run build` also runs `scripts/build-help-index.mjs`, which writes
+`dist/help-index.json` for the how-to assistant (see `docs/howto-chat-plan.md`):
+
+- **chunks** — every page under `src/content/docs/dmx-core-100/`, split by H2/H3,
+  with the heading path, the anchor Starlight renders, and the screenshot ids in
+  that section (image refs become `[screenshot: id — alt]` markers)
+- **screenshots** — `public/assets/web` and `public/assets/device`, keyed by the
+  `SHOTS` `name` from the capture scripts below; alt text and pages from the
+  markdown image refs
+
+The file ships with the site, so the chat API (HelpApi) always answers from the
+published docs. `npm run help-index` rebuilds it alone; `npm test` checks that
+every chunk anchor and screenshot id resolves. Warnings list `SHOTS` entries that
+have no PNG yet.
+
+When you rename a `SHOTS` entry, update any recipe in `docs/howto-recipes/` that
+uses the old id.
+
 # Documentation screenshot pipeline
 
 Unattended screenshot capture for the DMX Core 100 docs. No desktop automation — the

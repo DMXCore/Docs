@@ -23,7 +23,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Test
+        run: npm test
+
+      # Also writes dist/help-index.json, the docs copilot corpus. The widget is
+      # only rendered when HELP_API_URL is set; HELP_CONTINUE_URL (the portal
+      # handoff) stays empty until the portal's /help page exists.
       - name: Build
+        env:
+          PUBLIC_HELP_API_URL: ${{ vars.HELP_API_URL }}
+          PUBLIC_HELP_CONTINUE_URL: ${{ vars.HELP_CONTINUE_URL }}
         run: npm run build
 
       - name: Deploy to Azure Static Web Apps
@@ -34,3 +43,23 @@ jobs:
           action: 'upload'
           app_location: 'dist'
           skip_app_build: true
+
+      # Point the copilot at the docs that just went live. Never fails the docs
+      # deploy: HelpApi also polls the index hourly.
+      - name: Refresh the docs copilot index
+        if: ${{ vars.HELP_API_URL != '' }}
+        env:
+          HELP_API_URL: ${{ vars.HELP_API_URL }}
+          HELP_API_SERVICE_TOKEN: ${{ secrets.HELP_API_SERVICE_TOKEN }}
+        run: |
+          for attempt in 1 2 3 4 5 6; do
+            BODY=$(curl -sS -m 60 -X POST -H "X-Service-Token: ${HELP_API_SERVICE_TOKEN}" "${HELP_API_URL%/}/api/corpus/reindex" || true)
+            COMMIT=$(echo "$BODY" | jq -r '.status.commit // empty' 2>/dev/null || true)
+            echo "attempt ${attempt}: help index commit=${COMMIT:-?}"
+            if [ "$COMMIT" = "$GITHUB_SHA" ]; then
+              echo "Docs copilot is answering from \`${GITHUB_SHA}\`." >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            sleep 20
+          done
+          echo "::warning::Docs copilot did not pick up ${GITHUB_SHA}; its hourly refresh will retry."

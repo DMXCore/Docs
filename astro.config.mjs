@@ -45,6 +45,10 @@ export default defineConfig({
         }),
       ],
       customCss: ['./src/styles/custom.css'],
+      components: {
+        // Adds the docs copilot widget (src/components/HelpWidget.astro).
+        Footer: './src/components/Footer.astro',
+      },
       head: [
         {
           tag: 'script',
