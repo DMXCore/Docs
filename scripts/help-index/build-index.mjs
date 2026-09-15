@@ -9,6 +9,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { splitFrontmatter } from './frontmatter.mjs';
 import { chunkPage, findImages, pageUrl } from './markdown.mjs';
+import { loadNavigation } from './navigation.mjs';
 import { buildCatalog, parseUnoShots, parseWebShots } from './screenshots.mjs';
 
 export const INDEX_FORMAT = 'dmxcore-help-index';
@@ -109,6 +110,9 @@ export function buildIndex({ repoRoot, site = 'https://docs.dmxcore.com', sectio
     chunks.push(...pageChunks);
   }
 
+  // Optional in version 1: help APIs that predate it ignore the field.
+  const navigation = loadNavigation(repoRoot, warnings);
+
   return {
     index: {
       format: INDEX_FORMAT,
@@ -119,6 +123,7 @@ export function buildIndex({ repoRoot, site = 'https://docs.dmxcore.com', sectio
       pages,
       chunks,
       screenshots: catalog.screenshots,
+      navigation,
     },
     warnings,
   };

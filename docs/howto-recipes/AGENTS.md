@@ -48,6 +48,33 @@ Lightkey”) without the identity.
 Use `synthetic` only for examples we invented (format demos). Real
 phone/email/ticket/chat → `candidate`.
 
+## Invented scenarios (`synthetic/`)
+
+Until real installer questions arrive, eval coverage comes from **invented** questions a newbie
+to advanced technician would plausibly ask. They live in `synthetic/`, never at the top level,
+so real interactions stay easy to find and can be weighted higher.
+
+Frontmatter, in addition to the template:
+
+```yaml
+source: synthetic        # always, for invented questions
+invented: true           # always; real interactions omit it
+level: newbie            # newbie | intermediate | advanced
+surface: web             # web | touchscreen | both | none (conceptual)
+verified: docs be6f663, core v2026.914.3   # what the gold answer was checked against
+```
+
+- Write the ask the way that user would type it (vague newbie wording, jargon from advanced
+  users), not the way the docs phrase it.
+- Every step, UI name and menu path must be confirmed in the published docs markdown **and**
+  in the Core source of the release the docs describe (navigation document, Vue views, Uno
+  menus). List what confirmed it under **Verification**.
+- When the answer is not a sequence of steps (a concept, a limit, "the docs don't say"), omit
+  the Walkthrough block and write **Expected answer** instead: what a correct reply says, and
+  what it must not claim.
+- Where docs and source disagree, or the docs miss something the answer needs, add it under
+  **Gaps** with the docs page and the source file. Those become Docs issues.
+
 ## Walkthrough JSON
 
 The `walkthrough` fenced block must be valid JSON matching the copilot

@@ -1,0 +1,4111 @@
+# GENERATED FILE - DO NOT EDIT.
+# Regenerate: dotnet run --project src/NavigationDoc
+format: dmxcore-navigation
+version: 1
+screens:
+  - id: web/dashboard
+    path: Web > Dashboard
+    route: /op
+    source: src/AdminSite/ClientApp/src/views/operation/Dashboard.vue
+    summary: Shows device information, audio and output status, schedule info, and a progress bar with seek, play, pause and stop for each item that is playing. A Getting started card (Record a show, Control fixtures) appears until something is set up, a View Configuration Status button appears when there are serious configuration issues, and a Device Health card links to the Device Monitor when devices are monitored.
+    actions:
+      - Don't show this again
+      - Record a show
+      - Control fixtures
+  - id: web/presets
+    path: Web > Lighting > Presets
+    route: /op/presets
+    source: src/AdminSite/ClientApp/src/views/operation/Presets.vue
+    availableWhen:
+      - Lighting license
+      - Fixture functionality not hidden
+    sections:
+      - title: Default Settings
+        fields:
+          - label: Fade (seconds)
+          - label: Effect fade (seconds)
+    columns:
+      - Code / Short Name
+      - Name
+      - Go/Stop
+      - Details
+    actions:
+      - Fixtures
+      - Add a preset
+      - Go
+      - Stop
+      - Add New
+      - Download All
+  - id: web/presets/details
+    path: Web > Lighting > Presets > Details
+    route: /op/presets/:id
+    source: src/AdminSite/ClientApp/src/views/operation/PresetDetails.vue
+    availableWhen:
+      - Lighting license
+      - Fixture functionality not hidden
+    sections:
+      - title: Preset Details
+        fields:
+          - label: Internal Id
+            key: presetId
+            type: text
+            readOnly: true
+          - label: Code / Short Name
+            key: code
+            type: text
+            required: true
+          - label: Preset Name
+            key: name
+            type: text
+          - label: Only Admin
+            key: onlyAdmin
+            type: bool
+          - label: Favorite
+            key: favorite
+            type: bool
+          - label: Ambient
+            key: isAmbient
+            type: bool
+          - label: Release at end
+            key: releaseAtEnd
+            type: bool
+          - label: Save timestamp
+            key: createdLastModifiedText
+            type: text
+            readOnly: true
+            visibleWhen: Item has been saved
+      - title: Effect
+        fields:
+          - label: Effect
+          - label: Effect Dimmer
+          - label: Effect
+          - label: Dimmer
+    actions:
+      - Add Zone
+      - Add Fixture
+      - Save
+      - Save & Go Back
+      - Play
+      - Stop
+      - Download
+      - Duplicate
+      - Delete
+      - Close
+  - id: web/effects
+    path: Web > Lighting > Effects
+    route: /op/effects
+    source: src/AdminSite/ClientApp/src/views/operation/Effects.vue
+    columns:
+      - Code
+      - Name
+      - Generator
+      - Affects
+      - Details
+    actions:
+      - New Effect
+  - id: web/effects/details
+    path: Web > Lighting > Effects > Details
+    route: /op/effects/:id
+    source: src/AdminSite/ClientApp/src/views/operation/EffectDetails.vue
+    sections:
+      - title: Effect Details
+        fields:
+          - label: Code
+          - label: Name
+          - label: Generator
+      - title: Colors
+        fields:
+          - label: Color
+    actions:
+      - Remove
+      - Add Color
+      - Save
+      - Save & Go Back
+      - Duplicate
+      - Delete
+      - Apply Globally
+      - Stop
+      - Apply to Zone
+  - id: web/cues
+    path: Web > Lighting > Cues
+    route: /op/cues
+    source: src/AdminSite/ClientApp/src/views/operation/Cues.vue
+    availableWhen:
+      - Lighting license
+    sections:
+      - title: Default Settings
+        fields:
+          - label: Loop
+          - label: Fade In (seconds)
+          - label: Fade Out (seconds)
+    columns:
+      - Code / Short Name
+      - Name
+      - Duration
+      - Sound
+      - Details
+    actions:
+      - Record a cue
+      - Play
+      - Download All (backup)
+      - Stop Playback
+  - id: web/cues/details
+    path: Web > Lighting > Cues > Details
+    route: /op/cues/:id
+    source: src/AdminSite/ClientApp/src/views/operation/CueDetails.vue
+    availableWhen:
+      - Lighting license
+    sections:
+      - title: Cue Details
+        fields:
+          - label: Internal Id
+            key: cueId
+            type: text
+            readOnly: true
+          - label: Code / Short Name
+            key: code
+            type: text
+            required: true
+          - label: Cue Name
+            key: name
+            type: text
+          - label: Description
+            key: description
+            type: text
+          - label: Only Admin
+            key: onlyAdmin
+            type: bool
+          - label: Bounce Playback
+            key: bounce
+            type: bool
+            visibleWhen: Cue Type = CAPTURE
+          - label: In-point
+            key: inPointMS
+            type: timespan
+            visibleWhen: Cue Type = CAPTURE
+          - label: Out-point
+            key: outPointMS
+            type: timespan
+            visibleWhen: Cue Type = CAPTURE
+          - label: Favorite
+            key: favorite
+            type: bool
+          - label: Zone
+            key: zoneId
+            type: option
+            visibleWhen: Multi-zone playback enabled and Zone has choices
+          - label: File Duration
+            key: fileDurationText
+            type: text
+            readOnly: true
+            visibleWhen: Cue Type = CAPTURE
+          - label: Frequency
+            key: frequencyText
+            type: text
+            readOnly: true
+            visibleWhen: Cue Type = CAPTURE
+          - label: Sound
+            key: soundId
+            type: option
+            visibleWhen: Sound has choices
+          - label: Sound Loop (0=forever)
+            key: soundLoop
+            type: number
+            visibleWhen: Sound has choices
+          - label: Restart Sound at Loop
+            key: restartSoundAtLoop
+            type: bool
+            visibleWhen: Cue Type = CAPTURE and Sound has choices
+          - label: Sound Volume Adjustment
+            key: soundVolume
+            type: range
+            visibleWhen: Sound has choices
+          - label: Sound Offset
+            key: soundOffsetMS
+            type: timespan
+            visibleWhen: Sound has choices
+          - label: Dimmer
+            key: dimmer
+            type: range
+          - label: Playback Layer
+            key: playbackLayer
+            type: number
+            help: Cues on the same layer replace each other; cues on different layers play together. 0 = default.
+          - label: Priority Override
+            key: priority
+            type: number
+            help: Optional sACN merge priority (1–200). Leave blank to use the cue's recorded priority. When playback overlaps another source, the higher priority wins the universe; equal priorities combine using the global Merge Mode (Blend or HTP).
+          - label: Used Slot/Universe Ids
+            key: usedCosmosIdsText
+            type: text
+            readOnly: true
+          - label: Size
+            key: bytesText
+            type: text
+            readOnly: true
+          - label: Type
+            key: cueTypeText
+            type: text
+            readOnly: true
+          - label: Save timestamp
+            key: createdLastModifiedText
+            type: text
+            readOnly: true
+            visibleWhen: Item has been saved
+    actions:
+      - Save
+      - Save & Go Back
+      - Play
+      - Duplicate
+      - Download
+      - Delete
+  - id: web/sounds
+    path: Web > Lighting > Sounds
+    route: /op/sounds
+    source: src/AdminSite/ClientApp/src/views/operation/Sounds.vue
+    availableWhen:
+      - Lighting license
+    sections:
+      - title: Default Settings
+        fields:
+          - label: Loop
+          - label: Fade In (seconds)
+          - label: Fade Out (seconds)
+    columns:
+      - Code / Short Name
+      - Name
+      - Duration
+      - Used By
+      - Details
+    actions:
+      - Play
+      - Import
+      - Stop Playback
+  - id: web/sounds/details
+    path: Web > Lighting > Sounds > Details
+    route: /op/sounds/:id
+    source: src/AdminSite/ClientApp/src/views/operation/SoundDetails.vue
+    availableWhen:
+      - Lighting license
+    sections:
+      - title: Sound Details
+        fields:
+          - label: Internal Id
+            key: soundId
+            type: text
+            readOnly: true
+          - label: Code / Short Name
+            key: code
+            type: text
+            required: true
+          - label: Sound Name
+            key: name
+            type: text
+          - label: Description
+            key: description
+            type: text
+          - label: Only Admin
+            key: onlyAdmin
+            type: bool
+          - label: Volume Adjustment
+            key: volume
+            type: range
+          - label: In-point
+            key: inPointMS
+            type: timespan
+          - label: Out-point
+            key: outPointMS
+            type: timespan
+          - label: Favorite
+            key: favorite
+            type: bool
+          - label: File Duration
+            key: fileDurationText
+            type: text
+            readOnly: true
+          - label: Format
+            key: formatText
+            type: text
+            readOnly: true
+          - label: Size
+            key: bytesText
+            type: text
+            readOnly: true
+          - label: Used By
+            key: usedByText
+            type: text
+            readOnly: true
+          - label: Save timestamp
+            key: createdLastModifiedText
+            type: text
+            readOnly: true
+            visibleWhen: Item has been saved
+    actions:
+      - Save
+      - Save & Go Back
+      - Play
+      - Duplicate
+      - Delete
+  - id: web/timelines
+    path: Web > Lighting > Timelines
+    route: /op/timelines
+    source: src/AdminSite/ClientApp/src/views/operation/Timelines.vue
+    availableWhen:
+      - Lighting license
+    columns:
+      - Code / Short Name
+      - Name
+      - Duration
+      - Details & Editor
+    actions:
+      - Play
+      - Details
+      - Open in Editor
+      - Add New
+      - Stop Playback
+  - id: web/timelines/details
+    path: Web > Lighting > Timelines > Details
+    route: /op/timelines/:id
+    source: src/AdminSite/ClientApp/src/views/operation/TimelineDetails.vue
+    availableWhen:
+      - Lighting license
+    sections:
+      - title: Timeline Details
+        fields:
+          - label: Internal Id
+            key: timelineId
+            type: text
+            readOnly: true
+          - label: Code / Short Name
+            key: code
+            type: text
+            required: true
+          - label: Timeline Name
+            key: name
+            type: text
+          - label: Description
+            key: description
+            type: text
+          - label: Only Admin
+            key: onlyAdmin
+            type: bool
+          - label: Duration, ms
+            key: durationMS
+            type: timespan
+          - label: Favorite
+            key: favorite
+            type: bool
+          - label: Fade-In
+            key: fadeInDurationMS
+            type: timespan
+            required: true
+          - label: Fade-Out
+            key: fadeOutDurationMS
+            type: timespan
+            required: true
+          - label: Loop (0=forever)
+            key: loop
+            type: number
+          - label: Event Count
+            key: eventCountText
+            type: text
+            readOnly: true
+            visibleWhen: value.timelineId !== 0
+          - label: Save timestamp
+            key: createdLastModifiedText
+            type: text
+            readOnly: true
+            visibleWhen: value.timelineId !== 0
+    actions:
+      - Save
+      - Save & Go Back
+      - Play
+      - Duplicate
+      - Delete
+      - Events
+      - Editor
+  - id: web/timelines/editor
+    path: Web > Lighting > Timelines > Editor
+    route: /op/timelines/editor/:id
+    source: src/AdminSite/ClientApp/src/views/operation/TimelineEditor.vue
+    availableWhen:
+      - Lighting license
+    summary: 'Timeline editor: the header shows the timeline name, More... / Less for the timeline settings, and Save. An Available Events panel (tabs Cues, Sounds, Other Events, Presets, Control Values, Scripts) feeds a drag-and-drop timeline; an Event Properties panel edits Start, Name, Duration, Fade In and Fade Out, or deletes the selected event. The status bar has Zoom Out, Zoom In, Zoom to Fit, Rewind to Start, Play, Pause and Stop.'
+    actions:
+      - Save
+      - Scroll Left (hold to continue)
+      - Scroll Right (hold to continue)
+  - id: web/timelines/editor-events
+    path: Web > Lighting > Timelines > Events
+    route: /op/timelines/editor-events/:id
+    source: src/AdminSite/ClientApp/src/views/operation/TimelineEvents.vue
+    availableWhen:
+      - Lighting license
+    sections:
+      - title: Edit Timeline Event
+        fields:
+          - label: Timestamp (ms)
+          - label: Enabled
+            type: bool
+          - label: Type
+          - label: Name
+          - label: Play Code
+          - label: Duration (ms)
+          - label: Track
+    columns:
+      - Timestamp (ms)
+      - Type
+      - Name
+      - Enabled
+      - Play Code
+      - Duration
+      - Track
+      - Actions
+    actions:
+      - Add Event
+      - Save Events
+      - Cancel
+      - OK
+  - id: web/schedules
+    path: Web > Lighting > Schedules
+    route: /op/schedules
+    source: src/AdminSite/ClientApp/src/views/operation/Schedules.vue
+    availableWhen:
+      - Lighting license
+    columns:
+      - Code / Short Name
+      - Name
+      - Type
+      - Enabled
+      - Status
+      - Details
+    actions:
+      - Add New
+  - id: web/schedules/details
+    path: Web > Lighting > Schedules > Details
+    route: /op/schedules/:id
+    source: src/AdminSite/ClientApp/src/views/operation/ScheduleDetails.vue
+    availableWhen:
+      - Lighting license
+    sections:
+      - title: Schedule Details
+        fields:
+          - label: Internal Id
+            key: scheduleId
+            type: text
+            readOnly: true
+          - label: Code / Short Name
+            key: code
+            type: text
+            required: true
+          - label: Name
+            key: name
+            type: text
+          - label: Enabled
+            key: enabled
+            type: bool
+          - label: Start Date
+            key: startDate
+            type: date
+          - label: End Date
+            key: endDate
+            type: date
+          - label: Start
+            key: startTimeMode
+            type: option
+            required: true
+            options:
+              - Fixed time
+              - Sunrise
+              - Sunset
+            help: Start at a fixed time, or at the calculated sunrise/sunset with an optional offset. Sunrise/sunset needs the device location set in Settings.
+          - label: Start Time
+            key: startTime
+            type: time
+            visibleWhen: Start = Fixed time
+          - label: Start Offset (minutes)
+            key: startTimeOffsetMinutes
+            type: number
+            help: Minutes after the sun event; use a negative value for before (e.g. -30 = 30 minutes before).
+            visibleWhen: Start is Sunrise or Sunset
+          - label: End
+            key: endMode
+            type: option
+            required: true
+            options:
+              - None
+              - Fixed time
+              - Sunrise
+              - Sunset
+            help: End at a fixed time, at the calculated sunrise/sunset with an optional offset, or not at all.
+          - label: End Time
+            key: endTime
+            type: time
+            visibleWhen: End = Fixed time
+          - label: End Offset (minutes)
+            key: endTimeOffsetMinutes
+            type: number
+            help: Minutes after the sun event; use a negative value for before (e.g. -30 = 30 minutes before).
+            visibleWhen: End is Sunrise or Sunset
+          - label: Days
+            key: days
+            type: boolarray
+            options:
+              - Monday
+              - Tuesday
+              - Wednesday
+              - Thursday
+              - Friday
+              - Saturday
+              - Sunday
+          - label: Favorite
+            key: favorite
+            type: bool
+          - label: Created/Last modified
+            key: createdLastModifiedText
+            type: text
+            readOnly: true
+            visibleWhen: Item has been saved
+      - title: Action
+        fields:
+          - label: Action Type
+            key: type
+            type: option
+            required: true
+            options:
+              - (No action)
+              - Apply Ambient Preset
+              - Apply Preset
+              - Audio Mute
+              - Blackout
+              - Control Value
+              - DMX Output
+              - Fade Out
+              - Fire Output Event
+              - Play Cue
+              - Play Sound
+              - Play Timeline
+              - Run Script
+              - Step Effect
+              - Stop
+              - Tap Tempo
+              - Toggle Schedule
+          - label: Target
+            key: playCode
+            type: option
+            visibleWhen: Action Type is Play Cue, Apply Preset, Play Sound, Play Timeline, Apply Ambient Preset, Toggle Schedule, Fire Output Event, Control Value, Run Script or Step Effect
+          - label: Press Mode
+            key: mode
+            type: option
+            required: true
+            options:
+              - Normal
+              - Toggle on/off
+              - Flash (hold)
+              - Momentary (release continues past Hold)
+            visibleWhen: Action Type is Play Cue, Apply Preset, Play Sound, Apply Ambient Preset or Play Timeline
+          - label: Set To
+            key: targetState
+            type: option
+            required: true
+            options:
+              - Toggle
+              - On
+              - Off
+            help: 'When Action Type = Audio Mute: On = audio muted, Off = audio unmuted, Toggle = flip the current state. When Action Type = Blackout: On = blackout engaged (every channel 0%, audio muted, playback keeps running underneath), Off = released, Toggle = flip the current state. Otherwise: On = DMX output enabled, Off = DMX output suppressed, Toggle = flip the current state.'
+            visibleWhen: Action Type is Audio Mute, DMX Output or Blackout
+          - label: Fade-In Time (ms)
+            key: fadeInDurationMS
+            type: number
+            visibleWhen: Action Type is Play Cue, Apply Preset, Play Sound, Play Timeline or Apply Ambient Preset
+          - label: Fade-Out Time (ms)
+            key: fadeOutDurationMS
+            type: number
+            visibleWhen: Action Type is Play Cue, Apply Preset, Play Sound, Play Timeline, Apply Ambient Preset or Fade Out
+          - label: Dimmer
+            key: dimmerScale
+            type: range
+            visibleWhen: Action Type is Play Cue, Apply Preset, Play Timeline or Apply Ambient Preset
+          - label: Volume
+            key: volume
+            type: range
+            visibleWhen: Action Type is Play Sound or Play Timeline
+          - label: Priority
+            key: priority
+            type: number
+          - label: Loop (0 = forever)
+            key: loop
+            type: number
+            visibleWhen: Action Type is Play Cue or Play Sound
+          - label: Run to completion
+            key: runToCompletion
+            type: bool
+            visibleWhen: Action Type is Play Cue or Play Sound
+          - label: Operation
+            key: controlValueOperation
+            type: option
+            required: true
+            options:
+              - Set value
+              - Up
+              - Down
+              - Toggle
+            visibleWhen: Action Type = Control Value
+          - label: Value
+            key: controlValueSetValue
+            type: text
+            visibleWhen: Action Type = Control Value and Operation = Set value
+    actions:
+      - Save
+      - Save & Go Back
+      - Duplicate
+      - Delete
+  - id: web/fixturecontrol
+    path: Web > Operation > Fixture Control
+    route: /op/fixturecontrol
+    source: src/AdminSite/ClientApp/src/views/operation/FixtureControl.vue
+    availableWhen:
+      - Lighting license
+      - Fixture functionality not hidden
+    summary: Lists every fixture grouped by zone in a Normal (cards), Compact (table) or Diagnostic (all values and who controls each) layout, with a Fade toggle and fade duration in the header. Selecting a fixture opens its control pane with Release control, an Effect dropdown with Effect Dimmer, and per-copy trims. Build Preset adds Include in preset checkboxes and a Save Preset button.
+    sections:
+      - title: Fixtures
+        fields:
+          - label: Include in preset
+          - label: Include in preset
+      - title: Effect
+        fields:
+          - label: Effect
+          - label: Effect Dimmer
+    actions:
+      - Save Preset
+      - Fade
+      - Build Preset
+  - id: web/faders
+    path: Web > Operation > Faders
+    route: /op/faders
+    source: src/AdminSite/ClientApp/src/views/operation/Faders.vue
+    availableWhen:
+      - Lighting license
+      - Fixture functionality not hidden
+    summary: One vertical fader strip per dimmable fixture, with buttons to open full controls, release control, expand copies into trim faders, and hold for full intensity. The header has zone bank chips, Fade and fade duration, a Filter box, Release All and paging; the right-hand dock has a zone dimmer, the Master fader and BLACKOUT.
+    sections:
+      - title: Effect
+        fields:
+          - label: Effect
+          - label: Effect Dimmer
+    actions:
+      - Fade
+      - Release All
+      - Release Control
+      - Close
+  - id: web/visualizer
+    path: Web > Operation > Visualizer
+    route: /op/visualizer
+    source: src/AdminSite/ClientApp/src/views/operation/Visualizer.vue
+    summary: A room view (photo or blank canvas) with lighting overlays for the placed fixtures, a strip of view chips, a Fit button and a Fixtures list filtered by All / On this view / Not on any view. In Live mode, selecting a fixture shows Intensity, Color and per-copy trims with Solo, and Full Control... opens the full fixture controls. In Edit mode (EDITVISUALIZER permission) you add views and photos, add scenery, drag fixtures onto the canvas, set the overlay (Cone, Wash, Glow, Strip), spread, size and scale, then Save, Discard or Delete view.
+    sections:
+      - title: Visualizer
+        fields:
+          - label: Darken
+          - label: Fixture markers
+          - label: Overlay
+          - label: Spread °
+          - label: Scale (depth)
+          - label: Intensity %
+          - label: Color
+          - label: Copy trim %
+          - label: Text
+          - label: Locked (ignore clicks)
+    actions:
+      - Live
+      - Edit
+      - + Add view
+      - Create the first view
+      - Remove photo
+      - Fit
+      - Save
+      - Discard
+      - Delete view
+      - Remove
+      - Solo
+      - Full Control…
+      - Fixture Control page
+      - Release Control
+      - Close
+  - id: web/surface-operator
+    path: Web > Operation > Surface Operator
+    route: /op/surface-operator
+    source: src/AdminSite/ClientApp/src/views/operation/ControlSurfaceOperatorLauncher.vue
+    availableWhen:
+      - An enabled control surface exists
+    summary: Lists the enabled control surfaces with their transport and connection status, each with an Operate button (and Configure for users who can edit control surfaces). With exactly one enabled surface it opens that surface's operator screen directly.
+    actions:
+      - Configure Control Surfaces
+      - Operate
+      - Configure
+  - id: web/tempo
+    path: Web > Operation > Tempo
+    route: /op/tempo
+    source: src/AdminSite/ClientApp/src/views/operation/Tempo.vue
+    availableWhen:
+      - Lighting license
+      - Fixture functionality not hidden
+    summary: Shows a beat light, an editable BPM field, a TAP button, a beat counter and an Output Latency slider. The Audio Trigger card selects the Audio Source (Playback or Audio Input), shows band level meters and a trigger light, and has a Sensitivity slider.
+    sections:
+      - title: Tempo
+        fields:
+          - label: Output Latency
+      - title: Audio Trigger
+        fields:
+          - label: Audio Source
+          - label: Levels
+          - label: Sensitivity
+    actions:
+      - TAP
+  - id: web/custommenu
+    path: Web > Operation > Custom Menu
+    route: /op/custommenu
+    source: src/AdminSite/ClientApp/src/views/operation/CustomMenu.vue
+    availableWhen:
+      - A custom menu exists
+    summary: Shows the configured custom menu as a grid of buttons, sliders and choice selectors, with a breadcrumb header and Back button inside submenus. Some items ask for confirmation before running.
+  - id: web/favorites
+    path: Web > Operation > Favorites
+    route: /op/favorites
+    source: src/AdminSite/ClientApp/src/views/operation/Favorites.vue
+    availableWhen:
+      - At least one favorite
+    summary: Lists favorite Cues and Sounds (with playback progress, play, pause, stop and edit), Timelines (edit), Presets (play/stop and edit) and a Schedules table with enable/disable and edit. Each section shows only when it has favorites.
+    columns:
+      - Name
+      - Status
+      - Play Code
+      - Days
+      - Actions
+    actions:
+      - Play
+      - Stop
+  - id: web/ambient
+    path: Web > Operation > Ambient Presets
+    route: /op/ambient
+    source: src/AdminSite/ClientApp/src/views/operation/AmbientPresets.vue
+    permission: MANAGEAMBIENTPRESETS
+    availableWhen:
+      - An ambient preset exists
+    actions:
+      - Deactivate
+      - Activate
+  - id: web/inputs
+    path: Web > System > Lighting Setup > Inputs
+    route: /op/inputs
+    source: src/AdminSite/ClientApp/src/views/operation/Inputs.vue
+    permission: EDITOUTPUT
+    columns:
+      - Protocol
+      - Input Universe
+      - Slot Id
+      - Details
+      - Universe
+      - Source
+      - Priority
+      - Frames/s
+      - State
+      - Outputs
+    actions:
+      - Add New
+  - id: web/inputs/details
+    path: Web > System > Lighting Setup > Inputs > Details
+    route: /op/inputs/:id
+    source: src/AdminSite/ClientApp/src/views/operation/InputMappingDetails.vue
+    permission: EDITOUTPUT
+    sections:
+      - title: Input Mapping Details
+        fields:
+          - label: Internal Id
+            key: inputMappingId
+            type: text
+            readOnly: true
+          - label: Protocol
+            key: portType
+            type: option
+            options:
+              - sACN / E1.31
+              - Art-Net
+              - DMX Serial
+            help: The protocol this row receives on. Every protocol that has rows listens, so a console on sACN and one on Art-Net can both be routed at the same time. A recording still captures one protocol, chosen on the Inputs page.
+          - label: Start Universe Id
+            key: startUniverseId
+            type: number
+            help: 'The received universe, in the notation of the protocol above (Art-Net counts from 0). On DMX Serial it is the board port number: 1 = port A, 2 = port B.'
+          - label: Universe Count
+            key: universeCount
+            type: number
+          - label: Start Slot Id
+            key: startCosmosId
+            type: number
+            help: The slot id the received universe lands on. Slot ranges must not overlap between rows on different protocols — a recording and the merge both key on the slot id.
+    actions:
+      - Save
+      - Save & Go Back
+      - Delete
+  - id: web/outputs
+    path: Web > System > Lighting Setup > Outputs
+    route: /op/outputs
+    source: src/AdminSite/ClientApp/src/views/operation/Outputs.vue
+    permission: EDITOUTPUT
+    columns:
+      - Code / Short Name
+      - Name
+      - Type
+      - Enabled
+      - Description
+      - Details
+    actions:
+      - Add New
+  - id: web/outputs/details
+    path: Web > System > Lighting Setup > Outputs > Details
+    route: /op/outputs/:id
+    source: src/AdminSite/ClientApp/src/views/operation/OutputDetails.vue
+    permission: EDITOUTPUT
+    sections:
+      - title: Output Details
+        fields:
+          - label: Internal Id
+            key: outputId
+            type: text
+            readOnly: true
+          - label: Code / Short Name
+            key: code
+            type: text
+            required: true
+          - label: Output Name
+            key: name
+            type: text
+          - label: Enabled
+            key: enabled
+            type: bool
+          - label: Zone
+            key: zoneId
+            type: option
+            visibleWhen: Multi-zone playback enabled and Zone has choices
+          - label: Output Type
+            key: outputInstanceId
+            type: option
+          - label: Port
+            key: subPort
+            type: option
+            help: Device Output ID.
+            visibleWhen: Sub Port Count > 0
+          - label: Start Slot Id
+            key: startCosmosId
+            type: number
+            help: Internal (virtual) universe id.
+          - label: Start Universe Id
+            key: startUniverseId
+            type: number
+            help: Output universe id.
+            visibleWhen: Supports Universe Id is on
+          - label: Universe Count
+            key: universeCount
+            type: number
+            visibleWhen: Supports Universe Id is on
+          - label: Destination IP (unicast)
+            key: destination
+            type: text
+            visibleWhen: Output Type is ARTNET, SACN, KINET or TPM2NET
+          - label: Protocol
+            key: outputProtocol
+            type: option
+            visibleWhen: protocolList.value.some((x) => x.outputTypes.includes(v.outputType))
+          - label: Destination Address
+            key: destinationAddress
+            type: text
+            visibleWhen: virtualTypes.value.has(v.outputType)
+          - label: Start Channel
+            key: startChannel
+            type: number
+            help: DMX start address of the device within the slot.
+            visibleWhen: virtualTypes.value.has(v.outputType)
+          - label: Send Sync
+            key: sendSync
+            type: bool
+            help: Emit a wire-level sync packet at end of tick (sACN Universe Sync, ArtSync, KiNet sync).
+            visibleWhen: Output Type is SACN, ARTNET or KINET
+          - label: sACN Send Priority
+            key: sendPriority
+            type: number
+            help: sACN priority (1-200) for this output. Used when the played-back data has no recorded priority.
+            visibleWhen: Output Type = SACN
+    actions:
+      - Save
+      - Save & Go Back
+      - Delete
+  - id: web/settings/protocol
+    path: Web > System > Lighting Setup > Protocol
+    route: /op/settings/PROTOCOL
+    source: src/AdminSite/ClientApp/src/views/operation/Settings.vue
+    permission: CHANGEOUTPUTSETTINGS
+    availableWhen:
+      - Not remote client mode
+      - Lighting license
+    sections:
+      - fields:
+          - label: Output Frequency
+            key: outputfrequency
+            property: OutputConfig.OutputFrequencyInt
+          - label: Optimize Send
+            key: optimizesend
+            property: OutputConfig.OptimizeSend
+          - label: Passthru Function
+            key: passthrufunction
+            property: OutputConfig.SerialPassthruFunction
+            help: 'Put the DMX Core 100 in line between a console and the fixtures: the 2-port DMX-512 board forwards DMX from one port to the other in its firmware, so the console keeps full control of the lights while the DMX Core 100 records the stream. Port to port only, no merge with playback; the destination port is left out of stream routing while it is on.'
+            visibleWhen: DMX board with firmware passthrough present
+          - label: Master Dimmer Cue Control
+            key: masterdimmercuecontrol
+            property: OutputConfig.MasterDimmerAppliedToCues
+          - label: End of Data
+            key: endofdata
+            property: OutputConfig.EndOfDataOperation
+          - label: Merge Mode
+            key: mergemode
+            property: OutputConfig.MergeMode
+          - label: Fixture Control Priority
+            key: fixturecontrolpriority
+            property: OutputConfig.FixtureControlPriorityInt
+            help: "Merge priority for fixture control (presets and direct control) against cue playback (1-200). Higher than the cue's priority (default 100): fixture control takes over its controlled channels while the cue keeps the rest. Lower: cue playback wins. Equal: values combine using the Merge Mode."
+          - label: Input Priority
+            key: inputpriority
+            property: OutputConfig.InputPriorityInt
+            help: Merge priority for input routed to outputs (Route Input to Outputs on the Inputs page) from protocols without a wire priority (Art-Net, DMX serial), 1-200. sACN input uses the priority the sender transmits unless Override Input Priority is on. Above the cue's priority (default 100) the input takes over the universe; below it the cue wins; equal combines using the Merge Mode.
+          - label: Override Input Priority
+            key: overrideinputpriority
+            property: OutputConfig.OverrideInputPriority
+            help: Use Input Priority for all routed input, ignoring the priority an sACN sender transmits.
+          - label: Input Loss Timeout (ms)
+            key: inputlosstimeoutms
+            property: OutputConfig.InputLossTimeoutMS
+            help: How long a routed universe may go without a packet from its source before it is considered lost (E1.31 default 2500 ms). What happens then is On Input Loss.
+          - label: On Input Loss
+            key: oninputloss
+            property: OutputConfig.InputLossOperation
+            help: 'Release: stop sending the universe; a cue or preset underneath takes back over, otherwise the End of Data applies. Hold last: keep sending the last received frame. Blackout and release: send zeros once, then release.'
+  - id: web/fixturesettings
+    path: Web > System > Lighting Setup > Fixtures
+    route: /op/fixturesettings
+    source: src/AdminSite/ClientApp/src/views/operation/FixtureSettings.vue
+    permission: EDITFIXTURES
+    availableWhen:
+      - Lighting license
+      - Fixture functionality not hidden
+    columns:
+      - Code
+      - Name
+      - Enabled
+      - Slot Id
+      - Start Ch
+      - Copies
+      - Zone
+      - Profile
+      - Details
+    actions:
+      - Add a fixture
+      - Add New
+      - Excel
+      - CSV
+  - id: web/fixturesettings/details
+    path: Web > System > Lighting Setup > Fixtures > Details
+    route: /op/fixturesettings/:id
+    source: src/AdminSite/ClientApp/src/views/operation/FixtureSettingsDetails.vue
+    permission: EDITFIXTURES
+    availableWhen:
+      - Lighting license
+      - Fixture functionality not hidden
+    sections:
+      - title: Fixture Details
+        fields:
+          - label: Internal Id
+            key: fixtureInstanceId
+            type: text
+            readOnly: true
+          - label: Code
+            key: code
+            type: text
+            required: true
+          - label: Name
+            key: name
+            type: text
+            required: true
+          - label: Enabled
+            key: enabled
+            type: bool
+          - label: Profile
+            key: fixtureProfileId
+            type: option
+            required: true
+          - label: Personality
+            key: personality
+            type: option
+            visibleWhen: Personality Options count > 1
+          - label: Mapped Device
+            key: mappedDevice
+            type: option
+            help: Prefill slot, start channel, and personality from an existing output mapping for this device type.
+            visibleWhen: Profile < 0 and Mapped Device Options count > 0
+          - label: Slot/Universe Id
+            key: cosmosId
+            type: number
+          - label: Start Channel
+            key: startChannel
+            type: number
+          - label: Copies
+            key: copies
+            type: number
+          - label: Zone
+            key: zoneId
+            type: option
+            visibleWhen: Zones count > 0
+      - title: Hidden Functions
+        fields:
+          - label: ( )
+    actions:
+      - Save
+      - Save & Go Back
+      - Duplicate
+      - Split Copies
+      - Combine ( )
+      - Delete
+  - id: web/fixtureprofiles
+    path: Web > System > Lighting Setup > Profiles
+    route: /op/fixtureprofiles
+    source: src/AdminSite/ClientApp/src/views/operation/FixtureProfiles.vue
+    permission: EDITFIXTURES
+    columns:
+      - Manufacturer
+      - Name
+      - Personalities
+      - In use
+      - Source
+      - Details
+    actions:
+      - Add profile…
+  - id: web/fixtureprofiles/details
+    path: Web > System > Lighting Setup > Profiles > Details
+    route: /op/fixtureprofiles/:id
+    source: src/AdminSite/ClientApp/src/views/operation/FixtureProfilesDetails.vue
+    permission: EDITFIXTURES
+    actions:
+      - Delete
+  - id: web/zones
+    path: Web > System > Lighting Setup > Zones
+    route: /op/zones
+    source: src/AdminSite/ClientApp/src/views/operation/Zones.vue
+    permission: EDITZONES
+    availableWhen:
+      - Lighting license
+      - Multi-zone playback enabled
+    columns:
+      - Code / Short Name
+      - Name
+      - Details
+    actions:
+      - Add New
+  - id: web/zones/details
+    path: Web > System > Lighting Setup > Zones > Details
+    route: /op/zones/:id
+    source: src/AdminSite/ClientApp/src/views/operation/ZoneDetails.vue
+    permission: EDITZONES
+    availableWhen:
+      - Lighting license
+      - Multi-zone playback enabled
+    sections:
+      - title: Zone Details
+        fields:
+          - label: Internal Id
+            key: zoneId
+            type: text
+            readOnly: true
+          - label: Code / Short Name
+            key: code
+            type: text
+          - label: Name
+            key: name
+            type: text
+    actions:
+      - Save
+      - Save & Go Back
+      - Delete
+  - id: web/cuefademasks
+    path: Web > System > Lighting Setup > Cue Fade Masks
+    route: /op/cuefademasks
+    source: src/AdminSite/ClientApp/src/views/operation/CueFadeMasks.vue
+    permission: EDITCUEFADEMASKS
+    columns:
+      - Slot Id
+      - Enabled
+      - Description
+      - Details
+    actions:
+      - Add New
+  - id: web/cuefademasks/details
+    path: Web > System > Lighting Setup > Cue Fade Masks > Details
+    route: /op/cuefademasks/:id
+    source: src/AdminSite/ClientApp/src/views/operation/CueFadeMaskDetails.vue
+    permission: EDITCUEFADEMASKS
+    sections:
+      - title: Cue Fade Mask Details
+        fields:
+          - label: Internal Id
+            key: cueFadeMaskId
+            type: text
+            readOnly: true
+          - label: Slot Id
+            key: cosmosId
+            type: number
+          - label: Enabled
+            key: enabled
+            type: bool
+    actions:
+      - Check all
+      - Clear all
+      - Invert
+      - Save
+      - Save & Go Back
+      - Duplicate
+      - Delete
+  - id: web/channelrules
+    path: Web > System > Lighting Setup > Channel Rules
+    route: /op/channelrules
+    source: src/AdminSite/ClientApp/src/views/operation/ChannelRules.vue
+    permission: EDITCHANNELRULES
+    columns:
+      - Name
+      - Type
+      - Enabled
+      - Description
+      - Details
+    actions:
+      - Add New
+  - id: web/channelrules/details
+    path: Web > System > Lighting Setup > Channel Rules > Details
+    route: /op/channelrules/:id
+    source: src/AdminSite/ClientApp/src/views/operation/ChannelRuleDetails.vue
+    permission: EDITCHANNELRULES
+    sections:
+      - title: Channel Rule Details
+        fields:
+          - label: Internal Id
+            key: channelRuleId
+            type: text
+            readOnly: true
+          - label: Name
+            key: name
+            type: text
+          - label: Rule Type
+            key: ruleType
+            type: option
+            options:
+              - Cap — limit channels to a maximum value
+              - Scale — rescale the full range to a maximum value
+              - Copy — duplicate channels to another location
+            help: Rules apply during cue playback only (dynamic and static cues), never to fixture control. Cap clamps values above the limit; Scale maps the whole 0-255 range down so full level becomes the limit; Copy mirrors the recorded channels to another slot/channel range (multipatch). Copies are applied first, then scales, then caps — so a cap addressing the copy destination also limits the copied fixture.
+          - label: Slot Id
+            key: cosmosId
+            type: number
+            help: Internal (virtual) universe id as recorded in the cue.
+          - label: Start Channel
+            key: channelStart
+            type: number
+          - label: End Channel
+            key: channelEnd
+            type: number
+          - label: Destination Slot Id
+            key: destinationCosmosId
+            type: number
+            help: Internal (virtual) universe id the channels are copied to.
+            visibleWhen: Rule Type = Copy
+          - label: Destination Start Channel
+            key: destinationChannelStart
+            type: number
+            help: The copied range keeps its length, so it must fit within channels 1-512 from this start channel.
+            visibleWhen: Rule Type = Copy
+          - label: Limit (0-255)
+            key: limit
+            type: number
+            visibleWhen: Rule Type is Cap or Scale
+          - label: Enabled
+            key: enabled
+            type: bool
+    actions:
+      - Save
+      - Save & Go Back
+      - Duplicate
+      - Delete
+  - id: web/inputtriggers
+    path: Web > System > Control & Integrations > Input Triggers
+    route: /op/inputtriggers
+    source: src/AdminSite/ClientApp/src/views/operation/InputTriggers.vue
+    permission: EDITINPUTTRIGGER
+    columns:
+      - Code / Short Name
+      - Name
+      - Type
+      - Enabled
+      - Description
+      - Details
+    actions:
+      - Add New
+  - id: web/inputtriggers/details
+    path: Web > System > Control & Integrations > Input Triggers > Details
+    route: /op/inputtriggers/:id
+    source: src/AdminSite/ClientApp/src/views/operation/InputTriggerDetails.vue
+    permission: EDITINPUTTRIGGER
+    sections:
+      - title: Input Trigger Details
+        fields:
+          - label: Internal Id
+            key: inputTriggerId
+            type: text
+            readOnly: true
+          - label: Code / Short Name
+            key: code
+            type: text
+          - label: Name
+            key: name
+            type: text
+          - label: Enabled
+            key: enabled
+            type: bool
+          - label: Type
+            key: type
+            type: option
+            options:
+              - Art-Net
+              - Control Value
+              - DMX Serial
+              - HTTP
+              - MQTT
+              - OSC
+              - Plugin
+              - sACN
+              - TCP
+              - UDP
+              - Digital Input
+            help: "When Type = Plugin: Fired by an installed plugin using this trigger's Code / Short Name. Only the action below needs to be configured."
+          - label: Address
+            key: address
+            type: text
+            help: 'When Type is OSC or MQTT: Enter [payload] in the address to use the payload below in the address. Address should start with a /. When Type = Plugin: Optional plugin id (e.g. example-plugin) to restrict this trigger to one plugin. Leave blank to let any installed plugin fire it.'
+            visibleWhen: Type is HTTP, OSC, MQTT, Control Value or Plugin
+          - label: Mode
+            key: mode
+            type: option
+            options:
+              - On/Off — run an action
+              - Value — set a level from the payload
+            help: Value mode uses the numeric payload to drive a Control Value (e.g. Symetrix volume), master dimmer, or zone intensity.
+            visibleWhen: Type is MQTT, HTTP, OSC or Control Value
+          - label: Port
+            key: port
+            type: number
+            visibleWhen: Type is TCP or UDP
+          - label: JSON Path (optional)
+            key: inputJsonPath
+            type: text
+            help: For JSON payloads, e.g. $.volume. Leave blank if the payload is a plain number.
+            visibleWhen: Type is MQTT or HTTP and Mode = Value
+          - label: Input Min
+            key: inputMin
+            type: number
+            help: Raw payload value that maps to 0%. Default 0.
+            visibleWhen: Type is MQTT, HTTP or OSC and Mode = Value
+          - label: Input Max
+            key: inputMax
+            type: number
+            help: Raw payload value that maps to 100%. Default 1.
+            visibleWhen: Type is MQTT, HTTP or OSC and Mode = Value
+          - label: Transform Script (optional)
+            key: valueTransformScriptCode
+            type: option
+            help: Optional script that reshapes the normalized 0..1 value (curves, dead zones, thresholds). The script sees "value" and "payload"; its last expression is the transformed 0..1 value. If the script fails, the update is skipped.
+            visibleWhen: Type is MQTT, HTTP, OSC or Control Value and Mode = Value
+          - label: Start Payload
+            key: startPayload
+            type: text
+            help: 'When Type is TCP or UDP: Payload can be a string "TEST" (case sensitive), or comma/space-separated hex bytes: 40,41,42,0D,0A. When Type = OSC: Payload is compared as a string. When Type = Control Value: Choice name (case insensitive) or index that fires the trigger when it becomes active.'
+            visibleWhen: Type is TCP or UDP or (Type = OSC and Mode is not Value) or (Type = MQTT and Mode is not Value) or (Type = Control Value and Mode is not Value and Control Value Kind = SELECTOR)
+          - label: Stop Payload
+            key: stopPayload
+            type: text
+            help: 'When Type = Control Value: Optional choice that clears the triggered state. Leave blank to clear on any other choice.'
+            visibleWhen: Type is TCP or UDP or (Type = OSC and Mode is not Value) or (Type = MQTT and Mode is not Value) or (Type = Control Value and Mode is not Value and Control Value Kind = SELECTOR)
+          - label: Universe Id/Sub Port
+            key: universeId
+            type: number
+            visibleWhen: Type is sACN, Art-Net, DMX Serial or Digital Input
+          - label: Channel
+            key: channel
+            type: number
+            visibleWhen: Type is sACN, Art-Net or DMX Serial
+          - label: Threshold
+            key: threshold
+            type: number
+            help: 'When Type = Digital Input: If set to 1 the trigger will execute when the input is high. Set to 0 to reverse logic. When Type = Control Value: Fires when the level rises to or above this percent (0-100); re-arms when it drops below. Otherwise: DMX value above this will start the trigger (and equal or below will stop the trigger)'
+            visibleWhen: Type is sACN, Art-Net, DMX Serial or Digital Input or (Type = Control Value and Mode is not Value and Control Value Kind = LEVEL)
+          - label: DMX Trigger Mode
+            key: dmxTriggerMode
+            type: option
+            options:
+              - Above Threshold
+              - Zero Then Above Threshold
+            visibleWhen: Type is sACN, Art-Net or DMX Serial
+          - label: Created/Last modified
+            key: createdLastModifiedText
+            type: text
+            readOnly: true
+            visibleWhen: Item has been saved
+      - title: Action
+        fields:
+          - label: Action Type
+            key: type
+            type: option
+            required: true
+            options:
+              - (No action)
+              - Apply Ambient Preset
+              - Apply Preset
+              - Audio Mute
+              - Blackout
+              - Control Value
+              - DMX Output
+              - Fade Out
+              - Fire Output Event
+              - Play Cue
+              - Play Sound
+              - Play Timeline
+              - Run Script
+              - Step Effect
+              - Stop
+              - Tap Tempo
+              - Toggle Schedule
+          - label: Target
+            key: playCode
+            type: option
+            visibleWhen: Action Type is Play Cue, Apply Preset, Play Sound, Play Timeline, Apply Ambient Preset, Toggle Schedule, Fire Output Event, Control Value, Run Script or Step Effect
+          - label: Press Mode
+            key: mode
+            type: option
+            required: true
+            options:
+              - Normal
+              - Toggle on/off
+              - Flash (hold)
+              - Momentary (release continues past Hold)
+            visibleWhen: Action Type is Play Cue, Apply Preset, Play Sound, Apply Ambient Preset or Play Timeline
+          - label: Set To
+            key: targetState
+            type: option
+            required: true
+            options:
+              - Toggle
+              - On
+              - Off
+            help: 'When Action Type = Audio Mute: On = audio muted, Off = audio unmuted, Toggle = flip the current state. When Action Type = Blackout: On = blackout engaged (every channel 0%, audio muted, playback keeps running underneath), Off = released, Toggle = flip the current state. Otherwise: On = DMX output enabled, Off = DMX output suppressed, Toggle = flip the current state.'
+            visibleWhen: Action Type is Audio Mute, DMX Output or Blackout
+          - label: Fade-In Time (ms)
+            key: fadeInDurationMS
+            type: number
+            visibleWhen: Action Type is Play Cue, Apply Preset, Play Sound, Play Timeline or Apply Ambient Preset
+          - label: Fade-Out Time (ms)
+            key: fadeOutDurationMS
+            type: number
+            visibleWhen: Action Type is Play Cue, Apply Preset, Play Sound, Play Timeline, Apply Ambient Preset or Fade Out
+          - label: Dimmer
+            key: dimmerScale
+            type: range
+            visibleWhen: Action Type is Play Cue, Apply Preset, Play Timeline or Apply Ambient Preset
+          - label: Volume
+            key: volume
+            type: range
+            visibleWhen: Action Type is Play Sound or Play Timeline
+          - label: Loop (0 = forever)
+            key: loop
+            type: number
+            visibleWhen: Action Type is Play Cue or Play Sound
+          - label: Operation
+            key: controlValueOperation
+            type: option
+            required: true
+            options:
+              - Set value
+              - Up
+              - Down
+              - Toggle
+            visibleWhen: Action Type = Control Value
+          - label: Value
+            key: controlValueSetValue
+            type: text
+            visibleWhen: Action Type = Control Value and Operation = Set value
+      - title: Value Target
+        fields:
+          - label: Target
+            key: target
+            type: option
+            options:
+              - (none — unassigned)
+              - Master Dimmer
+              - Audio Volume
+              - Fixture Intensity
+              - Fixture RGB — Red
+              - Fixture RGB — Green
+              - Fixture RGB — Blue
+              - Zone Intensity
+              - Control Value (Level)
+          - label: Fixture code / Zone code / Control Value
+            key: targetCode
+            type: text
+            help: 'Labeled by target: Zone code for Zone Intensity, Control Value (a dropdown) for Control Value (Level), otherwise Fixture code. Fixture and zone codes must match the code assigned in the fixture/zone editor.'
+            visibleWhen: Target is Fixture Intensity, Fixture RGB — Red, Fixture RGB — Green, Fixture RGB — Blue, Zone Intensity or Control Value (Level)
+          - label: Min value
+            key: minValue
+            type: number
+            help: Percent (0-100); on MIDI surfaces 0..1, mapped from CC 0.
+          - label: Max value
+            key: maxValue
+            type: number
+            help: Percent (0-100); on MIDI surfaces 0..1, mapped from CC 127.
+          - label: Inverted
+            key: inverted
+            type: bool
+    actions:
+      - Save
+      - Save & Go Back
+      - Delete
+  - id: web/outputevents
+    path: Web > System > Control & Integrations > Output Events
+    route: /op/outputevents
+    source: src/AdminSite/ClientApp/src/views/operation/OutputEvents.vue
+    permission: EDITOUTPUTEVENT
+    columns:
+      - Code / Short Name
+      - Name
+      - Type
+      - Enabled
+      - Description
+      - Details
+    actions:
+      - Add New
+  - id: web/outputevents/details
+    path: Web > System > Control & Integrations > Output Events > Details
+    route: /op/outputevents/:id
+    source: src/AdminSite/ClientApp/src/views/operation/OutputEventDetails.vue
+    permission: EDITOUTPUTEVENT
+    sections:
+      - title: Output Event Details
+        fields:
+          - label: Internal Id
+            key: outputEventId
+            type: text
+            readOnly: true
+          - label: Code / Short Name
+            key: code
+            type: text
+          - label: Name
+            key: name
+            type: text
+          - label: Enabled
+            key: enabled
+            type: bool
+          - label: Type
+            key: type
+            type: option
+            required: true
+            options:
+              - Art-Net
+              - DMX Serial
+              - HTTP
+              - MQTT
+              - OSC
+              - sACN
+              - TCP
+              - UDP
+              - Digital Output
+          - label: Target
+            key: pluginTarget
+            type: option
+            required: true
+            visibleWhen: isPluginType(value.type)
+          - label: Destination
+            key: destination
+            type: text
+            visibleWhen: Type is HTTP, OSC, UDP or TCP
+          - label: Address
+            key: address
+            type: text
+            help: 'When Type is OSC or MQTT: Enter [payload] in the address to use the payload below in the address.'
+            visibleWhen: Type is HTTP, OSC or MQTT
+          - label: Port
+            key: port
+            type: number
+            visibleWhen: Type is TCP or UDP
+          - label: Payload
+            key: payload
+            type: text
+            help: 'When Type is TCP or UDP: Payload can be a string "TEST", or comma/space-separated hex bytes: 40,41,42,0D,0A. When Type is OSC or MQTT: Payload is sent as a string. When Type is Art-Net, sACN or DMX Serial: Payload is sent as a brightness level 0-255.'
+            visibleWhen: Type is TCP, UDP, OSC, MQTT, Art-Net, sACN or DMX Serial
+          - label: Universe Id/Sub Port
+            key: universeId
+            type: number
+            visibleWhen: Type is Art-Net, sACN, DMX Serial or Digital Output
+          - label: Channel
+            key: channel
+            type: number
+            visibleWhen: Type is Art-Net, sACN or DMX Serial
+          - label: Created/Last modified
+            key: createdLastModifiedText
+            type: text
+            readOnly: true
+            visibleWhen: Item has been saved
+    actions:
+      - Save
+      - Save & Go Back
+      - Test (saved event)
+      - Delete
+  - id: web/controlsurfaces
+    path: Web > System > Control & Integrations > Control Surfaces
+    route: /op/controlsurfaces
+    source: src/AdminSite/ClientApp/src/views/operation/ControlSurfaces.vue
+    permission: EDITREMOTECONTROL
+    columns:
+      - Name
+      - Transport
+      - Binding
+      - Status
+      - Model
+    actions:
+      - Operator view
+      - Configure
+      - Add New
+      - Upload a previously-exported surface JSON
+  - id: web/controlsurfaces/new
+    path: Web > System > Control & Integrations > Control Surfaces > New
+    route: /op/controlsurfaces/new
+    source: src/AdminSite/ClientApp/src/views/operation/ControlSurfaceWizard.vue
+    permission: EDITREMOTECONTROL
+    actions:
+      - Create
+      - Cancel
+  - id: web/controlsurfaces/operator
+    path: Web > System > Control & Integrations > Control Surfaces > Operator
+    route: /op/controlsurfaces/:id/operator
+    source: src/AdminSite/ClientApp/src/views/operation/ControlSurfaceOperator.vue
+    permission: EDITREMOTECONTROL
+    summary: 'Operates a control surface from the browser: one card per section with a grid of pads to press or sliders (0-100%), bank tabs when there is more than one bank, and Refresh and Configure buttons. Sliders show a knob hint when the physical control is out of sync with the on-screen value.'
+    actions:
+      - Refresh
+      - Configure
+  - id: web/controlsurfaces/details
+    path: Web > System > Control & Integrations > Control Surfaces > Details
+    route: /op/controlsurfaces/:id
+    source: src/AdminSite/ClientApp/src/views/operation/ControlSurfaceDetails.vue
+    permission: EDITREMOTECONTROL
+    sections:
+      - title: Surface
+        fields:
+          - label: Internal Id
+            key: controlSurfaceId
+            type: text
+            readOnly: true
+          - label: Name
+            key: name
+            type: text
+          - label: Enabled
+            key: enabled
+            type: bool
+          - label: Type
+            key: typeDisplay
+            type: text
+            readOnly: true
+          - label: Transport
+            key: transport
+            type: option
+            required: true
+          - label: Model (hint)
+            key: model
+            type: text
+            help: Free-text note about the physical device, e.g. "Akai LPD8 mk2". Purely informational — the runtime does not use this to drive behavior. Populated automatically when you apply a factory template.
+      - title: Device
+        fields:
+          - label: MIDI Port
+          - label: Role
+          - label: Session name
+          - label: Local port
+          - label: Remote host
+          - label: Remote port
+          - label: Role
+          - label: Session name
+          - label: Local port
+          - label: Remote host
+          - label: Remote port
+          - label: OSC Client
+          - label: Device model
+          - label: Serial (pin)
+          - label: Brightness
+          - label: Sleep timeout
+          - label: IP address
+          - label: Port
+          - label: Device model
+          - label: IP address
+          - label: Port
+          - label: Brightness
+          - label: Sleep timeout
+          - label: Feedback
+          - label: LED Feedback
+          - label: Name
+          - label: Active
+          - label: Inactive
+          - label: Label
+          - label: Widget
+          - label: Controls
+          - label: Columns
+          - label: Reversed
+          - label: Bank-scoped
+          - label: Editing bank
+      - title: Assignment editor
+        fields:
+          - label: Label
+          - label: MIDI Binding
+          - label: Ch
+          - label: OSC Binding
+          - label: Address
+          - label: Arg
+      - title: Action
+        fields:
+          - label: Target
+            key: target
+            type: option
+            options:
+              - (none — unassigned)
+              - Master Dimmer
+              - Audio Volume
+              - Fixture Intensity
+              - Fixture RGB — Red
+              - Fixture RGB — Green
+              - Fixture RGB — Blue
+              - Zone Intensity
+              - Control Value (Level)
+          - label: Fixture code / Zone code / Control Value
+            key: targetCode
+            type: text
+            help: 'Labeled by target: Zone code for Zone Intensity, Control Value (a dropdown) for Control Value (Level), otherwise Fixture code. Fixture and zone codes must match the code assigned in the fixture/zone editor.'
+            visibleWhen: Target is Fixture Intensity, Fixture RGB — Red, Fixture RGB — Green, Fixture RGB — Blue, Zone Intensity or Control Value (Level)
+          - label: Min value
+            key: minValue
+            type: number
+            help: Percent (0-100); on MIDI surfaces 0..1, mapped from CC 0.
+          - label: Max value
+            key: maxValue
+            type: number
+            help: Percent (0-100); on MIDI surfaces 0..1, mapped from CC 127.
+          - label: Inverted
+            key: inverted
+            type: bool
+      - title: Action
+        fields:
+          - label: Action Type
+            key: type
+            type: option
+            required: true
+            options:
+              - (No action)
+              - Apply Ambient Preset
+              - Apply Preset
+              - Audio Mute
+              - Blackout
+              - Control Value
+              - DMX Output
+              - Fade Out
+              - Fire Output Event
+              - Play Cue
+              - Play Sound
+              - Play Timeline
+              - Run Script
+              - Step Effect
+              - Stop
+              - Tap Tempo
+              - Toggle Schedule
+          - label: Target
+            key: playCode
+            type: option
+            visibleWhen: Action Type is Play Cue, Apply Preset, Play Sound, Play Timeline, Apply Ambient Preset, Toggle Schedule, Fire Output Event, Control Value, Run Script or Step Effect
+          - label: Press Mode
+            key: mode
+            type: option
+            required: true
+            options:
+              - Normal
+              - Toggle on/off
+              - Flash (hold)
+              - Momentary (release continues past Hold)
+            visibleWhen: Action Type is Play Cue, Apply Preset, Play Sound, Apply Ambient Preset or Play Timeline
+          - label: Set To
+            key: targetState
+            type: option
+            required: true
+            options:
+              - Toggle
+              - On
+              - Off
+            help: 'When Action Type = Audio Mute: On = audio muted, Off = audio unmuted, Toggle = flip the current state. When Action Type = Blackout: On = blackout engaged (every channel 0%, audio muted, playback keeps running underneath), Off = released, Toggle = flip the current state. Otherwise: On = DMX output enabled, Off = DMX output suppressed, Toggle = flip the current state.'
+            visibleWhen: Action Type is Audio Mute, DMX Output or Blackout
+          - label: AfterTouch scales dimmer
+            key: afterTouchDimmer
+            type: bool
+            visibleWhen: Action Type = Apply Preset and Press Mode = Flash (hold) (MIDI surface only)
+          - label: Fade-In Time (ms)
+            key: fadeInDurationMS
+            type: number
+            visibleWhen: Action Type is Play Cue, Apply Preset, Play Sound, Play Timeline or Apply Ambient Preset
+          - label: Fade-Out Time (ms)
+            key: fadeOutDurationMS
+            type: number
+            visibleWhen: Action Type is Play Cue, Apply Preset, Play Sound, Play Timeline, Apply Ambient Preset or Fade Out
+          - label: Dimmer
+            key: dimmerScale
+            type: range
+            visibleWhen: Action Type is Play Cue, Apply Preset, Play Timeline or Apply Ambient Preset
+          - label: Volume
+            key: volume
+            type: range
+            visibleWhen: Action Type is Play Sound or Play Timeline
+          - label: Loop (0 = forever)
+            key: loop
+            type: number
+            visibleWhen: Action Type is Play Cue or Play Sound
+          - label: Operation
+            key: controlValueOperation
+            type: option
+            required: true
+            options:
+              - Set value
+              - Up
+              - Down
+              - Toggle
+            visibleWhen: Action Type = Control Value
+          - label: Value
+            key: controlValueSetValue
+            type: text
+            visibleWhen: Action Type = Control Value and Operation = Set value
+          - label: Target Bank
+            key: targetBankIndex
+            type: option
+            visibleWhen: Action Type = Switch Bank (Non-MIDI surface only)
+          - label: Hold to confirm
+          - label: Appearance (LED feedback uses indicator colors)
+    actions:
+      - Export
+      - Operate
+      - Set up buttons
+      - Set up 8 buttons
+      - ↺
+      - Browse LAN for RTP-MIDI peers (mDNS)
+      - Browse LAN for Network MIDI 2 peers (mDNS)
+      - Scan the LAN for Key Digital KD-WP8 keypads.
+      - Force a fresh mDNS query — picks up docks that just appeared, drops stale entries.
+      - Add Bank
+      - Remove this bank
+      - Add Section
+      - Left
+      - Right
+      - Delete section
+      - Add
+      - Add Assignment
+      - Move up
+      - Move down
+      - Clear MIDI binding (assignment becomes web-only)
+      - Add MIDI Binding
+      - Clear OSC binding (assignment becomes web-only)
+      - Add OSC Binding
+      - Add Action
+      - Save
+      - Save & Go Back
+      - Delete
+      - Clear
+      - Close
+  - id: web/custommenus
+    path: Web > System > Control & Integrations > Custom Menus
+    route: /op/custommenus
+    source: src/AdminSite/ClientApp/src/views/operation/CustomMenus.vue
+    permission: CHANGECUSTOMMENU
+    columns:
+      - Name
+      - Subtitle
+      - Code
+      - Type
+      - Items
+      - Enabled
+      - Only admin
+      - Details
+    actions:
+      - Delete
+      - Add New
+  - id: web/custommenus/details
+    path: Web > System > Control & Integrations > Custom Menus > Details
+    route: /op/custommenus/:id
+    source: src/AdminSite/ClientApp/src/views/operation/CustomMenuDetails.vue
+    permission: CHANGECUSTOMMENU
+    sections:
+      - title: Details
+        fields:
+          - label: Internal Id
+            key: customMenuId
+            type: text
+            readOnly: true
+          - label: Code
+            key: code
+            type: text
+            help: 'Short code for linking directly to this menu, e.g. from a QR code posted on site: /op/custommenu?code=X (or /guest/custommenu?code=X for guest menus). Auto-generated, but can be changed. Letters, digits, dashes and underscores only; must be unique across menus. Leave empty to get a new auto-generated code on save.'
+          - label: Enabled
+            key: enabled
+            type: bool
+          - label: Only Admin
+            key: onlyAdmin
+            type: bool
+          - label: Available to Guests
+            key: availableToGuests
+            type: bool
+            help: When enabled, this menu is shown and fully interactive for anyone on the network without logging in. Guests can trigger the menu's actions and sliders. Only turn this on for menus you intend to expose publicly.
+          - label: Save timestamp
+            key: createdLastModifiedText
+            type: text
+            readOnly: true
+            visibleWhen: Item has been saved
+      - title: Menu
+        fields:
+          - label: Name
+            key: name
+            type: text
+            required: true
+          - label: Subtitle
+            key: subTitle
+            type: text
+          - label: Type
+            key: type
+            type: option
+            required: true
+            options:
+              - Unknown (pick a real type)
+              - Items (default)
+              - Items (small view)
+              - Faders (columns with sliders)
+          - label: Destination Code
+            key: destinationCode
+            type: text
+            visibleWhen: Type = Faders
+          - label: Icon
+            key: icon
+            type: text
+          - label: Logo
+            key: logo
+            type: text
+          - label: Logo Height (px)
+            key: logoHeight
+            type: number
+          - label: Background
+            key: background
+            type: text
+    actions:
+      - Export JSON
+      - Import JSON…
+      - Save
+      - Save & Go Back
+      - Delete
+  - id: web/controlvalues
+    path: Web > System > Control & Integrations > Control Values
+    route: /op/controlvalues
+    source: src/AdminSite/ClientApp/src/views/operation/ControlValues.vue
+    permission: EDITCONTROLVALUE
+    columns:
+      - Code / Short Name
+      - Name
+      - Kind
+      - Enabled
+      - Mapping
+      - Value
+      - Details
+    actions:
+      - Add New
+  - id: web/controlvalues/details
+    path: Web > System > Control & Integrations > Control Values > Details
+    route: /op/controlvalues/:id
+    source: src/AdminSite/ClientApp/src/views/operation/ControlValueDetails.vue
+    permission: EDITCONTROLVALUE
+    sections:
+      - title: Control Value Details
+        fields:
+          - label: Internal Id
+            key: controlValueId
+            type: text
+            readOnly: true
+          - label: Code / Short Name
+            key: code
+            type: text
+          - label: Name
+            key: name
+            type: text
+          - label: Enabled
+            key: enabled
+            type: bool
+          - label: Kind
+            key: kind
+            type: option
+            required: true
+            options:
+              - Level
+              - Selector
+              - Toggle
+            help: Level = continuous value like a volume fader. Selector = one of several named choices like a source input. Toggle = on/off like a mute.
+          - label: Plugin
+            key: pluginName
+            type: option
+            required: true
+          - label: Controller Number
+            key: controlId
+            type: text
+            help: 'When Plugin = SYMETRIX: The controller number assigned in SymNet Composer. When Plugin = QSYS: The named control id from Q-SYS Designer. Otherwise: The control id in the external processor.'
+          - label: Status Controller (optional)
+            key: statusControlId
+            type: text
+            help: Read state from a different controller than the one written to. Leave blank to read from the controller above. Use when a trigger writes one control but the real state is reported by another (e.g. a relay or wall panel).
+          - label: Step Size
+            key: stepSize
+            type: percentage
+            help: How much one Up/Down step moves the level, as a percentage of the full range.
+            visibleWhen: Kind = Level
+          - label: Linked Mute Controller
+            key: muteControlId
+            type: text
+            help: 'Optional: a mute controller linked to this level.'
+            visibleWhen: Kind = Level
+          - label: Unmute On Level Change
+            key: unmuteOnLevelChange
+            type: bool
+            visibleWhen: Kind = Level and not (not (Linked Mute Controller is on))
+          - label: Wrap Around
+            key: wrapSelector
+            type: bool
+            help: When enabled, Up past the last choice wraps to the first (and Down from the first wraps to the last). When disabled, Up/Down stops at the ends.
+            visibleWhen: Kind = Selector
+          - label: Created/Last modified
+            key: createdLastModifiedText
+            type: text
+            readOnly: true
+            visibleWhen: Item has been saved
+    actions:
+      - Add Choice
+      - Prefill Values
+      - Save
+      - Save & Go Back
+      - Delete
+  - id: web/oscclients
+    path: Web > System > Control & Integrations > OSC Clients
+    route: /op/oscclients
+    source: src/AdminSite/ClientApp/src/views/operation/OscClients.vue
+    permission: EDITREMOTECONTROL
+    columns:
+      - Name
+      - Source IP
+      - Feedback Port
+      - Enabled
+      - Messages
+      - Last Address
+      - Last Seen
+    actions:
+      - Configure
+      - Add New
+  - id: web/oscclients/details
+    path: Web > System > Control & Integrations > OSC Clients > Details
+    route: /op/oscclients/:id
+    source: src/AdminSite/ClientApp/src/views/operation/OscClientDetails.vue
+    permission: EDITREMOTECONTROL
+    sections:
+      - title: OSC Client
+        fields:
+          - label: Internal Id
+            key: oscClientId
+            type: text
+            readOnly: true
+          - label: Name
+            key: name
+            type: text
+            help: Human-friendly label, e.g. "FOH iPad".
+          - label: Any Source IP
+            key: anySource
+            type: bool
+            help: Accept OSC from any device on the network — useful when the controller gets its IP from DHCP, or when several devices share one layout. Feedback is sent to every device heard from in the last 5 minutes. Only one client can accept any source, and it only claims addresses its surface has assignments for; other OSC traffic still reaches Input Triggers.
+          - label: Source IP
+            key: sourceIp
+            type: text
+            required: true
+            help: IPv4 address of the device sending OSC. Must be unique across clients.
+            visibleWhen: not (Any Source IP is on)
+          - label: Feedback Port
+            key: feedbackPort
+            type: number
+            help: UDP port on the client to send feedback replies to. Leave blank for no feedback (surface still dispatches incoming events).
+          - label: Send device status updates
+            key: sendStatusUpdates
+            type: bool
+            help: Send this client the periodic device-status feedback stream (master dimmer, fixture RGB, playback status and cue, control levels). Replies go to the source port, or the Feedback Port when set. On the "Any Source IP" client this enables status for every connected device, unless a device matches a specific-IP client, which overrides it. Off by default.
+          - label: Feedback timeout (hours)
+            key: feedbackTimeoutHours
+            type: number
+            help: How long a device keeps receiving feedback after its last message. OSC has no connection, so a device that sits idle but is still on the wall would otherwise stop getting feedback. Default 24 hours; set 0 to never time out. Only applies to "Any Source IP" clients — specific-IP clients have a fixed destination and never time out.
+            visibleWhen: Any Source IP is on
+          - label: Enabled
+            key: enabled
+            type: bool
+    actions:
+      - Save
+      - Save & Go Back
+      - Delete
+  - id: web/settings/remotecontrol
+    path: Web > System > Control & Integrations > Remote Control
+    route: /op/settings/REMOTECONTROL
+    source: src/AdminSite/ClientApp/src/views/operation/Settings.vue
+    permission: EDITREMOTECONTROL
+    availableWhen:
+      - Remote control functionality not hidden
+      - Remote control feature enabled
+    sections:
+      - fields:
+          - label: Disable Remote
+            key: disableremote
+            property: HostConfig.DisableRemoteClient
+          - label: Remote Control Host
+            key: remotecontrolhost
+            property: HostConfig.RemoteControlServer
+  - id: web/settings/mqtt
+    path: Web > System > Control & Integrations > MQTT
+    route: /op/settings/MQTT
+    source: src/AdminSite/ClientApp/src/views/operation/Settings.vue
+    permission: CHANGESYSTEMSETTINGS
+    sections:
+      - fields:
+          - label: Enable External MQTT
+            key: enableexternalmqtt
+            property: HostConfig.ExternalMqttEnabled
+            help: "Appliance: Connect to an external MQTT broker instead of the appliance's built-in local broker. When disabled, the built-in broker is used. Otherwise: Connect to an external MQTT server. This installation has no built-in MQTT broker; when disabled, no MQTT connection is made."
+          - label: MQTT Server
+            key: mqttserver
+            property: HostConfig.ExternalMqttServer
+          - label: MQTT Port
+            key: mqttport
+            property: HostConfig.ExternalMqttPort
+          - label: MQTT Username
+            key: mqttusername
+            property: HostConfig.ExternalMqttUsername
+          - label: MQTT Password
+            key: mqttpassword
+            property: HostConfig.ExternalMqttPassword
+  - id: web/scripts
+    path: Web > System > Control & Integrations > Scripts
+    route: /op/scripts
+    source: src/AdminSite/ClientApp/src/views/operation/Scripts.vue
+    permission: EDITSCRIPT
+    columns:
+      - Code / Short Name
+      - Name
+      - Enabled
+      - Description
+      - Details
+    actions:
+      - Add New
+  - id: web/scripts/details
+    path: Web > System > Control & Integrations > Scripts > Details
+    route: /op/scripts/:id
+    source: src/AdminSite/ClientApp/src/views/operation/ScriptDetails.vue
+    permission: EDITSCRIPT
+    sections:
+      - title: Script Details
+        fields:
+          - label: Internal Id
+            key: scriptId
+            type: text
+            readOnly: true
+          - label: Code / Short Name
+            key: code
+            type: text
+          - label: Name
+            key: name
+            type: text
+          - label: Enabled
+            key: enabled
+            type: bool
+            help: Disabled scripts are not run by triggers or schedules. The Run button below always works, so a script can be tested before it is enabled.
+          - label: Description
+            key: description
+            type: text
+          - label: Timeout (seconds)
+            key: timeoutSeconds
+            type: number
+            help: Maximum wall-clock run time. Leave blank for the default (30 seconds); capped at 600 seconds. Sleep time counts toward the timeout.
+          - label: Created/Last modified
+            key: createdLastModifiedText
+            type: text
+            readOnly: true
+            visibleWhen: Item has been saved
+      - title: Source
+        fields:
+          - label: Test Payload (optional)
+            visibleWhen: 'Permission: EDITSCRIPT'
+    actions:
+      - Save
+      - Save & Go Back
+      - Run
+      - Stop
+      - Delete
+  - id: web/plugins
+    path: Web > System > Control & Integrations > Plugins
+    route: /op/plugins
+    source: src/AdminSite/ClientApp/src/views/operation/Plugins.vue
+    permission: CHANGEPLUGINSETTINGS
+    sections:
+      - title: Registry
+        fields:
+          - label: Package
+          - label: Auto-update
+          - label: Update policy
+          - label: Pre-release versions
+          - label: Offer pre-release plugin versions
+            type: bool
+          - label: Feeds
+    columns:
+      - Name
+      - Code
+      - Version
+      - State
+      - Enabled
+      - Actions
+      - Plugin
+      - Status
+    actions:
+      - Settings
+      - Delete
+      - Save Settings
+      - Upload
+      - Check for updates
+      - Registry settings
+      - Save
+      - Retry
+  - id: web/settings/system
+    path: Web > System > Device > System
+    route: /op/settings/SYSTEM
+    source: src/AdminSite/ClientApp/src/views/operation/Settings.vue
+    permission: CHANGESYSTEMSETTINGS
+    sections:
+      - fields:
+          - label: Timezone
+            key: timezone
+            property: HostConfig.DisplayTimeZone
+            type: option
+          - label: Location (latitude, longitude)
+            key: location
+            property: HostConfig.Location
+            help: 'Used to calculate sunrise and sunset for schedules. Enter as latitude, longitude - e.g. 30.2672, -97.7431. In Google Maps, right-click your location and click the coordinates to copy them. Link: Find your coordinates (latlong.net) (https://www.latlong.net/)'
+          - label: Language and Region
+            key: languageandregion
+            property: HostConfig.Culture
+            type: option
+            options:
+              - English (United States)
+              - English (Australia)
+              - English (Great Britain)
+          - label: Device Nickname
+            key: devicenickname
+            property: HostConfig.DeviceNickname
+          - label: Show Name
+            key: showname
+            property: HostConfig.ShowName
+          - label: Screen Unlock Pin
+            key: screenunlockpin
+            property: HostConfig.ScreenUnlockPin
+          - label: Fixed VNC Password
+            key: fixedvncpassword
+            property: HostConfig.FixedVncPassword
+          - label: Lock Screen after X seconds
+            key: lockscreenafterxseconds
+            property: HostConfig.LockScreenSeconds
+          - label: Control surface hold to confirm (ms)
+            key: controlsurfaceholdtoconfirm(ms)
+            property: HostConfig.HoldToConfirmMS
+            help: How long a control-surface button with Hold to confirm must be held before the action fires. Releasing early cancels. The web operator view asks Yes/No instead.
+          - label: Lock Down device
+            key: lockdowndevice
+            property: HostConfig.AdminLockDown
+          - label: Only show custom menu
+            key: onlyshowcustommenu
+            property: HostConfig.CustomMenuOnly
+          - label: Only allow admins to record
+            key: onlyallowadminstorecord
+            property: HostConfig.RecordOnlyForAdmin
+          - label: Allow stop output when locked down
+            key: allowstopoutputwhenlockeddown
+            property: HostConfig.StopOutputAvailableWhenLockDown
+          - label: Hide fixture functionality
+            key: hidefixturefunctionality
+            property: HostConfig.HideFixtureFeature
+          - label: Hide remote control functionality
+            key: hideremotecontrolfunctionality
+            property: HostConfig.HideRemoteControlFeature
+          - label: Multi-Zone Playback
+            key: multi-zoneplayback
+            property: HostConfig.EnableMultiZonePlayback
+          - label: Enable Remote Access
+            key: enableremoteaccess
+            property: HostConfig.TunnelProxyEnabled
+          - label: Enable MCP Server
+            key: enablemcpserver
+            property: HostConfig.McpServerEnabled
+            help: 'Expose a Model Context Protocol endpoint at /mcp so AI clients (Cursor, Claude, etc.) can control lights. Issue an MCP API key below or under User Management → API Keys, then use Authorization: Bearer <key> on /mcp. Off by default. Keep on a trusted LAN/VPN. See docs/mcp-server.md.'
+          - label: Enable Integration API
+            key: enableintegrationapi
+            property: HostConfig.IntegrationApiEnabled
+            help: 'Expose the versioned Integration API at /api/integration/v1 (HTTP + WebSocket) so external control systems such as Bitfocus Companion, Crestron or Node-RED can list cues and presets, execute them and receive live state. Issue an Integration API key below or under User Management → API Keys, then use Authorization: Bearer <key>. Off by default. Keep on a trusted LAN/VPN. See docs/integration-api.md.'
+          - label: OSC Port (requires restart)
+            key: oscport
+            property: HostConfig.OscPort
+          - label: Local HTTP Port (requires restart)
+            key: localhttpport
+            property: HostConfig.LocalHttpPort
+            visibleWhen: Not appliance
+          - label: Local HTTPS Port (requires restart)
+            key: localhttpsport
+            property: HostConfig.LocalHttpsPort
+            visibleWhen: Not appliance
+          - label: Audio Device
+            key: audiodevice
+            property: HostConfig.AudioDeviceId
+            type: option
+          - label: Disable Audio
+            key: disableaudio
+            property: HostConfig.DisableAudio
+          - label: Audio Sample Rate
+            key: audiosamplerate
+            property: HostConfig.AudioFrequency
+          - label: Update Channel
+            key: updatechannel
+            property: HostConfig.ReleaseChannel
+            type: option
+            visibleWhen: Desktop install with in-app updates (Velopack)
+  - id: web/network
+    path: Web > System > Device > Network
+    route: /op/network
+    source: src/AdminSite/ClientApp/src/views/operation/NetworkAdapters.vue
+    permission: CHANGENETWORKSETTINGS
+    availableWhen:
+      - Appliance (Balena)
+    sections:
+      - fields:
+          - label: Use DHCP
+            type: bool
+          - label: IP address
+          - label: Netmask
+          - label: Gateway
+          - label: Network name (SSID)
+          - label: Password
+    actions:
+      - Connect
+      - Forget
+      - Other network...
+      - Apply
+      - Cancel
+  - id: web/settings/preferences
+    path: Web > System > Device > Touchscreen
+    route: /op/settings/PREFERENCES
+    source: src/AdminSite/ClientApp/src/views/operation/Settings.vue
+    permission: CHANGEPREFERENCESETTINGS
+    sections:
+      - fields:
+          - label: Backlight brightness
+            key: backlightbrightness
+            property: HostConfig.BacklightBrightness
+          - label: Front LED brightness
+            key: frontledbrightness
+            property: HostConfig.FrontLedBrightness
+          - label: Dim Display after X seconds
+            key: dimdisplayafterxseconds
+            property: HostConfig.BacklightDurationSeconds1
+          - label: Turn Off Display after X seconds
+            key: turnoffdisplayafterxseconds
+            property: HostConfig.BacklightDurationSeconds2
+          - label: Wrap Navigation
+            key: wrapnavigation
+            property: HostConfig.WrapNavigationKnob
+          - label: Back button nav order
+            key: backbuttonnavorder
+            property: HostConfig.BackButtonLast
+          - label: Focus on Back button first
+            key: focusonbackbuttonfirst
+            property: HostConfig.BackButtonFocusFirst
+          - label: Display Name Instead of Code
+            key: displaynameinsteadofcode
+            property: HostConfig.DisplayNameInsteadOfCode
+          - label: Show Product Name when Idle
+            key: showproductnamewhenidle
+            property: HostConfig.ShowProductNameWhenIdle
+          - label: Always Display Play Details on Home Page
+            key: alwaysdisplayplaydetailsonhomepage
+            property: HostConfig.AlwaysDisplayPlayDetailsOnHomePage
+          - label: Default player control to be visible
+            key: defaultplayercontroltobevisible
+            property: HostConfig.DefaultPlayerControlVisible
+          - label: Display Host Name
+            key: displayhostname
+            property: HostConfig.DisplayHostName
+  - id: web/settings/installer
+    path: Web > System > Device > Installer
+    route: /op/settings/INSTALLER
+    source: src/AdminSite/ClientApp/src/views/operation/Settings.vue
+    permission: CHANGESYSTEMSETTINGS
+    sections:
+      - fields:
+          - label: Name
+            key: name
+            property: HostConfig.InstallerName
+          - label: Info 1
+            key: info1
+            property: HostConfig.InstallerInfo1
+          - label: Info 2
+            key: info2
+            property: HostConfig.InstallerInfo2
+  - id: web/settings/whitelabel
+    path: Web > System > Device > White Label
+    route: /op/settings/WHITELABEL
+    source: src/AdminSite/ClientApp/src/views/operation/Settings.vue
+    permission: CHANGESYSTEMSETTINGS
+    availableWhen:
+      - White-label license
+      - White label license
+    sections:
+      - fields:
+          - label: White Label Enabled
+            key: whitelabelenabled
+            property: HostConfig.WhiteLabelEnabled
+            visibleWhen: White label settings not locked
+          - label: Product Name
+            key: productname
+            property: HostConfig.ProductName
+            visibleWhen: White label settings not locked
+          - label: Product Url
+            key: producturl
+            property: HostConfig.ProductUrl
+            visibleWhen: White label settings not locked
+          - label: Copyright
+            key: copyright
+            property: HostConfig.Copyright
+            visibleWhen: White label settings not locked
+          - label: Manufacturer Name
+            key: manufacturername
+            property: HostConfig.ManufacturerName
+            visibleWhen: White label settings not locked
+          - label: Manufacturer Url
+            key: manufacturerurl
+            property: HostConfig.ManufacturerUrl
+            visibleWhen: White label settings not locked
+          - label: Support Url
+            key: supporturl
+            property: HostConfig.SupportUrl
+            visibleWhen: White label settings not locked
+          - label: Show Custom Sample Links
+            key: showcustomsamplelinks
+            property: HostConfig.ShowCustomSampleLinks
+            visibleWhen: White label settings not locked
+          - label: White Label Settings Locked
+            key: whitelabelsettingslocked
+            property: HostConfig.WhiteLabelLocked
+  - id: web/utilities/auditlog
+    path: Web > System > Utilities > Audit Log
+    route: /op/utilities/auditlog
+    source: src/AdminSite/ClientApp/src/views/operation/AuditLog.vue
+    permission: VIEWAUDITLOG
+    columns:
+      - Date
+      - Event
+      - Source
+      - User
+      - Client IP
+      - Target
+    actions:
+      - Refresh
+      - Download CSV
+  - id: web/device-monitor
+    path: Web > System > Utilities > Device Monitor
+    route: /op/device-monitor
+    source: src/AdminSite/ClientApp/src/views/operation/DeviceMonitor.vue
+    summary: A Monitored Devices table with status and last seen, per-device Status, Check Now, Edit and Delete, and an Add Manual Monitor dialog (device type, host or IP address, name, check interval). The Discover Devices card scans the network and lets you Monitor each found device.
+    sections:
+      - title: Edit Monitored Device
+        fields:
+          - label: Name
+          - label: API Password
+          - label: Check method
+          - label: Check interval (seconds)
+          - label: Enabled
+            type: bool
+          - label: Expose web UI via tunnel
+            type: bool
+      - title: Add Manual Monitor
+        fields:
+          - label: Device type
+          - label: Host or IP address
+          - label: Name (optional)
+          - label: Check interval (seconds)
+    columns:
+      - Name
+      - Type
+      - Address
+      - Status
+      - Last Seen
+      - Actions
+    actions:
+      - Add Manual Monitor
+      - Status
+      - Check Now
+      - Edit
+      - Delete
+      - Monitor
+      - Monitored
+      - Cancel
+      - Save
+      - Add
+  - id: web/device-monitor/details
+    path: Web > System > Utilities > Device Monitor > Device Status
+    route: /op/device-monitor/:key
+    source: src/AdminSite/ClientApp/src/views/operation/DeviceStatus.vue
+    summary: 'Device Status for one device: name, model, firmware, IP and MAC address, supported protocols, a ports table, electrical details and RDM devices with sensor values, with Refresh and Back. Start monitoring / Stop monitoring controls whether the device is monitored; monitored devices can also watch the firmware version and individual values.'
+    sections:
+      - title: Device Status
+        fields:
+          - label: Expose web UI via tunnel
+            type: bool
+          - label: Monitor firmware version
+            type: bool
+    actions:
+      - Back
+      - Refresh
+      - Save password
+      - Start monitoring
+      - Stop monitoring
+      - Re-snapshot
+  - id: web/utilities/outputmonitor
+    path: Web > System > Utilities > Output Monitor
+    route: /op/utilities/outputmonitor
+    source: src/AdminSite/ClientApp/src/views/operation/OutputMonitor.vue
+    summary: Live view of what the device is sending, with no settings. Start Monitor / Stop Monitor toggles monitoring; while active, pick one of the Configured Slots to see its channel values drawn as a grid (hover a channel for its value) and the outputs that slot is sent to.
+  - id: web/utilities/record
+    path: Web > System > Utilities > Record
+    route: /op/utilities/record
+    source: src/AdminSite/ClientApp/src/views/operation/Record.vue
+    permission: RECORD
+    columns:
+      - Slot Id
+    actions:
+      - Record Config
+      - Enable Recorder
+      - Disable Recorder
+      - Preview
+      - Abort
+      - Manual Trigger
+      - Save Dynamic Cue
+      - Save Static Cue
+      - Restart
+  - id: web/utilities/record/recordconfig/details
+    path: Web > System > Utilities > Record > Record Config > Details
+    route: /op/utilities/record/recordconfig/:id
+    source: src/AdminSite/ClientApp/src/views/operation/InputMappingDetails.vue
+    permission: RECORD
+    sections:
+      - title: Input Mapping Details
+        fields:
+          - label: Internal Id
+            key: inputMappingId
+            type: text
+            readOnly: true
+          - label: Protocol
+            key: portType
+            type: option
+            options:
+              - sACN / E1.31
+              - Art-Net
+              - DMX Serial
+            help: The protocol this row receives on. Every protocol that has rows listens, so a console on sACN and one on Art-Net can both be routed at the same time. A recording still captures one protocol, chosen on the Inputs page.
+          - label: Start Universe Id
+            key: startUniverseId
+            type: number
+            help: 'The received universe, in the notation of the protocol above (Art-Net counts from 0). On DMX Serial it is the board port number: 1 = port A, 2 = port B.'
+          - label: Universe Count
+            key: universeCount
+            type: number
+          - label: Start Slot Id
+            key: startCosmosId
+            type: number
+            help: The slot id the received universe lands on. Slot ranges must not overlap between rows on different protocols — a recording and the merge both key on the slot id.
+    actions:
+      - Save
+      - Save & Go Back
+      - Delete
+  - id: web/utilities/record/recordconfig
+    path: Web > System > Utilities > Record > Record Config
+    route: /op/utilities/record/recordconfig
+    source: src/AdminSite/ClientApp/src/views/operation/RecordConfig.vue
+    permission: RECORD
+    columns:
+      - Name
+      - Description
+      - Details
+    actions:
+      - Add New
+  - id: web/utilities/releases
+    path: Web > System > Utilities > Releases
+    route: /op/utilities/releases
+    source: src/AdminSite/ClientApp/src/views/operation/Releases.vue
+    availableWhen:
+      - Releases available for this deployment
+    columns:
+      - Release Date
+  - id: web/utilities/system
+    path: Web > System > Utilities > System
+    route: /op/utilities/system
+    source: src/AdminSite/ClientApp/src/views/operation/Utilities.vue
+    sections:
+      - title: System Utilities
+        fields:
+          - label: Blink
+            type: bool
+      - title: Internet Passthrough
+        fields:
+          - label: IP address
+          - label: Port
+          - label: Username (only if the helper requires it)
+          - label: Password
+    actions:
+      - Take Screenshot
+      - Download Log (text)
+      - Download Log (SEQ)
+      - Set System Clock from browser
+      - Regenerate VNC Password
+      - Restart
+      - Reboot
+      - Re-initialize Ports
+      - Cleanup Files
+      - Factory Reset
+      - Deactivate
+      - Activate
+  - id: web/backuprestore
+    path: Web > System > Backup & Restore
+    route: /op/backuprestore
+    source: src/AdminSite/ClientApp/src/views/operation/BackupRestore.vue
+    actions:
+      - Backup to Cloud
+      - Backup to Local
+      - Download Backup
+      - Save System State
+      - Restore backup
+      - Create Demo Data
+  - id: web/backuprestore/listbackups
+    path: Web > System > Backup & Restore > List Backups
+    route: /op/backuprestore/listbackups
+    source: src/AdminSite/ClientApp/src/views/operation/ListBackups.vue
+    sections:
+      - title: List of backups
+        fields:
+          - label: Drag and drop a file here, or click to select a file
+      - title: Custom Device Serial
+        fields:
+          - label: Device Serial
+    columns:
+      - Filename
+    actions:
+      - Local
+      - Cloud
+      - Custom Cloud
+      - Refresh
+      - Upload
+      - Search
+      - Cancel
+      - Restore
+  - id: web/backuprestore/demodata
+    path: Web > System > Backup & Restore > Demo Data
+    route: /op/backuprestore/demodata
+    source: src/AdminSite/ClientApp/src/views/operation/DemoData.vue
+    summary: Adds bundled demo content to the device, with no settings. Filter by Preset, Cue, Sound or Effect, tick items in the table (Type, Name, Size, Duration) and press Create Selected. Requires the CREATEDEMODATA permission.
+  - id: web/fileexplorer
+    path: Web > System > File Explorer
+    route: /op/fileexplorer
+    source: src/AdminSite/ClientApp/src/views/operation/FileExplorer.vue
+    permission: FILEEXPLORER
+    summary: Browse the Backup, Images and Transfer folders in a sortable file table. Each file has an Action dropdown for file-specific actions (such as restore) and a menu with Download, Move to..., Rename and Delete; a file picker with Upload adds files. Each action needs its own File Explorer permission.
+    sections:
+      - title: Rename File
+        fields:
+          - label: New Name
+      - title: Move File
+        fields:
+          - label: Move " " to
+          - label: Drag and drop a file here, or click to select a file
+            visibleWhen: 'Permission: FILEEXPLORERUPLOAD or FILEEXPLORERUPLOADTRANSFER'
+    columns:
+      - Filename
+      - Size
+    actions:
+      - Backup
+      - Images
+      - Transfer
+      - Refresh
+      - Download
+      - Move to...
+      - Rename
+      - Delete
+      - Cancel
+      - Move
+      - Upload
+      - Restore
+  - id: web/users
+    path: Web > System > User Management > Users
+    route: /op/users
+    source: src/AdminSite/ClientApp/src/views/operation/Users.vue
+    permission: USERMANAGEMENT
+    columns:
+      - Role Name
+      - Enabled
+      - Details
+    actions:
+      - Add New
+  - id: web/users/details
+    path: Web > System > User Management > Users > Details
+    route: /op/users/:id
+    source: src/AdminSite/ClientApp/src/views/operation/UserDetails.vue
+    permission: USERMANAGEMENT
+    sections:
+      - title: User Details
+        fields:
+          - label: Internal Id
+            key: userId
+            type: text
+            readOnly: true
+          - label: Name
+            key: name
+            type: text
+          - label: Enabled
+            key: enabled
+            type: bool
+          - label: Auto log-off, minutes (0=never)
+            key: autoLogOffMinutes
+            type: number
+          - label: Sort Order
+            key: sortOrder
+            type: number
+          - label: Pin
+            key: pin
+            type: number
+          - label: Web Login Method
+            key: authMethod
+            type: option
+            options:
+              - PIN code
+              - Password
+          - label: Role
+            key: roleId
+            type: option
+          - label: Save timestamp
+            key: createdLastModifiedText
+            type: text
+            readOnly: true
+            visibleWhen: Item has been saved
+      - title: User Tokens
+        fields:
+          - label: Name
+          - label: Enabled
+            type: bool
+          - label: Token
+    columns:
+      - Name
+      - Token
+      - Enabled
+      - Actions
+    actions:
+      - Add New Token
+      - Cancel
+      - OK
+      - Save
+      - Save & Go Back
+      - Delete
+  - id: web/roles
+    path: Web > System > User Management > Roles
+    route: /op/roles
+    source: src/AdminSite/ClientApp/src/views/operation/Roles.vue
+    permission: USERMANAGEMENT
+    columns:
+      - Details
+    actions:
+      - Add New
+  - id: web/roles/details
+    path: Web > System > User Management > Roles > Details
+    route: /op/roles/:id
+    source: src/AdminSite/ClientApp/src/views/operation/RoleDetails.vue
+    permission: USERMANAGEMENT
+    sections:
+      - title: Role Details
+        fields:
+          - label: Internal Id
+            key: roleId
+            type: text
+            readOnly: true
+          - label: Name
+            key: name
+            type: text
+          - label: Is Admin
+            key: isAdmin
+            type: bool
+          - label: Permissions
+            key: permissions
+            type: boolarray
+            visibleWhen: not (Is Admin is on)
+          - label: Save timestamp
+            key: createdLastModifiedText
+            type: text
+            readOnly: true
+            visibleWhen: Item has been saved
+    actions:
+      - Save
+      - Save & Go Back
+      - Delete
+  - id: web/apikeys
+    path: Web > System > User Management > API Keys
+    route: /op/apikeys
+    source: src/AdminSite/ClientApp/src/views/operation/ApiKeys.vue
+    permission: USERMANAGEMENT
+    columns:
+      - Created
+      - First used
+      - Last used
+    actions:
+      - Revoke
+      - Create API Key
+  - id: web/login
+    path: Web > Login
+    route: /login
+    source: src/AdminSite/ClientApp/src/views/pages/Login.vue
+    actions:
+      - Back
+      - Login
+  - id: web/recover-pin
+    path: Web > Reset Admin PIN
+    route: /recover-pin
+    source: src/AdminSite/ClientApp/src/views/pages/RecoverPin.vue
+    actions:
+      - Go to login
+      - Back
+      - Reset PIN
+  - id: web/configissues
+    path: Web > Configuration Issues
+    route: /configissues
+    source: src/AdminSite/ClientApp/src/views/pages/ConfigIssues.vue
+    summary: 'Read-only System Configuration Status list, with no settings: each configuration check shows a severity badge (OK, Info, Warning, Critical, Unable to check) and, when not OK, a short description of the problem. A Troubleshooting Docs button appears when there are issues (not on white label devices).'
+  - id: web/guest/custommenu
+    path: Web > Custom Menu
+    route: /guest/custommenu
+    source: src/AdminSite/ClientApp/src/views/operation/CustomMenu.vue
+    summary: 'The custom menu for guests without a login: only menus marked as available to guests are shown. The header has a Login button.'
+  - id: web/settings/network
+    path: Web > System > Settings > Network
+    route: /op/settings/NETWORK
+    source: src/Shared/Controllers/WebsiteController.Settings.cs
+    permission: ChangeNetworkSettings
+    availableWhen:
+      - Appliance
+    sections:
+      - fields:
+          - label: Override Host Name (will restart)
+            key: overridehostname
+            property: HostConfig.OverrideHostName
+          - label: Custom NTP Server
+            key: customntpserver
+            property: HostConfig.CustomNtpServer
+          - label: Enable Internet Passthrough
+            key: enableinternetpassthrough
+            property: HostConfig.InternetPassthroughEnabled
+            help: Show the Internet Passthrough card on the Utilities page, which temporarily routes all device internet traffic through a computer running the DMX Core Connect app. Most installations don't need this.
+  - id: web/settings/advanced
+    path: Web > System > Settings > Advanced
+    route: /op/settings/ADVANCED
+    source: src/Shared/Controllers/WebsiteController.Settings.cs
+    permission: ChangeSystemSettings
+    sections:
+      - fields:
+          - label: Hide on-screen clock
+            key: hideon-screenclock
+            property: HostConfig.HideOnScreenClock
+  - id: uno/home
+    path: Uno > Home
+    source: src/UnoHost/ViewModels/HomeViewModel.cs
+    summary: The start screen of the touchscreen. It shows the product logo and, while something plays, the player details (output, position and duration). The menu button opens the Main Menu; buttons open the Web UI, Getting started and, when there are any, the configuration issues.
+    actions:
+      - Open Web UI
+      - Getting started
+    items:
+      - name: Main Menu
+        description: The menu button in the corner
+        opens: uno/mainmenu
+      - name: Config issues detected
+        opens: uno/utilities/view config status
+        availableWhen:
+          - Configuration issues exist
+  - id: uno/mainmenu
+    path: Uno > Main Menu
+    source: src/UnoHost/Services/MenuManager.cs
+    items:
+      - name: Cues
+        description: Display all cues
+        opens: uno/cues
+        availableWhen:
+          - Lighting license
+          - Output configured
+          - Cues exist
+      - name: Sounds
+        description: Display all sounds
+        opens: uno/sounds
+        availableWhen:
+          - Lighting license
+          - Output configured
+          - Sounds exist
+      - name: Timelines
+        description: Display all timelines
+        opens: uno/timelines
+        availableWhen:
+          - Lighting license
+          - Output configured
+          - Timelines exist
+      - name: Presets
+        description: Display all presets
+        opens: uno/presets
+        availableWhen:
+          - Lighting license
+          - Output configured
+          - Enabled fixtures exist
+          - Fixture feature enabled
+          - Presets exist
+      - name: Fixture Control
+        description: Control light fixtures
+        opens: uno/fixture control
+        availableWhen:
+          - Lighting license
+          - Output configured
+          - Enabled fixtures exist
+          - Fixture feature enabled
+      - name: No output
+        description: No output configured
+        availableWhen:
+          - Lighting license
+          - No output configured
+      - name: Settings
+        description: Configure system settings
+        opens: uno/settings
+      - name: Utilities
+        description: Utilities and Tools
+        opens: uno/utilities
+      - name: About
+        description: About this system
+        opens: uno/about
+      - name: Help
+        description: Support and documentation
+        opens: uno/help
+  - id: uno/cues
+    path: Uno > Cues
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Lighting license
+      - Output configured
+      - Cues exist
+    items:
+      - name: '{cue}'
+        description: Hold to open its settings
+        opens: uno/cues/{cue}
+  - id: uno/cues/{cue}
+    path: Uno > Cues > {cue}
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - 'Permission: EditCue or Normal user who recorded this cue'
+    sections:
+      - fields:
+          - label: Internal Id
+            readOnly: true
+          - label: Code
+            property: Cue.Code
+          - label: Name
+            property: Cue.Name
+          - label: Description
+            property: Cue.Description
+          - label: Type
+            readOnly: true
+          - label: Save timestamp
+            readOnly: true
+          - label: Only Admin
+            property: Cue.OnlyAdmin
+          - label: Bounce Playback
+            property: Cue.Bounce
+            visibleWhen: 'Cue type: Capture'
+          - label: In-point, ms
+            property: Cue.InPointMS
+            visibleWhen: 'Cue type: Capture'
+          - label: Out-point, ms
+            property: Cue.OutPointMS
+            visibleWhen: 'Cue type: Capture'
+          - label: File Duration
+            readOnly: true
+            visibleWhen: 'Cue type: Capture'
+          - label: Frequency
+            readOnly: true
+            visibleWhen: 'Cue type: Capture and Frame rate known'
+          - label: Sound
+            property: Cue.SoundId
+            type: option
+            visibleWhen: Sounds exist
+          - label: Sound Loop (0=forever)
+            property: Cue.SoundLoop
+            visibleWhen: Sounds exist
+          - label: Restart Sound at Loop
+            property: Cue.RestartSoundAtLoop
+            visibleWhen: 'Sounds exist and Cue type: Capture'
+          - label: Sound Volume Adjustment
+            property: Cue.SoundVolume
+            visibleWhen: Sounds exist
+          - label: Sound offset, ms
+            property: Cue.SoundOffsetMS
+            visibleWhen: Sounds exist
+          - label: Dimmer
+            property: Cue.Dimmer
+          - label: Used Slot/Universe Ids
+            readOnly: true
+          - label: Bytes
+            readOnly: true
+          - label: Zone
+            property: Cue.ZoneId
+            type: option
+            visibleWhen: Zones exist and Multi-zone playback enabled
+    actions:
+      - 'Analyze (Cue type: Capture)'
+      - 'Normalize Slot Ids (confirm; Permission: ProcessCues)'
+      - 'Trim black start/end (confirm; Permission: ProcessCues; Cue type: Capture)'
+      - 'Quantize timing (confirm; Permission: ProcessCues; Cue type: Capture)'
+      - 'Build Cue Fade Mask (confirm; Permission: ProcessCues)'
+      - 'Delete Cue (confirm; Permission: DeleteCue or Normal user who recorded this cue)'
+  - id: uno/sounds
+    path: Uno > Sounds
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Lighting license
+      - Output configured
+      - Sounds exist
+    items:
+      - name: '{sound}'
+        description: Hold to open its settings
+        opens: uno/sounds/{sound}
+  - id: uno/sounds/{sound}
+    path: Uno > Sounds > {sound}
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - 'Permission: EditSound'
+    sections:
+      - fields:
+          - label: Internal Id
+            readOnly: true
+          - label: Code
+            property: Sound.Code
+          - label: Name
+            property: Sound.Name
+          - label: Description
+            property: Sound.Description
+          - label: Save timestamp
+            readOnly: true
+          - label: Only Admin
+            property: Sound.OnlyAdmin
+          - label: Volume Adjustment
+            property: Sound.Volume
+          - label: In-point, ms
+            property: Sound.InPointMS
+          - label: Out-point, ms
+            property: Sound.OutPointMS
+          - label: File Duration
+            readOnly: true
+          - label: Bytes
+            readOnly: true
+          - label: Format
+            readOnly: true
+          - label: Channels
+            readOnly: true
+          - label: Used by
+            readOnly: true
+            visibleWhen: Sound used by cues
+    actions:
+      - 'Delete Sound (confirm; Permission: DeleteSound)'
+  - id: uno/timelines
+    path: Uno > Timelines
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Lighting license
+      - Output configured
+      - Timelines exist
+    items:
+      - name: '{timeline}'
+        description: Hold to open its settings
+        opens: uno/timelines/{timeline}
+  - id: uno/timelines/{timeline}
+    path: Uno > Timelines > {timeline}
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - 'Permission: EditTimeline'
+    sections:
+      - fields:
+          - label: Internal Id
+            readOnly: true
+          - label: Code
+            property: Timeline.Code
+          - label: Name
+            property: Timeline.Name
+          - label: Description
+            property: Timeline.Description
+          - label: Save timestamp
+            readOnly: true
+          - label: Only Admin
+            property: Timeline.OnlyAdmin
+          - label: Loop (0=forever)
+            property: Timeline.Loop
+          - label: Duration
+            readOnly: true
+    actions:
+      - 'Delete Timeline (confirm; Permission: DeleteTimeline)'
+  - id: uno/presets
+    path: Uno > Presets
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Lighting license
+      - Output configured
+      - Enabled fixtures exist
+      - Fixture feature enabled
+      - Presets exist
+    items:
+      - name: '{preset}'
+        description: Hold to open its settings
+        opens: uno/presets/{preset}
+  - id: uno/presets/{preset}
+    path: Uno > Presets > {preset}
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - 'Permission: EditPreset'
+    sections:
+      - fields:
+          - label: Internal Id
+            readOnly: true
+          - label: Code
+            property: Preset.Code
+          - label: Name
+            property: Preset.Name
+          - label: Save timestamp
+            readOnly: true
+          - label: Only Admin
+            property: Preset.OnlyAdmin
+          - label: Release at end
+            property: Preset.ReleaseAtEnd
+          - label: Is Ambient
+            property: Preset.IsAmbient
+          - label: Description
+            readOnly: true
+    actions:
+      - Remove unused fixtures (confirm; Preset has fixture or zone entries)
+      - 'Delete Preset (confirm; Permission: DeletePreset)'
+  - id: uno/fixture control
+    path: Uno > Fixture Control
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Lighting license
+      - Output configured
+      - Enabled fixtures exist
+      - Fixture feature enabled
+    items:
+      - name: Master Dimmer
+      - name: Fade to black
+        description: Fade master dimmer to black
+      - name: Fade to 100%
+        description: Fade master dimmer to 100%
+      - name: Effect
+        description: Apply effect globally
+        opens: uno/fixture control/effect
+      - name: '{zone}'
+        opens: uno/fixture control/{zone}
+      - name: '{fixture}'
+        opens: uno/fixture control/{fixture}
+      - name: New Preset
+        description: Save as new preset
+  - id: uno/fixture control/effect
+    path: Uno > Fixture Control > Effect
+    source: src/UnoHost/Services/MenuManager.cs
+    items:
+      - name: None
+        description: Turn off effects
+      - name: '{effect}'
+  - id: uno/fixture control/{zone}
+    path: Uno > Fixture Control > {zone}
+    source: src/UnoHost/Services/MenuManager.cs
+    items:
+      - name: Zone Dimmer
+      - name: Fade to black
+        description: Fade zone dimmer to black
+      - name: Fade to 100%
+        description: Fade zone dimmer to 100%
+      - name: Effect
+        description: Apply effect to zone
+        opens: uno/fixture control/{zone}/effect
+      - name: '{fixture}'
+        opens: uno/fixture control/{zone}/{fixture}
+  - id: uno/fixture control/{zone}/effect
+    path: Uno > Fixture Control > {zone} > Effect
+    source: src/UnoHost/Services/MenuManager.cs
+    items:
+      - name: None
+        description: Turn off zone effect
+      - name: '{effect}'
+  - id: uno/fixture control/{zone}/{fixture}
+    path: Uno > Fixture Control > {zone} > {fixture}
+    source: src/UnoHost/ViewModels/FixtureControlViewModel.cs
+    summary: 'Direct control of one light fixture: dimmer, color and the other functions of its fixture profile (functions hidden on the fixture are left out).'
+  - id: uno/fixture control/{fixture}
+    path: Uno > Fixture Control > {fixture}
+    source: src/UnoHost/ViewModels/FixtureControlViewModel.cs
+    summary: 'Direct control of one light fixture: dimmer, color and the other functions of its fixture profile (functions hidden on the fixture are left out).'
+  - id: uno/settings
+    path: Uno > Settings
+    source: src/UnoHost/Services/MenuManager.cs
+    items:
+      - name: System Settings
+        description: Configure system settings
+        opens: uno/settings/system settings
+        availableWhen:
+          - 'Any permission: ChangeNetworkSettings, ChangeOutputSettings, ChangeSystemSettings, ChangePreferenceSettings, ChangeUserSettings, ChangePluginSettings'
+      - name: Screen Unlock Pin
+        description: Change/Set screen unlock pin
+        availableWhen:
+          - 'Permission: ChangeScreenUnlockPin'
+      - name: Inputs
+        description: Input protocol, mapping and routing
+        opens: uno/settings/inputs
+        availableWhen:
+          - Not remote client mode
+          - Lighting license
+          - 'Permission: EditOutput or Permission: DeleteOutput'
+      - name: Output Configuration
+        description: Configure output mapping
+        opens: uno/settings/output configuration
+        availableWhen:
+          - Not remote client mode
+          - Lighting license
+          - 'Permission: EditOutput or Permission: DeleteOutput'
+      - name: Input Triggers
+        description: Configure input triggers
+        opens: uno/settings/input triggers
+        availableWhen:
+          - Not remote client mode
+          - Lighting license
+          - 'Permission: EditInputTrigger'
+      - name: Output Events
+        description: Configure output events
+        opens: uno/settings/output events
+        availableWhen:
+          - Not remote client mode
+          - Lighting license
+          - 'Permission: EditOutputEvent'
+      - name: Zones
+        description: Configure zones
+        opens: uno/settings/zones
+        availableWhen:
+          - Not remote client mode
+          - Lighting license
+          - 'Permission: EditFixtures and Fixture feature enabled or Permission: EditZones and Multi-zone playback enabled'
+      - name: Cue Fade Masks
+        description: Configure cue fade masks
+        opens: uno/settings/cue fade masks
+        availableWhen:
+          - Not remote client mode
+          - Lighting license
+          - 'Permission: EditCueFadeMasks'
+      - name: Fixtures
+        description: Configure fixtures
+        opens: uno/settings/fixtures
+        availableWhen:
+          - Not remote client mode
+          - Lighting license
+          - 'Permission: EditFixtures'
+          - Fixture feature enabled
+      - name: Remote Control Clients
+        description: Configure Remote Controls
+        opens: uno/settings/remote control clients
+        availableWhen:
+          - Not remote client mode
+          - 'Permission: EditRemoteControl'
+          - Remote control feature enabled
+  - id: uno/settings/system settings
+    path: Uno > Settings > System Settings
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - 'Any permission: ChangeNetworkSettings, ChangeOutputSettings, ChangeSystemSettings, ChangePreferenceSettings, ChangeUserSettings, ChangePluginSettings'
+    summary: Device-wide settings grouped under headers (Network, Remote Control, Protocol, System, Audio, Software Updates, Preferences, User Settings). Which groups appear depends on the signed-in user's permissions and on the platform.
+    sections:
+      - title: Date / Time
+        fields:
+          - label: Current Date
+            visibleWhen: Appliance and Time not synchronized
+          - label: Current Time
+            visibleWhen: Appliance and Time not synchronized
+      - title: Network
+        fields:
+          - label: Override Host Name*
+            property: HostConfig.OverrideHostName
+            visibleWhen: 'Permission: ChangeNetworkSettings and Appliance'
+          - label: Custom NTP Server
+            property: HostConfig.CustomNtpServer
+            visibleWhen: 'Permission: ChangeNetworkSettings and Appliance'
+      - title: Remote Control
+        fields:
+          - label: Disable Remote
+            property: HostConfig.DisableRemoteClient
+            visibleWhen: 'Permission: ChangeNetworkSettings and Remote control feature enabled'
+          - label: Remote Control Host
+            property: HostConfig.RemoteControlServer
+            visibleWhen: 'Permission: ChangeNetworkSettings and Remote control feature enabled'
+      - title: Protocol
+        fields:
+          - label: Output Frequency
+            property: OutputConfig.OutputFrequencyInt
+            visibleWhen: 'Not remote client mode and Lighting license and Permission: ChangeOutputSettings'
+          - label: Optimize Send
+            property: OutputConfig.OptimizeSend
+            visibleWhen: 'Not remote client mode and Lighting license and Permission: ChangeOutputSettings'
+          - label: Passthru function
+            property: OutputConfig.SerialPassthruFunction
+            visibleWhen: 'Not remote client mode and Lighting license and Permission: ChangeOutputSettings and DMX board with firmware passthrough present'
+          - label: Master Dimmer Cue Control
+            property: OutputConfig.MasterDimmerAppliedToCues
+            visibleWhen: 'Not remote client mode and Lighting license and Permission: ChangeOutputSettings'
+          - label: End of Data
+            property: OutputConfig.EndOfDataOperation
+            visibleWhen: 'Not remote client mode and Lighting license and Permission: ChangeOutputSettings'
+      - title: System
+        fields:
+          - label: Timezone
+            property: HostConfig.DisplayTimeZone
+            type: option
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: Language and Region
+            property: HostConfig.Culture
+            type: option
+            options:
+              - English (United States)
+              - English (Australia)
+              - English (Great Britain)
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: Device Nickname
+            property: HostConfig.DeviceNickname
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: Show Name
+            property: HostConfig.ShowName
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: Screen Unlock Pin
+            property: HostConfig.ScreenUnlockPin
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: Current VNC password
+            readOnly: true
+            visibleWhen: 'Permission: ChangeSystemSettings and Appliance and No fixed VNC password set'
+          - label: Fixed VNC Password
+            property: HostConfig.FixedVncPassword
+            visibleWhen: 'Permission: ChangeSystemSettings and Appliance'
+          - label: Screen lock timeout
+            property: HostConfig.LockScreenSeconds
+            help: Lock screen after X seconds (0 to disable)
+            visibleWhen: 'Permission: ChangeSystemSettings and Appliance'
+          - label: Lock Down device
+            property: HostConfig.AdminLockDown
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: Only show custom menu
+            property: HostConfig.CustomMenuOnly
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: Only allow admins to record
+            property: HostConfig.RecordOnlyForAdmin
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: Allow stop output when locked down
+            property: HostConfig.StopOutputAvailableWhenLockDown
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: Hide fixture functionality
+            property: HostConfig.HideFixtureFeature
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: Hide remote control functionality
+            property: HostConfig.HideRemoteControlFeature
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: Multi-Zone Playback
+            property: HostConfig.EnableMultiZonePlayback
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: Enable Remote Access
+            property: HostConfig.TunnelProxyEnabled
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: OSC Port
+            property: HostConfig.OscPort
+            help: OSC Port (requires restart)
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: Local HTTP Port
+            property: HostConfig.LocalHttpPort
+            help: Local HTTP Port (requires restart)
+            visibleWhen: 'Permission: ChangeSystemSettings and Not appliance'
+          - label: Local HTTPS Port
+            property: HostConfig.LocalHttpsPort
+            help: Local HTTPS Port (requires restart)
+            visibleWhen: 'Permission: ChangeSystemSettings and Not appliance'
+      - title: Audio
+        fields:
+          - label: Audio Device
+            property: HostConfig.AudioDeviceId
+            type: option
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: Disable Audio
+            property: HostConfig.DisableAudio
+            visibleWhen: 'Permission: ChangeSystemSettings'
+          - label: Audio Sample Rate
+            property: HostConfig.AudioFrequency
+            visibleWhen: 'Permission: ChangeSystemSettings'
+      - title: Software Updates
+        fields:
+          - label: Update Channel
+            property: HostConfig.ReleaseChannel
+            type: option
+            visibleWhen: 'Permission: ChangeSystemSettings and Desktop install with in-app updates (Velopack)'
+      - title: Preferences
+        fields:
+          - label: System Theme
+            type: option
+            options:
+              - Light
+              - Dark
+            visibleWhen: 'Permission: ChangePreferenceSettings'
+          - label: Backlight brightness
+            property: HostConfig.BacklightBrightness
+            visibleWhen: 'Permission: ChangePreferenceSettings and Appliance'
+          - label: Front LED brightness
+            property: HostConfig.FrontLedBrightness
+            visibleWhen: 'Permission: ChangePreferenceSettings and Appliance'
+          - label: Dim Display after X seconds
+            property: HostConfig.BacklightDurationSeconds1
+            visibleWhen: 'Permission: ChangePreferenceSettings and Appliance'
+          - label: Turn Off Display after X seconds
+            property: HostConfig.BacklightDurationSeconds2
+            visibleWhen: 'Permission: ChangePreferenceSettings and Appliance'
+          - label: Wrap Navigation
+            property: HostConfig.WrapNavigationKnob
+            visibleWhen: 'Permission: ChangePreferenceSettings and Appliance'
+          - label: Back button nav order
+            property: HostConfig.BackButtonLast
+            visibleWhen: 'Permission: ChangePreferenceSettings and Appliance'
+          - label: Focus on Back button first
+            property: HostConfig.BackButtonFocusFirst
+            visibleWhen: 'Permission: ChangePreferenceSettings and Appliance'
+          - label: Display Name instead of Code
+            property: HostConfig.DisplayNameInsteadOfCode
+            visibleWhen: 'Permission: ChangePreferenceSettings'
+          - label: Show Product Name when Idle
+            property: HostConfig.ShowProductNameWhenIdle
+            visibleWhen: 'Permission: ChangePreferenceSettings'
+          - label: Always Display Play Details on Home Page
+            property: HostConfig.AlwaysDisplayPlayDetailsOnHomePage
+            visibleWhen: 'Permission: ChangePreferenceSettings and Lighting license'
+          - label: Default player control to be visible
+            property: HostConfig.DefaultPlayerControlVisible
+            visibleWhen: 'Permission: ChangePreferenceSettings and Lighting license'
+          - label: Display Host Name
+            property: HostConfig.DisplayHostName
+            visibleWhen: 'Permission: ChangePreferenceSettings'
+          - label: Run in full screen
+            property: HostConfig.FullScreen
+            visibleWhen: 'Permission: ChangePreferenceSettings and Not appliance'
+          - label: Close to tray
+            property: HostConfig.CloseToTray
+            visibleWhen: 'Permission: ChangePreferenceSettings and Not appliance and Windows'
+      - title: User Settings
+        fields:
+          - label: Auto logon current user
+            visibleWhen: 'Permission: ChangeUserSettings and User signed in'
+    actions:
+      - Open Web UI (Not appliance)
+      - 'Network Adapters... (Permission: ChangeNetworkSettings; Appliance)'
+      - 'Apply Network Changes (confirm; Permission: ChangeNetworkSettings; Appliance)'
+      - "Change current user's pin (Permission: ChangeUserSettings; User signed in; Current user has a PIN)"
+  - id: uno/settings/system settings/network adapters
+    path: Uno > Settings > System Settings > Network Adapters
+    source: src/UnoHost/Services/MenuManager.Network.cs
+    availableWhen:
+      - 'Any permission: ChangeNetworkSettings, ChangeOutputSettings, ChangeSystemSettings, ChangePreferenceSettings, ChangeUserSettings, ChangePluginSettings'
+      - 'Permission: ChangeNetworkSettings'
+      - Appliance
+    sections:
+      - fields:
+          - label: Info
+            type: info
+            help: No network adapters detected
+            visibleWhen: No network adapters detected
+      - title: '{adapter}'
+        fields:
+          - label: Interface
+            readOnly: true
+          - label: Status
+            readOnly: true
+          - label: Address
+            readOnly: true
+          - label: Network
+            readOnly: true
+            visibleWhen: Wi-Fi adapter
+          - label: Use DHCP
+            property: Adapter.UseDHCP
+          - label: IP Address
+            property: Adapter.Address
+          - label: Netmask
+            property: Adapter.NetmaskLength
+            type: option
+          - label: Gateway
+            property: Adapter.Gateway
+    actions:
+      - Connect to Network... (Wi-Fi adapter)
+      - Forget Current Network (confirm; Wi-Fi adapter)
+      - Apply {adapter} Settings (confirm)
+  - id: uno/settings/inputs
+    path: Uno > Settings > Inputs
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Not remote client mode
+      - Lighting license
+      - 'Permission: EditOutput or Permission: DeleteOutput'
+    summary: 'Configures DMX input: the mapping rows that place incoming universes of a protocol at slot ids, which mapped protocol a recording captures, and whether input is routed straight to the outputs.'
+    items:
+      - name: Recording protocol
+        description: Chooses which of the mapped input protocols a recording captures.
+      - name: Route input to outputs
+        description: Tap turns routing of the input straight to the outputs on or off; the description shows the live routing status.
+      - name: '{input mapping}'
+        opens: uno/settings/inputs/{input mapping}
+      - name: Add new mapping
+        description: Opens the same settings as {input mapping}
+        opens: uno/settings/inputs/{input mapping}
+  - id: uno/settings/inputs/{input mapping}
+    path: Uno > Settings > Inputs > {input mapping}
+    source: src/UnoHost/Services/MenuManager.cs
+    sections:
+      - fields:
+          - label: Protocol
+            property: InputMapping.PortType
+            type: option
+            options:
+              - sACN/E1.31
+              - ArtNet
+              - Serial DMX
+          - label: Start Universe Id
+            property: InputMapping.StartUniverseId
+          - label: Universe Count
+            property: InputMapping.UniverseCount
+          - label: Start Slot Id
+            property: InputMapping.StartCosmosId
+    actions:
+      - Delete Mapping (confirm)
+  - id: uno/settings/output configuration
+    path: Uno > Settings > Output Configuration
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Not remote client mode
+      - Lighting license
+      - 'Permission: EditOutput or Permission: DeleteOutput'
+    items:
+      - name: '{output}'
+        opens: uno/settings/output configuration/{output}
+      - name: Add
+        description: Add new output
+        opens: uno/settings/output configuration/{output}
+  - id: uno/settings/output configuration/{output}
+    path: Uno > Settings > Output Configuration > {output}
+    source: src/UnoHost/Services/MenuManager.cs
+    sections:
+      - fields:
+          - label: Code
+            property: Output.Code
+          - label: Name
+            property: Output.Name
+          - label: Enabled
+            property: Output.Enabled
+          - label: Output Type
+            property: Output.OutputInstanceId
+            type: option
+          - label: Port
+            property: Output.SubPort
+            visibleWhen: Output has sub-ports
+          - label: Start Slot Id
+            property: Output.StartCosmosId
+          - label: Start Universe Id
+            property: Output.StartUniverseId
+            visibleWhen: Output type uses universe ids
+          - label: Destination IP (unicast)
+            property: Output.Destination
+            visibleWhen: 'Output type: ArtNet or sACN or KiNet or TPM2net'
+          - label: Universe Count
+            property: Output.UniverseCount
+            visibleWhen: Output type uses universe ids
+          - label: sACN Send Priority
+            property: Output.SendPriority
+            visibleWhen: 'Output type: sACN'
+          - label: Protocol
+            property: Output.OutputProtocol
+            type: option
+            visibleWhen: 'Output type: KiNet or MQTT'
+          - label: Destination Address
+            property: Output.DestinationAddress
+            visibleWhen: 'Output type: MQTT'
+          - label: Channel Offset
+            property: Output.ChannelOffset
+            visibleWhen: 'Output type: MQTT'
+          - label: Zone
+            property: Output.ZoneId
+            type: option
+            visibleWhen: Zones exist and Multi-zone playback enabled
+          - label: Status
+            readOnly: true
+            visibleWhen: 'Output type: DmxSerial'
+    actions:
+      - 'Delete Output (confirm; Permission: DeleteOutput)'
+  - id: uno/settings/input triggers
+    path: Uno > Settings > Input Triggers
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Not remote client mode
+      - Lighting license
+      - 'Permission: EditInputTrigger'
+    items:
+      - name: '{input trigger}'
+        opens: uno/settings/input triggers/{input trigger}
+      - name: Add new input trigger
+        description: Opens the same settings as {input trigger}
+        opens: uno/settings/input triggers/{input trigger}
+  - id: uno/settings/input triggers/{input trigger}
+    path: Uno > Settings > Input Triggers > {input trigger}
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - 'Permission: EditInputTrigger'
+    sections:
+      - fields:
+          - label: Internal Id
+            readOnly: true
+          - label: Code
+            property: InputTrigger.Code
+          - label: Name
+            property: InputTrigger.Name
+          - label: Enabled
+            property: InputTrigger.Enabled
+          - label: Save timestamp
+            readOnly: true
+          - label: Type
+            property: InputTrigger.Type
+          - label: Info
+            type: info
+            help: Enter [payload] in the address to use the payload below in the address. Address should start with a /
+            visibleWhen: 'Trigger type: OSC or MQTT'
+          - label: Address
+            property: InputTrigger.Address
+            visibleWhen: 'Trigger type: HTTP or OSC or MQTT or TcpClient or ControlValue'
+          - label: Port
+            property: InputTrigger.Port
+            visibleWhen: 'Trigger type: TCP or UDP or TcpClient'
+          - label: Dmx Trigger Mode
+            property: InputTrigger.DmxTriggerMode
+            visibleWhen: 'Trigger type: sACN or ArtNet or DmxSerial'
+          - label: Start Payload
+            property: InputTrigger.StartPayload
+            visibleWhen: 'Trigger type: TCP or UDP or OSC or MQTT or TcpClient or ControlValue'
+          - label: Stop Payload
+            property: InputTrigger.StopPayload
+            visibleWhen: 'Trigger type: TCP or UDP or OSC or MQTT or TcpClient or ControlValue'
+          - label: Universe Id
+            property: InputTrigger.UniverseId
+            visibleWhen: 'Trigger type: sACN or ArtNet'
+          - label: Port
+            property: InputTrigger.UniverseId
+            visibleWhen: 'Trigger type: DmxSerial or DigitalInput'
+          - label: Channel
+            property: InputTrigger.Channel
+            visibleWhen: 'Trigger type: sACN or ArtNet or DmxSerial'
+          - label: Threshold
+            property: InputTrigger.Threshold
+            visibleWhen: 'Trigger type: sACN or ArtNet or DmxSerial or DigitalInput or ControlValue'
+          - label: Trigger Received
+            readOnly: true
+          - label: Global Received (all triggers)
+            readOnly: true
+            visibleWhen: 'Trigger type: OSC or TCP'
+      - title: 'Trigger Action:'
+        fields:
+          - label: Action Type
+            property: InputTrigger.Action.Type
+          - label: Play Code
+            property: InputTrigger.Action.PlayCode
+    actions:
+      - 'Delete Input Trigger (confirm; Permission: DeleteInputTrigger)'
+  - id: uno/settings/output events
+    path: Uno > Settings > Output Events
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Not remote client mode
+      - Lighting license
+      - 'Permission: EditOutputEvent'
+    items:
+      - name: '{output event}'
+        opens: uno/settings/output events/{output event}
+      - name: Add new output event
+        description: Opens the same settings as {output event}
+        opens: uno/settings/output events/{output event}
+  - id: uno/settings/output events/{output event}
+    path: Uno > Settings > Output Events > {output event}
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - 'Permission: EditOutputEvent'
+    sections:
+      - fields:
+          - label: Internal Id
+            readOnly: true
+          - label: Code
+            property: OutputEvent.Code
+          - label: Name
+            property: OutputEvent.Name
+          - label: Enabled
+            property: OutputEvent.Enabled
+          - label: Save timestamp
+            readOnly: true
+          - label: Type
+            property: OutputEvent.Type
+          - label: Info
+            type: info
+            help: Plugin output events are configured in the web UI
+            visibleWhen: 'Output event type: Plugin'
+          - label: Plugin
+            readOnly: true
+            visibleWhen: 'Output event type: Plugin'
+          - label: Target
+            readOnly: true
+            visibleWhen: 'Output event type: Plugin'
+          - label: Destination
+            property: OutputEvent.Destination
+            visibleWhen: 'Output event type: HTTP or OSC or UDP or TCP'
+          - label: Address
+            property: OutputEvent.Address
+            visibleWhen: 'Output event type: HTTP or OSC or MQTT'
+          - label: Port
+            property: OutputEvent.Port
+            visibleWhen: 'Output event type: TCP or UDP'
+          - label: Payload
+            property: OutputEvent.Payload
+            visibleWhen: 'Output event type: TCP or UDP or OSC or MQTT or ArtNet or sACN or DmxSerial'
+          - label: Universe Id
+            property: OutputEvent.UniverseId
+            visibleWhen: 'Output event type: sACN or ArtNet'
+          - label: Port
+            property: OutputEvent.UniverseId
+            visibleWhen: 'Output event type: DmxSerial or DigitalOutput'
+          - label: Channel
+            property: OutputEvent.Channel
+            visibleWhen: 'Output event type: sACN or ArtNet or DmxSerial'
+    actions:
+      - Test event
+      - 'Delete Output Event (confirm; Permission: DeleteOutputEvent)'
+  - id: uno/settings/zones
+    path: Uno > Settings > Zones
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Not remote client mode
+      - Lighting license
+      - 'Permission: EditFixtures and Fixture feature enabled or Permission: EditZones and Multi-zone playback enabled'
+    items:
+      - name: '{zone}'
+        opens: uno/settings/zones/{zone}
+      - name: Add
+        description: Add new zone
+        opens: uno/settings/zones/{zone}
+  - id: uno/settings/zones/{zone}
+    path: Uno > Settings > Zones > {zone}
+    source: src/UnoHost/Services/MenuManager.cs
+    sections:
+      - fields:
+          - label: Code
+            property: Zone.Code
+          - label: Name
+            property: Zone.Name
+    actions:
+      - Delete Zone (confirm)
+  - id: uno/settings/cue fade masks
+    path: Uno > Settings > Cue Fade Masks
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Not remote client mode
+      - Lighting license
+      - 'Permission: EditCueFadeMasks'
+    items:
+      - name: Slot Id {cue fade mask}
+        opens: uno/settings/cue fade masks/slot id {cue fade mask}
+      - name: Add
+        description: Add new cue fade mask
+        opens: uno/settings/cue fade masks/slot id {cue fade mask}
+  - id: uno/settings/cue fade masks/slot id {cue fade mask}
+    path: Uno > Settings > Cue Fade Masks > Slot Id {cue fade mask}
+    source: src/UnoHost/Services/MenuManager.cs
+    sections:
+      - fields:
+          - label: Slot Id
+            property: CueFadeMask.CosmosId
+          - label: Enabled
+            property: CueFadeMask.Enabled
+      - title: DMX channel masks
+        fields:
+          - label: Mask fade DMX chn {n}
+    actions:
+      - Delete Cue Fade Mask (confirm)
+  - id: uno/settings/fixtures
+    path: Uno > Settings > Fixtures
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Not remote client mode
+      - Lighting license
+      - 'Permission: EditFixtures'
+      - Fixture feature enabled
+    items:
+      - name: '{fixture}'
+        opens: uno/settings/fixtures/{fixture}
+      - name: Add
+        description: Add new light fixture
+        opens: uno/settings/fixtures/{fixture}
+  - id: uno/settings/fixtures/{fixture}
+    path: Uno > Settings > Fixtures > {fixture}
+    source: src/UnoHost/Services/MenuManager.cs
+    sections:
+      - fields:
+          - label: Code
+            property: FixtureInstance.Code
+          - label: Name
+            property: FixtureInstance.Name
+          - label: Personality
+            property: FixtureInstance.Personality
+            type: option
+            visibleWhen: Profile has several personalities
+          - label: Enabled
+            property: FixtureInstance.Enabled
+          - label: Profile
+            property: FixtureInstance.FixtureProfileId
+            type: option
+          - label: Slot Id
+            property: FixtureInstance.CosmosId
+          - label: Start Channel
+            property: FixtureInstance.StartChannel
+          - label: Copies
+            property: FixtureInstance.Copies
+          - label: Zone
+            property: FixtureInstance.ZoneId
+            type: option
+            visibleWhen: Zones exist
+    actions:
+      - Split copies (confirm; Fixture has more than one copy)
+      - Delete Light Fixture (confirm)
+  - id: uno/settings/remote control clients
+    path: Uno > Settings > Remote Control Clients
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Not remote client mode
+      - 'Permission: EditRemoteControl'
+      - Remote control feature enabled
+    items:
+      - name: '{client}'
+        description: Remote Control
+        opens: uno/settings/remote control clients/{client}
+  - id: uno/settings/remote control clients/{client}
+    path: Uno > Settings > Remote Control Clients > {client}
+    source: src/UnoHost/Services/MenuManager.cs
+    sections:
+      - fields:
+          - label: Name
+            property: Api.Name
+          - label: Approved
+            property: Api.Approved
+          - label: Last Connected
+            readOnly: true
+            visibleWhen: Client has connected before
+    actions:
+      - Delete Remote Control Client (confirm)
+  - id: uno/utilities
+    path: Uno > Utilities
+    source: src/UnoHost/Services/MenuManager.cs
+    items:
+      - name: Record Cue
+        description: Snapshot and Capture Cues
+        opens: uno/utilities/record cue
+        availableWhen:
+          - Not remote client mode
+          - Lighting license
+          - 'Recording not restricted to admins or Permission: Record'
+      - name: Schedules
+        description: Configure schedules
+        opens: uno/utilities/schedules
+        availableWhen:
+          - Not remote client mode
+          - Lighting license
+          - 'Permission: EditSchedule'
+      - name: Snooze Schedules
+        description: Temporarily disable schedules
+        opens: uno/utilities/snooze schedules
+        availableWhen:
+          - Not remote client mode
+          - Lighting license
+          - 'Permission: SnoozeSchedules'
+      - name: Local Backup
+        description: Create full local backup
+        availableWhen:
+          - Not remote client mode
+          - 'Permission: CreateLocalBackup'
+      - name: Cloud Backup
+        description: Backup to cloud storage
+        availableWhen:
+          - Not remote client mode
+          - 'Permission: CreateCloudBackup'
+      - name: Stop/Blackout
+        description: Tap toggles a latched blackout (tap again to release); hold stops all playback.
+        availableWhen:
+          - Not remote client mode
+          - Lighting license
+          - 'Permission: StartStopOutput'
+      - name: Start output
+        description: Start output
+        availableWhen:
+          - Not remote client mode
+          - Lighting license
+          - 'Permission: StartStopOutput'
+      - name: File Explorer
+        description: Explore storage
+        opens: uno/utilities/file explorer
+        availableWhen:
+          - Not remote client mode
+          - 'Permission: FileExplorer'
+      - name: Device Operations
+        description: Reboot and restart services
+        opens: uno/utilities/device operations
+        availableWhen:
+          - 'Permission: DeviceOperations or Not appliance'
+      - name: Custom Menu
+        opens: uno/utilities/custom menu
+        availableWhen:
+          - Custom menus exist
+      - name: Device Monitor
+        description: Device Monitor
+        opens: uno/utilities/device monitor
+      - name: View Config Status
+        description: View Configuration Issues
+        opens: uno/utilities/view config status
+        availableWhen:
+          - Configuration issues exist
+  - id: uno/utilities/record cue
+    path: Uno > Utilities > Record Cue
+    source: src/UnoHost/ViewModels/RecordViewModel.cs
+    availableWhen:
+      - Not remote client mode
+      - Lighting license
+      - 'Recording not restricted to admins or Permission: Record'
+    summary: Records DMX from the configured input. Preview shows the incoming universes; Save Static Cue stores a snapshot and Save Dynamic Cue records a capture, started manually or by an input trigger (Select Input Trigger). Record Configuration opens the input mapping and input triggers.
+  - id: uno/utilities/schedules
+    path: Uno > Utilities > Schedules
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Not remote client mode
+      - Lighting license
+      - 'Permission: EditSchedule'
+    items:
+      - name: '{schedule}'
+        opens: uno/utilities/schedules/{schedule}
+      - name: Add
+        description: Add new schedule
+        opens: uno/utilities/schedules/{schedule}
+        availableWhen:
+          - 'Permission: EditSchedule'
+  - id: uno/utilities/schedules/{schedule}
+    path: Uno > Utilities > Schedules > {schedule}
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - 'Permission: EditSchedule'
+    sections:
+      - fields:
+          - label: Code
+            property: Schedule.Code
+          - label: Name
+            property: Schedule.Name
+          - label: Enabled
+            property: Schedule.Enabled
+          - label: Priority
+            property: Schedule.Action.Priority
+          - label: Start Date
+            property: Schedule.StartDate
+          - label: End Date
+            property: Schedule.EndDate
+          - label: Days
+            property: Schedule.Days
+          - label: Start Time
+            property: Schedule.StartTime
+          - label: End Time
+            property: Schedule.EndTime
+            visibleWhen: 'Trigger action type: Cue or Sound or Timeline'
+          - label: Type
+            property: Schedule.Action.Type
+          - label: Play
+            property: Schedule.Action.PlayCode
+            type: option
+          - label: Loop (0=forever)
+            property: Schedule.Action.Loop
+            visibleWhen: 'Trigger action type: Cue or Sound or Timeline'
+          - label: Run to completion
+            property: Schedule.Action.RunToCompletion
+            visibleWhen: 'Trigger action type: Cue or Sound or Timeline'
+          - label: Dimmer
+            property: Schedule.Action.DimmerScale
+          - label: Volume
+            property: Schedule.Action.Volume
+    actions:
+      - 'Delete Schedule (confirm; Permission: DeleteSchedule)'
+  - id: uno/utilities/snooze schedules
+    path: Uno > Utilities > Snooze Schedules
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Not remote client mode
+      - Lighting license
+      - 'Permission: SnoozeSchedules'
+    summary: 'Temporarily suspends all schedules: for an hour, until midnight or until 9 am. Resume re-enables them; the subtitle shows until when schedules are snoozed.'
+    items:
+      - name: Resume
+        description: Resume all snoozed schedules
+      - name: Snooze 1h
+      - name: Snooze until midnight
+      - name: Snooze until 9am
+        description: Tomorrow
+  - id: uno/utilities/file explorer
+    path: Uno > Utilities > File Explorer
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Not remote client mode
+      - 'Permission: FileExplorer'
+    items:
+      - name: '{storage location}'
+        opens: uno/utilities/file explorer/{storage location}
+  - id: uno/utilities/file explorer/{storage location}
+    path: Uno > Utilities > File Explorer > {storage location}
+    source: src/UnoHost/ViewModels/FileExplorerViewModel.cs
+    summary: Browses a USB flash drive, micro SD card, or the transfer or backup folder. Selecting a file offers the matching import, such as fixture profiles (GDTF, Avolites, Lightkey, Daslight, JSON) or cues, schedules and triggers from a backup.
+  - id: uno/utilities/device operations
+    path: Uno > Utilities > Device Operations
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - 'Permission: DeviceOperations or Not appliance'
+    items:
+      - name: Releases
+        description: View Software Releases
+        opens: uno/utilities/device operations/releases
+        availableWhen:
+          - Releases available
+      - name: Re-initialize ports
+        description: Reload outputs and audio
+      - name: Save System State
+        description: Snapshot current playback
+      - name: Associate Appliance
+        description: Link to your DMX Core account
+        opens: uno/utilities/device operations/associate appliance
+        availableWhen:
+          - Appliance
+          - Appliance not associated with an account
+      - name: Restart
+        description: Restart application
+        availableWhen:
+          - Appliance
+        confirm: true
+      - name: Reboot
+        description: Reboot system
+        availableWhen:
+          - Appliance
+        confirm: true
+      - name: Refresh License
+        description: Update the license information
+        availableWhen:
+          - Not appliance
+      - name: Close Application
+        description: Exit application
+        availableWhen:
+          - Not appliance
+        confirm: true
+  - id: uno/utilities/device operations/releases
+    path: Uno > Utilities > Device Operations > Releases
+    source: src/UnoHost/ViewModels/UpdateViewModel.cs
+    availableWhen:
+      - Releases available
+    summary: Lists the available software releases (version, channel, release date and release notes) and marks the running one; the subtitle says whether updates are managed by the DMX Core portal. Where the device can upgrade itself, selecting a version upgrades to it (on an appliance this needs the UpgradeSoftware permission); otherwise the list is read-only.
+  - id: uno/utilities/device operations/associate appliance
+    path: Uno > Utilities > Device Operations > Associate Appliance
+    source: src/UnoHost/ViewModels/AssociateApplianceViewModel.cs
+    availableWhen:
+      - Appliance
+      - Appliance not associated with an account
+    summary: Shows a QR code to scan with a phone to link this appliance to a DMX Core account.
+  - id: uno/utilities/custom menu
+    path: Uno > Utilities > Custom Menu
+    source: src/UnoHost/Services/MenuManager.cs
+    availableWhen:
+      - Custom menus exist
+    items:
+      - name: '{custom menu}'
+        opens: uno/utilities/custom menu/{custom menu}
+        availableWhen:
+          - Listing all custom menus
+      - name: '{custom menu item}'
+        availableWhen:
+          - Inside one custom menu
+      - name: '{choice}'
+        availableWhen:
+          - Inside one custom menu
+          - Custom menu item type is not MasterDimmer
+          - Custom menu item type is not Slider
+          - 'Custom menu item type: Segmented'
+          - Control Value has choices
+  - id: uno/utilities/custom menu/{custom menu}
+    path: Uno > Utilities > Custom Menu > {custom menu}
+    source: src/UnoHost/Views/CustomMenuFaderPage.xaml
+    availableWhen:
+      - Listing all custom menus
+    summary: 'A Faders-layout custom menu: columns of buttons and vertical faders, driven by Control Values.'
+  - id: uno/utilities/device monitor
+    path: Uno > Utilities > Device Monitor
+    source: src/UnoHost/ViewModels/PeripheralViewModel.cs
+    summary: Lists the external devices the device monitor has detected, with each one's status. The list refreshes periodically.
+  - id: uno/utilities/view config status
+    path: Uno > Utilities > View Config Status
+    source: src/UnoHost/ViewModels/ConfigIssueViewModel.cs
+    availableWhen:
+      - Configuration issues exist
+    summary: Lists the current configuration issues with severity and description. The Web UI shows more detail.
+  - id: uno/about
+    path: Uno > About
+    source: src/UnoHost/ViewModels/AboutViewModel.cs
+    summary: Device details (license, device name, app version, platform, temperatures, time sync), network settings (address, gateway, remote control, cloud tunnel) and output settings (audio system, sACN source id, serial DMX ports).
+  - id: uno/help
+    path: Uno > Help
+    source: src/UnoHost/ViewModels/HelpViewModel.cs
+    summary: 'Support information: the Web UI address, the default PIN (1111), installer and manufacturer details, and a QR code to scan for documentation and support.'
