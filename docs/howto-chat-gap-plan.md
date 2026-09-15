@@ -405,6 +405,8 @@ No infra change. Bringing `device-snapshots` into bicep is left to Platform-Infr
 
 Continues the implementation plan's stages A–E.
 
+**Progress (2026-09-15):** stages F–K are built and deployed, and the Docs continue link is live. Commits and checks are in [`howto-chat-status.md`](howto-chat-status.md) → **Update**.
+
 | Stage | HelpApi | Portal | Docs | DeviceApi | Core | Safe because |
 |-------|---------|--------|------|-----------|------|--------------|
 | **F. Hardening** | Transcript redaction and Seq log fix (§1.6) | Session lifecycle fixes, version gate | — | Tolerant ingest, rejected marker, tests | Slug file names, zip test, Uno activity check (next release) | Each change stands alone; no new contracts |

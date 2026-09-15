@@ -14,7 +14,36 @@ secret names, issues). Probed the public endpoints `/api/Version`, `/api/corpus`
 `/health`, CORS preflights and the live docs page. No secret values were read and
 nothing was triggered.
 
-**Deployed builds at the time of the check**
+## Update: gap plan stages F–K shipped (2026-09-15, later)
+
+The tables below are the original assessment. Since then, the gap plan
+([`howto-chat-gap-plan.md`](howto-chat-gap-plan.md)) stages F–K were built, deployed and smoke-checked. A signed-in chat has not yet been exercised end to end with a real device.
+
+| Stage | Repo | Commit | Deployed / verified |
+|-------|------|--------|---------------------|
+| F: hardening | Core | `e3980b5d` cloud-safe timeline file names, zip test, UserActivity Debug logging test | Pushed. Release OpenBalena build 7758 deployed to DEV, but its artifact registration with the portal failed (connection reset during the portal deploy); re-run needed |
+| F | DeviceApi | `fcfc18f` skip unsafe zip entries, `lastRejected`, trigger and TUS tests | Rev `0000040`, `/api/Version` 1.0.47+fcfc18f |
+| F + G: token and context endpoints | AdminPortal | `867b517` scoped help-agent token, `HelpAgent` scheme, context endpoints, session lifecycle fixes, `update_required` gate | Rev `0000134`: context and token endpoints 401 without auth; `HelpAgent__Token__Key` from KV `help-agent-token-key` |
+| F + H + K: signed-in chat | HelpApi | `1293ab7` token validation, session binding, per-turn context, `list_sections` / `get_section` / `get_recent_logs`, transcript redaction, persisted limits, $200 cost ceiling, budget module. `c18e4de` turns on `DeviceTools__LogsEnabled` and the budget alerts ($100 / $200 to hakan@lindestaf.com) | `1293ab7` on rev `0000003`: portal CORS with `Authorization`, `401 token_invalid`, `Portal__*` wired. `c18e4de` on rev `0000005` (1.0.8+c18e4de): `DeviceTools__LogsEnabled=true`; budget `budget-dmxcore-portal-helpapi-001` is $200/month from 2026-09-01 over the 3 HelpApi resources, alerting at 50% / 100% actual and 100% forecast |
+| I: portal chat view | AdminPortal | `a64dcef` chat in `/help`, snapshot bar, `update_required` / `lastRejected` on the device card | Rev `0000135`, `/api/Version` 1.0.268+a64dcef; `/help` bundle contains the HelpApi URL (repo variable `HELP_API_URL`) |
+| J: docs handoff | Docs | `0765543` "continued in the portal" state; repo variable `HELP_CONTINUE_URL=https://portal.dmxcore.com/help` | Live: docs.dmxcore.com renders `data-continue="https://portal.dmxcore.com/help"` (deploy of `5497d6e`) |
+
+**Status changes against the rows below:**
+- **Now Done:**
+  - A: A15, A21, A28.
+  - C: C9, C11 (C11 in `e3980b5d`, plus DeviceApi tolerance for older units).
+  - D: D7, D8.
+  - P: P16, P17, P18.
+  - B: B1–B5, B7–B12.
+  - R: R3's gate, R4, R5, R6.
+- **Diverged / resolved:** B6 folds into `get_section` paths. U2 is verified by `HostLoggingTests` in code; confirming it on a device in Seq is still open.
+- **Out of scope by decision:** P6 (download inventory).
+- **Still open:**
+  - A13, A24–A26, N4–N6 and B13: the quality workstream. Navigation lookup (`find_screen`) shipped in HelpApi `6185423` from that workstream.
+  - D6: `device-snapshots` stays outside bicep.
+  - Verification: the end-to-end device chat, and the Core release artifact registration re-run.
+
+**Deployed builds at the time of the original check**
 
 | App | Image / build | Latest commit on `main` |
 |-----|---------------|-------------------------|
