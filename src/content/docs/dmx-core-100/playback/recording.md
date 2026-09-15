@@ -47,7 +47,7 @@ Other controls on the page:
 
 - **Input** — The universe-to-slot mapping is a device setting shared with [stream routing](/dmx-core-100/lighting/stream-routing), and each row names its own protocol. A recording captures **one** protocol: the **Recording protocol** on the Inputs page, which can only be one of the protocols that have mapping rows. The other mapped protocols keep routing while the recording runs. The Record page shows both and links to **Lighting Setup > Inputs** to change them
 
-![Input Mapping Details — protocol, start universe, and start slot](/assets/web/input-mapping-details.png)
+  ![Input Mapping Details — protocol, start universe, and start slot](/assets/web/input-mapping-details.png)
 - **Trigger** — Start recording with **Manual Trigger**, or automatically from an external signal (DMX threshold, HTTP, TCP, UDP, or OSC)
 - **Real-time monitoring** — View incoming DMX data as it arrives, with the recorded size and remaining recording space shown while recording
 - **Stay on the page after save** — after Save Dynamic Cue, Play / Pause and Restart confirm the take. Disable Recorder when you are finished; the recorder no longer disables itself after a save

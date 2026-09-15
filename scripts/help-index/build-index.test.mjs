@@ -34,7 +34,7 @@ test('every page chunk id and chunk screenshot id resolves', () => {
 test('gold-path pages are indexed with their screenshots', () => {
   const recording = index.chunks.find((c) => c.id === 'dmx-core-100/playback/recording#recording-in-the-web-ui');
   assert.ok(recording, 'recording web UI section');
-  assert.deepEqual(recording.screenshots, ['record']);
+  assert.deepEqual(recording.screenshots, ['record', 'input-mapping-details']);
 
   const routing = index.chunks.find((c) => c.id === 'dmx-core-100/lighting/stream-routing#setting-it-up');
   assert.ok(routing.screenshots.includes('inputs'));
