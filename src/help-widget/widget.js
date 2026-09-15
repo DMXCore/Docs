@@ -266,7 +266,6 @@ class HelpWidget {
       }
       this.setWalkthrough(session.walkthrough);
       if (!session.messages.length) this.renderEmptyState();
-      this.setTurnsLeft(session.turnsLeft);
       this.updatePrintButton();
       this.scrollToEnd(true);
     } catch (err) {
@@ -287,7 +286,6 @@ class HelpWidget {
     this.setPortalLocked(false);
     this.forgetSession();
     this.setWalkthrough(null);
-    this.setTurnsLeft(null);
     this.hideNotice();
     this.renderEmptyState();
     this.input.focus();
@@ -335,8 +333,7 @@ class HelpWidget {
     this.inPortal = locked;
     this.input.disabled = locked;
     this.sendButton.disabled = locked;
-    if (locked) this.input.placeholder = 'This chat continued in the portal.';
-    else this.setTurnsLeft(null);
+    this.input.placeholder = locked ? 'This chat continued in the portal.' : 'How do I…?';
     this.updateContinueLink();
     this.updatePrintButton();
   }
@@ -507,7 +504,6 @@ class HelpWidget {
             bubble.append(el('p', { class: 'dmx-help-error', text: payload.message }));
             break;
           case 'done':
-            this.setTurnsLeft(payload.turnsLeft);
             if (payload.turn) bubble.append(this.feedbackRow(payload.turn, null));
             break;
         }
@@ -760,12 +756,6 @@ class HelpWidget {
     this.sendButton.textContent = streaming ? 'Stop' : 'Send';
     this.sendButton.classList.toggle('dmx-help-stop', streaming);
     this.renderChecklist();
-  }
-
-  setTurnsLeft(turnsLeft) {
-    const exhausted = turnsLeft === 0;
-    this.input.disabled = exhausted;
-    this.input.placeholder = exhausted ? 'This chat is at its limit — start a new chat.' : 'How do I…?';
   }
 
   updateContinueLink() {
