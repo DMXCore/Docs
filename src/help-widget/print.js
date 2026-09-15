@@ -10,6 +10,8 @@ const STRIP_SELECTORS = [
   '.dmx-help-portal',
   '.dmx-help-status',
   '.dmx-help-checklist-next',
+  '.dmx-help-checklist-show',
+  '.dmx-help-offer',
 ].join(',');
 
 export const PRINT_STYLES = `

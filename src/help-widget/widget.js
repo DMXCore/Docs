@@ -15,7 +15,9 @@ import { canPrintTranscript, printTranscript } from './print.js';
 
 const SESSION_KEY = 'dmxcore-help-session';
 const OPEN_KEY = 'dmxcore-help-open';
-const COLLAPSED_KEY = 'dmxcore-help-collapsed-checklists';
+const EXPANDED_CHECKLISTS_KEY = 'dmxcore-help-expanded-checklists';
+/** Sent by the button under an answer that has no checklist; its checklist opens expanded. */
+const CHECKLIST_REQUEST = 'Give me a checklist for this.';
 const EXPANDED_KEY = 'dmxcore-help-expanded';
 const DOCS_ORIGINS = ['https://docs.dmxcore.com'];
 
@@ -62,7 +64,7 @@ class HelpWidget {
     this.local = safeStorage('localStorage');
     this.tab = safeStorage('sessionStorage');
     this.sessionId = this.local?.getItem(SESSION_KEY) || null;
-    this.collapsedChecklists = this.loadCollapsedChecklists();
+    this.expandedChecklists = this.loadExpandedChecklists();
     this.walkthrough = null;
     this.stream = null;
     this.loaded = false;
@@ -100,7 +102,7 @@ class HelpWidget {
       class: 'dmx-help-progress',
       hidden: true,
       onclick: () => {
-        if (this.walkthrough && this.collapsedChecklists.has(this.walkthrough.id)) {
+        if (this.walkthrough && !this.expandedChecklists.has(this.walkthrough.id)) {
           this.setChecklistCollapsed(this.walkthrough.id, false);
         }
         this.checklistCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -260,9 +262,13 @@ class HelpWidget {
         return;
       }
       this.messages.replaceChildren();
+      const lastAnswer = session.messages.findLast((m) => m.role === 'assistant');
       for (const message of session.messages) {
         if (message.role === 'user') this.addUserBubble(message.content);
-        else this.addAssistantBubble(message.content, message.walkthroughId, message.turn, message.rating);
+        else {
+          const { bubble } = this.addAssistantBubble(message.content, message.walkthroughId, message.turn, message.rating);
+          if (message === lastAnswer && message.checklistOffer) bubble.querySelector(':scope > .dmx-help-markdown').after(this.checklistOffer());
+        }
       }
       this.setWalkthrough(session.walkthrough);
       if (!session.messages.length) this.renderEmptyState();
@@ -401,6 +407,13 @@ class HelpWidget {
     return { bubble, body };
   }
 
+  /** Under an answer without a checklist that is about something the user can set up. */
+  checklistOffer() {
+    return el('p', { class: 'dmx-help-offer' }, [
+      el('button', { type: 'button', text: 'Give me a checklist', onclick: () => this.submit(CHECKLIST_REQUEST) }),
+    ]);
+  }
+
   /** 👍 sends at once; 👎 sends at once and offers an optional comment, sent as a second rating. */
   feedbackRow(turn, initialRating) {
     const sessionId = this.sessionId;
@@ -467,6 +480,7 @@ class HelpWidget {
     const { signal } = this.stream;
     this.hideNotice();
     this.input.value = '';
+    this.messages.querySelectorAll('.dmx-help-offer').forEach((offer) => offer.remove());
     this.addUserBubble(text);
     const { bubble, body } = this.addAssistantBubble();
     const status = el('p', { class: 'dmx-help-status', text: this.sessionId ? 'Thinking…' : 'Connecting…' });
@@ -506,9 +520,11 @@ class HelpWidget {
           case 'walkthrough':
             status.remove();
             bubble.dataset.walkthroughId = payload.id;
-            // A new or refined checklist always opens, even if an earlier version was collapsed.
-            this.collapsedChecklists.delete(payload.id);
-            this.saveCollapsedChecklists();
+            // A new checklist opens collapsed so the answer is read first; a refined one keeps
+            // its state, and one the user asked for with the button opens.
+            if (text === CHECKLIST_REQUEST) this.expandedChecklists.add(payload.id);
+            else if (this.walkthrough?.id !== payload.id) this.expandedChecklists.delete(payload.id);
+            this.saveExpandedChecklists();
             this.setWalkthrough(payload);
             this.scrollToEnd();
             break;
@@ -521,6 +537,7 @@ class HelpWidget {
             bubble.append(el('p', { class: 'dmx-help-error', text: payload.message }));
             break;
           case 'done':
+            if (payload.checklistOffer) bubble.append(this.checklistOffer());
             if (payload.turn) bubble.append(this.feedbackRow(payload.turn, null));
             break;
         }
@@ -584,7 +601,7 @@ class HelpWidget {
     const focusedId = this.checklistCard.contains(document.activeElement) ? document.activeElement.id : null;
     const done = new Set(view.completedStepIds);
     const nextIndex = view.steps.findIndex((s) => !done.has(s.id));
-    const collapsed = this.collapsedChecklists.has(view.id);
+    const collapsed = !this.expandedChecklists.has(view.id);
     const listId = `dmx-help-steps-${view.id}`;
 
     const header = el('button', {
@@ -597,7 +614,10 @@ class HelpWidget {
       onclick: () => this.setChecklistCollapsed(view.id, !collapsed),
     }, [
       el('span', { class: 'dmx-help-checklist-title', text: view.title }),
-      el('span', { class: 'dmx-help-checklist-count', text: `${done.size}/${view.steps.length} ${collapsed ? '▸' : '▾'}` }),
+      el('span', { class: 'dmx-help-checklist-count' }, [
+        collapsed ? el('span', { class: 'dmx-help-checklist-show', text: 'Show steps · ' }) : null,
+        `${done.size}/${view.steps.length} ${collapsed ? '▸' : '▾'}`,
+      ]),
     ]);
 
     const nextStep = nextIndex >= 0 ? view.steps[nextIndex] : null;
@@ -659,27 +679,27 @@ class HelpWidget {
     this.placeChecklist();
   }
 
-  /** Walkthrough ids collapsed in this tab; kept in sessionStorage so they survive page navigation. */
-  loadCollapsedChecklists() {
+  /** Walkthrough ids opened in this tab (checklists start collapsed); kept in sessionStorage so they survive page navigation. */
+  loadExpandedChecklists() {
     try {
-      return new Set(JSON.parse(this.tab?.getItem(COLLAPSED_KEY) ?? '[]'));
+      return new Set(JSON.parse(this.tab?.getItem(EXPANDED_CHECKLISTS_KEY) ?? '[]'));
     } catch {
       return new Set();
     }
   }
 
-  saveCollapsedChecklists() {
+  saveExpandedChecklists() {
     try {
-      this.tab?.setItem(COLLAPSED_KEY, JSON.stringify([...this.collapsedChecklists]));
+      this.tab?.setItem(EXPANDED_CHECKLISTS_KEY, JSON.stringify([...this.expandedChecklists]));
     } catch {
-      // Storage blocked or full: collapsing still works for this page.
+      // Storage blocked or full: expanding still works for this page.
     }
   }
 
   setChecklistCollapsed(id, collapsed) {
-    if (collapsed) this.collapsedChecklists.add(id);
-    else this.collapsedChecklists.delete(id);
-    this.saveCollapsedChecklists();
+    if (collapsed) this.expandedChecklists.delete(id);
+    else this.expandedChecklists.add(id);
+    this.saveExpandedChecklists();
     this.renderChecklist();
   }
 

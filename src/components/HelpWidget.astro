@@ -335,6 +335,28 @@ const enabled = Boolean(apiUrl) && Astro.url.pathname.startsWith('/dmx-core-100'
     text-overflow: ellipsis;
   }
 
+  .dmx-help-checklist-show {
+    color: var(--sl-color-text-accent);
+    font-weight: 400;
+  }
+
+  .dmx-help-offer {
+    margin: 0.4rem 0 0;
+  }
+
+  .dmx-help .dmx-help-offer button {
+    padding: 0.3rem 0.65rem;
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 0.5rem;
+    background: var(--sl-color-gray-6);
+    color: var(--sl-color-white);
+    font-size: var(--sl-text-sm);
+  }
+
+  .dmx-help .dmx-help-offer button:hover {
+    border-color: var(--sl-color-text-accent);
+  }
+
   .dmx-help-checklist-count {
     flex-shrink: 0;
     color: var(--sl-color-gray-3);
