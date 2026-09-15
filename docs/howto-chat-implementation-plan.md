@@ -12,6 +12,11 @@ does not need the snapshot.
 
 Writable MCP / applying setup for the user remains **out of scope**.
 
+Current status per piece: see **Status** in
+[`howto-chat-plan.md`](howto-chat-plan.md). The chat API lives in its own repo,
+[DMXCore/HelpApi](https://github.com/DMXCore/HelpApi) (README covers deploy,
+transcripts and cost controls).
+
 ---
 
 ## 1. Docs copilot (Phase 1) — Docs repo + Azure chat API
@@ -42,6 +47,21 @@ Index: chunk Starlight markdown in `src/content/docs/dmx-core-100/` by
 heading; attach slug, title, screenshot paths. Rebuild on docs deploy
 (post-deploy webhook or pipeline step). Screenshot ids from
 `scripts/capture-web-screenshots.mjs` `SHOTS` plus markdown image refs.
+
+### Navigation document (Core #129)
+
+Core's `docs/generated/navigation.yaml` (`format: dmxcore-navigation`) lists
+every Web UI and touchscreen screen: path, route, fields (label/key/type),
+columns, actions, availability. It ships in the app and as an Azure Pipelines
+artifact (`navigation/navigation.yaml`).
+
+- Bring the file for the **release the docs describe** into the index build
+  (not Core `main`).
+- Tool: look up screens, fields and actions by name ("where is Recording
+  protocol set?" → `Web > Lighting Setup > Inputs`, field label, route).
+- Validator: accept bold UI names and menu paths found in the navigation
+  document as well as in the docs text; treat it as the authority when they
+  disagree, and log the disagreement as a docs gap.
 
 ### Widget (Docs / Starlight)
 
@@ -259,6 +279,14 @@ app source contexts (record, fixtures, inputs, import). Drop
 Tool `get_recent_logs` is registered only when `HelpAgentLogsEnabled` is on
 for that device.
 
+**User activity (Core #130):** a second capped query returns up to 30
+`Has(UserActivity)` events (Debug level; `Activity Web > Cue > Save - id 123`,
+outcome Ok / Failed / Denied / Cancelled), merged newest first with the
+filtered events. Paths match the navigation document. User names are
+properties only and are never returned. Implemented in the portal
+(`SeqLogQueryClient`, `c60c021`); the chat API consumes it through
+`get_recent_logs`.
+
 ### Signed-in chat
 
 Same orchestrator as Phase 1, with extra tools when grants are on:
@@ -302,6 +330,8 @@ DeviceApi ships.
 
 | Repo | Tracks | Issue |
 |------|--------|-------|
-| [DmxCore100-Software](https://github.com/DMXCore/DmxCore100-Software) | §2 Core snapshot | [#128](https://github.com/DMXCore/DmxCore100-Software/issues/128) |
-| [AdminPortal](https://github.com/DMXCore/AdminPortal) | §3 DeviceApi **and** §4 Portal | [#28](https://github.com/DMXCore/AdminPortal/issues/28) |
-| Docs | §1 copilot | Not filed (Docs repo / Azure app) |
+| [DmxCore100-Software](https://github.com/DMXCore/DmxCore100-Software) | §2 Core snapshot | [#128](https://github.com/DMXCore/DmxCore100-Software/issues/128) (closed) |
+| [DmxCore100-Software](https://github.com/DMXCore/DmxCore100-Software) | §1 navigation document | [#129](https://github.com/DMXCore/DmxCore100-Software/issues/129) (closed) |
+| [DmxCore100-Software](https://github.com/DMXCore/DmxCore100-Software) | §4 user activity logging | [#130](https://github.com/DMXCore/DmxCore100-Software/issues/130) (closed) |
+| [AdminPortal](https://github.com/DMXCore/AdminPortal) | §3 DeviceApi **and** §4 Portal | [#28](https://github.com/DMXCore/AdminPortal/issues/28) (code landed; open) |
+| Docs + [HelpApi](https://github.com/DMXCore/HelpApi) | §1 copilot (live); signed-in chat tools (not started) | Not filed |

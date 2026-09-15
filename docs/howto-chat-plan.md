@@ -22,6 +22,18 @@ live playback and levels — a different product.
 | **2. Device-aware** | Portal grant + config snapshot + optional Seq | Same chat, now able to name *this* unit’s fixtures, universes, and recent errors. |
 | **3. Actuating agent** | Out of scope | Teach the operator to click through the Web UI. |
 
+## Status (2026-09-15)
+
+| Piece | Where | State |
+|-------|-------|-------|
+| Docs copilot (Phase 1) | Docs widget + [HelpApi](https://github.com/DMXCore/HelpApi) at `helpapi.dmxcore.com` | **Live** on docs.dmxcore.com: BM25 retrieval, in-chat checklists, screenshots, 👍/👎, redacted transcripts (1 year), validation of docs urls, screenshot ids, UI names and menu paths |
+| Config snapshot builder | Core [#128](https://github.com/DMXCore/DmxCore100-Software/issues/128) (`1f087698`) | Done |
+| Snapshot relay (`SnapshotNow`, `CONFIGSNAPSHOT`, `device-snapshots`) | DeviceApi (`44028e0`) | Done |
+| Grants, handoff, snapshot and logs endpoints, session context for the orchestrator | AdminPortal [#28](https://github.com/DMXCore/AdminPortal/issues/28) (`b484c42` …) | Done in code; issue still open |
+| Navigation document | Core [#129](https://github.com/DMXCore/DmxCore100-Software/issues/129) (`96c5e43d`) | Done; **not used by the copilot yet** |
+| User activity events in Seq | Core [#130](https://github.com/DMXCore/DmxCore100-Software/issues/130) (`72917354`) + AdminPortal (`c60c021`) | Done; returned by the portal logs endpoint |
+| Signed-in chat with device tools | HelpApi + portal help view | **Not started**: portal sign-in on the chat API, per-turn session context, `list_sections` / `get_section` / `get_recent_logs`, chat UI in the portal |
+
 ---
 
 ## Phase 1 — Docs copilot (what to build)
@@ -122,6 +134,30 @@ review happens.
 Pin the corpus to the **currently published** docs train so the chat does
 not describe UI that is not on the site yet.
 
+#### 6. Navigation document (Core #129)
+
+Core generates `docs/generated/navigation.yaml` from source on every build
+(Vue router and field schemas, Uno menus, settings pages): every Web UI and
+touchscreen screen with its path (`Web > Lighting > Presets > Details`,
+`Uno > Utilities > Device Operations > Restart`), route, fields (label, key,
+type), list columns, actions, and availability conditions (license, hidden
+features). It ships inside the app (`Shared.csproj` content) and as a build
+artifact; CI warns when it is stale.
+
+It is device-independent, so it belongs in Phase 1:
+
+- **Retrieval** for "where do I set X" questions the prose docs do not
+  answer, as a tool (screen / field / action lookup), not as prompt text.
+- **Source of truth for UI names.** The checklist validator already rejects
+  bold UI names and menu paths that are not in the docs text; the navigation
+  document is the authoritative list, and it catches docs that lag the UI.
+- **Pin to the published release**, like the docs corpus: use the file from
+  the Core release the docs describe, not `main`, so the chat never names a
+  screen users do not have yet.
+
+The same `Web > …` / `Uno > …` paths name the user activity events in Seq
+(#130), so Phase 2 can relate "what the user did" to "where that screen is".
+
 ### Not required for Phase 1
 
 Config snapshot, Seq, portal grant, device online, MCP, website JWT.
@@ -129,7 +165,10 @@ Config snapshot, Seq, portal grant, device online, MCP, website JWT.
 ### Suggested stack (Phase 1)
 
 - Chat API: Azure (Container App or Functions) with the same org as DeviceApi.
-- Model: a current tool-calling chat model (provider is swappable).
+- Model: a current tool-calling chat model (provider is swappable). Shipped on
+  GPT-4.1 mini; live answers still invent menu paths, so compare stronger
+  models on the recipe evals before settling. First impressions matter more
+  than token cost at this volume.
 - Retrieval: embeddings over chunks, rebuilt in the docs deploy pipeline
   (or a post-deploy webhook). BM25 alone is a fine fallback for v0.
 - Frontend: small Starlight-injected widget; CORS allow `docs.dmxcore.com`.
@@ -307,15 +346,38 @@ Do not dump the last X hours of Verbose.
 
 | Rule | Why |
 |------|-----|
-| Scope to this device | `HardwareId` (MachineName fallback). Never fleet-wide. |
-| Default window 2 hours, cap ~100 events | Warning+ always; Information from app sources (record, fixtures, inputs, import). Drop `Microsoft.AspNetCore` Information. |
-| Strip `ClientIp`, truncate exceptions | Logs can carry LAN addresses and request paths. |
+| Scope to this device | `HardwareId` **and** `Service = 'DmxCore100'` (cloud services share the Seq tenant). Never fleet-wide. |
+| Default window 2 hours, cap ~100 events | Warning+ always; Information from every device source except the embedded web server's framework chatter, at most 5 per source (health and update polling log every minute). |
+| Strip `ClientIp`, mask tokens, truncate exceptions | Logs can carry LAN addresses, JWTs and request paths. |
 | Tool `get_recent_logs` | Short summary. “Preview started, no packets” → point at Inputs. |
 | Grant | Logs tool stays off unless that box is on for this device. |
 
 The on-device audit log is too thin for this (no fixture save / import).
-Auto-checking walkthrough steps from Seq (“imported fixture profile…”) is
-optional later, not v1.
+
+#### User activity (Core #130)
+
+Core logs **what the user did** — on the web API, touchscreen, Integration
+API and MCP — as Debug `UserActivity` events: `ActivitySource`,
+`ActivityEntity`, `ActivityVerb`, `ActivityEntityId`/`Name`,
+`ActivityOutcome` (Ok / Failed / Denied / Cancelled), `ElapsedMs`. Messages
+read like `Activity Web > Cue > Save - id 123` or
+`Activity Uno > Utilities > Device Operations > Restart (Cancelled)`. Nothing
+is stored on the device; it only goes to Seq. User names stay in properties
+and never reach the model.
+
+The portal logs endpoint adds up to 30 of these (`Has(UserActivity)`) next to
+the filtered events, newest first. Uses in chat:
+
+- Know where the user has been and what they last changed ("you saved the
+  input mapping 2 minutes ago, but recording protocol is still sACN").
+- Explain failures and denials (`Failed`, `Denied` — e.g. an admin-only
+  screen).
+- Paths match the navigation document (#129), so the agent can point to the
+  exact screen and field.
+
+Auto-checking walkthrough steps from these events ("saved Inputs" → tick the
+mapping step) is a later option, not v1: it must stay a suggestion the user
+confirms.
 
 ### Worked examples (Phase 2)
 
@@ -334,13 +396,18 @@ the same-PC ignore gotcha.
 
 ## Suggested build order
 
-1. Corpus index + chat API + Starlight widget + walkthrough checklists
+1. ✅ Corpus index + chat API + Starlight widget + walkthrough checklists
    (**Phase 1**). Candidate recipes + eval cases in a later review session.
-2. Portal Help agent card + handoff (continue token, device picker).
-3. Snapshot schema + `BuildConfigSnapshot()` + `SnapshotNow` + unpack-to-blobs.
+2. ✅ Portal Help agent card + handoff (continue token, device picker).
+3. ✅ Snapshot schema + `BuildConfigSnapshot()` + `SnapshotNow` + unpack-to-blobs.
    Can ship as “download inventory” on the device page before the chat uses it.
-4. Wire `list_sections` / `get_section` into the signed-in chat.
-5. `get_recent_logs` behind the logs grant.
+4. ✅ Navigation document (#129) and user activity events (#130) in Core; the
+   portal logs endpoint returns the activity events.
+5. Recipe evals + model comparison; navigation document into the copilot
+   (lookup tool + UI-name validation).
+6. Wire `list_sections` / `get_section` into the signed-in chat (HelpApi reads
+   the portal session context each turn).
+7. `get_recent_logs` behind the logs grant, including user activity.
 
 Recipes stay in the docs corpus. The snapshot only fills in this unit’s names
 and numbers.
