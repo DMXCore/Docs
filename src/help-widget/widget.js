@@ -1,16 +1,17 @@
 // DMX Core 100 docs copilot widget.
 //
 // Chat overlay on docs.dmxcore.com. Answers stream as markdown; step-by-step
-// answers arrive as a structured walkthrough and render as a checklist. Checking
-// a step PATCHes the session so the next turn knows where the user is. The
-// session id lives in localStorage so the thread survives page navigation.
+// answers arrive as a structured walkthrough and render as a checklist card inside
+// the answer. A slim progress bar above the input keeps the current step in view
+// when the card scrolls away. Checking a step PATCHes the session so the next turn
+// knows where the user is. The session id lives in localStorage so the thread
+// survives page navigation.
 
 import { createHelpApi, HelpApiError } from './api.js';
 import { renderInline, renderMarkdown, resolveLink } from './markdown.js';
 
 const SESSION_KEY = 'dmxcore-help-session';
 const OPEN_KEY = 'dmxcore-help-open';
-const CHECKLIST_COLLAPSED_KEY = 'dmxcore-help-checklist-collapsed';
 const DOCS_ORIGINS = ['https://docs.dmxcore.com'];
 
 const SUGGESTIONS = [
@@ -45,6 +46,9 @@ function el(tag, attrs = {}, children = []) {
   return node;
 }
 
+/** Step labels carry **bold** UI names; plain text for messages and the progress bar. */
+const plain = (label) => label.replace(/\*\*|`/g, '');
+
 class HelpWidget {
   constructor(root) {
     this.root = root;
@@ -72,7 +76,23 @@ class HelpWidget {
     }, [el('span', { class: 'dmx-help-launcher-icon', 'aria-hidden': 'true', text: '?' }), el('span', { text: 'Ask the docs' })]);
 
     this.messages = el('div', { class: 'dmx-help-messages', 'aria-live': 'polite' });
-    this.checklist = el('div', { class: 'dmx-help-checklist', hidden: true });
+    // Follow new content only while the reader is at the bottom. Decided on scroll, not
+    // after content grows, so a tall checklist card does not unstick the view.
+    this.stickToBottom = true;
+    this.messages.addEventListener('scroll', () => {
+      const box = this.messages;
+      this.stickToBottom = box.scrollHeight - box.scrollTop - box.clientHeight < 120;
+      this.scheduleProgressUpdate();
+    }, { passive: true });
+
+    // One card for the current walkthrough; placeChecklist() moves it into the answer that showed it.
+    this.checklistCard = el('div', { class: 'dmx-help-card', role: 'group', 'aria-label': 'Checklist' });
+    this.progressBar = el('button', {
+      type: 'button',
+      class: 'dmx-help-progress',
+      hidden: true,
+      onclick: () => this.checklistCard.scrollIntoView({ behavior: 'smooth', block: 'start' }),
+    });
     this.notice = el('p', { class: 'dmx-help-notice', role: 'status', hidden: true });
 
     this.input = el('textarea', {
@@ -124,14 +144,47 @@ class HelpWidget {
         ]),
       ]),
       this.messages,
-      this.checklist,
+      this.progressBar,
       this.notice,
       composer,
       this.continueLink,
     ]);
 
-    this.root.append(this.launcher, this.panel);
+    this.root.append(this.launcher, this.panel, this.buildLightbox());
     this.updateContinueLink();
+  }
+
+  /** Full-window screenshot viewer; the checklist thumbnails are too small to read. */
+  buildLightbox() {
+    this.lightboxImage = el('img', { alt: '' });
+    this.lightboxCaption = el('p', { class: 'dmx-help-lightbox-caption' });
+    this.lightboxLink = el('a', { target: '_blank', rel: 'noopener', text: 'Open full size ↗' });
+    this.lightbox = el('dialog', {
+      class: 'dmx-help-lightbox',
+      'aria-label': 'Screenshot',
+      onclick: (e) => {
+        if (e.target === this.lightbox || e.target === this.lightboxImage) this.lightbox.close();
+      },
+    }, [
+      el('button', {
+        type: 'button',
+        class: 'dmx-help-lightbox-close',
+        'aria-label': 'Close screenshot',
+        text: '✕',
+        onclick: () => this.lightbox.close(),
+      }),
+      this.lightboxImage,
+      el('div', { class: 'dmx-help-lightbox-footer' }, [this.lightboxCaption, this.lightboxLink]),
+    ]);
+    return this.lightbox;
+  }
+
+  showScreenshot(src, alt) {
+    this.lightboxImage.src = src;
+    this.lightboxImage.alt = alt;
+    this.lightboxCaption.textContent = alt;
+    this.lightboxLink.href = src;
+    this.lightbox.showModal();
   }
 
   async open({ focus = true } = {}) {
@@ -139,7 +192,13 @@ class HelpWidget {
     this.root.classList.add('dmx-help-open');
     this.launcher.setAttribute('aria-expanded', 'true');
     this.tab?.setItem(OPEN_KEY, '1');
+    if (!this.warmedUp) {
+      // The API scales to zero; start it while the user reads the suggestions.
+      this.warmedUp = true;
+      this.api.warmUp();
+    }
     if (!this.loaded) await this.restore();
+    this.updateProgressBar();
     if (focus) this.input.focus();
   }
 
@@ -208,6 +267,7 @@ class HelpWidget {
           el('button', { type: 'button', class: 'dmx-help-suggestion', text, onclick: () => this.submit(text) }))),
       ]),
     );
+    this.updateProgressBar();
   }
 
   addUserBubble(text) {
@@ -220,7 +280,7 @@ class HelpWidget {
   addAssistantBubble(markdown = '', walkthroughId = null, turn = null, rating = null) {
     const body = el('div', { class: 'dmx-help-markdown', html: renderMarkdown(markdown, this.linkOptions) });
     const bubble = el('div', { class: 'dmx-help-bubble dmx-help-assistant' }, [body]);
-    if (walkthroughId) bubble.append(this.checklistChip());
+    if (walkthroughId) bubble.dataset.walkthroughId = walkthroughId;
     if (turn) bubble.append(this.feedbackRow(turn, rating));
     this.messages.append(bubble);
     return { bubble, body };
@@ -279,53 +339,42 @@ class HelpWidget {
     ]);
   }
 
-  checklistChip() {
-    return el('button', {
-      type: 'button',
-      class: 'dmx-help-chip',
-      text: 'Checklist below ↓',
-      onclick: () => {
-        this.setChecklistCollapsed(false);
-        this.checklist.scrollIntoView({ block: 'nearest' });
-      },
-    });
-  }
-
   async submit(preset) {
     const text = (preset ?? this.input.value).trim();
-    if (!text || this.stream) return;
+    if (!text || this.busy) return;
+
+    // Lock and show the question before any await: starting the API can take several
+    // seconds, and repeated clicks must not start more conversations.
+    this.busy = true;
+    this.stream = new AbortController();
+    const { signal } = this.stream;
     this.hideNotice();
-
-    if (!this.sessionId) {
-      try {
-        const session = await this.api.createSession();
-        this.sessionId = session.sessionId;
-        this.local?.setItem(SESSION_KEY, this.sessionId);
-        this.updateContinueLink();
-      } catch (err) {
-        this.showNotice(err.message);
-        return;
-      }
-    }
-
     this.input.value = '';
     this.addUserBubble(text);
     const { bubble, body } = this.addAssistantBubble();
-    const status = el('p', { class: 'dmx-help-status', text: 'Thinking…' });
+    const status = el('p', { class: 'dmx-help-status', text: this.sessionId ? 'Thinking…' : 'Connecting…' });
     bubble.prepend(status);
+    this.setStreaming(true);
     this.scrollToEnd(true);
 
     let markdown = '';
     let frame = 0;
+    let sent = false;
     const render = () => {
       frame = 0;
       body.innerHTML = renderMarkdown(markdown, this.linkOptions);
       this.scrollToEnd();
     };
 
-    this.stream = new AbortController();
-    this.setStreaming(true);
     try {
+      if (!this.sessionId) {
+        const session = await this.api.createSession(signal);
+        this.sessionId = session.sessionId;
+        this.local?.setItem(SESSION_KEY, this.sessionId);
+        this.updateContinueLink();
+        status.textContent = 'Thinking…';
+      }
+      sent = true;
       await this.api.sendMessage(this.sessionId, text, window.location.pathname, (event, payload) => {
         switch (event) {
           case 'status':
@@ -338,11 +387,13 @@ class HelpWidget {
             break;
           case 'walkthrough':
             status.remove();
+            bubble.dataset.walkthroughId = payload.id;
             this.setWalkthrough(payload);
-            bubble.append(this.checklistChip());
+            this.scrollToEnd();
             break;
           case 'sources':
             bubble.append(this.sourceLinks(payload.pages));
+            this.scrollToEnd();
             break;
           case 'error':
             status.remove();
@@ -353,7 +404,7 @@ class HelpWidget {
             if (payload.turn) bubble.append(this.feedbackRow(payload.turn, null));
             break;
         }
-      }, this.stream.signal);
+      }, signal);
     } catch (err) {
       status.remove();
       if (err?.name === 'AbortError') {
@@ -364,12 +415,16 @@ class HelpWidget {
       } else {
         bubble.append(el('p', { class: 'dmx-help-error', text: err.message }));
       }
+      // Never reached the API: give the question back so it can be sent again.
+      if (!sent && !this.input.value) this.input.value = text;
     } finally {
       if (frame) cancelAnimationFrame(frame);
       render();
       status.remove();
-      if (!markdown && bubble.childElementCount === 1) bubble.remove();
+      const hasContent = markdown || bubble.querySelector('.dmx-help-card, .dmx-help-error, .dmx-help-hint, .dmx-help-sources');
+      if (!hasContent) bubble.remove();
       this.stream = null;
+      this.busy = false;
       this.setStreaming(false);
       this.input.focus();
     }
@@ -392,34 +447,25 @@ class HelpWidget {
     this.renderChecklist();
   }
 
-  setChecklistCollapsed(collapsed) {
-    this.tab?.setItem(CHECKLIST_COLLAPSED_KEY, collapsed ? '1' : '0');
-    this.renderChecklist();
-  }
-
   renderChecklist() {
     const view = this.walkthrough;
-    this.checklist.hidden = !view;
     if (!view) {
-      this.checklist.replaceChildren();
+      this.checklistCard.replaceChildren();
+      this.placeChecklist();
       return;
     }
 
+    // Re-rendering replaces the checkboxes; keep keyboard focus on the one just toggled.
+    const focusedId = this.checklistCard.contains(document.activeElement) ? document.activeElement.id : null;
     const done = new Set(view.completedStepIds);
-    const collapsed = this.tab?.getItem(CHECKLIST_COLLAPSED_KEY) === '1';
     const nextIndex = view.steps.findIndex((s) => !done.has(s.id));
 
-    const header = el('button', {
-      type: 'button',
-      class: 'dmx-help-checklist-header',
-      'aria-expanded': String(!collapsed),
-      onclick: () => this.setChecklistCollapsed(!collapsed),
-    }, [
+    const header = el('div', { class: 'dmx-help-checklist-header' }, [
       el('span', { class: 'dmx-help-checklist-title', text: view.title }),
-      el('span', { class: 'dmx-help-checklist-count', text: `${done.size}/${view.steps.length} ${collapsed ? '▸' : '▾'}` }),
+      el('span', { class: 'dmx-help-checklist-count', text: `${done.size}/${view.steps.length}` }),
     ]);
 
-    const list = el('ol', { class: 'dmx-help-steps', hidden: collapsed });
+    const list = el('ol', { class: 'dmx-help-steps' });
     view.steps.forEach((step, index) => {
       const checked = done.has(step.id);
       const inputId = `dmx-help-step-${view.id}-${step.id}`;
@@ -427,8 +473,14 @@ class HelpWidget {
       const shot = step.screenshot ? resolveLink(step.screenshot.url, this.linkOptions) : null;
       const figure = shot
         ? el('figure', { class: 'dmx-help-shot', hidden: true }, [
-            el('img', { src: shot.href, alt: step.screenshot.alt, loading: 'lazy' }),
-            el('figcaption', { text: step.screenshot.alt }),
+            el('button', {
+              type: 'button',
+              class: 'dmx-help-shot-open',
+              title: 'Click to enlarge',
+              'aria-label': `Enlarge screenshot: ${step.screenshot.alt}`,
+              onclick: () => this.showScreenshot(shot.href, step.screenshot.alt),
+            }, [el('img', { src: shot.href, alt: step.screenshot.alt, loading: 'lazy' })]),
+            el('figcaption', { text: `${step.screenshot.alt} · click to enlarge` }),
           ])
         : null;
 
@@ -454,7 +506,7 @@ class HelpWidget {
             index === nextIndex && !this.stream ? el('button', {
               type: 'button',
               text: 'I’m stuck',
-              onclick: () => this.submit(`I'm stuck on step ${index + 1}: ${step.label.replace(/\*\*|`/g, '')}`),
+              onclick: () => this.submit(`I'm stuck on step ${index + 1}: ${plain(step.label)}`),
             }) : null,
           ]),
           figure,
@@ -462,7 +514,67 @@ class HelpWidget {
       ]));
     });
 
-    this.checklist.replaceChildren(header, list);
+    this.checklistCard.replaceChildren(header, list);
+    if (focusedId) document.getElementById(focusedId)?.focus();
+    this.placeChecklist();
+  }
+
+  /**
+   * The card lives in the latest answer that showed this walkthrough. Earlier answers
+   * that showed a checklist keep a one-line note pointing down to it.
+   */
+  placeChecklist() {
+    const view = this.walkthrough;
+    const bubbles = [...this.messages.querySelectorAll('.dmx-help-assistant[data-walkthrough-id]')];
+    const owner = view ? bubbles.filter((b) => b.dataset.walkthroughId === view.id).at(-1) : null;
+
+    for (const bubble of bubbles) {
+      const body = bubble.querySelector(':scope > .dmx-help-markdown');
+      const note = bubble.querySelector(':scope > .dmx-help-checklist-note');
+      if (bubble === owner) {
+        note?.remove();
+        if (body.nextElementSibling !== this.checklistCard) body.after(this.checklistCard);
+        continue;
+      }
+
+      const text = view && bubble.dataset.walkthroughId === view.id ? 'Checklist updated below ↓' : 'Earlier checklist, replaced below ↓';
+      if (note) note.textContent = text;
+      else body.after(el('p', { class: 'dmx-help-checklist-note', text }));
+    }
+
+    if (!view) this.checklistCard.remove();
+    else if (!owner) this.messages.append(this.checklistCard);
+    this.updateProgressBar();
+  }
+
+  scheduleProgressUpdate() {
+    if (this.progressFrame) return;
+    this.progressFrame = requestAnimationFrame(() => {
+      this.progressFrame = 0;
+      this.updateProgressBar();
+    });
+  }
+
+  /** Shown only while the checklist card is scrolled out of view; clicking it scrolls back. */
+  updateProgressBar() {
+    const view = this.walkthrough;
+    let show = Boolean(view && this.checklistCard.isConnected && !this.panel.hidden);
+    if (show) {
+      const box = this.messages.getBoundingClientRect();
+      const card = this.checklistCard.getBoundingClientRect();
+      show = card.bottom <= box.top || card.top >= box.bottom;
+    }
+
+    this.progressBar.hidden = !show;
+    if (!show) return;
+
+    const done = new Set(view.completedStepIds);
+    const next = view.steps.find((s) => !done.has(s.id));
+    const text = `▸ ${view.title} · ${done.size}/${view.steps.length} · ${next ? `Next: ${plain(next.label)}` : 'All steps done ✓'}`;
+    if (this.progressBar.textContent !== text) {
+      this.progressBar.textContent = text;
+      this.progressBar.title = text;
+    }
   }
 
   async toggleStep(stepId, done) {
@@ -521,8 +633,8 @@ class HelpWidget {
   }
 
   scrollToEnd(force = false) {
-    const box = this.messages;
-    if (force || box.scrollHeight - box.scrollTop - box.clientHeight < 120) box.scrollTop = box.scrollHeight;
+    if (force || this.stickToBottom) this.messages.scrollTop = this.messages.scrollHeight;
+    this.scheduleProgressUpdate();
   }
 }
 

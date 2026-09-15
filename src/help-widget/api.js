@@ -48,8 +48,13 @@ export function createHelpApi(baseUrl, fetchImpl = (...args) => fetch(...args)) 
   const sessionPath = (id) => `/api/sessions/${encodeURIComponent(id)}`;
 
   return {
-    async createSession() {
-      return (await request('POST', '/api/sessions')).json();
+    async createSession(signal) {
+      return (await request('POST', '/api/sessions', undefined, { signal })).json();
+    },
+
+    /** Wakes a scaled-to-zero API while the user reads or types. Fire and forget. */
+    warmUp() {
+      fetchImpl(`${root}/health`, { method: 'GET', mode: 'no-cors' }).catch(() => {});
     },
 
     async getSession(id) {

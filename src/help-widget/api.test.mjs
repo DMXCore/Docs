@@ -33,6 +33,25 @@ test('sendMessage posts the question and page, then yields parsed events', async
   ]);
 });
 
+test('warmUp pings /health without throwing, and createSession passes the abort signal', async () => {
+  const calls = [];
+  const api = createHelpApi('https://help.example', async (url, init) => {
+    calls.push({ url, init });
+    if (url.endsWith('/health')) throw new TypeError('Failed to fetch');
+    return new Response(JSON.stringify({ sessionId: 'abc' }), { status: 201 });
+  });
+
+  api.warmUp();
+  const controller = new AbortController();
+  const session = await api.createSession(controller.signal);
+
+  assert.equal(calls[0].url, 'https://help.example/health');
+  assert.equal(calls[0].init.mode, 'no-cors');
+  assert.equal(calls[1].url, 'https://help.example/api/sessions');
+  assert.equal(calls[1].init.signal, controller.signal);
+  assert.equal(session.sessionId, 'abc');
+});
+
 test('sendFeedback posts the rating and leaves out an empty comment', async () => {
   const calls = [];
   const api = createHelpApi('https://help.example', async (url, init) => {
