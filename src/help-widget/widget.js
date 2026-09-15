@@ -13,6 +13,7 @@ import { renderInline, renderMarkdown, resolveLink } from './markdown.js';
 const SESSION_KEY = 'dmxcore-help-session';
 const OPEN_KEY = 'dmxcore-help-open';
 const COLLAPSED_KEY = 'dmxcore-help-collapsed-checklists';
+const EXPANDED_KEY = 'dmxcore-help-expanded';
 const DOCS_ORIGINS = ['https://docs.dmxcore.com'];
 
 const SUGGESTIONS = [
@@ -65,6 +66,7 @@ class HelpWidget {
     this.linkOptions = { docsOrigins: [...DOCS_ORIGINS, window.location.origin] };
 
     this.build();
+    this.setExpanded(this.local?.getItem(EXPANDED_KEY) === '1');
     if (this.tab?.getItem(OPEN_KEY) === '1') this.open({ focus: false });
   }
 
@@ -146,6 +148,11 @@ class HelpWidget {
           el('p', { class: 'dmx-help-subtitle', text: 'Answers from these docs. It can’t see or change your device.' }),
         ]),
         el('div', { class: 'dmx-help-header-actions' }, [
+          this.expandButton = el('button', {
+            type: 'button',
+            class: 'dmx-help-icon-button dmx-help-expand',
+            onclick: () => this.setExpanded(!this.expanded),
+          }),
           el('button', { type: 'button', class: 'dmx-help-icon-button', text: 'New chat', onclick: () => this.newChat() }),
           el('button', { type: 'button', class: 'dmx-help-icon-button', 'aria-label': 'Close help', text: '✕', onclick: () => this.close() }),
         ]),
@@ -215,6 +222,17 @@ class HelpWidget {
     this.launcher.setAttribute('aria-expanded', 'false');
     this.tab?.setItem(OPEN_KEY, '0');
     this.launcher.focus();
+  }
+
+  /** Wider, taller panel for long answers and screenshots; remembered across pages and visits. */
+  setExpanded(expanded) {
+    this.expanded = expanded;
+    this.panel.classList.toggle('dmx-help-expanded', expanded);
+    this.expandButton.textContent = expanded ? 'Shrink' : 'Expand';
+    this.expandButton.title = expanded ? 'Make the help panel smaller' : 'Make the help panel larger';
+    if (expanded) this.local?.setItem(EXPANDED_KEY, '1');
+    else this.local?.removeItem(EXPANDED_KEY);
+    this.scheduleProgressUpdate();
   }
 
   async restore() {

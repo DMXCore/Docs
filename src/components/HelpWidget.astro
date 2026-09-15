@@ -81,6 +81,11 @@ const enabled = Boolean(apiUrl) && Astro.url.pathname.startsWith('/dmx-core-100'
     overflow: hidden;
   }
 
+  .dmx-help-panel.dmx-help-expanded {
+    width: min(64rem, calc(100vw - 2.5rem));
+    height: calc(100vh - 6.5rem);
+  }
+
   .dmx-help-header {
     display: flex;
     justify-content: space-between;
@@ -523,7 +528,8 @@ const enabled = Boolean(apiUrl) && Astro.url.pathname.startsWith('/dmx-core-100'
   }
 
   @media (max-width: 50rem) {
-    .dmx-help-panel {
+    .dmx-help-panel,
+    .dmx-help-panel.dmx-help-expanded {
       inset: 0;
       width: 100%;
       height: 100%;
@@ -531,7 +537,8 @@ const enabled = Boolean(apiUrl) && Astro.url.pathname.startsWith('/dmx-core-100'
       border-radius: 0;
     }
 
-    .dmx-help-open .dmx-help-launcher {
+    .dmx-help-open .dmx-help-launcher,
+    .dmx-help-expand {
       display: none;
     }
   }
