@@ -48,7 +48,7 @@ Run common maintenance actions on a device without being on-site:
 
 ## Software Updates
 
-Keep devices current remotely:
+On the device itself, how you pick a build depends on the platform — see [Software Updates](/dmx-core-100/configuration/software-updates). From the portal you can also keep devices current remotely:
 
 - **Release channels** — subscribe a device to a channel (for example, stable) to control which releases it receives
 - **Per-device pinning** — pin a specific release to a device when you need to hold a version

@@ -6,6 +6,7 @@ This section covers the configuration options available in the DMX Core 100. Mos
 
 - [Admin Mode](/dmx-core-100/configuration/admin-mode) — Access protected settings via PIN
 - [Settings](/dmx-core-100/configuration/settings) — System, network, and device settings
+- [Software Updates](/dmx-core-100/configuration/software-updates) — Upgrade path by platform, version numbers, and isolated networks
 - [Output Config](/dmx-core-100/configuration/output-config) — Configure DMX output universes and protocols
 - [Output Monitor](/dmx-core-100/configuration/output-monitor) — Real-time DMX channel visualization
 - [Device Monitor](/dmx-core-100/configuration/device-monitor) — Discover and monitor network hardware

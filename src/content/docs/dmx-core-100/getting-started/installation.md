@@ -72,6 +72,8 @@ Attach the network cable, and optionally the power supply connection if you're n
 
 We recommend that the DMX Core 100 is connected to the internet at all times; that way it will receive updates and the optional remote access feature will be available. It also allows the manufacturer to capture error logs and provide remote technical support. Note that the DMX Core 100 is security hardened and no inbound connections from the internet are open, and no ports are required to be opened in your router/firewall. The unit can operate completely stand-alone; however at a minimum we recommend that it's connected to the internet initially to receive the latest software release before deployment.
 
+How you install those updates depends on the platform — the Appliance and Windows/macOS use the in-app Releases picker; Linux Snap is updated by snapd. See [Software Updates](/dmx-core-100/configuration/software-updates). On an isolated network, use [Internet Passthrough](/dmx-core-100/integrations/internet-passthrough) rather than re-flashing.
+
 #### Heat
 
 The PoE module and the main processor of the DMX Core 100 generate about 6–7 watts of heat. With only passive cooling, when using PoE, make sure there are open vents in the electrical box where you install the DMX Core 100 if you use a plastic box, or use a metal box which will then help with heat dissipation. If possible, use a low-voltage open frame to allow heat to escape into the wall.

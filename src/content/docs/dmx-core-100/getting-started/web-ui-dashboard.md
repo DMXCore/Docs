@@ -24,13 +24,13 @@ The Web UI has two main areas:
 | **Lighting Setup** | [Outputs](/dmx-core-100/configuration/output-config), Protocol ([merge & priority](/dmx-core-100/playback/layers-and-priority)), [Fixtures](/dmx-core-100/lighting/fixture-setup), Cue Fade Masks, [Zones](/dmx-core-100/lighting/zones) *(with Multi-Zone Playback enabled)* |
 | **Control & Integrations** | [Input Triggers](/dmx-core-100/scheduling-automation/input-triggers), [Output Events](/dmx-core-100/scheduling-automation/output-events), [Control Surfaces](/dmx-core-100/control-surfaces), [Control Values](/dmx-core-100/integrations/control-values), [OSC Clients](/dmx-core-100/integrations/osc-open-sound-control), Remote Control, [MQTT](/dmx-core-100/integrations/mqtt), [Scripts](/dmx-core-100/scheduling-automation/scripting), [Plugins](/dmx-core-100/integrations/plugins) |
 | **Device** | System, Network, Touchscreen, [Custom Menus](/dmx-core-100/scheduling-automation/custom-menus), Installer — see [Settings](/dmx-core-100/configuration/settings) |
-| **Utilities** | [Audit Log](/dmx-core-100/configuration/audit-log), [Device Monitor](/dmx-core-100/configuration/device-monitor), [Output Monitor](/dmx-core-100/configuration/output-monitor), [Record](/dmx-core-100/playback/recording), Releases, [System (factory reset)](/dmx-core-100/configuration/utilities) |
+| **Utilities** | [Audit Log](/dmx-core-100/configuration/audit-log), [Device Monitor](/dmx-core-100/configuration/device-monitor), [Output Monitor](/dmx-core-100/configuration/output-monitor), [Record](/dmx-core-100/playback/recording), [Releases](/dmx-core-100/configuration/software-updates) *(Appliance, Windows, and macOS — not Snap Linux)*, [System (factory reset)](/dmx-core-100/configuration/utilities) |
 | **Backup & Restore** | [Local and cloud backups](/dmx-core-100/configuration/backup-and-restore) |
 | **File Explorer** | Browse and manage files on the device |
 | **User Management** | [Users & Roles](/dmx-core-100/configuration/users-and-roles) |
 
 :::note
-Some sidebar items are only visible to users with the appropriate permissions. If you don't see a menu item, check with your administrator about your role permissions.
+Some sidebar items are only visible to users with the appropriate permissions. **Utilities > Releases** is also platform-specific — it is hidden on Linux Snap. See [Software Updates](/dmx-core-100/configuration/software-updates). If you don't see a menu item, check with your administrator about your role permissions.
 :::
 
 ## Dashboard Content

@@ -1,6 +1,6 @@
 ---
 title: Utilities
-description: Touchscreen and Web UI utilities, including factory reset
+description: Touchscreen and Web UI utilities, including factory reset and the in-app Releases picker
 ---
 
 Utilities are available on both the **touchscreen** and the **Web UI**. The touchscreen menu covers day-to-day tools such as recording and snooze. The Web UI **Utilities > System** page adds device status, maintenance actions, and factory reset.
@@ -25,7 +25,13 @@ Here you have quick shortcuts to snooze the schedule for a period of time. For e
 
 ## Web UI
 
-The **Utilities** sidebar group includes [Audit Log](/dmx-core-100/configuration/audit-log), [Device Monitor](/dmx-core-100/configuration/device-monitor), [Output Monitor](/dmx-core-100/configuration/output-monitor), [Record](/dmx-core-100/playback/recording), Releases, and **System**.
+The **Utilities** sidebar group includes [Audit Log](/dmx-core-100/configuration/audit-log), [Device Monitor](/dmx-core-100/configuration/device-monitor), [Output Monitor](/dmx-core-100/configuration/output-monitor), [Record](/dmx-core-100/playback/recording), **Releases** (Appliance, Windows, and macOS only), and **System**.
+
+### Releases
+
+**Utilities > Releases** is the in-app software picker on the Appliance and on Windows and macOS desktop installs. A **Snap** Linux install hides this item — snapd updates the app outside the UI, and **Utilities > System** reports that instead.
+
+See [Software Updates](/dmx-core-100/configuration/software-updates) for version numbering, the touchscreen path, isolated networks, and why you should not re-flash just to change software version.
 
 ### System
 

@@ -6,6 +6,8 @@ If you need to recover the device back to factory default (you will lose all set
 
 To wipe show content and return to empty defaults **without** rewriting the OS — keeping network settings and the device license — use [Factory Reset](/dmx-core-100/configuration/utilities#factory-reset) in the Web UI instead.
 
+To change software version on a unit that still boots, use [Software Updates](/dmx-core-100/configuration/software-updates). Do not re-flash just to move to a newer or older build.
+
 :::caution
 Re-flashing erases all settings, presets, and cues. Make a backup first if possible.
 :::

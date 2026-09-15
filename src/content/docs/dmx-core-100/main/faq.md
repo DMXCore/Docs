@@ -8,7 +8,7 @@ You can output up to 800 universes at 40 Hz, or 600 universes at 60 Hz. It's pos
 
 #### Can the DMX Core 100 run offline/disconnected?
 
-Yes, the DMX Core 100 can run without internet access, but will not receive software updates. It is however possible to temporarily move it over to a network with internet access to receive updates, as it will attempt to connect to the cloud platform to receive them.
+Yes, the DMX Core 100 can run without internet access, but will not receive software updates. Temporarily move it onto a network with internet, or use [Internet Passthrough](/dmx-core-100/integrations/internet-passthrough), then [install a current build](/dmx-core-100/configuration/software-updates). How you upgrade depends on the platform — the Appliance and Windows/macOS use the in-app Releases picker; Linux Snap is updated by snapd.
 
 #### Can the DMX Core 100 be configured for static IP?
 

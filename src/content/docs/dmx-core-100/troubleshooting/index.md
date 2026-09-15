@@ -4,7 +4,7 @@ title: Troubleshooting
 
 We have worked hard to ensure the DMX Core 100 is as stable as possible; however it is running a full Linux OS so things can happen. Here are some suggestions that can help to recover a device.
 
-The DMX Core 100 connects to a central web service to get updates and allow support personnel to analyze log files. The first thing you should try is to make sure the unit is on a network connected to the internet.
+The first thing you should try is to make sure the unit is on a network connected to the internet. To pick a software build, see [Software Updates](/dmx-core-100/configuration/software-updates) — do not re-flash a unit that still boots just to change version.
 
 To wipe show content and return to empty first-start defaults while keeping the OS, network, and license, use [Factory Reset](/dmx-core-100/configuration/utilities#factory-reset) in the Web UI. Re-flashing the boot image is only needed if the device will not boot — see [Re-flash Instructions](/dmx-core-100/troubleshooting/re-flash-instructions).
 

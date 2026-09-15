@@ -33,7 +33,7 @@ and turn on **Enable Internet Passthrough**. This only needs to be done once.
 2. Install and run **DMX Core Connect** on the computer.
 3. In the DMX Core **Web UI**, go to **Utilities > System** and find the **Internet Passthrough** section.
 4. Pick your computer from the list of discovered computers and select **Activate**. (If your computer isn't listed, enter its IP address manually — DMX Core Connect shows the computer's addresses in its window.)
-5. Wait for the status to show green: **Internet access** and **Cloud connection** confirm the DMX Core is online. You can now install updates as usual.
+5. Wait for the status to show green: **Internet access** and **Cloud connection** confirm the DMX Core is online. You can now [install software updates](/dmx-core-100/configuration/software-updates) as usual.
 6. When you're finished, select **Deactivate**.
 
 ![Internet Passthrough section on Utilities > System, showing a discovered computer running DMX Core Connect](/assets/device/internet-passthrough.png)

@@ -14,7 +14,7 @@ Download and run the installer:
 1. Run the downloaded **DMXCore100App-stable-Setup.exe**.
 2. The installer is signed by **DMX Pro Sales**. For a brand-new release, Windows SmartScreen may still show a "Windows protected your PC" prompt until the signature accumulates reputation — if it appears, select **More info** and then **Run anyway**.
 3. When prompted, allow the application access to your network (required for DMX recording and playback).
-4. The app installs and launches automatically, and keeps itself up to date after that.
+4. The app installs and launches automatically, and keeps itself up to date after that. You can also pick a specific build from **Utilities > Releases** — see [Software Updates](/dmx-core-100/configuration/software-updates).
 
 ## Web Interface
 

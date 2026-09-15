@@ -7,6 +7,7 @@ slug: update-via-internet-passthrough
 anonymized: true
 docs_slugs:
   - dmx-core-100/integrations/internet-passthrough
+  - dmx-core-100/configuration/software-updates
   - dmx-core-100/configuration/settings
   - dmx-core-100/configuration/utilities
   - dmx-core-100/getting-started/installation
@@ -53,8 +54,8 @@ Connect so it can download current software releases.
     },
     {
       "id": "install-updates",
-      "label": "On a wall unit, install the current software from Utilities → Releases (Web UI) or Main Menu → Settings on the touchscreen, then Deactivate passthrough. Snap Linux has no Releases page — snapd updates it outside the app",
-      "docsUrl": "/dmx-core-100/configuration/utilities/",
+      "label": "On an Appliance, install the current software from Utilities → Releases (Web UI) or Main Menu → Settings on the touchscreen, then Deactivate passthrough. Snap Linux has no Releases page — snapd updates it outside the app",
+      "docsUrl": "/dmx-core-100/configuration/software-updates/",
       "screenshotId": "uno-settings"
     }
   ]
@@ -72,7 +73,7 @@ Connect so it can download current software releases.
   minutes.
 - A unit with no internet will sit on an older build and may not even see the
   current release list.
-- **Utilities → Releases is platform-specific.** Wall-mounted Balena units and
+- **Utilities → Releases is platform-specific.** The Appliance (Balena) and
   Windows/macOS desktop installs show it. A **Snap** Linux install does not —
   snapd manages updates; Utilities → System reports that instead of offering
   an in-app picker.
@@ -83,7 +84,7 @@ Connect so it can download current software releases.
   Utilities
 - Mentions **DMX Core Connect** and a computer that already has internet
 - Activate path is `Utilities > System`
-- For a wall unit: mentions `Utilities > Releases` and/or touchscreen
+- For an Appliance: mentions `Utilities > Releases` and/or touchscreen
   `Main Menu > Settings` for the actual upgrade
 - Does not tell a Snap Linux user to open Utilities > Releases
 - Does not tell them to re-flash unless the device will not boot
@@ -93,9 +94,9 @@ Connect so it can download current software releases.
 - No screenshot of Device > Network → network settings (Enable Internet
   Passthrough)
 - No screenshot of **Utilities > Releases**; `uno-settings` is the
-  touchscreen Settings page that lists software releases
-- Docs mention Releases in the Web UI sidebar as if it is always present;
-  Snap hides that item. There is no published “how to upgrade” page.
+  touchscreen Settings page that lists software releases. Published
+  walkthrough is
+  [Software Updates](/dmx-core-100/configuration/software-updates/).
 
 ## Source notes
 

@@ -22,7 +22,7 @@ Control fixtures directly from the touchscreen.
 
 #### Settings
 
-Change host and output configuration settings like time zone, output protocol and more.
+Change host and output configuration settings like time zone, output protocol and more. On an Appliance this page also lists available [software releases](/dmx-core-100/configuration/software-updates).
 
 #### Utilities
 

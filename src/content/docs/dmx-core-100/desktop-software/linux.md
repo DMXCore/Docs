@@ -21,6 +21,18 @@ For the latest edge release:
 sudo snap install dmxcore100 --edge
 ```
 
+## Updates
+
+The Snap install has **no** Web UI **Utilities > Releases** page. snapd refreshes the app on its own schedule, and **Utilities > System** reports that updates are managed by the Snap Store.
+
+To refresh immediately:
+
+```bash
+sudo snap refresh dmxcore100
+```
+
+The Appliance and Windows/macOS desktop installs use an in-app picker instead — see [Software Updates](/dmx-core-100/configuration/software-updates).
+
 ## Requirements
 
 * A Linux distribution that supports [snapd](https://snapcraft.io/docs/installing-snapd) (Ubuntu, Debian, Fedora, and most others)

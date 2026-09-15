@@ -6,6 +6,7 @@ title: Pick a current software release, not an older listed build
 slug: choose-software-release
 anonymized: true
 docs_slugs:
+  - dmx-core-100/configuration/software-updates
   - dmx-core-100/configuration/settings
   - dmx-core-100/configuration/utilities
   - dmx-core-100/release-notes
@@ -39,13 +40,13 @@ is running. An older entry in the Releases list is not installed.
     {
       "id": "read-current",
       "label": "Note the running version on Utilities → System (or the Releases page). Version numbers are year then month-day: 2026.717 is 17 July 2026, which is newer than 2026.4 (April)",
-      "docsUrl": "/dmx-core-100/configuration/utilities/",
+      "docsUrl": "/dmx-core-100/configuration/software-updates/",
       "screenshotId": null
     },
     {
       "id": "open-releases",
-      "label": "On a wall unit or Windows/macOS desktop install, open Utilities → Releases (Web UI) or Main Menu → Settings (touchscreen) and compare each listed build to the running version. Snap Linux has no Releases item — snapd updates the app outside the UI",
-      "docsUrl": "/dmx-core-100/configuration/settings/",
+      "label": "On an Appliance or Windows/macOS desktop install, open Utilities → Releases (Web UI) or Main Menu → Settings (touchscreen) and compare each listed build to the running version. Snap Linux has no Releases item — snapd updates the app outside the UI",
+      "docsUrl": "/dmx-core-100/configuration/software-updates/",
       "screenshotId": "uno-settings"
     },
     {
@@ -57,7 +58,7 @@ is running. An older entry in the Releases list is not installed.
     {
       "id": "confirm-downgrade",
       "label": "On current software, switching to an older build asks for confirmation and warns to take a backup. Cancel unless you intentionally need that older build",
-      "docsUrl": "/dmx-core-100/release-notes/",
+      "docsUrl": "/dmx-core-100/configuration/software-updates/",
       "screenshotId": null
     }
   ]
@@ -68,7 +69,7 @@ is running. An older entry in the Releases list is not installed.
 
 - **Utilities → Releases is not on every platform.** The Web UI only shows
   that sidebar item when the install can be upgraded in-app (`HasReleasesPage`):
-  wall-mounted Balena units, Windows (Velopack/ClickOnce), and macOS. A **Snap**
+  the Appliance (Balena), Windows (Velopack/ClickOnce), and macOS. A **Snap**
   Linux install hides it — snapd refreshes the app on its own schedule, and
   Utilities → System says updates are managed by the Snap Store.
 - A date shown next to a release (for example 4/30/2026) can be a leftover or
@@ -84,7 +85,7 @@ is running. An older entry in the Releases list is not installed.
 ## Eval checks
 
 - Explains year.month-day version numbering with `2026.717` vs `2026.4`
-- For a wall unit / Windows / macOS: menu path includes `Utilities > Releases`
+- For an Appliance / Windows / macOS: menu path includes `Utilities > Releases`
   and/or touchscreen `Main Menu > Settings`
 - Does not tell a Snap Linux user to open Utilities > Releases
 - Tells them not to install a lower version number
@@ -95,11 +96,9 @@ is running. An older entry in the Releases list is not installed.
 
 - No screenshot of **Utilities > Releases** (not in the capture-script
   `SHOTS` list)
-- Published docs list **Utilities > Releases** in the sidebar as if it is
-  always there; Snap (and any install with `HasReleasesPage: false`) hides
-  it. There is no “how to upgrade” page covering platform differences.
 - Touchscreen screenshot `uno-settings` shows Settings, not the Web UI
-  Releases picker
+  Releases picker. Published walkthrough is
+  [Software Updates](/dmx-core-100/configuration/software-updates/).
 
 ## Source notes
 
