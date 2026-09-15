@@ -24,15 +24,18 @@ live playback and levels — a different product.
 
 ## Status (2026-09-15)
 
+Per-requirement evidence: [`howto-chat-status.md`](howto-chat-status.md).
+The plan for what remains: [`howto-chat-gap-plan.md`](howto-chat-gap-plan.md).
+
 | Piece | Where | State |
 |-------|-------|-------|
-| Docs copilot (Phase 1) | Docs widget + [HelpApi](https://github.com/DMXCore/HelpApi) at `helpapi.dmxcore.com` | **Live** on docs.dmxcore.com: BM25 retrieval, in-chat checklists, screenshots, 👍/👎, redacted transcripts (1 year), validation of docs urls, screenshot ids, UI names and menu paths |
-| Config snapshot builder | Core [#128](https://github.com/DMXCore/DmxCore100-Software/issues/128) (`1f087698`) | Done |
-| Snapshot relay (`SnapshotNow`, `CONFIGSNAPSHOT`, `device-snapshots`) | DeviceApi (`44028e0`) | Done |
-| Grants, handoff, snapshot and logs endpoints, session context for the orchestrator | AdminPortal [#28](https://github.com/DMXCore/AdminPortal/issues/28) (`b484c42` …) | Done in code; issue still open |
-| Navigation document | Core [#129](https://github.com/DMXCore/DmxCore100-Software/issues/129) (`96c5e43d`) | Done; **not used by the copilot yet** |
-| User activity events in Seq | Core [#130](https://github.com/DMXCore/DmxCore100-Software/issues/130) (`72917354`) + AdminPortal (`c60c021`) | Done; returned by the portal logs endpoint |
-| Signed-in chat with device tools | HelpApi + portal help view | **Not started**: portal sign-in on the chat API, per-turn session context, `list_sections` / `get_section` / `get_recent_logs`, chat UI in the portal |
+| Docs copilot (Phase 1) | Docs widget + [HelpApi](https://github.com/DMXCore/HelpApi) at `helpapi.dmxcore.com` (`bd6bcd2`, deployed) | **Live** on docs.dmxcore.com: BM25 retrieval, in-chat checklists, screenshots, 👍/👎, redacted transcripts (1 year), validation of docs URLs, screenshot ids, UI names and menu paths. **Partial:** no cost budget, and the daily turn limit resets on scale-to-zero. Tool errors and checklist labels aren't redacted in transcripts (one Seq line carries model text). **Continue with my device** is built but hidden (`HELP_CONTINUE_URL` unset). Embeddings, recipe evals and model comparison belong to the quality workstream |
+| Config snapshot builder | Core [#128](https://github.com/DMXCore/DmxCore100-Software/issues/128) (`1f087698`, from `v2026.914.1`) | Done. **Defect:** free-text timeline codes give file names DeviceApi rejects, which drops the whole capture. The empty-show test doesn't build the zip |
+| Snapshot relay (`SnapshotNow`, `CONFIGSNAPSHOT`, `device-snapshots`) | DeviceApi (`44028e0`, deployed) | Done. **Partial:** a rejected capture is only logged, so the portal keeps showing the old one. Controller and TUS tests missing. The container is created at startup rather than in bicep |
+| Grants, handoff, snapshot and logs endpoints, session context for the orchestrator | AdminPortal [#28](https://github.com/DMXCore/AdminPortal/issues/28) (`b484c42` … `31adfea`, deployed; issue closed) | Done; docs handoff verified in prod. **Partial:** **Ask for help** creates 32-char hex session ids that HelpApi can't use. Deleting a device that has a help session fails. No session retention. No version gate for devices without `SnapshotNow`. No download inventory. No frontend tests |
+| Navigation document | Core [#129](https://github.com/DMXCore/DmxCore100-Software/issues/129) (`96c5e43d`, from `v2026.914.2`) | Done in Core; **not used by the copilot**. There is no release-pinned copy it could reach (the repo is private, with no releases). Web activity paths don't match its screen paths; Uno paths do |
+| User activity events in Seq | Core [#130](https://github.com/DMXCore/DmxCore100-Software/issues/130) (`72917354`) + AdminPortal (`c60c021`) | Done; returned by the portal logs endpoint. **Unverified:** touchscreen events from Release builds, and where the Seq `Service` property the portal filters on comes from |
+| Signed-in chat with device tools | HelpApi + portal help view | **Not started.** No credential design works yet: 15-min portal tokens with cookie refresh can't be held by HelpApi. The gap plan proposes a scoped help-agent token. Also missing: per-turn session context, `list_sections` / `get_section` / `get_recent_logs`, session binding, portal CORS, and the chat UI in the portal |
 
 ---
 
