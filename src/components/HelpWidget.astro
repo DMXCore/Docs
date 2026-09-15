@@ -292,13 +292,32 @@ const enabled = Boolean(apiUrl) && Astro.url.pathname.startsWith('/dmx-core-100'
     scroll-margin-top: 0.5rem;
   }
 
-  .dmx-help-checklist-header {
+  /* .dmx-help prefix outranks `.dmx-help button { font: inherit }`. */
+  .dmx-help .dmx-help-checklist-header {
     display: flex;
     justify-content: space-between;
     gap: 0.5rem;
+    width: 100%;
     padding: 0.5rem 0.7rem 0.3rem;
+    border: 0;
+    background: none;
     color: var(--sl-color-white);
     font-weight: 600;
+    text-align: left;
+  }
+
+  .dmx-help .dmx-help-checklist-header:hover .dmx-help-checklist-count {
+    color: var(--sl-color-white);
+  }
+
+  .dmx-help-checklist-next {
+    margin: 0;
+    padding: 0 0.7rem 0.5rem;
+    overflow: hidden;
+    font-size: var(--sl-text-xs);
+    color: var(--sl-color-gray-3);
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .dmx-help-checklist-count {

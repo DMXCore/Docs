@@ -12,6 +12,7 @@ import { renderInline, renderMarkdown, resolveLink } from './markdown.js';
 
 const SESSION_KEY = 'dmxcore-help-session';
 const OPEN_KEY = 'dmxcore-help-open';
+const COLLAPSED_KEY = 'dmxcore-help-collapsed-checklists';
 const DOCS_ORIGINS = ['https://docs.dmxcore.com'];
 
 const SUGGESTIONS = [
@@ -57,6 +58,7 @@ class HelpWidget {
     this.local = safeStorage('localStorage');
     this.tab = safeStorage('sessionStorage');
     this.sessionId = this.local?.getItem(SESSION_KEY) || null;
+    this.collapsedChecklists = this.loadCollapsedChecklists();
     this.walkthrough = null;
     this.stream = null;
     this.loaded = false;
@@ -91,7 +93,12 @@ class HelpWidget {
       type: 'button',
       class: 'dmx-help-progress',
       hidden: true,
-      onclick: () => this.checklistCard.scrollIntoView({ behavior: 'smooth', block: 'start' }),
+      onclick: () => {
+        if (this.walkthrough && this.collapsedChecklists.has(this.walkthrough.id)) {
+          this.setChecklistCollapsed(this.walkthrough.id, false);
+        }
+        this.checklistCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      },
     });
     this.notice = el('p', { class: 'dmx-help-notice', role: 'status', hidden: true });
 
@@ -388,6 +395,9 @@ class HelpWidget {
           case 'walkthrough':
             status.remove();
             bubble.dataset.walkthroughId = payload.id;
+            // A new or refined checklist always opens, even if an earlier version was collapsed.
+            this.collapsedChecklists.delete(payload.id);
+            this.saveCollapsedChecklists();
             this.setWalkthrough(payload);
             this.scrollToEnd();
             break;
@@ -459,13 +469,28 @@ class HelpWidget {
     const focusedId = this.checklistCard.contains(document.activeElement) ? document.activeElement.id : null;
     const done = new Set(view.completedStepIds);
     const nextIndex = view.steps.findIndex((s) => !done.has(s.id));
+    const collapsed = this.collapsedChecklists.has(view.id);
+    const listId = `dmx-help-steps-${view.id}`;
 
-    const header = el('div', { class: 'dmx-help-checklist-header' }, [
+    const header = el('button', {
+      type: 'button',
+      id: `dmx-help-checklist-toggle-${view.id}`,
+      class: 'dmx-help-checklist-header',
+      'aria-expanded': String(!collapsed),
+      'aria-controls': listId,
+      title: collapsed ? 'Show steps' : 'Hide steps',
+      onclick: () => this.setChecklistCollapsed(view.id, !collapsed),
+    }, [
       el('span', { class: 'dmx-help-checklist-title', text: view.title }),
-      el('span', { class: 'dmx-help-checklist-count', text: `${done.size}/${view.steps.length}` }),
+      el('span', { class: 'dmx-help-checklist-count', text: `${done.size}/${view.steps.length} ${collapsed ? '▸' : '▾'}` }),
     ]);
 
-    const list = el('ol', { class: 'dmx-help-steps' });
+    const nextStep = nextIndex >= 0 ? view.steps[nextIndex] : null;
+    const summary = collapsed
+      ? el('p', { class: 'dmx-help-checklist-next', text: nextStep ? `Next: ${plain(nextStep.label)}` : 'All steps done ✓' })
+      : null;
+
+    const list = el('ol', { class: 'dmx-help-steps', id: listId, hidden: collapsed });
     view.steps.forEach((step, index) => {
       const checked = done.has(step.id);
       const inputId = `dmx-help-step-${view.id}-${step.id}`;
@@ -514,9 +539,33 @@ class HelpWidget {
       ]));
     });
 
-    this.checklistCard.replaceChildren(header, list);
+    this.checklistCard.replaceChildren(...[header, summary, list].filter(Boolean));
     if (focusedId) document.getElementById(focusedId)?.focus();
     this.placeChecklist();
+  }
+
+  /** Walkthrough ids collapsed in this tab; kept in sessionStorage so they survive page navigation. */
+  loadCollapsedChecklists() {
+    try {
+      return new Set(JSON.parse(this.tab?.getItem(COLLAPSED_KEY) ?? '[]'));
+    } catch {
+      return new Set();
+    }
+  }
+
+  saveCollapsedChecklists() {
+    try {
+      this.tab?.setItem(COLLAPSED_KEY, JSON.stringify([...this.collapsedChecklists]));
+    } catch {
+      // Storage blocked or full: collapsing still works for this page.
+    }
+  }
+
+  setChecklistCollapsed(id, collapsed) {
+    if (collapsed) this.collapsedChecklists.add(id);
+    else this.collapsedChecklists.delete(id);
+    this.saveCollapsedChecklists();
+    this.renderChecklist();
   }
 
   /**
