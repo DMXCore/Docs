@@ -9,6 +9,7 @@
 
 import { createHelpApi, HelpApiError } from './api.js';
 import { renderInline, renderMarkdown, resolveLink } from './markdown.js';
+import { isPortalSession, isSessionInPortal, portalContinueHref } from './portal.js';
 
 const SESSION_KEY = 'dmxcore-help-session';
 const OPEN_KEY = 'dmxcore-help-open';
@@ -63,6 +64,7 @@ class HelpWidget {
     this.walkthrough = null;
     this.stream = null;
     this.loaded = false;
+    this.inPortal = false;
     this.linkOptions = { docsOrigins: [...DOCS_ORIGINS, window.location.origin] };
 
     this.build();
@@ -244,6 +246,10 @@ class HelpWidget {
 
     try {
       const session = await this.api.getSession(this.sessionId);
+      if (isPortalSession(session)) {
+        this.showPortalState();
+        return;
+      }
       this.messages.replaceChildren();
       for (const message of session.messages) {
         if (message.role === 'user') this.addUserBubble(message.content);
@@ -254,7 +260,9 @@ class HelpWidget {
       this.setTurnsLeft(session.turnsLeft);
       this.scrollToEnd(true);
     } catch (err) {
-      if (err instanceof HelpApiError && err.status === 404) {
+      if (isSessionInPortal(err)) {
+        this.showPortalState();
+      } else if (err instanceof HelpApiError && err.status === 404) {
         this.forgetSession();
         this.renderEmptyState();
       } else {
@@ -266,6 +274,7 @@ class HelpWidget {
 
   newChat() {
     this.stream?.abort();
+    this.setPortalLocked(false);
     this.forgetSession();
     this.setWalkthrough(null);
     this.setTurnsLeft(null);
@@ -278,6 +287,61 @@ class HelpWidget {
     this.sessionId = null;
     this.local?.removeItem(SESSION_KEY);
     this.updateContinueLink();
+  }
+
+  /**
+   * The session was continued in the portal and is bound to a portal user (HelpApi
+   * 403 session_in_portal, or origin "portal"). The docs can't read or write it any
+   * more; keep the id so the link keeps working until the user starts a new chat.
+   */
+  showPortalState() {
+    this.stream?.abort();
+    this.setPortalLocked(true);
+    this.setWalkthrough(null);
+    this.hideNotice();
+
+    const href = portalContinueHref(this.continueUrl, this.sessionId);
+    const startButton = el('button', {
+      type: 'button',
+      class: 'dmx-help-portal-new',
+      text: 'Start a new chat',
+      onclick: () => this.startNewChatFromPortal(),
+    });
+    this.messages.replaceChildren(
+      el('div', { class: 'dmx-help-portal', role: 'status' }, [
+        el('p', { class: 'dmx-help-portal-title', text: 'This chat continued in the DMX Core portal.' }),
+        el('p', { class: 'dmx-help-hint', text: 'It can only be opened there now. Start a new chat to ask something here.' }),
+        el('div', { class: 'dmx-help-portal-actions' }, [
+          href ? el('a', { class: 'dmx-help-portal-open', href, target: '_blank', rel: 'noopener', text: 'Open in the portal →' }) : null,
+          startButton,
+        ]),
+      ]),
+    );
+    this.updateProgressBar();
+    if (!this.panel.hidden) startButton.focus();
+  }
+
+  setPortalLocked(locked) {
+    this.inPortal = locked;
+    this.input.disabled = locked;
+    this.sendButton.disabled = locked;
+    if (locked) this.input.placeholder = 'This chat continued in the portal.';
+    else this.setTurnsLeft(null);
+    this.updateContinueLink();
+  }
+
+  /** Clears the portal-bound session and starts a fresh one right away. */
+  async startNewChatFromPortal() {
+    this.newChat();
+    try {
+      const session = await this.api.createSession();
+      if (this.sessionId || this.inPortal) return; // a question was sent meanwhile
+      this.sessionId = session.sessionId;
+      this.local?.setItem(SESSION_KEY, this.sessionId);
+      this.updateContinueLink();
+    } catch {
+      // Not fatal: submit() creates the session with the first question.
+    }
   }
 
   renderEmptyState() {
@@ -338,7 +402,8 @@ class HelpWidget {
         await this.api.sendFeedback(sessionId, turn, rating, text);
         status.textContent = 'Thanks for the feedback.';
       } catch (err) {
-        status.textContent = err.message;
+        if (isSessionInPortal(err)) this.showPortalState();
+        else status.textContent = err.message;
       }
     };
 
@@ -366,7 +431,7 @@ class HelpWidget {
 
   async submit(preset) {
     const text = (preset ?? this.input.value).trim();
-    if (!text || this.busy) return;
+    if (!text || this.busy || this.inPortal) return;
 
     // Lock and show the question before any await: starting the API can take several
     // seconds, and repeated clicks must not start more conversations.
@@ -385,6 +450,7 @@ class HelpWidget {
     let markdown = '';
     let frame = 0;
     let sent = false;
+    let movedToPortal = false;
     const render = () => {
       frame = 0;
       body.innerHTML = renderMarkdown(markdown, this.linkOptions);
@@ -437,6 +503,10 @@ class HelpWidget {
       status.remove();
       if (err?.name === 'AbortError') {
         bubble.append(el('p', { class: 'dmx-help-hint', text: 'Stopped.' }));
+      } else if (isSessionInPortal(err)) {
+        // Not a failure: the chat lives in the portal now. Keep the question for a new chat.
+        movedToPortal = true;
+        if (!this.input.value) this.input.value = text;
       } else if (err instanceof HelpApiError && err.code === 'session_not_found') {
         this.forgetSession();
         bubble.append(el('p', { class: 'dmx-help-error', text: 'This conversation expired. Ask again to start a new one.' }));
@@ -454,7 +524,8 @@ class HelpWidget {
       this.stream = null;
       this.busy = false;
       this.setStreaming(false);
-      this.input.focus();
+      if (movedToPortal) this.showPortalState();
+      else this.input.focus();
     }
   }
 
@@ -657,6 +728,10 @@ class HelpWidget {
     try {
       this.setWalkthrough(await this.api.setStep(this.sessionId, view.id, stepId, done));
     } catch (err) {
+      if (isSessionInPortal(err)) {
+        this.showPortalState();
+        return;
+      }
       if (err instanceof HelpApiError && err.status === 409) {
         this.loaded = false;
         await this.restore();
@@ -681,13 +756,9 @@ class HelpWidget {
   }
 
   updateContinueLink() {
-    const show = Boolean(this.continueUrl && this.sessionId);
-    this.continueLink.hidden = !show;
-    if (show) {
-      const url = new URL(this.continueUrl);
-      url.searchParams.set('continue', this.sessionId);
-      this.continueLink.href = url.toString();
-    }
+    const href = this.inPortal ? null : portalContinueHref(this.continueUrl, this.sessionId);
+    this.continueLink.hidden = !href;
+    if (href) this.continueLink.href = href;
   }
 
   showNotice(text) {

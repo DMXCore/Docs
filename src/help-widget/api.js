@@ -12,6 +12,17 @@ export class HelpApiError extends Error {
   }
 }
 
+export const SESSION_IN_PORTAL = 'session_in_portal';
+export const SESSION_IN_PORTAL_MESSAGE = 'This chat continued in the DMX Core portal.';
+
+/** 403 session_in_portal: the session is bound to a portal user and the docs have no token for it. */
+export class SessionInPortalError extends HelpApiError {
+  constructor(message = SESSION_IN_PORTAL_MESSAGE) {
+    super(403, SESSION_IN_PORTAL, message);
+    this.name = 'SessionInPortalError';
+  }
+}
+
 export function createHelpApi(baseUrl, fetchImpl = (...args) => fetch(...args)) {
   const root = String(baseUrl).replace(/\/+$/, '');
 
@@ -35,6 +46,9 @@ export function createHelpApi(baseUrl, fetchImpl = (...args) => fetch(...args)) 
         payload = await response.json();
       } catch {
         // non-JSON error body
+      }
+      if (response.status === 403 && payload?.error === SESSION_IN_PORTAL) {
+        throw new SessionInPortalError(payload.message || undefined);
       }
       throw new HelpApiError(
         response.status,

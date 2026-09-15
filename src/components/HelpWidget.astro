@@ -514,6 +514,50 @@ const enabled = Boolean(apiUrl) && Astro.url.pathname.startsWith('/dmx-core-100'
     color: var(--sl-color-white);
   }
 
+  .dmx-help-portal {
+    margin: auto 0;
+    padding: 0.9rem;
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 0.6rem;
+    background: var(--sl-color-gray-6);
+  }
+
+  .dmx-help-portal p {
+    margin: 0 0 0.5rem;
+  }
+
+  .dmx-help-portal-title {
+    color: var(--sl-color-white);
+    font-weight: 600;
+  }
+
+  .dmx-help-portal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
+  .dmx-help-portal-open {
+    font-weight: 600;
+  }
+
+  .dmx-help .dmx-help-portal-new {
+    padding: 0.4rem 0.85rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background: var(--sl-color-text-accent);
+    color: var(--sl-color-black);
+    font-weight: 600;
+  }
+
+  .dmx-help-input:disabled,
+  .dmx-help-send:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
   .dmx-help-continue {
     display: flex;
     flex-direction: column;

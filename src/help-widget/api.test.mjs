@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { createHelpApi, HelpApiError } from './api.js';
+import { createHelpApi, HelpApiError, SessionInPortalError } from './api.js';
 
 function streamResponse(text) {
   const bytes = new TextEncoder().encode(text);
@@ -77,6 +77,67 @@ test('API errors carry status, code and the server message', async () => {
     assert.equal(err.status, 404);
     assert.equal(err.code, 'session_not_found');
     assert.equal(err.message, 'This conversation has expired.');
+    return true;
+  });
+});
+
+test('setStep patches the walkthrough step and returns the updated view', async () => {
+  const calls = [];
+  const view = { id: 'w1', title: 'Add a fixture', steps: [{ id: 's1', label: 'Open' }], completedStepIds: ['s1'] };
+  const api = createHelpApi('https://help.example/', async (url, init) => {
+    calls.push({ url, init });
+    return new Response(JSON.stringify(view), { status: 200 });
+  });
+
+  const result = await api.setStep('abc/1', 'w1', 's1', true);
+
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].url, 'https://help.example/api/sessions/abc%2F1/walkthrough');
+  assert.equal(calls[0].init.method, 'PATCH');
+  assert.equal(calls[0].init.headers['Content-Type'], 'application/json');
+  assert.deepEqual(JSON.parse(calls[0].init.body), { walkthroughId: 'w1', stepId: 's1', done: true });
+  assert.deepEqual(result, view);
+});
+
+test('403 session_in_portal becomes a SessionInPortalError on restore, send and setStep', async () => {
+  const body = { error: 'session_in_portal', message: 'This chat continued in the DMX Core portal.' };
+  const api = createHelpApi('https://help.example', async () => new Response(JSON.stringify(body), { status: 403 }));
+
+  const check = (err) => {
+    assert.ok(err instanceof SessionInPortalError);
+    assert.ok(err instanceof HelpApiError);
+    assert.equal(err.status, 403);
+    assert.equal(err.code, 'session_in_portal');
+    assert.equal(err.message, 'This chat continued in the DMX Core portal.');
+    return true;
+  };
+  await assert.rejects(api.getSession('abc'), check);
+  await assert.rejects(api.sendMessage('abc', 'How?', '/', () => assert.fail('no events')), check);
+  await assert.rejects(api.setStep('abc', 'w1', 's1', true), check);
+});
+
+test('403 session_in_portal without a message still gets the portal text; other 403s stay generic', async () => {
+  const bare = createHelpApi('https://help.example', async () =>
+    new Response(JSON.stringify({ error: 'session_in_portal' }), { status: 403 }));
+  await assert.rejects(bare.getSession('abc'), (err) =>
+    err instanceof SessionInPortalError && err.message === 'This chat continued in the DMX Core portal.');
+
+  const other = createHelpApi('https://help.example', async () =>
+    new Response(JSON.stringify({ error: 'forbidden', message: 'No.' }), { status: 403 }));
+  await assert.rejects(other.getSession('abc'), (err) =>
+    err instanceof HelpApiError && !(err instanceof SessionInPortalError) && err.code === 'forbidden');
+});
+
+test('401 token_invalid maps to a plain HelpApiError with the server message', async () => {
+  const api = createHelpApi('https://help.example', async () =>
+    new Response(JSON.stringify({ error: 'token_invalid', message: 'Sign in again.' }), { status: 401 }));
+
+  await assert.rejects(api.sendMessage('abc', 'How?', '/', () => {}), (err) => {
+    assert.ok(err instanceof HelpApiError);
+    assert.ok(!(err instanceof SessionInPortalError));
+    assert.equal(err.status, 401);
+    assert.equal(err.code, 'token_invalid');
+    assert.equal(err.message, 'Sign in again.');
     return true;
   });
 });
