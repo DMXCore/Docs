@@ -45,6 +45,8 @@ A preset with a single universe will be output to all configured universes when 
 The Web UI preset editor lists every entry (global, zone, or fixture) with its **Intensity**, **Color**, **Effect**, and **Custom** values. Each part can be set to **Set** (apply this value), **Ignore** (leave the channel as-is), or **Exclude** (actively remove it for this fixture), giving precise control over what the preset touches. You can copy and paste values between entries and presets, add fixtures directly, and press **Go** to preview the result live.
 :::
 
+![Preset editor — House Lights ambient preset with global intensity](/assets/web/preset-editor.png)
+
 Another way to build a preset: set up the look interactively in [Fixture Control](/dmx-core-100/lighting/fixture-control) and use **Build Preset** to capture it.
 
 ## Stopping a Preset

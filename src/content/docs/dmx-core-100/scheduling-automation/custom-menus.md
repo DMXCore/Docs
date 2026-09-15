@@ -22,7 +22,13 @@ Menus can be exported and imported as JSON — see the [custom menu samples on G
 
 On the **touchscreen**, open a menu from **Main Menu > Utilities > Custom Menu**. If **Only show custom menu** is on (**Device > System**), non-admin users start on the custom menu; admins are exempt.
 
+![Custom Menus list in the Web UI](/assets/web/custom-menus-list.png)
+
 ![Custom menu editor — item list and item properties](/assets/web/custom-menu-editor.png)
+
+![Operating a custom menu in the Web UI — actions, volume slider, and source picker](/assets/web/custom-menu-operate.png)
+
+![Custom menu on the touchscreen](/assets/device/uno-custom-menu.png)
 
 ## Menu Items
 

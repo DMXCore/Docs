@@ -59,7 +59,7 @@ The full show from unit 1 is saved to a USB stick with the touchscreen and resto
       "id": "file-explorer-restore",
       "label": "Go to Utilities → File Explorer, open the USB stick, select the backup ZIP file and choose Restore",
       "docsUrl": "/dmx-core-100/common-tasks/move-data-between-dmx-core-100-units/#method-a-usb-memory-stick",
-      "screenshotId": "uno-utilities"
+      "screenshotId": "uno-file-explorer"
     },
     {
       "id": "wait-restart",

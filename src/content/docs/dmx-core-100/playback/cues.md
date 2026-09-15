@@ -27,6 +27,8 @@ In the **Web UI**, go to **Lighting > Cues**. The list shows duration and size, 
 
 **Fade In (seconds)**, **Fade Out (seconds)**, and **Loop** are not per-cue fields. They live on the Cues list as **Default Settings** (Web UI: **Lighting > Cues**; touchscreen: the cue list top bar). New playback uses these defaults. **Loop** of `0` means loop forever.
 
+![Cues list Default Settings — Loop, Fade In, and Fade Out](/assets/web/cue-defaults.png)
+
 :::note[Interface differences]
 - **Touchscreen**: Tap to play, long-hold for settings.
 - **Web UI**: Click the play icon to play, the cue name to edit. The Web UI also provides a progress bar with pause, resume, and scrub controls during playback.
@@ -35,6 +37,8 @@ In the **Web UI**, go to **Lighting > Cues**. The list shows duration and size, 
 ## Cue Settings
 
 Long-hold a cue on the touchscreen, or open it in the Web UI, to edit its settings:
+
+![Cue details in the Web UI, including Priority Override](/assets/web/cue-editor.png)
 
 ![Cue settings — fields](/assets/device/cue-settings.png)
 

@@ -9,6 +9,10 @@ Timelines choreograph complete shows: cues, presets, effects, sounds, [Control V
 The timeline editor is a Web UI feature, under **Lighting > Timelines**. Timelines can be played back from anywhere — touchscreen, schedules, custom menus, control surfaces, and triggers.
 :::
 
+![Timelines list in the Web UI](/assets/web/timelines-list.png)
+
+![Timelines on the touchscreen](/assets/device/uno-timelines.png)
+
 ![Timeline editor with cue and sound tracks](/assets/web/timeline-editor.png)
 
 ## Timeline Settings

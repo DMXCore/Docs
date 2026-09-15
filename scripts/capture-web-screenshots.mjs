@@ -30,7 +30,7 @@ const API = getArg('api', BASE).replace(/\/$/, '');
 const PIN = getArg('pin', '1111');
 const USER_ID = Number(getArg('user', '1'));
 const THEME = args.includes('--light') ? 'light' : 'dark';
-const ONLY = getArg('only', null); // capture a single shot by name
+const ONLY = getArg('only', null); // comma-separated shot names
 const OUT = join(REPO, 'public', 'assets', 'web');
 
 const CHROME_CANDIDATES = [
@@ -62,7 +62,7 @@ const SHOTS = [
   { name: 'preset-editor', path: '/presets/7' },
   { name: 'effects-list', path: '/effects' },
   { name: 'cues-list', path: '/cues' },
-  { name: 'cue-editor', path: '/cues/2' },
+  { name: 'cue-editor', path: '/cues/2', fullPage: true },
   { name: 'sounds-list', path: '/sounds' },
   { name: 'timelines-list', path: '/timelines' },
   { name: 'fixture-control', path: '/fixturecontrol' },
@@ -179,8 +179,64 @@ const SHOTS = [
   // Utilities
   { name: 'audit-log', path: '/utilities/auditlog' },
   { name: 'device-monitor', path: '/device-monitor' },
-  { name: 'output-monitor', path: '/utilities/outputmonitor' },
+  {
+    name: 'output-monitor', path: '/utilities/outputmonitor',
+    before: async (page) => {
+      await page.evaluate(() => {
+        const btn = [...document.querySelectorAll('button')].find(
+          (b) => b.textContent.trim() === 'Start Monitor',
+        );
+        btn?.click();
+      });
+      await sleep(900);
+      await page.evaluate(() => {
+        document.querySelector('.grid-cell')?.click();
+      });
+      await sleep(600);
+    },
+  },
   { name: 'record', path: '/utilities/record' },
+  { name: 'releases', path: '/utilities/releases' },
+  { name: 'input-mapping-details', path: '/utilities/record/recordconfig/1' },
+  { name: 'roles-list', path: '/roles' },
+  { name: 'role-editor', path: '/roles/2', fullPage: true },
+  {
+    name: 'recover-pin', path: '/recover-pin', root: true, waitFor: 'h1',
+    before: async (page) => {
+      await page.waitForFunction(
+        () => /Reset admin PIN/i.test(document.body?.innerText || ''),
+        { timeout: 8000 },
+      ).catch(() => {});
+      await page.evaluate(() => {
+        const redact = (labelText, replacement) => {
+          const label = [...document.querySelectorAll('.text-medium-emphasis')].find(
+            (el) => el.textContent.trim() === labelText,
+          );
+          const value = label?.parentElement?.querySelector('.font-monospace');
+          if (value) value.textContent = replacement;
+        };
+        redact('Device serial', '[device]');
+        redact('Machine name', '[device]');
+        redact('Balena ID', '[device]');
+        redact('Challenge code', '483 291 507');
+        document.querySelector('img[alt*="QR"]')?.remove();
+      });
+    },
+  },
+  {
+    name: 'cue-defaults', path: '/cues',
+    before: async (page) => {
+      await page.evaluate(() => {
+        const h = [...document.querySelectorAll('h6')].find(
+          (el) => el.textContent.trim() === 'Default Settings',
+        );
+        h?.scrollIntoView({ block: 'center' });
+      });
+      await sleep(300);
+    },
+  },
+  { name: 'channel-rules', path: '/channelrules' },
+  { name: 'control-value-level', path: '/controlvalues/1' },
   // Backup / users
   { name: 'backup-restore', path: '/backuprestore' },
   { name: 'users-list', path: '/users' },
@@ -232,10 +288,13 @@ async function main() {
     THEME,
   );
 
-  const shots = ONLY ? SHOTS.filter((s) => s.name === ONLY) : SHOTS;
+  const onlySet = ONLY
+    ? new Set(ONLY.split(',').map((s) => s.trim()).filter(Boolean))
+    : null;
+  const shots = onlySet ? SHOTS.filter((s) => onlySet.has(s.name)) : SHOTS;
   let ok = 0;
   for (const shot of shots) {
-    const url = `${BASE}/op${shot.path}`;
+    const url = shot.root ? `${BASE}${shot.path}` : `${BASE}/op${shot.path}`;
     try {
       await page.goto(url, { waitUntil: 'networkidle2', timeout: 20000 });
       // Ensure the theme attribute is applied even if the SPA re-derived it.
@@ -271,7 +330,7 @@ async function main() {
         }
         await el.screenshot({ path: file });
       } else {
-        await page.screenshot({ path: file });
+        await page.screenshot({ path: file, fullPage: !!shot.fullPage });
       }
       console.log(`  ✓ ${shot.name}  ←  ${shot.path || '/'}`);
       ok++;

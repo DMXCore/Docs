@@ -36,6 +36,8 @@ To import several files, or to inspect and delete profiles, use **Lighting Setup
 
 On a wall-mounted unit you can instead copy the file to a USB stick and import it from **Utilities > File Explorer** on the touchscreen. **File Explorer > Transfer** in the Web UI still works as a bulk/alternate path.
 
+![File Explorer on the touchscreen](/assets/device/uno-file-explorer.png)
+
 The **Profile** dropdown on Fixture Details lists generic profiles, imported profiles, and any profiles provided by a loaded plugin.
 
 ### Managing Profiles
@@ -51,6 +53,8 @@ The **Profile** dropdown on Fixture Details lists generic profiles, imported pro
 ## Adding Fixtures
 
 Fixtures are managed under **Lighting Setup > Fixtures** in the Web UI, or **Main Menu > Settings > Fixtures** on the touchscreen. A touchscreen fixture also has a **Zone** field.
+
+![Fixtures list in the Web UI](/assets/web/fixtures-list.png)
 
 1. Go to **Lighting Setup > Fixtures** in the Web UI
 2. Click **Add a fixture** or **Add New**

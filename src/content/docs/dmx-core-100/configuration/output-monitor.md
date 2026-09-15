@@ -9,6 +9,8 @@ The Output Monitor is a diagnostic tool that lets you see DMX channel values in 
 The Output Monitor is available in the Web UI under **Utilities > Output Monitor**.
 :::
 
+![Output Monitor with a slot selected and the output mapping table](/assets/web/output-monitor.png)
+
 ## Starting the Monitor
 
 1. Navigate to **Utilities > Output Monitor** in the Web UI

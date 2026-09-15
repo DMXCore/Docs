@@ -41,25 +41,25 @@ The user sees live channel values for the slot that feeds sACN universe 12 and c
       "id": "open-monitor",
       "label": "Go to Utilities → Output Monitor and click Start Monitor",
       "docsUrl": "/dmx-core-100/configuration/output-monitor/#starting-the-monitor",
-      "screenshotId": null
+      "screenshotId": "output-monitor"
     },
     {
       "id": "select-slot",
       "label": "Click that slot number in the slot grid and hover the 512-channel grid to read channel numbers and values while the cue plays",
       "docsUrl": "/dmx-core-100/configuration/output-monitor/#slot-selection",
-      "screenshotId": null
+      "screenshotId": "output-monitor"
     },
     {
       "id": "check-mapping",
       "label": "Check the output table under the grid shows the expected output code, sACN type and universe 12 for that slot",
       "docsUrl": "/dmx-core-100/configuration/output-monitor/#slot-selection",
-      "screenshotId": null
+      "screenshotId": "output-monitor"
     },
     {
       "id": "stop-monitor",
       "label": "Click Stop Monitor when done",
       "docsUrl": "/dmx-core-100/configuration/output-monitor/#session-behavior",
-      "screenshotId": null
+      "screenshotId": "output-monitor"
     }
   ]
 }

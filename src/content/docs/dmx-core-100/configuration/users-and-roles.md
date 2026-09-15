@@ -55,6 +55,10 @@ Creating API keys requires **User Management** or **Change System Settings**.
 
 Roles define what a user can do. The system ships with **Admin**, **Operator**, and **Standard** roles, and you can create your own under **User Management > Roles** (**Add New**). The role editor has **Name**, **Is Admin**, and a **Permissions** list.
 
+![Roles list](/assets/web/roles-list.png)
+
+![Role editor — Operator permissions](/assets/web/role-editor.png)
+
 The built-in **Operator** role includes Edit/Delete Schedule, Device Operations, Change Network Settings, Change Output Settings, Edit Output, Record, File Explorer (including upload/transfer), and local/cloud backup restore — enough for day-to-day show work without User Management or factory reset. **Standard** has Edit/Delete Schedule, Device Operations, and cloud backup only. Neither Operator nor Standard includes **Start/Stop output**, which is what the touchscreen [Stop/Blackout](/dmx-core-100/basics/blackout-and-stop) tile requires.
 
 Playing a cue in the Web UI only needs a signed-in user — it does not require a separate Play Cue permission.

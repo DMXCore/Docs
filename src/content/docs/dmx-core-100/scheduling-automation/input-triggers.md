@@ -9,6 +9,8 @@ Configure them under **Control & Integrations > Input Triggers** in the Web UI, 
 
 ![Input triggers list](/assets/web/input-triggers-list.png)
 
+![Input trigger editor — HTTP path, action, and Play Cue target](/assets/web/input-trigger-editor.png)
+
 ## Input Types
 
 | Type | Description |

@@ -60,7 +60,7 @@ custom menu slider.
       "id": "control-value",
       "label": "Open Control & Integrations → Control Values → Add New and create VOL1: Kind Level, Plugin Symetrix, Controller Number 101, then Save",
       "docsUrl": "/dmx-core-100/integrations/control-values/#settings",
-      "screenshotId": "control-values-list"
+      "screenshotId": "control-value-level"
     },
     {
       "id": "menu-slider",
@@ -72,7 +72,7 @@ custom menu slider.
       "id": "test-both-ways",
       "label": "Move the slider and watch the level change on the Symetrix, then change it in Composer and check that the slider follows",
       "docsUrl": "/dmx-core-100/external-control/#building-a-wall-controller",
-      "screenshotId": null
+      "screenshotId": "custom-menu-operate"
     }
   ]
 }

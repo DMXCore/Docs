@@ -47,13 +47,13 @@ slot 1 ch 20–40 at about half.
       "id": "copy-rule",
       "label": "Go to Lighting Setup → Channel Rules → Add New: Rule Type Copy, Slot Id 2, Start Channel 1, End Channel 4, Destination Slot Id 2, Destination Start Channel 101, Enabled on, then Save",
       "docsUrl": "/dmx-core-100/playback/channel-rules/#copy",
-      "screenshotId": null
+      "screenshotId": "channel-rules"
     },
     {
       "id": "scale-rule",
       "label": "Add New again: Rule Type Scale (or Cap for a hard ceiling), Slot Id 1, Start Channel 20, End Channel 40, Limit (0-255) 128, Enabled on, then Save",
       "docsUrl": "/dmx-core-100/playback/channel-rules/#scale",
-      "screenshotId": null
+      "screenshotId": "channel-rules"
     },
     {
       "id": "tune-live",

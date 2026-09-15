@@ -49,6 +49,9 @@ const SHOTS = [
   { screen: 'settings/inputs', name: 'uno-inputs' },
   // Menu title is "{Code} ({OutputType})" for the first output in sample data.
   { screen: 'settings/output configuration/PORT1 (sACN)', name: 'uno-output-detail' },
+  { screen: 'utilities/device operations/releases', name: 'uno-releases' },
+  { screen: 'utilities/file explorer', name: 'uno-file-explorer' },
+  { screen: 'utilities/custom menu', name: 'uno-custom-menu' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -104,7 +107,12 @@ async function main() {
     );
   }
 
-  const shots = ONLY ? SHOTS.filter((s) => s.screen === ONLY) : SHOTS;
+  const onlySet = ONLY
+    ? new Set(ONLY.split(',').map((s) => s.trim()).filter(Boolean))
+    : null;
+  const shots = onlySet
+    ? SHOTS.filter((s) => onlySet.has(s.name) || onlySet.has(s.screen))
+    : SHOTS;
   let ok = 0;
   for (const shot of shots) {
     try {

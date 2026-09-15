@@ -13,6 +13,10 @@ Control Values are managed under **Control & Integrations > Control Values**. Th
 
 ![Control Values list with live Symetrix status](/assets/web/control-values-list.png)
 
+![Control Value editor — Level (volume)](/assets/web/control-value-level.png)
+
+![Control Value editor — Selector with Add Choice](/assets/web/control-value-editor.png)
+
 ## Kinds
 
 | Kind | Holds | Example |

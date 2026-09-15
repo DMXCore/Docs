@@ -7,6 +7,8 @@ The Fixture Control page provides real-time interactive control over your config
 
 Fixture Control is available on both the **touchscreen** (Main Menu > Fixture Control) and the **Web UI** (Lighting > Fixture Control). The Web UI provides additional capabilities including the effects engine and detailed per-fixture editing.
 
+![Fixture Control on the touchscreen](/assets/device/uno-fixture-control.png)
+
 ![Fixture Control page](/assets/web/fixture-control.png)
 
 ## Controlling Fixtures

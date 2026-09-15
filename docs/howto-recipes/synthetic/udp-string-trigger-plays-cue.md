@@ -41,25 +41,25 @@ An enabled UDP Input Trigger on port 7000 matches the payload `"LOBBY_ON"` and p
       "id": "set-udp-port",
       "label": "Enter a Code / Short Name and Name, turn Enabled on, set Type to UDP and Port to 7000",
       "docsUrl": "/dmx-core-100/scheduling-automation/input-triggers/#input-types",
-      "screenshotId": null
+      "screenshotId": "input-trigger-editor"
     },
     {
       "id": "set-start-payload",
       "label": "In Start Payload enter \"LOBBY_ON\" including the double quotes (without quotes the field is read as hex bytes, e.g. 4C,4F,42,42,59,5F,4F,4E)",
       "docsUrl": "/dmx-core-100/scheduling-automation/input-triggers/#trigger-settings",
-      "screenshotId": null
+      "screenshotId": "input-trigger-editor"
     },
     {
       "id": "set-action",
       "label": "Under Action, set Action Type to Play Cue, Target to WELCOME, Press Mode Normal, then Save",
       "docsUrl": "/dmx-core-100/scheduling-automation/input-triggers/#actions",
-      "screenshotId": null
+      "screenshotId": "input-trigger-editor"
     },
     {
       "id": "test",
       "label": "Send LOBBY_ON to the device IP on UDP 7000 and confirm the cue plays; if not, check the Dashboard's View Configuration Status for a UDP input trigger port 7000 warning (port already in use)",
       "docsUrl": "/dmx-core-100/scheduling-automation/input-triggers/#trigger-settings",
-      "screenshotId": null
+      "screenshotId": "input-trigger-editor"
     }
   ]
 }

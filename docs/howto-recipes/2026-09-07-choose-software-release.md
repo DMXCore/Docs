@@ -41,19 +41,19 @@ is running. An older entry in the Releases list is not installed.
       "id": "read-current",
       "label": "Note the running version on Utilities → System (or the Releases page). Version numbers are year then month-day: 2026.717 is 17 July 2026, which is newer than 2026.4 (April)",
       "docsUrl": "/dmx-core-100/configuration/software-updates/",
-      "screenshotId": null
+      "screenshotId": "releases"
     },
     {
       "id": "open-releases-web",
       "label": "In the Web UI of an Appliance or Windows/macOS desktop install, open Utilities → Releases and compare each listed build to the running version. Snap Linux has no Releases item — snapd updates the app outside the UI",
       "docsUrl": "/dmx-core-100/configuration/software-updates/",
-      "screenshotId": null
+      "screenshotId": "releases"
     },
     {
       "id": "open-releases-touchscreen",
       "label": "Or on the touchscreen, open Utilities → Device Operations → Releases and compare the listed builds the same way",
       "docsUrl": "/dmx-core-100/configuration/software-updates/",
-      "screenshotId": "uno-utilities"
+      "screenshotId": "uno-releases"
     },
     {
       "id": "skip-older",

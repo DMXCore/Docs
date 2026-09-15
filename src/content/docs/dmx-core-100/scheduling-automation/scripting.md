@@ -21,6 +21,8 @@ if (sunset === null || ctx.now.minutesSinceMidnight >= sunset.minutesSinceMidnig
 Scripts are created and edited in the Web UI under **Control & Integrations > Scripts**. Editing requires an administrator account.
 :::
 
+![Scripts list](/assets/web/scripts-list.png)
+
 ![Script editor with the Motion Lighting sample](/assets/web/script-editor.png)
 
 ## Creating a Script

@@ -43,7 +43,7 @@ PIN. Show content stays intact and the device never goes online.
       "id": "note-challenge",
       "label": "Write down the device serial and the 9-digit challenge code shown on the page",
       "docsUrl": "/dmx-core-100/troubleshooting/forgot-admin-pin/#offline-pin-reset-device-without-internet-access",
-      "screenshotId": null
+      "screenshotId": "recover-pin"
     },
     {
       "id": "portal-response",
@@ -55,7 +55,7 @@ PIN. Show content stays intact and the device never goes online.
       "id": "enter-response",
       "label": "Back on the device's reset page, enter the response code and a new 4-digit admin PIN (and confirm it), then click Reset PIN",
       "docsUrl": "/dmx-core-100/troubleshooting/forgot-admin-pin/#offline-pin-reset-device-without-internet-access",
-      "screenshotId": null
+      "screenshotId": "recover-pin"
     },
     {
       "id": "log-in-new-pin",

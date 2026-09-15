@@ -55,6 +55,8 @@ Overlapping limit rules combine predictably regardless of order: multiple caps o
 
 The **Channel Rules** list shows each rule's type, enabled state, and a summary such as "Cap slot 1 ch 3 at 100". From the details page you can:
 
+![Channel Rules list](/assets/web/channel-rules.png)
+
 - **Enable/disable** a rule — takes effect immediately, also during playback.
 - **Duplicate** a rule — the copy is created disabled so it can't double-apply before you've edited it.
 - **Delete** a rule.

@@ -52,13 +52,13 @@ The DMX Core 100 is connected to the site broker, and an MQTT input trigger on
       "id": "add-trigger",
       "label": "Open Control & Integrations → Input Triggers → Add New, set Type to MQTT, Address to building/lobby/occupancy and Mode to On/Off — run an action",
       "docsUrl": "/dmx-core-100/scheduling-automation/input-triggers/#input-types",
-      "screenshotId": "input-triggers-list"
+      "screenshotId": "input-trigger-editor"
     },
     {
       "id": "set-payload-and-action",
       "label": "Enter ON as the Start Payload, set Action Type to Play Cue with Target WELCOME, make sure Enabled is on, and Save",
       "docsUrl": "/dmx-core-100/scheduling-automation/input-triggers/#actions",
-      "screenshotId": "input-triggers-list"
+      "screenshotId": "input-trigger-editor"
     },
     {
       "id": "test",

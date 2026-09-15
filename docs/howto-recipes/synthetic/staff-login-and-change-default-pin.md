@@ -49,7 +49,7 @@ limited to what they need, created in the Web UI under User Management.
       "id": "create-role",
       "label": "Go to User Management → Roles, click Add New, name the role (e.g. Staff), leave Is Admin off, turn on only the permissions staff need, and click Save",
       "docsUrl": "/dmx-core-100/configuration/users-and-roles/#roles-and-permissions",
-      "screenshotId": null
+      "screenshotId": "role-editor"
     },
     {
       "id": "create-user",

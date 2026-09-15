@@ -38,7 +38,7 @@ channel 100, universe 1.
       "id": "search-library",
       "label": "Open the Lightkey fixture library and search Robe Spot 170 AT (Daslight or GDTF Share if Lightkey has no profile)",
       "docsUrl": "/dmx-core-100/lighting/fixture-setup/",
-      "screenshotId": null
+      "screenshotId": "fixtures-list"
     },
     {
       "id": "download-profile",
