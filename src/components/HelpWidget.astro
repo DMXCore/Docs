@@ -242,6 +242,54 @@ const enabled = Boolean(apiUrl) && Astro.url.pathname.startsWith('/dmx-core-100'
     margin-top: 0.35rem;
   }
 
+  .dmx-help-feedback {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.4rem;
+    font-size: var(--sl-text-xs);
+  }
+
+  .dmx-help-feedback button {
+    padding: 0 0.35rem;
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 0.375rem;
+    background: transparent;
+    line-height: 1.6;
+  }
+
+  .dmx-help-feedback button[aria-pressed='true'] {
+    border-color: var(--sl-color-text-accent);
+    background: var(--sl-color-accent-low);
+  }
+
+  .dmx-help-feedback-form {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.35rem;
+  }
+
+  .dmx-help-feedback-form textarea {
+    flex: 1;
+    padding: 0.3rem 0.45rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.375rem;
+    background: var(--sl-color-black);
+    color: var(--sl-color-white);
+    font: inherit;
+    resize: vertical;
+  }
+
+  .dmx-help-feedback-form button {
+    align-self: flex-end;
+    padding: 0.2rem 0.6rem;
+    border: 0;
+    border-radius: 0.375rem;
+    background: var(--sl-color-text-accent);
+    color: var(--sl-color-black);
+  }
+
   .dmx-help-checklist {
     max-height: 48%;
     overflow-y: auto;

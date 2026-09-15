@@ -163,7 +163,7 @@ class HelpWidget {
       this.messages.replaceChildren();
       for (const message of session.messages) {
         if (message.role === 'user') this.addUserBubble(message.content);
-        else this.addAssistantBubble(message.content, message.walkthroughId);
+        else this.addAssistantBubble(message.content, message.walkthroughId, message.turn, message.rating);
       }
       this.setWalkthrough(session.walkthrough);
       if (!session.messages.length) this.renderEmptyState();
@@ -200,7 +200,10 @@ class HelpWidget {
     this.messages.replaceChildren(
       el('div', { class: 'dmx-help-empty' }, [
         el('p', { text: 'Ask how to set something up on the DMX Core 100. You’ll get the steps as a checklist with links and screenshots from the docs.' }),
-        el('p', { class: 'dmx-help-hint', text: 'Don’t include passwords, PINs or license keys.' }),
+        el('p', {
+          class: 'dmx-help-hint',
+          text: 'Chats are saved for up to a year to improve these docs. Don’t include personal details, passwords, PINs or license keys.',
+        }),
         el('div', { class: 'dmx-help-suggestions' }, SUGGESTIONS.map((text) =>
           el('button', { type: 'button', class: 'dmx-help-suggestion', text, onclick: () => this.submit(text) }))),
       ]),
@@ -214,12 +217,66 @@ class HelpWidget {
     return bubble;
   }
 
-  addAssistantBubble(markdown = '', walkthroughId = null) {
+  addAssistantBubble(markdown = '', walkthroughId = null, turn = null, rating = null) {
     const body = el('div', { class: 'dmx-help-markdown', html: renderMarkdown(markdown, this.linkOptions) });
     const bubble = el('div', { class: 'dmx-help-bubble dmx-help-assistant' }, [body]);
     if (walkthroughId) bubble.append(this.checklistChip());
+    if (turn) bubble.append(this.feedbackRow(turn, rating));
     this.messages.append(bubble);
     return { bubble, body };
+  }
+
+  /** 👍 sends at once; 👎 sends at once and offers an optional comment, sent as a second rating. */
+  feedbackRow(turn, initialRating) {
+    const sessionId = this.sessionId;
+    const up = el('button', { type: 'button', title: 'Helpful', 'aria-label': 'Helpful', text: '👍' });
+    const down = el('button', { type: 'button', title: 'Not helpful', 'aria-label': 'Not helpful', text: '👎' });
+    const status = el('span', { class: 'dmx-help-hint', role: 'status' });
+    const comment = el('textarea', {
+      rows: '2',
+      maxlength: '1000',
+      placeholder: 'What was wrong or missing? (optional)',
+      'aria-label': 'What was wrong or missing?',
+    });
+    const form = el('form', { class: 'dmx-help-feedback-form', hidden: true }, [
+      comment,
+      el('button', { type: 'submit', text: 'Send' }),
+    ]);
+
+    const mark = (rating) => {
+      up.setAttribute('aria-pressed', String(rating === 'up'));
+      down.setAttribute('aria-pressed', String(rating === 'down'));
+    };
+    const send = async (rating, text) => {
+      mark(rating);
+      try {
+        await this.api.sendFeedback(sessionId, turn, rating, text);
+        status.textContent = 'Thanks for the feedback.';
+      } catch (err) {
+        status.textContent = err.message;
+      }
+    };
+
+    up.addEventListener('click', () => {
+      form.hidden = true;
+      send('up');
+    });
+    down.addEventListener('click', () => {
+      form.hidden = false;
+      comment.focus();
+      send('down');
+    });
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.hidden = true;
+      send('down', comment.value.trim());
+    });
+
+    mark(initialRating);
+    return el('div', {}, [
+      el('div', { class: 'dmx-help-feedback' }, [el('span', { class: 'dmx-help-hint', text: 'Helpful?' }), up, down, status]),
+      form,
+    ]);
   }
 
   checklistChip() {
@@ -293,6 +350,7 @@ class HelpWidget {
             break;
           case 'done':
             this.setTurnsLeft(payload.turnsLeft);
+            if (payload.turn) bubble.append(this.feedbackRow(payload.turn, null));
             break;
         }
       }, this.stream.signal);

@@ -33,6 +33,22 @@ test('sendMessage posts the question and page, then yields parsed events', async
   ]);
 });
 
+test('sendFeedback posts the rating and leaves out an empty comment', async () => {
+  const calls = [];
+  const api = createHelpApi('https://help.example', async (url, init) => {
+    calls.push({ url, init });
+    return new Response(null, { status: 204 });
+  });
+
+  await api.sendFeedback('abc', 2, 'up');
+  await api.sendFeedback('abc', 2, 'down', 'Wrong menu');
+
+  assert.equal(calls[0].url, 'https://help.example/api/sessions/abc/feedback');
+  assert.equal(calls[0].init.method, 'POST');
+  assert.deepEqual(JSON.parse(calls[0].init.body), { turn: 2, rating: 'up' });
+  assert.deepEqual(JSON.parse(calls[1].init.body), { turn: 2, rating: 'down', comment: 'Wrong menu' });
+});
+
 test('API errors carry status, code and the server message', async () => {
   const api = createHelpApi('https://help.example', async () =>
     new Response(JSON.stringify({ error: 'session_not_found', message: 'This conversation has expired.' }), { status: 404 }));

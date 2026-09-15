@@ -60,6 +60,11 @@ export function createHelpApi(baseUrl, fetchImpl = (...args) => fetch(...args)) 
       return (await request('PATCH', `${sessionPath(id)}/walkthrough`, { walkthroughId, stepId, done })).json();
     },
 
+    /** 👍/👎 on the answer of `turn`, with an optional comment. */
+    async sendFeedback(id, turn, rating, comment) {
+      await request('POST', `${sessionPath(id)}/feedback`, { turn, rating, comment: comment || undefined });
+    },
+
     /** Streams one turn; onEvent(name, payload) for status, delta, walkthrough, sources, done, error. */
     async sendMessage(id, message, pageUrl, onEvent, signal) {
       const response = await request('POST', `${sessionPath(id)}/messages`, { message, pageUrl }, { signal });
