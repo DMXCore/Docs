@@ -81,8 +81,26 @@ During playback, the **Web UI** shows a progress bar with **pause/resume**, **sc
 
 In the **Web UI**, duplicate a cue to create a copy with the same DMX data but a new name and code — useful for variations with different dimmer, in/out points, or layer settings. Fade and loop still come from the list **Default Settings**.
 
+## Compressed Storage
+
+:::tip[Web UI only]
+Open a dynamic cue and use **Compress** to store its recording compressed on disk (zstd, typically 3–5x smaller for real show content). Playback reads the compressed file directly — in/out points, looping, bounce and every other setting work as before — and the cue page shows **Size on disk (compressed)** next to the content size. **Decompress** restores the plain file.
+:::
+
+![Compress cue confirmation](/assets/web/cue-compress-dialog.png)
+
+Before you compress, note:
+
+- **Older software cannot play compressed cues.** If the device is switched to a release without compressed-cue support, or a backup holding a compressed cue is restored on such a device, that cue stays unplayable until it is decompressed on a release that supports it.
+- **Downloads and backups contain the compressed file** (`.cap.zst`). Wireshark opens it directly; other tools need `zstd`.
+- Playback uses slightly more CPU.
+- The previous file is kept as an archive for a few days before its space is reclaimed, so free space does not drop right away. Decompressing needs free space for the full content size.
+- The cue stops if it is playing.
+
+Both actions need the **Process Cues** permission.
+
 ## Technical Details
 
-Cues are stored as Wireshark PCAP files internally and can be either ArtNet or sACN. They are automatically converted during playback if the output protocol differs from the format used during recording.
+Cues are stored as Wireshark PCAP files internally (`.cap`, or `.cap.zst` when [stored compressed](#compressed-storage): a standard zstd file with a seek table, so `zstd -d` yields the plain PCAP and Wireshark reads it as it is) and can be either ArtNet or sACN. They are automatically converted during playback if the output protocol differs from the format used during recording.
 
 The `code` field is used in API trigger events and external control protocols. Codes must be unique and cannot be empty. Non-admin users can rename and delete cues they created within 24 hours of creation.

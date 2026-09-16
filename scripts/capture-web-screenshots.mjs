@@ -63,6 +63,24 @@ const SHOTS = [
   { name: 'effects-list', path: '/effects' },
   { name: 'cues-list', path: '/cues' },
   { name: 'cue-editor', path: '/cues/2', fullPage: true },
+  {
+    // The Compress confirmation with its requirements notice; needs a cue that is
+    // stored plain (the button reads Decompress otherwise).
+    name: 'cue-compress-dialog',
+    path: '/cues/3',
+    waitFor: 'button',
+    before: async (page) => {
+      await page.evaluate(() => {
+        const btn = [...document.querySelectorAll('button')].find(
+          (b) => b.textContent.trim() === 'Compress',
+        );
+        btn?.click();
+      });
+      await page.waitForSelector('.modal.show, .modal.d-block, .modal', { timeout: 5000 });
+      await sleep(400);
+    },
+    selector: '.modal-dialog',
+  },
   { name: 'sounds-list', path: '/sounds' },
   { name: 'timelines-list', path: '/timelines' },
   { name: 'fixture-control', path: '/fixturecontrol' },
