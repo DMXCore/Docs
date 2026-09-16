@@ -33,7 +33,7 @@ Click a control in the section grid to edit its assignment:
 - **Label** — the text shown on LCD keys and in the operator view
 - **Action** — what the control does. Available action types: Apply Ambient Preset, Apply Preset, [Control Value](/dmx-core-100/integrations/control-values) (set / up / down), Fade Out, Fire Output Event, Next Bank / Switch Bank, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), **Stop**, **Blackout**, Tap Tempo, **Audio Mute**, **DMX Output**, and Toggle Schedule
 - **MIDI Binding** (MIDI surfaces) — **Note**, **Control Change**, or **Program Change**; channel **1–16**; number **0–127**; **Learn** captures the next MIDI message. Assignments without a binding show **Web-only — no MIDI binding**
-- **Press mode** — Normal, Toggle on/off, Flash (hold), or — for Play Timeline actions — Momentary (release continues past a [Hold milestone](/dmx-core-100/playback/hold-milestones))
+- **Press mode** — Normal, Toggle on/off, Flash (hold), or — for Play Timeline actions — Momentary (release continues past a [Hold milestone](/dmx-core-100/playback/hold-milestones)). A Control Value **Set value** action offers Flash too: the value is set while the key is held and restored on release
 - **Hold to confirm** — the operator must keep the button pressed before the action fires (see below)
 
 ## Hold to confirm

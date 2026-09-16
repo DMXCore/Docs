@@ -59,7 +59,7 @@ Actions that respond to a button-like signal have a **Press Mode**:
 |------|----------|
 | **Normal** | Fires the action on each press |
 | **Toggle on/off** | First press starts, second press stops |
-| **Flash (hold)** | Active only while held — the preset applies on press and releases on release |
+| **Flash (hold)** | Active only while held — a preset applies on press and releases on release; a Control Value **Set value** action sets the value on press and restores what it found on release (a Toggle goes back off), so a push button on a digital input holds a Control Value On only while pressed |
 | **Momentary (release continues past Hold)** | For **Play Timeline** actions: press plays the timeline, release continues it past a [Hold milestone](/dmx-core-100/playback/hold-milestones) |
 
 **Momentary** is the timeline counterpart to Flash — but where releasing a Flash button turns its preset *off*, releasing a Momentary button lets the timeline *continue*. It's how a tap handle, doorbell, or held button drives an interactive show: pull to start, hold to keep it going, let go to move on.

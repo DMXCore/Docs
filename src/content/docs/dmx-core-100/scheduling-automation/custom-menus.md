@@ -54,7 +54,7 @@ An Action item can: Apply Ambient Preset, Apply Preset, set/step a Control Value
 
 Per-item options:
 
-- **Press mode** — **Normal**, **Toggle on/off**, or **Flash (hold)** — active only while the button is held
+- **Press mode** — **Normal**, **Toggle on/off**, or **Flash (hold)** — active only while the button is held (for a preset, or a Control Value **Set value** that restores its previous value on release)
 - **Fade-in / fade-out time and loop count** — override the item's playback settings
 - **Dimmer** — playback brightness for this button
 - **Require confirmation** — ask before executing. Control surface buttons use [Hold to confirm](/dmx-core-100/control-surfaces/configuring#hold-to-confirm) instead of a dialog (the [Surface Operator](/dmx-core-100/control-surfaces/surface-operator) still asks Yes/No)

@@ -62,7 +62,7 @@ A Counter is the right kind for anything you count rather than dial: a scoreboar
 
 Anything that targets a Control Value can perform:
 
-- **Set value** — a level percentage, a selector choice, on/off, or a whole number for a Counter
+- **Set value** — a level percentage, a selector choice, on/off, or a whole number for a Counter. With press mode **Flash (hold)** the value is set on press and whatever was there before comes back on release (a Toggle goes back off), so a held key or a closed contact holds a value only while it lasts
 - **Up / Down** — step a Level by its step size, move a Selector through its choices, or count a Counter up or down by its step
 - **Toggle** — flip a Toggle kind (or a linked mute)
 
