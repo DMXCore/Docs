@@ -22,18 +22,18 @@ Configure them under **Control & Integrations > Input Triggers** in the Web UI, 
 | **HTTP** | An HTTP request to a path you define (e.g. `/hooks/party-mode`) |
 | **TCP / UDP** | Raw data arriving on a TCP or UDP port. Each has its own **Port** field. If a UDP port cannot be opened, the device reports a configuration issue: **UDP input trigger port N** |
 | **Digital Input** | A physical contact closure / GPIO input |
-| **Control Value** | A [Control Value](/dmx-core-100/integrations/control-values) changing on the DSP side — a Q-SYS or Symetrix button, fader, or selector |
+| **Control Value** | A [Control Value](/dmx-core-100/integrations/control-values) changing — a Q-SYS or Symetrix button, fader or selector, or any control that writes the value |
 | **Plugin** | A signal from an installed plugin |
 
 ## Control Value Triggers
 
-A Control Value trigger makes the DSP the *source*: a wall panel button wired to a Symetrix controller plays a cue, a Q-SYS UCI fader crossing a threshold starts a scene. Pick the Control Value to watch; the remaining settings depend on its kind:
+A Control Value trigger makes a Control Value the *source*: a wall panel button wired to a Symetrix controller plays a cue, a Q-SYS UCI fader crossing a threshold starts a scene, an internal Control Value moved from a Stream Deck dial runs a scene. Pick the Control Value to watch; the remaining settings depend on its kind:
 
 - **Toggle** — fires when the control turns on.
 - **Level** — set a **Threshold %**; fires when the level rises to or above it, and re-arms when it drops below.
 - **Selector** — set a **Start Choice** (choice name or index); fires when that choice becomes active. With no **Stop Choice**, leaving Start Choice for any other choice is a stop (so an applied Flash preset releases). With an explicit **Stop Choice**, other choices keep the triggered state until that stop choice is selected.
 
-Only changes made **on the DSP side** fire the trigger — changing the same Control Value from the DMX Core 100 itself (a custom menu slider, a schedule, another trigger) updates the state silently. On startup or reconnect the first reported value arms the trigger without firing, so a control that is already on never replays its edge.
+Any change fires the trigger, whoever made it — a DSP button, a custom menu slider, a fader on the Faders page, a schedule, a script or another trigger. The only change that never fires a trigger is its own action writing the same Control Value back, so a trigger can safely set the value it watches. On startup or reconnect the first reported value arms the trigger without firing, so a control that is already on never replays its edge.
 
 In **Value mode**, the Control Value's live 0–100% position drives the target level instead — turning any DSP fader into a live lighting fader.
 

@@ -255,6 +255,24 @@ const SHOTS = [
   },
   { name: 'channel-rules', path: '/channelrules' },
   { name: 'control-value-level', path: '/controlvalues/1' },
+  // The Drives section on a Level Control Value (VOL1 drives F1 on the dev box)
+  { name: 'control-value-drives', path: '/controlvalues/1', fullPage: true },
+  {
+    // The Faders page in its Controls view (needs a Level Control Value)
+    name: 'faders-controls',
+    path: '/faders',
+    waitFor: '.view-chip',
+    before: async (page) => {
+      await page.evaluate(() => {
+        const btn = [...document.querySelectorAll('.view-chip')].find(
+          (b) => b.textContent.trim() === 'Controls',
+        );
+        btn?.click();
+      });
+      await page.waitForSelector('.fader-strip--control', { timeout: 5000 });
+      await sleep(400);
+    },
+  },
   // Backup / users
   { name: 'backup-restore', path: '/backuprestore' },
   { name: 'users-list', path: '/users' },

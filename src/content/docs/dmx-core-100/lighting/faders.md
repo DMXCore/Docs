@@ -1,9 +1,9 @@
 ---
 title: Faders
-description: Console-style vertical faders for live fixture brightness
+description: Console-style vertical faders for live fixture brightness, plus a Controls desk for Control Values
 ---
 
-The Faders page (Web UI: Operation > Faders) is a lighting-desk-style view of your fixtures: one vertical fader per dimmable fixture, built for setting brightness levels quickly during live operation. Color, effects, and other fixture functions stay one tap away in a per-fixture dialog, while the page itself remains a clean row of faders.
+The Faders page (Web UI: Operation > Faders) is a lighting-desk-style view of your fixtures: one vertical fader per dimmable fixture, built for setting brightness levels quickly during live operation. Color, effects, and other fixture functions stay one tap away in a per-fixture dialog, while the page itself remains a clean row of faders. A second view, [Controls](#controls), does the same for your [Control Values](/dmx-core-100/integrations/control-values).
 
 ![Faders page](/assets/web/faders.png)
 
@@ -35,6 +35,19 @@ Faders normally follow your finger — the value changes the moment you press an
 Fixtures are grouped by [Zone](/dmx-core-100/lighting/zones) — each zone is a bank. Chips at the top switch between **All** (with zone separators between groups) and a single zone. With more fixtures than fit on screen, swipe or use the paging arrows; the indicator shows which strips are visible ("13–24 of 61"). The **Filter** box narrows the strips by fixture name or code.
 
 The selected bank is remembered per browser.
+
+## Controls
+
+When at least one Level [Control Value](/dmx-core-100/integrations/control-values) exists, a **Fixtures | Controls** switch appears ahead of the zone chips. **Controls** turns the page into a desk of Control Values: one strip per Level Control Value — a bar volume on a Symetrix, an internal house dimmer — with its name and code, a fader, the percent, and a caption naming what it [drives](/dmx-core-100/integrations/control-values#driving-a-fixture-zone-or-master) (`→ F1`) or **not driving** for one that only feeds a DSP.
+
+![Faders page — Controls](/assets/web/faders-controls.png)
+
+- Dragging a strip writes the Control Value, exactly like a knob bound to it: whatever it drives moves, a DSP-backed value reaches the DSP, and every other surface follows.
+- The strips follow changes from anywhere — a DSP wall knob, a schedule, a script — except the one you are holding.
+- **Fade mode** works here too: a fade-armed press ramps the Control Value over the selected duration on the device.
+- Paging and the **Filter** box apply to the control strips as they do to fixtures.
+
+The Controls view is not a lighting view — its values are volumes, sources and the like — so the Master fader and **BLACKOUT** are not shown there; switch back to **Fixtures** for those. Which view you were on is remembered per browser, along with the fixture bank you left.
 
 ## Master and Zone Dimmers
 
