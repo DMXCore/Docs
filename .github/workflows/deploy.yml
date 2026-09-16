@@ -15,6 +15,15 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      # The public knowledge base becomes the copilot's second corpus tier
+      # (scripts/help-index/knowledge-base.mjs). A missing checkout only drops
+      # the tier; it never fails the docs build.
+      - name: Check out the knowledge base
+        uses: actions/checkout@v5
+        with:
+          repository: DMXCore/DmxCore100-KnowledgeBase
+          path: knowledge-base
+
       - uses: actions/setup-node@v5
         with:
           node-version: '20'

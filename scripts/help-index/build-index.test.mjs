@@ -31,6 +31,27 @@ test('every page chunk id and chunk screenshot id resolves', () => {
   }
 });
 
+test('knowledge-base pages, when present, form the kb tier with GitHub urls', (t) => {
+  const kbPages = index.pages.filter((p) => p.tier === 'kb');
+  if (kbPages.length === 0) {
+    t.skip('no knowledge-base checkout next to the docs');
+    return;
+  }
+  assert.ok(kbPages.length >= 8, `kb pages: ${kbPages.length}`);
+  for (const page of kbPages) {
+    assert.ok(page.slug.startsWith('kb/'), page.slug);
+    assert.ok(page.url.startsWith('https://github.com/DMXCore/DmxCore100-KnowledgeBase/blob/main/'), page.url);
+    assert.ok(page.title.endsWith('(Knowledge base)'), page.title);
+    for (const id of page.chunkIds) {
+      const chunk = index.chunks.find((c) => c.id === id);
+      assert.equal(chunk.tier, 'kb', id);
+      assert.ok(chunk.url.startsWith(page.url), chunk.url);
+      assert.deepEqual(chunk.screenshots, [], `${id} has no screenshots`);
+    }
+  }
+  assert.ok(index.pages.filter((p) => !p.tier).length >= 90, 'docs pages carry no tier');
+});
+
 test('gold-path pages are indexed with their screenshots', () => {
   const recording = index.chunks.find((c) => c.id === 'dmx-core-100/playback/recording#recording-in-the-web-ui');
   assert.ok(recording, 'recording web UI section');

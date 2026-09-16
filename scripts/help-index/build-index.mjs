@@ -8,6 +8,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { splitFrontmatter } from './frontmatter.mjs';
+import { loadKnowledgeBase } from './knowledge-base.mjs';
 import { chunkPage, findImages, pageUrl } from './markdown.mjs';
 import { loadNavigation } from './navigation.mjs';
 import { buildCatalog, parseUnoShots, parseWebShots } from './screenshots.mjs';
@@ -57,7 +58,12 @@ function publishedImages(publicRoot) {
   });
 }
 
-export function buildIndex({ repoRoot, site = 'https://docs.dmxcore.com', sections = DEFAULT_SECTIONS }) {
+/**
+ * @param knowledgeBaseRoot Checkout of DMXCore/DmxCore100-KnowledgeBase to index as the
+ *   lower-ranked "kb" tier; resolved from HELP_KB_ROOT, knowledge-base/ or ../KnowledgeBase
+ *   when omitted, and skipped with a warning when none exists.
+ */
+export function buildIndex({ repoRoot, site = 'https://docs.dmxcore.com', sections = DEFAULT_SECTIONS, knowledgeBaseRoot }) {
   const contentRoot = join(repoRoot, 'src', 'content', 'docs');
   const warnings = [];
 
@@ -108,6 +114,26 @@ export function buildIndex({ repoRoot, site = 'https://docs.dmxcore.com', sectio
       chunkIds: pageChunks.map((c) => c.id),
     });
     chunks.push(...pageChunks);
+  }
+
+  // Second tier: the knowledge base. Same chunker, but pages and chunks carry
+  // tier "kb" and absolute GitHub urls (anchors match GitHub's slugger). Help
+  // APIs that predate the tier see ordinary pages with external urls.
+  for (const source of loadKnowledgeBase({ repoRoot, knowledgeBaseRoot, warnings })) {
+    if (seen.has(source.slug)) throw new Error(`Duplicate knowledge-base slug: ${source.slug}`);
+    seen.add(source.slug);
+    const { headings, chunks: pageChunks } = chunkPage({ slug: source.slug, title: source.title, body: source.body });
+    const tiered = pageChunks.map((c) => ({ ...c, url: c.anchor ? `${source.url}#${c.anchor}` : source.url, tier: source.tier }));
+    pages.push({
+      slug: source.slug,
+      url: source.url,
+      title: source.title,
+      description: source.description,
+      headings,
+      chunkIds: tiered.map((c) => c.id),
+      tier: source.tier,
+    });
+    chunks.push(...tiered);
   }
 
   // Optional in version 1: help APIs that predate it ignore the field.

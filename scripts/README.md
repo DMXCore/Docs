@@ -9,6 +9,14 @@
 - **screenshots** — `public/assets/web` and `public/assets/device`, keyed by the
   `SHOTS` `name` from the capture scripts below; alt text and pages from the
   markdown image refs
+- **knowledge base** — the public
+  [DMXCore/DmxCore100-KnowledgeBase](https://github.com/DMXCore/DmxCore100-KnowledgeBase)
+  repo as a second tier: its `concepts/*.md` and `issues.md` are chunked the same
+  way, with `tier: "kb"` on the pages and chunks and absolute GitHub urls. The
+  copilot ranks the tier below the docs, answers "can it" / "why" questions from
+  it, and never builds checklist steps on it. The build looks for the checkout in
+  `HELP_KB_ROOT`, `knowledge-base/` (CI) or `../KnowledgeBase` (dev) and warns,
+  without failing, when none exists.
 
 The file ships with the site, so the chat API (HelpApi) always answers from the
 published docs. `npm run help-index` rebuilds it alone; `npm test` checks that
