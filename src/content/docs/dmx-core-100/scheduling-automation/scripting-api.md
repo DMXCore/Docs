@@ -71,7 +71,7 @@ Requires configured [external control](/dmx-core-100/external-control) backends.
 
 | Field | Description |
 |------|-------------|
-| `ctx.trigger.source` | What started the run: an input-trigger type (`"UDP"`, `"MQTT"`, `"HTTP"`, `"OSC"`, ...), `"MANUAL"` (editor Run button), `"EVENT"` (lifecycle event), `"TIMELINE"`, or `"TRIGGER"` (other surfaces). |
+| `ctx.trigger.source` | What started the run: an input-trigger type (`"UDP"`, `"MQTT"`, `"HTTP"`, `"OSC"`, ...), `"MANUAL"` (editor Run button), `"SCHEDULE"` (a schedule's Run Script action; `ctx.trigger.code` is the schedule code), `"EVENT"` (lifecycle event), `"TIMELINE"`, or `"TRIGGER"` (other surfaces). |
 | `ctx.trigger.code` | Code of the Input Trigger that fired the run, when applicable. |
 | `ctx.payload` | The raw payload string from the trigger, or the editor's Test Payload on manual runs. Null when there is none. |
 | `ctx.event` | For lifecycle-event runs: `{ name, code }` where name is `"STARTUP"`, `"CUESTARTED"`, `"CUEENDED"`, or `"SCHEDULEFIRED"` and code identifies the cue or schedule. Null otherwise. |

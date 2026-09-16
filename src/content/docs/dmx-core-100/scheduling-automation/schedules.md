@@ -29,7 +29,7 @@ In the **Web UI**, go to **Lighting > Schedules**. The list shows all schedules 
 | **Start Time** | Time of day when the schedule triggers (when Start is a fixed time) |
 | **End** | How the end time is determined: **None**, a fixed time, or sunrise/sunset with **End Offset (minutes)** (Web UI). **None** means the schedule never ends on its own |
 | **End Time** | Optional end time |
-| **Action Type** | What to run: cue, preset, sound, timeline, ambient preset, DMX output on/off, or blackout on/off. **Run Script** is offered in the editor but is not supported as a schedule target yet: the schedule logs it and does nothing. To run a [script](/dmx-core-100/scheduling-automation/scripting) at a set time, schedule a timeline that has a Script event, or turn on the script's **Run On Events › Schedule fired** switch and check `ctx.event.code` for the schedule |
+| **Action Type** | What to run: cue, preset, sound, timeline, ambient preset, DMX output on/off, blackout on/off, or **Run Script**. A [script](/dmx-core-100/scheduling-automation/scripting) runs once at the start time with `ctx.trigger.source` set to `SCHEDULE` and `ctx.trigger.code` to the schedule's code; nothing runs at the end time, so for a closing script turn on a second script's **Run On Events › Schedule ended** switch and check `ctx.event.code` |
 | **Target** | Which item to play |
 | **Priority** | Playback priority |
 | **Loop** | Repeat count; **0 = forever** |
