@@ -101,4 +101,4 @@ Any change counts, whoever made it: a DSP button, a custom menu slider, a schedu
 
 ## Live State Everywhere
 
-The current value is shown in the Control Values list and is pushed to every bound surface: LED colors on keypads, knob displays on a Stream Deck, OSC feedback to TouchOSC layouts, highlight states on custom menu items, and `dmx.controlValue.get()`/`status()` in scripts.
+The current value is shown in the Control Values list and is pushed to every bound surface: LED colors on keypads, [Stream Deck key faces and the Stream Deck + LCD strip](/dmx-core-100/control-surfaces/configuring#live-values-on-a-stream-deck), OSC feedback to TouchOSC layouts, highlight states on custom menu items, and `dmx.controlValue.get()`/`status()` in scripts.
