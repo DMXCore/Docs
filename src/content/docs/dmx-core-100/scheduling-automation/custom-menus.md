@@ -40,8 +40,13 @@ Click **Add item** in the editor. Each item has a name, optional subtitle/descri
 | **SubMenu** | Opens a nested menu level |
 | **Slider** | A fader. The **Slider target** panel sets the target — for a DSP level pick **Control Value (Level)** and the Control Value from the dropdown |
 | **Segmented selector** | A source/input picker bound to a Selector Control Value |
+| **Value display** | A read-only live readout of a Control Value of any kind (see below) |
 | **Presets / Cues list** | A browsable list of presets or cues (touchscreen only) |
 | **OSC direct message** | Send a raw OSC message when tapped |
+
+### Value Display
+
+A **Value display** item shows a [Control Value](/dmx-core-100/integrations/control-values) without offering to change it: a scoreboard's `HOME 14 / AWAY 7` next to the keys that step the scores, or the bar volume beside an Up/Down pair. Pick the Control Value; the item prints a Level as a percent, a Counter as its number, a Selector as its choice and a Toggle as On/Off, and follows the value live wherever it is changed from. On the web the value sits big under the item's name; on the touchscreen the value is the card title with the name beneath it. The optional **Format** uses the same syntax as a Stream Deck key's [value format](/dmx-core-100/control-surfaces/configuring#live-values-on-a-stream-deck): `{0}` is the value, `{1}` the default text, so `{0} pts` reads "14 pts" and `Vol {0:P0}` reads "Vol 63%"; for a Toggle, `Yes|No` names the two states.
 
 ### Actions
 
