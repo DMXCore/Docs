@@ -21,7 +21,7 @@ Configure them under **Control & Integrations > Input Triggers** in the Web UI, 
 | **MQTT** | A message published to an MQTT topic (requires the [MQTT integration](/dmx-core-100/integrations/mqtt)) |
 | **HTTP** | An HTTP request to a path you define (e.g. `/hooks/party-mode`) |
 | **TCP / UDP** | Raw data arriving on a TCP or UDP port. Each has its own **Port** field. If a UDP port cannot be opened, the device reports a configuration issue: **UDP input trigger port N** |
-| **Digital Input** | A physical contact closure / GPIO input |
+| **Digital Input** | A contact closure on one of the DMX-512 board's four digital inputs. The trigger fires when the input goes active and releases when it goes inactive, so a **Flash** preset or a **Momentary** timeline follows the contact. **Threshold** is the polarity: 1 (default) is active-high, 0 inverts it so the trigger fires when the contact opens |
 | **Control Value** | A [Control Value](/dmx-core-100/integrations/control-values) changing — a Q-SYS or Symetrix button, fader or selector, or any control that writes the value |
 | **Plugin** | A signal from an installed plugin |
 
