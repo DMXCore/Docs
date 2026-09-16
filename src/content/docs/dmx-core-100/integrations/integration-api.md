@@ -290,9 +290,9 @@ command or a non-scene kind is 400.
 | `fadeOutMs` | Fade-out at the natural end or on stop, in milliseconds; `0` = none |
 
 A scene action can expose Loop / Fade fields that map to these, and leave them
-unset to follow the device. A timeline keeps its own Loop setting; `fadeInMs`
-and `fadeOutMs` replace the timeline's own fades for that play, and unset (or
-`0`) plays it as authored.
+unset to follow the device. For a timeline, `loop`, `fadeInMs` and `fadeOutMs`
+replace the timeline's own settings for that play; unset (or `0` for a fade)
+plays it as authored.
 
 Example (desktop HTTP port; use **80** on a wall unit):
 
