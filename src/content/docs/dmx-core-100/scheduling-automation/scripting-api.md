@@ -38,11 +38,11 @@ Requires configured [external control](/dmx-core-100/external-control) backends.
 
 | Function | Description |
 |------|-------------|
-| `dmx.controlValue.get(code)` | Last-known value (0–1), or null. |
-| `dmx.controlValue.set(code, value, fadeMs?)` | Sets a value: a number for Level kind, a string for a Selector choice, a boolean for Toggle. |
-| `dmx.controlValue.up(code)` / `down(code)` | Steps a Level or Selector. |
+| `dmx.controlValue.get(code)` | Last-known value (0–1; the whole number for a Counter), or null. |
+| `dmx.controlValue.set(code, value, fadeMs?)` | Sets a value: a number for Level kind (or a whole number for a Counter), a string for a Selector choice, a boolean for Toggle. |
+| `dmx.controlValue.up(code, amount?)` / `down(code, amount?)` | Steps a Level, Selector or Counter. `amount` replaces the Control Value's own step for this call: a 0–1 (or percent above 1) delta for a Level, a whole number for a Counter, a number of choices for a Selector; negative runs the other way. |
 | `dmx.controlValue.toggle(code)` | Toggles a Toggle kind. |
-| `dmx.controlValue.status(code)` | Returns `{ kind, value, choiceIndex, choiceName, muted }`, or null. |
+| `dmx.controlValue.status(code)` | Returns `{ kind, value, choiceIndex, choiceName, number, muted }`, or null. `number` is the Counter's whole number; `value` is its 0–1 position in the range. |
 
 ## Messaging
 

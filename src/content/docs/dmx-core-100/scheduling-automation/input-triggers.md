@@ -31,6 +31,7 @@ A Control Value trigger makes a Control Value the *source*: a wall panel button 
 
 - **Toggle** — fires when the control turns on.
 - **Level** — set a **Threshold %**; fires when the level rises to or above it, and re-arms when it drops below.
+- **Counter** — set a **Threshold %** of the counter's range; fires when the count rises to or above it (50% of a 0–99 score is 50), and re-arms when it drops below.
 - **Selector** — set a **Start Choice** (choice name or index); fires when that choice becomes active. With no **Stop Choice**, leaving Start Choice for any other choice is a stop (so an applied Flash preset releases). With an explicit **Stop Choice**, other choices keep the triggered state until that stop choice is selected.
 
 Any change fires the trigger, whoever made it — a DSP button, a custom menu slider, a fader on the Faders page, a schedule, a script or another trigger. The only change that never fires a trigger is its own action writing the same Control Value back, so a trigger can safely set the value it watches. On startup or reconnect the first reported value arms the trigger without firing, so a control that is already on never replays its edge.

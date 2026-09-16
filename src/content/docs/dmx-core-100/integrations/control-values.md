@@ -29,13 +29,14 @@ Control Values are managed under **Control & Integrations > Control Values**. Th
 | **Level** | A continuous 0–100% value | Room volume |
 | **Selector** | One choice from a list | Source select (Input A / Input B / …) |
 | **Toggle** | On or off | Mute |
+| **Counter** | A whole number between a minimum and a maximum | Home / away score |
 
 ## Settings
 
 Each Control Value has:
 
 - **Code / Short Name** — the identifier used in menus, triggers, timelines, and scripts (e.g. `VOL1`)
-- **Kind** — Level, Selector, or Toggle
+- **Kind** — Level, Selector, Toggle, or Counter
 - **Plugin** — which backend holds the value: **Internal (no DSP)**, or an installed DSP plugin that registers as a Control Value backend (Symetrix, Q-SYS, …). The dropdown lists only what is installed
 - **Controller Number** — the controller number assigned in SymNet Composer (or the named control in Q-SYS Designer). Not shown for an internal Control Value
 - **Status Controller** *(optional, DSP only)* — read state from a different controller than the one written to. Use when a trigger writes one control but the real state is reported by another (e.g. a relay or wall panel)
@@ -49,13 +50,23 @@ For a **Selector**, define the choices on the same page:
 - **Prefill Values** — fill typical values
 - **Wrap Around** — when on, Up past the last choice wraps to the first (and Down from the first wraps to the last); when off, Up/Down stops at the ends
 
+For a **Counter**, set its range on the same page:
+
+- **Minimum** / **Maximum** — the range the value stays within (default 0 to 100)
+- **Step** — how much one Up/Down step changes the value (default 1)
+- **Wrap Around** — when on, Up past the maximum wraps to the minimum (and Down below the minimum wraps to the maximum); when off (the default), Up/Down stops at the ends
+
+A Counter is the right kind for anything you count rather than dial: a scoreboard, a queue number, a "round" indicator. Bind two Stream Deck keys to **Up** and **Down** on it and the score is shared by every surface, menu, timeline, script and integration on the device. Usually the Counter is **Internal** (the device keeps the number itself), but a plugin backend can hold it too — it receives the whole number as the raw value.
+
 ## Operations
 
 Anything that targets a Control Value can perform:
 
-- **Set value** — a level percentage, a selector choice, or on/off
-- **Up / Down** — step a Level by its step size, or move a Selector through its choices
+- **Set value** — a level percentage, a selector choice, on/off, or a whole number for a Counter
+- **Up / Down** — step a Level by its step size, move a Selector through its choices, or count a Counter up or down by its step
 - **Toggle** — flip a Toggle kind (or a linked mute)
+
+Up and Down can also carry an **Amount** on the action itself, replacing the Control Value's own step for that one key, milestone or script call: a "touchdown" key does **Up** with an amount of `6`, a "field goal" key **Up** with `3`, while a plain "+1" key leaves the amount blank. The amount is a whole number for a Counter, a level delta (`0.1`, or `10` for 10%) for a Level, and a number of choices for a Selector; a negative amount runs the other way. Holding a Stream Deck key auto-repeats Up/Down, and each repeat applies the amount.
 
 Value-mode [input triggers](/dmx-core-100/scheduling-automation/input-triggers) feed their numeric payload straight into a Level — optionally shaped by a [transform script](/dmx-core-100/scheduling-automation/scripting#transform-scripts) for response curves and dead zones. Timed ramps fade a level smoothly to its target instead of jumping.
 

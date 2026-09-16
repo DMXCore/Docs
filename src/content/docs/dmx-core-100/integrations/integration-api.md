@@ -88,6 +88,7 @@ has created. Populate dropdowns from the catalog; do not hard-code show content.
 | `switch` | `preset.PARTY`, `ambient.DAY`, `schedule.EVENING`, `system.mute`, `system.blackout`, toggle Control Values | `isOn` | `turnOn`, `turnOff`, `toggle` |
 | `level` | `system.masterdimmer`, `system.volume`, `zone.BAR`, `fixture.HOUSE` (intensity), level Control Values | `level` (0–1) | `setLevel` |
 | `select` | selector Control Values (`cv.SRC`) | `choice` | `setChoice` |
+| `number` | counter Control Values (`cv.HOME_SCORE`) | `number` | `setNumber` |
 | `button` | `system.stop`, `system.clearambient` | none | `activate` |
 | `sensor` | `system.nowplaying` | `text` | none |
 
@@ -225,11 +226,15 @@ snapshot; a 30 s poll is plenty.
   { "code": "preset.PARTY", "name": "Party", "kind": "switch" },
   { "code": "system.masterdimmer", "name": "Master Dimmer", "kind": "level" },
   { "code": "system.volume", "name": "Audio Volume", "kind": "level" },
-  { "code": "cv.SRC", "name": "Source", "kind": "select", "choices": ["Mic", "Line"] }
+  { "code": "cv.SRC", "name": "Source", "kind": "select", "choices": ["Mic", "Line"] },
+  { "code": "cv.HOME_SCORE", "name": "Home Score", "kind": "number", "min": 0, "max": 99, "step": 1 }
 ] }
 ```
 
-`choices` is present for `select` entities only.
+`choices` is present for `select` entities only; `min`, `max` and `step` for
+`number` entities only. A `number` entity takes `setNumber` with a `number`
+field (rounded to a whole number and clamped to `min`..`max`) and reports
+`number` in its state.
 
 ### `GET /api/integration/v1/state`
 
@@ -364,7 +369,7 @@ mapping:
 | Action dropdowns | `catalog` entities, filtered by kind |
 | Actions | `execute` with a command valid for that kind; a scene action can expose Loop / Fade in / Fade out mapping to `loop`, `fadeInMs`, `fadeOutMs` (leave unset for device defaults) |
 | Feedbacks | `state` frames — boolean for `switch` when `isOn` is present, comparison for `level`; now-playing match against catalog name and code suffix |
-| Variables | `sensor` / `level` / `switch` / `select` entities; device health and show name from `GET /info` |
+| Variables | `sensor` / `level` / `switch` / `select` / `number` entities; device health and show name from `GET /info` |
 | Instance status | WebSocket connect / disconnect |
 | Instance config | host, **HTTP(S) port of the Web UI**, Integration API key |
 

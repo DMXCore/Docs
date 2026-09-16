@@ -33,6 +33,7 @@ Home Assistant shows one **DMX Core 100 device** containing:
 | Number sliders (%) | Master dimmer, zone intensities, level [Control Values](/dmx-core-100/integrations/control-values), and audio volume |
 | Switches | Audio mute, output mute, schedules (enable/disable), and toggle Control Values |
 | Selects | Selector Control Values, e.g. an audio source picker |
+| Number boxes (whole numbers) | Counter Control Values, e.g. a home or away score, with the counter's minimum, maximum and step |
 | Buttons | Stop playback |
 | Sensors | Now Playing — the running cue or timeline |
 
