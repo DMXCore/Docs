@@ -34,7 +34,7 @@ In the **Web UI**, go to **Lighting > Schedules**. The list shows all schedules 
 | **Priority** | Playback priority |
 | **Loop** | Repeat count; **0 = forever** |
 | **Run to completion** | When on, playback runs to the end of the item rather than cutting at the schedule end |
-| **Fade-In Time (ms)** / **Fade-Out Time (ms)** | Transition times (Web UI) |
+| **Fade-In Time (ms)** / **Fade-Out Time (ms)** | Transition times (Web UI). The fade-in applies at the start time; the fade-out applies when the schedule ends, so a cue, sound, timeline or preset eases out at closing time instead of cutting. 0 stops hard (a preset then releases with its default fade). An item set to **run to completion** finishes its pass and ignores the fade-out |
 | **Dimmer** / **Volume** | Brightness and attached-sound level (Web UI) |
 
 The touchscreen editor has **Priority**, **Type**, **Play**, **Loop**, and **Run to completion**.
