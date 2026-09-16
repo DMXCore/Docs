@@ -65,7 +65,7 @@ Anything that targets a Control Value can perform:
 - **Set value** — a level percentage, a selector choice, on/off, or a whole number for a Counter
 - **Up / Down** — step a Level by its step size, move a Selector through its choices, or count a Counter up or down by its step
 - **Toggle** — flip a Toggle kind (or a linked mute) on each press
-- **Follow input** — a Toggle kind mirrors the input: On while the contact, key or OSC button is active, Off when it releases. A push button on a [digital input](/dmx-core-100/scheduling-automation/input-triggers#input-types) holds the value On only while pressed, with Threshold 0 reversing it. Nothing is remembered, so a release seen right after startup still switches Off
+- **Follow input** — a Toggle kind mirrors the input: On while the contact, key or OSC button is active, Off when it releases. A push button on a [digital input](/dmx-core-100/scheduling-automation/input-triggers#input-types) holds the value On only while pressed, with Threshold 0 reversing it. Nothing is remembered, and a digital input trigger syncs the value to the contact's present state as soon as it is saved or the device starts, so it is never left stale
 
 Up and Down can also carry an **Amount** on the action itself, replacing the Control Value's own step for that one key, milestone or script call: a "touchdown" key does **Up** with an amount of `6`, a "field goal" key **Up** with `3`, while a plain "+1" key leaves the amount blank. The amount is a whole number for a Counter, a level delta (`0.1`, or `10` for 10%) for a Level, and a number of choices for a Selector; a negative amount runs the other way. Holding a Stream Deck key auto-repeats Up/Down, and each repeat applies the amount.
 

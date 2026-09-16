@@ -13,7 +13,7 @@ See [Scripting](/dmx-core-100/scheduling-automation/scripting) for how scripts a
 |------|-------------|
 | `dmx.playCue(code, options?)` | Plays a cue. Options: `fadeIn`, `fadeOut` (ms), `loop` (count, 0 = forever), `dimmer` (0–1 scale), `toggle` (true = stop if already playing). |
 | `dmx.playSound(code, options?)` | Plays a sound. Options: `fadeIn`, `fadeOut`, `loop`, `volume` (0–1), `toggle`. |
-| `dmx.playTimeline(code)` | Plays a timeline. |
+| `dmx.playTimeline(code, options?)` | Plays a timeline. Options: `fadeIn`, `fadeOut` (ms; 0 = the timeline's own), `dimmer` and `volume` (0–1 scales on the timeline's own dimmer and on every sound it plays). The timeline keeps its own loop setting. |
 | `dmx.stopPlayback()` | Stops all playback. |
 | `dmx.fadeOut(ms?)` | Fades out and stops playback over the given time. |
 | `dmx.fireOutputEvent(code)` | Fires an [Output Event](/dmx-core-100/scheduling-automation/output-events). |
