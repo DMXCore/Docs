@@ -83,6 +83,6 @@ The recorder's **Trigger** setting starts recording automatically when a specifi
 
 ## Storage
 
-Recording needs about **500 MB** of free space to start, and stops if free space falls below **200 MB**. Captures are compressed with zstd while recording and saved as uncompressed PCAP cue files.
+Recording needs about **500 MB** of free space to start, and stops if free space falls below **200 MB**. Captures are compressed with zstd while recording and, by default, saved as uncompressed PCAP cue files — so a recording can only grow as long as its uncompressed form still fits. Turn on **Store recordings compressed** under **Device > System** to save new recordings as [compressed cues](/dmx-core-100/playback/cues#compressed-storage) instead: they take typically 3–5x less space, longer takes fit, and less is written to the flash storage. Mind the restrictions listed there (older releases cannot play compressed cues).
 
 A rough size guide: one universe at 40 Hz is on the order of a few megabytes per minute of dynamic recording (exact size depends on how busy the source is). Static cues are one frame and stay small. Check the remaining-space readout on the Record page before a long take.
