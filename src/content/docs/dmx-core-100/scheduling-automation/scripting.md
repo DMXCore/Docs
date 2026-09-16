@@ -39,7 +39,7 @@ The **Last Run** panel below the buttons shows whether the run succeeded, any er
 A saved script can be started from almost anywhere in the system using the **Run Script** action:
 
 - **[Input Triggers](/dmx-core-100/scheduling-automation/input-triggers)** — run a script when a UDP, TCP, HTTP, OSC, MQTT, DMX, or digital-input signal arrives. The raw payload is available as `ctx.payload`.
-- **[Schedules](/dmx-core-100/scheduling-automation/schedules)** — run a script at a time of day, sunrise, or sunset.
+- **[Schedules](/dmx-core-100/scheduling-automation/schedules)** — not directly: a schedule cannot run a script yet (the editor offers **Run Script**, but the schedule logs it and does nothing). To run a script at a time of day, sunrise, or sunset, schedule a [timeline](/dmx-core-100/playback/timelines) that has a Script event, or turn on the script's **Run On Events › Schedule fired** switch and check `ctx.event.code` for the schedule's code.
 - **[Custom Menus](/dmx-core-100/scheduling-automation/custom-menus)**, Stream Deck keys, and keypads — run a script at the press of a button.
 - **[Timelines](/dmx-core-100/playback/timelines)** — a Script event runs a script at an exact timestamp during timeline playback.
 - **Lifecycle events** — the **Run On Events** switches on the script itself run it at device startup, when a cue starts or ends, or when a schedule fires. The event details arrive as `ctx.event`.

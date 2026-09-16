@@ -3,7 +3,7 @@ title: Schedules
 description: Automate playback on a timed schedule
 ---
 
-Schedules let you automatically trigger cues, presets, sounds, timelines, or scripts at specific times. Use schedules for recurring lighting scenes — for example, turning on lobby lights at sunset or running a show every evening.
+Schedules let you automatically trigger cues, presets, sounds, timelines, or ambient presets at specific times. Use schedules for recurring lighting scenes — for example, turning on lobby lights at sunset or running a show every evening.
 
 ## Viewing Schedules
 
@@ -29,7 +29,7 @@ In the **Web UI**, go to **Lighting > Schedules**. The list shows all schedules 
 | **Start Time** | Time of day when the schedule triggers (when Start is a fixed time) |
 | **End** | How the end time is determined: **None**, a fixed time, or sunrise/sunset with **End Offset (minutes)** (Web UI). **None** means the schedule never ends on its own |
 | **End Time** | Optional end time |
-| **Action Type** | What to run: cue, preset, sound, timeline, ambient preset, or script |
+| **Action Type** | What to run: cue, preset, sound, timeline, ambient preset, DMX output on/off, or blackout on/off. **Run Script** is offered in the editor but is not supported as a schedule target yet: the schedule logs it and does nothing. To run a [script](/dmx-core-100/scheduling-automation/scripting) at a set time, schedule a timeline that has a Script event, or turn on the script's **Run On Events › Schedule fired** switch and check `ctx.event.code` for the schedule |
 | **Target** | Which item to play |
 | **Priority** | Playback priority |
 | **Loop** | Repeat count; **0 = forever** |
