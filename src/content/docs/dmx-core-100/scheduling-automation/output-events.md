@@ -24,6 +24,8 @@ Output events can send notifications via:
 - **MQTT** — Publish a message to an MQTT topic
 - **HTTP** — Make an HTTP request to an external URL
 - **OSC** — Send an OSC message to a network target
+- **UDP** — Send one datagram to a host and port
+- **TCP** — Send bytes to a host and port over a connection the device keeps open. The connection is shared with a [TCP Connector](/dmx-core-100/scheduling-automation/input-triggers#input-types) trigger to the same host and port, so a device that accepts a single client can be both listened to and commanded on one socket. If the device is not reachable, **Test** says so
 - **Serial** — Send data over a serial port
 - **Home Assistant** (and other integration plugins) — Activate a Home
   Assistant scene, script, or automation, picked from a live list. Requires
@@ -32,7 +34,11 @@ Output events can send notifications via:
   Plugins that provide actions appear here as their own type.
 
 Use the **Test** button on a saved Output Event to fire it once; delivery
-problems (unreachable host, rejected token) are reported right there.
+problems (unreachable host, rejected token, no payload) are reported right there.
+
+The UDP and TCP **Payload** uses the same syntax as a trigger payload: `"text"` in
+double quotes with `\r`, `\n`, `\t` and `\\` escapes, comma or space separated hex
+bytes such as `02 41 0D`, or plain text sent as written.
 
 Output events can also be fired manually from [scripts](/dmx-core-100/scheduling-automation/scripting-api) (`dmx.fireOutputEvent(code)`), [control surfaces](/dmx-core-100/control-surfaces), and [custom menus](/dmx-core-100/scheduling-automation/custom-menus) via the *Fire Output Event* action.
 
