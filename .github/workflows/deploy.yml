@@ -3,6 +3,9 @@ name: Deploy to Azure Static Web Apps
 on:
   push:
     branches: [main]
+  # Manual run: rebuilds the help index (which picks up the knowledge-base
+  # repo at its current main) and redeploys without a docs change.
+  workflow_dispatch:
 
 concurrency:
   group: deploy-${{ github.workflow }}-${{ github.ref }}
