@@ -61,7 +61,7 @@ Arguments are optional unless noted. A single float, integer, or numeric string 
 | `/dmxcore/dimmer/master/fadeto` | level, fade time in ms | Fade the master dimmer to a level over the given time (two arguments). |
 | `/dmxcore/dimmer/zone/<code>` | level | Set a zone's intensity. |
 | `/dmxcore/control/<code>` | level | Set a Level-kind [Control Value](/dmx-core-100/integrations/control-values) — an external DSP level — with no trigger or control surface configured. |
-| `/dmxcore/control/<code>/up` `/dmxcore/control/<code>/down` | *(optional)* step amount | Step a [Control Value](/dmx-core-100/integrations/control-values) instead of setting it: a Level by its Step Size, a Selector to the next or previous choice, a Counter by its Step, a Toggle on or off. |
+| `/dmxcore/control/<code>/up` `/dmxcore/control/<code>/down` | *(optional)* step amount — omit it to use the Control Value's own Step Size | Step a [Control Value](/dmx-core-100/integrations/control-values) instead of setting it: a Level by its Step Size, a Selector to the next or previous choice, a Counter by its Step, a Toggle on or off. |
 | `/dmxcore/fixture/red` `/dmxcore/fixture/green` `/dmxcore/fixture/blue` | level | Set the global fixture-control color channels. |
 | `/dmxcore/fixture/<code>/dimmer` `/dmxcore/fixture/<code>/red` `/dmxcore/fixture/<code>/green` `/dmxcore/fixture/<code>/blue` `/dmxcore/fixture/<code>/white` | level | Adjust a single fixture's live modifier. |
 | `/dmxcore/config/fadeduration` | ms | Set the default fade duration used when a preset is applied without an explicit time. |
@@ -72,9 +72,16 @@ rotary encoder, a pair of +/- buttons, a wall plate. Send one message per
 click and the device keeps the value, clamps it, and tells every other
 surface about it, so nothing has to track or re-sync a level it cannot see.
 
-The optional argument replaces the Control Value's own step for that one
-message: `0.1` moves a Level by 10%, and so does `10`. A magnitude above 1 is
-read as a percentage. A negative argument runs the other way, so
+**Send no argument.** That is the normal case, and what a knob should do: the
+Control Value moves by its own **Step Size**, set on its page, so the step is
+tuned in one place rather than in every controller. An encoder sends
+`/dmxcore/control/vol/up` with an empty argument list once per detent and
+nothing else.
+
+Send an argument only to override the step for that one message: `0.1` moves a
+Level by 10%, and so does `10`. A magnitude above 1 is read as a percentage, so
+be careful with `1` — it is a 0–1 fraction meaning **100%**, a jump to full
+rather than one step. A negative argument runs the other way, so
 `/dmxcore/control/vol/up -5` steps down by 5%.
 :::
 
