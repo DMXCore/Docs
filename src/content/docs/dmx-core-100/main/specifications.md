@@ -8,7 +8,7 @@ title: Specifications
 * Interface: touch screen or rotary knob/encoder with push button
 * Power options: Power over Ethernet on the RJ45, or 8–28 VDC via the rear power connector (max 0.5 A at 12 VDC). No power supply is included. Connector type, plug size, polarity, and PoE class/standard are not specified — match the plug to the rear connector, and do not assume 802.3af/at. There is no hardware on/off switch: apply or remove PoE or DC to power the unit. **Restart** and **Reboot** are under **Utilities > Device Operations** (permission required).
 * Bezel color: Black (3D printed, STL files are available)
-* Mounting: 2-gang electrical box, optional [desk stand](https://dmxprosales.com/products/dmx-core-100-desk-stand), or optional [19" rack mount](https://dmxprosales.com/products/dmx-core-100-19-rack-mount) (3U, 4.3" model)
+* Mounting: 2-gang electrical box, optional [desk stand](https://dmxprosales.com/products/dmx-core-100-desk-stand), or an optional 19" rack mount — [3U for the 4.3" model](https://dmxprosales.com/products/dmx-core-100-19-rack-mount), and a separate 4U mount for the 7" model
 * Universes: Up to 800 universes at 40 Hz, or 600 universes at 60 Hz
 * [Plugins](/dmx-core-100/integrations/plugins), installed in one click from the built-in registry: [Q-SYS & Symetrix](/dmx-core-100/external-control) DSP control, [Home Assistant](/dmx-core-100/integrations/home-assistant) (MQTT Discovery), Shelly / LIFX / WiZ / Govee WiFi lighting as [output types](/dmx-core-100/configuration/output-config), and [Lightjams recorder import](/dmx-core-100/integrations/lightjams) — plus an open [.NET SDK](/dmx-core-100/integrations/publishing-plugins) for building your own
 * Supports USB DMX output via Enttec Pro/DMXking USB device (up to 4 universes)

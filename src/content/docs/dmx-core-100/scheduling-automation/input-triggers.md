@@ -16,12 +16,12 @@ Configure them under **Control & Integrations > Input Triggers** in the Web UI, 
 | Type | Description |
 |------|-------------|
 | **Art-Net / sACN** | A DMX channel in an incoming network stream reaching a threshold |
-| **DMX Serial** | A DMX channel on the optional DMX-512 board's input |
+| **DMX Serial** | A DMX channel on the optional DMX-512 or ADIO board's input |
 | **OSC** | An OSC message on the configured address |
 | **MQTT** | A message published to an MQTT topic (requires the [MQTT integration](/dmx-core-100/integrations/mqtt)) |
 | **HTTP** | An HTTP request to a path you define (e.g. `/hooks/party-mode`) |
 | **TCP / UDP** | Raw data arriving on a TCP or UDP port. Each has its own **Port** field. If a UDP port cannot be opened, the device reports a configuration issue: **UDP input trigger port N** |
-| **Digital Input** | A contact closure on one of the DMX-512 board's four digital inputs. The trigger fires when the input goes active and releases when it goes inactive, so a **Flash** preset, a **Momentary** timeline or a Control Value **Follow input** action follows the contact. **Threshold** is the polarity: 1 (default) is active-high, 0 inverts it so the trigger fires when the contact opens |
+| **Digital Input** | A contact closure on one of the [ADIO board](https://dmxprosales.com/products/dmx-core-100-audio-2xdmx-input-board-adio)'s four digital inputs (the 2-port DMX-512 board does not have them). The trigger fires when the input goes active and releases when it goes inactive, so a **Flash** preset, a **Momentary** timeline or a Control Value **Follow input** action follows the contact. **Threshold** is the polarity: 1 (default) is active-high, 0 inverts it so the trigger fires when the contact opens |
 | **Control Value** | A [Control Value](/dmx-core-100/integrations/control-values) changing — a Q-SYS or Symetrix button, fader or selector, or any control that writes the value |
 | **Plugin** | A signal from an installed plugin |
 

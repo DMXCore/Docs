@@ -27,8 +27,9 @@ Output events can send notifications via:
 - **UDP** — Send one datagram to a host and port
 - **TCP** — Send bytes to a host and port over a connection the device keeps open. The connection is shared with a [TCP Connector](/dmx-core-100/scheduling-automation/input-triggers#input-types) trigger to the same host and port, so a device that accepts a single client can be both listened to and commanded on one socket. If the device is not reachable, **Test** says so
 - **Serial** — Send data over a serial port
-- **Digital Output** — Drive one of the DMX-512 board's digital outputs (a relay, a
-  door strike, a sign). See [Digital Output](#digital-output) below
+- **Digital Output** — Drive one of the [ADIO board](https://dmxprosales.com/products/dmx-core-100-audio-2xdmx-input-board-adio)'s four
+  digital outputs. See [Digital Output](#digital-output) below for what they are
+  wired to
 - **Home Assistant** (and other integration plugins) — Activate a Home
   Assistant scene, script, or automation, picked from a live list. Requires
   the Home Assistant URL and token in the plugin's settings; see
@@ -45,6 +46,12 @@ bytes such as `02 41 0D`, or plain text sent as written.
 Output events can also be fired manually from [scripts](/dmx-core-100/scheduling-automation/scripting-api) (`dmx.fireOutputEvent(code)`), [control surfaces](/dmx-core-100/control-surfaces), and [custom menus](/dmx-core-100/scheduling-automation/custom-menus) via the *Fire Output Event* action.
 
 ## Digital Output
+
+The four digital outputs are on the ADIO board; the 2-port DMX-512 board has no
+digital I/O. On current ADIO boards they drive indicator LEDs on the board itself
+and are brought out to test points TP1–TP4, not to a field connector — so driving
+an external load (a relay, a door strike, a sign) needs a soldered connection to a
+test point rather than a screw terminal.
 
 A Digital Output event has a **level**, so wherever it is fired — a
 [timeline](/dmx-core-100/playback/timelines) milestone, a key, a
