@@ -16,7 +16,7 @@ See [Scripting](/dmx-core-100/scheduling-automation/scripting) for how scripts a
 | `dmx.playTimeline(code, options?)` | Plays a timeline. Options: `loop` (count, 0 = forever; absent = the timeline's own), `fadeIn`, `fadeOut` (ms; 0 = the timeline's own), `dimmer` and `volume` (0–1 scales on the timeline's own dimmer and on every sound it plays). |
 | `dmx.stopPlayback()` | Stops all playback. |
 | `dmx.fadeOut(ms?)` | Fades out and stops playback over the given time. |
-| `dmx.fireOutputEvent(code, operation?)` | Fires an [Output Event](/dmx-core-100/scheduling-automation/output-events). `operation` is `"pulse"` (default), `"on"` or `"off"` and only matters for a [Digital Output](/dmx-core-100/scheduling-automation/output-events#digital-output); every other type fires once. |
+| `dmx.fireOutputEvent(code, operation?)` | Fires an [Output Event](/dmx-core-100/scheduling-automation/output-events). `operation` is `"pulse"` (default), `"on"` or `"off"` and only matters for a [Digital Output](/dmx-core-100/scheduling-automation/output-events#digital-output) or [DMX Channel](/dmx-core-100/scheduling-automation/output-events#dmx-channel); every other type fires once. |
 | `dmx.isPlaying(code)` | Returns true while the cue, sound, or timeline with this code is playing. |
 
 ## Looks and Fixtures

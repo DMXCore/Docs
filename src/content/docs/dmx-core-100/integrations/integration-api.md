@@ -85,11 +85,11 @@ has created. Populate dropdowns from the catalog; do not hard-code show content.
 | Kind | Examples | State | Commands |
 |------|----------|-------|----------|
 | `scene` | `cue.INTRO`, `timeline.SHOW1`, `sound.WALKIN` | none | `activate` |
-| `switch` | `preset.PARTY`, `ambient.DAY`, `schedule.EVENING`, `system.mute`, `system.blackout`, toggle Control Values, Digital Output events (`output.DOOR`) | `isOn` | `turnOn`, `turnOff`, `toggle`; a Digital Output also takes `activate` (pulse) |
+| `switch` | `preset.PARTY`, `ambient.DAY`, `schedule.EVENING`, `system.mute`, `system.blackout`, toggle Control Values, Digital Output and DMX Channel events (`output.DOOR`) | `isOn` | `turnOn`, `turnOff`, `toggle`; a Digital Output or DMX Channel event also takes `activate` (pulse) |
 | `level` | `system.masterdimmer`, `system.volume`, `zone.BAR`, `fixture.HOUSE` (intensity), level Control Values | `level` (0–1) | `setLevel` |
 | `select` | selector Control Values (`cv.SRC`) | `choice` | `setChoice` |
 | `number` | counter Control Values (`cv.HOME_SCORE`) | `number` | `setNumber` |
-| `button` | `system.stop`, `system.clearambient`, output events other than Digital Output (`output.LOBBYSIGN`) | none | `activate` |
+| `button` | `system.stop`, `system.clearambient`, output events other than Digital Output and DMX Channel (`output.LOBBYSIGN`) | none | `activate` |
 | `sensor` | `system.nowplaying` | `text` | none |
 
 Namespaces: `preset.`, `ambient.`, `cue.`, `timeline.`, `sound.`, `fixture.`,
@@ -103,8 +103,11 @@ hold the output's level until the next change, `toggle` flips it, and
 `activate` pulses it for the event's pulse width (ending off). `isOn` is the
 last commanded level of the module port, so two events on the same port report
 the same state, and a pulse shows as on and then off; it is false until
-something drives the port after a restart. Every other output event type (UDP,
-TCP, OSC, HTTP, MQTT, plugin) is a `button` and `activate` fires it once. While
+something drives the port after a restart. A **DMX Channel** event is a
+`switch` too, with the same commands; its `isOn` is true while that event holds
+its channel, so each DMX Channel event has its own state. Every other output
+event type (UDP, TCP, OSC, HTTP, MQTT, plugin) is a `button` and `activate`
+fires it once. While
 DMX output is off, commands are dropped like any other output event fire,
 except `turnOff`, which always gets through.
 
