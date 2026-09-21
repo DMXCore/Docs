@@ -29,7 +29,7 @@ On an Appliance, **Device Operations** includes **Releases** — the in-app soft
 
 ## Web UI
 
-The **Utilities** sidebar group includes [Audit Log](/dmx-core-100/configuration/audit-log), [Device Monitor](/dmx-core-100/configuration/device-monitor), [Output Monitor](/dmx-core-100/configuration/output-monitor), [Record](/dmx-core-100/playback/recording), **Releases** (Appliance, Windows, and macOS only), and **System**.
+The **Utilities** sidebar group includes [Audit Log](/dmx-core-100/configuration/audit-log), [Device Monitor](/dmx-core-100/configuration/device-monitor), [Output Monitor](/dmx-core-100/configuration/output-monitor), [Record](/dmx-core-100/playback/recording), **Releases** (Appliance, Windows, and macOS only), [Remote Screen](#remote-screen) (Appliance only), and **System**.
 
 ### Releases
 
@@ -37,11 +37,34 @@ The **Utilities** sidebar group includes [Audit Log](/dmx-core-100/configuration
 
 See [Software Updates](/dmx-core-100/configuration/software-updates) for version numbering, the touchscreen path, isolated networks, and why you should not re-flash just to change software version.
 
+### Remote Screen
+
+**Utilities > Remote Screen** shows the Appliance touchscreen in your browser and lets you operate it with the mouse, just like tapping the screen. It is meant for troubleshooting from a distance — seeing what the screen shows and trying something — rather than day-to-day operation. It works on the local network and through the [cloud tunnel](/dmx-core-100/integrations/cloud-tunnel); through the tunnel, expect some lag.
+
+Remote Screen is only available on the Appliance; the sidebar item is hidden on desktop installs.
+
+1. Go to **Utilities > Remote Screen**
+2. Click **Connect**
+3. Click on the screen image to operate the device, then click **Disconnect** when you are done
+
+- **Up to two viewers** can be connected at the same time. A third is told that two viewers are already connected and can try again when one of them disconnects.
+- While anyone is connected, a small red triangle appears in the **top-right corner of the touchscreen**, so people at the device can see that it is being viewed remotely. It never blocks a touch.
+- The browser viewer does not need the VNC password — signing in to the Web UI is enough.
+- It requires the **Remote Screen** permission. The built-in **Admin** role has it; **Operator**, **Standard**, and custom roles only get it when you turn it on in the [role editor](/dmx-core-100/configuration/users-and-roles#roles-and-permissions).
+
+#### Using a VNC viewer app
+
+The **VNC Viewer App** card on the same page is for connecting with a VNC viewer installed on your computer instead of the browser. You need to install one first; [RealVNC Viewer](https://www.realvnc.com/en/connect/download/viewer/) is recommended. The card shows the **Address**, **Username** (`vncuser`), and **Password** to use. **Launch RealVNC Viewer** opens RealVNC Viewer and connects to the device as `vncuser`; enter the password when asked.
+
+A viewer app connects over the local network, so your computer must be on the same network as the device. It does not work through the cloud tunnel — use the browser viewer for that.
+
+The VNC password changes every time the app starts, including after a reboot or a software update, so check the card for the current one. To keep a password that does not change, set **Fixed VNC Password** under [Device > System](/dmx-core-100/configuration/settings). **Regenerate Password** creates a new password right away; it requires the **Change System Settings** permission and is not shown when a fixed password is set.
+
 ### System
 
-**Utilities > System** shows device identity (hardware ID, software version, license) and live resource usage. Maintenance actions include taking a screenshot of the touchscreen, downloading logs, setting the clock, regenerating the VNC password, re-initializing ports, and cleaning up leftover files.
+**Utilities > System** shows device identity (hardware ID, software version, license) and live resource usage. Maintenance actions include taking a screenshot of the touchscreen, downloading logs, re-initializing ports, and cleaning up leftover files.
 
-On wall-mounted appliances, **Restart** and **Reboot** are also available to users with **Device Operations** permission.
+On the Appliance the page also shows the **Time Sync Status**, offers **Set System Clock from browser** when the time is not synchronized, and has a **Blink** switch that flashes the front LED so you can find the unit. On wall-mounted appliances, **Restart** and **Reboot** are also available to users with **Device Operations** permission.
 
 [Internet Passthrough](/dmx-core-100/integrations/internet-passthrough), when enabled, appears on this page as well. The section is hidden by default — turn on **Enable Internet Passthrough** from **Device > Network** (via the **network settings** link) to show it.
 

@@ -28,7 +28,7 @@ Turn on **Enable Remote Access** under **Device > System** in the Web UI. Remote
 ## Use Cases
 
 - **Remote monitoring** — Check system status and playback from off-site
-- **Remote troubleshooting** — Diagnose and fix issues without being on-site
+- **Remote troubleshooting** — Diagnose and fix issues without being on-site; [Remote Screen](/dmx-core-100/configuration/utilities#remote-screen) shows the touchscreen itself and lets you operate it
 - **Multi-site management** — Manage multiple DMX Core 100 units across different locations from one place
 
 :::note

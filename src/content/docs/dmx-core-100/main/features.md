@@ -84,7 +84,7 @@ title: Features
 * Auto log-off of admin user
 * Web Admin UI with features to view screenshot of the device, perform upgrades, view log file, restart and more
 * [Factory reset](/dmx-core-100/configuration/utilities#factory-reset) from the Web UI — wipe show content while keeping network settings, license, and local backups
-* VNC remote control to remotely operate the touch screen
+* [Remote Screen](/dmx-core-100/configuration/utilities#remote-screen) to view and operate the touch screen from a browser, on site or through the cloud tunnel, or with a VNC viewer app
 * Backup/Restore to local files and cloud, including S-Play backup import
 * Device monitor with discovery and health monitoring of Advatek, DMXking, and Stream Deck hardware
 * Custom menu for locked-down device operation

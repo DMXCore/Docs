@@ -51,7 +51,7 @@ The Web UI exposes all settings, organized in the sidebar under **Lighting Setup
 - **Enable Integration API** — expose the [Integration API](/dmx-core-100/integrations/integration-api) for control systems such as Bitfocus Companion; use **Issue Integration API Key** on the same page (or **User Management > API Keys**)
 - **OSC Port**, **Local HTTP/HTTPS Ports** — network ports (changes require a restart)
 - **Audio Device** and **Sample Rate** — output device for [sound playback](/dmx-core-100/playback/sounds)
-- **Fixed VNC Password** — for VNC access to the touchscreen
+- **Fixed VNC Password** — a VNC password that does not change; without one, the password changes every time the app starts. Used by VNC viewer apps — see [Remote Screen](/dmx-core-100/configuration/utilities#using-a-vnc-viewer-app)
 
 ### Device Location
 

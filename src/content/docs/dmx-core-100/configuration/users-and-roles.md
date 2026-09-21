@@ -72,7 +72,7 @@ Each role is a set of individually toggleable permissions covering:
 | Automation | Edit/Delete Input Trigger, Output Event; Snooze Schedules |
 | Control | Edit Remote Control (control surfaces and DSP remotes), Change Custom Menu |
 | Outputs | Edit/Delete Output, Record, Change Output Settings |
-| System | Device Operations (restart/reboot), Change Network Settings, Change System Settings (including [factory reset](/dmx-core-100/configuration/utilities#factory-reset)), Change Plugin Settings, Upgrade Software |
+| System | Device Operations (restart/reboot), Change Network Settings, Change System Settings (including [factory reset](/dmx-core-100/configuration/utilities#factory-reset)), Change Plugin Settings, Upgrade Software, Remote Screen ([view and operate the touchscreen](/dmx-core-100/configuration/utilities#remote-screen) and see the VNC login) |
 | Data | Create Local Backup, Create Cloud Backup, File Explorer (and its sub-permissions), View Audit Log |
 | Admin | User Management |
 
