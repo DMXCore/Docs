@@ -1,6 +1,6 @@
 ---
 title: QSys DSP Plugin
-description: Two-way integration between the DMX Core 100 and QSC Q-SYS cores — DSP controls on the touchscreen, and DSP-driven lighting — with the QSys DSP plugin
+description: Two-way integration between the DMX Core 100 and QSC Q-SYS cores - DSP controls on the touchscreen, and DSP-driven lighting - with the QSys DSP plugin
 ---
 
 The QSys DSP plugin connects the DMX Core 100 to a **QSC Q-SYS** core. It
@@ -8,16 +8,16 @@ implements the [Q-SYS & Symetrix](/dmx-core-100/external-control)
 integration: named controls on the core become
 [Control Values](/dmx-core-100/integrations/control-values) that can be
 bound to touchscreen faders and buttons, control surfaces, input triggers,
-timelines, and scripts — with two-way state sync against the DSP.
+timelines, and scripts - with two-way state sync against the DSP.
 
-Install the plugin from **Control & Integrations > Plugins > Browse** in the Web UI — see
+Install the plugin from **Control & Integrations > Plugins > Browse** in the Web UI - see
 [Plugins](/dmx-core-100/integrations/plugins) for how to install, update,
 and manage plugins.
 
 ## Settings
 
-- **Server address** — the address of the Q-SYS core.
-- **Server port** — only needs changing if it differs from the Q-SYS default
+- **Server address** - the address of the Q-SYS core.
+- **Server port** - only needs changing if it differs from the Q-SYS default
   (1702).
 
 Settings apply immediately; saving a new address reconnects on the spot. The

@@ -15,7 +15,7 @@ A [Raspberry Pi Debug Probe](https://www.raspberrypi.com/products/debug-probe/) 
 
 #### Are you using a bootloader through the USB port? Can I use the Arduino IDE?
 
-The RP2040 USB bootloader is in ROM. Hold **BOOTSEL**, connect USB, and copy a `.uf2` file to the `RPI-RP2` drive. Arduino IDE works if you select **Raspberry Pi Pico (RP2040)** — not Pico 2 / RP2350. Details are on the [Software](software) page.
+The RP2040 USB bootloader is in ROM. Hold **BOOTSEL**, connect USB, and copy a `.uf2` file to the `RPI-RP2` drive. Arduino IDE works if you select **Raspberry Pi Pico (RP2040)** - not Pico 2 / RP2350. Details are on the [Software](software) page.
 
 #### What does the J4 jumper "Connect C to GND" mean?
 

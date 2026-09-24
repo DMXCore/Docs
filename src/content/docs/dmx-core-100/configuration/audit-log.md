@@ -15,16 +15,16 @@ The audit log is available in the Web UI under **Utilities > Audit Log**.
 
 The audit log records events including:
 
-- **Login/Logoff** — User sessions, including failed login attempts
-- **Backup operations** — When backups are created or restored
-- **Factory reset** — When a [factory reset](/dmx-core-100/configuration/utilities#factory-reset) is requested and after it completes
-- **Recording** — When recording is started and stopped
-- **Configuration changes** — Modifications to settings, outputs, schedules, etc.
-- **Playback events** — Cue, preset, and timeline playback actions
+- **Login/Logoff** - User sessions, including failed login attempts
+- **Backup operations** - When backups are created or restored
+- **Factory reset** - When a [factory reset](/dmx-core-100/configuration/utilities#factory-reset) is requested and after it completes
+- **Recording** - When recording is started and stopped
+- **Configuration changes** - Modifications to settings, outputs, schedules, etc.
+- **Playback events** - Cue, preset, and timeline playback actions
 
 Each log entry includes:
 
-- **Timestamp** — When the event occurred
-- **User** — Who performed the action
-- **Action** — What was done
-- **Details** — Additional context about the event
+- **Timestamp** - When the event occurred
+- **User** - Who performed the action
+- **Action** - What was done
+- **Details** - Additional context about the event

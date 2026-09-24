@@ -1,4 +1,4 @@
-# How-to chat — status assessment (2026-09-15)
+# How-to chat - status assessment (2026-09-15)
 
 Requirement-by-requirement check of [`howto-chat-plan.md`](howto-chat-plan.md)
 and [`howto-chat-implementation-plan.md`](howto-chat-implementation-plan.md)
@@ -77,7 +77,7 @@ Almost all of the gap is the **signed-in, device-aware chat** (section B below: 
 
 ---
 
-## A. Phase 1 — docs copilot
+## A. Phase 1 - docs copilot
 
 | # | Requirement | Status | Evidence |
 |---|-------------|--------|----------|
@@ -195,8 +195,8 @@ Almost all of the gap is the **signed-in, device-aware chat** (section B below: 
 | B1 | Portal sign-in for the chat API (a credential HelpApi can use) | Not started | HelpApi has no authentication (`grep Jwt/Bearer`: only the Azure OpenAI MI token). The design "the orchestrator holds the user's portal JWT" (`AdminPortal/docs/help-agent.md:38`) has nothing behind it: access tokens last **15 min** with zero clock skew (`appsettings.json` `ExpiryMinutes: 15`), refresh uses an HttpOnly `SameSite=Strict` cookie on path `/api/auth`, and nothing sends a token to HelpApi |
 | B2 | HelpApi reads the portal session context every turn | Not started | No portal client in HelpApi; `ChatSession` has no device, user or binding |
 | B3 | Tools registered per turn from the grants | Not started | `DocsToolbox.Declarations` is a static list (`ChatOrchestrator.cs:49-56`). The README's "Phase 2 hooks" overstates what exists |
-| B4 | Tool `list_sections` | Not started | — |
-| B5 | Tool `get_section` | Not started | — |
+| B4 | Tool `list_sections` | Not started | - |
+| B5 | Tool `get_section` | Not started | - |
 | B6 | Tools `get_profile` / `get_timeline` | Not started | The portal's `tools` list never includes them. Recommendation: drop them for `get_section` with paths `profiles/{id}.json` and `timelines/{code}.json`, and change the plan |
 | B7 | Tool `get_recent_logs` behind the logs grant, including user activity | Not started | Portal endpoint exists (P10); nothing in HelpApi |
 | B8 | A revoke drops tools on the next turn, end to end | Not started | Portal side done (P4) |

@@ -5,7 +5,7 @@ description: Write a DMX Core 100 plugin with the .NET plugin SDK and publish it
 
 DMX Core 100 plugins are .NET class libraries built against the
 [DMXCore.PluginSdk](https://www.nuget.org/packages/DMXCore.PluginSdk) NuGet
-package. Publishing one is a `dotnet nuget push` — the plugin registry the
+package. Publishing one is a `dotnet nuget push` - the plugin registry the
 device browses **is nuget.org**, so a plugin you publish there appears on
 the **Browse** tab of every DMX Core 100's **Control & Integrations > Plugins**
 page within minutes, and devices
@@ -29,30 +29,30 @@ Through the SDK's `IPluginHost` a plugin can:
 - receive [OSC](/dmx-core-100/integrations/osc-open-sound-control) sent to
   the device's OSC port by address pattern (`/myplugin//*` owns a whole
   subtree; standard OSC `?`, `*`, `[...]`, `{a,b}` wildcards) and reply to
-  the sender from the same port — for bridging TouchOSC layouts, consoles,
+  the sender from the same port - for bridging TouchOSC layouts, consoles,
   and media servers (SDK 1.11),
 - persist state and declare **settings** that admins edit on the Plugins
   page (including secrets, which are stored masked).
 
 Plugins run **in-process and fully trusted**, with a serial dispatch queue
-per plugin — an exception in a handler is logged and counted, but never takes
+per plugin - an exception in a handler is logged and counted, but never takes
 the device down.
 
 ## Getting started
 
 Two public repositories show the way:
 
-- [DMXCore100.Plugin.Example](https://github.com/DMXCore/DMXCore100.Plugin.Example) —
+- [DMXCore100.Plugin.Example](https://github.com/DMXCore/DMXCore100.Plugin.Example) -
   the starting point: exercises the whole SDK surface with comments, ships an
   interactive dev harness (`DevHost`, no device needed) and MSTest tests
   against the SDK's `TestPluginHost`.
-- [DMXCore100.Plugin.Shelly](https://github.com/DMXCore/DMXCore100.Plugin.Shelly) —
+- [DMXCore100.Plugin.Shelly](https://github.com/DMXCore/DMXCore100.Plugin.Shelly) -
   a complete, shipping output plugin in one small file.
 
 The essentials:
 
 1. Create a .NET class library targeting `net10.0` and reference
-   `DMXCore.PluginSdk` (with `ExcludeAssets="runtime"` — the device provides
+   `DMXCore.PluginSdk` (with `ExcludeAssets="runtime"` - the device provides
    the SDK at run time).
 2. Set the plugin identity and package metadata in the project file. The
    SDK generates `manifest.json` and a `PluginBuildInfo` constants class from
@@ -75,16 +75,16 @@ The essentials:
 
    `PluginId` is the plugin's identity on the device (letters, digits,
    hyphens); `PackageId` is its identity in the registry. Package ids under
-   `DMXCore.*` are reserved for plugins published by DMX Core — use your own
+   `DMXCore.*` are reserved for plugins published by DMX Core - use your own
    prefix.
 3. Implement `IPlugin` in a public class with a parameterless constructor;
    `InitializeAsync(IPluginHost host, ...)` is where you subscribe and
    register things.
 4. `dotnet pack`. The SDK's build targets produce two files in the output
    folder:
-   - `<PackageId>.<Version>.nupkg` — the registry package (NuGet package type
+   - `<PackageId>.<Version>.nupkg` - the registry package (NuGet package type
      `DmxCorePlugin`, whose only payload is the plugin archive), and
-   - `<PluginId>.dmxplugin` — the bare archive, for uploading to a device by
+   - `<PluginId>.dmxplugin` - the bare archive, for uploading to a device by
      hand during development. The example repo's `deploy-dev.ps1` packs and
      uploads it to a running device in one step.
 
@@ -96,12 +96,12 @@ it was built with (shown at the bottom of the Browse tab as *"This device
 runs plugin SDK x.y"*).
 
 Your plugin's package declares the oldest contract it needs as a dependency
-range on `DMXCore.PluginSdk` — `[1.3.0, 2.0.0)` means "needs 1.3 or later,
+range on `DMXCore.PluginSdk` - `[1.3.0, 2.0.0)` means "needs 1.3 or later,
 same major". The SDK targets fill this in from the SDK version you compile
 against; set `<PluginMinSdkVersion>` to declare a lower floor if you don't
 use the newest APIs. Devices read this range **before** downloading and only
 offer versions they can run, so publishing a plugin that needs a newer SDK
-never breaks devices on older software — they simply keep the last
+never breaks devices on older software - they simply keep the last
 compatible version until they update.
 
 ## Publishing
@@ -128,7 +128,7 @@ steps:
   - run: dotnet nuget push artifacts/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --skip-duplicate
 ```
 
-With `--skip-duplicate`, re-running is harmless — bumping `<Version>` in the
+With `--skip-duplicate`, re-running is harmless - bumping `<Version>` in the
 project file is what publishes a new release. Devices check the registry
 about hourly and show the update (or apply it automatically, per the
 device's [update policy](/dmx-core-100/integrations/plugins#updates)).
@@ -137,7 +137,7 @@ A few practicalities:
 
 - nuget.org lists a package a few minutes after the push; a version can be
   unlisted later but never deleted, so publish deliberately.
-- Set `<Description>`, a license, and a README — the Browse tab shows the
+- Set `<Description>`, a license, and a README - the Browse tab shows the
   description and links to the license, and nuget.org renders the README as
   the package page.
 - Private or internal plugins don't have to go to nuget.org: any NuGet V3

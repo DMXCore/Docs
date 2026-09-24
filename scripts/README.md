@@ -3,13 +3,13 @@
 `npm run build` also runs `scripts/build-help-index.mjs`, which writes
 `dist/help-index.json` for the how-to assistant (see `docs/howto-chat-plan.md`):
 
-- **chunks** — every page under `src/content/docs/dmx-core-100/`, split by H2/H3,
+- **chunks** - every page under `src/content/docs/dmx-core-100/`, split by H2/H3,
   with the heading path, the anchor Starlight renders, and the screenshot ids in
-  that section (image refs become `[screenshot: id — alt]` markers)
-- **screenshots** — `public/assets/web` and `public/assets/device`, keyed by the
+  that section (image refs become `[screenshot: id - alt]` markers)
+- **screenshots** - `public/assets/web` and `public/assets/device`, keyed by the
   `SHOTS` `name` from the capture scripts below; alt text and pages from the
   markdown image refs
-- **knowledge base** — the public
+- **knowledge base** - the public
   [DMXCore/DmxCore100-KnowledgeBase](https://github.com/DMXCore/DmxCore100-KnowledgeBase)
   repo as a second tier: its `concepts/*.md` and `issues.md` are chunked the same
   way, with `tier: "kb"` on the pages and chunks and absolute GitHub urls. The
@@ -28,7 +28,7 @@ uses the old id.
 
 # Documentation screenshot pipeline
 
-Unattended screenshot capture for the DMX Core 100 docs. No desktop automation — the
+Unattended screenshot capture for the DMX Core 100 docs. No desktop automation - the
 scripts drive the app through its own HTTP API (and, for the Web UI, a headless Chrome).
 
 ## Prerequisites
@@ -39,7 +39,7 @@ scripts drive the app through its own HTTP API (and, for the Web UI, a headless 
   zoned fixtures, control values, a control surface, an ambient preset, a timeline, a
   sunset schedule, a custom menu, a script, triggers, and favorites).
 - Node 18+ and Google Chrome installed (the Web UI script uses `puppeteer-core` to drive
-  the installed Chrome — no browser download).
+  the installed Chrome - no browser download).
 
 ## Web UI screenshots
 
@@ -68,19 +68,19 @@ Captures the on-device touchscreen with **no browser and no desktop control**: i
 current screen).
 
 **This requires a small navigation endpoint in the app** (the running build doesn't have it
-yet — the script prints exactly what to add). The app-repo changes:
+yet - the script prints exactly what to add). The app-repo changes:
 
-- `Shared/Interfaces/IDeviceUiAutomation.cs` — the interface.
-- `Shared/Controllers/DeviceUiController.cs` — `GET /api/deviceui/screens`,
+- `Shared/Interfaces/IDeviceUiAutomation.cs` - the interface.
+- `Shared/Controllers/DeviceUiController.cs` - `GET /api/deviceui/screens`,
   `POST /api/deviceui/navigate`.
-- `UnoHost/App.xaml.cs` — `App` implements `IDeviceUiAutomation` (navigates on the UI
+- `UnoHost/App.xaml.cs` - `App` implements `IDeviceUiAutomation` (navigates on the UI
   dispatcher, reusing the existing menu/navigator objects) and registers it in DI next to
   `IScreenshotProvider`.
 
 Rebuild the app, then `npm run screenshots:uno`. Covered screens: home, main menu, cues,
 sounds, timelines, presets, fixture control, settings, utilities, about. Deeper targets
 (long-hold popups, numeric/keyboard input, specific settings dialogs) can be added to
-`NavigateToCore` in `App.xaml.cs` — they're menu-data-driven rather than named routes.
+`NavigateToCore` in `App.xaml.cs` - they're menu-data-driven rather than named routes.
 
 A leaf item whose tap opens a dialog (for example `settings/inputs/input type`) returns as
 soon as the dialog is up; the API keeps working afterwards, but the screenshot endpoint

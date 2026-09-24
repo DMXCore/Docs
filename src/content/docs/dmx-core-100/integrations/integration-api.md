@@ -4,8 +4,8 @@ description: HTTP + WebSocket API for external control systems such as Bitfocus 
 ---
 
 The DMX Core 100 exposes a small, versioned **Integration API** so external control
-surfaces — Bitfocus Companion, Crestron, Medialon, Node-RED, Q-SYS control scripts, or a
-plain `curl` — can list what the device can do, execute cues, presets and levels, and
+surfaces - Bitfocus Companion, Crestron, Medialon, Node-RED, Q-SYS control scripts, or a
+plain `curl` - can list what the device can do, execute cues, presets and levels, and
 receive live state over a WebSocket. It is the same entity model that
 [Home Assistant](/dmx-core-100/integrations/home-assistant) and the
 [MCP Server](/dmx-core-100/integrations/mcp-server) use, so a command from a control
@@ -26,7 +26,7 @@ every device running protocol version 1 speaks.
 1. Under **Device > System**, turn on **Enable Integration API**.
 2. Click **Issue Integration API Key** on the same page (or go to
    **User Management > API Keys**).
-3. Copy the key when it is shown — it is only displayed once.
+3. Copy the key when it is shown - it is only displayed once.
 4. Point the control system at:
 
    `https://<device-host>:<https-port>/api/integration/v1`
@@ -65,7 +65,7 @@ Keep the endpoint on a trusted LAN or VPN. Treat API keys like passwords.
 `protocolVersion` (in `GET /info` and the WebSocket `hello` frame) is currently
 **1**. It is bumped only for breaking changes. New fields, kinds, or commands are
 added without bumping it. Feature-detect on `protocolVersion`, not on the device
-software version — control-system modules ship on their own cadence.
+software version - control-system modules ship on their own cadence.
 
 Tolerate unknown JSON fields and unknown entity kinds. A field that is **missing
 was not sent**, not “false” or “0”. JSON uses **camelCase**; the product field is
@@ -79,7 +79,7 @@ and a **kind** that fixes its state shape and the commands it accepts.
 
 **Live `GET /catalog` is authoritative.** Built-in `system.*` codes are listed
 below so clients do not guess (`system.volume`, not `system.audiovolume`).
-Everything else — cues, presets, zones, Control Values — is whatever the operator
+Everything else - cues, presets, zones, Control Values - is whatever the operator
 has created. Populate dropdowns from the catalog; do not hard-code show content.
 
 | Kind | Examples | State | Commands |
@@ -118,7 +118,7 @@ case-insensitively and stored/returned in catalog canonical form (`Line`, not
 
 ### Built-in `system.*` entities
 
-Always present. Kind decides the commands — `system.blackout` is a **switch**
+Always present. Kind decides the commands - `system.blackout` is a **switch**
 (not a button); `system.stop` is a **button**.
 
 | Code | Name | Kind |
@@ -189,7 +189,7 @@ All JSON, camelCase. Field names are exactly those in the examples. Errors are
 
 Identity plus a device snapshot. Additive fields may appear without a
 `protocolVersion` bump; ignore ones you do not use. Poll this for show name,
-temperatures, and health. **Do not call `/api/status`** — that is admin REST,
+temperatures, and health. **Do not call `/api/status`** - that is admin REST,
 not this API, and Integration keys are refused there.
 
 ```json
@@ -294,7 +294,7 @@ Responses:
 #### Playback options
 
 `activate` on a `cue.` or `sound.` entity accepts three optional fields.
-**They are applied.** Omitting them is not the same as the device ignoring them —
+**They are applied.** Omitting them is not the same as the device ignoring them -
 omitted fields take **Settings → Playback** defaults (the same values a tap on
 the touchscreen uses). Sending `loop` / `fadeInMs` / `fadeOutMs` on any other
 command or a non-scene kind is 400.
@@ -322,7 +322,7 @@ curl -sS -X POST "http://<device-host>:8000/api/integration/v1/execute" \
 
 Open a WebSocket to `/api/integration/v1/events` with the same `Authorization`
 header (Node's `ws`, Python's `websockets`, and .NET's `ClientWebSocket` all set
-headers; browsers typically cannot, which is acceptable — this is not a browser
+headers; browsers typically cannot, which is acceptable - this is not a browser
 API). Every frame is one JSON object with `type` first.
 
 On connect the device sends, in order:
@@ -335,17 +335,17 @@ On connect the device sends, in order:
 
 Thereafter:
 
-- `{ "type": "state", "states": [ … ] }` — changed entities. Full snapshot
+- `{ "type": "state", "states": [ … ] }` - changed entities. Full snapshot
   after a catalog change (preceded by a fresh `catalog` frame) or after a
   resync (see below). Handle every `state` frame the same way: apply each entry.
-- `{ "type": "pong" }` — reply to a client `ping`.
-- `{ "type": "error", "error": "…", "code": "…" }` — a rejected client frame;
+- `{ "type": "pong" }` - reply to a client `ping`.
+- `{ "type": "error", "error": "…", "code": "…" }` - a rejected client frame;
   `code` is present when it concerns an execute.
 
 Client → server:
 
 - `{ "type": "execute", "code": "…", "command": "…", "level": …, "choice": "…", "loop": …, "fadeInMs": …, "fadeOutMs": … }`
-  — same semantics and validation as HTTP execute; errors come back as `error`
+  - same semantics and validation as HTTP execute; errors come back as `error`
   frames, success is silent (the state change is the confirmation). Use this for
   continuous control (fader drags) rather than one POST per tick.
 - `{ "type": "ping" }`.
@@ -354,7 +354,7 @@ Client → server:
 State is **coalesced**: the device reports where an entity settles, not every
 step of a fade, so button feedback snaps to the final value rather than
 animating. A client that cannot keep up has its oldest updates dropped and
-receives a full `state` snapshot once it catches up — that resync is a `state`
+receives a full `state` snapshot once it catches up - that resync is a `state`
 frame without a preceding `catalog`. Apply each entry; do not assume every full
 snapshot is announced.
 
@@ -385,14 +385,14 @@ mapping:
 |----------------|--------|
 | Action dropdowns | `catalog` entities, filtered by kind |
 | Actions | `execute` with a command valid for that kind; a scene action can expose Loop / Fade in / Fade out mapping to `loop`, `fadeInMs`, `fadeOutMs` (leave unset for device defaults) |
-| Feedbacks | `state` frames — boolean for `switch` when `isOn` is present, comparison for `level`; now-playing match against catalog name and code suffix |
+| Feedbacks | `state` frames - boolean for `switch` when `isOn` is present, comparison for `level`; now-playing match against catalog name and code suffix |
 | Variables | `sensor` / `level` / `switch` / `select` / `number` entities; device health and show name from `GET /info` |
 | Instance status | WebSocket connect / disconnect |
 | Instance config | host, **HTTP(S) port of the Web UI**, Integration API key |
 
 Recommended connect flow:
 
-1. `GET /info` — confirm `protocolVersion`, store identity and snapshot.
+1. `GET /info` - confirm `protocolVersion`, store identity and snapshot.
 2. Open `WS /events` with the Bearer header.
 3. On `hello`, check `protocolVersion` again. On `catalog`, rebuild dropdowns.
    On `state`, apply each entry (missing `isOn` stays unknown).
@@ -408,7 +408,7 @@ Recommended connect flow:
   select in the list.
 - Playback `loop` / fades on cue and sound `activate` **are applied**; omit them
   to use Settings → Playback defaults.
-- Default HTTP is **80** on hardware and **8000** on desktop — not 8080, and not
+- Default HTTP is **80** on hardware and **8000** on desktop - not 8080, and not
   the OSC UDP port.
 
 ## What is not included
@@ -423,11 +423,11 @@ this contract.
 
 ## Related settings
 
-- **Device > System** — enable the API and issue an Integration key (requires
+- **Device > System** - enable the API and issue an Integration key (requires
   **Change System Settings** or **User Management**)
-- **Device > System > Local HTTP/HTTPS Ports** — the ports this API shares with
+- **Device > System > Local HTTP/HTTPS Ports** - the ports this API shares with
   the Web UI
-- **User Management > API Keys** — list, create, and revoke Integration keys;
+- **User Management > API Keys** - list, create, and revoke Integration keys;
   see first-used and last-used times
-- [Users & Roles](/dmx-core-100/configuration/users-and-roles) — how API keys
+- [Users & Roles](/dmx-core-100/configuration/users-and-roles) - how API keys
   differ from user tokens

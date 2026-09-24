@@ -55,7 +55,7 @@ Connect so it can download current software releases.
     },
     {
       "id": "install-updates-web",
-      "label": "In the Web UI of an Appliance, open Utilities → Releases and install the current software. Snap Linux has no Releases page — snapd updates it outside the app",
+      "label": "In the Web UI of an Appliance, open Utilities → Releases and install the current software. Snap Linux has no Releases page - snapd updates it outside the app",
       "docsUrl": "/dmx-core-100/configuration/software-updates/",
       "screenshotId": null
     },
@@ -87,7 +87,7 @@ Connect so it can download current software releases.
 - A unit with no internet will sit on an older build and may not even see the
   current release list.
 - **Utilities → Releases is platform-specific.** The Appliance (Balena) and
-  Windows/macOS desktop installs show it. A **Snap** Linux install does not —
+  Windows/macOS desktop installs show it. A **Snap** Linux install does not -
   snapd manages updates; Utilities → System reports that instead of offering
   an in-app picker.
 

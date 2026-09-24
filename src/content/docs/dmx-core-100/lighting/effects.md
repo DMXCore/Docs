@@ -3,7 +3,7 @@ title: Effects
 description: Apply dynamic lighting effects to fixtures and zones
 ---
 
-The effects engine applies dynamic, animated looks to your fixtures — breathing, fire, chases, strobes, and audio-reactive movement — without recording cues. Effects run continuously until stopped, and can sync to a [metronome beat or live audio](/dmx-core-100/lighting/tempo).
+The effects engine applies dynamic, animated looks to your fixtures - breathing, fire, chases, strobes, and audio-reactive movement - without recording cues. Effects run continuously until stopped, and can sync to a [metronome beat or live audio](/dmx-core-100/lighting/tempo).
 
 Effects are managed under **Lighting > Effects** in the Web UI, and applied from **Fixture Control** (per zone or globally) or via [presets](/dmx-core-100/playback/presets).
 
@@ -28,22 +28,22 @@ Effects are managed under **Lighting > Effects** in the Web UI, and applied from
 | TV Simulation | Mimics the shifting glow of a television |
 | Welding | Harsh, irregular bursts like arc welding |
 
-Each generator has its own parameters — speed, length, attack/decay, smoothing, secondary intensity, colors — and a **Preview** so you can tune it in the editor. **Test** runs the effect live, and **Apply Globally** puts it on all fixtures immediately.
+Each generator has its own parameters - speed, length, attack/decay, smoothing, secondary intensity, colors - and a **Preview** so you can tune it in the editor. **Test** runs the effect live, and **Apply Globally** puts it on all fixtures immediately.
 
-![Effect editor — generator, parameters, and preview](/assets/web/effect-editor.png)
+![Effect editor - generator, parameters, and preview](/assets/web/effect-editor.png)
 
 ## Sync Modes
 
 An effect's **Mode** controls its clock:
 
-- **Single / Double — Internal** — free-running on the effect's own speed
-- **Metronome — Downbeat / All Beats** — steps fire on the beat from the [Tempo](/dmx-core-100/lighting/tempo) page
-- **Audio Trigger** — steps, flashes, or pulses on hits detected in live audio
-- **External Trigger** — steps, flashes, or pulses each time a **Step Effect** action fires — bind it to a [control surface](/dmx-core-100/control-surfaces) button (MIDI pad, Stream Deck key), an [input trigger](/dmx-core-100/scheduling-automation/input-triggers) (OSC, HTTP, DMX threshold, contact closure), a [custom menu](/dmx-core-100/scheduling-automation/custom-menus) button, or a [script](/dmx-core-100/scheduling-automation/scripting), and tap through a chaser's colors by hand. The action can target one effect or all effects listening for external triggers.
+- **Single / Double - Internal** - free-running on the effect's own speed
+- **Metronome - Downbeat / All Beats** - steps fire on the beat from the [Tempo](/dmx-core-100/lighting/tempo) page
+- **Audio Trigger** - steps, flashes, or pulses on hits detected in live audio
+- **External Trigger** - steps, flashes, or pulses each time a **Step Effect** action fires - bind it to a [control surface](/dmx-core-100/control-surfaces) button (MIDI pad, Stream Deck key), an [input trigger](/dmx-core-100/scheduling-automation/input-triggers) (OSC, HTTP, DMX threshold, contact closure), a [custom menu](/dmx-core-100/scheduling-automation/custom-menus) button, or a [script](/dmx-core-100/scheduling-automation/scripting), and tap through a chaser's colors by hand. The action can target one effect or all effects listening for external triggers.
 
 ## Applying Effects
 
-Open **Fixture Control** and select the fixture or zone to animate — the effect controls appear in the panel and start immediately. With multiple zones configured, each zone has independent effect controls.
+Open **Fixture Control** and select the fixture or zone to animate - the effect controls appear in the panel and start immediately. With multiple zones configured, each zone has independent effect controls.
 
 ### Effect Assignment via Presets
 
@@ -55,4 +55,4 @@ Each effect has a dimmer that scales its intensity, settable at the global, zone
 
 ## Fade Duration
 
-Effects support configurable fade durations controlling how quickly they start and stop — a default for all effects, or per effect.
+Effects support configurable fade durations controlling how quickly they start and stop - a default for all effects, or per effect.

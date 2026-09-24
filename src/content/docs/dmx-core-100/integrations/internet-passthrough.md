@@ -3,7 +3,7 @@ title: Internet Passthrough
 description: Temporarily give a DMX Core 100 internet access through a computer on the same network
 ---
 
-Internet Passthrough gives a DMX Core 100 **temporary internet access through a computer on the same network** — useful when the unit is installed on an isolated network with no internet of its own (for example, a school or venue network), but you occasionally need to get it online to install software or Host OS updates.
+Internet Passthrough gives a DMX Core 100 **temporary internet access through a computer on the same network** - useful when the unit is installed on an isolated network with no internet of its own (for example, a school or venue network), but you occasionally need to get it online to install software or Host OS updates.
 
 You run a small companion app, **DMX Core Connect**, on a computer that is on the same network as the DMX Core *and* has its own internet connection (such as a laptop on Wi-Fi). While it is active, all of the DMX Core's internet traffic is routed through that computer.
 
@@ -12,10 +12,10 @@ You run a small companion app, **DMX Core Connect**, on a computer that is on th
 The computer acts as a temporary gateway to the internet:
 
 - The computer connects to the DMX Core's (isolated) network, usually by Ethernet.
-- The same computer also has internet access — commonly Wi-Fi, including networks that require a login.
+- The same computer also has internet access - commonly Wi-Fi, including networks that require a login.
 - DMX Core Connect shares that internet connection, and the DMX Core routes its traffic through it.
 
-This covers **all** of the DMX Core's traffic, including software updates, Host OS updates, and the cloud connection — not just the app.
+This covers **all** of the DMX Core's traffic, including software updates, Host OS updates, and the cloud connection - not just the app.
 
 ## What You Need
 
@@ -32,7 +32,7 @@ and turn on **Enable Internet Passthrough**. This only needs to be done once.
 1. Connect the computer to the same network as the DMX Core (usually by Ethernet), and make sure it also has internet access.
 2. Install and run **DMX Core Connect** on the computer.
 3. In the DMX Core **Web UI**, go to **Utilities > System** and find the **Internet Passthrough** section.
-4. Pick your computer from the list of discovered computers and select **Activate**. (If your computer isn't listed, enter its IP address manually — DMX Core Connect shows the computer's addresses in its window.)
+4. Pick your computer from the list of discovered computers and select **Activate**. (If your computer isn't listed, enter its IP address manually - DMX Core Connect shows the computer's addresses in its window.)
 5. Wait for the status to show green: **Internet access** and **Cloud connection** confirm the DMX Core is online. You can now [install software updates](/dmx-core-100/configuration/software-updates) as usual.
 6. When you're finished, select **Deactivate**.
 
@@ -43,7 +43,7 @@ Activating and deactivating the passthrough briefly restarts the DMX Core's serv
 :::
 
 :::tip[It turns itself off]
-If you simply close DMX Core Connect or unplug the computer, the DMX Core automatically reverts to its normal network settings after a few minutes — so a unit is never left pointing at a computer that has gone away.
+If you simply close DMX Core Connect or unplug the computer, the DMX Core automatically reverts to its normal network settings after a few minutes - so a unit is never left pointing at a computer that has gone away.
 :::
 
 ## Advanced: Use a Standard Proxy Instead

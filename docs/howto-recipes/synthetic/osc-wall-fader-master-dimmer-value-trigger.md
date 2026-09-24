@@ -46,7 +46,7 @@ A Value-mode OSC Input Trigger on `/lobby/level` maps 0–255 to the master dimm
     },
     {
       "id": "value-mode-range",
-      "label": "Set Mode to Value — set a level from the payload, Input Min 0 and Input Max 255, and pick DEADZONE in Transform Script (optional)",
+      "label": "Set Mode to Value - set a level from the payload, Input Min 0 and Input Max 255, and pick DEADZONE in Transform Script (optional)",
       "docsUrl": "/dmx-core-100/scheduling-automation/input-triggers/#two-modes",
       "screenshotId": null
     },
@@ -90,7 +90,7 @@ A Value-mode OSC Input Trigger on `/lobby/level` maps 0–255 to the master dimm
 
 ## Gaps
 
-- input-triggers.md "Two Modes" does not document the Value-mode fields. The released editor has **JSON Path (optional)** (MQTT/HTTP), **Input Min** (default 0) and **Input Max** (default 1), plus a **Value Target** section with **Target** (Master Dimmer, Audio Volume, Fixture Intensity, Fixture RGB — Red/Green/Blue, Zone Intensity, Control Value (Level)), **Fixture code / Zone code / Control Value**, **Min value**, **Max value** and **Inverted**. The docs name only Control Value, master dimmer and zone intensity as targets. Source: `InputTriggerDetails.vue`; navigation `web/inputtriggers/details`; `ExtConnManager.NormalizeInput` (`src/Shared/Services/ExtConnManager.cs`).
+- input-triggers.md "Two Modes" does not document the Value-mode fields. The released editor has **JSON Path (optional)** (MQTT/HTTP), **Input Min** (default 0) and **Input Max** (default 1), plus a **Value Target** section with **Target** (Master Dimmer, Audio Volume, Fixture Intensity, Fixture RGB - Red/Green/Blue, Zone Intensity, Control Value (Level)), **Fixture code / Zone code / Control Value**, **Min value**, **Max value** and **Inverted**. The docs name only Control Value, master dimmer and zone intensity as targets. Source: `InputTriggerDetails.vue`; navigation `web/inputtriggers/details`; `ExtConnManager.NormalizeInput` (`src/Shared/Services/ExtConnManager.cs`).
 - scripting.md "Transform Scripts" does not say the transform must be **Enabled**. `ScriptManager.BuildTransformEntry` (`src/Shared/Services/ScriptManager.cs`) returns null for a disabled script, and the update is then skipped. It also doesn't say a transform is an ordinary script picked by code: there is no script kind field (navigation `web/scripts/details`).
 - The docs do not say a Value-mode OSC trigger needs exactly one argument (`OscServer.cs` uses `Arguments.Length == 1` for float/int/string).
 - No screenshot of the Input Trigger details editor.
@@ -99,7 +99,7 @@ A Value-mode OSC Input Trigger on `/lobby/level` maps 0–255 to the master dimm
 
 - create-transform: scripting.md "Creating a Script" (**Control & Integrations > Scripts**, **Add New**, **Source**, **Save**) and "Transform Scripts" (`value`, last expression, dead-zone example). Navigation `web/scripts/details` (**Code / Short Name**, **Enabled**, actions Save/Run). `ScriptManager.BuildTransformEntry` requires Enabled.
 - new-osc-trigger: input-triggers.md tip and "Input Types" (OSC). Navigation `web/inputtriggers/details` **Type** OSC, **Address** (help: should start with a /). `ExtConnManager.cs` lower-cases the address.
-- value-mode-range: input-triggers.md "Two Modes" (Value mode, Transform Script). Navigation `web/inputtriggers/details` **Mode** "Value — set a level from the payload", **Input Min** / **Input Max** help (defaults 0 and 1), **Transform Script (optional)**. `ExtConnManager.NormalizeInput` clamps `(raw - min) / (max - min)` to 0–1.
+- value-mode-range: input-triggers.md "Two Modes" (Value mode, Transform Script). Navigation `web/inputtriggers/details` **Mode** "Value - set a level from the payload", **Input Min** / **Input Max** help (defaults 0 and 1), **Transform Script (optional)**. `ExtConnManager.NormalizeInput` clamps `(raw - min) / (max - min)` to 0–1.
 - value-target: input-triggers.md "Two Modes" (master dimmer target). Navigation `web/inputtriggers/details` section **Value Target** (**Target** Master Dimmer, **Min value**, **Max value**, **Inverted**), action **Save**.
 - verify-arrival: osc-open-sound-control.md tip "Which address did the device hear?" (**Recent OSC Senders** on **Control & Integrations > OSC Clients**) and "Three Ways to Use Incoming OSC" (control surface owns its sender IP).
 

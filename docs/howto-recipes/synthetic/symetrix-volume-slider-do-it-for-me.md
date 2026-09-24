@@ -28,7 +28,7 @@ verified: docs be6f663, core v2026.914.3
 The assistant explains it cannot access the device. The user follows up:
 
 > ok, what if I turn on the MCP Server or that Integration API switch in System
-> settings and give you the key — then you could configure it, right?
+> settings and give you the key - then you could configure it, right?
 
 ## Goal
 
@@ -121,7 +121,7 @@ custom menu slider.
   the second setting **Port**. The plugins label it **Server port**
   (`DMXCore100.Plugin.Symetrix/src/DMXCore100.SymetrixPlugin/SymetrixPlugin.cs` and
   `DMXCore100.Plugin.QSys/src/DMXCore100.QSysPlugin/QSysPlugin.cs`, `Label = "Server port"`).
-- `integrations/control-values.md` › Settings says "**Plugin** — Symetrix or Q-SYS"
+- `integrations/control-values.md` › Settings says "**Plugin** - Symetrix or Q-SYS"
   but does not say the dropdown only lists DSP backends from installed plugins
   (`ControlValueDetails.vue` `fetchBackends` → `/api/website/controlvalue/backends`,
   display names `Symetrix` / `Q-SYS`). If the plugin is not installed, there is

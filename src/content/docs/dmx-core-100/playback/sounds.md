@@ -23,15 +23,15 @@ Sound management is available in the Web UI under **Lighting > Sounds**. The tou
 2. Click **Import** and pick a WAV, MP3, FLAC, OGG, or AIFF file
 3. The sound is added to the list, named after the file, and ready to use
 
-Audio can also be placed with **File Explorer** instead — a file uploaded there is available for import as a sound.
+Audio can also be placed with **File Explorer** instead - a file uploaded there is available for import as a sound.
 
 ### Sound Settings
 
 Each sound's detail page has:
 
-- **Name** — Display name
-- **Code** — Unique identifier for API and external control
-- **Volume** — Playback volume level
+- **Name** - Display name
+- **Code** - Unique identifier for API and external control
+- **Volume** - Playback volume level
 
 **Loop**, **Fade In (seconds)**, and **Fade Out (seconds)** are not per-sound fields. They live on the Sounds list as **Default Settings** (**Lighting > Sounds**), the same pattern as [cues](/dmx-core-100/playback/cues#default-settings).
 
@@ -41,7 +41,7 @@ During sound playback, the Web UI dashboard shows:
 
 - A **progress bar** with current position and total duration
 - **Pause/Resume** controls
-- **Scrub** — Drag the progress bar to jump to any position
+- **Scrub** - Drag the progress bar to jump to any position
 - **Stop** button
 
 ## Aligning audio with lighting

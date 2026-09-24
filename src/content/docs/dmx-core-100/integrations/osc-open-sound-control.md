@@ -3,21 +3,21 @@ title: OSC – Open Sound Control
 description: Trigger playback and build two-way control panels over OSC
 ---
 
-The DMX Core 100 speaks OSC (Open Sound Control), so applications like [TouchOSC](https://hexler.net/touchosc), QLab, lighting consoles, and media servers can trigger playback and control levels over the network — with live status fed back to the controller.
+The DMX Core 100 speaks OSC (Open Sound Control), so applications like [TouchOSC](https://hexler.net/touchosc), QLab, lighting consoles, and media servers can trigger playback and control levels over the network - with live status fed back to the controller.
 
 ## Server Settings
 
-The OSC server listens on UDP port **8000** by default. The port is configurable under **Device > System > OSC Port** in the Web UI (requires a restart). No other setup is needed — the built-in addresses below work as soon as the device is on the network.
+The OSC server listens on UDP port **8000** by default. The port is configurable under **Device > System > OSC Port** in the Web UI (requires a restart). No other setup is needed - the built-in addresses below work as soon as the device is on the network.
 
 ## Three Ways to Use Incoming OSC
 
-- **Built-in addresses** — a fixed set of `/dmxcore/...` addresses that play cues, apply presets, start effects, and set levels by *code*. Nothing to configure: send `/dmxcore/cue/ACT1` and the cue with code `ACT1` plays. See the [reference](#built-in-address-reference) below. This is the right fit for a show controller or playback software that just needs to fire saved cues.
-- **Input triggers** — for your own address space, or for actions the built-in set doesn't cover (timelines, sounds, scripts, output events, stepping a Control Value, toggling output), define an [input trigger](/dmx-core-100/scheduling-automation/input-triggers) of type OSC with the address of your choice. A Value-mode trigger feeds a fader's value straight into a level.
-- **OSC control surfaces** — bind a whole OSC layout (TouchOSC, a console's OSC page) to a [control surface](/dmx-core-100/control-surfaces) for structured, bank-switchable panels with full two-way feedback, including Absolute/Relative slider modes and press-and-hold auto-repeat. The surface binds to a named [OSC client](#osc-clients-and-feedback), so it is the right fit for a dedicated operator panel rather than one-off cue triggers.
+- **Built-in addresses** - a fixed set of `/dmxcore/...` addresses that play cues, apply presets, start effects, and set levels by *code*. Nothing to configure: send `/dmxcore/cue/ACT1` and the cue with code `ACT1` plays. See the [reference](#built-in-address-reference) below. This is the right fit for a show controller or playback software that just needs to fire saved cues.
+- **Input triggers** - for your own address space, or for actions the built-in set doesn't cover (timelines, sounds, scripts, output events, stepping a Control Value, toggling output), define an [input trigger](/dmx-core-100/scheduling-automation/input-triggers) of type OSC with the address of your choice. A Value-mode trigger feeds a fader's value straight into a level.
+- **OSC control surfaces** - bind a whole OSC layout (TouchOSC, a console's OSC page) to a [control surface](/dmx-core-100/control-surfaces) for structured, bank-switchable panels with full two-way feedback, including Absolute/Relative slider modes and press-and-hold auto-repeat. The surface binds to a named [OSC client](#osc-clients-and-feedback), so it is the right fit for a dedicated operator panel rather than one-off cue triggers.
 
 Built-in addresses and input triggers work at the same time: a message that matches an input trigger *and* a built-in address does both. A control surface, on the other hand, *owns* its sender: once an OSC client with a specific source IP is bound to an enabled surface, every message from that IP goes to the surface and neither the built-in addresses nor input triggers see it. A surface bound to an *any*-source client only claims the addresses it has assignments for and lets everything else through.
 
-[Plugins](/dmx-core-100/integrations/plugins) add a fourth path: a plugin can subscribe to an address pattern (for example everything under `/myplugin/`) and reply to the sender from the device's OSC port. Plugin subscriptions sit between control surfaces and the paths above — a message a control surface owns never reaches a plugin, and a message a plugin matches is not passed on to input triggers. The `/dmxcore/...` addresses are reserved: a plugin can observe them, but the device always handles them itself. See [Building & Publishing Plugins](/dmx-core-100/integrations/publishing-plugins) if you want to write one.
+[Plugins](/dmx-core-100/integrations/plugins) add a fourth path: a plugin can subscribe to an address pattern (for example everything under `/myplugin/`) and reply to the sender from the device's OSC port. Plugin subscriptions sit between control surfaces and the paths above - a message a control surface owns never reaches a plugin, and a message a plugin matches is not passed on to input triggers. The `/dmxcore/...` addresses are reserved: a plugin can observe them, but the device always handles them itself. See [Building & Publishing Plugins](/dmx-core-100/integrations/publishing-plugins) if you want to write one.
 
 ## Playing a Cue
 
@@ -34,7 +34,7 @@ Send it with no arguments to play the cue normally. Codes must match exactly as 
 ```
 
 :::tip[Which address did the device hear?]
-The **Recent OSC Senders** section at the bottom of **Control & Integrations > OSC Clients** lists every IP that has sent OSC to the device, with the message count and the last address received — the quickest way to confirm your controller's messages are arriving and spelled the way you expect. The list refreshes on its own while the page is open.
+The **Recent OSC Senders** section at the bottom of **Control & Integrations > OSC Clients** lists every IP that has sent OSC to the device, with the message count and the last address received - the quickest way to confirm your controller's messages are arriving and spelled the way you expect. The list refreshes on its own while the page is open.
 :::
 
 ## Built-in Address Reference
@@ -48,10 +48,10 @@ Arguments are optional unless noted. A single float, integer, or numeric string 
 | Address | Argument | Action |
 |---------|----------|--------|
 | `/dmxcore/cue/<code>` | *(optional)* loop count | Play the cue. Omit the argument to use the default loop count from the Cues page; send an integer to loop that many times. |
-| `/dmxcore/cuecontrol/stop` | — | Stop cue playback. |
+| `/dmxcore/cuecontrol/stop` | - | Stop cue playback. |
 | `/dmxcore/preset/<code>` | *(optional)* fade time in ms | Fade to the preset. Omit the argument to use the default fade duration. |
 | `/dmxcore/effect/<code>` | *(optional)* `1` | Start the stored [effect](/dmx-core-100/lighting/effects) as the global effect, with its saved parameters and colors. Fires with no argument or with `1`. |
-| `/dmxcore/effect/none` | — | Clear the global effect. |
+| `/dmxcore/effect/none` | - | Clear the global effect. |
 
 ### Levels
 
@@ -60,14 +60,14 @@ Arguments are optional unless noted. A single float, integer, or numeric string 
 | `/dmxcore/dimmer/master` | level | Set the master dimmer. |
 | `/dmxcore/dimmer/master/fadeto` | level, fade time in ms | Fade the master dimmer to a level over the given time (two arguments). |
 | `/dmxcore/dimmer/zone/<code>` | level | Set a zone's intensity. |
-| `/dmxcore/control/<code>` | level | Set a Level-kind [Control Value](/dmx-core-100/integrations/control-values) — an external DSP level — with no trigger or control surface configured. |
-| `/dmxcore/control/<code>/up` `/dmxcore/control/<code>/down` | *(optional)* step amount — for a Level, 1 or more is a percentage and below 1 a 0–1 fraction; omit it to use the Control Value's own Step Size | Step a [Control Value](/dmx-core-100/integrations/control-values) instead of setting it: a Level by its Step Size, a Selector to the next or previous choice, a Counter by its Step, a Toggle on or off. |
+| `/dmxcore/control/<code>` | level | Set a Level-kind [Control Value](/dmx-core-100/integrations/control-values) - an external DSP level - with no trigger or control surface configured. |
+| `/dmxcore/control/<code>/up` `/dmxcore/control/<code>/down` | *(optional)* step amount - for a Level, 1 or more is a percentage and below 1 a 0–1 fraction; omit it to use the Control Value's own Step Size | Step a [Control Value](/dmx-core-100/integrations/control-values) instead of setting it: a Level by its Step Size, a Selector to the next or previous choice, a Counter by its Step, a Toggle on or off. |
 | `/dmxcore/fixture/red` `/dmxcore/fixture/green` `/dmxcore/fixture/blue` | level | Set the global fixture-control color channels. |
 | `/dmxcore/fixture/<code>/dimmer` `/dmxcore/fixture/<code>/red` `/dmxcore/fixture/<code>/green` `/dmxcore/fixture/<code>/blue` `/dmxcore/fixture/<code>/white` | level | Adjust a single fixture's live modifier. |
 | `/dmxcore/config/fadeduration` | ms | Set the default fade duration used when a preset is applied without an explicit time. |
 
 :::tip[Knobs and +/- buttons]
-`up` and `down` exist for controls that have no position of their own — a
+`up` and `down` exist for controls that have no position of their own - a
 rotary encoder, a pair of +/- buttons, a wall plate. Send one message per
 click and the device keeps the value, clamps it, and tells every other
 surface about it, so nothing has to track or re-sync a level it cannot see.
@@ -89,13 +89,13 @@ down by 5%.
 
 | Address | Argument | Action |
 |---------|----------|--------|
-| `/dmxcore/status` | — | Re-send the full status feedback set to connected clients. |
+| `/dmxcore/status` | - | Re-send the full status feedback set to connected clients. |
 | `/dmxcore/blink` | `1` / `0` | Turn the identify blink on or off. |
-| `/ping` | — | Keep-alive. Registers the sender for feedback without doing anything else; not logged. |
+| `/ping` | - | Keep-alive. Registers the sender for feedback without doing anything else; not logged. |
 
 ## OSC Clients and Feedback
 
-Register the controllers you want two-way communication with under **Control & Integrations > OSC Clients** — each client has a name, a source IP (or *any*), and a **feedback port** (default 9000). Status messages — what's playing, current levels, active states — are sent back to each client's feedback port, so your TouchOSC layout's buttons and faders track reality.
+Register the controllers you want two-way communication with under **Control & Integrations > OSC Clients** - each client has a name, a source IP (or *any*), and a **feedback port** (default 9000). Status messages - what's playing, current levels, active states - are sent back to each client's feedback port, so your TouchOSC layout's buttons and faders track reality.
 
 ![OSC Clients list with source IP and feedback port](/assets/web/osc-clients-list.png)
 
@@ -103,8 +103,8 @@ Register the controllers you want two-way communication with under **Control & I
 
 | Address | Value | Sent when |
 |---------|-------|-----------|
-| `/dmxcore/status/text` | string | Playback state changes — e.g. `Playing 'ACT1'`, `Stopped`, `Recording`, `Previewing`. |
-| `/dmxcore/status/cue` | string | Playback state changes — the code of the playing cue, or empty when none. |
+| `/dmxcore/status/text` | string | Playback state changes - e.g. `Playing 'ACT1'`, `Stopped`, `Recording`, `Previewing`. |
+| `/dmxcore/status/cue` | string | Playback state changes - the code of the playing cue, or empty when none. |
 | `/dmxcore/dimmer/master` | level | The master dimmer changes. |
 | `/dmxcore/fixture/red` `/dmxcore/fixture/green` `/dmxcore/fixture/blue` | level | The global fixture-control color changes. |
 | `/dmxcore/control/<code>` | level | A Level-kind Control Value changes (the code is sent in lower case). |

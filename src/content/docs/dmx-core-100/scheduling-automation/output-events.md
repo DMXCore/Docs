@@ -13,7 +13,7 @@ Configure them under **Control & Integrations > Output Events** in the Web UI, o
 
 1. In the Web UI, go to **Control & Integrations > Output Events**
 2. Click **Add New** to create a new event
-3. Configure the trigger condition — what system event should fire this output
+3. Configure the trigger condition - what system event should fire this output
 4. Set the output type and destination
 5. Click **Save**
 
@@ -21,18 +21,18 @@ Configure them under **Control & Integrations > Output Events** in the Web UI, o
 
 Output events can send notifications via:
 
-- **MQTT** — Publish a message to an MQTT topic
-- **HTTP** — Make an HTTP request to an external URL
-- **OSC** — Send an OSC message to a network target
-- **UDP** — Send one datagram to a host and port
-- **TCP** — Send bytes to a host and port over a connection the device keeps open. The connection is shared with a [TCP Connector](/dmx-core-100/scheduling-automation/input-triggers#input-types) trigger to the same host and port, so a device that accepts a single client can be both listened to and commanded on one socket. If the device is not reachable, **Test** says so
-- **Serial** — Send data over a serial port
-- **DMX Channel** — Hold one or a few DMX channels at a level on top of
+- **MQTT** - Publish a message to an MQTT topic
+- **HTTP** - Make an HTTP request to an external URL
+- **OSC** - Send an OSC message to a network target
+- **UDP** - Send one datagram to a host and port
+- **TCP** - Send bytes to a host and port over a connection the device keeps open. The connection is shared with a [TCP Connector](/dmx-core-100/scheduling-automation/input-triggers#input-types) trigger to the same host and port, so a device that accepts a single client can be both listened to and commanded on one socket. If the device is not reachable, **Test** says so
+- **Serial** - Send data over a serial port
+- **DMX Channel** - Hold one or a few DMX channels at a level on top of
   whatever is playing. See [DMX Channel](#dmx-channel) below
-- **Digital Output** — Drive one of the [ADIO board](https://dmxprosales.com/products/dmx-core-100-audio-2xdmx-input-board-adio)'s four
+- **Digital Output** - Drive one of the [ADIO board](https://dmxprosales.com/products/dmx-core-100-audio-2xdmx-input-board-adio)'s four
   digital outputs. See [Digital Output](#digital-output) below for what they are
   wired to
-- **Home Assistant** (and other integration plugins) — Activate a Home
+- **Home Assistant** (and other integration plugins) - Activate a Home
   Assistant scene, script, or automation, picked from a live list. Requires
   the Home Assistant URL and token in the plugin's settings; see
   [Home Assistant](/dmx-core-100/integrations/home-assistant#triggering-home-assistant-from-the-device).
@@ -51,14 +51,14 @@ Output events can also be fired manually from [scripts](/dmx-core-100/scheduling
 
 The four digital outputs are on the ADIO board; the 2-port DMX-512 board has no
 digital I/O. On current ADIO boards they drive indicator LEDs on the board itself
-and are brought out to test points TP1–TP4, not to a field connector — so driving
+and are brought out to test points TP1–TP4, not to a field connector - so driving
 an external load (a relay, a door strike, a sign) needs a soldered connection to a
 test point rather than a screw terminal.
 
-A Digital Output event has a **level**, so wherever it is fired — a
+A Digital Output event has a **level**, so wherever it is fired - a
 [timeline](/dmx-core-100/playback/timelines) milestone, a key, a
 [trigger](/dmx-core-100/scheduling-automation/input-triggers), a schedule, a
-custom menu item or a script — the **Operation** decides what happens to the
+custom menu item or a script - the **Operation** decides what happens to the
 output:
 
 | Operation | Effect |

@@ -1,6 +1,6 @@
 ---
 title: Play a Cue over OSC
-description: Fire saved cues from show-control software, a console, or an OSC panel — and pick the right approach for your setup.
+description: Fire saved cues from show-control software, a console, or an OSC panel - and pick the right approach for your setup.
 ---
 
 Send `/dmxcore/cue/<code>` to the device on UDP port 8000. No configuration is needed.
@@ -27,7 +27,7 @@ There are similar built-in addresses for presets, effects, the master dimmer, zo
 
 ## When to use an Input Trigger instead
 
-The built-in addresses are fixed. If you want to choose your own address names, or you want an OSC message to do something the built-in set doesn't cover — playing a timeline or a sound, running a script, firing an output event — create an Input Trigger:
+The built-in addresses are fixed. If you want to choose your own address names, or you want an OSC message to do something the built-in set doesn't cover - playing a timeline or a sound, running a script, firing an output event - create an Input Trigger:
 
 1. Go to **Control & Integrations > Input Triggers** and add a trigger.
 2. Set the type to **OSC** and enter the address you want the device to listen for.

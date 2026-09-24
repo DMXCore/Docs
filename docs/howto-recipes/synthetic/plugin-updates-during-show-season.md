@@ -80,8 +80,8 @@ from updating during shows.
 - `integrations/plugins.md` › Updates paraphrases the per-plugin choices as "follow the
   device policy / always / never". The released labels are **Follow the device
   policy**, **Always update automatically**, **Never update automatically**, and the
-  policy options read "Notify — show available updates, apply manually", "Auto —
-  download and apply updates automatically", "Off — do not check for updates"
+  policy options read "Notify - show available updates, apply manually", "Auto -
+  download and apply updates automatically", "Off - do not check for updates"
   (`src/AdminSite/ClientApp/src/views/operation/Plugins.vue`, v2026.914.3). Not wrong,
   but a grader may see the exact labels quoted.
 - `plugins.md` does not say that the check runs about 1 minute after startup and then

@@ -4,10 +4,10 @@ description: Drive LIFX WiFi bulbs and SuperColour / pixel fixtures over the LIF
 ---
 
 The LIFX plugin drives **LIFX WiFi bulbs and SuperColour / pixel fixtures**
-(Tube, Beam, strips, tiles) over the LIFX LAN protocol — no cloud account
+(Tube, Beam, strips, tiles) over the LIFX LAN protocol - no cloud account
 needed, the lights only have to be on the same network.
 
-Install the plugin from **Control & Integrations > Plugins > Browse** in the Web UI — see
+Install the plugin from **Control & Integrations > Plugins > Browse** in the Web UI - see
 [Plugins](/dmx-core-100/integrations/plugins) for how to install, update,
 and manage plugins.
 
@@ -19,7 +19,7 @@ and manage plugins.
   via the mapping's **Color mode** field.
 - A **Discover** button on the output that finds the lights (and their zone
   counts).
-- A **LIFX — Color Bulb** fixture profile whose personalities match the
+- A **LIFX - Color Bulb** fixture profile whose personalities match the
   protocols.
 
 Updates stream at up to 20 per second per light with a short device-side

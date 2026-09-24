@@ -2,11 +2,11 @@
 title: Installation
 ---
 
-The DMX Core 100 is designed to fit into a standard 2-gang electrical box and can be powered either by Power Over Ethernet, or with a 8–28 VDC power supply (not included). There is no hardware power switch — connecting PoE or the DC plug powers the unit; disconnecting it turns it off. After power-up, look for the LED on the back; the screen takes about a minute. Software **Restart** and **Reboot** are under **Utilities** for users with Device Operations permission. Connector type, plug size, polarity, and PoE class are not specified; check that your adapter's plug fits the rear connector.
+The DMX Core 100 is designed to fit into a standard 2-gang electrical box and can be powered either by Power Over Ethernet, or with a 8–28 VDC power supply (not included). There is no hardware power switch - connecting PoE or the DC plug powers the unit; disconnecting it turns it off. After power-up, look for the LED on the back; the screen takes about a minute. Software **Restart** and **Reboot** are under **Utilities** for users with Device Operations permission. Connector type, plug size, polarity, and PoE class are not specified; check that your adapter's plug fits the rear connector.
 
 Two optional mounting accessories are also available:
 
-* A [desk stand](https://dmxprosales.com/products/dmx-core-100-desk-stand) for freestanding use on a desk, table, or shelf — no electrical box required.
+* A [desk stand](https://dmxprosales.com/products/dmx-core-100-desk-stand) for freestanding use on a desk, table, or shelf - no electrical box required.
 * A [19" rack mount](https://dmxprosales.com/products/dmx-core-100-19-rack-mount) that mounts the 4.3" DMX Core 100 in a standard 19" equipment rack, using 3U of rack height. The 7" model has its [own rack mount](https://dmxprosales.com/products/dmx-core-100-19-rack-mount-for-7-display), using 4U.
 
 #### Parts
@@ -72,7 +72,7 @@ Attach the network cable, and optionally the power supply connection if you're n
 
 We recommend that the DMX Core 100 is connected to the internet at all times; that way it will receive updates and the optional remote access feature will be available. It also allows the manufacturer to capture error logs and provide remote technical support. Note that the DMX Core 100 is security hardened and no inbound connections from the internet are open, and no ports are required to be opened in your router/firewall. The unit can operate completely stand-alone; however at a minimum we recommend that it's connected to the internet initially to receive the latest software release before deployment.
 
-How you install those updates depends on the platform — the Appliance and Windows/macOS use the in-app Releases picker; Linux Snap is updated by snapd. See [Software Updates](/dmx-core-100/configuration/software-updates). On an isolated network, use [Internet Passthrough](/dmx-core-100/integrations/internet-passthrough) rather than re-flashing.
+How you install those updates depends on the platform - the Appliance and Windows/macOS use the in-app Releases picker; Linux Snap is updated by snapd. See [Software Updates](/dmx-core-100/configuration/software-updates). On an isolated network, use [Internet Passthrough](/dmx-core-100/integrations/internet-passthrough) rather than re-flashing.
 
 #### Heat
 

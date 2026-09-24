@@ -3,7 +3,7 @@ title: Backup & Restore
 description: Back up and restore your configuration and content
 ---
 
-The DMX Core 100 provides several ways to back up your data (cues, presets, schedules, settings, and more) and restore it — either on the same device or a different one.
+The DMX Core 100 provides several ways to back up your data (cues, presets, schedules, settings, and more) and restore it - either on the same device or a different one.
 
 ## Backup Methods
 
@@ -11,9 +11,9 @@ The DMX Core 100 provides several ways to back up your data (cues, presets, sche
 
 In the **Web UI**, go to **Backup & Restore**:
 
-- **Backup to Local** — write a backup file on the device
-- **Download Backup** — download a backup file to your computer
-- **Backup to Cloud** — upload to the DMX Core cloud (api.dmxcore.com)
+- **Backup to Local** - write a backup file on the device
+- **Download Backup** - download a backup file to your computer
+- **Backup to Cloud** - upload to the DMX Core cloud (api.dmxcore.com)
 
 **Create Backup** is only the title of the confirm dialog, not a button.
 
@@ -42,15 +42,15 @@ You can also back up to a USB memory stick:
 1. In the Web UI, go to **Backup & Restore** and click **Restore backup**
 2. The **List of backups** page has a **Local / Cloud / Custom Cloud** dropdown
 3. Under **Local**, use the file input (**Drag and drop a file here, or click to select a file**) then **Upload**
-4. Click the restore icon on the uploaded file. **Select item to restore** offers **Full Backup (FULLDEVICE)** — confirm to replace everything
+4. Click the restore icon on the uploaded file. **Select item to restore** offers **Full Backup (FULLDEVICE)** - confirm to replace everything
 
-On a wall-mounted appliance the service restarts. On Windows, macOS, or Linux desktop, the application **closes** — start it again from the usual shortcut.
+On a wall-mounted appliance the service restarts. On Windows, macOS, or Linux desktop, the application **closes** - start it again from the usual shortcut.
 
 ### From Cloud Backup
 
 1. In the Web UI, go to **Backup & Restore** and click **Restore backup**
 2. Switch the dropdown to **Cloud** (this device) or **Custom Cloud**
-3. **Custom Cloud** asks for a **Custom Device Serial** — the serial of the unit the backup was created on
+3. **Custom Cloud** asks for a **Custom Device Serial** - the serial of the unit the backup was created on
 4. Choose the backup and restore
 
 ### From USB
@@ -65,7 +65,7 @@ The DMX Core 100 can import backup files from Enttec S-Play devices, making migr
 
 ## Demo Data
 
-The system includes a demo data feature that creates ready-made sample content — cues, presets, sounds, and effects — with no external hardware required. This is useful for testing and learning the system before setting up your own data.
+The system includes a demo data feature that creates ready-made sample content - cues, presets, sounds, and effects - with no external hardware required. This is useful for testing and learning the system before setting up your own data.
 
 In the **Web UI**, go to **Backup & Restore** and click **Create Demo Data**. Filter by type, select the items you want, and click **Create Selected**.
 
@@ -88,6 +88,6 @@ For moving data between units, see [Move Data Between DMX Core 100 Units](/dmx-c
 
 ## Factory Reset
 
-To wipe the device back to empty first-start defaults without restoring a backup, use **Factory Reset** on **Utilities > System**. Local backup files are kept so you can restore afterward. Network settings and the device license are also kept. Factory reset does **not** unregister a hardware appliance from the [portal](/dmx-core-100/remote-management) — the unit's identity stays with the hardware — but it does delete user accounts, roles, and API keys.
+To wipe the device back to empty first-start defaults without restoring a backup, use **Factory Reset** on **Utilities > System**. Local backup files are kept so you can restore afterward. Network settings and the device license are also kept. Factory reset does **not** unregister a hardware appliance from the [portal](/dmx-core-100/remote-management) - the unit's identity stays with the hardware - but it does delete user accounts, roles, and API keys.
 
 See [Factory Reset](/dmx-core-100/configuration/utilities#factory-reset).

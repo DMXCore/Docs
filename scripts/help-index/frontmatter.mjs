@@ -1,7 +1,7 @@
 // Minimal frontmatter reader for Starlight pages.
 //
 // Only top-level `key: value` scalars are read (title, description, …). Nested
-// YAML (hero:, sidebar:) is skipped — the help index does not need it.
+// YAML (hero:, sidebar:) is skipped - the help index does not need it.
 
 export function splitFrontmatter(source) {
   const text = source.replace(/^﻿/, '').replace(/\r\n?/g, '\n');

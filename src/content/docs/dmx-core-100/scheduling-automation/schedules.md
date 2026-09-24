@@ -3,7 +3,7 @@ title: Schedules
 description: Automate playback on a timed schedule
 ---
 
-Schedules let you automatically trigger cues, presets, sounds, timelines, or ambient presets at specific times. Use schedules for recurring lighting scenes — for example, turning on lobby lights at sunset or running a show every evening.
+Schedules let you automatically trigger cues, presets, sounds, timelines, or ambient presets at specific times. Use schedules for recurring lighting scenes - for example, turning on lobby lights at sunset or running a show every evening.
 
 ## Viewing Schedules
 
@@ -46,14 +46,14 @@ Schedules are triggered on whole minutes (e.g., 8:00:00, 8:01:00). When a schedu
 ## Sunrise and Sunset Times
 
 Instead of a fixed time of day, a schedule can start and/or end at the
-calculated sunrise or sunset for your location — for example, turn lights on
+calculated sunrise or sunset for your location - for example, turn lights on
 30 minutes before sunset and off 30 minutes after sunrise. The times are
 calculated on the device itself, so no internet connection is required, and
 they automatically track the seasons and daylight saving time.
 
 Sunrise/sunset schedules are configured in the **Web UI** schedule editor:
 
-1. Set the device location first, under **Device > System** — see
+1. Set the device location first, under **Device > System** - see
    [Device Location](/dmx-core-100/configuration/settings#device-location).
 2. In the schedule editor, change **Start** (and/or **End**) from
    **Fixed time** to **Sunrise** or **Sunset**.
@@ -91,7 +91,7 @@ Snooze is a **touchscreen** feature. Go to **Main Menu > Utilities > Snooze Sche
 
 Snooze stops schedules from *starting*. It does **not** end a schedule that is already running. The current snooze status is displayed on screen.
 
-The Web UI has no snooze. A custom-menu **Toggle Schedule** action only flips that schedule's **Enabled** flag and does not re-enable it later — it is not a snooze.
+The Web UI has no snooze. A custom-menu **Toggle Schedule** action only flips that schedule's **Enabled** flag and does not re-enable it later - it is not a snooze.
 
 ## Duplicating Schedules
 

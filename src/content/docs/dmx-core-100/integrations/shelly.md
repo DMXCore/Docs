@@ -7,7 +7,7 @@ The Shelly plugin drives **Shelly Gen1 color devices** (RGBW2 and similar)
 from DMX data over MQTT. Once installed, Shelly devices are patched and
 controlled like any other fixture.
 
-Install the plugin from **Control & Integrations > Plugins > Browse** in the Web UI — see
+Install the plugin from **Control & Integrations > Plugins > Browse** in the Web UI - see
 [Plugins](/dmx-core-100/integrations/plugins) for how to install, update,
 and manage plugins.
 
@@ -35,7 +35,7 @@ for setup.
 
 The plugin's source is public at
 [DMXCore/DMXCore100.Plugin.Shelly](https://github.com/DMXCore/DMXCore100.Plugin.Shelly)
-under the MIT license — it doubles as the reference example for building
+under the MIT license - it doubles as the reference example for building
 output plugins. The package is
 [DMXCore.Plugin.Shelly](https://www.nuget.org/packages/DMXCore.Plugin.Shelly)
 on nuget.org.

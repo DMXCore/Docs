@@ -63,7 +63,7 @@ and cues actually reach the physical devices.
     },
     {
       "id": "patch-fixture",
-      "label": "Go to Lighting Setup → Fixtures, click Add a fixture (or Add New), pick LIFX — Color Bulb or Govee — Color Light, use Mapped Device to prefill slot, start channel, and personality from that output, then Save",
+      "label": "Go to Lighting Setup → Fixtures, click Add a fixture (or Add New), pick LIFX - Color Bulb or Govee - Color Light, use Mapped Device to prefill slot, start channel, and personality from that output, then Save",
       "docsUrl": "/dmx-core-100/lighting/fixture-setup/",
       "screenshotId": "fixture-editor"
     }
@@ -89,7 +89,7 @@ and cues actually reach the physical devices.
   light’s IP.
 - For LIFX Pixel, Color mode on the output must match the fixture
   personality. At the time of this thread, per-pixel RGBW+CT 16-bit was not
-  supported — only RGB and RGB16 drove each pixel. If RGBW+CT 16-bit does
+  supported - only RGB and RGB16 drove each pixel. If RGBW+CT 16-bit does
   not move the Beam, switch Color mode (and personality) to RGB or RGB16.
 - Govee’s documented LAN API treats the whole device as one zone; use a
   Realtime Pixel protocol if you need per-segment RGBIC.
@@ -97,12 +97,12 @@ and cues actually reach the physical devices.
 ## Eval checks
 
 - Menu path includes `Lighting Setup > Outputs` **and** `Lighting Setup > Fixtures`
-- Uses **Discover** on the plugin output, then patches a fixture — not
+- Uses **Discover** on the plugin output, then patches a fixture - not
   Discover alone
 - Mentions **slots** as internal universes, with LIFX on a different slot
   from an existing pixel fixture (slot 2 vs slot 1 in the gold path)
 - One output per physical light
-- Profile names **LIFX — Color Bulb** and/or **Govee — Color Light**
+- Profile names **LIFX - Color Bulb** and/or **Govee - Color Light**
 - Mentions **Mapped Device** or matching start slot and start channel
 - Does not tell them to use MCP or the Integration API
 
@@ -112,7 +112,7 @@ and cues actually reach the physical devices.
 - Docs split **Mapped Device** across a line in output-config; fixture-setup
   does not mention it
 - Published LIFX docs now list RGBW+CT 16-bit as a Pixel Color mode; this
-  thread said that layout did not work yet — confirm before treating it as
+  thread said that layout did not work yet - confirm before treating it as
   supported in a public Common Task
 - No screenshot of a LIFX or GOVEE output editor (capture id `output-editor`
   is a generic sACN output)

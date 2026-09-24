@@ -3,7 +3,7 @@ title: Web UI Dashboard
 description: Overview of the Web UI layout and navigation
 ---
 
-After logging in, the Web UI displays the Dashboard — your central hub for monitoring and controlling the DMX Core 100.
+After logging in, the Web UI displays the Dashboard - your central hub for monitoring and controlling the DMX Core 100.
 
 ![The Web UI dashboard and sidebar](/assets/web/dashboard.png)
 
@@ -11,8 +11,8 @@ After logging in, the Web UI displays the Dashboard — your central hub for mon
 
 The Web UI has two main areas:
 
-- **Sidebar** (left) — Navigation organized into sections. Groups under System expand and collapse.
-- **Main content** (right) — The active page, with a breadcrumb trail at the top showing your current location.
+- **Sidebar** (left) - Navigation organized into sections. Groups under System expand and collapse.
+- **Main content** (right) - The active page, with a breadcrumb trail at the top showing your current location.
 
 ## Sidebar Navigation
 
@@ -23,14 +23,14 @@ The Web UI has two main areas:
 | **Operation** | [Surface Operator](/dmx-core-100/control-surfaces/surface-operator), [Tempo](/dmx-core-100/lighting/tempo), [Custom Menu](/dmx-core-100/scheduling-automation/custom-menus), [Ambient Presets](/dmx-core-100/playback/presets#ambient-presets) |
 | **Lighting Setup** | [Outputs](/dmx-core-100/configuration/output-config), Protocol ([merge & priority](/dmx-core-100/playback/layers-and-priority)), [Fixtures](/dmx-core-100/lighting/fixture-setup), Cue Fade Masks, [Zones](/dmx-core-100/lighting/zones) *(with Multi-Zone Playback enabled)* |
 | **Control & Integrations** | [Input Triggers](/dmx-core-100/scheduling-automation/input-triggers), [Output Events](/dmx-core-100/scheduling-automation/output-events), [Control Surfaces](/dmx-core-100/control-surfaces), [Control Values](/dmx-core-100/integrations/control-values), [OSC Clients](/dmx-core-100/integrations/osc-open-sound-control), Remote Control, [MQTT](/dmx-core-100/integrations/mqtt), [Scripts](/dmx-core-100/scheduling-automation/scripting), [Plugins](/dmx-core-100/integrations/plugins) |
-| **Device** | System, Network, Touchscreen, [Custom Menus](/dmx-core-100/scheduling-automation/custom-menus), Installer — see [Settings](/dmx-core-100/configuration/settings) |
-| **Utilities** | [Audit Log](/dmx-core-100/configuration/audit-log), [Device Monitor](/dmx-core-100/configuration/device-monitor), [Output Monitor](/dmx-core-100/configuration/output-monitor), [Record](/dmx-core-100/playback/recording), [Releases](/dmx-core-100/configuration/software-updates) *(Appliance, Windows, and macOS — not Snap Linux)*, [System (factory reset)](/dmx-core-100/configuration/utilities) |
+| **Device** | System, Network, Touchscreen, [Custom Menus](/dmx-core-100/scheduling-automation/custom-menus), Installer - see [Settings](/dmx-core-100/configuration/settings) |
+| **Utilities** | [Audit Log](/dmx-core-100/configuration/audit-log), [Device Monitor](/dmx-core-100/configuration/device-monitor), [Output Monitor](/dmx-core-100/configuration/output-monitor), [Record](/dmx-core-100/playback/recording), [Releases](/dmx-core-100/configuration/software-updates) *(Appliance, Windows, and macOS - not Snap Linux)*, [System (factory reset)](/dmx-core-100/configuration/utilities) |
 | **Backup & Restore** | [Local and cloud backups](/dmx-core-100/configuration/backup-and-restore) |
 | **File Explorer** | Browse and manage files on the device |
 | **User Management** | [Users & Roles](/dmx-core-100/configuration/users-and-roles) |
 
 :::note
-Some sidebar items are only visible to users with the appropriate permissions. **Utilities > Releases** is also platform-specific — it is hidden on Linux Snap. See [Software Updates](/dmx-core-100/configuration/software-updates). If you don't see a menu item, check with your administrator about your role permissions.
+Some sidebar items are only visible to users with the appropriate permissions. **Utilities > Releases** is also platform-specific - it is hidden on Linux Snap. See [Software Updates](/dmx-core-100/configuration/software-updates). If you don't see a menu item, check with your administrator about your role permissions.
 :::
 
 ## Dashboard Content
@@ -43,4 +43,4 @@ The Dashboard shows:
 
 ## Theme
 
-The Web UI supports both light and dark themes — use the theme toggle in the top bar.
+The Web UI supports both light and dark themes - use the theme toggle in the top bar.

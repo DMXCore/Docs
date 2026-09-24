@@ -110,13 +110,13 @@ slot 1 ch 20–40 at about half.
 - Step copy-rule: docs `playback/channel-rules.md` › Copy (Destination Slot Id / Destination
   Start Channel) and the Web-UI-only tip (`Lighting Setup > Channel Rules`); navigation
   `web/channelrules` action `Add New`, `web/channelrules/details` fields Name, Rule Type
-  (option "Copy — duplicate channels to another location"), Slot Id, Start Channel, End
+  (option "Copy - duplicate channels to another location"), Slot Id, Start Channel, End
   Channel, Destination Slot Id, Destination Start Channel, Enabled
   (`ChannelRuleDetails.vue`, permission EDITCHANNELRULES).
 - Step scale-rule: docs › Scale and › Cap; navigation field `Limit (0-255)` (visible for Cap or
-  Scale), options "Scale — rescale the full range to a maximum value" / "Cap — limit channels to
+  Scale), options "Scale - rescale the full range to a maximum value" / "Cap - limit channels to
   a maximum value".
-- Step tune-live: docs › When rules apply ("take effect immediately when saved — even during
+- Step tune-live: docs › When rules apply ("take effect immediately when saved - even during
   playback"); navigation `web/cues` action `Play`.
 - Processing order gotcha: docs › Processing order; field help text in navigation
   `web/channelrules/details` Rule Type.

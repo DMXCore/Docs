@@ -51,6 +51,6 @@ The Re-Mapper solution is software (firmware + configuration tool) that runs on 
 
 ## Limitations
 
-* Output is driven by the input — without a DMX input, nothing will be sent on the output. However, when the digital inputs are used, a 40 Hz output is generated.
+* Output is driven by the input - without a DMX input, nothing will be sent on the output. However, when the digital inputs are used, a 40 Hz output is generated.
 * Since the device is in-line in the DMX stream, it introduces latency of about one DMX frame (~25ms). It reads the full DMX frame, runs the mapping, then sends out the frame on the output port. The latency is consistent on each frame.
 * RDM data is not passed through the device.

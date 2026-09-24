@@ -44,7 +44,7 @@ test('chunks intro, H2 and H3 with Starlight anchors and heading paths', () => {
   assert.deepEqual(chunks[2].headingPath, ['Recording', 'Recording in the Web UI', 'Input Sources']);
   assert.equal(chunks[1].url, '/dmx-core-100/playback/recording/#recording-in-the-web-ui');
   assert.deepEqual(chunks[1].screenshots, ['record']);
-  assert.match(chunks[1].text, /\[screenshot: record — Recording page\]/);
+  assert.match(chunks[1].text, /\[screenshot: record - Recording page\]/);
   assert.match(chunks[2].text, /#### Deep detail/);
   assert.equal(headings.find((h) => h.depth === 4).anchor, 'deep-detail');
 });
@@ -69,7 +69,7 @@ test('headings and images inside code fences are ignored', () => {
 test('asides become bold labels and unresolved images keep their alt text', () => {
   const body = ':::tip[No external source handy?]\nUse demo data.\n:::\n\n![Box](https://example.com/x.png)';
   const { chunks } = chunkPage({ slug: 'p', title: 'P', body, resolveImage });
-  assert.equal(chunks[0].text, '**Tip — No external source handy?:**\nUse demo data.\n\n[image: Box]');
+  assert.equal(chunks[0].text, '**Tip - No external source handy?:**\nUse demo data.\n\n[image: Box]');
 });
 
 test('oversized sections split on paragraph boundaries', () => {

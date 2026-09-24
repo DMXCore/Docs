@@ -58,7 +58,7 @@ The QSys DSP plugin connects to the core, a Selector Control Value mirrors
     },
     {
       "id": "control-value-trigger",
-      "label": "Open Control & Integrations → Input Triggers → Add New: Type Control Value, pick BARSRC, Mode On/Off — run an action, Start Choice Party (optionally a Stop Choice)",
+      "label": "Open Control & Integrations → Input Triggers → Add New: Type Control Value, pick BARSRC, Mode On/Off - run an action, Start Choice Party (optionally a Stop Choice)",
       "docsUrl": "/dmx-core-100/scheduling-automation/input-triggers/#control-value-triggers",
       "screenshotId": "input-trigger-editor"
     },

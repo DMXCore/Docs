@@ -1,9 +1,9 @@
 ---
 title: Custom Menus
-description: Build simplified control panels for end users — on the touchscreen and in the browser
+description: Build simplified control panels for end users - on the touchscreen and in the browser
 ---
 
-Custom menus are simplified, purpose-built control panels. Instead of exposing the full system, you present end users with just the controls they need — buttons for specific scenes, a volume slider, a source picker. Menus appear on the **touchscreen**, in the **Web UI** (under **Operation > Custom Menu**), and — when enabled — to **guests in the browser without logging in**.
+Custom menus are simplified, purpose-built control panels. Instead of exposing the full system, you present end users with just the controls they need - buttons for specific scenes, a volume slider, a source picker. Menus appear on the **touchscreen**, in the **Web UI** (under **Operation > Custom Menu**), and - when enabled - to **guests in the browser without logging in**.
 
 You can create **multiple menus**, each with its own items, look, and audience. They are especially useful in lock-down mode, where a custom menu is the only interface available on the device.
 
@@ -11,22 +11,22 @@ You can create **multiple menus**, each with its own items, look, and audience. 
 
 Menus are designed under **Control & Integrations > Custom Menus** in the Web UI. Each menu has:
 
-- **Code** — a short unique code (auto-generated, e.g. `MENU1`, but freely changeable) used for [direct links](#direct-links-and-qr-codes)
-- **Enabled** — turn the whole menu on or off
-- **Only Admin** — restrict the menu to admin users
-- **Available to Guests** — expose the menu in the Web UI *without login*, so anyone on the network (or a wall tablet) can use it
-- **Type** — **Items** (buttons, the default), **Items (small view)** for compact lists, or **Faders** (columns of sliders)
-- **Look** — icon, header logo with height, and background
+- **Code** - a short unique code (auto-generated, e.g. `MENU1`, but freely changeable) used for [direct links](#direct-links-and-qr-codes)
+- **Enabled** - turn the whole menu on or off
+- **Only Admin** - restrict the menu to admin users
+- **Available to Guests** - expose the menu in the Web UI *without login*, so anyone on the network (or a wall tablet) can use it
+- **Type** - **Items** (buttons, the default), **Items (small view)** for compact lists, or **Faders** (columns of sliders)
+- **Look** - icon, header logo with height, and background
 
-Menus can be exported and imported as JSON — see the [custom menu samples on GitHub](https://github.com/DMXCore/DmxCore100/tree/main/samples) for ready-made layouts.
+Menus can be exported and imported as JSON - see the [custom menu samples on GitHub](https://github.com/DMXCore/DmxCore100/tree/main/samples) for ready-made layouts.
 
 On the **touchscreen**, open a menu from **Main Menu > Utilities > Custom Menu**. If **Only show custom menu** is on (**Device > System**), non-admin users start on the custom menu; admins are exempt.
 
 ![Custom Menus list in the Web UI](/assets/web/custom-menus-list.png)
 
-![Custom menu editor — item list and item properties](/assets/web/custom-menu-editor.png)
+![Custom menu editor - item list and item properties](/assets/web/custom-menu-editor.png)
 
-![Operating a custom menu in the Web UI — actions, volume slider, and source picker](/assets/web/custom-menu-operate.png)
+![Operating a custom menu in the Web UI - actions, volume slider, and source picker](/assets/web/custom-menu-operate.png)
 
 ![Custom menu on the touchscreen](/assets/device/uno-custom-menu.png)
 
@@ -38,7 +38,7 @@ Click **Add item** in the editor. Each item has a name, optional subtitle/descri
 |------|-------------|
 | **Action** | A button that triggers an action (see below) |
 | **SubMenu** | Opens a nested menu level |
-| **Slider** | A fader. The **Slider target** panel sets the target — for a DSP level pick **Control Value (Level)** and the Control Value from the dropdown |
+| **Slider** | A fader. The **Slider target** panel sets the target - for a DSP level pick **Control Value (Level)** and the Control Value from the dropdown |
 | **Segmented selector** | A source/input picker bound to a Selector Control Value |
 | **Value display** | A read-only live readout of a Control Value of any kind (see below) |
 | **Presets / Cues list** | A browsable list of presets or cues (touchscreen only) |
@@ -54,23 +54,23 @@ An Action item can: Apply Ambient Preset, Apply Preset, set/step a Control Value
 
 Per-item options:
 
-- **Press mode** — **Normal**, **Toggle on/off**, or **Flash (hold)** — active only while the button is held
-- **Fade-in / fade-out time and loop count** — override the item's playback settings
-- **Dimmer** — playback brightness for this button
-- **Require confirmation** — ask before executing. Control surface buttons use [Hold to confirm](/dmx-core-100/control-surfaces/configuring#hold-to-confirm) instead of a dialog (the [Surface Operator](/dmx-core-100/control-surfaces/surface-operator) still asks Yes/No)
-- **Live state** — highlight the item while a Control Value equals a given value (e.g. light up "Input B" while that source is selected), or automatically while its own action is active
+- **Press mode** - **Normal**, **Toggle on/off**, or **Flash (hold)** - active only while the button is held
+- **Fade-in / fade-out time and loop count** - override the item's playback settings
+- **Dimmer** - playback brightness for this button
+- **Require confirmation** - ask before executing. Control surface buttons use [Hold to confirm](/dmx-core-100/control-surfaces/configuring#hold-to-confirm) instead of a dialog (the [Surface Operator](/dmx-core-100/control-surfaces/surface-operator) still asks Yes/No)
+- **Live state** - highlight the item while a Control Value equals a given value (e.g. light up "Input B" while that source is selected), or automatically while its own action is active
 
 ## Menu Structure
 
-Menus support **multiple levels** via SubMenu items — a top-level menu with a button per room, each opening that room's scene options. A **glow state indicator** shows items whose target is currently active.
+Menus support **multiple levels** via SubMenu items - a top-level menu with a button per room, each opening that room's scene options. A **glow state indicator** shows items whose target is currently active.
 
 ## Guest Access
 
-A menu marked **Available to Guests** can be used from a browser without logging in — ideal for a lobby tablet or letting staff trigger scenes from their phones without handing out PINs. Guests see only guest-enabled menus; everything else still requires a login.
+A menu marked **Available to Guests** can be used from a browser without logging in - ideal for a lobby tablet or letting staff trigger scenes from their phones without handing out PINs. Guests see only guest-enabled menus; everything else still requires a login.
 
 ## Direct Links and QR Codes
 
-Every menu has a **code** that opens it directly by URL — perfect for a QR code posted at the site, a wall-tablet home page, or a browser bookmark:
+Every menu has a **code** that opens it directly by URL - perfect for a QR code posted at the site, a wall-tablet home page, or a browser bookmark:
 
 ```
 http://<device>/guest/custommenu?code=LOBBY

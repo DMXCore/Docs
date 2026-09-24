@@ -32,7 +32,7 @@ Transfer backups using the DMX Core 100 Web UI.
   2. Go to **Backup & Restore** and click **Restore backup**.
   3. Keep **Local** selected. Use **Drag and drop a file here, or click to select a file**, then **Upload**.
   4. Click the restore icon, choose **Full Backup (FULLDEVICE)** in **Select item to restore**, and confirm.
-  5. On an Appliance the service restarts. On Windows, macOS, or Linux desktop, the application **closes** — start it again from the usual shortcut.
+  5. On an Appliance the service restarts. On Windows, macOS, or Linux desktop, the application **closes** - start it again from the usual shortcut.
 
 ### Method C: Cloud Backup
 

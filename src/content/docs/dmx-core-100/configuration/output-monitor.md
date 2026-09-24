@@ -17,7 +17,7 @@ The Output Monitor is available in the Web UI under **Utilities > Output Monitor
 2. Click **Start Monitor** to begin a monitoring session
 3. Select a **slot** from the grid of available slots to view its DMX data
 
-The monitor displays a 32x16 grid representing the 512 DMX channels of the selected slot. Each cell shows a channel's current value as a grayscale intensity — black is 0, white is 255. Hover over a cell to see the exact channel number and value.
+The monitor displays a 32x16 grid representing the 512 DMX channels of the selected slot. Each cell shows a channel's current value as a grayscale intensity - black is 0, white is 255. Hover over a cell to see the exact channel number and value.
 
 ## Slot Selection
 
@@ -29,5 +29,5 @@ Below the channel grid, an **output information table** shows which output inter
 
 - The monitor updates at approximately 5 times per second
 - Sessions automatically time out after 60 minutes of inactivity
-- The session persists across page navigation within the Web UI — if you navigate away and return, the monitor resumes
+- The session persists across page navigation within the Web UI - if you navigate away and return, the monitor resumes
 - Click **Stop Monitor** to end the session and release resources

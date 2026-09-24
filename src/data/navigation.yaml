@@ -844,7 +844,7 @@ screens:
           - label: Start Slot Id
             key: startCosmosId
             type: number
-            help: The slot id the received universe lands on. Slot ranges must not overlap between rows on different protocols — a recording and the merge both key on the slot id.
+            help: The slot id the received universe lands on. Slot ranges must not overlap between rows on different protocols - a recording and the merge both key on the slot id.
     actions:
       - Save
       - Save & Go Back
@@ -1206,10 +1206,10 @@ screens:
             key: ruleType
             type: option
             options:
-              - Cap — limit channels to a maximum value
-              - Scale — rescale the full range to a maximum value
-              - Copy — duplicate channels to another location
-            help: Rules apply during cue playback only (dynamic and static cues), never to fixture control. Cap clamps values above the limit; Scale maps the whole 0-255 range down so full level becomes the limit; Copy mirrors the recorded channels to another slot/channel range (multipatch). Copies are applied first, then scales, then caps — so a cap addressing the copy destination also limits the copied fixture.
+              - Cap - limit channels to a maximum value
+              - Scale - rescale the full range to a maximum value
+              - Copy - duplicate channels to another location
+            help: Rules apply during cue playback only (dynamic and static cues), never to fixture control. Cap clamps values above the limit; Scale maps the whole 0-255 range down so full level becomes the limit; Copy mirrors the recorded channels to another slot/channel range (multipatch). Copies are applied first, then scales, then caps - so a cap addressing the copy destination also limits the copied fixture.
           - label: Slot Id
             key: cosmosId
             type: number
@@ -1302,8 +1302,8 @@ screens:
             key: mode
             type: option
             options:
-              - On/Off — run an action
-              - Value — set a level from the payload
+              - On/Off - run an action
+              - Value - set a level from the payload
             help: Value mode uses the numeric payload to drive a Control Value (e.g. Symetrix volume), master dimmer, or zone intensity.
             visibleWhen: Type is MQTT, HTTP, OSC or Control Value
           - label: Port
@@ -1453,20 +1453,20 @@ screens:
             key: target
             type: option
             options:
-              - (none — unassigned)
+              - (none - unassigned)
               - Master Dimmer
               - Audio Volume
               - Fixture Intensity
-              - Fixture RGB — Red
-              - Fixture RGB — Green
-              - Fixture RGB — Blue
+              - Fixture RGB - Red
+              - Fixture RGB - Green
+              - Fixture RGB - Blue
               - Zone Intensity
               - Control Value (Level)
           - label: Fixture code / Zone code / Control Value
             key: targetCode
             type: text
             help: 'Labeled by target: Zone code for Zone Intensity, Control Value (a dropdown) for Control Value (Level), otherwise Fixture code. Fixture and zone codes must match the code assigned in the fixture/zone editor.'
-            visibleWhen: Target is Fixture Intensity, Fixture RGB — Red, Fixture RGB — Green, Fixture RGB — Blue, Zone Intensity or Control Value (Level)
+            visibleWhen: Target is Fixture Intensity, Fixture RGB - Red, Fixture RGB - Green, Fixture RGB - Blue, Zone Intensity or Control Value (Level)
           - label: Min value
             key: minValue
             type: number
@@ -1634,7 +1634,7 @@ screens:
           - label: Model (hint)
             key: model
             type: text
-            help: Free-text note about the physical device, e.g. "Akai LPD8 mk2". Purely informational — the runtime does not use this to drive behavior. Populated automatically when you apply a factory template.
+            help: Free-text note about the physical device, e.g. "Akai LPD8 mk2". Purely informational - the runtime does not use this to drive behavior. Populated automatically when you apply a factory template.
       - title: Device
         fields:
           - label: MIDI Port
@@ -1686,20 +1686,20 @@ screens:
             key: target
             type: option
             options:
-              - (none — unassigned)
+              - (none - unassigned)
               - Master Dimmer
               - Audio Volume
               - Fixture Intensity
-              - Fixture RGB — Red
-              - Fixture RGB — Green
-              - Fixture RGB — Blue
+              - Fixture RGB - Red
+              - Fixture RGB - Green
+              - Fixture RGB - Blue
               - Zone Intensity
               - Control Value (Level)
           - label: Fixture code / Zone code / Control Value
             key: targetCode
             type: text
             help: 'Labeled by target: Zone code for Zone Intensity, Control Value (a dropdown) for Control Value (Level), otherwise Fixture code. Fixture and zone codes must match the code assigned in the fixture/zone editor.'
-            visibleWhen: Target is Fixture Intensity, Fixture RGB — Red, Fixture RGB — Green, Fixture RGB — Blue, Zone Intensity or Control Value (Level)
+            visibleWhen: Target is Fixture Intensity, Fixture RGB - Red, Fixture RGB - Green, Fixture RGB - Blue, Zone Intensity or Control Value (Level)
           - label: Min value
             key: minValue
             type: number
@@ -1812,7 +1812,7 @@ screens:
       - Browse LAN for RTP-MIDI peers (mDNS)
       - Browse LAN for Network MIDI 2 peers (mDNS)
       - Scan the LAN for Key Digital KD-WP8 keypads.
-      - Force a fresh mDNS query — picks up docks that just appeared, drops stale entries.
+      - Force a fresh mDNS query - picks up docks that just appeared, drops stale entries.
       - Add Bank
       - Remove this bank
       - Add Section
@@ -2043,7 +2043,7 @@ screens:
           - label: Any Source IP
             key: anySource
             type: bool
-            help: Accept OSC from any device on the network — useful when the controller gets its IP from DHCP, or when several devices share one layout. Feedback is sent to every device heard from in the last 5 minutes. Only one client can accept any source, and it only claims addresses its surface has assignments for; other OSC traffic still reaches Input Triggers.
+            help: Accept OSC from any device on the network - useful when the controller gets its IP from DHCP, or when several devices share one layout. Feedback is sent to every device heard from in the last 5 minutes. Only one client can accept any source, and it only claims addresses its surface has assignments for; other OSC traffic still reaches Input Triggers.
           - label: Source IP
             key: sourceIp
             type: text
@@ -2061,7 +2061,7 @@ screens:
           - label: Feedback timeout (hours)
             key: feedbackTimeoutHours
             type: number
-            help: How long a device keeps receiving feedback after its last message. OSC has no connection, so a device that sits idle but is still on the wall would otherwise stop getting feedback. Default 24 hours; set 0 to never time out. Only applies to "Any Source IP" clients — specific-IP clients have a fixed destination and never time out.
+            help: How long a device keeps receiving feedback after its last message. OSC has no connection, so a device that sits idle but is still on the wall would otherwise stop getting feedback. Default 24 hours; set 0 to never time out. Only applies to "Any Source IP" clients - specific-IP clients have a fixed destination and never time out.
             visibleWhen: Any Source IP is on
           - label: Enabled
             key: enabled
@@ -2551,7 +2551,7 @@ screens:
           - label: Start Slot Id
             key: startCosmosId
             type: number
-            help: The slot id the received universe lands on. Slot ranges must not overlap between rows on different protocols — a recording and the merge both key on the slot id.
+            help: The slot id the received universe lands on. Slot ranges must not overlap between rows on different protocols - a recording and the merge both key on the slot id.
     actions:
       - Save
       - Save & Go Back

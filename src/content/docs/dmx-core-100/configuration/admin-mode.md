@@ -2,15 +2,15 @@
 title: Admin Mode
 ---
 
-Access Admin Mode by logging in with a PIN code. The default PIN is 1 1 1 1. You can enter the PIN using the on-screen keypad or the +/– buttons — tap the digit field to switch between styles.
+Access Admin Mode by logging in with a PIN code. The default PIN is 1 1 1 1. You can enter the PIN using the on-screen keypad or the +/– buttons - tap the digit field to switch between styles.
 
-![Admin login — keypad style](/assets/device/admin-login-keypad.png)
+![Admin login - keypad style](/assets/device/admin-login-keypad.png)
 
-![Admin login — +/– style](/assets/device/admin-login-slider.png)
+![Admin login - +/– style](/assets/device/admin-login-slider.png)
 
 Once logged in, the bottom bar turns red to indicate that you're now in Admin Mode.
 
-![Home screen with Admin Mode active — red bottom bar](/assets/device/home-screen-admin-active.png)
+![Home screen with Admin Mode active - red bottom bar](/assets/device/home-screen-admin-active.png)
 
 To log off, tap the user icon in the bottom bar and confirm.
 

@@ -14,9 +14,9 @@ To connect to the Web UI, you need the device's IP address. You can find it on t
 
 On an Appliance there is no Web UI port row on About (the ports are always 8000 / 8001). A **default PIN** row appears only when the database is empty.
 
-![About screen — device details and version](/assets/device/about-screen-top.png)
+![About screen - device details and version](/assets/device/about-screen-top.png)
 
-![About screen — network address and Cloud Tunnel status](/assets/device/about-screen-bottom.png)
+![About screen - network address and Cloud Tunnel status](/assets/device/about-screen-bottom.png)
 
 :::tip
 If your network supports mDNS/Bonjour, you can also access the device using its hostname (e.g., `dmxcore100.local`).
@@ -28,14 +28,14 @@ If your network supports mDNS/Bonjour, you can also access the device using its 
 2. Enter the device IP address in the address bar:
    - **HTTP**: `http://<device-ip>:8000`
    - **HTTPS**: `https://<device-ip>:8001` (recommended)
-3. If using HTTPS, your browser may show a certificate warning for the self-signed certificate — this is expected. Accept the warning to continue.
+3. If using HTTPS, your browser may show a certificate warning for the self-signed certificate - this is expected. Accept the warning to continue.
 
-![Web UI login — pick a user and enter the PIN](/assets/web/login.png)
+![Web UI login - pick a user and enter the PIN](/assets/web/login.png)
 
 ## Logging In
 
 1. Select your **user** (a fresh device has just the Administrator)
-2. Enter your **PIN** (the default admin PIN is `1111`) — or your **password**, if your account uses password login
+2. Enter your **PIN** (the default admin PIN is `1111`) - or your **password**, if your account uses password login
 3. Click **Login**
 
 After logging in, you'll see the [Web UI Dashboard](/dmx-core-100/getting-started/web-ui-dashboard).

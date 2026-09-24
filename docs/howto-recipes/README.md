@@ -29,12 +29,12 @@ one synthetic example) is expected.
 
 The docs copilot saves every conversation (redacted, for a year) with 👍/👎
 feedback. To review, run `HelpApi/tools/transcript-digest.ps1` (see the HelpApi
-README) and turn real questions — especially 👎 answers and turns without an
-answer — into recipes here with `source: chat`. A question the docs cannot answer
+README) and turn real questions - especially 👎 answers and turns without an
+answer - into recipes here with `source: chat`. A question the docs cannot answer
 is a docs gap: note it under Gaps and fix the published page.
 
 ## Files
 
-- `AGENTS.md` — how an AI must format a recipe from a support interaction
-- `_template.md` — copy this
-- `YYYY-MM-DD-short-slug.md` — one recipe per file
+- `AGENTS.md` - how an AI must format a recipe from a support interaction
+- `_template.md` - copy this
+- `YYYY-MM-DD-short-slug.md` - one recipe per file

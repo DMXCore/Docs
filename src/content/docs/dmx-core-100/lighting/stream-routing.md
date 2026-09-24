@@ -20,7 +20,7 @@ Everything is on **Lighting Setup › Inputs** in the Web UI.
 
 ![Inputs page with an sACN console and an Art-Net console routed at the same time](/assets/web/inputs.png)
 
-1. **Input mapping.** The device's input table: which received universes to accept, on which protocol, and which slot id each lands on. Every row names its own protocol — sACN / E1.31, Art-Net or DMX Serial — and **every protocol that has a row is listened to**, so a console on sACN and one on Art-Net are routed at the same time. An output mapped to a row's slot id receives the routed data. Universes that are not mapped are ignored.
+1. **Input mapping.** The device's input table: which received universes to accept, on which protocol, and which slot id each lands on. Every row names its own protocol - sACN / E1.31, Art-Net or DMX Serial - and **every protocol that has a row is listened to**, so a console on sACN and one on Art-Net are routed at the same time. An output mapped to a row's slot id receives the routed data. Universes that are not mapped are ignored.
 
    Click **Add New** on **Lighting Setup > Inputs** to add a row, then open **Details** to edit it. The row editor has **Save** and **Save & Go Back**.
 
@@ -88,7 +88,7 @@ Such an output shows **Routing Conflict** in the Outputs list, with a **?** that
 
 ![Outputs list with sACN outputs marked Routing Conflict](/assets/web/outputs-routing-conflict.png) Unicasting the same universe to a specific node's IP address, or sending on a different universe, is fine. A universe received on Art-Net universe 0 and sent as Art-Net broadcast on universe 1, for example, routes normally.
 
-A mapping that closes a **loop through a second input row** — slot 1 out on Art-Net universe 0, Art-Net universe 0 in to slot 2, slot 2 out on sACN universe 1, sACN universe 1 in to slot 1 — is refused when you save it, because every output on that path would be left out of routing and nothing could reach the wire. Sending a universe you also listen on straight to one node's IP address is not a loop and stays allowed.
+A mapping that closes a **loop through a second input row** - slot 1 out on Art-Net universe 0, Art-Net universe 0 in to slot 2, slot 2 out on sACN universe 1, sACN universe 1 in to slot 1 - is refused when you save it, because every output on that path would be left out of routing and nothing could reach the wire. Sending a universe you also listen on straight to one node's IP address is not a loop and stays allowed.
 
 Zone-scoped outputs are not fed by routing; routed data goes to the outputs mapped for all zones.
 

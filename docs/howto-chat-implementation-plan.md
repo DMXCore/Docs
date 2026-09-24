@@ -1,4 +1,4 @@
-# How-to chat — implementation plan
+# How-to chat - implementation plan
 
 Cross-repo engineering spec. Product intent, grants, snapshot layout, Seq
 rules, and cost are in [`howto-chat-plan.md`](howto-chat-plan.md). This file
@@ -7,7 +7,7 @@ is what to build, in which repo, in what order.
 **Repos:** Core (`DmxCore100-Software`), DeviceApi, Admin Portal, Docs.
 
 **Ship order:** Core first (inert until the cloud sends `SnapshotNow`), then
-DeviceApi, then Portal. Docs copilot (Phase 1) can ship in parallel — it
+DeviceApi, then Portal. Docs copilot (Phase 1) can ship in parallel - it
 does not need the snapshot.
 
 Writable MCP / applying setup for the user remains **out of scope**.
@@ -19,7 +19,7 @@ transcripts and cost controls).
 
 ---
 
-## 1. Docs copilot (Phase 1) — Docs repo + Azure chat API
+## 1. Docs copilot (Phase 1) - Docs repo + Azure chat API
 
 Public how-to on docs.dmxcore.com. No device data.
 
@@ -89,7 +89,7 @@ or Portal issues below.
 
 ---
 
-## 2. Core — config snapshot builder + `SnapshotNow`
+## 2. Core - config snapshot builder + `SnapshotNow`
 
 Clone the cloud-backup path. New payload. No cue/sound bytes, no SQLite dump,
 no raw `HostConfig.json`.
@@ -131,9 +131,9 @@ Wire-in:
 | `WebServiceClient` / DeviceApi `FileTypes` | Accept `CONFIGSNAPSHOT` (enum change is DeviceApi; Core’s TUS metadata is the string) |
 | `HostConfig` | No new fields |
 
-Cue rows: code, name, duration, `UsedCosmosIds`, type, layer — not `.cap` /
-`.dmx` / `.idx`. Presets: code, name, ambient, coverage — **not** `Content`.
-Sounds: code, name, duration, format — not audio. Profiles: `profiles/index.json`
+Cue rows: code, name, duration, `UsedCosmosIds`, type, layer - not `.cap` /
+`.dmx` / `.idx`. Presets: code, name, ambient, coverage - **not** `Content`.
+Sounds: code, name, duration, format - not audio. Profiles: `profiles/index.json`
 (manufacturer, name, personalities + channel counts); `profiles/{id}.json`
 only for the full map.
 
@@ -166,7 +166,7 @@ widgets.
 
 ---
 
-## 3. DeviceApi — trigger, ingest, unpack
+## 3. DeviceApi - trigger, ingest, unpack
 
 Clone `CloudBackupApiController`. Separate blob prefix so snapshots never
 appear in Backup & Restore.
@@ -179,7 +179,7 @@ serial is not connected.
 ### TUS ingest
 
 `FileTypes.ConfigSnapshot` (`CONFIGSNAPSHOT`). Today `OnBeforeCreateAsync`
-only allows CloudBackup / Cues / Sounds / Text — add this type or uploads
+only allows CloudBackup / Cues / Sounds / Text - add this type or uploads
 fail.
 
 On complete: store the zip **and** unpack to
@@ -213,7 +213,7 @@ No new domain, cert, or Container App.
 
 ---
 
-## 4. Admin Portal — grant, trigger, handoff, Seq
+## 4. Admin Portal - grant, trigger, handoff, Seq
 
 ### Grant (source of truth)
 
@@ -247,10 +247,10 @@ chat turn (orchestrator reads flags per request).
 
 Portal endpoints (account-scoped device lookup, HWID required):
 
-- `POST /devices/{id}/help-agent/snapshot` — 403 if grant off; 409 if offline
-- `GET /devices/{id}/help-agent/snapshot` — latest manifest
+- `POST /devices/{id}/help-agent/snapshot` - 403 if grant off; 409 if offline
+- `GET /devices/{id}/help-agent/snapshot` - latest manifest
 - `GET /devices/{id}/help-agent/snapshot/{captureId}/{section}`
-- `PUT /devices/{id}/help-agent` — `{ snapshotEnabled, logsEnabled }`
+- `PUT /devices/{id}/help-agent` - `{ snapshotEnabled, logsEnabled }`
 
 ### Handoff from docs
 
@@ -312,11 +312,11 @@ scoping; audit rows; Seq query never runs with grant off (mocked Seq).
 
 | Stage | Core | DeviceApi | Portal |
 |-------|------|-----------|--------|
-| A | Builder + `SnapshotNow` no-op if cloud never sends it | — | — |
-| B | Upload `CONFIGSNAPSHOT` | Enum + unpack + trigger | — |
-| C | — | — | Grant card, capture button, download inventory |
-| D | — | — | Handoff + signed-in chat tools |
-| E | — | — | Seq tool |
+| A | Builder + `SnapshotNow` no-op if cloud never sends it | - | - |
+| B | Upload `CONFIGSNAPSHOT` | Enum + unpack + trigger | - |
+| C | - | - | Grant card, capture button, download inventory |
+| D | - | - | Handoff + signed-in chat tools |
+| E | - | - | Seq tool |
 
 Old Core + new cloud: `SnapshotNow` unknown → log, 502/ignore; portal shows
 “update device software.”

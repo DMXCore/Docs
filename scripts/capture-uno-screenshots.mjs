@@ -1,7 +1,7 @@
 // Unattended touchscreen (Uno) screenshot capture for the DMX Core 100 docs.
 //
 // Requires the app to include the DeviceUiController + IDeviceUiAutomation navigation
-// endpoint (see the app repo — Shared/Controllers/DeviceUiController.cs and App.xaml.cs).
+// endpoint (see the app repo - Shared/Controllers/DeviceUiController.cs and App.xaml.cs).
 // With that in place this needs no browser and no desktop control: it logs in, POSTs to
 // /api/deviceui/navigate for each screen, and GETs /api/website/screenshot (a clean PNG
 // of the current touchscreen), saving to public/assets/device/.
@@ -74,7 +74,7 @@ async function main() {
   const auth = { Authorization: `Bearer ${token}` };
 
   // Fail fast with a clear message if the navigation endpoint isn't in this build.
-  // A build without it doesn't 404 cleanly — the request falls through to the SPA
+  // A build without it doesn't 404 cleanly - the request falls through to the SPA
   // fallback, which serves HTML (GET) or 500s (POST). So we check for a JSON reply.
   {
     const probe = await fetch(`${BASE}/api/deviceui/screens`, { headers: auth });
@@ -102,7 +102,7 @@ async function main() {
     await sleep(800); // let the menus rebuild with admin content
   } else {
     console.warn(
-      `  ! device logon returned HTTP ${logon.status} — capturing as the current ` +
+      `  ! device logon returned HTTP ${logon.status} - capturing as the current ` +
         `device session (may be guest). Update the app to the latest deviceui endpoint.`,
     );
   }
@@ -121,7 +121,7 @@ async function main() {
         { method: 'POST', headers: auth },
       );
       if (!nav.ok) {
-        console.warn(`  ✗ ${shot.name}  — navigate ${shot.screen}: HTTP ${nav.status}`);
+        console.warn(`  ✗ ${shot.name}  - navigate ${shot.screen}: HTTP ${nav.status}`);
         continue;
       }
 
@@ -129,7 +129,7 @@ async function main() {
 
       const shotRes = await fetch(`${BASE}/api/website/screenshot`, { headers: auth });
       if (!shotRes.ok) {
-        console.warn(`  ✗ ${shot.name}  — screenshot: HTTP ${shotRes.status}`);
+        console.warn(`  ✗ ${shot.name}  - screenshot: HTTP ${shotRes.status}`);
         continue;
       }
       const buf = Buffer.from(await shotRes.arrayBuffer());
@@ -137,7 +137,7 @@ async function main() {
       console.log(`  ✓ ${shot.name}  ←  ${shot.screen}  (${buf.length} bytes)`);
       ok++;
     } catch (err) {
-      console.warn(`  ✗ ${shot.name}  — ${err.message}`);
+      console.warn(`  ✗ ${shot.name}  - ${err.message}`);
     }
   }
 

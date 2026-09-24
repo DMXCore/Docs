@@ -33,10 +33,10 @@ At this time the firmware and config utility are not made available as open sour
 
 Use the current **`.dmg`** from [GitHub releases](https://github.com/DMXCore/Pico2ReMapper-Public/releases) (`osx-arm64` on Apple silicon, `osx-x64` on Intel). Open the disk image and double-click **DmxRemapperConfig** (the application). Do not run a raw Unix executable, a `.command` file, or an older `.zip`.
 
-The first launch may ask whether the app can control Terminal — choose **Allow**.
+The first launch may ask whether the app can control Terminal - choose **Allow**.
 
 See [Config Utility](/dmx-core-pico-2-re-mapper/config-utility/#macos) for the full macOS launch steps.
 
-### I have a suggestion for a new feature — can you add it?
+### I have a suggestion for a new feature - can you add it?
 
 We're open to suggestions. Please [open an issue on GitHub](https://github.com/DMXCore/Pico2ReMapper-Public/issues) or [contact us](https://dmxprosales.com/pages/contact-us) directly.

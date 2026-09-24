@@ -3,23 +3,23 @@ title: Timecode Chase
 description: Lock a timeline to incoming Art-Net timecode so playback joins the site clock instead of starting at the beginning
 ---
 
-**Timecode chase** locks a timeline to incoming **Art-Net ArtTimeCode** so the playhead follows a site-wide clock instead of starting at the cursor. Play joins *wherever that clock is now* — three minutes into a show after a reboot, or at the same frame as every other controller on the network.
+**Timecode chase** locks a timeline to incoming **Art-Net ArtTimeCode** so the playhead follows a site-wide clock instead of starting at the cursor. Play joins *wherever that clock is now* - three minutes into a show after a reboot, or at the same frame as every other controller on the network.
 
 Typical setup: QLab, TimeCore, Timecode Expert, or another ArtTimeCode generator puts one clock on the LAN. Each DMX Core 100 runs its own zone timeline and chases that clock.
 
 This is a **playhead chase**, not a per-cue timecode trigger. Cues, presets, and sounds on the timeline still fire by their timeline times; the clock only decides *where* the playhead is. A join that lands inside a cue or sound starts it part-way through (a soundtrack picks up mid-file); events that were already over before the join point are skipped.
 
-The settings use the same vocabulary as grandMA3's timecode shows and slots — **Internal**, **Offset**, **After Roll**, **Auto Start**, **Auto Stop** — so an operator coming from a console should find them familiar.
+The settings use the same vocabulary as grandMA3's timecode shows and slots - **Internal**, **Offset**, **After Roll**, **Auto Start**, **Auto Stop** - so an operator coming from a console should find them familiar.
 
 :::tip[Web UI only]
-Timecode is configured in the timeline editor, under **Lighting > Timelines**. Playback still starts from anywhere — touchscreen, schedules, custom menus, control surfaces, and [input triggers](/dmx-core-100/scheduling-automation/input-triggers) — unless the timeline is set to [Timecode only](#timecode-only).
+Timecode is configured in the timeline editor, under **Lighting > Timelines**. Playback still starts from anywhere - touchscreen, schedules, custom menus, control surfaces, and [input triggers](/dmx-core-100/scheduling-automation/input-triggers) - unless the timeline is set to [Timecode only](#timecode-only).
 :::
 
 See [Timelines](/dmx-core-100/playback/timelines) for the editor itself.
 
 ## What You Need
 
-- An **Art-Net ArtTimeCode** source (`OpTimeCode` **0x9700**) on UDP port **6454** — the same port as Art-Net lighting.
+- An **Art-Net ArtTimeCode** source (`OpTimeCode` **0x9700**) on UDP port **6454** - the same port as Art-Net lighting.
 - Packets sent to the **device's Ethernet address** (unicast) or the subnet broadcast. Sending to `127.0.0.1` on a PC will not reach a unit that is bound to its LAN adapter.
 - A timeline whose **duration** covers the portion of the clock you want to chase.
 
@@ -27,14 +27,14 @@ The device listens for ArtTimeCode as soon as network lighting output is up. You
 
 This release **receives** ArtTimeCode only. MIDI timecode (MTC) and LTC (audio timecode) are not supported. The device does not generate ArtTimeCode.
 
-QLab can generate timecode, but not Art-Net ArtTimeCode by itself — use a converter, [Visual Productions TimeCore](https://www.visualproductions.nl/products/timecore), [Timecode Expert](https://timecodeexpert.com/), or another ArtTimeCode generator.
+QLab can generate timecode, but not Art-Net ArtTimeCode by itself - use a converter, [Visual Productions TimeCore](https://www.visualproductions.nl/products/timecore), [Timecode Expert](https://timecodeexpert.com/), or another ArtTimeCode generator.
 
 ## The TC Readout
 
 The timeline editor status bar has a **TC:** chip:
 
-- **waiting…** — no live ArtTimeCode on this network (or it went silent).
-- `HH:MM:SS:FF` plus fps and source IP — packets are arriving.
+- **waiting…** - no live ArtTimeCode on this network (or it went silent).
+- `HH:MM:SS:FF` plus fps and source IP - packets are arriving.
 
 Confirm this chip before opening day. The timeline does not have to be in a timecode mode for the readout to work.
 
@@ -74,7 +74,7 @@ Frame rate follows the packet (24, 25, 29.97 drop-frame, or 30 fps). There is no
 
 When the timeline is in a timecode mode and live timecode is **in range** (matching **Art-Net stream**):
 
-- **Play** — from the Web UI, touchscreen, a schedule, a custom menu, OSC, the API, or a script — **joins the live clock**. It does not start at the editor cursor.
+- **Play** - from the Web UI, touchscreen, a schedule, a custom menu, OSC, the API, or a script - **joins the live clock**. It does not start at the editor cursor.
 - **Jump / scrub Play** in the editor does the same: set the mode to **Internal** if you need to preview from the cursor.
 - **Loop** is treated as **1** while chasing. A non-looping site clock should not wrap a looping timeline.
 
@@ -84,7 +84,7 @@ To preview or run the timeline on its own clock, set **Timecode** to **Internal*
 
 ## Timecode Only
 
-Use **Timecode only** when the timeline must never run off the clock — a show that has to stay in sync with the site's audio or video, where a stray Play from a touchscreen, a schedule, or a control surface would run the lights out of sync. This is how a grandMA3 timecode show assigned to a TC Slot behaves.
+Use **Timecode only** when the timeline must never run off the clock - a show that has to stay in sync with the site's audio or video, where a stray Play from a touchscreen, a schedule, or a control surface would run the lights out of sync. This is how a grandMA3 timecode show assigned to a TC Slot behaves.
 
 - **Play, Jump, and Resume are accepted only when they join live timecode in range.** Otherwise they are refused, from every source: the timeline editor, the Timelines page, the touchscreen, custom menus, control surfaces, input triggers, schedules, OSC, and the API. The Web UI shows the reason (for example *"Timeline SHOW is timecode only and no timecode is being received on stream 0"*); schedules and triggers log a warning and skip the action.
 - **Stop and Pause still work.** Stop stays the emergency override. A stopped timeline re-arms for the next pass of the clock exactly as in Chase mode; while the clock is still live and in range, Play or Resume rejoins it.
@@ -105,7 +105,7 @@ The editor header shows a **TC only** chip for such a timeline, and the settings
 | Choice | Behavior |
 |--------|----------|
 | **Off** (default) | The timeline stays idle until Play (or another trigger). Then it joins live timecode if it is in range. |
-| **On** | As soon as valid timecode is in range, the timeline starts by itself — including after a device restart, as long as the clock is still in range. |
+| **On** | As soon as valid timecode is in range, the timeline starts by itself - including after a device restart, as long as the clock is still in range. |
 
 Use **On** when the site clock is the master and you want every Core to catch the show without someone pressing Play. Use **Off** when an operator or schedule should still *choose* to join.
 
@@ -130,8 +130,8 @@ When timecode comes back (Off, pause or Off, keep running):
 
 Timecode settings are stored with the timeline. After a reboot, timelines in a timecode mode load again and the Art-Net listener re-attaches.
 
-- **Auto Start On** — if the clock is still in range, the timeline **starts at the live position**, not the beginning.
-- **Auto Start Off** — wait for Play; that Play still joins live timecode, not the start.
+- **Auto Start On** - if the clock is still in range, the timeline **starts at the live position**, not the beginning.
+- **Auto Start Off** - wait for Play; that Play still joins live timecode, not the start.
 
 ## Holds
 
@@ -146,6 +146,6 @@ A [Hold milestone](/dmx-core-100/playback/hold-milestones) **leaves the clock** 
 | Play is refused with a "timecode only" message | The timeline is **Timecode only** and there is no live timecode in range on its **Art-Net stream**. Wait for the clock (check the TC chip), or switch the mode to **Chase** to run it by hand. |
 | One unit chases, another does not | Art-Net streams match. Each unit's Offset and duration cover the same clock window. |
 | Timeline stops when TC freezes | That is **Off, pause** or **On, stop** after the After Roll. Use **Off, keep running** if a frozen frame should not hold the look, or lengthen the After Roll. |
-| Timeline never starts by itself | **Auto Start** is **Off** (the default) — press Play. Or TC is still before the Offset / past the end. Or the timeline was stopped or paused during this pass of the clock: press Play, or let the clock rewind for the next show. |
+| Timeline never starts by itself | **Auto Start** is **Off** (the default) - press Play. Or TC is still before the Offset / past the end. Or the timeline was stopped or paused during this pass of the clock: press Play, or let the clock rewind for the next show. |
 | Timeline starts about a second after Play | Expected: a mid-show join is loaded one second ahead so it lands on the clock. |
 | Playhead is a few frames off after a restart | Check the generator's frame-rate flag matches its actual rate; the timeline follows the packet's rate. |

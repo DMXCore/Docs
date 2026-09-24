@@ -4,7 +4,7 @@ title: Re-flash Instructions
 
 If you need to recover the device back to factory default (you will lose all settings, presets and cues) then you can re-flash the boot image.
 
-To wipe show content and return to empty defaults **without** rewriting the OS — keeping network settings and the device license — use [Factory Reset](/dmx-core-100/configuration/utilities#factory-reset) in the Web UI instead.
+To wipe show content and return to empty defaults **without** rewriting the OS - keeping network settings and the device license - use [Factory Reset](/dmx-core-100/configuration/utilities#factory-reset) in the Web UI instead.
 
 To change software version on a unit that still boots, use [Software Updates](/dmx-core-100/configuration/software-updates). Do not re-flash just to move to a newer or older build.
 
@@ -20,7 +20,7 @@ Once you have that, you need this tool to write the image: [https://etcher.balen
 
 And this is where you download the image: [https://dmxcorefiles.blob.core.windows.net/files/flash-images/balena-cloud-Unprovisioned-dmxcore100-4.0.16-v14.12.2.img.xz](https://dmxcorefiles.blob.core.windows.net/files/flash-images/balena-cloud-Unprovisioned-dmxcore100-4.0.16-v14.12.2.img.xz)
 
-When you have everything installed, disconnect the DMX Core 100 from network and power and plug it into your computer via the USB A-A cable. You should see that it gets power. Then execute the RPIBOOT command line tool — it should complete in a few seconds and after that a new disk drive should appear.
+When you have everything installed, disconnect the DMX Core 100 from network and power and plug it into your computer via the USB A-A cable. You should see that it gets power. Then execute the RPIBOOT command line tool - it should complete in a few seconds and after that a new disk drive should appear.
 
 If you want to preserve the identity of the previous device, copy the `config.json` file from that disk drive and overwrite it after flashing the restore image (this is optional).
 

@@ -70,8 +70,8 @@ Mating parts if you are making your own cable: JST `SHR-03V-S-B` housing and `SS
 
 J4 is a 2-pin 2.54 mm header next to the silkscreen **Connect C to GND**. Installing a jumper shorts the digital-input common (`C`) to board ground.
 
-* **Jumper fitted** — use this when powering buttons or dry contacts from the onboard `3v3` pin, or when you want the input return to be the same as board GND.
-* **Jumper open** — use this when an external 3–24 V source has its own 0 V connected to `C`, so the input common can stay separate from board ground.
+* **Jumper fitted** - use this when powering buttons or dry contacts from the onboard `3v3` pin, or when you want the input return to be the same as board GND.
+* **Jumper open** - use this when an external 3–24 V source has its own 0 V connected to `C`, so the input common can stay separate from board ground.
 
 ## Expansion pins
 

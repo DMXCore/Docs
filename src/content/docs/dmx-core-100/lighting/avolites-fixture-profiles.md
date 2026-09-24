@@ -3,7 +3,7 @@ title: Avolites Fixture Profiles
 description: Find and import fixture profiles from the Avolites Personality Library (.d4 files)
 ---
 
-The [Avolites Personality Library](https://personalities.avolites.com/) is one of the largest fixture libraries in the industry, with over 20,000 fixtures — including many budget and unbranded fixtures that don't appear in other libraries. The DMX Core 100 imports Avolites Titan personality files (`.d4`) directly.
+The [Avolites Personality Library](https://personalities.avolites.com/) is one of the largest fixture libraries in the industry, with over 20,000 fixtures - including many budget and unbranded fixtures that don't appear in other libraries. The DMX Core 100 imports Avolites Titan personality files (`.d4`) directly.
 
 ## Finding Your Fixture
 
@@ -11,11 +11,11 @@ Browse or search the library at [personalities.avolites.com](https://personaliti
 
 1. Use the **Manufacturer** filter or the **Search** box to find your fixture
 2. Click the fixture name to see its personality files
-3. Look for a row with **Titan** or **Diamond 4** in the Desk column — that's the `.d4` file the DMX Core 100 can import
+3. Look for a row with **Titan** or **Diamond 4** in the Desk column - that's the `.d4` file the DMX Core 100 can import
 4. Click the file name to view the fixture's channel layout and verify it matches your fixture's manual
 
 :::note
-The website doesn't offer individual file downloads — the `.d4` files are distributed in the full library package described below.
+The website doesn't offer individual file downloads - the `.d4` files are distributed in the full library package described below.
 :::
 
 ## Getting the .d4 Files

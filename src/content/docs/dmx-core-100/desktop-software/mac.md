@@ -5,8 +5,8 @@ description: Install and run DMX Core 100 on macOS
 
 The DMX Core 100 desktop software is available for macOS in two variants:
 
-* **ARM64** — for Macs with Apple Silicon (M1 or later)
-* **x64** — for Macs with Intel processors
+* **ARM64** - for Macs with Apple Silicon (M1 or later)
+* **x64** - for Macs with Intel processors
 
 ## Download
 
@@ -20,8 +20,8 @@ If you are unsure which version to download, click the Apple menu () > **About T
 ## Installation
 
 1. Open the downloaded `.pkg` file and follow the installer.
-2. The app is signed and notarized by **DMX Pro Sales**, so macOS Gatekeeper allows it to run normally — no security override needed.
-3. Launch **DMX Core 100** from your **Applications** folder. It keeps itself up to date after that. You can also pick a specific build from **Utilities > Releases** — see [Software Updates](/dmx-core-100/configuration/software-updates).
+2. The app is signed and notarized by **DMX Pro Sales**, so macOS Gatekeeper allows it to run normally - no security override needed.
+3. Launch **DMX Core 100** from your **Applications** folder. It keeps itself up to date after that. You can also pick a specific build from **Utilities > Releases** - see [Software Updates](/dmx-core-100/configuration/software-updates).
 
 ## Web Interface
 

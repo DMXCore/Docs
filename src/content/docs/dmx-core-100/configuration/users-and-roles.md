@@ -3,7 +3,7 @@ title: Users & Roles
 description: Manage user accounts and role-based permissions
 ---
 
-The DMX Core 100 supports multiple user accounts, each with a role that determines what features they can access. This lets you give different people different levels of control — for example, a full admin for the installer and a limited operator account for daily use.
+The DMX Core 100 supports multiple user accounts, each with a role that determines what features they can access. This lets you give different people different levels of control - for example, a full admin for the installer and a limited operator account for daily use.
 
 :::tip[Web UI only]
 User and role management is available in the Web UI under **User Management > Users** and **User Management > Roles**.
@@ -27,9 +27,9 @@ To create a new user:
 
 Per-user options include:
 
-- **Web Login Method** — how the user signs in to the Web UI: their **PIN code** or a **password**. A password is the better choice for accounts used remotely; the touchscreen always uses the PIN.
-- **Auto log-off** — an inactivity timeout in minutes (0 = never), per user.
-- **Enabled** — disable an account without deleting it.
+- **Web Login Method** - how the user signs in to the Web UI: their **PIN code** or a **password**. A password is the better choice for accounts used remotely; the touchscreen always uses the PIN.
+- **Auto log-off** - an inactivity timeout in minutes (0 = never), per user.
+- **Enabled** - disable an account without deleting it.
 
 ### User Tokens
 
@@ -41,11 +41,11 @@ Long-lived API keys are managed under **User Management > API Keys**. Each key h
 
 | Type | Used by | Authenticates on |
 |------|---------|------------------|
-| **MCP** | [MCP Server](/dmx-core-100/integrations/mcp-server) — AI clients such as Claude Desktop and Cursor | `/mcp` |
-| **Integration** | [Integration API](/dmx-core-100/integrations/integration-api) — Bitfocus Companion, Crestron, Node-RED and similar control systems | `/api/integration` |
+| **MCP** | [MCP Server](/dmx-core-100/integrations/mcp-server) - AI clients such as Claude Desktop and Cursor | `/mcp` |
+| **Integration** | [Integration API](/dmx-core-100/integrations/integration-api) - Bitfocus Companion, Crestron, Node-RED and similar control systems | `/api/integration` |
 
 - Pick the type when creating the key on that page, or issue a key of the right type straight from **Device > System** with **Issue MCP API Key** / **Issue Integration API Key** when that feature is enabled
-- The secret is shown once at creation — store it securely
+- The secret is shown once at creation - store it securely
 - A key works only on its own surface; neither type can be exchanged for a Web UI JWT or used on the admin REST API
 - Revoke a key anytime; the list shows first-used and last-used times, and a revoked key is refused immediately
 
@@ -57,11 +57,11 @@ Roles define what a user can do. The system ships with **Admin**, **Operator**, 
 
 ![Roles list](/assets/web/roles-list.png)
 
-![Role editor — Operator permissions](/assets/web/role-editor.png)
+![Role editor - Operator permissions](/assets/web/role-editor.png)
 
-The built-in **Operator** role includes Edit/Delete Schedule, Device Operations, Change Network Settings, Change Output Settings, Edit Output, Record, File Explorer (including upload/transfer), and local/cloud backup restore — enough for day-to-day show work without User Management or factory reset. **Standard** has Edit/Delete Schedule, Device Operations, and cloud backup only. Neither Operator nor Standard includes **Start/Stop output**, which is what the touchscreen [Stop/Blackout](/dmx-core-100/basics/blackout-and-stop) tile requires.
+The built-in **Operator** role includes Edit/Delete Schedule, Device Operations, Change Network Settings, Change Output Settings, Edit Output, Record, File Explorer (including upload/transfer), and local/cloud backup restore - enough for day-to-day show work without User Management or factory reset. **Standard** has Edit/Delete Schedule, Device Operations, and cloud backup only. Neither Operator nor Standard includes **Start/Stop output**, which is what the touchscreen [Stop/Blackout](/dmx-core-100/basics/blackout-and-stop) tile requires.
 
-Playing a cue in the Web UI only needs a signed-in user — it does not require a separate Play Cue permission.
+Playing a cue in the Web UI only needs a signed-in user - it does not require a separate Play Cue permission.
 
 Each role is a set of individually toggleable permissions covering:
 
@@ -82,7 +82,7 @@ Non-admin users can rename and delete cues they created within 24 hours of creat
 
 ## Guests
 
-[Custom menus](/dmx-core-100/scheduling-automation/custom-menus#guest-access) marked **Available to Guests** can be used from the Web UI without any login — guests see only those menus and nothing else.
+[Custom menus](/dmx-core-100/scheduling-automation/custom-menus#guest-access) marked **Available to Guests** can be used from the Web UI without any login - guests see only those menus and nothing else.
 
 ## Auto Log-off
 

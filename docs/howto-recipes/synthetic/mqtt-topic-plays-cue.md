@@ -50,7 +50,7 @@ The DMX Core 100 is connected to the site broker, and an MQTT input trigger on
     },
     {
       "id": "add-trigger",
-      "label": "Open Control & Integrations → Input Triggers → Add New, set Type to MQTT, Address to building/lobby/occupancy and Mode to On/Off — run an action",
+      "label": "Open Control & Integrations → Input Triggers → Add New, set Type to MQTT, Address to building/lobby/occupancy and Mode to On/Off - run an action",
       "docsUrl": "/dmx-core-100/scheduling-automation/input-triggers/#input-types",
       "screenshotId": "input-trigger-editor"
     },
@@ -131,7 +131,7 @@ The DMX Core 100 is connected to the site broker, and an MQTT input trigger on
   published to an MQTT topic (requires the MQTT integration)"), Two Modes, Trigger
   Settings (**Address** = MQTT topic). Source: nav `web/inputtriggers` action
   `Add New`; `web/inputtriggers/details` Type option `MQTT`, field `Address`, Mode
-  option `On/Off — run an action`. `ExtConnManager.cs` `case TriggerTypes.MQTT` →
+  option `On/Off - run an action`. `ExtConnManager.cs` `case TriggerTypes.MQTT` →
   `mqttManager.AddTrigger(Address, StartPayload, StopPayload)`.
 - Step `set-payload-and-action`: `input-triggers.md` › Actions (Play Cue). Source:
   nav `web/inputtriggers/details` field `Start Payload` (visible for MQTT when Mode is

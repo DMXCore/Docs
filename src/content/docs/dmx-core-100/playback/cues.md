@@ -15,7 +15,7 @@ On the **touchscreen**, navigate to **Main Menu > Cues** to see the list. Tap a 
 
 ![Cues list](/assets/device/cues-list.png)
 
-The top bar expands to show playback controls — tap the arrow to toggle it. Controls include Fade Out, Stop, and the list-wide **Default Settings** for Loop, Fade In, and Fade Out (the same defaults as on the Web UI Cues list).
+The top bar expands to show playback controls - tap the arrow to toggle it. Controls include Fade Out, Stop, and the list-wide **Default Settings** for Loop, Fade In, and Fade Out (the same defaults as on the Web UI Cues list).
 
 ![Cues list with playback controls expanded](/assets/device/cues-list-controls.png)
 
@@ -27,7 +27,7 @@ In the **Web UI**, go to **Lighting > Cues**. The list shows duration and size, 
 
 **Fade In (seconds)**, **Fade Out (seconds)**, and **Loop** are not per-cue fields. They live on the Cues list as **Default Settings** (Web UI: **Lighting > Cues**; touchscreen: the cue list top bar). New playback uses these defaults. **Loop** of `0` means loop forever.
 
-![Cues list Default Settings — Loop, Fade In, and Fade Out](/assets/web/cue-defaults.png)
+![Cues list Default Settings - Loop, Fade In, and Fade Out](/assets/web/cue-defaults.png)
 
 :::note[Interface differences]
 - **Touchscreen**: Tap to play, long-hold for settings.
@@ -40,33 +40,33 @@ Long-hold a cue on the touchscreen, or open it in the Web UI, to edit its settin
 
 ![Cue details in the Web UI, including Priority Override](/assets/web/cue-editor.png)
 
-![Cue settings — fields](/assets/device/cue-settings.png)
+![Cue settings - fields](/assets/device/cue-settings.png)
 
-![Cue settings — actions](/assets/device/cue-settings-actions.png)
+![Cue settings - actions](/assets/device/cue-settings-actions.png)
 
-- **Code** — A unique identifier used in API trigger events and external control
-- **Name / Description** — Display name and notes
-- **Bounce Playback** — Play forward then backward for seamless looping
-- **In-point / Out-point** — Trim playback to a portion of the recording
-- **Dimmer** — Overall brightness level for the cue output
-- **Only Admin** — Hide the cue from non-admin users
-- **Favorite** — Show the cue in [Favorites](/dmx-core-100/scheduling-automation/favorites)
+- **Code** - A unique identifier used in API trigger events and external control
+- **Name / Description** - Display name and notes
+- **Bounce Playback** - Play forward then backward for seamless looping
+- **In-point / Out-point** - Trim playback to a portion of the recording
+- **Dimmer** - Overall brightness level for the cue output
+- **Only Admin** - Hide the cue from non-admin users
+- **Favorite** - Show the cue in [Favorites](/dmx-core-100/scheduling-automation/favorites)
 
 ### Attached Sound
 
-A cue can have a **sound** attached so audio and lighting always start together. The attachment has its own loop count, **Restart Sound at Loop** option, volume adjustment, and a **Sound Offset** (milliseconds, 0–10000) to delay the sound relative to the lighting. The editor does not accept a negative offset. There is no separate Audio Delay setting — for metronome compensation see [Output Latency](/dmx-core-100/lighting/tempo#output-latency).
+A cue can have a **sound** attached so audio and lighting always start together. The attachment has its own loop count, **Restart Sound at Loop** option, volume adjustment, and a **Sound Offset** (milliseconds, 0–10000) to delay the sound relative to the lighting. The editor does not accept a negative offset. There is no separate Audio Delay setting - for metronome compensation see [Output Latency](/dmx-core-100/lighting/tempo#output-latency).
 
 ### Layers and Priority
 
-- **Playback Layer** — cues on the same layer replace each other; cues on different layers play together (default 0)
-- **Priority Override** — an optional sACN priority (1–200) replacing the recorded **100**
+- **Playback Layer** - cues on the same layer replace each other; cues on different layers play together (default 0)
+- **Priority Override** - an optional sACN priority (1–200) replacing the recorded **100**
 
 See [Layers & Priority](/dmx-core-100/playback/layers-and-priority) for how concurrent playback combines.
 
 ### Fade Mask
 
 :::tip[Web UI only]
-The **Cue Fade Masks** editor (under **Lighting Setup**) selects which DMX channels participate in fades. Channels excluded from the mask switch instantly instead of fading — useful for non-dimmable functions like gobos or color wheels.
+The **Cue Fade Masks** editor (under **Lighting Setup**) selects which DMX channels participate in fades. Channels excluded from the mask switch instantly instead of fading - useful for non-dimmable functions like gobos or color wheels.
 :::
 
 ### Channel Rules
@@ -79,12 +79,12 @@ During playback, the **Web UI** shows a progress bar with **pause/resume**, **sc
 
 ## Duplicating Cues
 
-In the **Web UI**, duplicate a cue to create a copy with the same DMX data but a new name and code — useful for variations with different dimmer, in/out points, or layer settings. Fade and loop still come from the list **Default Settings**.
+In the **Web UI**, duplicate a cue to create a copy with the same DMX data but a new name and code - useful for variations with different dimmer, in/out points, or layer settings. Fade and loop still come from the list **Default Settings**.
 
 ## Compressed Storage
 
 :::tip[Web UI only]
-Open a dynamic cue and use **Compress** to store its recording compressed on disk (zstd, typically 3–5x smaller for real show content). Playback reads the compressed file directly — in/out points, looping, bounce and every other setting work as before — and the cue page shows **Size on disk (compressed)** next to the content size. **Decompress** restores the plain file.
+Open a dynamic cue and use **Compress** to store its recording compressed on disk (zstd, typically 3–5x smaller for real show content). Playback reads the compressed file directly - in/out points, looping, bounce and every other setting work as before - and the cue page shows **Size on disk (compressed)** next to the content size. **Decompress** restores the plain file.
 :::
 
 ![Compress cue confirmation](/assets/web/cue-compress-dialog.png)

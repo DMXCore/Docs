@@ -1,9 +1,9 @@
-# DMX Core 100 how-to chat — implementation plan
+# DMX Core 100 how-to chat - implementation plan
 
 Teach-only assistant. Generic help from the published docs with no device
 data. Configuration snapshot and Seq logs only for devices the account has
 granted in the portal. The agent never writes to a device. Local MCP stays
-live playback and levels — a different product.
+live playback and levels - a different product.
 
 ## Non-goals
 
@@ -39,7 +39,7 @@ The plan for what remains: [`howto-chat-gap-plan.md`](howto-chat-gap-plan.md).
 
 ---
 
-## Phase 1 — Docs copilot (what to build)
+## Phase 1 - Docs copilot (what to build)
 
 A widget on docs.dmxcore.com that answers how-to from the published corpus,
 with screenshots and a structured checklist. No device connection. The two
@@ -51,9 +51,9 @@ example prompts work as generic walkthroughs.
 |-------|-------|-----|
 | ~97 Starlight pages | `src/content/docs/dmx-core-100/` | Primary knowledge. Quick Start already covers fixture setup and recording. |
 | Screenshot pipeline | `scripts/capture-web-screenshots.mjs`, `capture-uno-screenshots.mjs` | `public/assets/web/*.png` and `public/assets/device/uno-*.png`. |
-| Pagefind | `dist/pagefind/` after `astro build` | Client search only — not sufficient as the agent’s retrieval. |
+| Pagefind | `dist/pagefind/` after `astro build` | Client search only - not sufficient as the agent’s retrieval. |
 | Common Tasks | 2 guides today | The real content gap. Chat quality tracks recipe coverage more than model choice. |
-| Azure Static Web Apps | docs.dmxcore.com | The **UI** can live here. The **chat API** cannot — it needs a server. |
+| Azure Static Web Apps | docs.dmxcore.com | The **UI** can live here. The **chat API** cannot - it needs a server. |
 
 ### Required pieces
 
@@ -69,7 +69,7 @@ A screenshot catalog (id → PNG path, alt, docs slug) lets the model attach
 the right image to a walkthrough step. Source of truth for ids: the `SHOTS`
 array in the capture scripts plus the markdown `![alt](/assets/...)` refs.
 
-#### 2. Chat API (Azure, next to DeviceApi — not on the device)
+#### 2. Chat API (Azure, next to DeviceApi - not on the device)
 
 Streaming chat. System prompt: how-to only; cite a docs URL or say you don’t
 know; never invent menu names or buttons; emit a walkthrough object, not a
@@ -128,7 +128,7 @@ You review which ones are likely in the field. Store them as files in
 
 **After ship:** any real question from a session gets added to
 `docs/howto-recipes/` from the ticket/email/notes. That is how accuracy
-improves — not a one-time dump.
+improves - not a one-time dump.
 
 The two prompts already used as examples (Robe fixture at an address;
 record Art-Net from Lightkey) are the obvious first gold paths when that
@@ -206,7 +206,7 @@ Cap daily spend on the Azure OpenAI resource so a scrape cannot run away.
 
 ---
 
-## Phase 2 — Device-aware help (later)
+## Phase 2 - Device-aware help (later)
 
 ### Portal grant
 
@@ -243,7 +243,7 @@ page is step 5 with the device already chosen.
 
 In-depth help requiring a portal account is accepted.
 
-### Config snapshot (new format — not a backup)
+### Config snapshot (new format - not a backup)
 
 Do not feed a backup to the model. Today’s backup is SQLite + JSON sidecars
 + cue/sound blobs. Even the cloud zip (which omits `.cap` / `.wav`) still
@@ -266,7 +266,7 @@ protocol.json              OutputConfig subset (merge, frequency, routing)
 settings.json              explicit HostConfig allowlist only
 fixtures.json
 profiles/index.json
-profiles/{id}.json         full channel map — only when discussing that profile
+profiles/{id}.json         full channel map - only when discussing that profile
 cues.json / presets.json / sounds.json     metadata only
 timelines/index.json
 timelines/{code}.json
@@ -302,7 +302,7 @@ photos, `Api` keys, user password hashes, unlock PIN, MQTT / VNC / plugin
 setting **values**, audit log, application logs, Wi-Fi secrets, raw SQLite,
 whole `HostConfig.json`.
 
-### settings.json — HostConfig allowlist
+### settings.json - HostConfig allowlist
 
 Copy **named** properties. Never serialize HostConfig as a whole. A unit
 test fails if a public `HostConfig` property is neither allowlisted nor on
@@ -336,7 +336,7 @@ VNC, emit `screenUnlockConfigured` / `vncPasswordConfigured` only.
 
 `PluginFeeds` is deferred (may be private enterprise URLs).
 
-Merge, frequency, recording protocol, and routing live on **OutputConfig** —
+Merge, frequency, recording protocol, and routing live on **OutputConfig** -
 those stay in `protocol.json`.
 
 ### Seq logs
@@ -359,8 +359,8 @@ The on-device audit log is too thin for this (no fixture save / import).
 
 #### User activity (Core #130)
 
-Core logs **what the user did** — on the web API, touchscreen, Integration
-API and MCP — as Debug `UserActivity` events: `ActivitySource`,
+Core logs **what the user did** - on the web API, touchscreen, Integration
+API and MCP - as Debug `UserActivity` events: `ActivitySource`,
 `ActivityEntity`, `ActivityVerb`, `ActivityEntityId`/`Name`,
 `ActivityOutcome` (Ok / Failed / Denied / Cancelled), `ElapsedMs`. Messages
 read like `Activity Web > Cue > Save - id 123` or
@@ -373,7 +373,7 @@ the filtered events, newest first. Uses in chat:
 
 - Know where the user has been and what they last changed ("you saved the
   input mapping 2 minutes ago, but recording protocol is still sACN").
-- Explain failures and denials (`Failed`, `Denied` — e.g. an admin-only
+- Explain failures and denials (`Failed`, `Denied` - e.g. an admin-only
   screen).
 - Paths match the navigation document (#129), so the agent can point to the
   exact screen and field.

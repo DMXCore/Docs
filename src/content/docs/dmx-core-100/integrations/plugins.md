@@ -4,7 +4,7 @@ description: Install, update, and manage the plugins that extend the DMX Core 10
 ---
 
 Plugins extend the DMX Core 100 with integrations that run on the device
-itself — DSP control (**Symetrix**, **Q-SYS**), smart-home platforms
+itself - DSP control (**Symetrix**, **Q-SYS**), smart-home platforms
 (**[Home Assistant](/dmx-core-100/integrations/home-assistant)**), networked
 lighting (**Shelly**, **LIFX**, **WiZ**, **Govee**), show import
 (**[Lightjams](/dmx-core-100/integrations/lightjams)**), and more. Plugins are installed per device
@@ -26,16 +26,16 @@ search box to filter the list.
 
 ![The Browse tab listing the plugins in the registry](/assets/web/plugins-browse.png)
 
-Press **Install** next to a plugin — the device downloads the package,
+Press **Install** next to a plugin - the device downloads the package,
 verifies it, and starts it right away. When a plugin has several versions,
-the version dropdown lets you pick one — including an older version of an
+the version dropdown lets you pick one - including an older version of an
 installed plugin, if a newer one misbehaves (the update check will offer the
 newer version again). Newly installed plugins appear on the
 **Installed** tab, where you enable/disable them and edit their settings.
 
 Only versions that this device's software can run are offered. If a plugin
 (or a newer version of it) needs a newer device software than you have, the
-Browse tab says so instead of offering it — update the device software first.
+Browse tab says so instead of offering it - update the device software first.
 
 :::caution[Plugins run with full access]
 Plugins run inside the DMX Core process with full access to the device and
@@ -49,27 +49,27 @@ Installed tab (see below).
 
 ## The Installed Tab
 
-Each installed plugin is listed with its version, state, and — for plugins
-that maintain a connection to external equipment — a live connection
+Each installed plugin is listed with its version, state, and - for plugins
+that maintain a connection to external equipment - a live connection
 indicator: a green link icon when the plugin is connected to its device (for
 example a DSP core), a red broken-link icon when it isn't.
 
-- **Enabled** — turn a plugin off without uninstalling it. Takes effect
+- **Enabled** - turn a plugin off without uninstalling it. Takes effect
   immediately: disabling stops a running plugin, enabling starts it.
-- **Settings** — each plugin declares its own settings (server addresses,
+- **Settings** - each plugin declares its own settings (server addresses,
   ports, options), edited right on the page. Settings changes apply
-  **immediately**, no restart needed — for the DSP plugins, saving a new
+  **immediately**, no restart needed - for the DSP plugins, saving a new
   address reconnects on the spot. The same panel shows which registry
   package the plugin came from and its per-plugin auto-update choice.
-- **Update** — shown (with an arrow badge next to the version) when the
+- **Update** - shown (with an arrow badge next to the version) when the
   registry has a newer version this device can run. One click downloads and
   applies it; the plugin's settings are kept.
-- **Reload** — restart just that plugin, without restarting the device.
+- **Reload** - restart just that plugin, without restarting the device.
   Useful if an integration is stuck or after changing something on the
   external system's side.
-- **Delete** — remove the plugin, effective immediately, together with its
+- **Delete** - remove the plugin, effective immediately, together with its
   settings.
-- **Upload** — install or update a plugin from a `.dmxplugin` package file
+- **Upload** - install or update a plugin from a `.dmxplugin` package file
   instead of the registry, for example on a device without internet access
   or for a plugin that is not published. The uploaded version starts running
   immediately.
@@ -78,11 +78,11 @@ example a DSP core), a red broken-link icon when it isn't.
 
 The device checks the registry for plugin updates **1 minute after startup**, then about once an hour with a few minutes of jitter, and whenever you press **Check for updates** on the Browse tab. An **Auto** policy can therefore apply an update **mid-show**. What happens when an update is found is set by the **Update policy** under **Browse > Registry settings**:
 
-- **Notify — show available updates, apply manually** (default)
-- **Auto — download and apply updates automatically** — the plugin restarts for a few seconds when the update is applied
-- **Off — do not check for updates**
+- **Notify - show available updates, apply manually** (default)
+- **Auto - download and apply updates automatically** - the plugin restarts for a few seconds when the update is applied
+- **Off - do not check for updates**
 
-Individual plugins can override the device policy in their settings panel (**Auto-update**: **Follow the device policy** / **Always update automatically** / **Never update automatically**) — for example to auto-update everything except a DSP integration you'd rather update during a maintenance window.
+Individual plugins can override the device policy in their settings panel (**Auto-update**: **Follow the device policy** / **Always update automatically** / **Never update automatically**) - for example to auto-update everything except a DSP integration you'd rather update during a maintenance window.
 
 Only versions this device's software can run are ever offered or applied.
 Updating the device software may unlock newer plugin versions.
@@ -91,11 +91,11 @@ Updating the device software may unlock newer plugin versions.
 
 **Browse > Registry settings** holds the update policy above plus:
 
-- **Pre-release versions** — also offer plugin versions marked as
+- **Pre-release versions** - also offer plugin versions marked as
   pre-release (for testing; off by default).
-- **Feeds** — the plugin registry is a standard NuGet feed; the default is
+- **Feeds** - the plugin registry is a standard NuGet feed; the default is
   nuget.org, where all public DMX Core plugins are published. Additional
-  feeds (one per line, as NuGet V3 service index URLs — Azure Artifacts,
+  feeds (one per line, as NuGet V3 service index URLs - Azure Artifacts,
   BaGet, and similar) let organizations distribute private plugins or run a
   local mirror; a feed that needs a login takes the credentials in the URL
   (`https://user:token@host/...`).
@@ -121,5 +121,5 @@ and, for plugins with public source, links to the repository.
 
 ## Building Your Own
 
-Anyone can build a plugin and publish it to the registry — see
+Anyone can build a plugin and publish it to the registry - see
 [Building & Publishing Plugins](/dmx-core-100/integrations/publishing-plugins).

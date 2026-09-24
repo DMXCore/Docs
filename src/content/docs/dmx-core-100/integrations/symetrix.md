@@ -1,6 +1,6 @@
 ---
 title: Symetrix DSP Plugin
-description: Two-way integration between the DMX Core 100 and Symetrix DSP cores — DSP controls on the touchscreen, and DSP-driven lighting — with the Symetrix DSP plugin
+description: Two-way integration between the DMX Core 100 and Symetrix DSP cores - DSP controls on the touchscreen, and DSP-driven lighting - with the Symetrix DSP plugin
 ---
 
 The Symetrix DSP plugin connects the DMX Core 100 to a **Symetrix** core
@@ -9,16 +9,16 @@ The Symetrix DSP plugin connects the DMX Core 100 to a **Symetrix** core
 numbers on the core become
 [Control Values](/dmx-core-100/integrations/control-values) that can be
 bound to touchscreen faders and buttons, control surfaces, input triggers,
-timelines, and scripts — with two-way state sync against the DSP.
+timelines, and scripts - with two-way state sync against the DSP.
 
-Install the plugin from **Control & Integrations > Plugins > Browse** in the Web UI — see
+Install the plugin from **Control & Integrations > Plugins > Browse** in the Web UI - see
 [Plugins](/dmx-core-100/integrations/plugins) for how to install, update,
 and manage plugins.
 
 ## Settings
 
-- **Server address** — the address of the Symetrix core.
-- **Server port** — only needs changing if it differs from the Symetrix default
+- **Server address** - the address of the Symetrix core.
+- **Server port** - only needs changing if it differs from the Symetrix default
   (48631).
 
 Settings apply immediately; saving a new address reconnects on the spot. The

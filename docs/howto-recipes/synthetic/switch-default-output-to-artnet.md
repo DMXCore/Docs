@@ -92,7 +92,7 @@ The default output (slot 1) is sent as Art-Net on the universe the node listens 
 ## Gaps
 
 - Output Config page does not say which numbering Art-Net **Start Universe Id** uses on outputs. Only the input mapping help says "Art-Net counts from 0" (`src/AdminSite/ClientApp/src/views/operation/InputMappingDetails.vue`). `DataFormatting.GetArtNetAddress3` (`src/BusinessObject/DataFormatting.cs`) subtracts 1 before it formats net:subnet:universe for the Outputs list description. Output numbering needs confirming and documenting.
-- Quick Start "Step 2 — Check Your Output" says to choose a **Protocol** and set the **Universe**. The released editor labels are **Output Type** and **Start Universe Id** (`OutputDetails.vue`; navigation `web/outputs/details`). **Protocol** is a different field, shown only for some output types.
+- Quick Start "Step 2 - Check Your Output" says to choose a **Protocol** and set the **Universe**. The released editor labels are **Output Type** and **Start Universe Id** (`OutputDetails.vue`; navigation `web/outputs/details`). **Protocol** is a different field, shown only for some output types.
 - Output Config says to click **Add** in the Web UI via Quick Start. The Web list action is **Add New** (navigation `web/outputs`). The touchscreen item is **Add** (`uno/settings/output configuration`).
 - No screenshot of the Output Monitor (catalog has no id).
 

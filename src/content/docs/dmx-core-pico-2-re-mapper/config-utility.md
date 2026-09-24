@@ -64,7 +64,7 @@ Reads the last received DMX frame from DMX port A and outputs it on the screen. 
 
 ### Get Mapping
 
-Reads the current running mapping from the Re-Mapper. Note that this doesn't necessarily match what is stored in flash memory — as you modify the mapping it's only in volatile RAM until you write it to flash. Get Mapping reads what is currently in RAM.
+Reads the current running mapping from the Re-Mapper. Note that this doesn't necessarily match what is stored in flash memory - as you modify the mapping it's only in volatile RAM until you write it to flash. Get Mapping reads what is currently in RAM.
 
 ### Modify Mapping
 
@@ -72,7 +72,7 @@ Modify the mapping one channel at a time. Select the output channel you want to 
 
 ### Revert Mapping
 
-Re-reads what is in flash memory into RAM — the same as a power cycle. Any mapping modified in RAM will be lost.
+Re-reads what is in flash memory into RAM - the same as a power cycle. Any mapping modified in RAM will be lost.
 
 ### Write Mapping to Flash
 

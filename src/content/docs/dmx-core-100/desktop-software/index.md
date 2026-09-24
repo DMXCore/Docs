@@ -3,7 +3,7 @@ title: Desktop Software
 description: Run the full DMX Core 100 software on your computer
 ---
 
-The DMX Core 100 software is available as a desktop application for **Windows**, **macOS**, and **Linux**. This lets you run the same software that powers the DMX Core 100 hardware directly on your PC or Mac — no hardware required.
+The DMX Core 100 software is available as a desktop application for **Windows**, **macOS**, and **Linux**. This lets you run the same software that powers the DMX Core 100 hardware directly on your PC or Mac - no hardware required.
 
 ## Demo Mode
 

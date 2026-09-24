@@ -171,7 +171,7 @@ jobs:
               'they directly produce a clear end-user benefit.\n'
               'Commits tagged [magnusengine] come from the playback engine inside this product. Even when their '
               'wording sounds like engine internals, changes to playback behavior (looping, fades, holds, timing, '
-              'transitions, output) are end-user-facing and should be included — e.g. "Make timeline loops seamless '
+              'transitions, output) are end-user-facing and should be included - e.g. "Make timeline loops seamless '
               'via metronomic restart" is a user-facing fix (seamless loops, no blackout at the loop point).\n'
               'Compare the suggested notes against the recent release note entries provided below. '
               'If the new commit history is already adequately covered by those recent entries, return an empty JSON array: [].\n'
@@ -308,7 +308,7 @@ jobs:
 
           def version_for(entry_date):
               if not tags:
-                  return '—'
+                  return '-'
               if entry_date in version_by_date:
                   return version_by_date[entry_date]
               later = [t for t in tags if t[0] > entry_date]
@@ -319,7 +319,7 @@ jobs:
                   mo, d, y = map(int, e['date'].split('/'))
                   e['version'] = version_for(date_cls(y, mo, d))
               except ValueError:
-                  e['version'] = '—'
+                  e['version'] = '-'
 
           # ── Update release-notes.md ───────────────────────────────────────────
           new_rows = ''.join(f'| {e["version"]} | {e["date"]} | {e["highlights"]} |\n' for e in entries)

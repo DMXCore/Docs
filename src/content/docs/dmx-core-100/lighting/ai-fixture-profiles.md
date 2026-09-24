@@ -3,11 +3,11 @@ title: AI-Generated Fixture Profiles
 description: Create a fixture profile from photos of the fixture's manual using an AI assistant
 ---
 
-Many light fixtures — especially unbranded ones — have no ready-made profile in the [Lightkey](https://www.lightkeyapp.com/en/fixtures), [Daslight](https://store.daslight.com/en/ssl), or [GDTF Share](https://gdtf-share.com) libraries. Often the only documentation is a printed manual with a DMX channel table. The DMX Core 100 supports a JSON profile format designed so that an AI assistant (Claude, ChatGPT, Gemini, etc.) can create the profile for you directly from photos of that manual.
+Many light fixtures - especially unbranded ones - have no ready-made profile in the [Lightkey](https://www.lightkeyapp.com/en/fixtures), [Daslight](https://store.daslight.com/en/ssl), or [GDTF Share](https://gdtf-share.com) libraries. Often the only documentation is a printed manual with a DMX channel table. The DMX Core 100 supports a JSON profile format designed so that an AI assistant (Claude, ChatGPT, Gemini, etc.) can create the profile for you directly from photos of that manual.
 
 ## How It Works
 
-1. **Photograph the manual.** Take clear photos of the "Channel description" / "DMX channels" pages. Any orientation is fine — the AI handles rotated pages. Make sure every table row is readable.
+1. **Photograph the manual.** Take clear photos of the "Channel description" / "DMX channels" pages. Any orientation is fine - the AI handles rotated pages. Make sure every table row is readable.
 2. **Ask the AI to build the profile.** Start a chat with an AI assistant that accepts images, attach the photos, and paste the prompt below.
 3. **Save the result.** The AI outputs a JSON file (for example `Unknown-RGBW-Bar.dmxprofile.json`). Save it to your computer.
 4. **Upload and import.** On Fixture Details, click **Add profile…** next to the Profile dropdown and choose the JSON file. You can also import from **Lighting Setup > Profiles**. (Or copy it to a USB stick and use **Utilities > File Explorer** on the touchscreen.)
@@ -67,7 +67,7 @@ Custom with a descriptive name. Never invent function names.
 If the manual abbreviates repeating rows with "..." (e.g. effect 2 ... effect
 87), work out the pattern, enumerate every row, and record in "warnings" that
 you interpolated. If a cell is unreadable, make the safest assumption and
-record it in "warnings" — never silently guess. If entire tables are
+record it in "warnings" - never silently guess. If entire tables are
 unreadable, ask me for a better photo instead of guessing.
 
 For pixel/point-control modes with many repeated channels (e.g. 144 channels
@@ -78,7 +78,7 @@ Output ONLY the JSON file content, no commentary. Name it
 ````
 
 :::tip
-You don't have to include every channel mode from the manual. If you only ever use the fixture in its basic mode, tell the AI which modes you want — smaller files are easier to review.
+You don't have to include every channel mode from the manual. If you only ever use the fixture in its basic mode, tell the AI which modes you want - smaller files are easier to review.
 :::
 
 ## Example
@@ -125,7 +125,7 @@ A minimal profile for a generic fixture with a 4-channel mode and a 6-channel mo
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `format` | yes | Always `"dmxcore-fixture-profile"` — this is how the device recognizes the file |
+| `format` | yes | Always `"dmxcore-fixture-profile"` - this is how the device recognizes the file |
 | `version` | yes | Always `1` |
 | `manufacturer` | yes | Manufacturer name, or `"Unknown"` |
 | `name` | yes | Short model description |
@@ -138,7 +138,7 @@ A minimal profile for a generic fixture with a 4-channel mode and a 6-channel mo
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `name` | yes | Unique mode name, e.g. `"6ch"` — this becomes the personality name |
+| `name` | yes | Unique mode name, e.g. `"6ch"` - this becomes the personality name |
 | `channelCount` | yes | Must equal the number of entries in `channels` (used as a cross-check) |
 | `comments` | no | Free-text notes, e.g. the manual's subtitle for the mode |
 | `channels` | yes | One entry per DMX channel, numbered `1..channelCount` exactly as printed in the manual |
@@ -151,7 +151,7 @@ Either a single function across the whole 0–255 value span:
 { "channel": 1, "name": "Red", "function": "Red" }
 ```
 
-optionally with `"fine": true` (16-bit fine channel) or `"continuous": true` (slider-style channel) — or a list of value ranges:
+optionally with `"fine": true` (16-bit fine channel) or `"continuous": true` (slider-style channel) - or a list of value ranges:
 
 ```json
 { "channel": 2, "name": "Program", "ranges": [
@@ -169,7 +169,7 @@ Range rules: `from`/`to` are DMX values 0–255 as printed in the manual, ranges
 
 ## Fixing Validation Errors
 
-The import checks the file thoroughly — channel numbering, range overlaps, function names, and more — and reports **all** problems at once. If the import fails:
+The import checks the file thoroughly - channel numbering, range overlaps, function names, and more - and reports **all** problems at once. If the import fails:
 
 1. Click **Copy** next to the error message in the import dialog
 2. Paste the report back into your AI chat and ask it to fix the file
@@ -178,12 +178,12 @@ The import checks the file thoroughly — channel numbering, range overlaps, fun
 One round trip is usually enough.
 
 :::note
-Re-importing a corrected file may create a second profile if the AI didn't set an `externalId`, since the identity is otherwise derived from the file content. Just delete the failed/old profile — profiles that are in use by a fixture cannot be deleted accidentally.
+Re-importing a corrected file may create a second profile if the AI didn't set an `externalId`, since the identity is otherwise derived from the file content. Just delete the failed/old profile - profiles that are in use by a fixture cannot be deleted accidentally.
 :::
 
 ## Tips for Good Results
 
 - **Sharp, complete photos.** Every row of the channel table must be legible. Retake blurry photos rather than letting the AI guess.
-- **Check the warnings.** After import, open the profile under **Lighting Setup > Profiles** and read the comments — the AI records anything it interpolated or assumed there. Spot-check those channels against the manual.
-- **Test with the real fixture.** Add a fixture with the new profile, open [Fixture Control](/dmx-core-100/lighting/fixture-control), and verify colors and dimmer respond correctly. If red and green are swapped, the manual (or the AI) got the channel order wrong — ask the AI to fix it and re-import.
+- **Check the warnings.** After import, open the profile under **Lighting Setup > Profiles** and read the comments - the AI records anything it interpolated or assumed there. Spot-check those channels against the manual.
+- **Test with the real fixture.** Add a fixture with the new profile, open [Fixture Control](/dmx-core-100/lighting/fixture-control), and verify colors and dimmer respond correctly. If red and green are swapped, the manual (or the AI) got the channel order wrong - ask the AI to fix it and re-import.
 - **Mind the fixture's mode setting.** The personality you select in DMX Core must match the channel mode configured on the fixture itself.

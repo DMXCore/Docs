@@ -1,7 +1,7 @@
 // Builds the docs copilot corpus index from the Starlight content.
 //
 // Output (help-index.json) is published with the site, so the chat API always
-// answers from the docs that are live on docs.dmxcore.com — never from UI that
+// answers from the docs that are live on docs.dmxcore.com - never from UI that
 // is not on the site yet.
 
 import { execFileSync } from 'node:child_process';

@@ -103,7 +103,7 @@ the cue playback settings, either in the Web UI or on the touchscreen.
 - Steps web-defaults / web-fade: navigation `web/cues` section "Default Settings" fields
   `Loop`, `Fade In (seconds)`, `Fade Out (seconds)`; `Cues.vue` (v2026.914.3) hint
   "0 = loop forever". Docs support for Loop semantics: `playback/cues.md` › Cue Settings
-  ("Loop — Number of times to repeat playback (0 = forever)").
+  ("Loop - Number of times to repeat playback (0 = forever)").
 - Step play: docs `playback/cues.md` › Viewing and Playing Cues ("Click the play icon");
   navigation `web/cues` action `Play`.
 - Step touchscreen-alt: docs same heading ("The top bar expands … adjustable Loop, Fade In, and

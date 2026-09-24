@@ -3,7 +3,7 @@
 // One chunk per H2 and per H3 (plus the intro before the first H2). Each chunk
 // keeps its heading path, the anchor Starlight renders for that heading, and
 // the screenshot ids referenced inside it. Image refs are replaced in the text
-// by `[screenshot: id — alt]` markers so the model sees which picture belongs
+// by `[screenshot: id - alt]` markers so the model sees which picture belongs
 // to which paragraph.
 
 import GithubSlugger from 'github-slugger';
@@ -133,7 +133,7 @@ function cleanLine(line, resolveImage) {
   const aside = ASIDE_OPEN_RE.exec(line);
   if (aside) {
     const kind = aside[1][0].toUpperCase() + aside[1].slice(1);
-    return aside[2] ? `**${kind} — ${aside[2]}:**` : `**${kind}:**`;
+    return aside[2] ? `**${kind} - ${aside[2]}:**` : `**${kind}:**`;
   }
   if (ASIDE_CLOSE_RE.test(line)) return '';
 
@@ -141,7 +141,7 @@ function cleanLine(line, resolveImage) {
     const id = resolveImage(url);
     const label = alt.trim();
     if (!id) return label ? `[image: ${label}]` : '';
-    return label ? `[screenshot: ${id} — ${label}]` : `[screenshot: ${id}]`;
+    return label ? `[screenshot: ${id} - ${label}]` : `[screenshot: ${id}]`;
   });
 }
 

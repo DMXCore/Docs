@@ -45,7 +45,7 @@ is running. An older entry in the Releases list is not installed.
     },
     {
       "id": "open-releases-web",
-      "label": "In the Web UI of an Appliance or Windows/macOS desktop install, open Utilities → Releases and compare each listed build to the running version. Snap Linux has no Releases item — snapd updates the app outside the UI",
+      "label": "In the Web UI of an Appliance or Windows/macOS desktop install, open Utilities → Releases and compare each listed build to the running version. Snap Linux has no Releases item - snapd updates the app outside the UI",
       "docsUrl": "/dmx-core-100/configuration/software-updates/",
       "screenshotId": "releases"
     },
@@ -57,7 +57,7 @@ is running. An older entry in the Releases list is not installed.
     },
     {
       "id": "skip-older",
-      "label": "Do not select a listed build whose version number is lower than the one already running. If the picker offers only older builds, the unit likely cannot see the current catalog (no internet) — use Internet Passthrough first",
+      "label": "Do not select a listed build whose version number is lower than the one already running. If the picker offers only older builds, the unit likely cannot see the current catalog (no internet) - use Internet Passthrough first",
       "docsUrl": "/dmx-core-100/integrations/internet-passthrough/",
       "screenshotId": null
     },
@@ -76,7 +76,7 @@ is running. An older entry in the Releases list is not installed.
 - **Utilities → Releases is not on every platform.** The Web UI only shows
   that sidebar item when the install can be upgraded in-app (`HasReleasesPage`):
   the Appliance (Balena), Windows (Velopack/ClickOnce), and macOS. A **Snap**
-  Linux install hides it — snapd refreshes the app on its own schedule, and
+  Linux install hides it - snapd refreshes the app on its own schedule, and
   Utilities → System says updates are managed by the Snap Store.
 - A date shown next to a release (for example 4/30/2026) can be a leftover or
   older catalog entry, not “the upgrade.” Compare the **version number**.
@@ -85,7 +85,7 @@ is running. An older entry in the Releases list is not installed.
   older build and no longer offers leftover builds that were never meant for
   that unit. Older Web UI builds did not warn.
 - If the list looks wrong, get the unit online (or use Internet Passthrough)
-  so it can download the current catalog — don’t pick the first “upgrade”
+  so it can download the current catalog - don’t pick the first “upgrade”
   row.
 
 ## Eval checks

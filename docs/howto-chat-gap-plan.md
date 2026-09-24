@@ -1,4 +1,4 @@
-# How-to chat — gap plan
+# How-to chat - gap plan
 
 Plan for everything [`howto-chat-status.md`](howto-chat-status.md) marks as not
 Done. It covers what to build, in which repo, in what order, and how to check each
@@ -270,7 +270,7 @@ The plan's `get_profile` and `get_timeline` become `get_section` paths (open que
 | Key | Prod value | Source |
 |-----|-----------|--------|
 | `Portal__BaseUrl` | `https://portal.dmxcore.com` | bicep param `portalBaseUrl` |
-| `Portal__TokenKey` | — | KV `help-agent-token-key` → container app secret `help-agent-token-key` |
+| `Portal__TokenKey` | - | KV `help-agent-token-key` → container app secret `help-agent-token-key` |
 | `HelpApi__AllowedOrigins__1` | `https://portal.dmxcore.com` | `prod.bicepparam` `allowedOrigins` |
 | `DeviceTools__MaxSectionChars` / `MaxLogChars` | defaults | appsettings |
 
@@ -302,7 +302,7 @@ The plan's `get_profile` and `get_timeline` become `get_section` paths (open que
 - **CORS:** a portal-origin preflight with `Authorization` gets ACAO; other origins still don't.
 - **Regression:** a 32-hex id is still 404.
 
-### 2.2 AdminPortal — backend
+### 2.2 AdminPortal - backend
 
 **Files**
 
@@ -357,7 +357,7 @@ The plan's `get_profile` and `get_timeline` become `get_section` paths (open que
 - **Section paths:** `GetSection_NestedPath_Allowed` (`profiles/12.json`).
 - **Real Viewer:** an HTTP-level test (the existing tests only check the attribute).
 
-### 2.3 AdminPortal — frontend
+### 2.3 AdminPortal - frontend
 
 | File | Change |
 |------|--------|
@@ -409,12 +409,12 @@ Continues the implementation plan's stages A–E.
 
 | Stage | HelpApi | Portal | Docs | DeviceApi | Core | Safe because |
 |-------|---------|--------|------|-----------|------|--------------|
-| **F. Hardening** | Transcript redaction and Seq log fix (§1.6) | Session lifecycle fixes, version gate | — | Tolerant ingest, rejected marker, tests | Slug file names, zip test, Uno activity check (next release) | Each change stands alone; no new contracts |
-| **G. Portal token and context** | — | Token endpoint, `HelpAgent` scheme, context controller | — | — | — | Inert: no caller. Needs KV `help-agent-token-key` first |
-| **H. HelpApi signed-in chat** | Token validation, binding, per-turn context, device tools, CORS | — | — | — | — | Inert until a client sends a bearer token. With `Portal:BaseUrl` empty, behaves as today |
-| **I. Portal chat view** | — | `/help` chat, HelpApi session creation, snapshot bar | — | — | — | Reachable only from **Ask for help** (and hand-typed `/help` URLs); docs CTA still hidden. Optional staff/allowlist gate (Q6) |
-| **J. Docs CTA** | — | — | Widget `session_in_portal` handling; then set `HELP_CONTINUE_URL` | — | — | Portal side already live |
-| **K. Logs tool** | `DeviceTools:LogsEnabled=true` | — | — | — | — | Staged separately so snapshot answers can be reviewed first (plan build order step 7). Default `false` in H |
+| **F. Hardening** | Transcript redaction and Seq log fix (§1.6) | Session lifecycle fixes, version gate | - | Tolerant ingest, rejected marker, tests | Slug file names, zip test, Uno activity check (next release) | Each change stands alone; no new contracts |
+| **G. Portal token and context** | - | Token endpoint, `HelpAgent` scheme, context controller | - | - | - | Inert: no caller. Needs KV `help-agent-token-key` first |
+| **H. HelpApi signed-in chat** | Token validation, binding, per-turn context, device tools, CORS | - | - | - | - | Inert until a client sends a bearer token. With `Portal:BaseUrl` empty, behaves as today |
+| **I. Portal chat view** | - | `/help` chat, HelpApi session creation, snapshot bar | - | - | - | Reachable only from **Ask for help** (and hand-typed `/help` URLs); docs CTA still hidden. Optional staff/allowlist gate (Q6) |
+| **J. Docs CTA** | - | - | Widget `session_in_portal` handling; then set `HELP_CONTINUE_URL` | - | - | Portal side already live |
+| **K. Logs tool** | `DeviceTools:LogsEnabled=true` | - | - | - | - | Staged separately so snapshot answers can be reviewed first (plan build order step 7). Default `false` in H |
 
 **Order constraints:**
 - G before H: HelpApi needs the context endpoints.
@@ -494,7 +494,7 @@ Continues the implementation plan's stages A–E.
 | Set `HELP_CONTINUE_URL` | J | See below |
 | Confirm the Seq `Service` property source | Before K | Seq tenant: API key applied properties |
 | Check the Azure Pipelines `Navigation` artifact and Balena publish contents | Any time; quality workstream dependency | ADO org for DmxCore100-Software |
-| Decide whether to commit `HelpApi.Evals/` | Quality workstream | — |
+| Decide whether to commit `HelpApi.Evals/` | Quality workstream | - |
 
 ```powershell
 $bytes = [byte[]]::new(64); [System.Security.Cryptography.RandomNumberGenerator]::Fill($bytes)

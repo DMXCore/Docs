@@ -88,7 +88,7 @@ The touchscreen locks after 120 seconds without use and needs a 4-digit PIN to u
 ## Verification
 
 - Device → System: `configuration/settings.md` "Web UI Settings" table row **Device > System**; navigation `web/settings/system` (route /op/settings/SYSTEM, permission CHANGESYSTEMSETTINGS).
-- Screen Unlock Pin and Lock Screen after X seconds: `settings.md` "Device > System Highlights" ("Screen Unlock PIN and Lock Screen after X seconds — the touchscreen lock"); navigation `web/settings/system` fields "Screen Unlock Pin", "Lock Screen after X seconds"; `WebsiteController.Settings.cs`.
+- Screen Unlock Pin and Lock Screen after X seconds: `settings.md` "Device > System Highlights" ("Screen Unlock PIN and Lock Screen after X seconds - the touchscreen lock"); navigation `web/settings/system` fields "Screen Unlock Pin", "Lock Screen after X seconds"; `WebsiteController.Settings.cs`.
 - Save: `src/AdminSite/ClientApp/src/views/operation/Settings.vue` primary button "Save" ("Saved successfully!").
 - Lock behavior: `SessionManager.cs` locks when idle time exceeds `LockScreenSeconds` and it is above 0; `LockViewModel.cs` requires the 4-digit PIN.
 - Lock Down device and Only show custom menu are separate fields: `settings.md` "Lock-down options"; navigation `web/settings/system`.

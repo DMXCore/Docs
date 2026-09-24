@@ -1,6 +1,6 @@
 // Unattended Web UI screenshot capture for the DMX Core 100 documentation.
 //
-// Drives the locally-installed Chrome (headless) via puppeteer-core — no browser
+// Drives the locally-installed Chrome (headless) via puppeteer-core - no browser
 // download, no control of the desktop. Logs in through the device API, forces the
 // dark theme, then visits each documented page and writes a PNG to
 // public/assets/web/.
@@ -298,7 +298,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function main() {
   mkdirSync(OUT, { recursive: true });
   const auth = await login();
-  console.log(`Logged in as ${auth.user?.name} — capturing ${THEME} theme`);
+  console.log(`Logged in as ${auth.user?.name} - capturing ${THEME} theme`);
 
   const browser = await puppeteer.launch({
     executablePath: chromePath,
@@ -337,12 +337,12 @@ async function main() {
       await page.evaluate((theme) => {
         document.documentElement.setAttribute('data-coreui-theme', theme);
       }, THEME);
-      // Guard against the SPA's 404 page — a wrong route must never save a shot.
+      // Guard against the SPA's 404 page - a wrong route must never save a shot.
       const notFound = await page.evaluate(() =>
         /Oops! You're lost/i.test(document.body?.innerText || ''),
       );
       if (notFound) {
-        console.warn(`  ✗ ${shot.name}  (${url})  — 404 page (route not found)`);
+        console.warn(`  ✗ ${shot.name}  (${url})  - 404 page (route not found)`);
         continue;
       }
       if (shot.waitFor) {
@@ -361,7 +361,7 @@ async function main() {
       if (shot.selector) {
         const el = await page.$(shot.selector);
         if (!el) {
-          console.warn(`  ✗ ${shot.name}  (${url})  — selector ${shot.selector} not found`);
+          console.warn(`  ✗ ${shot.name}  (${url})  - selector ${shot.selector} not found`);
           continue;
         }
         await el.screenshot({ path: file });
@@ -371,7 +371,7 @@ async function main() {
       console.log(`  ✓ ${shot.name}  ←  ${shot.path || '/'}`);
       ok++;
     } catch (err) {
-      console.warn(`  ✗ ${shot.name}  (${url})  — ${err.message}`);
+      console.warn(`  ✗ ${shot.name}  (${url})  - ${err.message}`);
     }
   }
 

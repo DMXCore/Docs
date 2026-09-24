@@ -119,13 +119,13 @@ understands that these are two different settings.
 
 - Step `open-user`: `configuration/users-and-roles.md` › Managing Users (Web UI only).
   Source: nav `web/users` (permission USERMANAGEMENT), `web/users/details`.
-- Step `set-auto-log-off`: `users-and-roles.md` › Managing Users ("Auto log-off — an
+- Step `set-auto-log-off`: `users-and-roles.md` › Managing Users ("Auto log-off - an
   inactivity timeout in minutes (0 = never), per user") and › Auto Log-off
   (touchscreen and Web UI). Source: `UserDetails.vue` label `Auto log-off, minutes
   (0=never)`. Web timer uses `autoLogOffMinutes` (`Login.vue`, `main.js`). Touchscreen
   uses `currentUser.AutoLogOffMinutes` in `SessionManager.cs` `LogOffTimerCallback`.
 - Step `web-screen-lock`: `configuration/settings.md` › Device > System Highlights
-  ("Screen Unlock PIN and Lock Screen after X seconds — the touchscreen lock"). Source:
+  ("Screen Unlock PIN and Lock Screen after X seconds - the touchscreen lock"). Source:
   nav `web/settings/system` field `Lock Screen after X seconds`
   (`HostConfig.LockScreenSeconds`); `Settings.vue` **Save** button;
   `SessionManager.cs` locks only when `LockScreenSeconds > 0`.
