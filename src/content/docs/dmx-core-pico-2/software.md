@@ -18,7 +18,7 @@ The board reboots into the new firmware. The same flow is used for Pico C/C++ SD
 
 ## Debugging over SWD
 
-J3 is a standard Raspberry Pi 3-pin SWD connector. A [Raspberry Pi Debug Probe](https://www.raspberrypi.com/products/debug-probe/) connects directly with the bundled 3-pin JST cable - see the [Debug Probe getting started guide](https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html). Pinout and other debugger notes are on the [Pin out](pin-out/#j3-debug-swd) page.
+J3 is a standard Raspberry Pi 3-pin SWD connector. A [Raspberry Pi Debug Probe](https://www.raspberrypi.com/products/debug-probe/) connects directly with the bundled 3-pin JST cable - see the [Debug Probe getting started guide](https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html). Pinout and other debugger notes are on the [Pin out](../pin-out/#j3-debug-swd) page.
 
 ## Arduino IDE
 

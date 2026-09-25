@@ -58,7 +58,7 @@ J3 is the ARM Serial Wire Debug (SWD) port on the RP2040. It uses the Raspberry 
 
 You can plug a [Raspberry Pi Debug Probe](https://www.raspberrypi.com/products/debug-probe/) straight into J3 with the included 3-pin JST-to-JST cable. No adapter is required. See the [Debug Probe documentation](https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html) and the [3-pin debug connector specification](https://datasheets.raspberrypi.com/debug/debug-connector-specification.pdf).
 
-With the enclosure fitted, J3 is harder to reach. For day-to-day firmware updates, USB UF2 is easier (see [Software](software)).
+With the enclosure fitted, J3 is harder to reach. For day-to-day firmware updates, USB UF2 is easier (see [Software](../software/)).
 
 ### Other debuggers (J-Link)
 
@@ -75,4 +75,4 @@ J4 is a 2-pin 2.54 mm header next to the silkscreen **Connect C to GND**. Instal
 
 ## Expansion pins
 
-Can be used to extend the functionality of the Pico 2 by connecting a serial port, or I2C for example. Directly connected to the RP2040 GPIO 4 and 5, not protected. GND and 3.3V are also provided on these pins. Note the [errata](errata) for hardware revisions before v1.2.
+Can be used to extend the functionality of the Pico 2 by connecting a serial port, or I2C for example. Directly connected to the RP2040 GPIO 4 and 5, not protected. GND and 3.3V are also provided on these pins. Note the [errata](../errata/) for hardware revisions before v1.2.

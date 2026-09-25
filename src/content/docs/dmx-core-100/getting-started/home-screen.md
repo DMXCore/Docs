@@ -6,7 +6,7 @@ This is the home screen of the DMX Core 100.
 
 ![Home screen](/assets/device/uno-home.png)
 
-From here you can see the current status and navigate to the [Main Menu](main-menu), plus access the admin settings. On **desktop** software with an empty database, the home screen also shows **Open Web UI** and **Getting started** (Getting started is hidden on white-label builds). Those actions do not appear on the Appliance.
+From here you can see the current status and navigate to the [Main Menu](../main-menu/), plus access the admin settings. On **desktop** software with an empty database, the home screen also shows **Open Web UI** and **Getting started** (Getting started is hidden on white-label builds). Those actions do not appear on the Appliance.
 
 :::tip
 The Web UI equivalent of the home screen is the **Dashboard**. See [Web UI Dashboard](/dmx-core-100/getting-started/web-ui-dashboard) for details on accessing and using it.
