@@ -29,7 +29,7 @@ In `config.txt` a port is named by its GPIO numbers:
 
 ## Rotary Encoder Kit
 
-The ready-made knob, sold separately: a Bourns PEC11R rotary encoder with push switch on a 19 x 31 mm panel board, an aluminium knob, and a 200 mm cable with a JST XH plug at the board end and four ferrules at the other.
+The ready-made knob, [sold separately](https://dmxprosales.com/products/dmx-core-rotary-encoder-for-poe-control) for the [DMX Core PoE Control](https://dmxprosales.com/products/dmx-core-poe-control), one kit per knob: a Bourns PEC11R rotary encoder with push switch on a 19 x 31 mm panel board, an aluminium knob, and a 200 mm cable with a JST XH plug at the board end and four ferrules at the other.
 
 ![Encoder board](/assets/dmx-core-poe-control/encoder.png)
 

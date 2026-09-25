@@ -56,7 +56,7 @@ description: DMX Core PoE Control technical specifications
 * DMX Core PoE Control in its enclosure
 * Four 4-pole control-port plugs and one 3-pole LED-port plug
 
-Not included: knobs and buttons (see the [Rotary Encoder Kit](../wiring/#rotary-encoder-kit)), PoE switch or injector, Ethernet cable.
+Not included: knobs and buttons (see the [Rotary Encoder Kit](../wiring/#rotary-encoder-kit), [sold separately](https://dmxprosales.com/products/dmx-core-rotary-encoder-for-poe-control)), PoE switch or injector, Ethernet cable.
 
 ## Rotary Encoder Kit
 

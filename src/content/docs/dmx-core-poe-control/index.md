@@ -11,7 +11,7 @@ There is nothing to program. With a DMX Core 100, each knob steps a **Control Va
 
 ## Purchase Information
 
-See the [DMX Core PoE Control product page](https://dmxcore.com/poe-control) for pricing. Buy it from [dmxprosales.com](https://dmxprosales.com/collections/dmxcore). The optional [Rotary Encoder Kit](wiring/#rotary-encoder-kit) - an encoder on a small panel board with a knob and a cable - is sold separately, and any standard rotary encoder or push button works on the ports as well.
+See the [DMX Core PoE Control product page](https://dmxcore.com/poe-control) for pricing. Buy the controller from [dmxprosales.com](https://dmxprosales.com/products/dmx-core-poe-control). The optional [Rotary Encoder Kit](wiring/#rotary-encoder-kit) - an encoder on a small panel board with a knob and a cable, one per knob - is [sold separately](https://dmxprosales.com/products/dmx-core-rotary-encoder-for-poe-control), and any standard rotary encoder or push button works on the ports as well.
 
 ## Features
 
