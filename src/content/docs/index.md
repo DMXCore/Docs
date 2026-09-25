@@ -20,3 +20,7 @@ Raspberry Pi Pico-based hardware with two robust, isolated DMX512 ports. Product
 ### [DMX Core Pico 2 Re-Mapper](/dmx-core-pico-2-re-mapper/)
 
 Pico 2 with included software for DMX channel re-mapping. Product page: [dmxcore.com/pico](https://dmxcore.com/pico).
+
+### [DMX Core PoE Control](/dmx-core-poe-control/)
+
+PoE-powered controller for wall-mounted knobs and buttons that drive a DMX Core 100, or a Symetrix or Q-SYS DSP directly. Product page: [dmxcore.com/poe-control](https://dmxcore.com/poe-control).
