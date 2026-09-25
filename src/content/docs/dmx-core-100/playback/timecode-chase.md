@@ -27,7 +27,7 @@ The device listens for ArtTimeCode as soon as network lighting output is up. You
 
 This release **receives** ArtTimeCode only. MIDI timecode (MTC) and LTC (audio timecode) are not supported. The device does not generate ArtTimeCode.
 
-QLab can generate timecode, but not Art-Net ArtTimeCode by itself - use a converter, [Visual Productions TimeCore](https://www.visualproductions.nl/products/timecore), [Timecode Expert](https://timecodeexpert.com/), or another ArtTimeCode generator.
+QLab can generate timecode, but not Art-Net ArtTimeCode by itself - use a converter, [Visual Productions TimeCore](https://www.visualproductions.nl/products/timecore), [Timecode Expert](https://txl20.com/timecode-expert/), or another ArtTimeCode generator.
 
 ## The TC Readout
 
