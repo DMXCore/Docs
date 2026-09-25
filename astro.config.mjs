@@ -29,6 +29,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'DMX Core',
+      favicon: '/favicon.svg',
       logo: {
         light: './src/assets/logo.png',
         dark: './src/assets/logo.png',
@@ -50,6 +51,7 @@ export default defineConfig({
         Footer: './src/components/Footer.astro',
       },
       head: [
+        { tag: 'link', attrs: { rel: 'icon', href: '/favicon.ico', sizes: '32x32' } },
         {
           tag: 'script',
           content: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
