@@ -42,7 +42,7 @@ If nothing moves, **Control & Integrations > OSC Clients** on the Core has a **R
 
 ## 5. Add more
 
-The other three ports take more knobs or buttons; each gets its own section in `config.txt` - see [Configuration](../configuration/). The knob's push switch and any button send an OSC address of their own, which an **Input Trigger** on the Core turns into a cue, a preset, a blackout or a mute - see [DMX Core 100 setup](../dmx-core-100-setup/#the-push-switch-and-buttons).
+From here on the USB cable is not needed: the controller's web page, `http://poecontrol-<id>.local/` (the exact address is in `status.txt`), shows the same status and edits the same `config.txt` from any browser on the network, and takes firmware updates too. The other three ports take more knobs or buttons; each gets its own section in `config.txt` - see [Configuration](../configuration/). The knob's push switch and any button send an OSC address of their own, which an **Input Trigger** on the Core turns into a cue, a preset, a blackout or a mute - see [DMX Core 100 setup](../dmx-core-100-setup/#the-push-switch-and-buttons).
 
 ## Mounting
 

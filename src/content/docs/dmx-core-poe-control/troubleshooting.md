@@ -18,7 +18,7 @@ The RGB LED under the lid's light pipe shows what the controller is doing:
 
 ## status.txt
 
-Plug in over USB-C and open `status.txt` on the POECONTROL drive. It says, in words, what the LED shows and why: the state, the controller's address, the server it settled on and its address, the firmware version, the reason for the last restart, and the result of the last config change or firmware update. When something is wrong this is the first place to look.
+Open the controller's web page, `http://<name>.local/`, or plug in over USB-C and open `status.txt` on the POECONTROL drive; both show the same status, and the page has the log as well. It says, in words, what the LED shows and why: the state, the controller's address, the server it settled on and its address, the firmware version, the reason for the last restart, and the result of the last config change or firmware update. When something is wrong this is the first place to look.
 
 ## Nothing moves
 

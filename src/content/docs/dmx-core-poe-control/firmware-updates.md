@@ -1,18 +1,24 @@
 ---
 title: Firmware Updates
-description: Copy the new firmware onto the POECONTROL drive
+description: Upload the new firmware on the web page, or copy it onto the POECONTROL drive
 ---
 
 Firmware releases are on the [PoeControl-Public releases page](https://github.com/DMXCore/PoeControl-Public/releases) on GitHub. Each release has one `.uf2` file per target: **`poecontrol-osc-w5500-<version>.uf2`** for a DMX Core 100 or any OSC server, **`poecontrol-symetrix-w5500-<version>.uf2`** for a Symetrix DSP, and **`poecontrol-qsys-w5500-<version>.uf2`** for a Q-SYS Core. Copying a different target's file is how the controller is switched between them; the device settings are kept and `config.txt` changes to that target's keys. Files named for other boards (`w6300`) are for development hardware and are refused.
 
-## Updating
+## Updating from the web page
+
+1. Open the controller's web page, `http://<name>.local/` (see [Configuration](../configuration/#the-web-page)).
+2. Under **Firmware**, choose the `.uf2` and press **Upload**. The upload takes a few seconds and the page shows its progress.
+3. The controller restarts into the new firmware on its own; the page waits for it and then reports how it started.
+
+## Updating from the drive
 
 1. Plug the controller into a computer over USB-C. The **POECONTROL** drive appears.
 2. Copy the `.uf2` onto it. It takes about a second.
 3. About a second after the copy, the controller restarts on its own: the drive disappears for a moment and comes back.
 4. `status.txt` shows `started = updated from <old version>, on trial` for the first ten seconds, then `started = updated from <old version>`, and the new version on the `firmware` line.
 
-Settings are kept across updates. The drive lives in RAM, so the file does not stay on it.
+Either way, settings are kept across updates. The drive lives in RAM, so the file does not stay on it.
 
 ## What protects you
 

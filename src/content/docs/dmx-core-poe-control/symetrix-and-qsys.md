@@ -11,7 +11,7 @@ The controller ships with three firmware images, and the one on it decides who t
 | `poecontrol-symetrix-w5500-*.uf2` | A Symetrix DSP | The Composer control protocol over TCP, port 48631 |
 | `poecontrol-qsys-w5500-*.uf2` | A Q-SYS Core | The External Control Protocol over TCP, port 1702 |
 
-Switching is a [firmware update](../firmware-updates/): copy the file for the DSP onto the POECONTROL drive. Everything about the device stays the same - the drive, `status.txt`, the LED, the ports, updates - and `config.txt` gains the DSP's own keys in place of the OSC ones. A knob is a fader, its push switch is a mute or a preset, and a button recalls a preset or fires a trigger. No DMX Core 100 is involved.
+Switching is a [firmware update](../firmware-updates/): upload the file for the DSP on the web page, or copy it onto the POECONTROL drive. Everything about the device stays the same - the web page, the drive, `status.txt`, the LED, the ports, updates - and `config.txt` gains the DSP's own keys in place of the OSC ones. A knob is a fader, its push switch is a mute or a preset, and a button recalls a preset or fires a trigger. No DMX Core 100 is involved.
 
 As with the Core, the DSP owns the value: a click sends one nudge, and the DSP clamps, so the knob has nothing to lose or to re-sync. Moves made in Composer, in Q-SYS Designer or from another panel simply show up as the fader's new position.
 

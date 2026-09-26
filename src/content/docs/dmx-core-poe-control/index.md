@@ -33,10 +33,11 @@ See the [DMX Core PoE Control product page](https://dmxcore.com/poe-control) for
 
 #### Configuration
 
-* USB-C: the controller appears as a small drive with a `config.txt` to edit in any text editor
+* A web page at `http://<name>.local/`: live status, the settings in an editor, the log, firmware upload and restart - nothing on the wall to touch after it is up. Optional password; can be switched off entirely
+* USB-C: the controller appears as a small drive with the same `config.txt`, to edit in any text editor, for the first setup or a locked-down network
 * `status.txt` says what the device is doing and why a change was refused
-* `servers.txt` lists every Core it can see on the network, so the name to type is read off the drive
-* Firmware updates by copying a `.uf2` onto the same drive, with automatic rollback if the new firmware does not start
+* `servers.txt` lists every Core it can see on the network, so the name to type is read off the drive or the page
+* Firmware updates by uploading a `.uf2` on the page or copying it onto the drive, with automatic rollback if the new firmware does not start
 
 #### Power
 

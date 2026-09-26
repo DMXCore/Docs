@@ -21,7 +21,11 @@ Yes. It talks OSC over UDP, which every DMX Core 100 has built in, whether it ru
 
 #### How is it configured?
 
-Plug it into a computer over USB-C and it appears as a small drive with a `config.txt` file. Type in the name of your DMX Core 100 and the Control Value each knob should step, save, and eject. No software to install. See [Configuration](../configuration/).
+Two ways, and they edit the same file. From a browser: once it is on the network, open the controller's own web page, `http://<name>.local/`, to see its status, edit its settings, read its log and upload firmware. Or plug it into a computer over USB-C and it appears as a small drive with a `config.txt` file. Either way you type in the name of your DMX Core 100 and the Control Value each knob should step, and save. No software to install. See [Configuration](../configuration/).
+
+#### Is the web page secure?
+
+It has no password until you set one on it, and it says so. With a password set, the status stays readable and everything else - settings, log, firmware, restart - asks for it; the password itself is never sent or stored, only a hash salted with the unit's own chip id. For a unit that must not be reachable over the network at all, `web = off` in `config.txt` turns the page off; the controller then listens on no network port, and the USB drive is the only way in. A forgotten password is removed from the drive with `password = none` in `config.txt`.
 
 #### What happens after a power cut?
 
@@ -57,4 +61,4 @@ OSC is unauthenticated: anything that can reach the Core's UDP port can send the
 
 #### Can I update the firmware in the field?
 
-Yes, without opening the box: copy the release's `.uf2` onto the POECONTROL drive. The new firmware runs on trial and the controller rolls back on its own if it does not start. See [Firmware updates](../firmware-updates/).
+Yes, without opening the box or going to it: upload the release's `.uf2` on the controller's web page, or copy it onto the POECONTROL drive. The new firmware runs on trial and the controller rolls back on its own if it does not start. See [Firmware updates](../firmware-updates/).

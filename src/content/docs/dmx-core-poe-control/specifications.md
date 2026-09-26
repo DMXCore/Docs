@@ -33,9 +33,10 @@ description: DMX Core PoE Control technical specifications
 
 | | |
 |---|---|
+| Web page | HTTP at `http://<name>.local/` (mDNS, advertised as `_http._tcp`): live status, settings editor, listing, log, firmware upload, restart. Optional password (salted hash, never sent in the clear); `web = off` disables it entirely |
 | USB-C | Device port: mass-storage drive (`config.txt`, `status.txt`, `servers.txt`) and a serial log |
-| Configuration | Plain text file, applied on save, validated whole; settings kept in flash |
-| Firmware updates | `.uf2` copied onto the drive; A/B partitions with trial boot and automatic rollback |
+| Configuration | Plain text file, edited on the web page or the drive, applied on save, validated whole; settings kept in flash |
+| Firmware updates | `.uf2` uploaded on the web page or copied onto the drive; A/B partitions with trial boot and automatic rollback |
 | Status LED | RGB, through a light pipe in the lid; brightness configurable |
 | Reliability | Hardware watchdog (4 s), crash recording, automatic reconnection to a Core that changes address |
 

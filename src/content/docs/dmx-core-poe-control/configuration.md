@@ -1,9 +1,27 @@
 ---
 title: Configuration
-description: Every key in config.txt, and the other files on the POECONTROL drive
+description: The web page, every key in config.txt, and the other files on the POECONTROL drive
 ---
 
-Plug the controller into a computer over USB-C and a drive called **POECONTROL** appears. `config.txt` on it is the whole configuration: edit it, save, eject. Changes apply straight away, with no restart and no software to install.
+The whole configuration is one text file, `config.txt`, and there are two ways to edit it: on the controller's own **web page**, from anywhere on the network, or on the **POECONTROL drive** it presents when plugged into a computer over USB-C. Both apply the change straight away, with no restart and no software to install, and both go through the same checks.
+
+## The web page
+
+Once the controller is on the network, open `http://<name>.local/` in a browser - `http://poecontrol-<id>.local/` until it has been given a name; `status.txt` on the drive prints the exact address, and the plain IP address (`http://192.168.1.50/`, say) works where `.local` names do not. The page has:
+
+* **Status** - the same lines as `status.txt`, live.
+* **Configuration** - `config.txt` in an editor, with Save. A save is checked exactly as a save on the drive is, and refused whole with the same message if anything is wrong.
+* **The listing** - `servers.txt`, or the DSP firmware's `controls.txt`, for the names to type.
+* **Log** - what the USB serial port would show, so a unit on a wall can be asked what it has been doing.
+* **Firmware** - upload a release's `.uf2`; see [Firmware updates](../firmware-updates/).
+* **Password** - none until one is set, and the page says so plainly. With one set, the status stays visible and everything else asks for it. A forgotten password is removed from the drive: add the line `password = none` to `config.txt`.
+* **Restart** - only needed for a new name.
+
+`web = off` in `config.txt` turns the page off altogether: the controller then listens on no network port at all, and the drive is the only way to change or update it. That takes effect at the next restart, and `status.txt` says which state is in force.
+
+## The drive
+
+Plug the controller into a computer over USB-C and a drive called **POECONTROL** appears. `config.txt` on it is the same file: edit it, save, eject. After a save on the web page the drive's copy is refreshed on its own.
 
 A change is taken whole or not at all. If anything in the file is wrong - an unknown key, a pin that belongs to the Ethernet chip, two controls on one pin, a server name that matches nothing - the previous settings stay in force, nothing is saved, the status LED keeps flashing fast, and `status.txt` says what was refused and why. Fix it and save again.
 
@@ -17,11 +35,14 @@ ip      =
 netmask = 
 gateway = 
 led_brightness = 4
+web = on
 ```
 
 | Key | Meaning |
 |---|---|
-| `name` | The controller's name on the network: its DHCP hostname and its mDNS name, `<name>.local`. Blank uses a name unique to the board, which `config.txt` shows. Takes effect at the next restart |
+| `name` | The controller's name on the network: its DHCP hostname, its mDNS name `<name>.local`, and so the address of its web page. Blank uses a name unique to the board, which `config.txt` shows. Takes effect at the next restart |
+| `web` | `on` (the default) serves the web page; `off` turns it off altogether, at the next restart |
+| `password` | Not normally in the file: the web page's password is set on the page and never written here. The one accepted value is `none`, which removes a forgotten password |
 | `ip`, `netmask`, `gateway` | Blank means DHCP, the usual choice. To fix the address, fill in `ip` and `netmask`, and `gateway` if the Core is on another subnet. The numbers DHCP handed out, shown in `status.txt`, are the easiest to copy. A mask that is not contiguous, an address that is the subnet's network or broadcast address, or a gateway outside the subnet is refused rather than tried, since a wrong address takes the device off the network |
 | `led_brightness` | Status LED, 0 to 100 percent; 0 turns it off. The default of 4 reads fine through the lid; full is far too bright to look at |
 
