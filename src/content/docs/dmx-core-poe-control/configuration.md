@@ -46,7 +46,7 @@ web = on
 | `ip`, `netmask`, `gateway` | Blank means DHCP, the usual choice. To fix the address, fill in `ip` and `netmask`, and `gateway` if the Core is on another subnet. The numbers DHCP handed out, shown in `status.txt`, are the easiest to copy. A mask that is not contiguous, an address that is the subnet's network or broadcast address, or a gateway outside the subnet is refused rather than tried, since a wrong address takes the device off the network |
 | `led_brightness` | Status LED, 0 to 100 percent; 0 turns it off. The default of 4 reads fine through the lid; full is far too bright to look at |
 
-The keys below are the DMX Core / OSC firmware's. The Symetrix and Q-SYS firmware share the device, knob-pin and button-pin keys and replace the server and action keys with their own, listed on [Symetrix and Q-SYS](../symetrix-and-qsys/).
+The keys below are the DMX Core / OSC firmware's. The Symetrix and Q-SYS firmware share the device, knob-pin and button-pin keys and replace the server and action keys with their own, listed on [Symetrix and Q-SYS](../symetrix-and-qsys/); the Companion firmware keeps only `host` and `port`, since the keys' actions live in Companion - see [Bitfocus Companion](../bitfocus-companion/).
 
 ## Server
 

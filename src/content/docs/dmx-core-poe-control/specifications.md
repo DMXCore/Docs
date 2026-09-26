@@ -13,8 +13,8 @@ description: DMX Core PoE Control technical specifications
 | Consumption | About 1 W typical; under 1.5 W with panel LEDs lit |
 | Addressing | DHCP, or a fixed IP address, netmask and gateway |
 | Discovery | mDNS / DNS-SD (`_osc._udp`), matching the DMX Core 100's device name; or an IP address |
-| Targets | DMX Core 100 or any OSC server (OSC over UDP); Symetrix DSPs (Composer control protocol, TCP 48631); Q-SYS Cores (External Control Protocol, TCP 1702). One firmware image per target |
-| Knob modes | OSC: steps (the server keeps the value) or level (the knob sends a float between min and max). Symetrix and Q-SYS: a nudge of a set percent per click |
+| Targets | DMX Core 100 or any OSC server (OSC over UDP); Symetrix DSPs (Composer control protocol, TCP 48631); Q-SYS Cores (External Control Protocol, TCP 1702); Bitfocus Companion (Satellite protocol, TCP 16622). One firmware image per target |
+| Knob modes | OSC: steps (the server keeps the value) or level (the knob sends a float between min and max). Symetrix and Q-SYS: a nudge of a set percent per click. Companion: a rotary action per click on the knob's key |
 
 ## Control inputs
 

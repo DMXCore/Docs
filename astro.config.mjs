@@ -266,6 +266,7 @@ export default defineConfig({
             { label: 'Configuration', slug: 'dmx-core-poe-control/configuration' },
             { label: 'Wiring', slug: 'dmx-core-poe-control/wiring' },
             { label: 'Symetrix and Q-SYS', slug: 'dmx-core-poe-control/symetrix-and-qsys' },
+            { label: 'Bitfocus Companion', slug: 'dmx-core-poe-control/bitfocus-companion' },
             { label: 'Firmware Updates', slug: 'dmx-core-poe-control/firmware-updates' },
             { label: 'Troubleshooting', slug: 'dmx-core-poe-control/troubleshooting' },
             { label: 'FAQ', slug: 'dmx-core-poe-control/faq' },

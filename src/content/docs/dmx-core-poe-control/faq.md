@@ -47,6 +47,10 @@ Yes. Point both at the same Control Value. Because the Core owns the value, turn
 
 Yes. Copy the Symetrix or Q-SYS firmware onto the drive instead of the DMX Core one, put the DSP's address in `config.txt`, and each knob nudges a fader by controller number (Symetrix) or control name (Q-SYS) over the DSP's own control protocol. The push and the buttons mute, toggle, recall presets or fire triggers. See [Symetrix and Q-SYS](../symetrix-and-qsys/).
 
+#### Can it work with Bitfocus Companion?
+
+Yes. With the Companion firmware the controller is a satellite surface in Companion, like a Stream Deck: its knobs and buttons are keys on Companion's Buttons page, a knob's turn is the key's rotary action, and Companion decides what each does across everything it connects to. Only Companion's address goes in `config.txt`. See [Bitfocus Companion](../bitfocus-companion/).
+
 #### Can it control something else?
 
 Yes, anything that takes OSC. On the DMX Core firmware each knob can be given its own `up` and `down` OSC addresses for a server that has step addresses, or switched to level mode, where the knob keeps a value between `min` and `max` and sends it as a number to a `level` address - for mixers, media players and lighting desks that only take an absolute level. Buttons send any OSC address. See [Configuration](../configuration/#knobs).

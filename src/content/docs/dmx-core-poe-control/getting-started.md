@@ -3,7 +3,7 @@ title: Getting Started
 description: From the box to a working knob in about ten minutes
 ---
 
-You need a DMX Core 100 on the network, a PoE switch or injector (or a USB-C power supply), and at least one knob or button - the [Rotary Encoder Kit](../wiring/#rotary-encoder-kit) or your own. For a Symetrix or Q-SYS DSP instead of a Core, steps 2 and 3 are different: see [Symetrix and Q-SYS](../symetrix-and-qsys/).
+You need a DMX Core 100 on the network, a PoE switch or injector (or a USB-C power supply), and at least one knob or button - the [Rotary Encoder Kit](../wiring/#rotary-encoder-kit) or your own. For a Symetrix or Q-SYS DSP instead of a Core, steps 2 and 3 are different: see [Symetrix and Q-SYS](../symetrix-and-qsys/); for Bitfocus Companion, see [Bitfocus Companion](../bitfocus-companion/).
 
 ## 1. Wire a knob
 

@@ -3,13 +3,14 @@ title: Symetrix and Q-SYS
 description: Driving a Symetrix or Q-SYS DSP directly, with no DMX Core 100
 ---
 
-The controller ships with three firmware images, and the one on it decides who the knobs talk to:
+The controller ships with four firmware images, and the one on it decides who the knobs talk to:
 
 | Firmware file | Talks to | How |
 |---|---|---|
 | `poecontrol-osc-w5500-*.uf2` | A DMX Core 100, or any OSC server | OSC over UDP - the rest of these docs |
 | `poecontrol-symetrix-w5500-*.uf2` | A Symetrix DSP | The Composer control protocol over TCP, port 48631 |
 | `poecontrol-qsys-w5500-*.uf2` | A Q-SYS Core | The External Control Protocol over TCP, port 1702 |
+| `poecontrol-companion-w5500-*.uf2` | Bitfocus Companion | The Satellite protocol over TCP, port 16622 - see [Bitfocus Companion](../bitfocus-companion/) |
 
 Switching is a [firmware update](../firmware-updates/): upload the file for the DSP on the web page, or copy it onto the POECONTROL drive. Everything about the device stays the same - the web page, the drive, `status.txt`, the LED, the ports, updates - and `config.txt` gains the DSP's own keys in place of the OSC ones. A knob is a fader, its push switch is a mute or a preset, and a button recalls a preset or fires a trigger. No DMX Core 100 is involved.
 
