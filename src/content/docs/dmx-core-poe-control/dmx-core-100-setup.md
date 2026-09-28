@@ -37,7 +37,7 @@ Rotation uses built-in addresses, but the push switch and each button send an ad
 
 It can run anything an On/Off trigger supports - Play Cue, Apply Preset, Blackout, Audio Mute, Toggle a Control Value, Run Script. A button set to `mode = momentary` sends `1` on press and `0` on release, so **Flash** and **Momentary** modes work too: a Flash preset stays up only while the button is held.
 
-A button can also send one of the Core's built-in OSC addresses directly, such as `/dmxcore/cue/ACT1`, with no trigger at all. The [OSC integration page](/dmx-core-100/integrations/osc-open-sound-control/) lists them.
+A button can also send one of the Core's built-in OSC addresses directly, such as `/dmxcore/cue/ACT1`, with no trigger at all. The [OSC integration page](/dmx-core-100/integrations/osc-open-sound-control/) lists them. To flip a Toggle Control Value - a mute, say - point the button at `/dmxcore/control/<code>/toggle`; that needs no trigger either, and works in both `press` and `momentary` mode, since the `0` a momentary button sends on release is ignored.
 
 ## Verify
 
