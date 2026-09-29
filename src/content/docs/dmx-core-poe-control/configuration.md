@@ -80,6 +80,7 @@ max     = 1
 step    = 0.05
 start   = 0
 press   = /poecontrol/press
+press_mode = press
 ```
 
 | Key | Meaning |
@@ -91,7 +92,8 @@ press   = /poecontrol/press
 | `up`, `down` | Steps mode, instead of `control`: the full OSC addresses one click each way sends, with no argument. For another OSC server, or another address on the Core. When both are given, `up` and `down` win |
 | `level` | Level mode: the OSC address that takes the value, sent as a float |
 | `min`, `max`, `step`, `start` | Level mode: the value runs from `min` to `max`, one `step` per click, counted in whole steps from `min` so twenty steps of 0.05 reach 1 exactly. It is `start` at power-on, and nothing is sent until the first click |
-| `press` | The OSC address the push switch sends, in either mode: `1` when pressed, `0` when released, so it suits On/Off, Flash and Momentary input triggers. Blank turns the switch off |
+| `press` | The OSC address the push switch sends, in either mode. Blank turns the switch off |
+| `press_mode` | `press` (the default) sends one message when the switch goes down. `momentary` sends `1` on press and `0` on release, for something that should last only while it is held - a Flash preset, or a Control Value held on |
 
 **Steps or level.** A DMX Core 100 has step addresses, so the Core owns the value and the knob never has to know it - that is steps mode, and the reason a knob cannot drift or spring back. Most other OSC servers - a mixer, a media player, a lighting desk - take only `/some/level <float>`, which is what level mode is for. Its known cost is that the knob cannot tell when something else moves the level; the next click continues from the knob's own value.
 
