@@ -94,7 +94,7 @@ const SHOTS = [
     before: async (page) => {
       await page.evaluate(() => {
         const tile = [...document.querySelectorAll('.scene-grid button, [class*=scene-tile]')].find((t) =>
-          /Hakan Test 2$|Alex 1|Bar Blue/i.test(t.textContent.trim()),
+          /^Pink$|^Blue$|Bar Blue/i.test(t.textContent.trim()),
         ) || document.querySelector('.scene-grid button, [class*=scene-tile]');
         tile?.click();
       });
