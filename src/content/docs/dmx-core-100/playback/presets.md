@@ -38,6 +38,7 @@ A preset with a single universe will be output to all configured universes when 
 - **Ambient** - Mark the preset as an ambient candidate (see below)
 - **Release at end** - Release the fixtures when the preset finishes instead of holding its state
 - **Favorite / Only Admin** - Dashboard shortcut and visibility flags
+- **Available as scene** - Show the preset as a tile on the [Scenes](/dmx-core-100/lighting/scene-panel) page, with **Scene order**, **Scene tile color** and **Scene dimmer** (a brightness multiplier stored with the preset)
 
 ## Editing Presets
 
@@ -86,4 +87,4 @@ A good ambient preset is typically a low-level, always-on scene - like a warm wh
 
 ## Duplicating Presets
 
-In the **Web UI**, duplicate a preset to create a copy with the same fixture states - useful for variations, like the same scene at different brightness levels.
+In the **Web UI**, duplicate a preset to create a copy with the same fixture states - useful for variations, like the same scene at different brightness levels. The copy's code is derived from the original (`BAR_BLUE` becomes `BAR_BLUE_2`), so it sorts next to it.

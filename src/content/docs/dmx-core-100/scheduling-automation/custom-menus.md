@@ -42,6 +42,7 @@ Click **Add item** in the editor. Each item has a name, optional subtitle/descri
 | **Segmented selector** | A source/input picker bound to a Selector Control Value |
 | **Value display** | A read-only live readout of a Control Value of any kind (see below) |
 | **Presets / Cues list** | A browsable list of presets or cues (touchscreen only) |
+| **Scene Panel** | Opens the [Scenes](/dmx-core-100/lighting/scene-panel) page: scene tiles with a color wheel and dimmer (Web UI only; the touchscreen leaves this item out) |
 | **OSC direct message** | Send a raw OSC message when tapped |
 
 ### Value Display
@@ -66,7 +67,7 @@ Menus support **multiple levels** via SubMenu items - a top-level menu with a bu
 
 ## Guest Access
 
-A menu marked **Available to Guests** can be used from a browser without logging in - ideal for a lobby tablet or letting staff trigger scenes from their phones without handing out PINs. Guests see only guest-enabled menus; everything else still requires a login.
+A menu marked **Available to Guests** can be used from a browser without logging in - ideal for a lobby tablet or letting staff trigger scenes from their phones without handing out PINs. Guests see only guest-enabled menus; everything else still requires a login. A **Scene Panel** item on a guest menu opens the panel for guests only when **Scene Panel available to guests** is on in **System** settings (see [Scenes](/dmx-core-100/lighting/scene-panel#guest-access)).
 
 ## Direct Links and QR Codes
 

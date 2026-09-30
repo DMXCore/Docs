@@ -85,6 +85,23 @@ const SHOTS = [
   { name: 'timelines-list', path: '/timelines' },
   { name: 'fixture-control', path: '/fixturecontrol' },
   {
+    // Scenes page (sidebar version of the Scene Panel) with a scene applied so the
+    // dock shows the wheel and dimmer. The tile tap goes to the device; the scene
+    // stays active afterwards.
+    name: 'scene-panel',
+    path: '/scenepanel',
+    waitFor: '.scene-tile, .adjust-dock',
+    before: async (page) => {
+      await page.evaluate(() => {
+        const tile = [...document.querySelectorAll('.scene-grid button, [class*=scene-tile]')].find((t) =>
+          /Hakan Test 2$|Alex 1|Bar Blue/i.test(t.textContent.trim()),
+        ) || document.querySelector('.scene-grid button, [class*=scene-tile]');
+        tile?.click();
+      });
+      await new Promise((r) => setTimeout(r, 2200));
+    },
+  },
+  {
     name: 'visualizer',
     path: '/visualizer',
     waitFor: 'canvas',
