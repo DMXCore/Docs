@@ -99,7 +99,7 @@ down by 5%.
 
 Register the controllers you want two-way communication with under **Control & Integrations > OSC Clients** - each client has a name, a source IP (or *any*), a **feedback port**, and **Send device status updates**, which turns the status feedback below on for it. Status messages - what's playing, current levels, active states - are sent to the client's feedback port, or to the port its messages come from when none is set, so your TouchOSC layout's buttons and faders track reality.
 
-A controller can also subscribe itself: a sender of `/dmxcore/hello` (or of `/dmxcore/status`) receives the status feedback at the port it sends from, with no client entry at all, until it has been silent for the any-source timeout (24 hours by default). A client entry for its IP, if there is one, decides instead.
+A controller can also subscribe itself: a sender of `/dmxcore/hello` (or of `/dmxcore/status`) receives the status feedback at the port it sends from, with no client entry at all, until it has been silent for the any-source timeout (24 hours by default). A client entry for its IP, if there is one, decides instead. Devices that subscribed this way are listed under **Subscribed Devices** on the OSC Clients page, by the name their hello carried.
 
 ![OSC Clients list with source IP and feedback port](/assets/web/osc-clients-list.png)
 
@@ -114,7 +114,7 @@ A controller can also subscribe itself: a sender of `/dmxcore/hello` (or of `/dm
 | `/dmxcore/active/cue/<code>` `/dmxcore/active/timeline/<code>` `/dmxcore/active/sound/<code>` `/dmxcore/active/preset/<code>` | `1` / `0` | `1` for every item playing or applied, on every playback state change; `0` once when it stops. The code is sent in lower case. For an indicator next to a button that starts that item. |
 | `/dmxcore/dimmer/master` | level | The master dimmer changes. |
 | `/dmxcore/fixture/red` `/dmxcore/fixture/green` `/dmxcore/fixture/blue` | level | The global fixture-control color changes. |
-| `/dmxcore/control/<code>` | level | A Level-kind Control Value changes (the code is sent in lower case). |
+| `/dmxcore/control/<code>` | level | A Control Value changes (the code is sent in lower case): a Level as 0–1, a Toggle as `1`/`0`, a Selector as its choice index. |
 
 A client that sets a level over OSC is treated as the *master* for that address for one second and does not receive its own value echoed back, so a fader being dragged doesn't fight the feedback.
 
