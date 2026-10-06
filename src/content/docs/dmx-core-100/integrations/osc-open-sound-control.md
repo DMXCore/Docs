@@ -91,12 +91,15 @@ down by 5%.
 | Address | Argument | Action |
 |---------|----------|--------|
 | `/dmxcore/status` | - | Re-send the full status feedback set to connected clients. |
+| `/dmxcore/hello` | *(optional)* name | Subscribe the sender to the status feedback (below) and send it the current state. A device with no UI of its own - a PoeControl panel, say - sends this when it finds the device and now and then after that. |
 | `/dmxcore/blink` | `1` / `0` | Turn the identify blink on or off. |
 | `/ping` | - | Keep-alive. Registers the sender for feedback without doing anything else; not logged. |
 
 ## OSC Clients and Feedback
 
-Register the controllers you want two-way communication with under **Control & Integrations > OSC Clients** - each client has a name, a source IP (or *any*), and a **feedback port** (default 9000). Status messages - what's playing, current levels, active states - are sent back to each client's feedback port, so your TouchOSC layout's buttons and faders track reality.
+Register the controllers you want two-way communication with under **Control & Integrations > OSC Clients** - each client has a name, a source IP (or *any*), a **feedback port**, and **Send device status updates**, which turns the status feedback below on for it. Status messages - what's playing, current levels, active states - are sent to the client's feedback port, or to the port its messages come from when none is set, so your TouchOSC layout's buttons and faders track reality.
+
+A controller can also subscribe itself: a sender of `/dmxcore/hello` (or of `/dmxcore/status`) receives the status feedback at the port it sends from, with no client entry at all, until it has been silent for the any-source timeout (24 hours by default). A client entry for its IP, if there is one, decides instead.
 
 ![OSC Clients list with source IP and feedback port](/assets/web/osc-clients-list.png)
 
@@ -104,8 +107,11 @@ Register the controllers you want two-way communication with under **Control & I
 
 | Address | Value | Sent when |
 |---------|-------|-----------|
-| `/dmxcore/status/text` | string | Playback state changes - e.g. `Playing 'ACT1'`, `Stopped`, `Recording`, `Previewing`. |
+| `/dmxcore/status/text` | string | Playback state changes - e.g. `Playing 'ACT1'`, `Fixture control`, `Stopped`, `Recording`, `Previewing`. |
 | `/dmxcore/status/cue` | string | Playback state changes - the code of the playing cue, or empty when none. |
+| `/dmxcore/status/playing` | `1` / `0` | Playback state changes - whether a cue, timeline or sound is playing. |
+| `/dmxcore/status/light` `/dmxcore/status/sound` | `1` / `0` | Playback state changes - whether light (something playing, or fixture control) and sound are being output. |
+| `/dmxcore/active/cue/<code>` `/dmxcore/active/timeline/<code>` `/dmxcore/active/sound/<code>` `/dmxcore/active/preset/<code>` | `1` / `0` | `1` for every item playing or applied, on every playback state change; `0` once when it stops. The code is sent in lower case. For an indicator next to a button that starts that item. |
 | `/dmxcore/dimmer/master` | level | The master dimmer changes. |
 | `/dmxcore/fixture/red` `/dmxcore/fixture/green` `/dmxcore/fixture/blue` | level | The global fixture-control color changes. |
 | `/dmxcore/control/<code>` | level | A Level-kind Control Value changes (the code is sent in lower case). |
