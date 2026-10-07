@@ -16,6 +16,16 @@ Download and run the installer:
 3. When prompted, allow the application access to your network (required for DMX recording and playback).
 4. The app installs and launches automatically, and keeps itself up to date after that. You can also pick a specific build from **Utilities > Releases** - see [Software Updates](/dmx-core-100/configuration/software-updates).
 
+## winget
+
+The same installer is published to the Windows Package Manager as `DMXProSales.DMXCore100`, so a machine that already uses winget can install and update it from a terminal:
+
+```powershell
+winget install DMXProSales.DMXCore100
+```
+
+`winget upgrade` picks up new stable releases once they are published, usually within a day of the release. The app still keeps itself up to date on its own in between, and both paths install the same per-user build, so they can be mixed freely.
+
 ## Web Interface
 
 The built-in web server defaults to:
