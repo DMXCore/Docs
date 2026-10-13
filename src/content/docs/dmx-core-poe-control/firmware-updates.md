@@ -28,7 +28,7 @@ Files that are refused, with nothing written and the reason on the `update` line
 
 * A `.uf2` for a different board - the file names the board it is for.
 * A file that is not PoE Control firmware.
-* A copy cut short - the cable pulled, the copy cancelled. Copy it again.
+* A copy cut short - the cable pulled, the copy canceled. Copy it again.
 
 A firmware that works, then misbehaves a week later, was kept on the first day. Copy the previous release's `.uf2` back on; a downgrade installs the same way.
 

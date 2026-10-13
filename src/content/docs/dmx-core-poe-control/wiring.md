@@ -29,7 +29,7 @@ In `config.txt` a port is named by its GPIO numbers:
 
 ## Rotary Encoder Kit
 
-The ready-made knob, [sold separately](https://dmxprosales.com/products/dmx-core-rotary-encoder-for-poe-control) for the [DMX Core PoE Control](https://dmxprosales.com/products/dmx-core-poe-control), one kit per knob: a Bourns PEC11R rotary encoder with push switch on a 19 x 31 mm panel board, an aluminium knob, and a 200 mm cable with a JST XH plug at the board end and four ferrules at the other.
+The ready-made knob, [sold separately](https://dmxprosales.com/products/dmx-core-rotary-encoder-for-poe-control) for the [DMX Core PoE Control](https://dmxprosales.com/products/dmx-core-poe-control), one kit per knob: a Bourns PEC11R rotary encoder with push switch on a 19 x 31 mm panel board, an aluminum knob, and a 200 mm cable with a JST XH plug at the board end and four ferrules at the other.
 
 ![Encoder board](/assets/dmx-core-poe-control/encoder.png)
 
@@ -37,7 +37,7 @@ The ready-made knob, [sold separately](https://dmxprosales.com/products/dmx-core
 
 **Connecting.** Plug the cable into the board's header, then put the four ferrules into a control-port plug in order:
 
-| Cable colour | Signal | Port pin |
+| Cable color | Signal | Port pin |
 |---|---|---|
 | brown | A | 1 |
 | white | B | 2 |
@@ -50,7 +50,7 @@ It is wired straight through, so the conductor at cable position 1 goes to port 
 
 ## Cable length
 
-Up to about 10 m of ordinary multi-core cable per port is fine. Beyond a couple of metres, or next to dimmer or mains cabling, use a twisted pair per signal with its GND, or shielded cable with the shield on the port's GND at the controller end only.
+Up to about 10 m of ordinary multi-core cable per port is fine. Beyond a couple of meters, or next to dimmer or mains cabling, use a twisted pair per signal with its GND, or shielded cable with the shield on the port's GND at the controller end only.
 
 The encoder kit's cable is 200 mm; standard **JST XH 4-pin extension cables** (sold as 3S LiPo balance lead extensions) lengthen it between the cable and the encoder board.
 

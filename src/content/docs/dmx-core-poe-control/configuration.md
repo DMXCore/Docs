@@ -85,7 +85,7 @@ press_mode = press
 
 | Key | Meaning |
 |---|---|
-| `pins` | The GPIOs of the port the knob is on: A, B and the push switch, in that order. Leave the third out if the knob has no switch. The port table below has the numbers. A and B must be neighbouring pins, which every port's are |
+| `pins` | The GPIOs of the port the knob is on: A, B and the push switch, in that order. Leave the third out if the knob has no switch. The port table below has the numbers. A and B must be neighboring pins, which every port's are |
 | `invert` | `1` swaps the direction, for a knob that turns the wrong way |
 | `mode` | `steps` (the default): each click sends an address and the server keeps the value. `level`: each click sends a number and the knob keeps the value, for servers with no step addresses |
 | `control` | Steps mode, on a DMX Core 100: the Control Value code the knob steps. It expands to the Core's built-in `/dmxcore/control/<code>/up` and `/down` addresses |

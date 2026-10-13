@@ -65,6 +65,6 @@ Not included: knobs and buttons (see the [Rotary Encoder Kit](../wiring/#rotary-
 |---|---|
 | Encoder | Bourns PEC11R-4220K-S0024: 24 detents, 24 pulses per revolution, push switch, 20 mm knurled shaft |
 | Board | 19 x 31 mm, held by the encoder's M7 nut; no mounting holes needed |
-| Knob | Aluminium, 15 mm diameter, push-on |
+| Knob | Aluminum, 15 mm diameter, push-on |
 | Cable | 200 mm, 4-core 22 AWG flexible, JST XH 4-pin plug to four ferrules |
 | Panel | Drill for the encoder's M7 bush; the nut holds the whole assembly |

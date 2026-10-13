@@ -23,7 +23,7 @@ Nothing has to be enabled. The OSC server is always on.
 | Step Size | **5%** to start |
 | Drives | the target the knob should move |
 
-**Drives** is the whole point of the design: pick the master dimmer, a zone intensity, a fixture's intensity or a colour channel, the audio volume, or another Control Value. Changing what the knob does later is a change to this one dropdown. The binding is bidirectional - if a cue moves the target, the Control Value follows, so the knob can never be out of phase.
+**Drives** is the whole point of the design: pick the master dimmer, a zone intensity, a fixture's intensity or a color channel, the audio volume, or another Control Value. Changing what the knob does later is a change to this one dropdown. The binding is bidirectional - if a cue moves the target, the Control Value follows, so the knob can never be out of phase.
 
 On step size: the Rotary Encoder Kit's knob has 24 detents per revolution, so 5% means one revolution covers the full range in 20 clicks. Drop it to 2% if that feels too coarse - 50 clicks end to end, about two revolutions. Nothing on the controller sets the step; it only sends one step per click.
 

@@ -33,7 +33,7 @@ Nothing to restore. The controller keeps no level of its own - the Core owns the
 
 #### What can a knob control?
 
-Anything a Control Value can drive: the master dimmer, a zone intensity, a fixture's intensity or colour channel, the audio output level, a fader on a Symetrix or Q-SYS DSP through the Core's DSP plugins, or another Control Value. Changing it is a dropdown on the Core. See [DMX Core 100 setup](../dmx-core-100-setup/).
+Anything a Control Value can drive: the master dimmer, a zone intensity, a fixture's intensity or color channel, the audio output level, a fader on a Symetrix or Q-SYS DSP through the Core's DSP plugins, or another Control Value. Changing it is a dropdown on the Core. See [DMX Core 100 setup](../dmx-core-100-setup/).
 
 #### What can a button do?
 

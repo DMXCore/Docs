@@ -49,15 +49,15 @@ A knob's **turn** is its key's rotary action - **Rotate left** and **Rotate righ
 
 The surface starts on page 1 with no offset, so knob 1 is the top-left cell of page 1, which on a new Companion is the **page up** cell. Give the surface a horizontal offset of 1 on its Surfaces settings, or leave column 1 to the page cells and use the others, or clear the page cells. Which page the surface shows, and where on it, is Companion's to change, from a button's actions or a surface's settings, as for any other surface.
 
-`keys.txt` on the drive, and the listing on the web page, show the map with each key's page, row and column in Companion, and the colour Companion last gave it.
+`keys.txt` on the drive, and the listing on the web page, show the map with each key's page, row and column in Companion, and the color Companion last gave it.
 
 ## What comes back
 
-Companion sends the surface each key's colour and state as it changes, which the controller keeps and lists in `keys.txt`. The controller has no display, so text and images are not asked for. A panel LED per key, showing Companion's colour, is planned for the panel LED port.
+Companion sends the surface each key's color and state as it changes, which the controller keeps and lists in `keys.txt`. The controller has no display, so text and images are not asked for. A panel LED per key, showing Companion's color, is planned for the panel LED port.
 
 ## Connection and status
 
-The controller connects when it has an address, pings Companion once a second, and reconnects on its own after any loss - Companion drops a satellite that goes quiet for five seconds, and the controller does the same in return, so a Companion that restarts is picked up again within seconds. If Companion refuses the surface because its last connection is still being cleaned up, the controller asks again after six seconds. `status.txt` shows `connected`, or `connecting` with the reason - refused, no route, no reply - and the page's log shows every key press and turn sent, and every colour received.
+The controller connects when it has an address, pings Companion once a second, and reconnects on its own after any loss - Companion drops a satellite that goes quiet for five seconds, and the controller does the same in return, so a Companion that restarts is picked up again within seconds. If Companion refuses the surface because its last connection is still being cleaned up, the controller asks again after six seconds. `status.txt` shows `connected`, or `connecting` with the reason - refused, no route, no reply - and the page's log shows every key press and turn sent, and every color received.
 
 ## Why Companion
 
