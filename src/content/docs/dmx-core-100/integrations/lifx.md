@@ -1,9 +1,9 @@
 ---
 title: LIFX Plugin
-description: Drive LIFX WiFi bulbs and SuperColour / pixel fixtures over the LIFX LAN protocol with the LIFX plugin for the DMX Core 100
+description: Drive LIFX WiFi bulbs and SuperColor / pixel fixtures over the LIFX LAN protocol with the LIFX plugin for the DMX Core 100
 ---
 
-The LIFX plugin drives **LIFX WiFi bulbs and SuperColour / pixel fixtures**
+The LIFX plugin drives **LIFX WiFi bulbs and SuperColor / pixel fixtures**
 (Tube, Beam, strips, tiles) over the LIFX LAN protocol - no cloud account
 needed, the lights only have to be on the same network.
 
