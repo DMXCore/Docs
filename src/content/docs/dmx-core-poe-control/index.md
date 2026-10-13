@@ -7,7 +7,7 @@ A small box that turns rotary encoders and push buttons on a wall into levels, p
 
 There is nothing to program. With a DMX Core 100, each knob steps a **Control Value** on the Core, and what that Control Value drives - the master dimmer, a zone, a fixture channel, the audio volume, a DSP fader - is a dropdown on the Core. With the [Symetrix or Q-SYS firmware](symetrix-and-qsys/), each knob nudges a fader named by controller number or control name, straight over the DSP's control port. With the [Companion firmware](bitfocus-companion/), the knobs and buttons are keys on a Companion surface, and Companion decides what they do. Either way the Core, the DSP or Companion owns the value, so the knob has no state to drift or to lose in a power cut, and the same level shows on every other surface.
 
-![DMX Core PoE Control board](/assets/dmx-core-poe-control/board.png)
+![DMX Core PoE Control in its enclosure](/assets/dmx-core-poe-control/enclosure.jpg)
 
 ## Purchase Information
 
@@ -50,6 +50,8 @@ See the [DMX Core PoE Control product page](https://dmxcore.com/poe-control) for
 * Raspberry Pi RP2350 microcontroller, WIZnet W5500 Ethernet, isolated Silvertel PoE module
 * RGB status LED, hardware watchdog, crash recording
 * Board 85 x 66 mm in a wall-mountable enclosure with mounting ears
+
+![The lid lifted off: the board inside the base](/assets/dmx-core-poe-control/enclosure-open.jpg)
 
 ## Where to start
 

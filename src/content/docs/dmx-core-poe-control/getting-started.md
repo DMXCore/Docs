@@ -46,4 +46,6 @@ From here on the USB cable is not needed: the controller's web page, `http://poe
 
 ## Mounting
 
+![The enclosure from above: the two mounting ears, the port labels and the status LED](/assets/dmx-core-poe-control/enclosure-top.jpg)
+
 The enclosure has two mounting ears for screws. The Ethernet and USB-C ports are on one edge, the four control ports on the opposite edge and the LED port on the side, so the box mounts behind or beside the panel that holds the knobs, and the encoder cables run to it. Extension cables lengthen the run where the box is further away - see [Wiring](../wiring/#cable-length).

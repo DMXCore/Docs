@@ -3,7 +3,7 @@ title: Wiring
 description: The control ports, the Rotary Encoder Kit, your own encoders and buttons, and the panel LED port
 ---
 
-![The ports: four control ports along one edge, the LED port on the side](/assets/dmx-core-poe-control/board-ports.png)
+![The four control ports along the front edge, numbered 1 to 4 on the lid; the LED port is on the left side](/assets/dmx-core-poe-control/enclosure-front.jpg)
 
 ## Control ports
 
@@ -84,6 +84,8 @@ A 3-pole terminal on the side of the box, apart from the control ports so the pl
 The controller caps the chain's total current at 80 mA, plenty behind a panel, whatever `led_brightness` says. What the panel LEDs show follows the status LED today; per-button and per-knob feedback is planned.
 
 ## Power
+
+![The back edge: the RJ45 network jack, which takes PoE, and the USB-C port](/assets/dmx-core-poe-control/enclosure-back.jpg)
 
 PoE from any IEEE 802.3af or 802.3at switch or injector, on either the data pairs or the spare pairs. Or USB-C 5 V from any phone charger or computer port. Both at once is fine and is the normal case while configuring an installed unit from a laptop: PoE keeps carrying the load, so plugging and unplugging USB changes nothing.
 
