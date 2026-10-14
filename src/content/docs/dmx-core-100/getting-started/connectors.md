@@ -1,6 +1,6 @@
 ---
 title: Connectors and Pinouts
-description: DC power input and the pinouts of the DMX-512, audio and ADIO expansion boards
+description: DC power input and the pinouts of the DMX-512, audio-output and ADIO expansion boards
 ---
 
 The pictures on this page are renders of the circuit boards, seen from the back of the DMX Core 100. The orange labels name each pin; the white text printed on the board (silkscreen) says the same thing, so you can check it on the unit.
@@ -73,7 +73,7 @@ Stereo line outputs, available balanced and unbalanced at the same time.
 
 ## ADIO board
 
-Audio outputs (same as the audio board), two isolated DMX-512 ports and four digital inputs.
+Audio outputs (same as the audio board; there is no audio input), two isolated DMX-512 ports and four digital inputs.
 
 ![ADIO board with the digital inputs, audio outputs and DMX ports labeled](/assets/hardware/adio-board.png)
 

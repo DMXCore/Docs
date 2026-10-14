@@ -1,9 +1,9 @@
 ---
 title: Tempo & Audio Sync
-description: Sync effects to a metronome beat or live audio
+description: Sync effects to a metronome beat, DMX Core playback, or live audio from a USB sound card
 ---
 
-Effects don't have to run on their own internal clock - they can fire on a musical beat or react to live audio. The **Tempo** page (under **Operation** in the Web UI) is the control center for both.
+Effects don't have to run on their own internal clock - they can fire on a musical beat or react to audio - DMX Core's own playback or a live input from a USB sound card. The **Tempo** page (under **Operation** in the Web UI) is the control center for both.
 
 ![Tempo page - metronome BPM/tap and the audio trigger levels](/assets/web/tempo.png)
 
@@ -21,7 +21,7 @@ The **Output Latency** slider fires beats early to compensate for DMX and fixtur
 
 Effects with the **Audio Trigger** sync mode step, flash, or pulse on hits detected in audio - independent of the metronome. Listening starts automatically while such an effect is active.
 
-- **Audio Source** - analyze the device's own **playback** (sounds played on the DMX Core 100) or an **audio input**
+- **Audio Source** - analyze the device's own **playback** (sounds played on the DMX Core 100) or a live **audio input from a USB sound card**. The audio board and the ADIO board are output only and have no audio input.
 - **Levels** - live meters for the frequency bands (Bass, LMid, Mid, HMid, Treb, Air, and Full) show what the detector hears
 - **Sensitivity** - raise it if hits are missed, lower it if extra triggers fire
 
