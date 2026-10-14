@@ -26,9 +26,13 @@ If your network supports mDNS/Bonjour, you can also access the device using its 
 
 1. Open a web browser on any device connected to the same network
 2. Enter the device IP address in the address bar:
-   - **HTTP**: `http://<device-ip>:8000`
-   - **HTTPS**: `https://<device-ip>:8001` (recommended)
-3. If using HTTPS, your browser may show a certificate warning for the self-signed certificate - this is expected. Accept the warning to continue.
+   - **HTTP**: `http://<device-ip>` (port 80)
+   - **HTTPS**: `https://<device-ip>` (port 443, recommended)
+3. If using HTTPS, your browser will show a certificate warning for the unit's self-signed certificate - this is expected. Accept the warning to continue.
+
+:::note
+The desktop software uses different ports on your computer: `http://localhost:8000` and `https://localhost:8001`.
+:::
 
 ![Web UI login - pick a user and enter the PIN](/assets/web/login.png)
 

@@ -62,7 +62,7 @@ In Cursor MCP settings (or `.cursor/mcp.json`):
 {
   "mcpServers": {
     "dmx-core": {
-      "url": "https://dmxcore.local:8001/mcp",
+      "url": "https://dmxcore.local/mcp",
       "headers": {
         "Authorization": "Bearer ${env:DMXCORE_MCP_KEY}",
         "Accept": "application/json, text/event-stream"
@@ -72,7 +72,7 @@ In Cursor MCP settings (or `.cursor/mcp.json`):
 }
 ```
 
-Replace the URL with your device hostname or IP and HTTPS port (**Device > System**).
+Replace the URL with your device hostname or IP. A wall unit serves HTTPS on the default port 443 (self-signed certificate); the desktop software uses `https://localhost:8001`.
 Store the API key in an environment variable rather than committing it to a project file.
 
 ## Related settings

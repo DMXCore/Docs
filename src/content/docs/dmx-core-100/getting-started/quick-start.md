@@ -20,8 +20,8 @@ There are two common workflows. You can follow either - or both - and they share
 
 Most setup happens in the browser-based Web UI.
 
-1. Find the device IP address under **Main Menu > About** on the touchscreen (desktop software users: use `http://localhost:8000`).
-2. Open `http://<device-ip>:8000` (or `https://<device-ip>:8001`) in a browser on the same network.
+1. Find the device IP address under **Main Menu > About** on the touchscreen.
+2. Open `http://<device-ip>` in a browser on the same network (or `https://<device-ip>`, which shows a one-time warning for the unit's self-signed certificate). Desktop software users: use `http://localhost:8000`.
 3. Log in with your PIN - the default admin PIN is `1111`.
 
 See [Connecting to the Web UI](/dmx-core-100/getting-started/connecting-to-the-web-ui) for full details.
