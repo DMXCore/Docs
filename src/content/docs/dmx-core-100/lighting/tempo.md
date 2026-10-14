@@ -1,9 +1,9 @@
 ---
 title: Tempo & Audio Sync
-description: Sync effects to a metronome beat, DMX Core playback, or live audio from a USB sound card
+description: Step effects on a metronome beat, or on beats detected in DMX Core playback or a USB sound card input
 ---
 
-Effects don't have to run on their own internal clock - they can fire on a musical beat or react to audio - DMX Core's own playback or a live input from a USB sound card. The **Tempo** page (under **Operation** in the Web UI) is the control center for both.
+Effects don't have to run on their own internal clock. They can fire on a musical beat, or step when beats are detected in DMX Core's own playback or a live input from a USB sound card. The **Tempo** page (under **Operation** in the Web UI) is the control center for both.
 
 ![Tempo page - metronome BPM/tap and the audio trigger levels](/assets/web/tempo.png)
 
@@ -25,4 +25,4 @@ Effects with the **Audio Trigger** sync mode step, flash, or pulse on hits detec
 - **Levels** - live meters for the frequency bands (Bass, LMid, Mid, HMid, Treb, Air, and Full) show what the detector hears
 - **Sensitivity** - raise it if hits are missed, lower it if extra triggers fire
 
-The **Sound Reactive** effect generator takes this further, animating fixtures continuously from the audio spectrum - see [Effects](/dmx-core-100/lighting/effects).
+The **Sound Reactive** effect generator steps on those detected hits, for example advancing a chaser. See [Effects](/dmx-core-100/lighting/effects).
