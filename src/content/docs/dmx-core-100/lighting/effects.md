@@ -3,7 +3,7 @@ title: Effects
 description: Apply dynamic lighting effects to fixtures and zones
 ---
 
-The effects engine applies dynamic, animated looks to your fixtures - breathing, fire, chases, strobes, and audio-reactive movement - without recording cues. Effects run continuously until stopped, and can sync to a [metronome beat or live audio](/dmx-core-100/lighting/tempo).
+The effects engine applies dynamic, animated looks to your fixtures - breathing, fire, chases, strobes, and audio-reactive movement - without recording cues. Effects run continuously until stopped, and can sync to a [metronome beat or audio](/dmx-core-100/lighting/tempo).
 
 Effects are managed under **Lighting > Effects** in the Web UI, and applied from **Fixture Control** (per zone or globally) or via [presets](/dmx-core-100/playback/presets).
 
@@ -23,7 +23,7 @@ Effects are managed under **Lighting > Effects** in the Web UI, and applied from
 | Rainbow | Cycles fixtures through the color spectrum |
 | Ramp Up/Down | Repeated rising or falling intensity ramps |
 | Sinus | Smooth sinusoidal wave |
-| Sound Reactive | Animates fixtures from the live audio spectrum |
+| Sound Reactive | Animates fixtures from the audio spectrum (DMX Core playback or a live USB sound card input) |
 | Strobe | Classic strobe flashing |
 | TV Simulation | Mimics the shifting glow of a television |
 | Welding | Harsh, irregular bursts like arc welding |
@@ -38,7 +38,7 @@ An effect's **Mode** controls its clock:
 
 - **Single / Double - Internal** - free-running on the effect's own speed
 - **Metronome - Downbeat / All Beats** - steps fire on the beat from the [Tempo](/dmx-core-100/lighting/tempo) page
-- **Audio Trigger** - steps, flashes, or pulses on hits detected in live audio
+- **Audio Trigger** - steps, flashes, or pulses on hits detected in DMX Core playback or a live USB sound card input
 - **External Trigger** - steps, flashes, or pulses each time a **Step Effect** action fires - bind it to a [control surface](/dmx-core-100/control-surfaces) button (MIDI pad, Stream Deck key), an [input trigger](/dmx-core-100/scheduling-automation/input-triggers) (OSC, HTTP, DMX threshold, contact closure), a [custom menu](/dmx-core-100/scheduling-automation/custom-menus) button, or a [script](/dmx-core-100/scheduling-automation/scripting), and tap through a chaser's colors by hand. The action can target one effect or all effects listening for external triggers.
 
 ## Applying Effects
