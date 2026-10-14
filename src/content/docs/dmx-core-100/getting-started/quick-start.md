@@ -6,7 +6,7 @@ description: Set up the DMX Core 100 and run your first show
 This walkthrough takes you from a fresh DMX Core 100 to controlling a light and playing back a show. It assumes you've completed [Installation](/dmx-core-100/getting-started/installation) (or installed the [desktop software](/dmx-core-100/desktop-software)) and powered the unit on.
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 1.5rem 0;">
-  <iframe src="https://www.youtube-nocookie.com/embed/NPapt-qGLO8" title="DMX Core 100 Quick Start video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <iframe src="https://www.youtube-nocookie.com/embed/NPapt-qGLO8" title="DMX Core 100 Quick Start video" referrerpolicy="strict-origin-when-cross-origin" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
 Prefer to watch? The five-minute video above follows the same steps as this page.
