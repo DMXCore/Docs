@@ -61,7 +61,6 @@ The DMX Core 100 can record from the following input sources:
 | ArtNet | Network DMX protocol (UDP) |
 | sACN (E1.31) | Network DMX protocol (multicast/unicast) |
 | DMX-512 | Direct DMX input via optional 2-port DMX board |
-| KiNet | Color Kinetics network protocol |
 
 ## Timing Accuracy
 
