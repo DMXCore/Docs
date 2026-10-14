@@ -3,7 +3,7 @@ title: Effects
 description: Apply dynamic lighting effects to fixtures and zones
 ---
 
-The effects engine applies dynamic, animated looks to your fixtures - breathing, fire, chases, strobes, and audio-reactive movement - without recording cues. Effects run continuously until stopped, and can sync to a [metronome beat or audio](/dmx-core-100/lighting/tempo).
+The effects engine applies dynamic, animated looks to your fixtures - breathing, fire, chases, and strobes - without recording cues. Effects run continuously until stopped, and can step on a [metronome beat or on hits in DMX Core playback or a USB sound card input](/dmx-core-100/lighting/tempo).
 
 Effects are managed under **Lighting > Effects** in the Web UI, and applied from **Fixture Control** (per zone or globally) or via [presets](/dmx-core-100/playback/presets).
 
@@ -23,7 +23,7 @@ Effects are managed under **Lighting > Effects** in the Web UI, and applied from
 | Rainbow | Cycles fixtures through the color spectrum |
 | Ramp Up/Down | Repeated rising or falling intensity ramps |
 | Sinus | Smooth sinusoidal wave |
-| Sound Reactive | Animates fixtures from the audio spectrum (DMX Core playback or a live USB sound card input) |
+| Sound Reactive | Steps the effect on beats detected in DMX Core playback or a USB sound card input |
 | Strobe | Classic strobe flashing |
 | TV Simulation | Mimics the shifting glow of a television |
 | Welding | Harsh, irregular bursts like arc welding |

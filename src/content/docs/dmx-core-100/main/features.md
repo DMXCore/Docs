@@ -12,8 +12,8 @@ title: Features
 * [Faders page](/dmx-core-100/lighting/faders): console-style vertical faders for every dimmable fixture - zone submasters, grand master, FLASH buttons, fine-drag precision, and fade-to-level (0.5–30 s device-side fades)
 * Multi-room/zone support with zone-based fixture grouping
 * Presets with smooth fades, copy/paste, effect assignment, and ambient (fallback) presets
-* Effects engine with 14 built-in generators - breathing, fire, chaser, strobe, sound-reactive, and more - with zone-level control
-* Beat-synced effects: tap tempo, metronome modes, and audio-trigger detection (analyzes DMX Core playback or a live input from a USB sound card)
+* Effects engine with 14 built-in generators - breathing, fire, chaser, strobe, Sound Reactive (steps on detected beats), and more - with zone-level control
+* Beat-synced effects: tap tempo, metronome modes, and audio-trigger detection (steps effects on beats in DMX Core playback or a live USB sound card input)
 * Timeline editor for sequencing cues, presets, sounds, levels, and scripts - with audio waveforms and intensity profiles
 * [Timecode chase](/dmx-core-100/playback/timecode-chase): lock a timeline to incoming Art-Net ArtTimeCode so Play joins the site clock instead of starting at t=0
 * Playback layers and priorities for concurrent playback control
