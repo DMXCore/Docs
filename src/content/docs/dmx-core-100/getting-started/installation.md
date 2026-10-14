@@ -14,6 +14,7 @@ Two optional mounting accessories are also available:
 The DMX Core 100 is delivered in a padded box with:
 
 * Main unit with attached touch screen
+* 2-pin plug for the 8–28 VDC power input
 * Aluminum mounting bracket
 * 4 screws to attach bracket to a standard electrical box
 * 4 flat screws to attach the main unit to the aluminum bracket

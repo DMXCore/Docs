@@ -7,7 +7,7 @@ The pictures on this page are renders of the circuit boards, seen from the back 
 
 ## DC power input
 
-If you don't use Power over Ethernet, power the DMX Core 100 from an **8–28 VDC** supply (not included) on the green 2-pin terminal next to the corner of the main board. It is a pluggable terminal block with 3.5 mm pitch: strip the wires, screw them into the plug, and push the plug onto the header.
+If you don't use Power over Ethernet, power the DMX Core 100 from an **8–28 VDC** supply (not included) on the green 2-pin terminal next to the corner of the main board. It is a pluggable terminal block with 3.5 mm pitch, and the plug is included: strip the wires, screw them into the plug, and push the plug onto the header.
 
 ![DC power input on the main board: + 8–28 VDC on the pin next to the 8-28VDC marking, GND on the pin next to the GND marking](/assets/hardware/dc-power.png)
 
@@ -18,7 +18,7 @@ If you don't use Power over Ethernet, power the DMX Core 100 from an **8–28 VD
 
 - The unit draws at most 8 W (about 0.5 A at 12 VDC). A 12 V or 24 V adapter rated 1 A or more leaves plenty of headroom.
 - For a wall adapter with a barrel plug, use a DC barrel-jack-to-screw-terminal adapter (pigtail) and wire its + and – to the plug as shown. Check the polarity with a meter before connecting; a center-positive adapter is not always marked.
-- Use either PoE or the DC input.
+- You can connect PoE and DC at the same time for redundancy. The unit runs from one of them and switches over automatically if that one is lost.
 - There is no power switch: the unit starts when power is applied. See [Installation](/dmx-core-100/getting-started/installation#power-up).
 
 ## DMX pinout and XLR
@@ -88,7 +88,7 @@ Audio outputs (same as the audio board), two isolated DMX-512 ports and four dig
 | Pin | Function |
 | --- | --- |
 | `In1`–`In4` | Trigger inputs 1–4 (opto-isolated, about 3–30 VDC, about 5 mA) |
-| `3V3` | Supply for dry contacts (switches, push buttons, relay contacts) |
+| `3V3` | Contact-wetting supply: the voltage that drives an input through a dry contact (switch, push button, relay contact) |
 | `GND` | Input common |
 
 - **Dry contact or push button:** wire the switch between `3V3` and an input.
