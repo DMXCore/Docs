@@ -9,6 +9,12 @@ The DMX Core 100 can record DMX data from external sources (lighting software, c
 You don't need external lighting software to get started. Use **Create Demo Data** under **Backup & Restore** to load ready-made [demo cues, presets, sounds, and effects](/dmx-core-100/configuration/backup-and-restore#demo-data).
 :::
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 1.5rem 0;">
+  <iframe src="https://www.youtube-nocookie.com/embed/Tj9pH6LweIk" title="How to record a light show from your console into the DMX Core 100" referrerpolicy="strict-origin-when-cross-origin" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+Prefer to watch? The four-minute video above records a show from a console in the Web UI, end to end.
+
 ## Recording on the Touchscreen
 
 Navigate to **Main Menu > Utilities > Record Cue**.
