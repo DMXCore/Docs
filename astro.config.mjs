@@ -86,6 +86,7 @@ export default defineConfig({
                 { label: 'Overview', slug: 'dmx-core-100/getting-started' },
                 { label: 'Quick Start', slug: 'dmx-core-100/getting-started/quick-start' },
                 { label: 'Installation', slug: 'dmx-core-100/getting-started/installation' },
+                { label: 'Connectors and Pinouts', slug: 'dmx-core-100/getting-started/connectors' },
                 { label: 'Connecting to the Web UI', slug: 'dmx-core-100/getting-started/connecting-to-the-web-ui' },
                 { label: 'Home Screen', slug: 'dmx-core-100/getting-started/home-screen' },
                 { label: 'Main Menu', slug: 'dmx-core-100/getting-started/main-menu' },

@@ -2,7 +2,7 @@
 title: Installation
 ---
 
-The DMX Core 100 is designed to fit into a standard 2-gang electrical box and can be powered either by Power Over Ethernet, or with a 8–28 VDC power supply (not included). There is no hardware power switch - connecting PoE or the DC plug powers the unit; disconnecting it turns it off. After power-up, look for the LED on the back; the screen takes about a minute. Software **Restart** and **Reboot** are under **Utilities** for users with Device Operations permission. Connector type, plug size, polarity, and PoE class are not specified; check that your adapter's plug fits the rear connector.
+The DMX Core 100 is designed to fit into a standard 2-gang electrical box and can be powered either by Power Over Ethernet, or with a 8–28 VDC power supply (not included). There is no hardware power switch - connecting PoE or the DC plug powers the unit; disconnecting it turns it off. After power-up, look for the LED on the back; the screen takes about a minute. Software **Restart** and **Reboot** are under **Utilities** for users with Device Operations permission. The DC input is a 2-pin pluggable terminal block (3.5 mm pitch), not a barrel jack; see [Connectors and Pinouts](/dmx-core-100/getting-started/connectors#dc-power-input) for the polarity. PoE class is not specified.
 
 Two optional mounting accessories are also available:
 
@@ -51,7 +51,7 @@ Here you'll see all the features of the rear of the main unit:
 * PoE module
 * Micro-SD card holder for additional storage
 * USB-B for connecting memory stick, USB-DMX adapter, MIDI controller or loading the initial bootloader to the unit
-* 8–28 VDC power connector (if not using PoE)
+* 8–28 VDC power connector (if not using PoE) - see [DC power input](/dmx-core-100/getting-started/connectors#dc-power-input)
 * Battery holder for an optional CR1220 battery used to power the RTC clock when disconnected from power and internet
 * Board-to-board connector for expansion boards (DMX-512, ADIO, or audio board)
 * Flex cable that connects to the display board
@@ -60,7 +60,7 @@ Here you'll see all the features of the rear of the main unit:
 
 If you ordered the DMX Core 100 with the 2-port DMX-512 board then it will already be attached to your DMX Core 100. However if you need to remove it, or ordered it separately, then this photo shows how it's attached to the back of the main unit.
 
-Attach the DMX-512 board, align the board-to-board connector and press slightly all the way down. The screw holes should align with the spacers on the main unit. Secure the board with two flat pan-head screws (included).
+Attach the DMX-512 board, align the board-to-board connector and press slightly all the way down. The screw holes should align with the spacers on the main unit. Secure the board with two flat pan-head screws (included). For the pinout of each expansion board's connectors, see [Connectors and Pinouts](/dmx-core-100/getting-started/connectors).
 
 ![DMX-512 board attached to DMX Core 100 main unit](/assets/IMG_3129.JPEG)
 

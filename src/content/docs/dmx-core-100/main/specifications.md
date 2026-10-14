@@ -6,7 +6,7 @@ title: Specifications
 * Power usage: Max 8 W
 * Screen size: 4.3", or 7" on the larger model (same capabilities)
 * Interface: touch screen or rotary knob/encoder with push button
-* Power options: Power over Ethernet on the RJ45, or 8–28 VDC via the rear power connector (max 0.5 A at 12 VDC). No power supply is included. Connector type, plug size, polarity, and PoE class/standard are not specified - match the plug to the rear connector, and do not assume 802.3af/at. There is no hardware on/off switch: apply or remove PoE or DC to power the unit. **Restart** and **Reboot** are under **Utilities > Device Operations** (permission required).
+* Power options: Power over Ethernet on the RJ45, or 8–28 VDC via the rear power connector (max 0.5 A at 12 VDC), a 2-pin pluggable terminal block with 3.5 mm pitch (see [DC power input](/dmx-core-100/getting-started/connectors#dc-power-input) for the polarity). No power supply is included. PoE class/standard is not specified - do not assume 802.3af/at. There is no hardware on/off switch: apply or remove PoE or DC to power the unit. **Restart** and **Reboot** are under **Utilities > Device Operations** (permission required).
 * Bezel color: Black (3D printed, STL files are available)
 * Mounting: 2-gang electrical box, optional [desk stand](https://dmxprosales.com/products/dmx-core-100-desk-stand), or an optional 19" rack mount - [3U for the 4.3" model](https://dmxprosales.com/products/dmx-core-100-19-rack-mount), and a separate [4U mount for the 7" model](https://dmxprosales.com/products/dmx-core-100-19-rack-mount-for-7-display)
 * Universes: Up to 800 universes at 40 Hz, or 600 universes at 60 Hz
