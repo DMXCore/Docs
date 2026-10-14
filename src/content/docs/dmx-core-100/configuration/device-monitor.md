@@ -22,6 +22,8 @@ Click **Scan** to search the network. Discovered devices are listed with their i
 
 Click **Monitor** on a discovered device to add it to the monitored list. Devices that can't be discovered automatically can be added with **Add Manual Monitor**.
 
+Discovered devices are tracked by MAC address, so a device that moves to a new IP address (a DHCP lease change, say) is picked up at its new address on the next **Scan**. The address of a network device can also be changed by hand in its **Edit** dialog.
+
 For an Advatek controller, the monitor editor includes **Expose web UI via tunnel**: when the portal tunnel to this Core is open, that controller's own web UI becomes reachable through it. See [Cloud Tunnel](/dmx-core-100/integrations/cloud-tunnel#expose-another-devices-web-ui-via-tunnel). Requires the same remote-access subscription as the Core tunnel.
 
 ## Monitoring

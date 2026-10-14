@@ -5,6 +5,10 @@ description: Release notes and highlights
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| v2026.1014.x | 10/14/2026 | [Fixture Control](/dmx-core-100/lighting/fixture-control#fading-to-a-value): **Fade** (or Shift+drag) now works on the **color wheel** too. A dashed ghost thumb shows the target, and on release the fixture fades there over the selected duration - on the Square picker the ring fades hue and the square fades saturation and intensity; on the Disc picker the intensity slider joins the wheel. Works the same in the Faders popup. The numeric color fields still apply immediately |
+| v2026.1014.x | 10/14/2026 | The **Getting started** card on the [Dashboard](/dmx-core-100/getting-started/web-ui-dashboard#dashboard-content) links to the five-minute quick-start video |
+| v2026.1012.x | 10/12/2026 | [Device Monitor](/dmx-core-100/configuration/device-monitor#monitoring): a monitored device that was discovered by a scan is tracked by MAC address, so when it moves to a new IP address the next **Scan** follows it. The **Edit** dialog now has an editable **Address** for network devices |
+| v2026.1012.x | 10/12/2026 | Playback clocks for cues and timelines switch to **h:mm:ss.fff** once a cue or timeline runs past one hour |
 | v2026.1007.x | 10/7/2026 | Appliance: a software release rollout is **deferred while a recording is in progress** instead of restarting the device mid-take. A refused Reboot, Restart or Shutdown under [Utilities > Device Operations](/dmx-core-100/configuration/utilities#device-operations) (recording in progress, say from a browser tab that was closed) now offers to override the lock |
 | v2026.1007.x | 10/7/2026 | Fixed: a [recording](/dmx-core-100/playback/recording) longer than 71 minutes 35 seconds had wrong frame timing on every frame past that point. Also fixed a rare error when stopping a recording while a packet was still being written |
 | v2026.1006.x | 10/6/2026 | DMX Core 100 for Windows is now in **winget**: `winget install DMXProSales.DMXCore100`. Every stable release is published there automatically - see [Windows](/dmx-core-100/desktop-software/windows#winget) |
