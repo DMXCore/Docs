@@ -94,6 +94,8 @@ Audio outputs (same as the audio board), two isolated DMX-512 ports and four dig
 - **Dry contact or push button:** wire the switch between `3V3` and an input.
 - **Voltage signal or PLC output:** connect the signal + to an input and its 0 V / return to `GND`, and leave `3V3` unconnected.
 
+The inputs, `3V3` and `GND` are isolated from the rest of the DMX Core 100, together with the ADIO board's DMX ports. On early ADIO boards (marked **v1.0** on the underside, the side facing the main unit) they are not: there, dry contacts on `3V3` only work with jumper **J5** fitted, which ties the input `GND` to the unit's ground.
+
 An input is active while voltage is applied, so a closed switch is active. Use the inputs with [Digital Input triggers](/dmx-core-100/scheduling-automation/input-triggers#input-types).
 
 The four `O1`–`O4` pads on the ADIO board are indicator LEDs for the [Digital Output](/dmx-core-100/scheduling-automation/output-events) events, not a field connector.
