@@ -43,7 +43,7 @@ Keywords in the address (`cue`, `dimmer`, `master`, …) are matched case-insens
 
 The argument follows one rule, the same one QLab, ETC Eos and Resolume use, so a button in TouchOSC, Companion or a console works with its default settings:
 
-- A **trigger** address (play, stop, start, toggle, step) reads its argument as a **press**: no argument or any non-zero number fires it, and `0` is the button's release and is ignored. A TouchOSC button that sends `1` on press and `0` on release therefore fires once per press.
+- A **trigger** address (play, stop, start, toggle, step) reads its argument as a **press**: no argument or any non-zero number fires it, and `0` is the button's release and is ignored. A TouchOSC button that sends `1` on press and `0` on release therefore fires once per press. A release also makes the device re-send that item's `/dmxcore/active/...` state to the sender, so the button's light recovers without a script.
 - A **level** address reads its argument as the **value**: one number, required. Levels are `0.0`–`1.0`, times are milliseconds.
 - An **option** such as a fade time or a loop count has a sub-address of its own (`/dmxcore/preset/<code>/fade 2000`), so a button's `1` can never be mistaken for it.
 
