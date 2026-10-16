@@ -57,7 +57,7 @@ Select a multi-copy, dimmable fixture and open the **Copy Trims** card below the
 Trims are stored on the fixture and apply whenever the fixture engine drives it - live control, presets, ambient presets, effects, and timelines that play presets. A trim only scales brightness (the intensity channel, or the color channels for fixtures without a dedicated intensity channel); it never changes color. Trims are kept when you clone the fixture, and when you split or combine copies each copy keeps its own value.
 
 :::note
-Copy trims do not affect **cue playback** - recorded DMX bypasses the fixture engine. To tame recorded channels use [Channel Rules](/dmx-core-100/playback/channel-rules) instead. Solo needs the fixture to be lit: if the fixture's intensity is at 0 % the soloed copy stays dark, and the card says so.
+Copy trims do not affect **cue playback** - recorded DMX bypasses the fixture engine. To tame recorded channels use [Channel Rules](/dmx-core-100/playback/channel-rules) instead; note that a channel rule applies to the output as a whole, so it also limits this fixture when a preset drives it. Solo needs the fixture to be lit: if the fixture's intensity is at 0 % the soloed copy stays dark, and the card says so.
 :::
 
 A copy trimmed all the way to 0 % stays dark whatever you do on this page - the fixture's settings page warns about that so a forgotten trim doesn't look like a dead unit. Editing trims requires the *Edit Fixtures* permission; anyone who can use Fixture Control can still Solo to identify copies.

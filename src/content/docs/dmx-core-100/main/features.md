@@ -17,7 +17,7 @@ title: Features
 * Timeline editor for sequencing cues, presets, sounds, levels, and scripts - with audio waveforms and intensity profiles
 * [Timecode chase](/dmx-core-100/playback/timecode-chase): lock a timeline to incoming Art-Net ArtTimeCode so Play joins the site clock instead of starting at t=0
 * Playback layers and priorities for concurrent playback control
-* [Channel Rules](/dmx-core-100/playback/channel-rules): cap, scale or copy (multipatch) DMX channels during cue playback, without changing the recording
+* [Channel Rules](/dmx-core-100/playback/channel-rules): cap, scale, copy (multipatch) or repeat DMX channels on the output, whatever drives them, without changing the recording
 * Scheduler with fixed and sunrise/sunset times, dimmer settings, and stop-at-completion
 * User scripting in JavaScript - automate fixtures, playback, levels, and messaging with a built-in editor
 * Favorites for quick access to frequently used cues, presets, and sounds

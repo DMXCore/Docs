@@ -71,7 +71,7 @@ The **Cue Fade Masks** editor (under **Lighting Setup**) selects which DMX chann
 
 ### Channel Rules
 
-[Channel Rules](/dmx-core-100/playback/channel-rules) adjust recorded data during playback without modifying the cue files: cap or scale channels that were recorded too bright, or copy channels to fixtures added after the show was recorded (multipatch).
+[Channel Rules](/dmx-core-100/playback/channel-rules) adjust the output without modifying the cue files: cap or scale channels that were recorded too bright, copy channels to fixtures added after the show was recorded (multipatch), or repeat a few channels over a pixel tape. Rules apply to every source on the output, not only cues.
 
 ## Playback Controls
 

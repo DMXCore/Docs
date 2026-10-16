@@ -10,6 +10,7 @@ Typical uses:
 - Drive smart bulbs and other plugin outputs from a lighting console that only speaks sACN or Art-Net.
 - Convert between protocols: sACN in, Art-Net, KiNet, TPM2.net or DMX-512 out.
 - Bring several sources together: a console on sACN, a media server on Art-Net and a wall panel on DMX-512, each on its own slots.
+- Reshape the routed data with [Channel Rules](/dmx-core-100/playback/channel-rules): cap a fixture the console drives too hard, or send one RGB color on three channels and repeat it over a whole pixel tape.
 - Keep a console live on a rig that the DMX Core 100 also runs cues and schedules on. Both merge by priority.
 
 Stream routing is different from the [Passthrough](/dmx-core-100/lighting/passthrough) of the 2-port DMX-512 board: that one is done in the port's firmware, port to port only, and does not merge. Both can be on at the same time.
