@@ -74,7 +74,22 @@ A float, integer, numeric string or OSC `True`/`False` is accepted anywhere a nu
 | `/dmxcore/control/<code>/toggle` | press | Flip a Toggle-kind [Control Value](/dmx-core-100/integrations/control-values) - on if it is off, off if it is on. One address for a single button, where `/up` and `/down` need two. |
 | `/dmxcore/fixture/red` `/dmxcore/fixture/green` `/dmxcore/fixture/blue` | level | Set the global fixture-control color channels. |
 | `/dmxcore/fixture/<code>/dimmer` `/dmxcore/fixture/<code>/red` `/dmxcore/fixture/<code>/green` `/dmxcore/fixture/<code>/blue` `/dmxcore/fixture/<code>/white` | level | Adjust a single fixture's live modifier. |
-| `/dmxcore/config/fadeduration` | ms | Set the default fade duration used when a preset is applied without an explicit time. |
+| `/dmxcore/fadetime` | ms | Set **this sender's** fade time: every `/dmxcore/preset/<code>` from the same IP address then fades over it, like a time fader on a console. The device default and other senders are untouched. A negative value clears it. See the tip below. |
+| `/dmxcore/config/fadeduration` | ms | Set the device-wide default fade duration used when a preset is applied without an explicit time, from any sender or the touchscreen. |
+
+:::tip[A time fader on a panel]
+Put a fader on `/dmxcore/fadetime` with a range of, say, `0` to `5000` and
+keep the preset buttons on the plain `/dmxcore/preset/<code>` address. The
+fader now sets how long that panel's presets take, and nothing else changes:
+the default under Device > System stays as it was, and a second panel or the
+touchscreen keeps fading over the default. The device remembers the value
+for as long as it remembers the sender (the any-source timeout, 24 hours by
+default) and sends it back as `/dmxcore/fadetime` on `/dmxcore/hello` and
+`/dmxcore/status`, so the fader can start where the device is.
+
+For one button with its own time, send `/dmxcore/preset/<code>/fade <ms>`
+instead; that wins over the sender's time for that message.
+:::
 
 :::tip[Knobs and +/- buttons]
 `up` and `down` exist for controls that have no position of their own - a
@@ -120,6 +135,7 @@ A controller can also subscribe itself: a sender of `/dmxcore/hello` (or of `/dm
 | `/dmxcore/status/light` `/dmxcore/status/sound` | `1` / `0` | Playback state changes - whether light (something playing, or fixture control) and sound are being output. |
 | `/dmxcore/active/cue/<code>` `/dmxcore/active/timeline/<code>` `/dmxcore/active/sound/<code>` `/dmxcore/active/preset/<code>` | `1` / `0` | `1` for every item playing or applied, on every playback state change; `0` once when it stops. The code is sent in lower case. For an indicator next to a button that starts that item. |
 | `/dmxcore/dimmer/master` | level | The master dimmer changes. |
+| `/dmxcore/fadetime` | ms | Sent to one sender only, on its `/dmxcore/hello`, `/dmxcore/status` or `/dmxcore/fadetime`: the fade time that sender's presets use - its own, or the device default when it has none. |
 | `/dmxcore/fixture/red` `/dmxcore/fixture/green` `/dmxcore/fixture/blue` | level | The global fixture-control color changes. |
 | `/dmxcore/control/<code>` | level | A Control Value changes (the code is sent in lower case): a Level as 0–1, a Toggle as `1`/`0`, a Selector as its choice index. |
 
