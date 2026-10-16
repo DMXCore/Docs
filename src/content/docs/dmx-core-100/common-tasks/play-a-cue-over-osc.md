@@ -13,7 +13,7 @@ The DMX Core 100 listens for OSC on UDP port **8000** and understands a set of b
 /dmxcore/cue/ACT1
 ```
 
-Replace `ACT1` with the cue's **Code / Short Name**, which you'll find on the cue's details page in the Web UI. The code must match exactly, including upper and lower case. No arguments are needed.
+Replace `ACT1` with the cue's **Code / Short Name**, which you'll find on the cue's details page in the Web UI. The code must match exactly, including upper and lower case. No arguments are needed, and a button that sends `1` on press and `0` on release plays the cue once per press, since the `0` is ignored.
 
 To stop playback:
 

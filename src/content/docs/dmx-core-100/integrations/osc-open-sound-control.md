@@ -27,7 +27,7 @@ The most common use is firing saved cues from a show controller. The address is 
 /dmxcore/cue/ACT1
 ```
 
-Send it with no arguments to play the cue normally. Codes must match exactly as entered, including upper/lower case. For a step-by-step walkthrough and troubleshooting, see [Play a Cue over OSC](/dmx-core-100/common-tasks/play-a-cue-over-osc). To stop playback:
+Send it with no argument, or with a button's `1`, to play the cue normally; a `0` (the button's release) is ignored. Codes must match exactly as entered, including upper/lower case. For a step-by-step walkthrough and troubleshooting, see [Play a Cue over OSC](/dmx-core-100/common-tasks/play-a-cue-over-osc). To stop playback:
 
 ```
 /dmxcore/cuecontrol/stop
@@ -41,17 +41,25 @@ The **Recent OSC Senders** section at the bottom of **Control & Integrations > O
 
 Keywords in the address (`cue`, `dimmer`, `master`, …) are matched case-insensitively. A `<code>` is the entity's code from the Web UI and must match exactly.
 
-Arguments are optional unless noted. A single float, integer, or numeric string is accepted; levels are `0.0`–`1.0`.
+The argument follows one rule, the same one QLab, ETC Eos and Resolume use, so a button in TouchOSC, Companion or a console works with its default settings:
+
+- A **trigger** address (play, stop, start, toggle, step) reads its argument as a **press**: no argument or any non-zero number fires it, and `0` is the button's release and is ignored. A TouchOSC button that sends `1` on press and `0` on release therefore fires once per press.
+- A **level** address reads its argument as the **value**: one number, required. Levels are `0.0`–`1.0`, times are milliseconds.
+- An **option** such as a fade time or a loop count has a sub-address of its own (`/dmxcore/preset/<code>/fade 2000`), so a button's `1` can never be mistaken for it.
+
+A float, integer, numeric string or OSC `True`/`False` is accepted anywhere a number is.
 
 ### Playback
 
 | Address | Argument | Action |
 |---------|----------|--------|
-| `/dmxcore/cue/<code>` | *(optional)* loop count | Play the cue. Omit the argument to use the default loop count from the Cues page; send an integer to loop that many times. |
-| `/dmxcore/cuecontrol/stop` | - | Stop cue playback. |
-| `/dmxcore/preset/<code>` | *(optional)* fade time in ms | Fade to the preset. Omit the argument to use the default fade duration. |
-| `/dmxcore/effect/<code>` | *(optional)* `1` | Start the stored [effect](/dmx-core-100/lighting/effects) as the global effect, with its saved parameters and colors. Fires with no argument or with `1`. |
-| `/dmxcore/effect/none` | - | Clear the global effect. |
+| `/dmxcore/cue/<code>` | press | Play the cue with its own loop count from the Cues page. |
+| `/dmxcore/cue/<code>/loop` | loop count | Play the cue and loop it that many times instead. |
+| `/dmxcore/cuecontrol/stop` | press | Stop cue playback. |
+| `/dmxcore/preset/<code>` | press | Fade to the preset over the default fade duration. |
+| `/dmxcore/preset/<code>/fade` | fade time in ms | Fade to the preset over the given time; `0` snaps. |
+| `/dmxcore/effect/<code>` | press | Start the stored [effect](/dmx-core-100/lighting/effects) as the global effect, with its saved parameters and colors. |
+| `/dmxcore/effect/none` | press | Clear the global effect. |
 
 ### Levels
 
@@ -61,8 +69,9 @@ Arguments are optional unless noted. A single float, integer, or numeric string 
 | `/dmxcore/dimmer/master/fadeto` | level, fade time in ms | Fade the master dimmer to a level over the given time (two arguments). |
 | `/dmxcore/dimmer/zone/<code>` | level | Set a zone's intensity. |
 | `/dmxcore/control/<code>` | level, or `1` / `0` | Set a [Control Value](/dmx-core-100/integrations/control-values) with no trigger or control surface configured: a Level takes the number as its level, a Toggle takes non-zero as on and `0` as off. A momentary button - `1` held down, `0` on release - therefore holds a Toggle on for as long as it is pressed. |
-| `/dmxcore/control/<code>/up` `/dmxcore/control/<code>/down` | *(optional)* step amount - for a Level, 1 or more is a percentage and below 1 a 0–1 fraction; omit it to use the Control Value's own Step Size | Step a [Control Value](/dmx-core-100/integrations/control-values) instead of setting it: a Level by its Step Size, a Selector to the next or previous choice, a Counter by its Step, a Toggle on or off. |
-| `/dmxcore/control/<code>/toggle` | *(optional)* `1`, or none | Flip a Toggle-kind [Control Value](/dmx-core-100/integrations/control-values) - on if it is off, off if it is on. One address for a single button, where `/up` and `/down` need two. An argument of `0` is a button being released and is ignored, so a momentary sender flips once per press. |
+| `/dmxcore/control/<code>/up` `/dmxcore/control/<code>/down` | press | Step a [Control Value](/dmx-core-100/integrations/control-values) instead of setting it: a Level by its Step Size, a Selector to the next or previous choice, a Counter by its Step, a Toggle on or off. |
+| `/dmxcore/control/<code>/step` | signed amount - 1 or more is a percentage, below 1 a 0–1 fraction, negative steps down | Step a Level by an explicit amount instead of its Step Size: `10` and `0.1` both step up by 10%, `-5` steps down by 5%. A Selector or Counter steps by the rounded amount. |
+| `/dmxcore/control/<code>/toggle` | press | Flip a Toggle-kind [Control Value](/dmx-core-100/integrations/control-values) - on if it is off, off if it is on. One address for a single button, where `/up` and `/down` need two. |
 | `/dmxcore/fixture/red` `/dmxcore/fixture/green` `/dmxcore/fixture/blue` | level | Set the global fixture-control color channels. |
 | `/dmxcore/fixture/<code>/dimmer` `/dmxcore/fixture/<code>/red` `/dmxcore/fixture/<code>/green` `/dmxcore/fixture/<code>/blue` `/dmxcore/fixture/<code>/white` | level | Adjust a single fixture's live modifier. |
 | `/dmxcore/config/fadeduration` | ms | Set the default fade duration used when a preset is applied without an explicit time. |
@@ -73,24 +82,22 @@ rotary encoder, a pair of +/- buttons, a wall plate. Send one message per
 click and the device keeps the value, clamps it, and tells every other
 surface about it, so nothing has to track or re-sync a level it cannot see.
 
-**Send no argument.** That is the normal case, and what a knob should do: the
-Control Value moves by its own **Step Size**, set on its page, so the step is
-tuned in one place rather than in every controller. An encoder sends
-`/dmxcore/control/vol/up` with an empty argument list once per detent and
-nothing else.
+The Control Value moves by its own **Step Size**, set on its page, so the
+step is tuned in one place rather than in every controller. An encoder sends
+`/dmxcore/control/vol/up` once per detent, with no argument or with `1`; a
+button's `0` on release is ignored.
 
-Send an argument only to override the step for that one message. A magnitude
-of 1 or more is read as a percentage and anything below it as a 0–1 fraction,
-so `10` and `0.1` both move a Level by 10%, and `1` moves it by **1%**. A
-negative argument runs the other way, so `/dmxcore/control/vol/up -5` steps
-down by 5%.
+To choose the step from the controller instead, use `/step` with a signed
+amount. A magnitude of 1 or more is read as a percentage and anything below
+it as a 0–1 fraction, so `10` and `0.1` both move a Level by 10%, and
+`/dmxcore/control/vol/step -5` steps down by 5%.
 :::
 
 ### Device
 
 | Address | Argument | Action |
 |---------|----------|--------|
-| `/dmxcore/status` | - | Re-send the full status feedback set to connected clients. |
+| `/dmxcore/status` | press | Re-send the full status feedback set to connected clients. |
 | `/dmxcore/hello` | *(optional)* name | Subscribe the sender to the status feedback (below) and send it the current state. A device with no UI of its own - a PoeControl panel, say - sends this when it finds the device and now and then after that. |
 | `/dmxcore/blink` | `1` / `0` | Turn the identify blink on or off. |
 | `/ping` | - | Keep-alive. Registers the sender for feedback without doing anything else; not logged. |
