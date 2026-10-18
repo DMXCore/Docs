@@ -123,6 +123,8 @@ Register the controllers you want two-way communication with under **Control & I
 
 A controller can also subscribe itself: a sender of `/dmxcore/hello` (or of `/dmxcore/status`) receives the status feedback at the port it sends from, with no client entry at all, until it has been silent for the any-source timeout (24 hours by default). A client entry for its IP, if there is one, decides instead. Devices that subscribed this way are listed under **Subscribed Devices** on the OSC Clients page, by the name their hello carried.
 
+The first message from a client after a minute of silence (a `/ping` counts) also gets it the full status set, the same one `/dmxcore/hello` brings, so a panel that started after the device or woke from sleep is right from its first tap.
+
 ![OSC Clients list with source IP and feedback port](/assets/web/osc-clients-list.png)
 
 ### Feedback Address Reference
@@ -135,7 +137,7 @@ A controller can also subscribe itself: a sender of `/dmxcore/hello` (or of `/dm
 | `/dmxcore/status/light` `/dmxcore/status/sound` | `1` / `0` | Playback state changes - whether light (something playing, or fixture control) and sound are being output. |
 | `/dmxcore/active/cue/<code>` `/dmxcore/active/timeline/<code>` `/dmxcore/active/sound/<code>` `/dmxcore/active/preset/<code>` | `1` / `0` | `1` for every item playing or applied, on every playback state change; `0` once when it stops. The code is sent in lower case. For an indicator next to a button that starts that item. |
 | `/dmxcore/dimmer/master` | level | The master dimmer changes. |
-| `/dmxcore/fadetime` | ms | Sent to one sender only, on its `/dmxcore/hello`, `/dmxcore/status` or `/dmxcore/fadetime`: the fade time that sender's presets use - its own, or the device default when it has none. |
+| `/dmxcore/fadetime` | ms | Sent to one sender only, on its `/dmxcore/hello`, `/dmxcore/status` or `/dmxcore/fadetime`, and on its first message after a minute of silence: the fade time that sender's presets use - its own, or the device default when it has none. |
 | `/dmxcore/fixture/red` `/dmxcore/fixture/green` `/dmxcore/fixture/blue` | level | The global fixture-control color changes. |
 | `/dmxcore/control/<code>` | level | A Control Value changes (the code is sent in lower case): a Level as 0–1, a Toggle as `1`/`0`, a Selector as its choice index. |
 
