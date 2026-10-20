@@ -53,8 +53,8 @@ The option is disabled (with a reason) when the assignment already uses a hold g
 
 Each assignment also controls how the button looks and how its LED behaves:
 
-- **Icon** - an icon name (e.g. `play`, `stop`); leave empty for text-only buttons
-- **Font size** - negative values render bold; set to 0 with an icon for icon-only keys
+- **Icon** - pick one of the built-in icons from the grid, or type the name of an image you uploaded (an upload with the same name as a built-in icon replaces it); leave empty for text-only buttons. A key with an icon shows its label under the icon, or on a dark band across a custom image. A name that matches no icon shows a crossed-out picture with the label, so a typo is easy to spot
+- **Font size** - negative values render bold; set to 0, or leave the label blank, for icon-only keys
 - **Background - Active** - shown while the action is engaged (preset playing, schedule on, mute on) or briefly during a tap-flash
 - **Background - Inactive** - shown while the action is at rest
 
