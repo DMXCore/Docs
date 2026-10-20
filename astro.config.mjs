@@ -47,6 +47,8 @@ export default defineConfig({
       ],
       customCss: ['./src/styles/custom.css'],
       components: {
+        // Adds og:image and twitter:image (src/components/Head.astro).
+        Head: './src/components/Head.astro',
         // Adds the docs copilot widget (src/components/HelpWidget.astro).
         Footer: './src/components/Footer.astro',
       },

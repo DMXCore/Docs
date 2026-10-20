@@ -1,0 +1,36 @@
+---
+// Adds og:image and twitter:image. Starlight already emits the other social tags.
+import Default from '@astrojs/starlight/components/Head.astro';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { resolveShareImage } from '../share-image.mjs';
+
+const { entry } = Astro.locals.starlightRoute;
+const site = Astro.site ?? 'https://docs.dmxcore.com';
+const pageUrl = new URL(Astro.url.pathname, site).href;
+const publicDir = fileURLToPath(new URL('../../public/', import.meta.url));
+
+let body = typeof entry.body === 'string' ? entry.body : '';
+if (!body && entry.filePath) {
+  try {
+    const raw = readFileSync(new URL(`../../${entry.filePath}`, import.meta.url), 'utf8');
+    body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
+  } catch {
+    body = '';
+  }
+}
+
+const share = resolveShareImage({
+  data: entry.data,
+  body,
+  site,
+  publicDir,
+  pageUrl,
+});
+---
+
+<Default><slot /></Default>
+{share.emitOg && <meta property="og:image" content={share.url} />}
+{share.emitTwitter && <meta name="twitter:image" content={share.url} />}
+{share.emitWidth && <meta property="og:image:width" content={String(share.width)} />}
+{share.emitHeight && <meta property="og:image:height" content={String(share.height)} />}
