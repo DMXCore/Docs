@@ -56,9 +56,9 @@ The user holds raw levels on a handful of channels of the slot the bar is on, se
       "screenshotId": "channel-tester"
     },
     {
-      "id": "check-readback",
-      "label": "If a held fader shows an amber tick at a different level, something after the merge changed the output - a channel rule, Blackout or Output Off - and the notice on the page says which",
-      "docsUrl": "/dmx-core-100/configuration/channel-tester/#readback",
+      "id": "check-notice",
+      "label": "If the bar stays dark, read the notice under the toolbar: Blackout, Output Off or an active recorder keep the held levels from going out",
+      "docsUrl": "/dmx-core-100/configuration/channel-tester/#what-actually-goes-out",
       "screenshotId": "channel-tester"
     },
     {
@@ -99,7 +99,7 @@ The user holds raw levels on a handful of channels of the slot the bar is on, se
 - Utilities → Channel Tester, Start Tester, slot picker, outputs table: `configuration/channel-tester.md` "Starting a session"; `src/AdminSite/ClientApp/src/views/operation/ChannelTester.vue`.
 - Fixture list, highlight, Full/Release: `channel-tester.md` "Fixtures on the slot"; `/api/website/channeltester/fixtures` in `WebsiteController.ChannelTester.cs`.
 - Command grammar: `channel-tester.md` "Command line"; `src/AdminSite/ClientApp/src/composables/useChannelCommand.js`.
-- Readback tick and state notice: `channel-tester.md` "Readback"; `ChannelTesterStatusModel.State`.
+- State notice: `channel-tester.md` "What actually goes out"; `ChannelTesterStatusModel.State`.
 - Permission: `UserPermissions.ChannelTester`; nav entry gated on `CHANNELTESTER`.
 
 ## Source notes

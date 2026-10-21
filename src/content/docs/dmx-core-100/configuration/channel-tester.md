@@ -31,9 +31,9 @@ A held channel keeps the level you gave it until you release it, on top of whate
 
 While any channel is held the card header shows **TESTING slot N (count held)**.
 
-### Readback
+### What actually goes out
 
-Under a held fader a small amber tick marks the level the slot actually sends when that differs from the held value. A held channel normally wins the merge, so a difference means something after the merge changed it: a [channel rule](/dmx-core-100/playback/channel-rules) (a cap or scale on that channel, or a copy whose source is elsewhere), [Blackout](/dmx-core-100/basics/blackout-and-stop), Output Off, or an active recorder session. The page says so in a notice when it knows the reason.
+A held channel normally wins the merge. Something after the merge can still change what leaves the slot: a [channel rule](/dmx-core-100/playback/channel-rules) (a cap or scale on that channel, or a copy whose source is elsewhere), [Blackout](/dmx-core-100/basics/blackout-and-stop), Output Off, or an active recorder session. The page shows a notice for Blackout, Output Off and the recorder; for channel rules, open the [Output Monitor](/dmx-core-100/configuration/output-monitor) in a second tab to see the sent values.
 
 ## Command line
 
