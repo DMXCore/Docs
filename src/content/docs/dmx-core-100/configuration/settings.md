@@ -32,10 +32,10 @@ The Web UI exposes all settings, organized in the sidebar under **Lighting Setup
 | **Control & Integrations** | Triggers, events, [control surfaces](/dmx-core-100/control-surfaces), [custom menus](/dmx-core-100/scheduling-automation/custom-menus), [control values](/dmx-core-100/integrations/control-values), OSC clients, MQTT, scripts, and [plugins](/dmx-core-100/integrations/plugins) |
 | **Device > System** | Timezone, location, language, device nickname, lock-down options, ports, audio (see below) |
 | **Device > Network** | Per-adapter IP configuration - DHCP or static address, netmask, gateway (see below) |
-| **Device > Touchscreen** | Backlight and front LED brightness, display dim/off timeouts, navigation behavior, on-screen display options |
+| **Device > Touchscreen** | Backlight and front LED brightness, display dim/off timeouts, navigation behavior, on-screen display options, the home screen [logo animation pause](/dmx-core-100/customizations/main-home-screen-logo#logo-animation) |
+| **Device > Installer** | Installation-specific settings and white-label branding |
 
 ![Device > Touchscreen settings](/assets/web/touchscreen-settings.png)
-| **Device > Installer** | Installation-specific settings and white-label branding |
 
 ### Device > System Highlights
 
