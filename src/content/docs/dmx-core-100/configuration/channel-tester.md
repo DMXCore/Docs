@@ -55,11 +55,11 @@ Console users can skip the faders: the field above them takes one command per li
 
 ## Fixtures on the slot
 
-Under the faders, **Fixtures on slot N** is a table of every enabled fixture copy on the slot with its channel span. Click a code to scroll to its channels (in the grid view, to select them); **Full** and **Reset** act on the whole fixture. Each fader also carries its fixture's code above the first channel and the channel's name from the profile (`Red`, `Dimmer`, `Strobe`) under each channel, so the layout of a fixture is visible under its faders.
+Under the faders, **Fixtures on slot N** is a table of every enabled fixture copy on the slot with its channel span. Click a code to scroll to its channels (in the grid view, to select them); the **Zero**, **Full** and **Reset** buttons act on the whole fixture. Each fader also carries its fixture's code above the first channel and the channel's name from the profile (`Red`, `Dimmer`, `Strobe`) under each channel, so the layout of a fixture is visible under its faders.
 
 ## Grid view
 
-On a phone, or with the **Grid** button, the faders become the Output Monitor's 32 x 16 grid: each cell shows its level, shaded by brightness, outlined when it differs from the capture. Tap a cell to select it or drag across cells to select a run, then use the slider, the number field, **Full** or **Reset** above the grid. The command line works the same in both views.
+On a phone, or with the **Grid** button, the faders become the Output Monitor's 32 x 16 grid: each cell shows its level, shaded by brightness, outlined when it differs from the capture, and the cells of each fixture copy are boxed together so its span is visible. Tap a cell to select it or drag across cells to select a run, then move the slider (the channels follow it live), type a number, or use **Zero**, **Full** and **Reset** above the grid. The command line works the same in both views.
 
 ## Session behavior
 
