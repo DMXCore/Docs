@@ -23,7 +23,7 @@ Picking a slot **captures** what the slot is sending at that moment and the test
 
 ## Setting channels
 
-- **Faders** - one fader per channel, all 512 on the page, 32 per row in the same positions as the Output Monitor grid. They start at the captured levels. Drag a fader to change its channel; a value that differs from the capture turns bold. Click the value to type a number (0-255), double-click the channel number to toggle the channel between full and its captured level, click the channel number to highlight it
+- **Faders** - one fader per channel, all 512 on the page, 32 per row in the same positions as the Output Monitor grid. They start at the captured levels. Drag a fader to change its channel; a value that differs from the capture turns bold. Click the value to type a number (0-255), double-click the channel number to toggle the channel between full and its captured level
 - **Reset** puts every channel back at its captured level and keeps the slot selected. The reset buttons on the grid and in the fixture table do the same for a selection or one fixture, and `rel` on the command line for any range
 - Picking another slot captures that slot instead; the previous one goes back to the show
 
@@ -48,14 +48,14 @@ Console users can skip the faders: the field above them takes one command per li
 | `1 thru 8 @ +10`, `@ -5` | relative to the current level |
 | `par1 @ full` | a fixture code stands for that fixture's channels on this slot, all copies; `par1.2` is copy 2 |
 | `slot 4` | select another slot |
-| `1 thru 8` | select only: scrolls to and highlights those channels. Clicking a channel number under a fader, or tapping cells in the grid, selects too |
-| `@ 50`, `rel` | a line that starts with `@` or `rel` acts on the selected channels |
+| `1 thru 8` | scrolls to those channels; in the grid view it selects them |
+| `@ 50`, `rel` | grid view: a line that starts with `@` or `rel` acts on the selected cells |
 
 `thru` can be written `t`, `@` can be written `at`, and case does not matter.
 
 ## Fixtures on the slot
 
-Under the faders, **Fixtures on slot N** is a table of every enabled fixture copy on the slot with its channel span. Click a code to highlight its channels; **Full** and **Reset** act on the whole fixture. Each fader also carries its fixture's code above the first channel and the channel's name from the profile (`Red`, `Dimmer`, `Strobe`) under each channel, so the layout of a fixture is visible under its faders.
+Under the faders, **Fixtures on slot N** is a table of every enabled fixture copy on the slot with its channel span. Click a code to scroll to its channels (in the grid view, to select them); **Full** and **Reset** act on the whole fixture. Each fader also carries its fixture's code above the first channel and the channel's name from the profile (`Red`, `Dimmer`, `Strobe`) under each channel, so the layout of a fixture is visible under its faders.
 
 ## Grid view
 
