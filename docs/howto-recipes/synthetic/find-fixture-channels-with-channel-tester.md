@@ -39,7 +39,7 @@ The user holds raw levels on a handful of channels of the slot the bar is on, se
     },
     {
       "id": "pick-slot",
-      "label": "Pick the slot the fixture is on. The Outputs on slot table under the picker shows the output and universe that slot goes to",
+      "label": "Pick the slot the fixture is on: the tester captures what the slot sends and takes it over. The Outputs on slot table shows the output and universe that slot goes to",
       "docsUrl": "/dmx-core-100/configuration/channel-tester/#starting-a-session",
       "screenshotId": "channel-tester"
     },
@@ -57,13 +57,13 @@ The user holds raw levels on a handful of channels of the slot the bar is on, se
     },
     {
       "id": "check-notice",
-      "label": "If the bar stays dark, read the notice under the toolbar: Blackout, Output Off or an active recorder keep the held levels from going out",
+      "label": "If the bar stays dark, read the notice under the toolbar: Blackout, Output Off or an active recorder keep the levels from going out",
       "docsUrl": "/dmx-core-100/configuration/channel-tester/#what-actually-goes-out",
       "screenshotId": "channel-tester"
     },
     {
       "id": "release",
-      "label": "Click Release All, then Stop Tester",
+      "label": "Click Stop Tester; the slot goes back to the show",
       "docsUrl": "/dmx-core-100/configuration/channel-tester/#holding-and-releasing-channels",
       "screenshotId": "channel-tester"
     }
@@ -73,26 +73,26 @@ The user holds raw levels on a handful of channels of the slot the bar is on, se
 
 ## Gotchas
 
-- Levels are held per slot, not per wire universe; the Outputs on slot table ties the slot to the output and universe.
+- The tester works per slot, not per wire universe; the Outputs on slot table ties the slot to the output and universe.
 - Only slots that an enabled output is mapped to can be selected. If the fixture's slot is not in the list, the problem is the output configuration.
-- Channels that are not touched keep playing the show, so a cue running on the same slot is not stopped - stop it first if you want a dark baseline, or test one channel at a time.
-- Changing the slot releases everything held on the previous one.
+- Picking a slot freezes the show on that slot at the captured levels until the tester lets go; a cue on the same slot stops moving meanwhile. For a dark baseline use `all @ 0` first, or stop playback.
+- Reset (the toolbar button, the grid button, the fixture table button or `rel`) puts channels back at their captured level; picking another slot releases the previous one.
 - `par1 @ full` works with the fixture code shown in the fixture list; `par1.2` targets copy 2 of a fixture with several copies.
 - Web UI only. The session ends when the page is left, and an idle session ends after 60 minutes.
 
 ## Eval checks
 
 - Menu path is `Utilities > Channel Tester`
-- Mentions `Start Tester`, picking a slot, and `Release All` / `Stop Tester`
+- Mentions `Start Tester`, picking a slot, and `Stop Tester`
 - Explains that the fixture list (or `par1 @ full`) shows and drives the fixture's channels
 - Mentions the command line syntax (`thru`, `@`, `full`) or dragging faders
 - Does not tell them to build a preset or cue for a channel test
 - Does not claim a touchscreen Channel Tester exists
-- Does not claim held levels survive a restart or are saved
+- Does not claim levels survive a restart or are saved
 
 ## Gaps
 
-- Screenshot shows faders with channels held, not the fixture list or the grid view.
+- Screenshot shows faders with channels changed, not the fixture table or the grid view.
 
 ## Verification
 
