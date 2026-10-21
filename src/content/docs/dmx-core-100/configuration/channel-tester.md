@@ -59,7 +59,7 @@ Under the faders, **Fixtures on slot N** is a table of every enabled fixture cop
 
 ## Grid view
 
-On a phone, or with the **Grid** button, the faders become the Output Monitor's 32 x 16 grid (16 cells per row on a phone, so they are big enough to tap): each cell shows its level, shaded by brightness, outlined when it differs from the capture, and the cells of each fixture copy are boxed together so its span is visible. Tap a cell to select it or drag across cells to select a run, then move the slider (the channels follow it live), type a number, or use **Zero**, **Full** and **Reset** above the grid. The command line works the same in both views.
+On a phone, or with the **Grid** button, the faders become the Output Monitor's 32 x 16 grid (16 cells per row on a phone, so they are big enough to tap): each cell shows its level, shaded by brightness, outlined when it differs from the capture, and the cells of each fixture copy are boxed together so its span is visible. Tap a cell to select it (with a mouse, drag across cells to select a run; on a phone a finger drag scrolls, and a range comes from the command line), then move the slider (the channels follow it live), type a number, or use **Zero**, **Full** and **Reset** above the grid. The command line works the same in both views.
 
 ## Session behavior
 
