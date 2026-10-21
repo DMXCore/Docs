@@ -31,3 +31,5 @@ Below the channel grid, an **output information table** shows which output inter
 - Sessions automatically time out after 60 minutes of inactivity
 - The session persists across page navigation within the Web UI - if you navigate away and return, the monitor resumes
 - Click **Stop Monitor** to end the session and release resources
+
+To send test levels to a slot instead of watching it, use the [Channel Tester](/dmx-core-100/configuration/channel-tester) - open both in two tabs to watch a test merge with a running cue.

@@ -230,6 +230,40 @@ const SHOTS = [
       await sleep(600);
     },
   },
+  {
+    // Channel Tester with a slot picked and a few channels held, so the faders,
+    // the readback ghosts and the command line hint all show.
+    name: 'channel-tester', path: '/utilities/channeltester',
+    before: async (page) => {
+      await page.evaluate(() => {
+        const btn = [...document.querySelectorAll('button')].find(
+          (b) => b.textContent.trim() === 'Start Tester',
+        );
+        btn?.click();
+      });
+      await sleep(900);
+      await page.evaluate(() => {
+        const select = document.querySelector('select[aria-label="Slot"]');
+        if (select && select.options.length > 1) {
+          select.value = select.options[1].value;
+          select.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      });
+      await sleep(900);
+      await page.evaluate(() => {
+        const faders = [...document.querySelectorAll('button')].find((b) => b.textContent.trim() === 'Faders');
+        faders?.click();
+      });
+      await page.type('input[aria-label="Channel command"]', '1 thru 8 @ full');
+      await page.keyboard.press('Enter');
+      await sleep(400);
+      await page.type('input[aria-label="Channel command"]', '12 + 14 @ 50');
+      await page.keyboard.press('Enter');
+      await sleep(400);
+      await page.type('input[aria-label="Channel command"]', '17 thru 24 @ 25');
+      await sleep(700);
+    },
+  },
   { name: 'record', path: '/utilities/record' },
   { name: 'releases', path: '/utilities/releases' },
   { name: 'input-mapping-details', path: '/utilities/record/recordconfig/1' },

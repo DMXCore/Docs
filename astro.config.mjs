@@ -192,6 +192,7 @@ export default defineConfig({
                 { label: 'Software Updates', slug: 'dmx-core-100/configuration/software-updates' },
                 { label: 'Output Config', slug: 'dmx-core-100/configuration/output-config' },
                 { label: 'Output Monitor', slug: 'dmx-core-100/configuration/output-monitor' },
+                { label: 'Channel Tester', slug: 'dmx-core-100/configuration/channel-tester' },
                 { label: 'Device Monitor', slug: 'dmx-core-100/configuration/device-monitor' },
                 { label: 'Users & Roles', slug: 'dmx-core-100/configuration/users-and-roles' },
                 { label: 'Backup & Restore', slug: 'dmx-core-100/configuration/backup-and-restore' },

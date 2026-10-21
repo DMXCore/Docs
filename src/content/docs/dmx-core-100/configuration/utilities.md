@@ -29,7 +29,7 @@ On an Appliance, **Device Operations** includes **Releases** - the in-app softwa
 
 ## Web UI
 
-The **Utilities** sidebar group includes [Audit Log](/dmx-core-100/configuration/audit-log), [Device Monitor](/dmx-core-100/configuration/device-monitor), [Output Monitor](/dmx-core-100/configuration/output-monitor), [Record](/dmx-core-100/playback/recording), **Releases** (Appliance, Windows, and macOS only), [Remote Screen](#remote-screen) (Appliance only), and **System**.
+The **Utilities** sidebar group includes [Audit Log](/dmx-core-100/configuration/audit-log), [Device Monitor](/dmx-core-100/configuration/device-monitor), [Output Monitor](/dmx-core-100/configuration/output-monitor), [Channel Tester](/dmx-core-100/configuration/channel-tester), [Record](/dmx-core-100/playback/recording), **Releases** (Appliance, Windows, and macOS only), [Remote Screen](#remote-screen) (Appliance only), and **System**.
 
 ### Releases
 
