@@ -50,7 +50,8 @@ Console users can skip the faders: the field above them takes one command per li
 | `1 thru 8 @ +10`, `@ -5` | relative to the held level (0 when not held) |
 | `par1 @ full` | a fixture code stands for that fixture's channels on this slot, all copies; `par1.2` is copy 2 |
 | `slot 4` | select another slot |
-| `1 thru 8` | select only: scrolls to and highlights those channels, so the next `@ …` applies to them |
+| `1 thru 8` | select only: scrolls to and highlights those channels. Clicking a channel number under a fader, or tapping cells in the grid, selects too |
+| `@ 50`, `rel` | a line that starts with `@` or `rel` acts on the selected channels |
 
 `thru` can be written `t`, `@` can be written `at`, and case does not matter.
 
