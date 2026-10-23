@@ -43,7 +43,7 @@ The Web UI exposes all settings, organized in the sidebar under **Lighting Setup
 - **Device Nickname** and **Show Name** - displayed on-screen and in the portal
 - **Screen Unlock Pin** and **Lock Screen after X seconds** - the touchscreen lock. The PIN must be exactly 4 characters with at least one digit or it is cleared on save. Lock timeout accepts 0–600; **0** disables the lock (same setting as **Screen lock timeout** on the Appliance touchscreen).
 - **Control surface hold to confirm (ms)** - how long a [Hold to confirm](/dmx-core-100/control-surfaces/configuring#hold-to-confirm) button must be held before the action fires (default 1500, range 250–10000). Changing it takes effect on the next press; no restart
-- **Lock-down options** - lock down the device, show only the custom menu, only allow admins to record, allow stop output when locked down, hide fixture or remote control functionality
+- **Lock-down options** - lock down the device, show only the custom menu, only allow admins to record, allow stop output when locked down, hide fixture functionality or [Linked Units](/dmx-core-100/integrations#linked-units)
 - **Store recordings compressed** - save each new recording as a [compressed cue](/dmx-core-100/playback/cues#compressed-storage) (off by default; existing cues are not affected)
 - **Multi-Zone Playback** - enables [zones](/dmx-core-100/lighting/zones)
 - **Enable Remote Access** - the [cloud tunnel](/dmx-core-100/integrations/cloud-tunnel)

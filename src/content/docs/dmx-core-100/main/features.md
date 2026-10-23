@@ -24,7 +24,7 @@ title: Features
 * Control surfaces: Stream Deck, MIDI controllers, Key Digital keypads, and OSC panels with two-way feedback
 * Control Values: bridge Q-SYS/Symetrix DSP levels, selectors, and mutes to faders, menus, and triggers
 * Installer-customizable menus with nested levels, sliders, icons, schedule toggles, status indicators, and guest access
-* Set up multiple units as remote control/server
+* Link multiple units: a Satellite Unit controls a Main Unit from its own touchscreen
 * Map outputs to a combination of ArtNet/sACN/KiNet/TPM2.net/DMX universes
 * Support for optional 2-port DMX-512 board and [ADIO board](https://dmxprosales.com/products/dmx-core-100-audio-2xdmx-input-board-adio) (audio output, 2x DMX-512, 4 digital inputs)
 * Record from any source (DMX-512, ArtNet, sACN or KiNet), plus live monitor feature

@@ -20,6 +20,10 @@ The DMX Core 100 is built to talk to the rest of your installation - audio DSPs,
 
 Physical controllers - Stream Deck, MIDI devices, Key Digital keypads, and OSC panels - are covered in [Control Surfaces](/dmx-core-100/control-surfaces).
 
-Multiple DMX Core units can also work together: under **Control & Integrations > Remote Control**, point a unit at a **Remote Control Host** and it acts as a wall remote for that unit.
-
 Please contact us to let us work with you on extending this list.
+
+## Linked Units
+
+Multiple DMX Core 100 units can work together. Under **Control & Integrations > Linked Units**, set a unit's **Main Unit** to another DMX Core 100's host name or IP address and, after a restart, it becomes a **Satellite Unit**: its touchscreen and Web UI show and control the Main Unit's cues and presets, and its own outputs are off. Approve the Satellite Unit on the Main Unit the first time it connects. **Disable Satellite Mode** turns a Satellite Unit back into a standalone unit without clearing its Main Unit.
+
+Most installs use a single unit, so Linked Units is hidden until **Hide Linked Units** is turned off in System settings. Setting it up needs the **Edit Linked Units** permission, separate from the permission for keypads, Stream Decks and OSC panels.

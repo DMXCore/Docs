@@ -70,7 +70,7 @@ Each role is a set of individually toggleable permissions covering:
 | Content | Edit/Delete Cue, Preset, Effect, Timeline, Schedule, Sound |
 | Playback | Start/Stop output, Manipulate Playback |
 | Automation | Edit/Delete Input Trigger, Output Event; Snooze Schedules |
-| Control | Edit Remote Control (control surfaces and DSP remotes), Change Custom Menu |
+| Control | Edit Control Surfaces and OSC Clients (keypads, Stream Decks, MIDI, TouchOSC), Edit Linked Units ([Main and Satellite Units](/dmx-core-100/integrations#linked-units)), Change Custom Menu |
 | Outputs | Edit/Delete Output, Record, Change Output Settings, Channel Tester ([send test levels](/dmx-core-100/configuration/channel-tester) to a slot's channels) |
 | System | Device Operations (restart/reboot), Change Network Settings, Change System Settings (including [factory reset](/dmx-core-100/configuration/utilities#factory-reset)), Change Plugin Settings, Upgrade Software, Remote Screen ([view and operate the touchscreen](/dmx-core-100/configuration/utilities#remote-screen) and see the VNC login) |
 | Data | Create Local Backup, Create Cloud Backup, File Explorer (and its sub-permissions), View Audit Log |

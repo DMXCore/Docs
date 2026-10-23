@@ -43,7 +43,7 @@ Keywords in the address (`cue`, `dimmer`, `master`, …) are matched case-insens
 
 The argument follows one rule, the same one QLab, ETC Eos and Resolume use, so a button in TouchOSC, Companion or a console works with its default settings:
 
-- A **trigger** address (play, stop, start, toggle, step) reads its argument as a **press**: no argument or any non-zero number fires it, and `0` is the button's release and is ignored. A TouchOSC button that sends `1` on press and `0` on release therefore fires once per press. A release also makes the device send that item's state back to the sender on the same address (`/dmxcore/preset/BAR_RED 1` while the preset is applied), so the button's light recovers without a script.
+- A **trigger** address (play, stop, start, toggle, step) reads its argument as a **press**: no argument or any non-zero number fires it, and `0` is the button's release and is ignored. A TouchOSC button that sends `1` on press and `0` on release therefore fires once per press. For a sender that receives feedback (see [OSC Clients and Feedback](#osc-clients-and-feedback)), a release also makes the device send that item's state back on the same address (`/dmxcore/preset/BAR_RED 1` while the preset is applied), so the button's light recovers without a script. A sender with no feedback gets nothing back, since it would never hear when the item ends.
 - A **level** address reads its argument as the **value**: one number, required. Levels are `0.0`–`1.0`, times are milliseconds.
 - An **option** such as a fade time or a loop count has a sub-address of its own (`/dmxcore/preset/<code>/fade 2000`), so a button's `1` can never be mistaken for it.
 
@@ -124,6 +124,8 @@ it as a 0–1 fraction, so `10` and `0.1` both move a Level by 10%, and
 Register the controllers you want two-way communication with under **Control & Integrations > OSC Clients** - each client has a name, a source IP (or *any*), a **feedback port**, and **Send device status updates**, which turns the status feedback below on for it. Status messages - what's playing, current levels, active states - are sent to the client's feedback port, or to the port its messages come from when none is set, so your TouchOSC layout's buttons and faders track reality.
 
 A controller can also subscribe itself: a sender of `/dmxcore/hello` (or of `/dmxcore/status`) receives the status feedback at the port it sends from, with no client entry at all, until it has been silent for the any-source timeout (24 hours by default). A client entry for its IP, if there is one, decides instead. Devices that subscribed this way are listed under **Subscribed Devices** on the OSC Clients page, by the name their hello carried.
+
+Both **Subscribed Devices** and **Recent OSC Senders** have a **Clear** button (for users with the **Edit Control Surfaces and OSC Clients** permission). Clearing the lists and then pressing a button on the controller shows exactly what arrives. A cleared subscribed device receives feedback again only after its next `/dmxcore/hello`; a cleared sender reappears under Recent OSC Senders with its next message.
 
 The first message from a client after a minute of silence (a `/ping` counts) also gets it the full status set, the same one `/dmxcore/hello` brings, so a panel that started after the device or woke from sleep is right from its first tap.
 
