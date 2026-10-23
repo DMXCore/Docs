@@ -11,8 +11,8 @@ The OSC server listens on UDP port **8000** by default. The port is configurable
 
 ## Three Ways to Use Incoming OSC
 
-- **Built-in addresses** - a fixed set of `/dmxcore/...` addresses that play cues, apply presets, start effects, and set levels by *code*. Nothing to configure: send `/dmxcore/cue/ACT1` and the cue with code `ACT1` plays. See the [reference](#built-in-address-reference) below. This is the right fit for a show controller or playback software that just needs to fire saved cues.
-- **Input triggers** - for your own address space, or for actions the built-in set doesn't cover (timelines, sounds, scripts, output events, stepping a Control Value, toggling output), define an [input trigger](/dmx-core-100/scheduling-automation/input-triggers) of type OSC with the address of your choice. A Value-mode trigger feeds a fader's value straight into a level.
+- **Built-in addresses** - a fixed set of `/dmxcore/...` addresses that play cues, timelines and sounds, apply presets, start effects, and set levels by *code*. Nothing to configure: send `/dmxcore/cue/ACT1` and the cue with code `ACT1` plays. See the [reference](#built-in-address-reference) below. This is the right fit for a show controller or playback software that just needs to fire saved cues.
+- **Input triggers** - for your own address space, or for actions the built-in set doesn't cover (scripts, output events, toggling output, playback options such as a start position), define an [input trigger](/dmx-core-100/scheduling-automation/input-triggers) of type OSC with the address of your choice. A Value-mode trigger feeds a fader's value straight into a level.
 - **OSC control surfaces** - bind a whole OSC layout (TouchOSC, a console's OSC page) to a [control surface](/dmx-core-100/control-surfaces) for structured, bank-switchable panels with full two-way feedback, including Absolute/Relative slider modes and press-and-hold auto-repeat. The surface binds to a named [OSC client](#osc-clients-and-feedback), so it is the right fit for a dedicated operator panel rather than one-off cue triggers.
 
 Built-in addresses and input triggers work at the same time: a message that matches an input trigger *and* a built-in address does both. A control surface, on the other hand, *owns* its sender: once an OSC client with a specific source IP is bound to an enabled surface, every message from that IP goes to the surface and neither the built-in addresses nor input triggers see it. A surface bound to an *any*-source client only claims the addresses it has assignments for and lets everything else through.
@@ -43,7 +43,7 @@ Keywords in the address (`cue`, `dimmer`, `master`, …) are matched case-insens
 
 The argument follows one rule, the same one QLab, ETC Eos and Resolume use, so a button in TouchOSC, Companion or a console works with its default settings:
 
-- A **trigger** address (play, stop, start, toggle, step) reads its argument as a **press**: no argument or any non-zero number fires it, and `0` is the button's release and is ignored. A TouchOSC button that sends `1` on press and `0` on release therefore fires once per press. A release also makes the device re-send that item's `/dmxcore/active/...` state to the sender, so the button's light recovers without a script.
+- A **trigger** address (play, stop, start, toggle, step) reads its argument as a **press**: no argument or any non-zero number fires it, and `0` is the button's release and is ignored. A TouchOSC button that sends `1` on press and `0` on release therefore fires once per press. A release also makes the device send that item's state back to the sender on the same address (`/dmxcore/preset/BAR_RED 1` while the preset is applied), so the button's light recovers without a script.
 - A **level** address reads its argument as the **value**: one number, required. Levels are `0.0`–`1.0`, times are milliseconds.
 - An **option** such as a fade time or a loop count has a sub-address of its own (`/dmxcore/preset/<code>/fade 2000`), so a button's `1` can never be mistaken for it.
 
@@ -56,6 +56,8 @@ A float, integer, numeric string or OSC `True`/`False` is accepted anywhere a nu
 | `/dmxcore/cue/<code>` | press | Play the cue with its own loop count from the Cues page. |
 | `/dmxcore/cue/<code>/loop` | loop count | Play the cue and loop it that many times instead. |
 | `/dmxcore/cuecontrol/stop` | press | Stop cue playback. |
+| `/dmxcore/timeline/<code>` | press | Play the [timeline](/dmx-core-100/playback/timelines). |
+| `/dmxcore/sound/<code>` | press | Play the [sound](/dmx-core-100/playback/sounds). |
 | `/dmxcore/preset/<code>` | press | Fade to the preset over the default fade duration. |
 | `/dmxcore/preset/<code>/fade` | fade time in ms | Fade to the preset over the given time; `0` snaps. |
 | `/dmxcore/effect/<code>` | press | Start the stored [effect](/dmx-core-100/lighting/effects) as the global effect, with its saved parameters and colors. |
@@ -135,13 +137,23 @@ The first message from a client after a minute of silence (a `/ping` counts) als
 | `/dmxcore/status/cue` | string | Playback state changes - the code of the playing cue, or empty when none. |
 | `/dmxcore/status/playing` | `1` / `0` | Playback state changes - whether a cue, timeline or sound is playing. |
 | `/dmxcore/status/light` `/dmxcore/status/sound` | `1` / `0` | Playback state changes - whether light (something playing, or fixture control) and sound are being output. |
-| `/dmxcore/active/cue/<code>` `/dmxcore/active/timeline/<code>` `/dmxcore/active/sound/<code>` `/dmxcore/active/preset/<code>` | `1` / `0` | `1` for every item playing or applied, on every playback state change; `0` once when it stops. The code is sent in lower case. For an indicator next to a button that starts that item. |
+| `/dmxcore/cue/<code>` `/dmxcore/timeline/<code>` `/dmxcore/sound/<code>` `/dmxcore/preset/<code>` `/dmxcore/effect/<code>` | `1` / `0` | `1` for every item playing, applied or running, on every playback state change; `0` once when it stops. The address is the item's trigger address, with the code exactly as stored, so the button that starts an item is also its indicator. An effect's state follows within about half a second. |
 | `/dmxcore/dimmer/master` | level | The master dimmer changes. |
 | `/dmxcore/fadetime` | ms | Sent to one sender only, on its `/dmxcore/hello`, `/dmxcore/status` or `/dmxcore/fadetime`, and on its first message after a minute of silence: the fade time that sender's presets use - its own, or the device default when it has none. |
 | `/dmxcore/fixture/red` `/dmxcore/fixture/green` `/dmxcore/fixture/blue` | level | The global fixture-control color changes. |
-| `/dmxcore/control/<code>` | level | A Control Value changes (the code is sent in lower case): a Level as 0–1, a Toggle as `1`/`0`, a Selector as its choice index. |
+| `/dmxcore/control/<code>` | level | A Control Value changes (the code exactly as stored): a Level as 0–1, a Toggle as `1`/`0`, a Selector as its choice index. |
 
-A client that sets a level over OSC is treated as the *master* for that address for one second and does not receive its own value echoed back, so a fader being dragged doesn't fight the feedback.
+A client that sets a level over OSC is treated as the *master* for that address for one second and does not receive its own value echoed back, so a fader being dragged doesn't fight the feedback. Item states are the exception: the button that was just pressed gets its light.
+
+An [input trigger](/dmx-core-100/scheduling-automation/input-triggers) on an address of your own is for input only. Nothing is sent back on its address: the state of what it plays goes out on that item's address, so a `/grandhall/storm` trigger that plays the timeline `THUNDER` is answered on `/dmxcore/timeline/THUNDER`.
+
+:::tip[One message per button in TouchOSC]
+Give the button the trigger address, for example `/dmxcore/preset/BAR_RED`, and tick both **Send** and **Receive** on that one OSC message. The press plays the preset, and the state coming back on the same address lights the button while the preset is applied. No second message and no script are needed. Type the code exactly as it is stored, including upper/lower case: it is matched exactly both ways.
+:::
+
+:::caution[Feedback ports and other units]
+Feedback goes out on the same addresses that trigger playback. Don't point a client's feedback port at another DMX Core's OSC port: that unit would take the feedback as commands. A DMX Core recognizes another unit by its status feedback and ignores the `/dmxcore` messages it sends, so two units set up as each other's client do not play each other's state back and forth, but the first state message can still get through.
+:::
 
 [Control surfaces](/dmx-core-100/control-surfaces) bound to an OSC client additionally send state for each assigned address, using the binding's own address path.
 
