@@ -7,6 +7,8 @@ Input triggers make the DMX Core 100 react to the outside world - a DMX channel 
 
 Configure them under **Control & Integrations > Input Triggers** in the Web UI, or **Main Menu > Settings > Input Triggers** on the touchscreen.
 
+Custom OSC addresses are shown in [Control your lights from TouchOSC](https://youtu.be/4Eh02x-Pkzk?t=174).
+
 ![Input triggers list](/assets/web/input-triggers-list.png)
 
 ![Input trigger editor - HTTP path, action, and Play Cue target](/assets/web/input-trigger-editor.png)
