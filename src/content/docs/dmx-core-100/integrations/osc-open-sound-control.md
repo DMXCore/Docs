@@ -5,6 +5,12 @@ description: Trigger playback and build two-way control panels over OSC
 
 The DMX Core 100 speaks OSC (Open Sound Control), so applications like [TouchOSC](https://hexler.net/touchosc), QLab, lighting consoles, and media servers can trigger playback and control levels over the network - with live status fed back to the controller.
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 1.5rem 0;">
+  <iframe src="https://www.youtube-nocookie.com/embed/4Eh02x-Pkzk" title="Control your lights from TouchOSC: cues, presets and live feedback on the DMX Core 100" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+Prefer to watch? The video above controls lights from TouchOSC: cues, presets and live feedback.
+
 ## Server Settings
 
 The OSC server listens on UDP port **8000** by default. The port is configurable under **Device > System > OSC Port** in the Web UI (requires a restart). No other setup is needed - the built-in addresses below work as soon as the device is on the network.

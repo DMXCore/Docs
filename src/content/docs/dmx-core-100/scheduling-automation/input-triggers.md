@@ -25,6 +25,8 @@ Configure them under **Control & Integrations > Input Triggers** in the Web UI, 
 | **Control Value** | A [Control Value](/dmx-core-100/integrations/control-values) changing - a Q-SYS or Symetrix button, fader or selector, or any control that writes the value |
 | **Plugin** | A signal from an installed plugin |
 
+An OSC trigger can use an address of your own. The TouchOSC video's [custom addresses](https://youtu.be/4Eh02x-Pkzk?t=174) segment shows that.
+
 ## Control Value Triggers
 
 A Control Value trigger makes a Control Value the *source*: a wall panel button wired to a Symetrix controller plays a cue, a Q-SYS UCI fader crossing a threshold starts a scene, an internal Control Value moved from a Stream Deck dial runs a scene. Pick the Control Value to watch; the remaining settings depend on its kind:

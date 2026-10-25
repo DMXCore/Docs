@@ -51,8 +51,10 @@ jobs:
           with open(RELEASE_NOTES_PATH) as f:
               content = f.read()
 
-          # Parse existing dates (M/D/YYYY format) – first match is the newest
-          existing_dates = re.findall(r'\|\s*(\d+/\d+/\d+)\s*\|', content)
+          # Parse existing dates (M/D/YYYY format) – first versioned row is the newest.
+          # A docs-only row (version "-") must not move this boundary.
+          versioned_dates = re.findall(r'^\|\s*v\S+\s*\|\s*(\d+/\d+/\d+)\s*\|', content, flags=re.MULTILINE)
+          existing_dates = versioned_dates or re.findall(r'\|\s*(\d+/\d+/\d+)\s*\|', content)
           # Rows are | Version | Date | Highlights |
           existing_rows = re.findall(r'^\|\s*\S+\s*\|\s*(\d+/\d+/\d+)\s*\|\s*(.*?)\s*\|$', content, flags=re.MULTILINE)
           recent_entries = existing_rows[:8]
