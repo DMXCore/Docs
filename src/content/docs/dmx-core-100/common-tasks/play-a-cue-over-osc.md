@@ -5,6 +5,12 @@ description: Fire saved cues from show-control software, a console, or an OSC pa
 
 Send `/dmxcore/cue/<code>` to the device on UDP port 8000. No configuration is needed.
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 1.5rem 0;">
+  <iframe src="https://www.youtube-nocookie.com/embed/4Eh02x-Pkzk" title="Control your lights from TouchOSC: cues, presets and live feedback on the DMX Core 100" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+Prefer to watch? The video above controls lights from TouchOSC: cues, presets and live feedback.
+
 ## Quick answer
 
 The DMX Core 100 listens for OSC on UDP port **8000** and understands a set of built-in addresses out of the box. To play a cue, send the cue's code as the last part of the address:
