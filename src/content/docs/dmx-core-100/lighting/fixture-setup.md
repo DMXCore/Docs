@@ -115,7 +115,7 @@ You can export your fixture patch from **Lighting Setup > Fixtures** in the Web 
 - **Excel** - Full export with formatting and totals, suitable for documentation
 - **CSV** - For spreadsheet tools and data processing (UTF-8, opens correctly in Excel)
 
-Each fixture is one row, sorted by address: code, name, enabled, slot and start channel, personality, copies, zone, manufacturer and profile, profile code, copy trims, hidden functions and custom options. The **End Slot**, **End Ch**, **Ch/Fixture** and **Warning** columns are worked out for you (where the fixture ends, and which fixtures share channels); they are only there to read and are ignored on import.
+Each fixture is one row, sorted by address: code, name, enabled, slot and start channel, personality, copies, zone name, manufacturer and profile, profile code, copy trims, hidden functions and custom options. The **End Slot**, **End Ch**, **Ch/Fixture** and **Warning** columns are worked out for you (where the fixture ends, and which fixtures share channels); they are only there to read and are ignored on import.
 
 The export is complete, so it can be edited and [imported](#importing-fixtures) again, on the same unit or another one.
 
@@ -139,15 +139,22 @@ The quickest way to build the sheet is often from your own patch:
 
 - A row whose **Code** matches an existing fixture **updates** that fixture. Columns that are not in the sheet keep their current values, so a sheet with just **Code** and **Name** renames fixtures and changes nothing else
 - Any other row **adds** a new fixture. Leave **Code** empty to get the next free code (`LIGHT12`, `LIGHT13`, ...)
-- Fixtures that are not in the sheet are left alone; import never deletes fixtures
-- **Zones** must already exist (see [Zones](/dmx-core-100/lighting/zones)); a zone name the device doesn't know is an error. An empty Zone cell removes the fixture from its zone
+- Fixtures that are not in the sheet are left alone, unless **Replace overlapping fixtures** is on (see below)
+- **Zone Name** is matched to the device's [Zones](/dmx-core-100/lighting/zones) ignoring case, extra spaces and punctuation, so `dance` finds a zone called `Dance`. A zone the device doesn't have is an error, and the preview suggests the closest name. Turn on **Create missing zones** to create such zones instead (needs the **Edit Zones** permission). An empty Zone Name cell removes the fixture from its zone
 - Nothing is saved until you click **Import** in the dialog, and then everything is saved at once. If any row has an error, nothing is imported
+
+### Import options
+
+Two options above the preview, both off by default:
+
+- **Replace overlapping fixtures** - fixtures that are not in the sheet but whose channels a new or moved fixture in the sheet takes are **deleted**, so you can re-patch a rig without clearing it first. The preview lists them as **Delete** rows with the fixture that replaces them. Overlaps the import doesn't cause (fixtures that already shared channels and don't move) only get a warning
+- **Create missing zones** - zones the sheet names that the device doesn't have are created, each once. The preview lists them under **New zones**
 
 ### The preview
 
 Choosing a file shows what the import will do before anything changes:
 
-- A count of **new**, **update**, **unchanged** and **error** rows, and the rows themselves with what changes for each update (for example `Address 1.1 → 2.101`)
+- A count of **new**, **update**, **delete**, **unchanged** and **error** rows, and the rows themselves with what changes for each update (for example `Address 1.1 → 2.101`)
 - **Errors** block the import: a missing address, slot 0, a channel outside 1-512, an unknown zone or profile, a code used twice in the file
 - **Warnings** do not block it: fixtures sharing channels (with other rows or with fixtures already patched), a slot with no enabled output, a copy trimmed to 0%
 - Columns the import doesn't use are listed, so a misspelled header is easy to spot
@@ -187,13 +194,13 @@ The import also reads patch sheets that were not made by DMX Core:
 | Profile | Profile, Fixture Type, Instrument Type, Model, Type | |
 | Profile Code | Profile Code | Written by the export |
 | Template | Template | Code of a patched fixture to copy |
-| Zone | Zone, Group | Must exist |
+| Zone | Zone Name, Zone, Group | Must exist, unless **Create missing zones** is on |
 | Copy Trims | Copy Trims | `100% 80% 100%`, one per copy |
 | Hidden Functions | Hidden Functions | Separated by `;` |
 | Custom Options | Custom Options | `Name=Value; Name=Value` |
 
 :::tip
-After an import, the dialog offers **the patch from before the import** as a CSV. Importing it again puts back every fixture the import changed; fixtures it added stay and can be deleted by hand. **Download the current patch** in the dialog saves the same thing beforehand.
+After an import, the dialog offers **the patch from before the import** as a CSV. Importing it again puts back every fixture the import changed or deleted; fixtures and zones it added stay and can be deleted by hand. **Download the current patch** in the dialog saves the same thing beforehand.
 :::
 
 ## Multi-Function Fixtures
