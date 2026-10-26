@@ -15,7 +15,7 @@ Menus are designed under **Control & Integrations > Custom Menus** in the Web UI
 - **Enabled** - turn the whole menu on or off
 - **Only Admin** - restrict the menu to admin users
 - **Available to Guests** - expose the menu in the Web UI *without login*, so anyone on the network (or a wall tablet) can use it
-- **Type** - **Items** (buttons, the default), **Items (small view)** for compact lists, or **Faders** (columns of sliders)
+- **Type** - **Items** (buttons, the default), **Items (small view)** for compact lists, or **Wall panel** (the fixed fader-and-buttons layout for wall controllers, see [Wall Panel Menus](#wall-panel-menus)). For a page of faders, use **Items** and add a [Faders page](#faders-page) item
 - **Look** - icon, header logo with height, and background
 
 Menus can be exported and imported as JSON - see the [custom menu samples on GitHub](https://github.com/DMXCore/DmxCore100/tree/main/samples) for ready-made layouts.
@@ -86,9 +86,9 @@ Per-item options:
 
 Menus support **multiple levels** via SubMenu items - a top-level menu with a button per room, each opening that room's scene options. A **glow state indicator** shows items whose target is currently active.
 
-## Faders Menus
+## Wall Panel Menus
 
-A menu of type **Faders** is the wall-controller layout for a DSP such as [Q-SYS](/dmx-core-100/integrations/qsys) or [Symetrix](/dmx-core-100/integrations/symetrix): each SubMenu item is one column on the touchscreen. A column of Action items shows them as buttons, lit while their state is active. A column of Slider items shows one fader that all its sliders share: the button above the fader switches which one it drives, and a slider with a switch-back time returns the fader to it after that many seconds without a touch. The rotary knob drives the fader, and a knob press switches, or runs the menu's knob action (such as a mute) when one is set. Drag the fader by its cap; tapping the track does nothing. A slider can drive any fader target, not only a DSP level.
+A menu of type **Wall panel** (called **Faders** before v2026.1026) is the wall-controller layout for a DSP such as [Q-SYS](/dmx-core-100/integrations/qsys) or [Symetrix](/dmx-core-100/integrations/symetrix): each SubMenu item is one column on the touchscreen. A column of Action items shows them as buttons, lit while their state is active. A column of Slider items shows one fader that all its sliders share: the button above the fader switches which one it drives, and a slider with a switch-back time returns the fader to it after that many seconds without a touch. The rotary knob drives the fader, and a knob press switches, or runs the menu's knob action (such as a mute) when one is set. Drag the fader by its cap; tapping the track does nothing. A slider can drive any fader target, not only a DSP level.
 
 ## Guest Access
 
