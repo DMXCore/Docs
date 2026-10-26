@@ -227,6 +227,58 @@ const SHOTS = [
     },
   },
   { name: 'fixture-profiles', path: '/fixtureprofiles' },
+  {
+    // Profile editor on a pixel bar (a profile named "Pixel Bar (8 pixels)", built with the
+    // New profile pixel bar template), the second pixel's red channel selected so the beam
+    // picture shows
+    name: 'fixture-profile-editor',
+    path: '/fixtureprofiles',
+    fullPage: true,
+    before: async (page) => {
+      const id = await page.evaluate(async () => {
+        const response = await fetch('/api/website/fixtureprofile/library', {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        });
+        const list = (await response.json()).data || [];
+        return list.find((p) => p.name === 'Pixel Bar (8 pixels)')?.fixtureProfileId;
+      });
+      if (!id)
+        throw new Error('No "Pixel Bar (8 pixels)" profile on the device');
+      await page.goto(`${BASE}/op/fixtureprofiles/${id}/edit`, { waitUntil: 'networkidle2', timeout: 20000 });
+      await page.waitForSelector('.channel-row', { timeout: 8000 });
+      // Physical opens by itself when a beam angle is set; fold it so the channel pane fits
+      const physical = await page.$('.collapsible-row');
+      await physical?.click();
+      await sleep(200);
+      const rows = await page.$$('.channel-row');
+      await rows[3].click();
+      await sleep(900); // the server's validate call fills in the function ids
+    },
+  },
+  {
+    // New-profile assistant with a bar's beam count showing
+    name: 'fixture-profile-new',
+    path: '/fixtureprofiles/new',
+    waitFor: '.modal.show',
+    before: async (page) => {
+      const inputs = await page.$$('.modal input');
+      await inputs[0].type('Generic');
+      await inputs[1].type('LED Bar 12');
+      const selects = await page.$$('.modal select');
+      await selects[0].select('BAR');
+      await sleep(300);
+      const beams = await page.$('.modal input[type="number"]');
+      await beams.click();
+      await page.keyboard.down('Control');
+      await page.keyboard.press('a');
+      await page.keyboard.up('Control');
+      await beams.type('12');
+      await sleep(300);
+      const templates = await page.$$('.modal select');
+      await templates[1].select('PIXEL_BAR');
+      await sleep(400);
+    },
+  },
   { name: 'zones-list', path: '/zones' },
   { name: 'protocol', path: '/settings/PROTOCOL' },
   {

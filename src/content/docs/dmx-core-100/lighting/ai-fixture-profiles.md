@@ -195,6 +195,8 @@ The import checks the file thoroughly - channel numbering, range overlaps, funct
 
 One round trip is usually enough.
 
+Once the file imports, small mistakes are quicker to fix in the [Fixture Profile Editor](/dmx-core-100/lighting/fixture-profile-editor) than with another round trip: open the profile under **Lighting Setup > Profiles** and click **Edit**.
+
 :::note
 Re-importing a corrected file may create a second profile if the AI didn't set an `externalId`, since the identity is otherwise derived from the file content. Just delete the failed/old profile - profiles that are in use by a fixture cannot be deleted accidentally.
 :::
@@ -203,5 +205,5 @@ Re-importing a corrected file may create a second profile if the AI didn't set a
 
 - **Sharp, complete photos.** Every row of the channel table must be legible. Retake blurry photos rather than letting the AI guess.
 - **Check the warnings.** After import, open the profile under **Lighting Setup > Profiles** and read the comments - the AI records anything it interpolated or assumed there. Spot-check those channels against the manual.
-- **Test with the real fixture.** Add a fixture with the new profile, open [Fixture Control](/dmx-core-100/lighting/fixture-control), and verify colors and dimmer respond correctly. If red and green are swapped, the manual (or the AI) got the channel order wrong - ask the AI to fix it and re-import.
+- **Test with the real fixture.** Add a fixture with the new profile, open [Fixture Control](/dmx-core-100/lighting/fixture-control), and verify colors and dimmer respond correctly. If red and green are swapped, the manual (or the AI) got the channel order wrong - fix it in the [Fixture Profile Editor](/dmx-core-100/lighting/fixture-profile-editor), or ask the AI to fix the file and re-import.
 - **Mind the fixture's mode setting.** The personality you select in DMX Core must match the channel mode configured on the fixture itself.

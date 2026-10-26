@@ -22,7 +22,7 @@ The DMX Core 100 supports importing profiles from four popular fixture libraries
 - [GDTF Share](https://gdtf-share.com) - `.gdtf`
 - [Avolites Personality Library](https://personalities.avolites.com/) - `.d4`; last resort, because the site ships the whole library as an archive. See [Avolites Fixture Profiles](/dmx-core-100/lighting/avolites-fixture-profiles) for how to extract a single file.
 
-If none of these libraries has your fixture - common with unbranded fixtures - an AI assistant can build a profile from photos of the fixture's manual. See [AI-Generated Fixture Profiles](/dmx-core-100/lighting/ai-fixture-profiles).
+If none of these libraries has your fixture - common with unbranded fixtures - build the profile in the [Fixture Profile Editor](/dmx-core-100/lighting/fixture-profile-editor) from the DMX chart in the manual, or let an AI assistant build it from photos of the manual (see [AI-Generated Fixture Profiles](/dmx-core-100/lighting/ai-fixture-profiles)). **Add profile…** has a **Build the profile by hand** link that opens the editor and brings you back to the fixture with the new profile selected.
 
 To import while adding or editing a fixture:
 
@@ -48,6 +48,7 @@ The **Profile** dropdown on Fixture Details lists generic profiles, imported pro
 
 - Open a row to see personalities and the 1-based channel map (the same numbering as the fixture manual)
 - Hover the personalities summary to see each mode's channel count
+- **Edit** on a library profile's details page opens it in the [Fixture Profile Editor](/dmx-core-100/lighting/fixture-profile-editor) to fix a channel, add a mode or rename one; **Duplicate** makes a copy to change. **New profile** next to **Add profile…** builds one from scratch
 - The details page also shows the profile's type and beams (pixels or cells), and per channel its beam, whether it runs inverted, its fallback value and the color of color wheel slots
 - **Export** on a library profile's details page downloads it as a DMX Core JSON profile file (`<Manufacturer> - <Name>.json`), the same format **Import** accepts. Edit it and import it again to update the profile, or import it on another unit. Anything the format cannot hold is listed in the file's `warnings`
 - **Delete** is available for unused library profiles. Plugin profiles cannot be deleted. A profile that fixtures still use is blocked until those fixtures are reassigned or removed.
