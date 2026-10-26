@@ -7,6 +7,7 @@ The DMX Core 100 is built to talk to the rest of your installation - audio DSPs,
 * [Open Sound Control (OSC)](/dmx-core-100/integrations/osc-open-sound-control) - two-way control with apps like TouchOSC
 * [MQTT](/dmx-core-100/integrations/mqtt) - IoT and building automation messaging
 * [MCP Server](/dmx-core-100/integrations/mcp-server) - AI clients (Cursor, Claude Desktop, and others) control lights over the Model Context Protocol
+* [Bitfocus Companion](https://bitfocus.io/connections/dmxcore-dmxcore100) - the DMX Core 100 Companion module, built on the Integration API, puts cues and presets on Companion buttons.
 * [Integration API](/dmx-core-100/integrations/integration-api) - versioned HTTP + WebSocket wire contract for control systems such as Bitfocus Companion, Crestron and Node-RED: enumerate the live catalog, execute entities, receive state, and poll device health from `GET /info`
 * [Home Assistant](/dmx-core-100/integrations/home-assistant) - the device and all its scenes, dimmers, and switches appear in Home Assistant automatically
 * [Control Values](/dmx-core-100/integrations/control-values) - bridge Q-SYS and Symetrix audio controls to faders, menus, and triggers
