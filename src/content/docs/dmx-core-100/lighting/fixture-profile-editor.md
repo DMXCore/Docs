@@ -20,7 +20,7 @@ The editor is part of the Web UI only. The touchscreen uses the edited profiles 
 | **Lighting Setup > Profiles > New profile** | Starts a new profile |
 | A profile's details page, **Edit** | Edits that profile |
 | A profile's details page, **Duplicate** | Opens a copy named "… (copy)" to change and save as a new profile |
-| **Add profile… > Build the profile by hand** on Fixture Details | Starts a new profile; **Save** brings you back to the fixture with the new profile selected |
+| **Add profile… > Build the profile by hand** on Fixture Details | Starts a new profile; **Save** brings you back to the fixture with the new profile selected and its other fields as you left them |
 
 Editing needs the **Edit fixtures** permission. Profiles provided by a plugin cannot be edited or duplicated.
 
@@ -43,7 +43,7 @@ The top of the editor holds the profile itself:
 
 - **Manufacturer**, **Name**, **Type** and **Comments**
 - **Physical** - the beam angle, pan range and tilt range in degrees
-- **Beams** - how many beams (pixels, cells) the fixture has and how they are laid out: in **rows** (the number of beams in each row, top to bottom) or in **rings** (the number in each ring, outer ring first). The picture shows the layout
+- **Beams** - how many beams (pixels, cells) the fixture has and how they are laid out: in **rows** (the number of beams in each row, top to bottom) or in **rings** (the number in each ring, outer ring first). The picture shows the layout. Lowering the count, or going back to one beam, removes beam assignments the fixture no longer has, after asking
 
 ## Modes
 
@@ -68,11 +68,11 @@ The right side edits the selected channel. **Kind** says what the channel does, 
 
 | Kind | What you set |
 |------|--------------|
-| Dimmer | Fine, Inverted, Fallback value |
+| Dimmer | Fine, Inverted |
 | Color component | Red, green, blue, white, cool or warm white, amber, lime, UV, cyan, magenta or yellow; Fine, Inverted |
 | Color temperature | Fine, Inverted, Fallback value |
-| Position | Pan or tilt; Fine |
-| Beam control | Focus, zoom, iris, frost, gobo or prism rotation, speed and similar; Fine, slider, Inverted, Fallback value |
+| Position | Pan or tilt; Fine, Inverted, Fallback value |
+| Beam control | Focus, zoom, iris, frost, gobo or prism rotation, speed, and any other single function such as a strobe, lamp or switch channel; Fine, slider, Inverted, Fallback value |
 | Shutter / Strobe | A list of modes: closed, open, strobe, pulse, ramp up or down, random, lightning |
 | Color wheel | A list of slots with a name and a color swatch |
 | Gobo wheel, Prism | A list of slots |
@@ -102,7 +102,7 @@ The same function on every beam keeps one function id - red on all 46 pixels of 
 
 ### Testing a channel
 
-When fixtures use the profile, the selected channel shows **Test in Channel Tester** links, one per fixture on that mode with its slot and address. The link opens the [Channel Tester](/dmx-core-100/configuration/channel-tester) in a new tab with that slot and channel picked as soon as you start the tester. It uses the saved profile's addressing, so save first after moving channels.
+When fixtures use the profile, the selected channel shows **Test in Channel Tester** links for up to six fixtures on that mode, each with its slot and address. The address is the fixture's start channel plus the channel's position in the editor. The link opens the [Channel Tester](/dmx-core-100/configuration/channel-tester) in a new tab and picks that slot and channel when you press **Start Tester**. If a tester session is already running, it asks before switching that session to the linked slot.
 
 ## Problems
 
