@@ -158,7 +158,9 @@ Each fixture type in the sheet - the **Manufacturer**, **Profile** and **Persona
 - **Exact** - the names match a profile on the device
 - **Suggested** - the closest match. If a fixture with that profile is already patched, the suggestion is to make the rows **like that fixture**, which also copies its hidden functions and custom options. This is why patching one fixture of each type first pays off
 - **Your choice** - pick a patched fixture or any profile (and personality) from the list
-- **Not matched** - nothing close was found; pick one before you can import
+- **Not matched** - nothing close was found, or you cleared the match; pick one before you can import
+
+The browser remembers your choices by type, so importing a corrected version of the same sheet does not ask again.
 
 A row can also name its type directly: **Profile Code** (written by the export) picks the exact profile, and a **Template** column with the code of a patched fixture makes the row like that fixture.
 
@@ -190,7 +192,7 @@ The import also reads patch sheets that were not made by DMX Core:
 | Custom Options | Custom Options | `Name=Value; Name=Value` |
 
 :::tip
-Click **Download the current patch** in the import dialog before a large import. Importing that copy again puts back every fixture the import changed; fixtures it added stay and can be deleted by hand.
+After an import, the dialog offers **the patch from before the import** as a CSV. Importing it again puts back every fixture the import changed; fixtures it added stay and can be deleted by hand. **Download the current patch** in the dialog saves the same thing beforehand.
 :::
 
 ## Multi-Function Fixtures
