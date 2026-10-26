@@ -169,6 +169,27 @@ const SHOTS = [
       await sleep(400);
     },
   },
+  {
+    // Import dialog with a third-party style sheet (exact, suggested and
+    // "like a patched fixture" matches); preview only, nothing is imported
+    name: 'fixture-patch-import',
+    path: '/fixturesettings',
+    waitFor: 'button',
+    before: async (page) => {
+      const buttons = await page.$$('button');
+      for (const b of buttons) {
+        // The CIcon adds text, so match with includes; skip the dialog's own button
+        if (await b.evaluate((el) => el.textContent.includes('Import') && !el.closest('.modal'))) {
+          await b.click();
+          break;
+        }
+      }
+      const input = await page.waitForSelector('.modal input[type="file"]', { timeout: 5000 });
+      await input.uploadFile(join(__dirname, 'samples', 'fixture-patch-sample.csv'));
+      await page.waitForFunction(() => /Fixture types/.test(document.querySelector('.modal')?.innerText || ''), { timeout: 8000 });
+      await sleep(1500); // second preview after the suggestions are taken
+    },
+  },
   { name: 'fixture-profiles', path: '/fixtureprofiles' },
   { name: 'zones-list', path: '/zones' },
   { name: 'protocol', path: '/settings/PROTOCOL' },
