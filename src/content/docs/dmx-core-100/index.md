@@ -44,3 +44,8 @@ Regardless of how you run it, the DMX Core 100 is operated through two interface
 - **Web UI** (hardware and desktop) - A full browser-based interface accessible from any device on the same network. Provides access to all features including advanced capabilities like fixture control, effects, timelines, control surfaces, scripting, input triggers, user management, and more. See [Connecting to the Web UI](/dmx-core-100/getting-started/connecting-to-the-web-ui) to get started.
 
 Both interfaces connect to the same system - changes made in one are immediately reflected in the other.
+
+## Related reading
+
+- [Choosing a DMX show controller for a permanent installation](https://dmxcore.com/permanent-installation-guide)
+- [DMX Core 100 as a CueCore3 alternative](https://dmxcore.com/cuecore3-alternative)
