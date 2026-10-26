@@ -122,7 +122,9 @@ The export is complete, so it can be edited and [imported](#importing-fixtures) 
 
 With a large rig, patching fixtures one at a time is slow. **Import** on **Lighting Setup > Fixtures** reads a whole patch from a CSV or Excel (`.xlsx`) sheet, one row per fixture. It needs the **Edit Fixtures** permission.
 
-The quickest way to build the sheet:
+To start from a blank sheet, download a template from [DMXCore/DmxCore100-Tools](https://github.com/DMXCore/DmxCore100-Tools/tree/main/samples/Fixture%20Patch): [CSV](https://github.com/DMXCore/DmxCore100-Tools/raw/main/samples/Fixture%20Patch/fixture-patch-template.csv) or [Excel](https://github.com/DMXCore/DmxCore100-Tools/raw/main/samples/Fixture%20Patch/fixture-patch-template.xlsx). Its example rows use the built-in Generic profiles, so it imports on any unit as it is; replace them with your fixtures.
+
+The quickest way to build the sheet is often from your own patch:
 
 1. Import the fixture profiles you need (see [Importing Profiles](#importing-profiles))
 2. Patch **one fixture of each type** the way you want it - personality, hidden functions, custom options
