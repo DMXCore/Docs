@@ -52,17 +52,32 @@ Set "continuous":true when the value within a range works as a slider
 (speed, sensitivity).
 
 "function" must be one of exactly: Intensity, Red, Green, Blue, White,
-WarmWhite, CoolWhite, Amber, Lime, UltraViolet, ColorTemperature, ColorWheel,
-Strobe, PulseStrobe, RandomStrobe, RampUpStrobe, RampDownStrobe,
-LightningStrobe, ShutterOpen, ShutterClosed, Pan, Tilt, Zoom, Focus, Fog,
-Speed, LampOn, LampOff, Switch, Command, Custom.
+WarmWhite, CoolWhite, Amber, Lime, UltraViolet, Cyan, Magenta, Yellow,
+ColorTemperature, ColorWheel, Strobe, PulseStrobe, RandomStrobe, RampUpStrobe,
+RampDownStrobe, LightningStrobe, ShutterOpen, ShutterClosed, Pan, Tilt, Zoom,
+Focus, Iris, Frost, Gobo, GoboRotation, Prism, PrismRotation, Fog, Speed,
+LampOn, LampOff, Switch, Command, Custom.
 Mapping: "total dimming"/"master"/"brightness" = Intensity. R/G/B/W dimming =
 Red/Green/Blue/White (per-pixel channels R1,R2,... too). Strobe slow-to-fast =
 Strobe with continuous:true. A channel selecting fixed colors = ColorWheel
 with one named range per color. Effect/program/sound-mode selection rows =
 ranges with NO "function" field, one range per manual row, named after the
-row. Speed/sensitivity channels = Speed with continuous:true. Anything else =
-Custom with a descriptive name. Never invent function names.
+row. Speed/sensitivity channels = Speed with continuous:true. Gobo wheel =
+Gobo with one named range per slot. Anything else = Custom with a descriptive
+name. Never invent function names.
+
+A channel (or range) printed backwards, e.g. "fast to slow", gets
+"inverted":true. A simple channel that should rest at a value other than 0
+when nothing controls it (movement speed fastest, iris open) gets
+"fallback":<0-255>. Optionally add "fixtureType" (PAR, SPOT, MOVING_HEAD, BAR,
+STRIP, MATRIX, FOG, SWITCH, OTHER) and "beamAngle"/"panRange"/"tiltRange" in
+degrees when the manual states them.
+
+For pixel bars and panels, add top-level
+"beams":{"count":<pixels>,"layout":"ROWS","rowSegments":[<pixels per row>]}
+and give every per-pixel channel "beam":<pixel number, 1-based>, e.g.
+{"channel":4,"name":"Red 2","function":"Red","beam":2}. Master channels
+(dimmer, strobe, macros) get no "beam".
 
 If the manual abbreviates repeating rows with "..." (e.g. effect 2 ... effect
 87), work out the pattern, enumerate every row, and record in "warnings" that
@@ -132,6 +147,9 @@ A minimal profile for a generic fixture with a 4-channel mode and a 6-channel mo
 | `comments` | no | Free-text notes |
 | `warnings` | no | Notes the AI records about unreadable cells or interpolated rows; shown in the profile's comments after import |
 | `externalId` | no | Stable identity for re-imports; if omitted, one is derived from the file content. Re-importing a file with the same `externalId` updates the existing profile instead of creating a duplicate |
+| `fixtureType` | no | `PAR`, `SPOT`, `MOVING_HEAD`, `BAR`, `STRIP`, `MATRIX`, `FOG`, `SWITCH` or `OTHER` |
+| `beams` | no | For pixel bars and panels: `{ "count": 46, "layout": "ROWS", "rowSegments": [10, 10, 6, 10, 10] }`. `layout` is `ROWS` (`rowSegments`, beams per row) or `RINGS` (`beamsByRing`, outer ring first); the counts must add up to `count` |
+| `beamAngle`, `panRange`, `tiltRange` | no | Degrees |
 | `modes` | yes | One entry per channel mode |
 
 ### Mode
@@ -151,7 +169,7 @@ Either a single function across the whole 0–255 value span:
 { "channel": 1, "name": "Red", "function": "Red" }
 ```
 
-optionally with `"fine": true` (16-bit fine channel) or `"continuous": true` (slider-style channel) - or a list of value ranges:
+optionally with `"fine": true` (16-bit fine channel), `"continuous": true` (slider-style channel), `"inverted": true` (runs backwards, e.g. speed fast to slow), `"fallback": 0-255` (value sent while nothing controls the channel) or `"beam"` (the 1-based pixel it drives; a list such as `[1, 2, 3]` for a group) - or a list of value ranges:
 
 ```json
 { "channel": 2, "name": "Program", "ranges": [
@@ -161,11 +179,11 @@ optionally with `"fine": true` (16-bit fine channel) or `"continuous": true` (sl
 ] }
 ```
 
-Range rules: `from`/`to` are DMX values 0–255 as printed in the manual, ranges must not overlap (gaps are fine), each range needs a `name`, at most one range per channel can have `"default": true`, and `function` is optional (omitted means a custom option row).
+Range rules: `from`/`to` are DMX values 0–255 as printed in the manual, ranges must not overlap (gaps are fine; ranges on different beams may share values), each range needs a `name`, at most one range per channel can have `"default": true`, and `function` is optional (omitted means a custom option row). A range can also have `"inverted": true`, a `"color"` swatch such as `"#FF0000"` for a color wheel slot, and a `"beam"`.
 
 ### Functions
 
-`Intensity`, `Red`, `Green`, `Blue`, `White`, `WarmWhite`, `CoolWhite`, `Amber`, `Lime`, `UltraViolet`, `ColorTemperature`, `ColorWheel`, `Strobe`, `PulseStrobe`, `RandomStrobe`, `RampUpStrobe`, `RampDownStrobe`, `LightningStrobe`, `ShutterOpen`, `ShutterClosed`, `Pan`, `Tilt`, `Zoom`, `Focus`, `Fog`, `Speed`, `LampOn`, `LampOff`, `Switch`, `Command`, `Custom`
+`Intensity`, `Red`, `Green`, `Blue`, `White`, `WarmWhite`, `CoolWhite`, `Amber`, `Lime`, `UltraViolet`, `Cyan`, `Magenta`, `Yellow`, `ColorTemperature`, `ColorWheel`, `Strobe`, `PulseStrobe`, `RandomStrobe`, `RampUpStrobe`, `RampDownStrobe`, `LightningStrobe`, `ShutterOpen`, `ShutterClosed`, `Pan`, `Tilt`, `Zoom`, `Focus`, `Iris`, `Frost`, `Gobo`, `GoboRotation`, `Prism`, `PrismRotation`, `Fog`, `Speed`, `LampOn`, `LampOff`, `Switch`, `Command`, `Custom`
 
 ## Fixing Validation Errors
 

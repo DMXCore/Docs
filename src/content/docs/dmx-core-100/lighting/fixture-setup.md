@@ -48,6 +48,7 @@ The **Profile** dropdown on Fixture Details lists generic profiles, imported pro
 
 - Open a row to see personalities and the 1-based channel map (the same numbering as the fixture manual)
 - Hover the personalities summary to see each mode's channel count
+- The details page also shows the profile's type and beams (pixels or cells), and per channel its beam, whether it runs inverted, its fallback value and the color of color wheel slots
 - **Export** on a library profile's details page downloads it as a DMX Core JSON profile file (`<Manufacturer> - <Name>.json`), the same format **Import** accepts. Edit it and import it again to update the profile, or import it on another unit. Anything the format cannot hold is listed in the file's `warnings`
 - **Delete** is available for unused library profiles. Plugin profiles cannot be deleted. A profile that fixtures still use is blocked until those fixtures are reassigned or removed.
 
