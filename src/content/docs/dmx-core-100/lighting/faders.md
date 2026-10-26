@@ -9,6 +9,8 @@ The Faders page (Web UI: Operation > Faders) is a lighting-desk-style view of yo
 
 Faders drives the same fixture engine as [Fixture Control](/dmx-core-100/lighting/fixture-control) - both pages show the same live state, and changes made on one appear on the other immediately. Fixtures without a dimmer are not shown here (a note below the faders tells you how many are hidden); use Fixture Control for those.
 
+For end users who need only a few faders - a bar's lights and its music volume, on the touchscreen or a guest tablet - add a [Faders page](/dmx-core-100/scheduling-automation/custom-menus#faders-page) item to a custom menu instead.
+
 ## Channel Strips
 
 Each fixture gets a channel strip showing its current color, name and code, and control status (Direct, preset code, or Ambient - plus an **FX** badge when an effect is running; tap the badge to open the fixture's dialog). Below the fader:

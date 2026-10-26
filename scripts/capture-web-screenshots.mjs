@@ -146,6 +146,8 @@ const SHOTS = [
   { name: 'ambient-presets', path: '/ambient' },
   { name: 'favorites', path: '/favorites' },
   { name: 'custom-menu-operate', path: '/custommenu' },
+  // A Faders page custom menu item: menu id 4, item 0 in the sample data (menu "Lounge", item "Bar Faders")
+  { name: 'custom-menu-faders', path: '/custommenu/faders?menuId=4&path=0', waitFor: '.page-fader-strip' },
   // Lighting setup
   { name: 'outputs-list', path: '/outputs' },
   // Stream routing (needs routing on and a console sending on a mapped universe).

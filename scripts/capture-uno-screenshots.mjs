@@ -7,7 +7,7 @@
 // of the current touchscreen), saving to public/assets/device/.
 //
 // Usage:
-//   node scripts/capture-uno-screenshots.mjs [--base http://localhost:8080] [--pin 1111] [--only cues]
+//   node scripts/capture-uno-screenshots.mjs [--base http://localhost:8080] [--pin 1111] [--only cues] [--no-logon]
 //
 // If the device build predates the navigation endpoint, /api/deviceui/navigate returns
 // 404 and the script explains what to add.
@@ -28,6 +28,9 @@ const BASE = getArg('base', 'http://localhost:8080').replace(/\/$/, '');
 const PIN = getArg('pin', '1111');
 const USER_ID = Number(getArg('user', '1'));
 const ONLY = getArg('only', null);
+// --no-logon: capture the touchscreen as it is, without signing a user in (no user
+// name in the footer). Run the app with --demo too, which hides the clock and host name.
+const NO_LOGON = args.includes('--no-logon');
 const OUT = join(REPO, 'public', 'assets', 'device');
 
 // screen key (understood by the navigation endpoint) → output filename
@@ -52,6 +55,8 @@ const SHOTS = [
   { screen: 'utilities/device operations/releases', name: 'uno-releases' },
   { screen: 'utilities/file explorer', name: 'uno-file-explorer' },
   { screen: 'utilities/custom menu', name: 'uno-custom-menu' },
+  // A Faders page custom menu item (menu "Lounge", item "Bar Faders" in the sample data)
+  { screen: 'utilities/custom menu/Lounge/Bar Faders', name: 'uno-faders-page' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -93,11 +98,13 @@ async function main() {
 
   // The touchscreen session is separate from the Web UI login. Log the admin user
   // into the device session so admin-only screens/content are captured (not guest).
-  const logon = await fetch(`${BASE}/api/deviceui/logon?userId=${USER_ID}`, {
+  const logon = NO_LOGON ? null : await fetch(`${BASE}/api/deviceui/logon?userId=${USER_ID}`, {
     method: 'POST',
     headers: auth,
   });
-  if (logon.ok) {
+  if (NO_LOGON) {
+    console.log('Capturing without a touchscreen logon (--no-logon).');
+  } else if (logon.ok) {
     console.log(`Logged user ${USER_ID} into the touchscreen session (admin).`);
     await sleep(800); // let the menus rebuild with admin content
   } else {
