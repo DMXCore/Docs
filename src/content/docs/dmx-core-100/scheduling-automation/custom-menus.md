@@ -78,6 +78,7 @@ A fader can also play a preset, a cue or a sound, the way a playback fader works
 - Pushing the fader up from 0 **starts** the item at the fader's level, with no fade: the fader is the fade.
 - While it runs, the fader sets its **level**. For a preset, that is the brightness of the lights it sets, on top of the preset's own dimmer, so 100% is the preset as saved. For a cue, it is the cue's brightness and the volume of its sound together. For a sound, it is the volume, where 100% is the volume set on the sound.
 - Taking the fader to 0 **stops** it, and whatever was underneath (an ambient preset, another cue) shows again.
+- A cue or sound fader has its own **Loop**: how many times the fader plays the item, where 0 plays it until the fader goes back to 0 (default 1). The unit's default loop count and fade times are for starting items from the cue and sound lists; they never change what a fader does.
 
 ![Preset, cue and sound faders on the touchscreen](/assets/device/uno-faders-playback.png)
 
