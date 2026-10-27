@@ -26,7 +26,7 @@ Changes are applied in real-time - you'll see the lights respond immediately.
 
 In the Web UI every fixture has a checkbox, and the checked fixtures are what the control pane drives and what [Save as Preset](#saving-as-a-preset) saves:
 
-- **Click** a fixture to select just that one.
+- **Click** a fixture to select just that one. Once several fixtures are checked, a click adds or removes that fixture instead, so a stray click never loses the selection.
 - Tick its **checkbox**, or **Ctrl**-click (**Cmd**-click on a Mac), to add or remove a fixture.
 - **Shift**-click selects every fixture from the last one you clicked to this one.
 - Each zone has **All** and **None** buttons, and the header has **Select All** and **Clear**. **Esc** clears the selection.
