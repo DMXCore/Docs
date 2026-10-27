@@ -80,9 +80,23 @@ Some fixtures support custom configuration options beyond the standard profile s
 
 From the **Lighting Setup > Fixtures** page in the Web UI, you can:
 
-- **Edit** a fixture - Click the fixture name to modify its settings
-- **Enable/Disable** - Toggle a fixture on or off without deleting it
-- **Delete** - Remove a fixture from the configuration
+- **Edit** a fixture - Click the pencil in its **Details** column to open its settings
+- **Enable/Disable** - Turn a fixture on or off without deleting it, with **Enabled** on its settings page
+- **Delete** - Remove a fixture with **Delete** on its settings page
+
+### Working with Several Fixtures
+
+To enable, disable or delete many fixtures at once, tick the checkbox at the start of each row. A bar above the list shows how many are selected, with **Enable**, **Disable** and **Delete** buttons for the whole selection.
+
+![Fixtures list with three fixtures selected and the Enable, Disable and Delete buttons](/assets/web/fixtures-batch-actions.png)
+
+- The selection is kept while you move between pages, so you can pick fixtures from several pages before choosing an action
+- The checkbox in the header selects every fixture in the list, on all pages. When only some are selected it shows a dash; click it again to clear them
+- **Enable** and **Disable** apply right away and keep the selection, so you can undo with one click. A button is grayed out when every selected fixture is already in that state
+- **Delete** asks first and lists the fixtures by name and code
+- **Clear** unselects everything
+
+The checkboxes are only shown to users with the **Edit Fixtures** permission. Presets, menus and other items that use a deleted fixture are not changed, the same as when you delete fixtures one at a time.
 
 ## Hiding Fixture Functions
 

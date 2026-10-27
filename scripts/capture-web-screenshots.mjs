@@ -155,6 +155,18 @@ const SHOTS = [
   { name: 'outputs-routing-conflict', path: '/outputs' },
   { name: 'output-editor', path: '/outputs/1' },
   { name: 'fixtures-list', path: '/fixturesettings' },
+  {
+    // Three rows ticked so the batch action bar shows; nothing is changed
+    name: 'fixtures-batch-actions',
+    path: '/fixturesettings',
+    waitFor: '.select-row',
+    before: async (page) => {
+      const boxes = await page.$$('.select-row');
+      for (const box of boxes.slice(1, 4)) await box.click();
+      await page.waitForSelector('.batch-action-bar', { timeout: 5000 });
+      await sleep(300);
+    },
+  },
   { name: 'fixture-editor', path: '/fixturesettings/1' },
   {
     name: 'add-fixture-profile',
