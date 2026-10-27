@@ -170,6 +170,9 @@ const SHOTS = [
   { name: 'custom-menu-operate', path: '/custommenu' },
   // A Faders page custom menu item: menu id 4, item 0 in the sample data (menu "Lounge", item "Bar Faders")
   { name: 'custom-menu-faders', path: '/custommenu/faders?menuId=4&path=0', waitFor: '.page-fader-strip' },
+  // Preset, cue and sound faders (menu "Bar Shows", item "Playback" in the sample data).
+  // Start Bar Blue, Spa Day and Thunder from their faders first so the markers show.
+  { name: 'custom-menu-faders-playback', path: '/custommenu/faders?menuId=5&path=0', waitFor: '.page-fader-strip' },
   // Lighting setup
   { name: 'outputs-list', path: '/outputs' },
   // Stream routing (needs routing on and a console sending on a mapped universe).

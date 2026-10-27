@@ -57,6 +57,9 @@ const SHOTS = [
   { screen: 'utilities/custom menu', name: 'uno-custom-menu' },
   // A Faders page custom menu item (menu "Lounge", item "Bar Faders" in the sample data)
   { screen: 'utilities/custom menu/Lounge/Bar Faders', name: 'uno-faders-page' },
+  // Preset, cue and sound faders (menu "Bar Shows", item "Playback"); start Bar Blue,
+  // Spa Day and Thunder from their faders first so the markers show
+  { screen: 'utilities/custom menu/Bar Shows/Playback', name: 'uno-faders-playback' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

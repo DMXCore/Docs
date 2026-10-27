@@ -79,7 +79,7 @@ Its value survives a normal restart: internal levels are saved with the rest of 
 
 ## Driving a Fixture, Zone or Master
 
-A **Level** Control Value can continuously **drive** one target: a fixture's intensity, a zone, the master dimmer, the audio volume, a fixture color channel, or another Control Value. Set it on the Control Value's page under **Drives** - the same target picker as a knob binding, with min/max scaling and invert.
+A **Level** Control Value can continuously **drive** one target: a fixture's intensity, a zone, the master dimmer, the audio volume, a fixture color channel, another Control Value, or a preset, cue or sound as a [playback fader](/dmx-core-100/scheduling-automation/custom-menus#preset-cue-and-sound-faders) (up from 0 starts it, 0 stops it). Set it on the Control Value's page under **Drives** - the same target picker as a knob binding, with min/max scaling and invert.
 
 ![Control Value editor - Drives](/assets/web/control-value-drives.png)
 

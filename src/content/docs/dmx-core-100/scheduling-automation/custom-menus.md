@@ -38,7 +38,7 @@ Click **Add item** in the editor. Each item has a name, optional subtitle/descri
 |------|-------------|
 | **Action** | A button that triggers an action (see below) |
 | **SubMenu** | Opens a nested menu level |
-| **Slider** | A fader. The **Slider target** panel sets the target: a fixture's brightness, a zone dimmer, the master dimmer, the audio volume or a DSP level (**Control Value (Level)** and the Control Value from the dropdown). The code field suggests your fixtures and zones. On the touchscreen the item shows its level, and a tap opens a large fader (**Enter value** switches to a keypad for an exact number) |
+| **Slider** | A fader. The **Slider target** panel sets the target: a fixture's brightness, a zone dimmer, the master dimmer, the audio volume, a DSP level (**Control Value (Level)** and the Control Value from the dropdown), or a preset, cue or sound as a playback fader (see [Preset, Cue and Sound Faders](#preset-cue-and-sound-faders)). The code field suggests your fixtures, zones, presets, cues and sounds. On the touchscreen the item shows its level, and a tap opens a large fader (**Enter value** switches to a keypad for an exact number) |
 | **Faders page** | Opens a page of faders, one per entry, for a set of lights and levels you pick (see [Faders Page](#faders-page)) |
 | **Segmented selector** | A source/input picker bound to a Selector Control Value |
 | **Value display** | A read-only live readout of a Control Value of any kind (see below) |
@@ -57,8 +57,9 @@ A **Faders page** item gives end users a mixing-desk page for exactly the lights
 - **Fixture Intensity** (the default) - the fixture's brightness. The strip shows the fixture's live color as a chip; tapping the chip opens a color picker, and tapping the name opens the fixture's full controls
 - **Control Value (Level)** - a DSP or internal level such as a music volume, with **MUTED** shown while it is muted
 - **Master Dimmer**, **Zone Intensity** or **Audio Volume**
+- **Preset**, **Cue** or **Sound (playback fader)** - pushing the fader up from 0 starts it, the fader sets its level, and 0 stops it (see [Preset, Cue and Sound Faders](#preset-cue-and-sound-faders))
 
-Each entry can have a **Name** (left blank, the fixture's or Control Value's own name is used) and a **Color** for its strip. The faders appear in the order of the list.
+Each entry can have a **Name** (left blank, the target's own name is used) and a **Color** for its strip. The faders appear in the order of the list.
 
 ![A Faders page on the touchscreen](/assets/device/uno-faders-page.png)
 
@@ -69,6 +70,33 @@ On the **touchscreen** the page shows as many faders as fit, with arrow buttons 
 In the **Web UI** and for [guests](#guest-access), the item opens the same faders in the browser, with the fixture's color and controls in a pop-up.
 
 Raising the brightness of a color fixture that has no color set (for example after a release) starts it from white, on this page and everywhere else a brightness fader or knob is used, so the light does not stay dark.
+
+### Preset, Cue and Sound Faders
+
+A fader can also play a preset, a cue or a sound, the way a playback fader works on a lighting desk. Pick **Preset**, **Cue** or **Sound (playback fader)** as the target of a Slider item or a Faders page entry, and the item's code. Only the presets, cues and sounds you put on the menu can be reached from it.
+
+- Pushing the fader up from 0 **starts** the item at the fader's level, with no fade: the fader is the fade.
+- While it runs, the fader sets its **level**. For a preset, that is the brightness of the lights it sets, on top of the preset's own dimmer, so 100% is the preset as saved. For a cue, it is the cue's brightness and the volume of its sound together. For a sound, it is the volume, where 100% is the volume set on the sound.
+- Taking the fader to 0 **stops** it, and whatever was underneath (an ambient preset, another cue) shows again.
+
+![Preset, cue and sound faders on the touchscreen](/assets/device/uno-faders-playback.png)
+
+The strip shows **On** while a preset is applied and **Playing** while a cue or sound plays, wherever it was started from. A sound, and a cue with a sound, shows a speaker mark, and a preset with a scene color shows it as the strip's chip, bright while it is on.
+
+![Preset, cue and sound faders in the Web UI](/assets/web/custom-menu-faders-playback.png)
+
+Started somewhere else, by a button or a schedule, the item shows at 100% and the fader takes over its level from there. When an item stops while its fader is up - a cue or sound reaches its end, a stop comes from somewhere else, or another cue replaces it on the same playback layer - the fader stays where it is and the **On** or **Playing** mark goes off. Moving the fader then does not start it again: take the fader down to 0 first, then up.
+
+Good to know:
+
+- A cue's fader dims every channel of a universe that has no [Cue Fade Mask](/dmx-core-100/playback/cues#fade-mask), pan, tilt and color too. The editor lists those universes; add a fade mask to keep such channels steady.
+- A preset that sets no brightness (color only, or only an effect) is just started and stopped by its fader; the fader does not dim an effect.
+- A sound fader drives the sound played on its own. The same sound playing as a cue's audio follows that cue's fader instead.
+- Keep the target's **Min value** at 0: with a minimum above 0 the fader never reaches 0, so it can never stop the item.
+- **Release** on a Faders page hands back fixtures only; it does not stop presets, cues or sounds.
+- A menu that uses these targets does not load on a unit with older software, so update every unit first.
+
+The same targets are available to knobs and faders on [control surfaces](/dmx-core-100/control-surfaces/configuring), [input triggers](/dmx-core-100/scheduling-automation/input-triggers) and [Control Value drives](/dmx-core-100/integrations/control-values#driving-a-fixture-zone-or-master), so a MIDI fader can be a cue's playback fader too.
 
 ### Actions
 
@@ -92,7 +120,7 @@ A menu of type **Wall panel** (called **Faders** before v2026.1026) is the wall-
 
 ## Guest Access
 
-A menu marked **Available to Guests** can be used from a browser without logging in - ideal for a lobby tablet or letting staff trigger scenes from their phones without handing out PINs. Guests see only guest-enabled menus; everything else still requires a login. A **Faders page** item on a guest menu gives guests full control of the fixtures on it - brightness, color and every function in a fixture's controls - and nothing else. A **Scene Panel** item on a guest menu opens the panel for guests only when **Scene Panel available to guests** is on in **System** settings (see [Scenes](/dmx-core-100/lighting/scene-panel#guest-access)).
+A menu marked **Available to Guests** can be used from a browser without logging in - ideal for a lobby tablet or letting staff trigger scenes from their phones without handing out PINs. Guests see only guest-enabled menus; everything else still requires a login. A **Faders page** item on a guest menu gives guests full control of the fixtures on it - brightness, color and every function in a fixture's controls - and lets them start and stop the presets, cues and sounds on it, and nothing else. A **Scene Panel** item on a guest menu opens the panel for guests only when **Scene Panel available to guests** is on in **System** settings (see [Scenes](/dmx-core-100/lighting/scene-panel#guest-access)).
 
 ## Direct Links and QR Codes
 

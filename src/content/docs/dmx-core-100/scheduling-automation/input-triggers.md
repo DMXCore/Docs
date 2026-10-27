@@ -43,7 +43,7 @@ In **Value mode**, the Control Value's live 0–100% position drives the target 
 ## Two Modes
 
 - **On/Off - run an action.** The trigger fires its action when the signal arrives (or crosses the threshold).
-- **Value - set a level from the payload.** The numeric payload drives a target level continuously. Configure **JSON Path** (when the payload is JSON), **Input Min** (default 0), **Input Max** (default 1), and the **Value Target** section: **Target**, **Min value**, **Max value**, and **Inverted**. Targets include a [Control Value](/dmx-core-100/integrations/control-values) (e.g. a Symetrix volume), the master dimmer, a zone intensity, and audio volume. An OSC value trigger needs **exactly one** argument. A wall fader sending OSC or DMX becomes a live level control.
+- **Value - set a level from the payload.** The numeric payload drives a target level continuously. Configure **JSON Path** (when the payload is JSON), **Input Min** (default 0), **Input Max** (default 1), and the **Value Target** section: **Target**, **Min value**, **Max value**, and **Inverted**. Targets include a [Control Value](/dmx-core-100/integrations/control-values) (e.g. a Symetrix volume), the master dimmer, a zone intensity, audio volume, and a preset, cue or sound as a [playback fader](/dmx-core-100/scheduling-automation/custom-menus#preset-cue-and-sound-faders). An OSC value trigger needs **exactly one** argument. A wall fader sending OSC or DMX becomes a live level control.
 
 Value-mode triggers can name a **[Transform Script](/dmx-core-100/scheduling-automation/scripting#transform-scripts)** that reshapes the normalized 0–1 value before it lands - response curves, dead zones, thresholds.
 
