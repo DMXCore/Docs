@@ -9,11 +9,11 @@ Fixture Control is available on both the **touchscreen** (Main Menu > Fixture Co
 
 ![Fixture Control on the touchscreen](/assets/device/uno-fixture-control.png)
 
-![Fixture Control page](/assets/web/fixture-control.png)
+![Fixture Control page with the Bar zone selected](/assets/web/fixture-control.png)
 
 ## Controlling Fixtures
 
-The Fixture Control page displays all configured fixtures with their current state. Three view modes - **Normal**, **Compact**, and **Diagnostic** - trade detail for density, and the **All Settings** toggle reveals every fixture function, including ones normally hidden. Select one or more fixtures to control them:
+The Fixture Control page displays all configured fixtures with their current state. Three view modes - **Normal**, **Compact**, and **Diagnostic** - trade detail for density, and the **All Settings** toggle reveals every fixture function, including ones normally hidden. Select one or more fixtures (see [Selecting Several Fixtures](#selecting-several-fixtures)) to control them in the pane on the right:
 
 - **Color** - Use the color picker to set RGB/RGBA values for fixtures that support color mixing
 - **Dimmer** - Adjust the intensity/brightness level
@@ -21,6 +21,28 @@ The Fixture Control page displays all configured fixtures with their current sta
 - **Other functions** - Additional controls appear based on the fixture's profile capabilities
 
 Changes are applied in real-time - you'll see the lights respond immediately.
+
+## Selecting Several Fixtures
+
+In the Web UI every fixture has a checkbox, and the checked fixtures are what the control pane drives and what [Save as Preset](#saving-as-a-preset) saves:
+
+- **Click** a fixture to select just that one.
+- Tick its **checkbox**, or **Ctrl**-click (**Cmd**-click on a Mac), to add or remove a fixture.
+- **Shift**-click selects every fixture from the last one you clicked to this one.
+- Each zone has **All** and **None** buttons, and the header has **Select All** and **Clear**. **Esc** clears the selection.
+
+The pane title tells you what it controls: **Control - Bar (8)** when the selection is exactly one zone, or **Control - 5 fixtures** otherwise. A change in the pane goes to every selected fixture at once, faded too when [Fade](#fading-to-a-value) is on.
+
+Which controls the pane shows depends on what the fixtures have in common:
+
+- **Intensity and color** (red, green, blue, white, warm and cool white, amber, UV, lime) match by type across fixture models: a color change reaches every selected fixture that has that color, and a dimmer-only fixture gets the intensity.
+- **Other functions** (Pan/Tilt, custom channels, color wheels, gobos) are shown only when every selected fixture uses the same profile and mode. Otherwise a note says some controls are hidden because the selection mixes fixture types.
+
+When the selected fixtures differ on a control, its label shows **Mixed** (hover it to see the range, such as "12% to 80%"). The control shows the first selected fixture's value, and moving it sets every fixture to the same value. Copy Trims are shown only with a single fixture selected.
+
+:::note
+Selecting several fixtures is a Web UI feature. The touchscreen Fixture Control page controls one fixture at a time.
+:::
 
 ## Multi-Function Support
 
@@ -31,8 +53,14 @@ Fixtures with multiple instances of the same function type (e.g., multiple color
 When you adjust a fixture's properties through Fixture Control, these are applied as **modifiers** - runtime adjustments that layer on top of the fixture's base state. A badge indicator shows when a fixture has active modifiers.
 
 :::note
-Modifiers are temporary adjustments. To save a fixture state permanently, create a [Preset](/dmx-core-100/playback/presets) - the **Build Preset** button captures the current look directly.
+Modifiers are temporary adjustments. To keep a look, save it as a [Preset](/dmx-core-100/playback/presets) - see below.
 :::
+
+## Saving as a Preset
+
+**Save as Preset** in the header saves the checked fixtures as a new [Preset](/dmx-core-100/playback/presets), with one entry per fixture holding its current values and its running effect (with the effect dimmer). A link to the new preset appears in the header, so you can rename it or adjust it on the Presets page. Playing the preset later brings back the same look, and fixtures that share an effect run it in sync.
+
+The [Faders](/dmx-core-100/lighting/faders#building-a-preset) page has the same save behind its **Build Preset** button.
 
 ## Fading to a Value
 
@@ -42,7 +70,7 @@ Fading applies to the percentage sliders - intensity, extra color channels, and 
 
 ## Effects
 
-The Fixture Control page also gives access to the [effects engine](/dmx-core-100/lighting/effects). Select a fixture or zone and use the effects controls to apply animated lighting effects - breathing, fire, pulsing, and more. If multiple zones are configured, each zone has independent effects controls.
+The Fixture Control page also gives access to the [effects engine](/dmx-core-100/lighting/effects). Select one or more fixtures and pick an effect in the **Effect** card to apply an animated lighting effect - breathing, fire, pulsing, and more - to all of them at once; the **Effect Dimmer** below it sets how strongly the effect shows. Fixtures on the same effect run it in sync, including fixtures you add to an effect that is already running. When the selected fixtures run different effects, the Effect label shows **Mixed**.
 
 ## Copy Trims
 

@@ -83,7 +83,29 @@ const SHOTS = [
   },
   { name: 'sounds-list', path: '/sounds' },
   { name: 'timelines-list', path: '/timelines' },
-  { name: 'fixture-control', path: '/fixturecontrol' },
+  {
+    // Fixture Control with the Bar zone checked (zone All), so the pane drives the
+    // whole selection and shows Mixed where the fixtures differ
+    name: 'fixture-control',
+    path: '/fixturecontrol',
+    waitFor: '.zone-header',
+    before: async (page) => {
+      await page.evaluate(() => {
+        const header = [...document.querySelectorAll('.zone-header')].find(
+          (h) => h.textContent.includes('Bar'),
+        );
+        header?.querySelector('.zone-sel-btn')?.click();
+      });
+      await sleep(400);
+      await page.evaluate(() => {
+        const header = [...document.querySelectorAll('.zone-header')].find(
+          (h) => h.textContent.includes('Bar'),
+        );
+        header?.scrollIntoView({ block: 'start' });
+      });
+      await sleep(600);
+    },
+  },
   {
     // Scenes page (sidebar version of the Scene Panel) with a scene applied so the
     // dock shows the wheel and dimmer. The tile tap goes to the device; the scene
@@ -356,6 +378,23 @@ const SHOTS = [
         btn?.click();
       });
       await page.waitForSelector('.fader-strip--control', { timeout: 5000 });
+      await sleep(400);
+    },
+  },
+  {
+    // The Faders page in Build Preset mode: a checkbox on each strip, prefilled with
+    // the fixtures controlled directly from the page
+    name: 'faders-build-preset',
+    path: '/faders',
+    waitFor: '.fader-strip',
+    before: async (page) => {
+      await page.evaluate(() => {
+        const btn = [...document.querySelectorAll('button')].find(
+          (b) => b.textContent.trim() === 'Build Preset',
+        );
+        btn?.click();
+      });
+      await page.waitForSelector('.build-preset-bar', { timeout: 5000 });
       await sleep(400);
     },
   },

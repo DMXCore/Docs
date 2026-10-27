@@ -77,6 +77,19 @@ For a fixture with multiple **copies**, **⤢** expands the strip into one narro
 
 Editing trims requires the *Edit Fixtures* permission.
 
+## Building a Preset
+
+To save the look you've built on the faders as a [Preset](/dmx-core-100/playback/presets), click **Build Preset** in the header. Each strip gets a checkbox, and the fixtures you are controlling directly from the page are already checked. A bar above the strips shows how many fixtures are checked, with:
+
+- **Check Shown** - checks every strip the current bank and **Filter** show; fixtures checked elsewhere stay checked.
+- **Clear** - unchecks everything.
+- **Cancel** - leaves Build Preset without saving.
+- **Save Preset** - saves the checked fixtures as a new preset, one entry per fixture with its current values and running effect, then leaves Build Preset. A link to the new preset appears in the header.
+
+![Faders page - Build Preset](/assets/web/faders-build-preset.png)
+
+The faders keep working while you build, so you can still adjust levels, open a fixture's dialog or switch banks before saving. [Fixture Control](/dmx-core-100/lighting/fixture-control#saving-as-a-preset) saves presets the same way, from its own checkboxes.
+
 ## Releasing Control
 
 Fixtures touched from this page (or Fixture Control) are under **Direct** control until released. Release a single fixture with its strip's **⊗** or the dialog's **Release Control** button, or use **Release All** in the header - after confirmation, it releases direct control and temporary presets on every fixture at once.
