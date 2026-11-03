@@ -83,7 +83,29 @@ const SHOTS = [
   },
   { name: 'sounds-list', path: '/sounds' },
   { name: 'timelines-list', path: '/timelines' },
-  { name: 'fixture-control', path: '/fixturecontrol' },
+  {
+    // Fixture Control with the Bar zone checked (zone All), so the pane drives the
+    // whole selection and shows Mixed where the fixtures differ
+    name: 'fixture-control',
+    path: '/fixturecontrol',
+    waitFor: '.zone-header',
+    before: async (page) => {
+      await page.evaluate(() => {
+        const header = [...document.querySelectorAll('.zone-header')].find(
+          (h) => h.textContent.includes('Bar'),
+        );
+        header?.querySelector('.zone-sel-btn')?.click();
+      });
+      await sleep(400);
+      await page.evaluate(() => {
+        const header = [...document.querySelectorAll('.zone-header')].find(
+          (h) => h.textContent.includes('Bar'),
+        );
+        header?.scrollIntoView({ block: 'start' });
+      });
+      await sleep(600);
+    },
+  },
   {
     // Scenes page (sidebar version of the Scene Panel) with a scene applied so the
     // dock shows the wheel and dimmer. The tile tap goes to the device; the scene
@@ -146,6 +168,11 @@ const SHOTS = [
   { name: 'ambient-presets', path: '/ambient' },
   { name: 'favorites', path: '/favorites' },
   { name: 'custom-menu-operate', path: '/custommenu' },
+  // A Faders page custom menu item: menu id 4, item 0 in the sample data (menu "Lounge", item "Bar Faders")
+  { name: 'custom-menu-faders', path: '/custommenu/faders?menuId=4&path=0', waitFor: '.page-fader-strip' },
+  // Preset, cue and sound faders (menu "Bar Shows", item "Playback" in the sample data).
+  // Start Bar Blue, Spa Day and Thunder from their faders first so the markers show.
+  { name: 'custom-menu-faders-playback', path: '/custommenu/faders?menuId=5&path=0', waitFor: '.page-fader-strip' },
   // Lighting setup
   { name: 'outputs-list', path: '/outputs' },
   // Stream routing (needs routing on and a console sending on a mapped universe).
@@ -153,6 +180,18 @@ const SHOTS = [
   { name: 'outputs-routing-conflict', path: '/outputs' },
   { name: 'output-editor', path: '/outputs/1' },
   { name: 'fixtures-list', path: '/fixturesettings' },
+  {
+    // Three rows ticked so the batch action bar shows; nothing is changed
+    name: 'fixtures-batch-actions',
+    path: '/fixturesettings',
+    waitFor: '.select-row',
+    before: async (page) => {
+      const boxes = await page.$$('.select-row');
+      for (const box of boxes.slice(1, 4)) await box.click();
+      await page.waitForSelector('.batch-action-bar', { timeout: 5000 });
+      await sleep(300);
+    },
+  },
   { name: 'fixture-editor', path: '/fixturesettings/1' },
   {
     name: 'add-fixture-profile',
@@ -169,7 +208,80 @@ const SHOTS = [
       await sleep(400);
     },
   },
+  {
+    // Import dialog with a third-party style sheet (exact, suggested and
+    // "like a patched fixture" matches); preview only, nothing is imported
+    name: 'fixture-patch-import',
+    path: '/fixturesettings',
+    waitFor: 'button',
+    before: async (page) => {
+      const buttons = await page.$$('button');
+      for (const b of buttons) {
+        // The CIcon adds text, so match with includes; skip the dialog's own button
+        if (await b.evaluate((el) => el.textContent.includes('Import') && !el.closest('.modal'))) {
+          await b.click();
+          break;
+        }
+      }
+      const input = await page.waitForSelector('.modal input[type="file"]', { timeout: 5000 });
+      await input.uploadFile(join(__dirname, 'samples', 'fixture-patch-sample.csv'));
+      await page.waitForFunction(() => /Fixture types/.test(document.querySelector('.modal')?.innerText || ''), { timeout: 8000 });
+      await sleep(1500); // second preview after the suggestions are taken
+    },
+  },
   { name: 'fixture-profiles', path: '/fixtureprofiles' },
+  {
+    // Profile editor on a pixel bar (a profile named "Pixel Bar (8 pixels)", built with the
+    // New profile pixel bar template), the second pixel's red channel selected so the beam
+    // picture shows
+    name: 'fixture-profile-editor',
+    path: '/fixtureprofiles',
+    fullPage: true,
+    before: async (page) => {
+      const id = await page.evaluate(async () => {
+        const response = await fetch('/api/website/fixtureprofile/library', {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        });
+        const list = (await response.json()).data || [];
+        return list.find((p) => p.name === 'Pixel Bar (8 pixels)')?.fixtureProfileId;
+      });
+      if (!id)
+        throw new Error('No "Pixel Bar (8 pixels)" profile on the device');
+      await page.goto(`${BASE}/op/fixtureprofiles/${id}/edit`, { waitUntil: 'networkidle2', timeout: 20000 });
+      await page.waitForSelector('.channel-row', { timeout: 8000 });
+      // Physical opens by itself when a beam angle is set; fold it so the channel pane fits
+      const physical = await page.$('.collapsible-row');
+      await physical?.click();
+      await sleep(200);
+      const rows = await page.$$('.channel-row');
+      await rows[3].click();
+      await sleep(900); // the server's validate call fills in the function ids
+    },
+  },
+  {
+    // New-profile assistant with a bar's beam count showing
+    name: 'fixture-profile-new',
+    path: '/fixtureprofiles/new',
+    waitFor: '.modal.show',
+    before: async (page) => {
+      const inputs = await page.$$('.modal input');
+      await inputs[0].type('Generic');
+      await inputs[1].type('LED Bar 12');
+      const selects = await page.$$('.modal select');
+      await selects[0].select('BAR');
+      await sleep(300);
+      const beams = await page.$('.modal input[type="number"]');
+      await beams.click();
+      await page.keyboard.down('Control');
+      await page.keyboard.press('a');
+      await page.keyboard.up('Control');
+      await beams.type('12');
+      await sleep(300);
+      const templates = await page.$$('.modal select');
+      await templates[1].select('PIXEL_BAR');
+      await sleep(400);
+    },
+  },
   { name: 'zones-list', path: '/zones' },
   { name: 'protocol', path: '/settings/PROTOCOL' },
   {
@@ -321,6 +433,23 @@ const SHOTS = [
         btn?.click();
       });
       await page.waitForSelector('.fader-strip--control', { timeout: 5000 });
+      await sleep(400);
+    },
+  },
+  {
+    // The Faders page in Build Preset mode: a checkbox on each strip, prefilled with
+    // the fixtures controlled directly from the page
+    name: 'faders-build-preset',
+    path: '/faders',
+    waitFor: '.fader-strip',
+    before: async (page) => {
+      await page.evaluate(() => {
+        const btn = [...document.querySelectorAll('button')].find(
+          (b) => b.textContent.trim() === 'Build Preset',
+        );
+        btn?.click();
+      });
+      await page.waitForSelector('.build-preset-bar', { timeout: 5000 });
       await sleep(400);
     },
   },

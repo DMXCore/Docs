@@ -110,6 +110,7 @@ export default defineConfig({
               items: [
                 { label: 'Overview', slug: 'dmx-core-100/lighting' },
                 { label: 'Fixture Setup', slug: 'dmx-core-100/lighting/fixture-setup' },
+                { label: 'Fixture Profile Editor', slug: 'dmx-core-100/lighting/fixture-profile-editor' },
                 { label: 'AI-Generated Fixture Profiles', slug: 'dmx-core-100/lighting/ai-fixture-profiles' },
                 { label: 'Avolites Fixture Profiles', slug: 'dmx-core-100/lighting/avolites-fixture-profiles' },
                 { label: 'Fixture Control', slug: 'dmx-core-100/lighting/fixture-control' },

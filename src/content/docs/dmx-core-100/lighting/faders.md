@@ -9,6 +9,8 @@ The Faders page (Web UI: Operation > Faders) is a lighting-desk-style view of yo
 
 Faders drives the same fixture engine as [Fixture Control](/dmx-core-100/lighting/fixture-control) - both pages show the same live state, and changes made on one appear on the other immediately. Fixtures without a dimmer are not shown here (a note below the faders tells you how many are hidden); use Fixture Control for those.
 
+For end users who need only a few faders - a bar's lights and its music volume, on the touchscreen or a guest tablet - add a [Faders page](/dmx-core-100/scheduling-automation/custom-menus#faders-page) item to a custom menu instead.
+
 ## Channel Strips
 
 Each fixture gets a channel strip showing its current color, name and code, and control status (Direct, preset code, or Ambient - plus an **FX** badge when an effect is running; tap the badge to open the fixture's dialog). Below the fader:
@@ -74,6 +76,19 @@ For a fixture with multiple **copies**, **⤢** expands the strip into one narro
 - A **TRIM** tag under a strip means some of its copies are trimmed below 100 %.
 
 Editing trims requires the *Edit Fixtures* permission.
+
+## Building a Preset
+
+To save the look you've built on the faders as a [Preset](/dmx-core-100/playback/presets), click **Build Preset** in the header. Each strip gets a checkbox, and the fixtures you are controlling directly from the page are already checked. A bar above the strips shows how many fixtures are checked, with:
+
+- **Check Shown** - checks every strip the current bank and **Filter** show; fixtures checked elsewhere stay checked.
+- **Clear** - unchecks everything.
+- **Cancel** - leaves Build Preset without saving.
+- **Save Preset** - saves the checked fixtures as a new preset, one entry per fixture with its current values and running effect, then leaves Build Preset. A link to the new preset appears in the header.
+
+![Faders page - Build Preset](/assets/web/faders-build-preset.png)
+
+The faders keep working while you build, so you can still adjust levels, open a fixture's dialog or switch banks before saving. [Fixture Control](/dmx-core-100/lighting/fixture-control#saving-as-a-preset) saves presets the same way, from its own checkboxes.
 
 ## Releasing Control
 

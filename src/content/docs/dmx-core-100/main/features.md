@@ -31,7 +31,7 @@ title: Features
 * Input triggers via DMX, OSC, MQTT, HTTP, TCP, UDP, and digital inputs - run actions or drive levels
 * Output events for external notifications (MQTT, HTTP, OSC, serial) when actions occur
 * [MCP Server](/dmx-core-100/integrations/mcp-server): AI clients such as Claude Desktop and Cursor can list entities, play cues, set levels, and control fixtures over the Model Context Protocol, secured with MCP-only API keys
-* [Integration API](/dmx-core-100/integrations/integration-api): a versioned HTTP + WebSocket contract for external control systems such as Bitfocus Companion, Crestron and Node-RED - list and execute cues, presets, zones and Control Values, and receive live state for button feedback
+* [Integration API](/dmx-core-100/integrations/integration-api): a versioned HTTP + WebSocket contract for external control systems such as Bitfocus Companion, Crestron and Node-RED - list and execute cues, presets, zones and Control Values, and receive live state for button feedback. A [Bitfocus Companion module](https://bitfocus.io/connections/dmxcore-dmxcore100) is available.
 * [Plugins](/dmx-core-100/integrations/plugins): integrations install and update in one click from the built-in registry, and anyone can [publish a plugin](/dmx-core-100/integrations/publishing-plugins) with the open .NET SDK
 * [Home Assistant](/dmx-core-100/integrations/home-assistant): zones, presets, cues, schedules and Control Values appear over MQTT discovery, and the device can fire Home Assistant scenes, scripts and automations
 * [Stop, Blackout and Output Off](/dmx-core-100/basics/blackout-and-stop) as three distinct global states - Blackout is a latched switch like the key on a console, with playback and audio running on underneath

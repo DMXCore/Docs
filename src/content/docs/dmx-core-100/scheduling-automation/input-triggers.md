@@ -7,6 +7,8 @@ Input triggers make the DMX Core 100 react to the outside world - a DMX channel 
 
 Configure them under **Control & Integrations > Input Triggers** in the Web UI, or **Main Menu > Settings > Input Triggers** on the touchscreen.
 
+Custom OSC addresses are shown in [Control your lights from TouchOSC](https://youtu.be/4Eh02x-Pkzk?t=174).
+
 ![Input triggers list](/assets/web/input-triggers-list.png)
 
 ![Input trigger editor - HTTP path, action, and Play Cue target](/assets/web/input-trigger-editor.png)
@@ -25,8 +27,6 @@ Configure them under **Control & Integrations > Input Triggers** in the Web UI, 
 | **Control Value** | A [Control Value](/dmx-core-100/integrations/control-values) changing - a Q-SYS or Symetrix button, fader or selector, or any control that writes the value |
 | **Plugin** | A signal from an installed plugin |
 
-An OSC trigger can use an address of your own. The TouchOSC video's [custom addresses](https://youtu.be/4Eh02x-Pkzk?t=174) segment shows that.
-
 ## Control Value Triggers
 
 A Control Value trigger makes a Control Value the *source*: a wall panel button wired to a Symetrix controller plays a cue, a Q-SYS UCI fader crossing a threshold starts a scene, an internal Control Value moved from a Stream Deck dial runs a scene. Pick the Control Value to watch; the remaining settings depend on its kind:
@@ -43,7 +43,7 @@ In **Value mode**, the Control Value's live 0–100% position drives the target 
 ## Two Modes
 
 - **On/Off - run an action.** The trigger fires its action when the signal arrives (or crosses the threshold).
-- **Value - set a level from the payload.** The numeric payload drives a target level continuously. Configure **JSON Path** (when the payload is JSON), **Input Min** (default 0), **Input Max** (default 1), and the **Value Target** section: **Target**, **Min value**, **Max value**, and **Inverted**. Targets include a [Control Value](/dmx-core-100/integrations/control-values) (e.g. a Symetrix volume), the master dimmer, a zone intensity, and audio volume. An OSC value trigger needs **exactly one** argument. A wall fader sending OSC or DMX becomes a live level control.
+- **Value - set a level from the payload.** The numeric payload drives a target level continuously. Configure **JSON Path** (when the payload is JSON), **Input Min** (default 0), **Input Max** (default 1), and the **Value Target** section: **Target**, **Min value**, **Max value**, and **Inverted**. Targets include a [Control Value](/dmx-core-100/integrations/control-values) (e.g. a Symetrix volume), the master dimmer, a zone intensity, audio volume, and a preset, cue or sound as a [playback fader](/dmx-core-100/scheduling-automation/custom-menus#preset-cue-and-sound-faders). An OSC value trigger needs **exactly one** argument. A wall fader sending OSC or DMX becomes a live level control.
 
 Value-mode triggers can name a **[Transform Script](/dmx-core-100/scheduling-automation/scripting#transform-scripts)** that reshapes the normalized 0–1 value before it lands - response curves, dead zones, thresholds.
 

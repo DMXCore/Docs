@@ -5,6 +5,8 @@ description: Physical and virtual button/fader surfaces for hands-on control
 
 Control surfaces give operators hands-on, physical control of the DMX Core 100 - buttons to fire cues and presets, knobs and faders to ride levels, and LED feedback that always reflects the current state. A surface can be a Stream Deck on a desk, a MIDI pad controller, a wall-mounted keypad, a TouchOSC layout on a tablet, or simply a [virtual surface in the browser](/dmx-core-100/control-surfaces/surface-operator).
 
+Already running a Stream Deck through Bitfocus Companion? Use the [DMX Core 100 Companion module](https://bitfocus.io/connections/dmxcore-dmxcore100) instead of connecting the Stream Deck directly.
+
 Control surfaces are managed in the Web UI under **Control & Integrations > Control Surfaces**. The list shows each surface's transport, binding, and live connection status.
 
 ![Control Surfaces list showing transport, binding, and status](/assets/web/control-surfaces-list.png)

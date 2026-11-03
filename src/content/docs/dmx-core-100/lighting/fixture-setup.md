@@ -22,7 +22,7 @@ The DMX Core 100 supports importing profiles from four popular fixture libraries
 - [GDTF Share](https://gdtf-share.com) - `.gdtf`
 - [Avolites Personality Library](https://personalities.avolites.com/) - `.d4`; last resort, because the site ships the whole library as an archive. See [Avolites Fixture Profiles](/dmx-core-100/lighting/avolites-fixture-profiles) for how to extract a single file.
 
-If none of these libraries has your fixture - common with unbranded fixtures - an AI assistant can build a profile from photos of the fixture's manual. See [AI-Generated Fixture Profiles](/dmx-core-100/lighting/ai-fixture-profiles).
+If none of these libraries has your fixture - common with unbranded fixtures - build the profile in the [Fixture Profile Editor](/dmx-core-100/lighting/fixture-profile-editor) from the DMX chart in the manual, or let an AI assistant build it from photos of the manual (see [AI-Generated Fixture Profiles](/dmx-core-100/lighting/ai-fixture-profiles)). **Add profile…** has a **Build the profile by hand** link that opens the editor and brings you back to the fixture with the new profile selected.
 
 To import while adding or editing a fixture:
 
@@ -48,6 +48,8 @@ The **Profile** dropdown on Fixture Details lists generic profiles, imported pro
 
 - Open a row to see personalities and the 1-based channel map (the same numbering as the fixture manual)
 - Hover the personalities summary to see each mode's channel count
+- **Edit** on a library profile's details page opens it in the [Fixture Profile Editor](/dmx-core-100/lighting/fixture-profile-editor) to fix a channel, add a mode or rename one; **Duplicate** makes a copy to change. **New profile** next to **Add profile…** builds one from scratch
+- The details page also shows the profile's type and beams (pixels or cells), and per channel its beam, whether it runs inverted, its fallback value and the color of color wheel slots
 - **Export** on a library profile's details page downloads it as a DMX Core JSON profile file (`<Manufacturer> - <Name>.json`), the same format **Import** accepts. Edit it and import it again to update the profile, or import it on another unit. Anything the format cannot hold is listed in the file's `warnings`
 - **Delete** is available for unused library profiles. Plugin profiles cannot be deleted. A profile that fixtures still use is blocked until those fixtures are reassigned or removed.
 
@@ -79,9 +81,23 @@ Some fixtures support custom configuration options beyond the standard profile s
 
 From the **Lighting Setup > Fixtures** page in the Web UI, you can:
 
-- **Edit** a fixture - Click the fixture name to modify its settings
-- **Enable/Disable** - Toggle a fixture on or off without deleting it
-- **Delete** - Remove a fixture from the configuration
+- **Edit** a fixture - Click the pencil in its **Details** column to open its settings
+- **Enable/Disable** - Turn a fixture on or off without deleting it, with **Enabled** on its settings page
+- **Delete** - Remove a fixture with **Delete** on its settings page
+
+### Working with Several Fixtures
+
+To enable, disable or delete many fixtures at once, tick the checkbox at the start of each row. A bar above the list shows how many are selected, with **Enable**, **Disable** and **Delete** buttons for the whole selection.
+
+![Fixtures list with three fixtures selected and the Enable, Disable and Delete buttons](/assets/web/fixtures-batch-actions.png)
+
+- The selection is kept while you move between pages, so you can pick fixtures from several pages before choosing an action
+- The checkbox in the header selects every fixture in the list, on all pages. When only some are selected it shows a dash; click it again to clear them
+- **Enable** and **Disable** apply right away and keep the selection, so you can undo with one click. A button is grayed out when every selected fixture is already in that state
+- **Delete** asks first and lists the fixtures by name and code
+- **Clear** unselects everything
+
+The checkboxes are only shown to users with the **Edit Fixtures** permission. Presets, menus and other items that use a deleted fixture are not changed, the same as when you delete fixtures one at a time.
 
 ## Hiding Fixture Functions
 
@@ -109,12 +125,98 @@ When editing a fixture, the system checks whether the fixture's assigned slot ha
 
 ## Exporting Fixtures
 
-You can export your fixture list from **Lighting Setup > Fixtures** in the Web UI in two formats:
+You can export your fixture patch from **Lighting Setup > Fixtures** in the Web UI in two formats:
 
-- **Excel** - Full export with formatting, suitable for documentation
-- **CSV** - Lightweight export for spreadsheet tools and data processing
+- **Excel** - Full export with formatting and totals, suitable for documentation
+- **CSV** - For spreadsheet tools and data processing (UTF-8, opens correctly in Excel)
 
-The export includes fixture names, profiles, personalities, DMX addresses, and universe assignments - useful for documentation or handoff to a lighting programmer.
+Each fixture is one row, sorted by address: code, name, enabled, slot and start channel, personality, copies, zone name, manufacturer and profile, profile code, copy trims, hidden functions and custom options. The **End Slot**, **End Ch**, **Ch/Fixture** and **Warning** columns are worked out for you (where the fixture ends, and which fixtures share channels); they are only there to read and are ignored on import.
+
+The export is complete, so it can be edited and [imported](#importing-fixtures) again, on the same unit or another one.
+
+## Importing Fixtures
+
+With a large rig, patching fixtures one at a time is slow. **Import** on **Lighting Setup > Fixtures** reads a whole patch from a CSV or Excel (`.xlsx`) sheet, one row per fixture. It needs the **Edit Fixtures** permission.
+
+To start from a blank sheet, download a template from [DMXCore/DmxCore100-Tools](https://github.com/DMXCore/DmxCore100-Tools/tree/main/samples/Fixture%20Patch): [CSV](https://github.com/DMXCore/DmxCore100-Tools/raw/main/samples/Fixture%20Patch/fixture-patch-template.csv) or [Excel](https://github.com/DMXCore/DmxCore100-Tools/raw/main/samples/Fixture%20Patch/fixture-patch-template.xlsx). Its example rows use the built-in Generic profiles, so it imports on any unit as it is; replace them with your fixtures.
+
+The quickest way to build the sheet is often from your own patch:
+
+1. Import the fixture profiles you need (see [Importing Profiles](#importing-profiles))
+2. Patch **one fixture of each type** the way you want it - personality, hidden functions, custom options
+3. **Export** the patch as CSV or Excel
+4. Add a row for every other fixture: copy a row of the same type, give it a name and an address, and clear its **Code** so a new code is assigned
+5. Click **Import**, choose the file, check the preview, and click **Import** in the dialog
+
+![Import fixture patch - preview with fixture type matching](/assets/web/fixture-patch-import.png)
+
+### How rows are applied
+
+- A row whose **Code** matches an existing fixture **updates** that fixture. Columns that are not in the sheet keep their current values, so a sheet with just **Code** and **Name** renames fixtures and changes nothing else
+- Any other row **adds** a new fixture. Leave **Code** empty to get the next free code (`LIGHT12`, `LIGHT13`, ...)
+- Fixtures that are not in the sheet are left alone, unless **Replace overlapping fixtures** is on (see below)
+- **Zone Name** is matched to the device's [Zones](/dmx-core-100/lighting/zones) ignoring case, extra spaces and punctuation, so `dance` finds a zone called `Dance`. A zone the device doesn't have is an error, and the preview suggests the closest name. Turn on **Create missing zones** to create such zones instead (needs the **Edit Zones** permission). An empty Zone Name cell removes the fixture from its zone
+- Nothing is saved until you click **Import** in the dialog, and then everything is saved at once. If any row has an error, nothing is imported
+
+### Import options
+
+Two options above the preview, both off by default:
+
+- **Replace overlapping fixtures** - fixtures that are not in the sheet but whose channels a new or moved fixture in the sheet takes are **deleted**, so you can re-patch a rig without clearing it first. The preview lists them as **Delete** rows with the fixture that replaces them. Overlaps the import doesn't cause (fixtures that already shared channels and don't move) only get a warning
+- **Create missing zones** - zones the sheet names that the device doesn't have are created, each once. The preview lists them under **New zones**
+
+### The preview
+
+Choosing a file shows what the import will do before anything changes:
+
+- A count of **new**, **update**, **delete**, **unchanged** and **error** rows, and the rows themselves with what changes for each update (for example `Address 1.1 → 2.101`)
+- **Errors** block the import: a missing address, slot 0, a channel outside 1-512, an unknown zone or profile, a code used twice in the file
+- **Warnings** do not block it: fixtures sharing channels (with other rows or with fixtures already patched), a slot with no enabled output, a copy trimmed to 0%
+- Columns the import doesn't use are listed, so a misspelled header is easy to spot
+
+### Fixture types
+
+Each fixture type in the sheet - the **Manufacturer**, **Profile** and **Personality** as written - is matched once for all its rows, in the **Fixture types** table:
+
+- **Exact** - the names match a profile on the device
+- **Suggested** - the closest match. If a fixture with that profile is already patched, the suggestion is to make the rows **like that fixture**, which also copies its hidden functions and custom options. This is why patching one fixture of each type first pays off
+- **Your choice** - pick a patched fixture or any profile (and personality) from the list
+- **Not matched** - nothing close was found, or you cleared the match; pick one before you can import
+
+The browser remembers your choices by type, so importing a corrected version of the same sheet does not ask again.
+
+A row can also name its type directly: **Profile Code** (written by the export) picks the exact profile, and a **Template** column with the code of a patched fixture makes the row like that fixture.
+
+### Sheets from other programs
+
+The import also reads patch sheets that were not made by DMX Core:
+
+- CSV separated by commas, semicolons or tabs, and Excel `.xlsx` (the first sheet; title rows above the table are skipped). Old `.xls` files must be saved as `.xlsx` or CSV first
+- Common column names work as they are: **Universe** for the slot, **Address** or **DMX** for the start channel, **Mode** for the personality, **Instrument Type** or **Fixture Type** for the profile, **Purpose** or **Label** for the name, **Count** or **Qty** for copies
+- An address can be one cell: `2.101`, `2/101` or `2:101` (slot 2, channel 101), or an absolute address such as `613` (also slot 2, channel 101) when there is no slot column
+- Slots start at 1. If a sheet numbers universes from 0, add 1 to them first
+
+| Column | Accepted names | Notes |
+|---|---|---|
+| Code | Code | Matches an existing fixture to update it. Empty for a new fixture |
+| Name | Name, Label, Purpose | Defaults to the profile name for a new fixture |
+| Enabled | Enabled | Yes/No, true/false, 1/0. New fixtures are enabled by default |
+| Slot | Slot ID, Universe | |
+| Start channel | Start Ch, Address, DMX, Channel | `2.101` style also accepted |
+| Copies | Copies, Count, Qty | 1-680 |
+| Personality | Personality, Mode | Empty: a new fixture gets the profile's first personality |
+| Manufacturer | Manufacturer, Make, Brand | |
+| Profile | Profile, Fixture Type, Instrument Type, Model, Type | |
+| Profile Code | Profile Code | Written by the export |
+| Template | Template | Code of a patched fixture to copy |
+| Zone | Zone Name, Zone, Group | Must exist, unless **Create missing zones** is on |
+| Copy Trims | Copy Trims | `100% 80% 100%`, one per copy |
+| Hidden Functions | Hidden Functions | Separated by `;` |
+| Custom Options | Custom Options | `Name=Value; Name=Value` |
+
+:::tip
+After an import, the dialog offers **the patch from before the import** as a CSV. Importing it again puts back every fixture the import changed or deleted; fixtures and zones it added stay and can be deleted by hand. **Download the current patch** in the dialog saves the same thing beforehand.
+:::
 
 ## Multi-Function Fixtures
 

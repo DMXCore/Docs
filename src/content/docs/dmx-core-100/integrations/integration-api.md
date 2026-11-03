@@ -378,6 +378,10 @@ name.
 
 ## Building a control-system module
 
+A ready-made [Bitfocus Companion module](https://bitfocus.io/connections/dmxcore-dmxcore100)
+for the DMX Core 100 is available; enable the Integration API and issue a key
+to use it.
+
 A Bitfocus Companion module, Crestron driver, or Node-RED node can follow this
 mapping:
 
