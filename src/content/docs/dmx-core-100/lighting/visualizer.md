@@ -48,13 +48,30 @@ Drag a fixture from the tray onto the canvas. Each placement is an icon plus one
 - The same fixture can be placed **several times on one view**. One fixture instance is often many physical bulbs on a single DMX address (nine pendants over the bar) - drop it once per bulb; every placement follows the same live state. The tray shows a placement count, and clicking the tray row cycles through the placements.
 - **Scale (depth)** shrinks or grows a placement's icon and overlay together - smaller means further back in the photo.
 - **Multi-copy fixtures** list one tray row per copy. Place a copy, then use **Distribute copies…** to spread the remaining copies evenly along a line - or drag the **strip (all copies)** row to place the whole fixture as one ribbon, ideal for pixel tape.
-- **Delete** (or the Remove button) removes the selected placement; placements on other views are untouched.
+- **Delete** (or the Remove button) removes the selected placements; placements on other views are untouched.
 
 Only patched fixtures belong on the plot. Table lamps, signage, and other décor that DMX Core does not control stay in the photograph - an overlay that never changes would only mislead.
 
+## Selecting several fixtures
+
+Select several fixtures to set them together in Live mode, or to move and adjust them as a group in Edit mode:
+
+| On the canvas | In the fixture list |
+|---------------|---------------------|
+| **Ctrl-click** (**Cmd-click** on a Mac) adds or removes a fixture | **Ctrl-click** (**Cmd-click**) adds or removes a row |
+| **Shift-drag** on empty space draws a box; every fixture inside it is added | **Shift-click** adds every row between the last row you clicked and this one |
+| **Ctrl+A** (**Cmd+A**) selects every fixture on the view | |
+
+On a tablet or touchscreen, turn on **Select multiple** in the toolbar: a tap then adds or removes a fixture, and a drag on empty space draws the selection box (turn it off again to pan). **Esc** clears the selection, and a plain click on one fixture narrows it back to that one.
+
+With several fixtures selected:
+
+- **Live mode:** the intensity slider, color picker and **Full Control…** set every selected fixture at once, the same way as [selecting several fixtures](/dmx-core-100/lighting/fixture-control#selecting-several-fixtures) on Fixture Control. When their levels differ, the slider shows the range (for example *20% to 80%*). **Release Control** releases all of them.
+- **Edit mode:** drag any selected fixture to move the whole group. **Remove** (or **Delete**) removes them all, and the **Overlay**, size and **Scale (depth)** controls change all of them. Aiming handles, **Distribute copies…** and the copy trim need a single fixture.
+
 ## Live control
 
-Selecting a fixture in Live mode gives you an intensity slider and color picker right in the panel, and **Full Control…** opens the same per-function control dialog as [Fixture Control](/dmx-core-100/lighting/fixture-control).
+Selecting a fixture in Live mode gives you an intensity slider and color picker right in the panel, and **Full Control…** opens the same per-function control dialog as [Fixture Control](/dmx-core-100/lighting/fixture-control). To set several fixtures at once, see [Selecting several fixtures](#selecting-several-fixtures).
 
 For a placement of a multi-copy fixture, the panel also shows that copy's **trim** slider with a **Solo** button - "this one pendant is too bright" fixed without leaving the photo. These are the same persisted [Copy Trims](/dmx-core-100/lighting/fixture-control#copy-trims) as everywhere else: a trim is a calibration that scales the copy's intensity in all presets and faders.
 
