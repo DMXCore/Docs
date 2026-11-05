@@ -26,6 +26,7 @@ Custom OSC addresses are shown in [Control your lights from TouchOSC](https://yo
 | **Digital Input** | A contact closure on one of the [ADIO board](https://dmxprosales.com/products/dmx-core-100-audio-2xdmx-input-board-adio)'s four digital inputs (the 2-port DMX-512 board does not have them). The trigger fires when the input goes active and releases when it goes inactive, so a **Flash** preset, a **Momentary** timeline or a Control Value **Follow input** action follows the contact. **Threshold** is the polarity: 1 (default) is active-high, 0 inverts it so the trigger fires when the contact opens |
 | **Control Value** | A [Control Value](/dmx-core-100/integrations/control-values) changing - a Q-SYS or Symetrix button, fader or selector, or any control that writes the value |
 | **Plugin** | A signal from an installed plugin |
+| **Music** | The music heard on the [Tempo page](/dmx-core-100/lighting/tempo#music-signals)'s audio source: a kick starting or stopping, an energy step, an activity range, silence, or a drop. See [Music Triggers](#music-triggers) |
 
 ## Control Value Triggers
 
@@ -39,6 +40,32 @@ A Control Value trigger makes a Control Value the *source*: a wall panel button 
 Any change fires the trigger, whoever made it - a DSP button, a custom menu slider, a fader on the Faders page, a schedule, a script or another trigger. The only change that never fires a trigger is its own action writing the same Control Value back, so a trigger can safely set the value it watches. On startup or reconnect the first reported value arms the trigger without firing, so a control that is already on never replays its edge.
 
 In **Value mode**, the Control Value's live 0–100% position drives the target level instead - turning any DSP fader into a live lighting fader.
+
+## Music Triggers
+
+A Music trigger runs its action when the music changes, using the [Music Signals](/dmx-core-100/lighting/tempo#music-signals) from the **Tempo** page's audio source (the audio being played, or a microphone or line input). It gives conditional looks without programming a show:
+
+- Lasers on while the kick plays, off when it stops: **Music state**, **Kick**, **Entered**, with a **Flash** preset
+- A strobe preset only at the loudest moments: **Energy band**, **Peak**, **Entered**, with a **Flash** preset
+- A fog burst on a drop: **Event**, **Drop**, **Hold for** a few seconds, with a **Flash** preset or output event
+- Dim to the ambient look when the music stops: **Music state**, **Silence**, **Entered**, **Sustained for** 10 seconds, with **Apply Ambient Preset**
+
+Pick a **Condition**:
+
+| Condition | Fires on |
+|-----------|----------|
+| **Music state** | **Silence**, **No kick** (music without a kick) or **Kick** (a running kick) |
+| **Energy band** | One of the five energy steps, **Quiet** to **Peak** |
+| **Activity range** | Activity (0-100%) inside a range you set. It leaves the range only 5% beyond either end, so a level hovering at the edge does not flicker the trigger |
+| **Event** | **Section change**, **Drop** (a kick coming in after a calmer part), **Breakdown** (the kick dropping out), **Silence start** or **Silence end** |
+
+For a state, band or range, **Fires when** is **Entered** or **Left**. The trigger stays on while the condition lasts and releases the moment it ends, so a **Flash** preset is on exactly as long as the kick plays (with **Left**, exactly as long as it doesn't). **Sustained for** makes the condition hold that many seconds before the trigger fires, so a brief flip does not.
+
+For an event, **Hold for** keeps the trigger on that many seconds after the event, for actions held while pressed (a Flash preset, a Momentary timeline, a Follow output); another of the same event during the hold extends it. With 0 it is a short press and release. A drop or breakdown fires only its own triggers, not Section change ones.
+
+The editor shows the music live while it is open: the activity meter with your range in green, the energy and state steps with the one the trigger watches outlined, the last event, and whether the condition is met right now. Play music and set the range where the music sits. The music is analyzed while the editor is open and while any Music trigger is enabled, with nothing else needed.
+
+When a trigger starts, or after any trigger is saved, the first reading only sets where the music is: a trigger saved while the kick is already playing waits for the kick to stop or start again. Saving a trigger that is holding its action (a Flash preset on during a kick) keeps it on if the trigger did not change, and releases it if the trigger was disabled, deleted or changed. Music triggers are set up in the Web UI; the touchscreen shows the condition but does not edit it.
 
 ## Two Modes
 

@@ -64,6 +64,8 @@ The **Music Signals** card shows what DMX Core hears in the music, from the same
 - **Beat** - **Locked** when the beat tracker trusts its beat, **Searching** otherwise, with a meter for how well the predicted beats land on the music
 - **Bar** - **Downbeat found** when the tracker also hears where each bar starts (it assumes four beats to a bar), **Beats only** when it doesn't. The tempo next to it is the tracker's estimate, not an exact measurement of the song.
 
+To make presets, cues and other actions follow these signals (a strobe only at Peak, lasers while the kick plays, a fog burst on a drop), use a [Music trigger](/dmx-core-100/scheduling-automation/input-triggers#music-triggers).
+
 ### Calibration
 
 - **Activity Gain** - if the meter rarely leaves the low steps on a busy track, raise it; if it sits at Peak all the time, lower it.
