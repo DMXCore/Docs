@@ -66,16 +66,18 @@ On a tablet or touchscreen, turn on **Select multiple** in the toolbar: a tap th
 
 With several fixtures selected:
 
-- **Live mode:** the intensity slider, color picker and **Full Control…** set every selected fixture at once, the same way as [selecting several fixtures](/dmx-core-100/lighting/fixture-control#selecting-several-fixtures) on Fixture Control. When their levels differ, the slider shows the range (for example *20% to 80%*). **Release Control** releases all of them.
+- **Live mode:** the intensity slider, color picker, **Effect** list and **Full Control…** set every selected fixture at once, the same way as [selecting several fixtures](/dmx-core-100/lighting/fixture-control#selecting-several-fixtures) on Fixture Control. When their levels differ, the slider shows the range (for example *20% to 80%*). **Release Control** releases all of them.
 - **Edit mode:** drag any selected fixture to move the whole group. **Remove** (or **Delete**) removes them all, and the **Overlay**, size and **Scale (depth)** controls change all of them. Aiming handles, **Distribute copies…** and the copy trim need a single fixture.
 
 ## Live control
 
-Selecting a fixture in Live mode gives you an intensity slider and color picker right in the panel, and **Full Control…** opens the same per-function control dialog as [Fixture Control](/dmx-core-100/lighting/fixture-control). To set several fixtures at once, see [Selecting several fixtures](#selecting-several-fixtures).
+Selecting a fixture in Live mode gives you an intensity slider, a color picker and an **Effect** list right in the panel, and **Full Control…** opens the same per-function control dialog as [Fixture Control](/dmx-core-100/lighting/fixture-control). To set several fixtures at once, see [Selecting several fixtures](#selecting-several-fixtures).
 
 For a placement of a multi-copy fixture, the panel also shows that copy's **trim** slider with a **Solo** button - "this one pendant is too bright" fixed without leaving the photo. These are the same persisted [Copy Trims](/dmx-core-100/lighting/fixture-control#copy-trims) as everywhere else: a trim is a calibration that scales the copy's intensity in all presets and faders.
 
 ## Effects
+
+To start an effect from the Visualizer, select one or more fixtures in Live mode and pick it from the **Effect** list in the panel; **No Effect** stops it. With an effect running, **Effect Dimmer** sets how much of the effect is mixed in. Several fixtures selected together share one effect and run in sync, and the list is marked **Mixed** while they run different effects. This works like the [Effect card on Fixture Control](/dmx-core-100/lighting/fixture-control), including its warning when a fixture's intensity is at 0% (effects never raise a fixture's own intensity, so it stays dark).
 
 In Live mode, [effects](/dmx-core-100/lighting/effects) show as they run: a Rainbow cycles its colors, a Breathing effect fades up and down, a music effect pulses with the song. This covers every way an effect starts: from Fixture Control, a preset, a zone or the whole rig, a fader, or a trigger.
 
