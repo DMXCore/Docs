@@ -10,7 +10,7 @@ The Visualizer (Web UI: Operation > Visualizer) is a **2D live plot** of your li
 It is intentionally a live picture, not a lighting-design tool - no 3D, no photometry, no beam simulation. If you need pre-visualization of that caliber, DMX Core plays nicely with the dedicated tools; see [External visualizers](#external-visualizers) below.
 
 :::note
-The Visualizer follows **Fixture Control, presets, and effects** - the fixture engine. Recorded **cue playback is not shown**: cues replay raw DMX below the fixture engine, so the plot sits idle while a cue runs. That is expected, not a fault.
+The Visualizer follows **Fixture Control, presets, and [effects](#effects)** - the fixture engine. Recorded **cue playback is not shown**: cues replay raw DMX below the fixture engine, so the plot sits idle while a cue runs. That is expected, not a fault.
 :::
 
 ## Views
@@ -74,6 +74,15 @@ With several fixtures selected:
 Selecting a fixture in Live mode gives you an intensity slider and color picker right in the panel, and **Full Control…** opens the same per-function control dialog as [Fixture Control](/dmx-core-100/lighting/fixture-control). To set several fixtures at once, see [Selecting several fixtures](#selecting-several-fixtures).
 
 For a placement of a multi-copy fixture, the panel also shows that copy's **trim** slider with a **Solo** button - "this one pendant is too bright" fixed without leaving the photo. These are the same persisted [Copy Trims](/dmx-core-100/lighting/fixture-control#copy-trims) as everywhere else: a trim is a calibration that scales the copy's intensity in all presets and faders.
+
+## Effects
+
+In Live mode, [effects](/dmx-core-100/lighting/effects) show as they run: a Rainbow cycles its colors, a Breathing effect fades up and down, a music effect pulses with the song. This covers every way an effect starts: from Fixture Control, a preset, a zone or the whole rig, a fader, or a trigger.
+
+- **Each copy shows its own look.** A multi-copy fixture under an effect gives every copy its own color and brightness, so a placement of one copy shows that copy. A **strip (all copies)** placement splits the ribbon into one slice per copy, the first copy at the end where the strip starts (the left end when you drop it), so a chaser or rainbow runs along it the way it runs along the real tape. If it runs the wrong way, drag the strip's start and end handles to swap them in Edit mode.
+- **Strobes and flashes** too fast to show frame by frame (a strobe, lightning, an onset flash) are drawn as a flashing light rather than skipped.
+- The picture updates about 20 times a second, so it shows how an effect looks and moves, not its exact timing. Master, zone and preset dimmers and copy trims are all included, as on the real output.
+- The swatches in the fixture list keep showing the fixture's own color, not the effect.
 
 ## Good to know
 
