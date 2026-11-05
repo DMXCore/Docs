@@ -110,6 +110,7 @@ Per-item options:
 - **Dimmer** - playback brightness for this button
 - **Require confirmation** - ask before executing. Control surface buttons use [Hold to confirm](/dmx-core-100/control-surfaces/configuring#hold-to-confirm) instead of a dialog (the [Surface Operator](/dmx-core-100/control-surfaces/surface-operator) still asks Yes/No)
 - **Live state** - highlight the item while a Control Value equals a given value (e.g. light up "Input B" while that source is selected), or automatically while its own action is active
+- **Background** and **Background - Active** - the button's color at rest and while it is active (its preset, cue or sound is playing, or the live state matches), like a [Stream Deck key's](/dmx-core-100/control-surfaces/configuring) active and inactive colors. Use a color name (`Blue`, `Red`, `Green`) or a hex code (`#FF8800`); the text turns black or white to stay readable. Leave **Background - Active** blank to keep the same color and show the active state with the glow only
 
 ## Menu Structure
 
@@ -117,7 +118,7 @@ Menus support **multiple levels** via SubMenu items - a top-level menu with a bu
 
 ## Wall Panel Menus
 
-A menu of type **Wall panel** (called **Faders** before v2026.1026) is the wall-controller layout for a DSP such as [Q-SYS](/dmx-core-100/integrations/qsys) or [Symetrix](/dmx-core-100/integrations/symetrix): each SubMenu item is one column on the touchscreen. A column of Action items shows them as buttons, lit while their state is active. A column of Slider items shows one fader that all its sliders share: the button above the fader switches which one it drives, and a slider with a switch-back time returns the fader to it after that many seconds without a touch. The rotary knob drives the fader, and a knob press switches, or runs the menu's knob action (such as a mute) when one is set. Drag the fader by its cap; tapping the track does nothing. A slider can drive any fader target, not only a DSP level.
+A menu of type **Wall panel** (called **Faders** before v2026.1026) is the wall-controller layout for a DSP such as [Q-SYS](/dmx-core-100/integrations/qsys) or [Symetrix](/dmx-core-100/integrations/symetrix): each SubMenu item is one column on the touchscreen. A column of Action items shows them as buttons, lit while their state is active: in the item's **Background - Active** color, or the default highlight color when it has none. A column of Slider items shows one fader that all its sliders share: the button above the fader switches which one it drives, and a slider with a switch-back time returns the fader to it after that many seconds without a touch. The rotary knob drives the fader, and a knob press switches, or runs the menu's knob action (such as a mute) when one is set. Drag the fader by its cap; tapping the track does nothing. A slider can drive any fader target, not only a DSP level.
 
 ## Guest Access
 
