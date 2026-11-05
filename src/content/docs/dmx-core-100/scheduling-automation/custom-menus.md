@@ -32,7 +32,7 @@ On the **touchscreen**, open a menu from **Main Menu > Utilities > Custom Menu**
 
 ## Menu Items
 
-Click **Add item** in the editor. Each item has a name, optional subtitle/description, icon, background color, and one of these types:
+Click **Add item** in the editor. **Duplicate** copies the selected item right below it, named with "(copy)": a SubMenu or Faders page item is copied with everything in it, so a whole section can be reused and then edited. Each item has a name, optional subtitle/description, icon, background color, and one of these types:
 
 | Type | Description |
 |------|-------------|
