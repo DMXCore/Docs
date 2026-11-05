@@ -31,7 +31,7 @@ Each timeline has a **code** and **name**, plus:
 Open a timeline and click **Editor**. Drag events from the **Available Events** panel - cues, presets, sounds, effects, control values, and scripts - onto the tracks, then drag to position and resize them.
 
 - **Cue tracks** - cue events show an **intensity profile** you can shape, ramping the cue's dimmer over its duration (fade a show in over ten seconds, dip it in the middle, out at the end)
-- **Sound tracks** - audio events render their **waveform** on the track, making it easy to line lighting hits up with the music. Each sound event has a **Loop** count (0 = forever) and a **Layer** for same-layer replacement, like [cue playback layers](/dmx-core-100/playback/layers-and-priority#playback-layers)
+- **Sound tracks** - audio events render their **waveform** on the track, making it easy to line lighting hits up with the music. Each sound event has a **Loop** count (0 = forever), a **Layer** for same-layer replacement, like [cue playback layers](/dmx-core-100/playback/layers-and-priority#playback-layers), and an **Audio Routing** that picks which file channels play on which outputs of a multichannel sound card (empty uses the sound's own; see [Audio Routing](/dmx-core-100/playback/sounds#audio-routing))
 - **Control Value tracks** - move levels (like a DSP volume) at exact points in the show
 - **Other events** - script events run a [script](/dmx-core-100/scheduling-automation/scripting) at an exact timestamp, and **[Hold milestones](/dmx-core-100/playback/hold-milestones)** make the timeline wait for a trigger before continuing
 
