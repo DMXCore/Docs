@@ -30,6 +30,6 @@ Once zones are configured, they appear throughout the system:
 
 - **[Presets](/dmx-core-100/playback/presets)** - Create zone-specific presets that only affect fixtures in a particular zone
 - **[Effects](/dmx-core-100/lighting/effects)** - Apply effects to an entire zone
-- **[Fixture Control](/dmx-core-100/lighting/fixture-control)** - Filter and control fixtures by zone
+- **[Fixture Control](/dmx-core-100/lighting/fixture-control)** - Filter and control fixtures by zone, and on the touchscreen set the color of a whole zone with [Zone Color](/dmx-core-100/lighting/fixture-control#controlling-a-zone-on-the-touchscreen)
 - **[Input Triggers](/dmx-core-100/scheduling-automation/input-triggers)** and **[Control Surfaces](/dmx-core-100/control-surfaces)** - Bind a fader or knob to a zone's intensity
 - **[Q-SYS & Symetrix](/dmx-core-100/external-control)** - Switch between zone levels on a single fader

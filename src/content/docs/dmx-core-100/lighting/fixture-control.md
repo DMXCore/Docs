@@ -41,8 +41,19 @@ Which controls the pane shows depends on what the fixtures have in common:
 When the selected fixtures differ on a control, its label shows **Mixed** (hover it to see the range, such as "12% to 80%"). The control shows the first selected fixture's value, and moving it sets every fixture to the same value. Copy Trims are shown only with a single fixture selected.
 
 :::note
-Selecting several fixtures is a Web UI feature. The touchscreen Fixture Control page controls one fixture at a time.
+Selecting fixtures one by one is a Web UI feature. On the touchscreen you control one fixture, or every fixture in a zone with [Zone Color](#controlling-a-zone-on-the-touchscreen).
 :::
+
+## Controlling a Zone on the Touchscreen
+
+On the touchscreen, **Main Menu > Fixture Control** lists your zones, and tapping a zone opens its page: **Zone Dimmer**, **Fade to black**, **Fade to 100%**, **Effect**, and a button per fixture. **Zone Color** opens the color picker and sliders for every fixture in that zone at once, titled **Color for Bar Area (4 fixtures)**.
+
+- The controls follow the same rules as [selecting several fixtures](#selecting-several-fixtures) in the Web UI: intensity and color reach every fixture that has them (a dimmer-only fixture gets the intensity), and Pan/Tilt, gobos and other functions show only when every fixture in the zone uses the same profile and mode.
+- A change sets only what you moved. Moving Red leaves each fixture's White as it was.
+- The values shown are those of the first fixture with color.
+- **Release Control** releases every fixture in the zone, so they go back to their preset or playback.
+
+Zone Color appears when at least one enabled fixture in the zone has color or intensity. Fixtures you adjust here switch to direct control, the same as on the single-fixture page.
 
 ## Multi-Function Support
 
