@@ -48,6 +48,10 @@ Selecting fixtures one by one is a Web UI feature. On the touchscreen you contro
 
 On the touchscreen, **Main Menu > Fixture Control** lists your zones, and tapping a zone opens its page: **Zone Dimmer**, **Fade to black**, **Fade to 100%**, **Effect**, and a button per fixture. **Zone Color** opens the color picker and sliders for every fixture in that zone at once, titled **Color for Bar Area (4 fixtures)**.
 
+![A zone page on the touchscreen with the Zone Color button](/assets/device/uno-zone-page.png)
+
+![Zone Color for four RGB pars in the Bar Area zone](/assets/device/uno-zone-color.png)
+
 - The controls follow the same rules as [selecting several fixtures](#selecting-several-fixtures) in the Web UI: intensity and color reach every fixture that has them (a dimmer-only fixture gets the intensity), and Pan/Tilt, gobos and other functions show only when every fixture in the zone uses the same profile and mode.
 - A change sets only what you moved. Moving Red leaves each fixture's White as it was.
 - The values shown are those of the first fixture with color.

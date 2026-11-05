@@ -60,6 +60,10 @@ const SHOTS = [
   // Preset, cue and sound faders (menu "Bar Shows", item "Playback"); start Bar Blue,
   // Spa Day and Thunder from their faders first so the markers show
   { screen: 'utilities/custom menu/Bar Shows/Playback', name: 'uno-faders-playback' },
+  // A zone page with the Zone Color button, and Zone Color itself (zone "Bar Area" with
+  // four RGB pars on the dev profile; give them a color first so the picker shows one)
+  { screen: 'fixturecontrol/Bar Area', name: 'uno-zone-page' },
+  { screen: 'fixturecontrol/Bar Area/Zone Color', name: 'uno-zone-color' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
