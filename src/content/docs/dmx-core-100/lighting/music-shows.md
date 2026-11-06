@@ -14,6 +14,7 @@ A Music Show is a style for [Music Mode](/dmx-core-100/lighting/music-mode): it 
 - **Code**, **Name**, **Description**: the name is what the style tiles show; the description is shown on the touchscreen tile.
 - **Crossfade (ms)**: how long a change of look takes (default 2000 ms, up to 30 seconds).
 - **Palette Group**: a [palette group](/dmx-core-100/lighting/color-palettes#palette-groups) that walks one palette on at each section change. Looks set to **From the group** use the group's current palette.
+- **Brightness**, **Excitement** and **Background**: the style sliders, also on the Music Mode page and the touchscreen. **Brightness** (0 to 100%) dims every wash look on top of its own brightness; **Excitement** (-1 to +1) makes every look calmer (about half the speed and energy response at -1) or wilder (about double at +1), 0 plays the looks as built; **Background** (0 to 0.3) is the least light under every wash look's effect. A new style starts at 100%, 0 and 0. See [Style Sliders](/dmx-core-100/lighting/music-mode#style-sliders).
 
 ## Zones and Roles
 
