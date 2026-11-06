@@ -9,6 +9,10 @@ The Scenes page (Web UI: Lighting > Scenes) shows your looks as big tiles. Tap a
 
 A scene is a [preset](/dmx-core-100/playback/presets). There is nothing new to program: any preset can become a scene tile with a single checkbox, and it keeps working everywhere else (schedules, triggers, custom menus, the touchscreen).
 
+## Music Styles
+
+When [Music Mode](/dmx-core-100/lighting/music-mode) has styles ([Music Shows](/dmx-core-100/lighting/music-shows)), a **Music** strip above the tiles lists them. Tap a style to run it (turning Music Mode on); the running style is lit. Tap the running style to turn Music Mode off. The strip works for guests too, with the same rules as the scene tiles.
+
 ## Making a Preset a Scene
 
 Open the preset in the Web UI and turn on **Available as scene**. Three more settings appear:

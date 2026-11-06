@@ -22,7 +22,7 @@ Type a **BPM** directly or hit **TAP** in time with the music. Tap Tempo is also
 
 ### Follow Music
 
-In **Follow Music** a beat tracker listens to the audio source set on the **Audio Trigger** card, predicts where the next beats fall, and drives the metronome from them. Effects then step on the beat of the music without anyone tapping, and they keep stepping evenly through busy passages and short breaks. Listening runs for as long as Follow Music is on.
+In **Follow Music** a beat tracker listens to the [audio source](/dmx-core-100/lighting/music-mode#audio-source-and-calibration) set on the **Music Mode** page, predicts where the next beats fall, and drives the metronome from them. Effects then step on the beat of the music without anyone tapping, and they keep stepping evenly through busy passages and short breaks. Listening runs for as long as Follow Music is on.
 
 Instead of a BPM, the card shows how the metronome is following:
 
@@ -43,20 +43,15 @@ The **Output Latency** slider fires beats early to compensate for DMX and fixtur
 
 ## Audio Trigger
 
-Effects with the **Audio Trigger** sync mode step, flash, or pulse on hits detected in audio - independent of the metronome. Listening starts automatically while such an effect is active, while the Tempo page is open, and while the metronome follows the music.
+Effects with the **Audio Trigger** sync mode step, flash, or pulse on hits detected in audio - independent of the metronome. Listening starts automatically while such an effect is active, while the Tempo or Music Mode page is open, while the metronome follows the music, and while Music Mode is on.
 
-- **Audio Source** - analyze the device's own **playback** (sounds played on the DMX Core 100) or a live **audio input from a USB sound card**. The audio board and the ADIO board are output only and have no audio input. For an audio input, pick the device, or **Auto** to use whichever input is plugged in.
-- **Input Level** and **Input Gain** (audio input only) - set the gain so the level stays green on normal program and only touches yellow on peaks. Blue means no signal, red means the input clips.
-- **Levels** - live meters for the frequency bands (Bass, LMid, Mid, HMid, Treb, Air, and Full) show what the detector hears
-- **Sensitivity** - raise it if hits are missed, lower it if extra triggers fire
-
-The badge on the card shows **LISTENING**, **INPUT LOST** when the audio input stops delivering sound (unplugged; listening resumes by itself when it is back), or **NO INPUT** with the reason when the source cannot be started (it is retried automatically).
+The audio source, input level and gain, band meters, sensitivity and the Input Check are on the **Audio Source and Calibration** card, which moved to the **Music Mode** page; the Tempo page links to it. See [Audio Source and Calibration](/dmx-core-100/lighting/music-mode#audio-source-and-calibration).
 
 The **Sound Reactive** effect generator steps on those detected hits, for example advancing a chaser. See [Effects](/dmx-core-100/lighting/effects).
 
 ## Music Signals
 
-The **Music Signals** card shows what DMX Core hears in the music, from the same audio source as the Audio Trigger card:
+The **Music Signals** card shows what DMX Core hears in the music, from the [audio source](/dmx-core-100/lighting/music-mode#audio-source-and-calibration) set on the Music Mode page:
 
 - **Activity** - how exciting the music is right now (loudness and how busy the hits are), scaled so a quiet and a loud master use the same range
 - **Energy** - activity in five steps, from Quiet to Peak

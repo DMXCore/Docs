@@ -101,7 +101,7 @@ The same targets are available to knobs and faders on [control surfaces](/dmx-co
 
 ### Actions
 
-An Action item can: Apply Ambient Preset, Apply Preset, set/step a Control Value, Fade Out, Fire Output Event, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), [Stop or Blackout](/dmx-core-100/basics/blackout-and-stop), Tap Tempo, **Audio Mute**, **DMX Output**, or Toggle Schedule.
+An Action item can: Apply Ambient Preset, Apply Preset, set/step a Control Value, Fade Out, Fire Output Event, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), [Stop or Blackout](/dmx-core-100/basics/blackout-and-stop), Tap Tempo, **Audio Mute**, **DMX Output**, Toggle Schedule, or [Music Mode, Blinder or Strobe](/dmx-core-100/scheduling-automation/input-triggers#actions). A Music Mode button with a style lights while that style runs; Blinder and Strobe buttons light while they run. On the touchscreen, use **Toggle on/off** for Blinder and Strobe (a tap starts, the next tap stops), since a touchscreen button has no release.
 
 Per-item options:
 

@@ -85,7 +85,7 @@ has created. Populate dropdowns from the catalog; do not hard-code show content.
 | Kind | Examples | State | Commands |
 |------|----------|-------|----------|
 | `scene` | `cue.INTRO`, `timeline.SHOW1`, `sound.WALKIN` | none | `activate` |
-| `switch` | `preset.PARTY`, `ambient.DAY`, `schedule.EVENING`, `system.mute`, `system.blackout`, toggle Control Values, Digital Output and DMX Channel events (`output.DOOR`) | `isOn` | `turnOn`, `turnOff`, `toggle`; a Digital Output or DMX Channel event also takes `activate` (pulse) |
+| `switch` | `preset.PARTY`, `ambient.DAY`, `schedule.EVENING`, `musicshow.PARTY`, `system.mute`, `system.blackout`, `system.musicmode`, toggle Control Values, Digital Output and DMX Channel events (`output.DOOR`) | `isOn` | `turnOn`, `turnOff`, `toggle`; a Digital Output or DMX Channel event also takes `activate` (pulse) |
 | `level` | `system.masterdimmer`, `system.volume`, `zone.BAR`, `fixture.HOUSE` (intensity), level Control Values | `level` (0–1) | `setLevel` |
 | `select` | selector Control Values (`cv.SRC`) | `choice` | `setChoice` |
 | `number` | counter Control Values (`cv.HOME_SCORE`) | `number` | `setNumber` |
@@ -93,7 +93,17 @@ has created. Populate dropdowns from the catalog; do not hard-code show content.
 | `sensor` | `system.nowplaying` | `text` | none |
 
 Namespaces: `preset.`, `ambient.`, `cue.`, `timeline.`, `sound.`, `fixture.`,
-`zone.`, `schedule.`, `cv.`, `output.`, `system.`.
+`zone.`, `schedule.`, `cv.`, `output.`, `musicshow.`, `system.`.
+
+### Music Mode entities
+
+Every [Music Show](/dmx-core-100/lighting/music-shows) (a [Music Mode](/dmx-core-100/lighting/music-mode)
+style) is a `switch`, `musicshow.<CODE>`. `isOn` is true while Music Mode runs
+that show. `turnOn` starts it (turning Music Mode on, or switching style);
+`turnOff` turns Music Mode off only when that show is the one running; `toggle`
+does either. Together with `system.musicmode`, `system.blinder` and
+`system.strobe` (below), a control system can offer a button per style plus the
+Blinder and Strobe hold buttons.
 
 ### `output.*` entities
 
@@ -131,6 +141,9 @@ Always present. Kind decides the commands - `system.blackout` is a **switch**
 | `system.stop` | Stop | `button` |
 | `system.clearambient` | Clear Ambient | `button` |
 | `system.nowplaying` | Now Playing | `sensor` |
+| `system.musicmode` | Music Mode (`turnOn` starts the last style) | `switch` |
+| `system.blinder` | Blinder (white, full, no fade; the running style's wash zones that allow it, or every fixture but fog and switches) | `switch` |
+| `system.strobe` | Strobe (10 Hz on every zone that allows it) | `switch` |
 
 ### `system.nowplaying` text
 

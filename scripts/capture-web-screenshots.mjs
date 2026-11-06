@@ -165,6 +165,9 @@ const SHOTS = [
   { name: 'surface-operator-list', path: '/surface-operator' },
   { name: 'surface-operator', path: '/controlsurfaces/1/operator' },
   { name: 'tempo', path: '/tempo' },
+  // Music Mode with a style running and a track playing (start Dance and play mm-house-128
+  // from Sounds first, so the zones table and the signals have content)
+  { name: 'music-mode', path: '/musicmode', waitFor: '.style-tile' },
   { name: 'ambient-presets', path: '/ambient' },
   { name: 'favorites', path: '/favorites' },
   { name: 'custom-menu-operate', path: '/custommenu' },
@@ -283,6 +286,9 @@ const SHOTS = [
     },
   },
   { name: 'zones-list', path: '/zones' },
+  { name: 'color-palettes', path: '/colorpalettes' },
+  // The Dance starter style (create the starter styles first; id 5 on the dev profile)
+  { name: 'music-show-editor', path: '/musicshows/5', waitFor: '.zone-card' },
   { name: 'protocol', path: '/settings/PROTOCOL' },
   {
     name: 'effect-editor',

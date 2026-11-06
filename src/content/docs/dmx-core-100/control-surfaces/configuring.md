@@ -31,7 +31,7 @@ Banks multiply the addressable controls on a small device: each bank holds its o
 Click a control in the section grid to edit its assignment:
 
 - **Label** - the text shown on LCD keys and in the operator view
-- **Action** - what the control does. Available action types: Apply Ambient Preset, Apply Preset, [Control Value](/dmx-core-100/integrations/control-values) (set / up / down), Fade Out, Fire Output Event, Next Bank / Switch Bank, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), **Stop**, **Blackout**, Tap Tempo, **Audio Mute**, **DMX Output**, and Toggle Schedule
+- **Action** - what the control does. Available action types: Apply Ambient Preset, Apply Preset, [Control Value](/dmx-core-100/integrations/control-values) (set / up / down), Fade Out, Fire Output Event, Next Bank / Switch Bank, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), **Stop**, **Blackout**, Tap Tempo, **Audio Mute**, **DMX Output**, Toggle Schedule, and [Music Mode, Blinder and Strobe](/dmx-core-100/scheduling-automation/input-triggers#actions). A pad per style switches [Music Mode](/dmx-core-100/lighting/music-mode) styles; Blinder and Strobe on **Flash (hold)** give the classic hold buttons
 - **MIDI Binding** (MIDI surfaces) - **Note**, **Control Change**, or **Program Change**; channel **1–16**; number **0–127**; **Learn** captures the next MIDI message. Assignments without a binding show **Web-only - no MIDI binding**
 - **Press mode** - Normal, Toggle on/off, Flash (hold), or - for Play Timeline actions - Momentary (release continues past a [Hold milestone](/dmx-core-100/playback/hold-milestones)). A Control Value action's **Follow input** operation is held-style on its own: the Toggle is On while the key is held and Off on release
 - **Hold to confirm** - the operator must keep the button pressed before the action fires (see below)
@@ -55,7 +55,7 @@ Each assignment also controls how the button looks and how its LED behaves:
 
 - **Icon** - pick one of the built-in icons from the grid, or type the name of an image you uploaded (an upload with the same name as a built-in icon replaces it); leave empty for text-only buttons. A key with an icon shows its label under the icon, or on a dark band across a custom image. A name that matches no icon shows a crossed-out picture with the label, so a typo is easy to spot
 - **Font size** - negative values render bold; set to 0, or leave the label blank, for icon-only keys
-- **Background - Active** - shown while the action is engaged (preset playing, schedule on, mute on) or briefly during a tap-flash
+- **Background - Active** - shown while the action is engaged (preset playing, schedule on, mute on, Music Mode running the pad's style, Blinder or Strobe on) or briefly during a tap-flash
 - **Background - Inactive** - shown while the action is at rest
 
 Colors accept names (`Blue`, `Red`, `Green`, …) or hex codes (`#FF0000`). On devices with simple LEDs (like the KD-WP8), the active/inactive colors map to the nearest LED state.

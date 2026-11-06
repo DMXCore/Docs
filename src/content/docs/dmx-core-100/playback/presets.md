@@ -48,6 +48,8 @@ The Web UI preset editor lists every entry (global, zone, or fixture) with its *
 
 ![Preset editor - House Lights ambient preset with global intensity](/assets/web/preset-editor.png)
 
+**Colors from a palette.** In the color dialog of an entry, the **From Palette** card lists your [color palettes](/dmx-core-100/lighting/color-palettes). Pick a palette and click one of its colors: the entry takes that color and stays linked to it, so editing the palette recolors the preset (an active preset fades to the new color at once; otherwise it takes it the next time it is applied). Moving the color wheel or pasting a color unlinks the entry and keeps the color as a plain value. If the palette or that color is deleted, the entry keeps the color it had when the link was last edited.
+
 Another way to build a preset: set up the look interactively in [Fixture Control](/dmx-core-100/lighting/fixture-control) and use **Build Preset** to capture it.
 
 ## Stopping a Preset

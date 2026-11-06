@@ -26,7 +26,7 @@ Custom OSC addresses are shown in [Control your lights from TouchOSC](https://yo
 | **Digital Input** | A contact closure on one of the [ADIO board](https://dmxprosales.com/products/dmx-core-100-audio-2xdmx-input-board-adio)'s four digital inputs (the 2-port DMX-512 board does not have them). The trigger fires when the input goes active and releases when it goes inactive, so a **Flash** preset, a **Momentary** timeline or a Control Value **Follow input** action follows the contact. **Threshold** is the polarity: 1 (default) is active-high, 0 inverts it so the trigger fires when the contact opens |
 | **Control Value** | A [Control Value](/dmx-core-100/integrations/control-values) changing - a Q-SYS or Symetrix button, fader or selector, or any control that writes the value |
 | **Plugin** | A signal from an installed plugin |
-| **Music** | The music heard on the [Tempo page](/dmx-core-100/lighting/tempo#music-signals)'s audio source: a kick starting or stopping, an energy step, an activity range, silence, or a drop. See [Music Triggers](#music-triggers) |
+| **Music** | The music heard on the [audio source](/dmx-core-100/lighting/music-mode#audio-source-and-calibration) set on the Music Mode page: a kick starting or stopping, an energy step, an activity range, silence, or a drop. See [Music Triggers](#music-triggers) |
 
 ## Control Value Triggers
 
@@ -43,7 +43,7 @@ In **Value mode**, the Control Value's live 0–100% position drives the target 
 
 ## Music Triggers
 
-A Music trigger runs its action when the music changes, using the [Music Signals](/dmx-core-100/lighting/tempo#music-signals) from the **Tempo** page's audio source (the audio being played, or a microphone or line input). It gives conditional looks without programming a show:
+A Music trigger runs its action when the music changes, using the [Music Signals](/dmx-core-100/lighting/tempo#music-signals) from the [audio source](/dmx-core-100/lighting/music-mode#audio-source-and-calibration) set on the Music Mode page (the audio being played, or a microphone or line input). It gives conditional looks without programming a show:
 
 - Lasers on while the kick plays, off when it stops: **Music state**, **Kick**, **Entered**, with a **Flash** preset
 - A strobe preset only at the loudest moments: **Energy band**, **Peak**, **Entered**, with a **Flash** preset
@@ -76,7 +76,15 @@ Value-mode triggers can name a **[Transform Script](/dmx-core-100/scheduling-aut
 
 ## Actions
 
-An On/Off trigger can: Apply Ambient Preset, Apply Preset, set/step a [Control Value](/dmx-core-100/integrations/control-values), Fade Out, Fire Output Event, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), **Stop**, **Blackout**, Tap Tempo, **Audio Mute**, **DMX Output**, or Toggle Schedule.
+An On/Off trigger can: Apply Ambient Preset, Apply Preset, set/step a [Control Value](/dmx-core-100/integrations/control-values), Fade Out, Fire Output Event, Play Cue, Play Sound, Play Timeline, [Run Script](/dmx-core-100/scheduling-automation/scripting), [Step Effect](/dmx-core-100/lighting/effects#sync-modes), **Stop**, **Blackout**, Tap Tempo, **Audio Mute**, **DMX Output**, Toggle Schedule, **Music Mode**, **Blinder**, or **Strobe**.
+
+**Music Mode**, **Blinder** and **Strobe** drive [Music Mode](/dmx-core-100/lighting/music-mode#switching-styles-from-anywhere):
+
+- **Music Mode** - **Set To** On (with a style, or the last style when none is chosen), Off, or Toggle (with a style: off when that style runs, else switches to it).
+- **Blinder** - **Color**, brightness (the dimmer) and fade in and out. With Music Mode on it takes the zones the running style allows, otherwise every fixture except fog machines and switches.
+- **Strobe** - a zone or every zone it may take, **Rate (flashes per second)** and **Shape** (Square, Pulse, Random).
+
+Blinder and Strobe are hold actions: **Flash (hold)** runs them while pressed, **Toggle on/off** starts and stops them, and **Normal** follows **Set To**, like Blackout.
 
 For complex logic - conditions, sequencing, payload parsing - use **Run Script**: the raw payload arrives in the script as `ctx.payload`.
 

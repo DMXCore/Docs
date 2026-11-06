@@ -22,6 +22,8 @@ The typical setup flow is:
 5. **[Effects](/dmx-core-100/lighting/effects)** - Add dynamic animations (breathing, fire, pulse, etc.)
 6. **[Timelines](/dmx-core-100/playback/timelines)** - Sequence presets and effects into timed shows
 
+Want the lights to follow music without programming a show? After zones, go straight to **[Music Mode](/dmx-core-100/lighting/music-mode)**.
+
 ## All Sections
 
 - [Fixture Setup](/dmx-core-100/lighting/fixture-setup) - Add and configure fixtures with profiles
@@ -30,6 +32,9 @@ The typical setup flow is:
 - [Visualizer](/dmx-core-100/lighting/visualizer) - See your looks live on photos of your venue or a truss plot
 - [Zones](/dmx-core-100/lighting/zones) - Organize fixtures into groups for zone-based control
 - [Effects](/dmx-core-100/lighting/effects) - Apply dynamic lighting effects to fixtures and zones
+- [Color Palettes](/dmx-core-100/lighting/color-palettes) - Named color sets shared by effects, preset colors and Music Mode
 - [Tempo & Audio Sync](/dmx-core-100/lighting/tempo) - Sync effects to a beat or live audio
+- [Music Mode](/dmx-core-100/lighting/music-mode) - Play music and let the lights follow it, zone by zone, in a style you pick
+- [Music Shows](/dmx-core-100/lighting/music-shows) - The styles Music Mode plays: looks by energy, presets by music state, palettes and dropouts
 - [Stream Routing](/dmx-core-100/lighting/stream-routing) - Route incoming sACN, Art-Net or DMX-512 - several protocols at once - to any output, including plugin outputs, merged with playback
 - [Passthrough](/dmx-core-100/lighting/passthrough) - DMX passthrough on the optional DMX-512 board

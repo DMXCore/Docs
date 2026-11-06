@@ -36,6 +36,8 @@ Each generator has its own parameters - speed, length, attack/decay, smoothing, 
 
 ![Effect editor - generator, parameters, and preview](/assets/web/effect-editor.png)
 
+**Colors from a palette.** Chaser, Onset Flash and Wash have a **Palette** select above their color list. Pick a [color palette](/dmx-core-100/lighting/color-palettes) and the effect uses its colors (the preview shows them, and the palette's **Edit palette** link opens it); editing the palette later recolors the running effect. The effect's own color list is hidden while a palette is chosen, and is used again if the palette is cleared or deleted.
+
 Effects that set only brightness (Breathing, Pulse, Sinus, Sound Reactive, Spectrum, Strobe, Twinkle and the like) keep the fixture's own color, so set the color with a preset or in Fixture Control. A fixture at zero intensity stays dark under them.
 
 ## Sync Modes
@@ -50,7 +52,7 @@ An effect's **Mode** controls its clock:
 
 ## Effects that follow the music
 
-These generators and settings listen to the same audio source as the [Tempo](/dmx-core-100/lighting/tempo) page (DMX Core playback or a USB sound card input) and use the [Music Signals](/dmx-core-100/lighting/tempo#music-signals): **activity** (how exciting the music is, 0 to 100%), its frequency bands, its kicks, and its section changes. Listening starts by itself while such an effect runs and stops when none does. With a microphone, set the **Silence Floor** first so the room itself never counts as music.
+These generators and settings listen to the [audio source](/dmx-core-100/lighting/music-mode#audio-source-and-calibration) set on the Music Mode page (DMX Core playback or a USB sound card input) and use the [Music Signals](/dmx-core-100/lighting/tempo#music-signals): **activity** (how exciting the music is, 0 to 100%), its frequency bands, its kicks, and its section changes. Listening starts by itself while such an effect runs and stops when none does. With a microphone, set the **Silence Floor** first so the room itself never counts as music.
 
 ### Music settings
 

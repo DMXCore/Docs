@@ -64,6 +64,8 @@ const SHOTS = [
   // four RGB pars on the dev profile; give them a color first so the picker shows one)
   { screen: 'fixturecontrol/Bar Area', name: 'uno-zone-page' },
   { screen: 'fixturecontrol/Bar Area/Zone Color', name: 'uno-zone-color' },
+  // The Music page (Music Mode, the styles); with a logon it also has Blackout, Blinder, Strobe
+  { screen: 'music', name: 'uno-music' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

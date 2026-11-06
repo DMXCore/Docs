@@ -59,6 +59,8 @@ When a single zone bank is selected, that zone's **submaster** fader appears nex
 
 **BLACKOUT**, below the Master fader, switches the [blackout](/dmx-core-100/basics/blackout-and-stop) on and off: every channel goes to 0% (fade-masked channels hold), audio is muted, and everything keeps running underneath. The master dimmer is not touched. The button lights while the blackout is on, whichever client, surface or protocol switched it on.
 
+**BLIND** and **STROBE**, below BLACKOUT, act while you hold them: BLIND takes the fixtures to white at full, STROBE flashes them at 10 Hz. With [Music Mode](/dmx-core-100/lighting/music-mode#blinder-strobe-and-blackout) on they take only the zones the running style allows; with it off, every fixture except fog machines and switches. Releasing the button ends them. They light while active, whoever started them.
+
 :::note
 Whether the master dimmer also affects **cue playback** is controlled by the *Master Dimmer Cue Control* output setting.
 :::
