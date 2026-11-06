@@ -77,6 +77,21 @@ Most fixture profiles include multiple personalities (sometimes called "modes").
 
 Some fixtures support custom configuration options beyond the standard profile settings. These appear as additional fields in the fixture setup when available.
 
+### Dimmer Curve
+
+The eye sees brightness roughly as the cube root of light output, so on a light that follows the DMX level exactly, everything above about 40% looks nearly as bright as full and a fade spends most of its time looking "on". Pars, moving heads and other fixtures with a dimmer curve in their own menu correct for this themselves. Bare LED pixels, strips and simple drivers do not, which makes effects and fades on them look flat.
+
+The **Dimmer curve** on a fixture profile sets how the intensity level maps to light output for every fixture using that profile:
+
+- **Linear** - output follows the level. The default, and right for fixtures that have their own curve
+- **Square law** - level squared, a moderate correction: 50% gives 25% light
+- **Gamma 2.2** - even steps to the eye on bare LED pixels and simple drivers: 50% gives 22% light
+- **S-curve** - soft at both ends for gentle fade starts and finishes, close to linear in the middle: 50% stays 50%
+
+The built-in **Generic - LED Strip** profiles use Gamma 2.2 on new installs; the **Generic - PAR Wash** profiles stay Linear. Existing installs keep Linear everywhere until you change it.
+
+The **Dimmer Curve** field on a fixture overrides the profile for that one fixture, for a rig that mixes pixels and pars on the same profile; **Use profile** follows the profile. The curve applies to the fixture's intensity channel, or to its color channels when it has no intensity channel, so a fade keeps its color. The [Visualizer](/dmx-core-100/lighting/visualizer) shows the same curve, so the screen matches the rig.
+
 ## Managing Fixtures
 
 From the **Lighting Setup > Fixtures** page in the Web UI, you can:

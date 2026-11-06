@@ -43,6 +43,7 @@ The top of the editor holds the profile itself:
 
 - **Manufacturer**, **Name**, **Type** and **Comments**
 - **Physical** - the beam angle, pan range and tilt range in degrees
+- **Dimmer curve** - how the intensity level maps to light output, see [Dimmer Curve](/dmx-core-100/lighting/fixture-setup#dimmer-curve) on the Fixture Setup page. **Linear** (the default) suits fixtures with their own curve; **Gamma 2.2** suits bare LED pixels and strips
 - **Beams** - how many beams (pixels, cells) the fixture has and how they are laid out: in **rows** (the number of beams in each row, top to bottom) or in **rings** (the number in each ring, outer ring first). The picture shows the layout. Lowering the count, or going back to one beam, removes beam assignments the fixture no longer has, after asking
 
 ## Modes

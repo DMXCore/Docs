@@ -150,6 +150,7 @@ A minimal profile for a generic fixture with a 4-channel mode and a 6-channel mo
 | `fixtureType` | no | `PAR`, `SPOT`, `MOVING_HEAD`, `BAR`, `STRIP`, `MATRIX`, `FOG`, `SWITCH` or `OTHER` |
 | `beams` | no | For pixel bars and panels: `{ "count": 46, "layout": "ROWS", "rowSegments": [10, 10, 6, 10, 10] }`. `layout` is `ROWS` (`rowSegments`, beams per row) or `RINGS` (`beamsByRing`, outer ring first); the counts must add up to `count` |
 | `beamAngle`, `panRange`, `tiltRange` | no | Degrees |
+| `dimmerCurve` | no | `LINEAR` (default), `SQUARELAW`, `GAMMA22` or `SCURVE`: how the intensity level maps to light output. Use `GAMMA22` for bare LED pixels and strips without their own curve; leave it out for fixtures with a dimmer curve in their menu |
 | `modes` | yes | One entry per channel mode |
 
 ### Mode
