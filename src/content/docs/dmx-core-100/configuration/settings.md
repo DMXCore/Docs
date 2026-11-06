@@ -115,7 +115,9 @@ on **Utilities > System**) are not on this page - follow the **network settings*
 link at the bottom of it to reach them.
 
 On the touchscreen the same per-adapter configuration is under
-**Main Menu > Settings > Network Adapters...**.
+**Main Menu > Settings > Network Adapters...**. For a step-by-step walkthrough
+of setting a fixed address there, see
+[Set a Static IP on the Touchscreen](/dmx-core-100/common-tasks/set-a-static-ip).
 
 #### If no Wi-Fi adapter is present
 

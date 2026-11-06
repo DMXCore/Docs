@@ -235,6 +235,7 @@ export default defineConfig({
                 { label: 'Overview', slug: 'dmx-core-100/common-tasks' },
                 { label: 'Move Data Between Units', slug: 'dmx-core-100/common-tasks/move-data-between-dmx-core-100-units' },
                 { label: 'Play a Cue over OSC', slug: 'dmx-core-100/common-tasks/play-a-cue-over-osc' },
+                { label: 'Set a Static IP on the Touchscreen', slug: 'dmx-core-100/common-tasks/set-a-static-ip' },
                 { label: 'Upgrade software', link: '/dmx-core-100/configuration/software-updates/' },
               ],
             },

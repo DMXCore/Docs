@@ -10,6 +10,9 @@ To wipe show content and return to empty first-start defaults while keeping the 
 
 ### Force DHCP mode
 
+To set a static address in the first place, see
+[Set a Static IP on the Touchscreen](/dmx-core-100/common-tasks/set-a-static-ip).
+
 If you can't access the GUI to change the network settings, and the device was on an isolated network without internet access and a static IP, you need to make sure it has internet access. In some networks that is tricky when set up with a static IP, perhaps without a default gateway. If your device is on release rev223 or later there's a feature to reset the unit back to DHCP using a USB stick.
 
 * Take a USB stick with either FAT32 or exFAT file system
