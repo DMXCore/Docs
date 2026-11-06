@@ -45,7 +45,7 @@ The **Output Latency** slider fires beats early to compensate for DMX and fixtur
 
 Effects with the **Audio Trigger** sync mode step, flash, or pulse on hits detected in audio - independent of the metronome. Listening starts automatically while such an effect is active, while the Tempo or Music Mode page is open, while the metronome follows the music, and while Music Mode is on.
 
-The audio source, input level and gain, band meters, sensitivity and the Input Check are on the **Audio Source and Calibration** card, which moved to the **Music Mode** page; the Tempo page links to it. See [Audio Source and Calibration](/dmx-core-100/lighting/music-mode#audio-source-and-calibration).
+The audio source, input level and gain, band meters, sensitivity and the Input Check are on the **Audio Source and Calibration** card, which moved to the **Music Mode** page; the Tempo page links to it. When the music features are hidden (the **Music Mode** [setting](/dmx-core-100/configuration/settings#device--system-highlights)), the card itself is on the Tempo page instead. See [Audio Source and Calibration](/dmx-core-100/lighting/music-mode#audio-source-and-calibration).
 
 The **Sound Reactive** effect generator steps on those detected hits, for example advancing a chaser. See [Effects](/dmx-core-100/lighting/effects).
 

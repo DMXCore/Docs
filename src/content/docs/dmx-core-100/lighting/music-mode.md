@@ -7,6 +7,10 @@ Music Mode is an autopilot for music. Patch your fixtures, group them in [zones]
 
 Music Mode is on the **Music Mode** page under **Operation** in the Web UI, and on the touchscreen under **Music** in the main menu.
 
+:::note[Not in the menu?]
+On a unit with no audio input that has never used Music Mode, the music features are hidden to keep the menus short. Plug in a USB audio input and they appear by themselves, or set **Music Mode** to **Show** under **Device > System** in the [settings](/dmx-core-100/configuration/settings#device--system-highlights) (for example to follow the unit's own sounds). **Hide** removes them on purpose; the audio source card is then on the [Tempo](/dmx-core-100/lighting/tempo) page.
+:::
+
 ![Music Mode page - on/off, the styles, the Manual buttons and what each zone shows](/assets/web/music-mode.png)
 
 ## Getting Started
