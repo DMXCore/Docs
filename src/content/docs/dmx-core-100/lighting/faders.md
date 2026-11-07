@@ -62,7 +62,7 @@ When a single zone bank is selected, that zone's **submaster** fader appears nex
 **BLIND** and **STROBE**, below BLACKOUT, act while you hold them: BLIND takes the fixtures to white at full, STROBE flashes them at 10 Hz. With [Music Mode](/dmx-core-100/lighting/music-mode#blinder-strobe-and-blackout) on they take only the zones the running style allows; with it off, every fixture except fog machines and switches. Releasing the button ends them. They light while active, whoever started them.
 
 :::note
-Whether the master dimmer also affects **cue playback** is controlled by the *Master Dimmer Cue Control* output setting.
+Whether the master dimmer also affects **cue playback** is controlled by the *Master Dimmer Cue Control* output setting, and **routed input** by *Master Dimmer Routing Control* (off by default).
 :::
 
 ## Fixture Dialog

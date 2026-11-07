@@ -54,6 +54,7 @@ The finer settings are under **Lighting Setup › Protocol**:
 |---|---|
 | **Input Priority** | Merge priority (1–200) for routed input from protocols that carry no priority of their own, Art-Net and DMX Serial. The default is **100**, the same as a cue's default, so routed Art-Net or DMX Serial blends with cues out of the box. sACN input uses the priority each sender transmits. With several protocols routed at once, each follows its own rule. |
 | **Override Input Priority** | Use Input Priority for all routed input, ignoring what sACN senders transmit. |
+| **Master Dimmer Routing Control** | Off (the default): routed input passes through at the levels received, as from a protocol converter. On: the master dimmer scales routed input like it does fixtures. |
 | **Input Loss Timeout (ms)** | How long a routed universe may go without a packet before its source counts as lost. The default 2500 ms is the E1.31 value. |
 | **On Input Loss** | What happens then. **Release**: stop sending the universe, so a cue or preset underneath takes back over and otherwise the [End of Data](/dmx-core-100/playback/layers-and-priority#end-of-data) applies. **Hold last**: keep sending the last received frame. **Blackout and release**: send zeros once, then release. |
 
@@ -61,7 +62,7 @@ The finer settings are under **Lighting Setup › Protocol**:
 
 Routed input is one more source in the same [priority merge](/dmx-core-100/playback/layers-and-priority) that cues, presets and fixture control use. A console sending sACN at priority 200 takes over a universe that a cue plays at 100; at 50 the cue wins; at equal priority the two combine using the Merge Mode setting. Two consoles on the same universe merge highest-takes-precedence, as sACN receivers are expected to do.
 
-The master dimmer applies to routed input like it does to fixtures, so pulling the house master to zero darkens the bulbs a console drives as well.
+The master dimmer leaves routed input alone unless **Master Dimmer Routing Control** is on. With it on, pulling the master to zero darkens the bulbs a console drives as well, and the Inputs page says so under the routing switch while the master is below 100%, with a **Set Master to 100%** button.
 
 ### Stop, Blackout and Output Off
 
