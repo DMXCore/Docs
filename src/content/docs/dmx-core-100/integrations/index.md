@@ -17,6 +17,7 @@ The DMX Core 100 is built to talk to the rest of your installation - audio DSPs,
 * [Advatek Lighting](/dmx-core-100/integrations/advatek-lighting) - discover, drive, and monitor Advatek PixLite pixel controllers
 * [Cloud Tunnel](/dmx-core-100/integrations/cloud-tunnel) - remote access from anywhere
 * [Internet Passthrough](/dmx-core-100/integrations/internet-passthrough) - temporary internet access via a computer on the same network
+* [Linked Units](/dmx-core-100/integrations/linked-units) - several units as one show: a Main Unit holds the show, Satellite Units control it from their own touchscreens
 * HTTP, TCP, and UDP via [input triggers](/dmx-core-100/scheduling-automation/input-triggers)
 
 Physical controllers - Stream Deck, MIDI devices, Key Digital keypads, and OSC panels - are covered in [Control Surfaces](/dmx-core-100/control-surfaces).
@@ -25,6 +26,6 @@ Please contact us to let us work with you on extending this list.
 
 ## Linked Units
 
-Multiple DMX Core 100 units can work together. Under **Control & Integrations > Linked Units**, set a unit's **Main Unit** to another DMX Core 100's host name or IP address and, after a restart, it becomes a **Satellite Unit**: its touchscreen and Web UI show and control the Main Unit's cues and presets, and its own outputs are off. Approve the Satellite Unit on the Main Unit the first time it connects. **Disable Satellite Mode** turns a Satellite Unit back into a standalone unit without clearing its Main Unit.
+Several DMX Core 100 units can work together as one show: a **Main Unit** holds the cues, presets, custom menus and users and drives the lights, and each **Satellite Unit** is a touchscreen on the wall that shows and controls the Main Unit's content. Set a unit's **Main Unit** under **Control & Integrations > Linked Units**, approve it on the Main Unit, restart it, and it is a Satellite Unit. The [Linked Units](/dmx-core-100/integrations/linked-units) page has the setup steps, what each unit does, what happens while the Main Unit is unreachable, how to unlink, and the error messages.
 
 Most installs use a single unit, so Linked Units is hidden until **Hide Linked Units** is turned off in System settings. Setting it up needs the **Edit Linked Units** permission, separate from the permission for keypads, Stream Decks and OSC panels.
