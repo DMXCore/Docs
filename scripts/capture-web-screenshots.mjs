@@ -140,7 +140,8 @@ const SHOTS = [
       await new Promise((r) => setTimeout(r, 800));
     },
   },
-  { name: 'timeline-editor', path: '/timelines/editor/1', waitFor: 'canvas, svg, .timeline' },
+  // Party Boat (id 3) has named tracks (Main Area, Music, Deck Lights) on the dev unit
+  { name: 'timeline-editor', path: '/timelines/editor/3', waitFor: 'canvas, svg, .timeline' },
   {
     // Chase knobs are per-timeline. The before-hook picks Timecode only on
     // Chuckies (id 2) for the shot without saving, so any timeline works.

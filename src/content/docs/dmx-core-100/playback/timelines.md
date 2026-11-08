@@ -13,7 +13,7 @@ The timeline editor is a Web UI feature, under **Lighting > Timelines**. Timelin
 
 ![Timelines on the touchscreen](/assets/device/uno-timelines.png)
 
-![Timeline editor with cue and sound tracks](/assets/web/timeline-editor.png)
+![Timeline editor with named tracks](/assets/web/timeline-editor.png)
 
 ## Timeline Settings
 
@@ -36,6 +36,19 @@ Open a timeline and click **Editor**. Drag events from the **Available Events** 
 - **Other events** - script events run a [script](/dmx-core-100/scheduling-automation/scripting) at an exact timestamp, and **[Hold milestones](/dmx-core-100/playback/hold-milestones)** make the timeline wait for a trigger before continuing
 
 A playhead with **seek/scrub** lets you preview any point; **zoom** and snapping make fine alignment easy.
+
+## Tracks
+
+Each lane in the editor is a **track**. A track has a name, a type (Cue, Sound, Preset or Control Value) and a place in the order, and it stays even when it is empty, so a show with a few lighting layers and a few audio layers can be laid out and labeled the way you think about it: "Main Area", "Forest", "Deck Lights".
+
+- **Rename** - double-click the track name, or open the **...** menu on the lane and type a new name. The same name can be used on a cue track and a sound track
+- **Reorder** - drag a lane header up or down, or use the arrows in the menu. Tracks of different types can be mixed in any order, so a cue track can sit right above the sound track it belongs with
+- **Add** - **Add Track** in the status bar adds a track of a type at the bottom; **Above** / **Below** in a lane's menu adds one next to it. Dropping an event onto an empty area, or onto a lane of another type, also creates a track of the event's type
+- **Delete** - the trash icon in the menu removes the track and the events on it (it asks first when the track is not empty)
+
+Dropping an event onto a lane of its own type puts it on that track, and an event can be dragged between tracks of the same type. Events on one track may overlap: the lane grows to show them stacked and they play together, so a crossfade between two sounds can stay on the one "Music" track. The **Other Events** lane at the bottom collects output events, comments, scripts and [Hold milestones](/dmx-core-100/playback/hold-milestones); it has no name or order of its own.
+
+Timelines from before tracks were named keep their layout: each lane became a track named as it was labeled, "Cues 1", "Sounds 2" and so on.
 
 ## Interactive Timelines
 
