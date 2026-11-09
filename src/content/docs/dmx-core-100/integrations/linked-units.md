@@ -20,6 +20,7 @@ Both units need the same software version. A Satellite Unit needs no lighting li
 | Schedules, triggers, output events, MQTT, OSC, plugins, scripts, Music Mode | Runs them | Does not run them; the Main Unit does |
 | Touchscreen | Full, when it has one | Custom menus, playback pages and the unit's own device settings |
 | Web UI | Full; the only admin surface on a headless Main Unit | Device pages only: Network, Linked Units, System, Software Updates, About, Logs. Every other page shows where the show lives and opens it on the Main Unit |
+| Web API, [Integration API](/dmx-core-100/integrations/integration-api) and [MCP server](/dmx-core-100/integrations/mcp-server) | Yes | Device calls only. Calls about the show are refused with a message that gives the Main Unit's address; point integrations at the Main Unit |
 | USB Stream Deck or MIDI controller plugged into the unit | Controls the Main Unit | Controls the Main Unit too, as a remote plugged into the Satellite Unit |
 | Lighting license | Needed, as for any unit | Not needed |
 
@@ -34,9 +35,13 @@ Linked Units is hidden on most installs. On each unit that takes part, turn off 
 1. **Set this unit's own admin PIN first.** A Satellite Unit still has its own user table, and its own admin PIN is what signs you in to its settings when the Main Unit is unreachable. A unit whose admin PIN is still the factory default refuses to link and tells you so; change the PIN under **User Management** (or **Forgot admin PIN** on the sign-in page) and try again.
 2. On the unit that becomes the Satellite Unit, open **Control & Integrations > Linked Units** in the Web UI, or **Settings > Linked Units** on the touchscreen.
 3. Set **Main Unit**. **Find Units...** lists the DMX Core 100 units found on the local network with their names and addresses; pick one, or type an address yourself: an IP address (`192.168.1.20`), a host name, or a `.local` name (`dmxcore-k84pgb82.local`). Without a port the unit tries 80 and then 8000, which covers an appliance and a desktop unit on its default port; add `:port` for anything else, for example a Windows or macOS Main Unit on `192.168.1.20:8080`.
-4. **Save**. The unit resolves the address and contacts the Main Unit before it keeps the setting. A Main Unit that does not answer is not saved, and the message names the step that failed (see [Troubleshooting](#troubleshooting)). The first time a unit contacts a Main Unit the answer is **Approve this Satellite Unit on the Main Unit, then restart this unit to switch it to Satellite mode**.
-5. **Approve it on the Main Unit.** In the Main Unit's Web UI, **Control & Integrations > Linked Units** has a **Satellite Units** card listing every unit that has registered, pending ones first, with the address it came from, its version and when it last connected; click **Approve**. On a Main Unit with a touchscreen, **Settings > Satellite Units** lists the same units. The Satellite Unit links within about ten seconds of the approval.
-6. **Restart the Satellite Unit.** It comes back with its outputs off and its touchscreen showing the Main Unit's custom menus and playback pages. From then on a change to a custom menu on the Main Unit shows up on the Satellite Unit within a second, and its buttons light with the Main Unit's playback.
+4. **Save**. The unit resolves the address and contacts the Main Unit before it keeps the setting. A Main Unit that does not answer is not saved, and the message names the step that failed (see [Troubleshooting](#troubleshooting)). The first time a unit contacts a Main Unit the answer is **Approve this Satellite Unit on the Main Unit, then restart this unit to switch it to Satellite mode**. Saving only checks and stores the address: the unit keeps running on its own cues, presets, outputs and settings until it restarts.
+5. **Approve it on the Main Unit.** In the Main Unit's Web UI, **Control & Integrations > Linked Units** has a **Satellite Units** card listing every unit that has registered, pending ones first, with the address it came from, its version and when it last connected; click **Approve**. On a Main Unit with a touchscreen, **Settings > Satellite Units** lists the same units. An approved unit that has not restarted yet shows as **Approved, not connected**.
+6. **Restart the Satellite Unit.** It comes back with its outputs off and its touchscreen showing the Main Unit's custom menus and playback pages. A unit that restarts before it was approved shows the Main Unit as unreachable with that reason, and links within about ten seconds of the approval. From then on a change to a custom menu on the Main Unit shows up on the Satellite Unit within a second, and its buttons light with the Main Unit's playback.
+
+:::note[Restart pending]
+A Linked Units change takes effect at the restart, in both directions. Until then the unit keeps the mode it started in, and it says so: the Web UI shows a yellow **Restart pending** bar, and the touchscreen footer shows an amber restart mark. Tap the mark to see what the restart will do; a user with the **Edit Linked Units** permission can restart from there.
+:::
 
 :::tip
 Two appliances on the same switch is the common case and needs nothing but **Find Units...** and **Approve**. Units on different VLANs or subnets do not see each other in the list, since discovery does not cross routers: type the Main Unit's IP address, or a DNS name your network resolves, instead.
@@ -70,7 +75,7 @@ On the Satellite Unit, under **Linked Units**:
 - **Disable Satellite Mode** keeps the Main Unit address but stops the unit from acting as a Satellite Unit. Turn it on, save, and the unit says **Satellite mode is off. Restart this unit to return it to standalone with its own cues, presets and settings.**
 - Clearing the **Main Unit** field does the same and forgets the address.
 
-Either way the link drops at once and the unit is standalone again after the restart: its outputs are created, its schedules run and its own database is in use. The Main Unit keeps running and keeps the unit in its Satellite Units list as **Approved, not connected** until you remove it there.
+Either way the link drops at once and the unit is standalone again after the restart: its outputs are created, its schedules run and its own database is in use. Until the restart the unit shows **Restart pending** and has no outputs yet. The Main Unit keeps running and keeps the unit in its Satellite Units list as **Approved, not connected** until you remove it there.
 
 To move a Satellite Unit to a different Main Unit, set the new address; if the new Main Unit cannot be reached the previous one is restored.
 
@@ -85,6 +90,7 @@ The message after **Save**, the touchscreen dialog and the Web UI bar name the s
 | **Main Unit 192.168.1.20 answered 404 on port 80; both units may need the same version** | Something answered, but not a DMX Core 100 of the same version: the wrong device on that port, or a Main Unit that needs the same software update. |
 | **Approve this Satellite Unit on the Main Unit, then restart this unit** | Nothing is wrong; the Main Unit has not approved this unit yet. |
 | **The Main Unit declined this unit (its approval was removed); approve it again on the Main Unit** | The unit was revoked or removed on the Main Unit. Approve it again there. |
+| **This is a Satellite Unit: cues, presets, menus and the rest of the show are on its Main Unit (http://192.168.1.20). Use the Main Unit's web UI or API for this.** | An API call, an Integration API client or an MCP client is pointed at a Satellite Unit. Point it at the Main Unit's address instead. |
 | **Lost the connection to Main Unit 192.168.1.20; reconnecting** | The link was up and dropped: the Main Unit restarted or the network went away. The Satellite Unit reconnects by itself. |
 
 A Satellite Unit whose link is down still answers on its own Web UI and touchscreen through the local sign-in above, so it can always be unlinked or re-pointed from the site.
