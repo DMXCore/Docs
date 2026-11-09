@@ -17,7 +17,7 @@ Both units need the same software version. A Satellite Unit needs no lighting li
 |---|---|---|
 | DMX outputs, routing, fixtures | Yes | None; its outputs are off |
 | Cues, presets, custom menus, users | Its own database | Reads and writes the Main Unit's over the link |
-| Schedules, triggers, output events, MQTT, OSC, plugins, scripts, Music Mode | Runs them | Does not run them; the Main Unit does |
+| Schedules, triggers, output events, MQTT, OSC, plugins, scripts, Music Mode | Runs them | Does not run them; the Main Unit does. A plugin loads on a Satellite Unit only when its manifest says `runsOnSatelliteUnit`, which a plugin for a device plugged into the unit itself can do |
 | Music Mode, Blinder, Strobe | Runs here, on its audio input and fixtures | Never listens or renders: its audio input stays closed. Its buttons and its Music page turn the Main Unit's Music Mode, Blinder and Strobe on and off and show their state. The Music page appears when the Main Unit has a Music Show; the setup (audio input, room level) is done on the Main Unit |
 | Touchscreen | Full, when it has one | Custom menus, playback pages and the unit's own device settings |
 | Web UI | Full; the only admin surface on a headless Main Unit | Device pages only: Network, Linked Units, System, Software Updates, About, Logs. Every other page shows where the show lives and opens it on the Main Unit |
