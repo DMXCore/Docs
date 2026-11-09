@@ -54,7 +54,9 @@ The **Satellite Units** card on the Main Unit's Linked Units page, and **Setting
 
 - **Approve** a pending unit, or **Revoke** an approved one. A revoked unit drops its link at once and goes back to **Pending approval** until it is approved again. Its touchscreen shows the Main Unit as unreachable with that reason, so an installer on site sees why a wall panel went dark.
 - **Rename** a unit. The name is how the unit appears here and in the audit log.
-- **Remove** a unit. The Main Unit forgets it; the unit registers again as pending the next time it connects unless its Main Unit setting is cleared.
+- **Remove** a unit. The Main Unit forgets it and drops its link at once; the unit registers again as pending the next time it connects unless its Main Unit setting is cleared.
+
+The touchscreen's **Settings > Satellite Units** page has the same: the **Approved** switch approves and revokes, the name can be edited, and **Remove Satellite Unit** removes.
 
 Approving, revoking, renaming and removing are recorded in the Main Unit's [audit log](/dmx-core-100/configuration/audit-log). What is done on a Satellite Unit (a cue played from its touchscreen, a preset from a Stream Deck plugged into it) is recorded there as well, with the unit as the client: **Satellite Unit Lobby (192.168.1.31)**.
 
@@ -74,7 +76,7 @@ Local sign-in is disabled while the unit's admin PIN is the factory default, so 
 On the Satellite Unit, under **Linked Units**:
 
 - **Disable Satellite Mode** keeps the Main Unit address but stops the unit from acting as a Satellite Unit. Turn it on, save, and the unit says **Satellite mode is off. Restart this unit to return it to standalone with its own cues, presets and settings.**
-- Clearing the **Main Unit** field does the same and forgets the address.
+- **Unlink from Main Unit** (the **Unlink** button beside the Main Unit field in the Web UI, the action under Linked Units on the touchscreen) forgets the address and does the same; clearing the **Main Unit** field by hand is the same thing.
 
 Either way the link drops at once and the unit is standalone again after the restart: its outputs are created, its schedules run and its own database is in use. Until the restart the unit shows **Restart pending**, has no outputs yet, and its Web UI stays on the device pages; sign in there with the unit's own admin PIN (**Satellite Unit: sign in locally**). The Main Unit keeps running and keeps the unit in its Satellite Units list as **Approved, not connected** until you remove it there.
 
