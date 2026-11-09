@@ -109,6 +109,33 @@ new address.
 If a bad static configuration makes a unit unreachable, see
 [Force DHCP mode](/dmx-core-100/troubleshooting/#force-dhcp-mode).
 
+#### Choosing which adapter carries internet traffic
+
+When more than one adapter has a gateway (for example Ethernet for the lighting
+network and Wi-Fi for the building network), the DMX Core 100 sends internet
+traffic, such as cloud access and updates, through the adapter with the lowest
+**route priority**. The card of that adapter shows an **Internet** badge, and
+each connected adapter with a gateway shows its current **Priority**.
+
+By default Ethernet wins (priority 100, against 600 for Wi-Fi). To change it,
+press **Advanced...** under **IP settings**, enter a **Route priority** and
+press **Apply**. The lowest number wins: to send internet traffic over Wi-Fi
+while Ethernet stays on the lighting network, set Wi-Fi to 50 and leave
+Ethernet empty. Leave the field empty for automatic.
+
+- DMX output (sACN, Art-Net and the other network protocols) is not affected:
+  it goes out of the wired adapter whenever that has an address. The one
+  exception is unicast output to a node on a different subnet, reached through
+  a router: that follows the internet route, so keep such nodes on the
+  Ethernet subnet when you move internet traffic to Wi-Fi.
+- If the preferred adapter loses its internet connection, the device falls
+  back to the other one automatically.
+- On Wi-Fi the priority is saved with the current network, like the IP
+  settings. Joining a different Wi-Fi network starts out on automatic.
+
+On the touchscreen the same setting is **Route Priority** under each adapter in
+**Main Menu > Settings > Network Adapters...**.
+
 **Override Host Name**, **Custom NTP Server**, and
 **Enable Internet Passthrough** (shows the
 [Internet Passthrough](/dmx-core-100/integrations/internet-passthrough) section
