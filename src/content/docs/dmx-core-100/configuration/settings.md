@@ -124,10 +124,12 @@ while Ethernet stays on the lighting network, set Wi-Fi to 50 and leave
 Ethernet empty. Leave the field empty for automatic.
 
 - DMX output (sACN, Art-Net and the other network protocols) is not affected:
-  it goes out of the wired adapter whenever that has an address. The one
-  exception is unicast output to a node on a different subnet, reached through
-  a router: that follows the internet route, so keep such nodes on the
-  Ethernet subnet when you move internet traffic to Wi-Fi.
+  multicast goes out of the wired adapter whenever that has an address. Unicast
+  output follows the route to the node instead: keep Ethernet and Wi-Fi on
+  different subnets, with the nodes on the Ethernet subnet, when you move
+  internet traffic to Wi-Fi. If both adapters are on the same subnet, or a node
+  is reached through a router, unicast output goes out of the adapter with the
+  lowest priority.
 - If the preferred adapter loses its internet connection, the device falls
   back to the other one automatically.
 - On Wi-Fi the priority is saved with the current network, like the IP
