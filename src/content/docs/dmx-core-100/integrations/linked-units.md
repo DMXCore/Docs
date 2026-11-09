@@ -23,6 +23,7 @@ Both units need the same software version. A Satellite Unit needs no lighting li
 | Web UI | Full; the only admin surface on a headless Main Unit | Device pages only: Network, Linked Units, System, Software Updates, About, Logs. Every other page shows where the show lives and opens it on the Main Unit |
 | Web API, [Integration API](/dmx-core-100/integrations/integration-api) and [MCP server](/dmx-core-100/integrations/mcp-server) | Yes | Device calls only. Calls about the show are refused with a message that gives the Main Unit's address; point integrations at the Main Unit |
 | USB Stream Deck or MIDI controller plugged into the unit | Controls the Main Unit | Controls the Main Unit too, as a remote plugged into the Satellite Unit |
+| Digital inputs on the unit's own board | Fire its Digital Input triggers | Fire the Main Unit's Digital Input triggers that name this unit (the trigger's **Unit** field on the Main Unit's Inputs page); the I/O module's inputs are not available on a Satellite Unit yet |
 | Lighting license | Needed, as for any unit | Not needed |
 
 One Main Unit can have many Satellite Units. A Satellite Unit has exactly one Main Unit, and a Main Unit is never itself a Satellite Unit.
@@ -90,6 +91,7 @@ The message after **Save**, the touchscreen dialog and the Web UI bar name the s
 |---|---|
 | **Could not resolve 'name'. Enter the Main Unit's IP address, or make sure both units are on the same network for .local names.** | The name did not resolve. `.local` names and bare unit names (`dmxcore-k84pgb82`) are found by local discovery, which does not cross routers or VLANs; type the IP address or a name your DNS knows. |
 | **Main Unit 192.168.1.20 did not answer on port 80 or 8000; check that it is on, on the same network and that no firewall blocks the port** | The address resolved but nothing answered on the web port. Check that the Main Unit is on, that the port is right (add `:port` for a Main Unit on another port) and that a firewall on the Main Unit allows inbound connections on it. On a Windows Main Unit, allow the DMX Core 100 application through Windows Defender Firewall on private networks. |
+| **Main Unit 192.168.1.20:80 speaks Linked Units protocol 0 and this unit speaks 1; update both units to the same software version** | The two units run software with different Linked Units protocols and do not link. Update both to the same version. An older unit on the other side shows **answered 426 on port 80; both units may need the same version** instead. |
 | **Main Unit 192.168.1.20 answered 404 on port 80; both units may need the same version** | Something answered, but not a DMX Core 100 of the same version: the wrong device on that port, or a Main Unit that needs the same software update. |
 | **Approve this Satellite Unit on the Main Unit, then restart this unit** | Nothing is wrong; the Main Unit has not approved this unit yet. |
 | **The Main Unit declined this unit (its approval was removed); approve it again on the Main Unit** | The unit was revoked or removed on the Main Unit. Approve it again there. |
