@@ -50,6 +50,8 @@ A Linked Units change takes effect at the restart, in both directions. Until the
 Two appliances on the same switch is the common case and needs nothing but **Find Units...** and **Approve**. Units on different VLANs or subnets do not see each other in the list, since discovery does not cross routers: type the Main Unit's IP address, or a DNS name your network resolves, instead.
 :::
 
+**Find Units...** leaves out units that are already Satellite Units, since a Satellite Unit cannot be a Main Unit. Each unit says its role on the network, so the DMX Core Connect app (see [Internet Passthrough](/dmx-core-100/integrations/internet-passthrough)) lists a Main Unit as **Main Unit** and a Satellite Unit as **Satellite of** followed by its Main Unit's name. The support package (**Download Support Package**) has a **Linked Units** section with the unit's role and, on a Satellite Unit, its Main Unit and the state of the link, or on a Main Unit its Satellite Units.
+
 ## Satellite Units on the Main Unit
 
 The **Satellite Units** card on the Main Unit's Linked Units page, and **Settings > Satellite Units** on its touchscreen, show each unit as **Pending approval**, **Connected** or **Approved, not connected**, with a warning mark next to a version that differs from the Main Unit's. From there you can:
