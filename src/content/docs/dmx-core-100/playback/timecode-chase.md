@@ -7,6 +7,12 @@ description: Lock a timeline to incoming Art-Net timecode so playback joins the 
 
 Typical setup: QLab, TimeCore, Timecode Expert, or another ArtTimeCode generator puts one clock on the LAN. Each DMX Core 100 runs its own zone timeline and chases that clock.
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 1.5rem 0;">
+  <iframe src="https://www.youtube-nocookie.com/embed/NSvyW1cJZn4" title="Sync DMX Core 100 timelines to Art-Net timecode" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+Prefer to watch? In the two-minute video above, Alex from Mandylights sets a timeline to [Timecode only](#timecode-only) and drives it from Art-Net timecode sent by Reaper, including scrubbing and looping a section while programming.
+
 This is a **playhead chase**, not a per-cue timecode trigger. Cues, presets, and sounds on the timeline still fire by their timeline times; the clock only decides *where* the playhead is. A join that lands inside a cue or sound starts it part-way through (a soundtrack picks up mid-file); events that were already over before the join point are skipped.
 
 The settings use the same vocabulary as grandMA3's timecode shows and slots - **Internal**, **Offset**, **After Roll**, **Auto Start**, **Auto Stop** - so an operator coming from a console should find them familiar.
