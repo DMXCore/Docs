@@ -23,7 +23,8 @@ Both units need the same software version. A Satellite Unit needs no lighting li
 | Web UI | Full; the only admin surface on a headless Main Unit | Device pages only: Network, Linked Units, System, Software Updates, About, Logs. Every other page shows where the show lives and opens it on the Main Unit |
 | Web API, [Integration API](/dmx-core-100/integrations/integration-api) and [MCP server](/dmx-core-100/integrations/mcp-server) | Yes | Device calls only. Calls about the show are refused with a message that gives the Main Unit's address; point integrations at the Main Unit |
 | USB Stream Deck or MIDI controller plugged into the unit | Controls the Main Unit | Controls the Main Unit too, as a remote plugged into the Satellite Unit |
-| Digital inputs on the unit's own board | Fire its Digital Input triggers | Fire the Main Unit's Digital Input triggers that name this unit (the trigger's **Unit** field on the Main Unit's Inputs page); the I/O module's inputs are not available on a Satellite Unit yet |
+| Digital inputs, on the unit's own board or its I/O module | Fire its Digital Input triggers | Fire the Main Unit's Digital Input triggers that name this unit (the trigger's **Unit** field on the Main Unit's Inputs page) |
+| Digital outputs, on the unit's own board or its I/O module | Driven by its Digital Output events | Driven by the Main Unit's Digital Output events that name this unit (the event's **Unit** field on the Main Unit's Outputs page). The I/O module's DMX ports and audio input stay off on a Satellite Unit |
 | Lighting license | Needed, as for any unit | Not needed |
 
 One Main Unit can have many Satellite Units. A Satellite Unit has exactly one Main Unit, and a Main Unit is never itself a Satellite Unit.
