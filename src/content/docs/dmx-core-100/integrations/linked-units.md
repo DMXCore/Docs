@@ -64,6 +64,10 @@ The touchscreen's **Settings > Satellite Units** page has the same: the **Approv
 
 Approving, revoking, renaming and removing are recorded in the Main Unit's [audit log](/dmx-core-100/configuration/audit-log). What is done on a Satellite Unit (a cue played from its touchscreen, a preset from a Stream Deck plugged into it) is recorded there as well, with the unit as the client: **Satellite Unit Lobby (192.168.1.31)**.
 
+### Custom menus per Satellite Unit
+
+By default every Satellite Unit shows every custom menu. To limit a menu, open it under **Custom Menus** on the Main Unit's Web UI and turn off **All Satellite Units**, then check the Satellite Units that may use it: several, one, or none. A Satellite Unit then shows only the menus it is allowed, and a change reaches its touchscreen within a second. With **Only show custom menu** on, a Satellite Unit with a single allowed menu opens straight into it, and one with no allowed menu shows its home screen. The Main Unit's own touchscreen and Web UI always show every menu. The **Custom Menus** list has a **Satellite Units** column once any menu is limited.
+
 ## While the Main Unit is unreachable
 
 A Satellite Unit keeps trying every ten seconds and recovers on its own when the Main Unit is back. Meanwhile its touchscreen shows a **Main Unit unreachable** dialog with the address and the reason, and the Web UI shows a red bar with the same text (a grey bar with an **Open Main Unit** link while linked).
