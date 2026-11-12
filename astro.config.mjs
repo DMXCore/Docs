@@ -150,6 +150,7 @@ export default defineConfig({
                 { label: 'Scripting', slug: 'dmx-core-100/scheduling-automation/scripting' },
                 { label: 'Scripting API', slug: 'dmx-core-100/scheduling-automation/scripting-api' },
                 { label: 'Custom Menus', slug: 'dmx-core-100/scheduling-automation/custom-menus' },
+                { label: 'Custom Panels', slug: 'dmx-core-100/scheduling-automation/custom-panels' },
                 { label: 'Favorites', slug: 'dmx-core-100/scheduling-automation/favorites' },
               ],
             },
