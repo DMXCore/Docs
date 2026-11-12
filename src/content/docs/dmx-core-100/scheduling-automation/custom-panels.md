@@ -9,7 +9,7 @@ Panels sit next to [Custom Menus](/dmx-core-100/scheduling-automation/custom-men
 
 ## Getting a first panel
 
-The **Panels** page is in the Web UI under **Control & Integrations**. It appears in the sidebar once the unit has a panel, so the first one usually comes from one of these:
+The **Panels** page is in the Web UI under **Control & Integrations**. A first panel comes from one of these:
 
 - **Demo content.** Go to **Backup & Restore > Create Demo Data**, filter by **Panel** and pick one: Conference room, Residence home, Lighting scenes or Light color. The scene panels come with the demo presets their buttons use. Light color controls the color, white and level of your first zone.
 - **A template.** On the Panels page, **New panel** asks for a name and a starting point: an empty page in the size of your screen, or one of the templates (Conference room, Residence home, Lighting scenes, Light color). The designer opens right away.
@@ -30,7 +30,7 @@ The **Panels** page is in the Web UI under **Control & Integrations**. It appear
 
 A panel opens on the touchscreen in two ways:
 
-- **Main Menu > Utilities > Panels** lists the unit's panels. This entry appears once the unit has a panel.
+- **Main Menu > Utilities > Panels** lists the unit's panels.
 - A [Custom Menu](/dmx-core-100/scheduling-automation/custom-menus/) item of the type **Panel** opens the panel you choose. With the unit set to show only its custom menu, a panel can be the only thing people see.
 
 From the designer, **On device > Show on this unit's screen** opens the panel on the touchscreen straight away.
@@ -50,3 +50,7 @@ Saving a panel updates every Satellite Unit showing it. To put a panel on a Sate
 ## Export and import
 
 **Export** on the Panels page saves a panel with its images as one `.dmxpanel` file, to keep or to bring to another unit with **Import**. **Replace** loads a file over an existing panel and keeps its code, so menu items and links to it keep working. Panels and their images are part of a full backup.
+
+## Hiding Panels
+
+A unit that never uses panels can leave them out of the menus: turn on **Hide Panels** under **Settings > System**, in the Web UI or on the touchscreen. This removes Panels from the Web UI sidebar, from **Utilities** on the touchscreen, from the item types of a Custom Menu and from the demo data. Panels that already exist keep working: a Custom Menu item, a Satellite Unit or a bookmarked link still opens them.
