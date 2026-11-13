@@ -11,13 +11,17 @@ Panels sit next to [Custom Menus](/dmx-core-100/scheduling-automation/custom-men
 
 The **Panels** page is in the Web UI under **Control & Integrations**. A first panel comes from one of these:
 
-- **Demo content.** Go to **Backup & Restore > Create Demo Data**, filter by **Panel** and pick one: Conference room, Residence home, Lighting scenes or Light color. The scene panels come with the demo presets their buttons use. Light color controls the color, white and level of your first zone.
+- **Demo content.** Go to **Backup & Restore > Create Demo Data**, filter by **Panel** and pick one: Conference room, Residence home, Lighting scenes or Light color. The scene panels come with the demo presets their buttons use. Light color controls the color, white and level of the first zone with color fixtures.
 - **A template.** On the Panels page, **New panel** asks for a name and a starting point: an empty page in the size of your screen, or one of the templates (Conference room, Residence home, Lighting scenes, Light color). The designer opens right away.
 - **A panel file.** **Import** takes a panel exported from another unit (`.dmxpanel`), images included.
+
+![The Panels page with the demo panels](/assets/web/panels-list.png)
 
 ## Designing a panel
 
 **Edit** on the Panels page opens the designer. Drag widgets from the palette on the left onto the page, or click one to add it in the middle. Select a widget to set what it does on the right: the preset, cue, zone, fixture or Control Value it controls, and how it looks.
+
+![The designer: the palette on the left, the page in the middle, the selected scene button's settings on the right](/assets/web/panel-designer.png)
 
 - **Snapping and guides.** Widgets snap to each other and to the grid. Drag from a ruler to place a guide.
 - **Panel colors.** With nothing selected, the right side shows the panel's theme. **Customize** next to Theme colors sets your own accent and background colors for this panel; everything made from them follows.
@@ -25,6 +29,10 @@ The **Panels** page is in the Web UI under **Control & Integrations**. A first p
 - **Tablets and phones.** The size menu in the toolbar switches between the default layout (the panel's own screen) and tablets and phones. Tablets get the default layout scaled and phones a stacked version of it, until you give them a layout of their own.
 - **Live and Window.** **Live** shows the saved panel working against the unit, **Window** opens a preview window you can move to another screen while you work.
 - **Save** stores the panel. Every screen showing it updates right away.
+
+![Panel colors: the accent, warm, success, danger and background colors of this panel](/assets/web/panel-designer-colors.png)
+
+![Checks below the page: a button smaller than a finger needs, and controls that do nothing yet](/assets/web/panel-designer-checks.png)
 
 ## Showing a panel on the touchscreen
 
@@ -37,9 +45,19 @@ From the designer, **On device > Show on this unit's screen** opens the panel on
 
 To leave a panel on the touchscreen, hold a top corner of the screen for two seconds.
 
+![Utilities > Panels on the touchscreen](/assets/device/uno-panels.png)
+
+![The Conference room panel on the touchscreen](/assets/device/uno-panel.png)
+
+A color control can show its picker all the time (a wheel or sliders on the page), or as a small color chip that opens the picker when tapped:
+
+![The color chip's picker on the touchscreen](/assets/device/uno-panel-color-picker.png)
+
 ## Opening a panel in a browser
 
 **Open** on the Panels page, or in the designer, opens the panel in a browser tab. Bookmark it on a tablet to use the tablet as a remote for the room. The panel follows the unit live: a scene started anywhere lights up on every screen showing it.
+
+![A panel in a browser with the color chip's picker open](/assets/web/panel-color-picker.png)
 
 ## Satellite Units
 

@@ -178,6 +178,89 @@ const SHOTS = [
   // Start Bar Blue, Spa Day and Thunder from their faders first so the markers show.
   { name: 'custom-menu-faders-playback', path: '/custommenu/faders?menuId=5&path=0', waitFor: '.page-fader-strip' },
   // Lighting setup
+  // Custom Panels (dmx-core-100/scheduling-automation/custom-panels). The demo panels come from
+  // Demo Data, installed here when the unit does not have them yet (Light color binds the first zone).
+  {
+    name: 'panels-list',
+    path: '/panels',
+    waitFor: 'table',
+    before: async (page) => {
+      const installed = await page.evaluate(async () => {
+        const h = { Authorization: 'Bearer ' + localStorage.getItem('token'), 'Content-Type': 'application/json' };
+        const panels = (await fetch('/api/website/panels', { headers: h }).then((r) => r.json())).data ?? [];
+        const missing = ['DEMO-COLOR', 'DEMO-ROOM', 'DEMO-HOME'].filter((code) => !panels.some((p) => p.code === code));
+        if (missing.length) {
+          await fetch('/api/website/demodata', { method: 'POST', headers: h, body: JSON.stringify(missing.map((code) => ({ type: 'PANEL', code }))) });
+        }
+        return missing.length;
+      });
+      if (installed) {
+        await page.reload({ waitUntil: 'networkidle0' });
+        await page.waitForSelector('table', { timeout: 8000 }).catch(() => {});
+      }
+      await sleep(600);
+    },
+  },
+  {
+    // The designer on the conference room panel, the scene tile selected
+    name: 'panel-designer',
+    path: '/panels/designer?code=DEMO-ROOM',
+    waitFor: 'iframe',
+    before: async (page) => {
+      await sleep(9000);
+      await page.evaluate(() => {
+        const row = [...document.querySelectorAll('.designer-tree-row, .tree-row, [class*=tree] [class*=row]')].find((r) => /Meeting/.test(r.textContent));
+        row?.click();
+      });
+      await sleep(1500);
+    },
+  },
+  {
+    // Panel settings with the panel colors open (Customize next to Theme colors)
+    name: 'panel-designer-colors',
+    path: '/panels/designer?code=DEMO-COLOR',
+    waitFor: 'iframe',
+    before: async (page) => {
+      await sleep(9000);
+      await page.evaluate(() => {
+        const link = [...document.querySelectorAll('button.inspector-link')].find((b) => b.textContent.trim() === 'Customize');
+        link?.click();
+      });
+      await sleep(1500);
+    },
+  },
+  {
+    // The designer's Checks list
+    name: 'panel-designer-checks',
+    path: '/panels/designer?code=DEMO-HOME',
+    waitFor: 'iframe',
+    before: async (page) => {
+      await sleep(9000);
+      const handle = await page.$('button[title^="Checks"]');
+      if (handle) await handle.click();
+      await sleep(2000);
+    },
+  },
+  {
+    // A panel in the browser (Light color), its color chip's picker open
+    name: 'panel-color-picker',
+    path: '/panel?code=DEMO-COLOR&kiosk=1',
+    waitFor: 'iframe, canvas',
+    before: async (page) => {
+      await sleep(10000);
+      // The chip sits at the top right of the 800x480 canvas (712,8 64x64); the panel fills the viewport
+      const box = await page.evaluate(() => ({ x: 0, y: 0, w: window.innerWidth, h: window.innerHeight }));
+      const scale = Math.min(box.w / 800, box.h / 480);
+      const ox = box.x + (box.w - 800 * scale) / 2;
+      const oy = box.y + (box.h - 480 * scale) / 2;
+      // A press and a release a moment apart, as a finger does (an instant click can be lost by the head)
+      await page.mouse.move(ox + 744 * scale, oy + 40 * scale);
+      await page.mouse.down();
+      await sleep(120);
+      await page.mouse.up();
+      await sleep(1500);
+    },
+  },
   { name: 'outputs-list', path: '/outputs' },
   // Stream routing (needs routing on and a console sending on a mapped universe).
   { name: 'inputs', path: '/inputs', waitFor: 'table' },

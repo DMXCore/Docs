@@ -66,6 +66,10 @@ const SHOTS = [
   { screen: 'fixturecontrol/Bar Area/Zone Color', name: 'uno-zone-color' },
   // The Music page (Music Mode, the styles); with a logon it also has Blackout, Blinder, Strobe
   { screen: 'music', name: 'uno-music' },
+  // Custom Panels: the list, a panel, and the color chip's picker (a tap on the chip of Light color)
+  { screen: 'utilities/panels', name: 'uno-panels' },
+  { screen: 'panel:DEMO-ROOM', name: 'uno-panel', settle: 2500 },
+  { screen: 'panel:DEMO-COLOR', name: 'uno-panel-color-picker', settle: 2500, taps: [[744, 40]] },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -141,7 +145,13 @@ async function main() {
         continue;
       }
 
-      await sleep(1200); // let the screen render/settle
+      await sleep(shot.settle ?? 1200); // let the screen render/settle
+
+      // Taps in the screenshot's frame (800x480 on a unit), each followed by a moment to react
+      for (const [x, y] of shot.taps ?? []) {
+        await fetch(`${BASE}/api/deviceui/tap?x=${x}&y=${y}`, { method: 'POST', headers: auth });
+        await sleep(1200);
+      }
 
       const shotRes = await fetch(`${BASE}/api/website/screenshot`, { headers: auth });
       if (!shotRes.ok) {
