@@ -7,6 +7,8 @@ description: Frequently Asked Questions
 
 The Pico 2 can be powered either via USB-C at 5V, or via the power input connector at 7-28VDC.
 
+Use one or the other, not both. When connecting to a computer over USB, disconnect the power input first; see [Errata](../errata/).
+
 #### Is J3 DEBUG the SWD port? What connector is it?
 
 Yes. J3 is the RP2040 Serial Wire Debug (SWD) port. It is a 3-pin **JST SH 1.0 mm** connector (`BM03B-SRSS-TB`), the Raspberry Pi 3-pin debug connector. Pinout: 1 = SWCLK, 2 = GND, 3 = SWDIO.

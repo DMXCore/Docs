@@ -7,6 +7,8 @@ description: Frequently Asked Questions
 
 The Pico 2 can be powered either via USB-C at 5V, or via the power input connector at 7-28VDC.
 
+Use one or the other, not both. When connecting to a computer over USB, disconnect the power input first; see [Errata](/dmx-core-pico-2/errata/).
+
 ### How much power does it use?
 
 The Pico 2 draws about 30mA at 12V, less than 1 watt.
