@@ -31,11 +31,15 @@ Some software sends output frames to every port it has open, even when you only 
 Tested: Lightkey finds the interface and sends DMX.
 
 1. Plug in the interface.
-2. In Lightkey, add a DMX output using Lightkey's option for a generic USB interface.
+2. In Lightkey, click a universe's tab to open its settings, and under **Output to** pick **DMX Core - DMX Core Pico 2**.
 
-Lightkey uses one port per interface, so on a DMX Core Pico 2 it drives port A. To use both ports, turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port) in the [USB Interface Utility](/usb-interface/config-utility/) (Settings, Advanced). Lightkey then finds two interfaces and drives each from its own universe.
+Lightkey uses one port per interface, so on a DMX Core Pico 2 it drives port A. To use both ports, turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port) in the [USB Interface Utility](/usb-interface/config-utility/) (Settings, Advanced). Lightkey then lists **DMX Core - DMX Core Pico 2 A** and **DMX Core - DMX Core Pico 2 B**: pick A for one universe and B for another. Each port can only be used by one universe, so the one already in use is grayed out.
+
+![Lightkey's universe settings, with Output to listing DMX Core Pico 2 A and B](/assets/usb-interface/lightkey-outputs.png)
 
 The USB Interface Utility shows port status and DMX levels while Lightkey is using the interface, so you can check what goes out on each port during a show.
+
+![The USB Interface Utility while Lightkey drives both ports: each port has its own serial port, both are sending at 40 frames per second, and port B's levels are shown](/assets/usb-interface/lightkey-split-monitor.png)
 
 Not tested yet: DMX input in Lightkey.
 
