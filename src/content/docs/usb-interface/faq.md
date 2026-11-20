@@ -25,7 +25,7 @@ Yes. The [DMX Core USB Interface Utility's RDM tool](/usb-interface/config-utili
 
 ### Can I use both DMX ports of a DMX Core Pico 2?
 
-Yes. Software that supports DMXking's two-port interfaces drives both ports over one serial port. For software that uses one port per interface, such as Lightkey, turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port), and the Pico 2 shows up as two interfaces.
+Yes. Software that supports the two-port extensions drives both ports over one serial port. For software that uses one port per interface, such as Lightkey, turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port), and the Pico 2 shows up as two interfaces.
 
 ### Can it receive DMX?
 
