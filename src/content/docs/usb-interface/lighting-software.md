@@ -41,7 +41,7 @@ The USB Interface Utility shows port status and DMX levels while Lightkey is usi
 
 ![The USB Interface Utility while Lightkey drives both ports: each port has its own serial port, both are sending at 40 frames per second, and port B's levels are shown](/assets/usb-interface/lightkey-split-monitor.png)
 
-DMX input works too: with a serial port per DMX port, set a universe's **Kind** to **Input** and pick port A or B. The DMX received on that port shows up in Lightkey's DMX monitor. Tested on both ports.
+DMX input works too: with a serial port per DMX port, set a universe's **Kind** to **Input**, and under **Input from** pick **DMX Core - DMX Core Pico 2 A** or **B**. The DMX received on that port shows up in Lightkey's DMX monitor. Tested on both ports.
 
 ## Lightjams (Windows)
 
