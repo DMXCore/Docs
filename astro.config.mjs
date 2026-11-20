@@ -270,6 +270,23 @@ export default defineConfig({
           ],
         },
         {
+          // Shared USB Interface firmware pages (usb-interface/*). Another product that runs
+          // this firmware gets its own group with its hardware pages, linking to these.
+          label: 'USB Interface',
+          items: [
+            { label: 'Overview', slug: 'usb-interface' },
+            { label: 'Installing the Firmware', slug: 'usb-interface/installing-firmware' },
+            { label: 'DMX Core Pico 2 Ports', slug: 'usb-interface/ports-and-wiring' },
+            { label: 'Lighting Software', slug: 'usb-interface/lighting-software' },
+            { label: 'DMX Core USB Utility', slug: 'usb-interface/config-utility' },
+            { label: 'Settings', slug: 'usb-interface/settings' },
+            { label: 'Troubleshooting', slug: 'usb-interface/troubleshooting' },
+            { label: 'FAQ', slug: 'usb-interface/faq' },
+            { label: 'Firmware downloads', link: 'https://github.com/DMXCore/USBInterface-Public/releases', attrs: { target: '_blank', rel: 'noopener' } },
+            { label: 'Product page', link: 'https://dmxcore.com/usb-interface', attrs: { target: '_blank', rel: 'noopener' } },
+          ],
+        },
+        {
           label: 'DMX Core PoE Control',
           items: [
             { label: 'Overview', slug: 'dmx-core-poe-control' },

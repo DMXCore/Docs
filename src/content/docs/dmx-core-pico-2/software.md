@@ -28,6 +28,10 @@ Recommended board package: [Earle Philhower's Raspberry Pi Pico / RP2040 core](h
 
 Use the GPIO numbers from the [examples](https://github.com/DMXCore/Pico-Examples) (for example digital inputs 1–4 are GPIO 8–11). The official Pico C/C++ SDK examples are the best-supported starting point if you are not already in Arduino.
 
+## USB Interface firmware
+
+The [USB Interface](/usb-interface/) firmware turns the Pico 2 into a two-port USB DMX interface for lighting software, compatible with the Enttec DMX USB Pro protocol, with RDM. Download it from [GitHub releases](https://github.com/DMXCore/USBInterface-Public/releases) and see [Installing the Firmware](/usb-interface/installing-firmware/).
+
 ## Commercial Software
 
 We have developed a software suite for the Pico 2 called the [DMX Re-Mapper](/dmx-core-pico-2-re-mapper/), which provides features like re-mapping of DMX channels and using digital inputs with a configuration utility. It's possible to purchase this software as an add-on to a standard Pico 2; the firmware is locked to the serial number of the Pico 2. [Contact DMX Pro Sales](https://dmxprosales.com/pages/contact-us) for more information about this upgrade.

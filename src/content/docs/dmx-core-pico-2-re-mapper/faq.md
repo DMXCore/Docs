@@ -19,6 +19,10 @@ Yes, the re-mapper is built on the exact same hardware as the DMX Core Pico 2, b
 
 Programming is the standard RP2040 USB UF2 flow (hold BOOTSEL, copy a `.uf2` file). Arduino IDE works if you select **Raspberry Pi Pico (RP2040)**. J3 is the SWD debug port; a [Raspberry Pi Debug Probe](https://www.raspberrypi.com/products/debug-probe/) plugs in directly. See the [Pico 2 Software](/dmx-core-pico-2/software/) and [Pin out](/dmx-core-pico-2/pin-out/) pages.
 
+### Can I use the Re-Mapper as a USB DMX interface?
+
+Yes. Install the [USB Interface](/usb-interface/) firmware to turn it into a two-port USB DMX interface for lighting software. Your mapping and license are kept, so you can copy the Re-Mapper firmware back later. See [Installing the Firmware](/usb-interface/installing-firmware/).
+
 ### Are the digital triggers pulled to GND to activate?
 
 No. Apply 3–24 VDC between the input (`i1`–`i4`) and `C`. For a push button, fit jumper J4 (Connect C to GND) and switch the onboard `3v3` onto the input. See [Pin out](/dmx-core-pico-2/pin-out/#digital-inputs).

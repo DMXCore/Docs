@@ -1,0 +1,55 @@
+---
+title: DMX Core Pico 2 Ports and Wiring
+description: DMX ports, wiring, power and LEDs of the DMX Core Pico 2 running the USB Interface firmware
+---
+
+## DMX ports
+
+The Pico 2 has two isolated DMX512 ports, **port A** and **port B**, on Phoenix-style connectors.
+
+| | Port A | Port B |
+| --- | --- | --- |
+| Send DMX | Yes | Yes |
+| Receive DMX | Yes | With a [serial port per DMX port](/usb-interface/settings/#usb-serial-ports) |
+| RDM | Yes | Yes |
+| Default behavior | Receives until a program sends to it, then sends | Sends once a program sends to it |
+
+How a port behaves can be changed with its [direction setting](/usb-interface/settings/#port-direction).
+
+<!-- Photo needed: the Pico 2 with port A and port B (and the LEDs) labeled. -->
+
+## DMX pin out
+
+Each DMX connector has three terminals:
+
+| Terminal | Signal | XLR pin |
+| --- | --- | --- |
+| G | Ground/Common | 1 |
+| B | Data- | 2 |
+| A | Data+ | 3 |
+
+![XLR-3](/assets/dmx-core-pico-2/xlr3.png)
+
+![XLR-5](/assets/dmx-core-pico-2/xlr5.png)
+
+The same pin out is on the [Pico 2 Pin out](/dmx-core-pico-2/pin-out/) page.
+
+Each port has a fail-safe terminator built in, so there is nothing to switch when a port changes between sending and receiving.
+
+## Power
+
+Power the Pico 2 from the computer's USB port. Leave the power input (7-28VDC) disconnected while the board is connected to a computer. On hardware v1.1 and v1.2, USB may not connect while the power input is in use. See [Errata](/dmx-core-pico-2/errata/).
+
+## LEDs
+
+| LED | Meaning |
+| --- | --- |
+| Status | Slow blink: no computer connected yet. On: connected. Off: the computer has suspended the USB port (for example while it sleeps). |
+| Port A | On with a short flicker every 8 frames: sending or receiving DMX. Off: idle. |
+| Port B | On with a short flicker every 8 frames: sending DMX. Off: idle. |
+
+The **Identify** button in the [DMX Core USB Utility](/usb-interface/config-utility/) blinks the LEDs for 10 seconds, so you can tell which interface is which.
+
+## Digital inputs and outputs
+
+The USB Interface firmware does not use the digital inputs, digital outputs or the expansion pins.
