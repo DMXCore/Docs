@@ -30,7 +30,7 @@ Use the GPIO numbers from the [examples](https://github.com/DMXCore/Pico-Example
 
 ## USB Interface firmware
 
-The [USB Interface](/usb-interface/) firmware turns the Pico 2 into a two-port USB DMX interface for lighting software, compatible with the Enttec DMX USB Pro protocol, with RDM. Download it from [GitHub releases](https://github.com/DMXCore/USBInterface-Public/releases) and see [Installing the Firmware](/usb-interface/installing-firmware/).
+The free [USB Interface](/usb-interface/) firmware turns the Pico 2 into a two-port USB DMX interface for lighting software, compatible with the Enttec DMX USB Pro protocol, with RDM. Download it from [GitHub releases](https://github.com/DMXCore/USBInterface-Public/releases) and see [Installing the Firmware](/usb-interface/installing-firmware/).
 
 ## Commercial Software
 

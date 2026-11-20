@@ -88,7 +88,7 @@ The **DMX levels** pane shows all 512 channels of the selected port, live: what 
 
 The **Test** tab on the right edge sends test levels on the selected port: one level on a range of channels, red, green or blue on RGB pixels from the first channel, or a moving sine wave. Click **Start test**; closing the pane ends the test. Test sends are off while a program is using the interface, and on a port set to Input.
 
-<!-- Screenshot needed: the Test send pane open. -->
+![Test send on port B: a sine wave on channels 1-512, shown live in the DMX levels](/assets/usb-interface/test-send.png)
 
 ## RDM
 

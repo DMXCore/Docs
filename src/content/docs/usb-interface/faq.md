@@ -3,6 +3,10 @@ title: FAQ
 description: Frequently asked questions about the DMX Core Pico 2 USB Interface
 ---
 
+### Is the firmware free?
+
+Yes. The USB Interface firmware is free for every DMX Core Pico 2 owner, including Re-Mapper owners. Download it from [GitHub releases](https://github.com/DMXCore/USBInterface-Public/releases) or install it with the [DMX Core USB Utility](/usb-interface/config-utility/), which is free too.
+
 ### Which lighting software works with it?
 
 Lightkey on macOS and OLA on Linux have been tested. QLC+ does not list the interface yet; we're working on getting support added to QLC+. See [Lighting Software](/usb-interface/lighting-software/).

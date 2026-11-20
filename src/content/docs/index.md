@@ -23,7 +23,7 @@ Pico 2 with included software for DMX channel re-mapping. Product page: [dmxcore
 
 ### [USB Interface](/usb-interface/)
 
-Firmware that turns a DMX Core Pico 2 into a two-port USB DMX interface with RDM, for lighting software on Windows, macOS and Linux. Product page: [dmxcore.com/usb-interface](https://dmxcore.com/usb-interface).
+Free firmware that turns a DMX Core Pico 2 into a two-port USB DMX interface with RDM, for lighting software on Windows, macOS and Linux. Product page: [dmxcore.com/usb-interface](https://dmxcore.com/usb-interface).
 
 ### [DMX Core PoE Control](/dmx-core-poe-control/)
 

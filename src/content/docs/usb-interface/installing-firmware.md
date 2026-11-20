@@ -3,7 +3,7 @@ title: Installing the Firmware
 description: Put the USB Interface firmware on a DMX Core Pico 2, update it, or go back to the Re-Mapper
 ---
 
-The USB Interface firmware is a single `.uf2` file. You can install it with the [DMX Core USB Utility](/usb-interface/config-utility/), or copy it onto the board yourself. Both use the RP2040's USB boot loader, which is in ROM and cannot be overwritten, so a failed or interrupted install can always be repeated.
+The USB Interface firmware is free for every DMX Core Pico 2 owner, including Re-Mapper owners. It is a single `.uf2` file. You can install it with the [DMX Core USB Utility](/usb-interface/config-utility/), or copy it onto the board yourself. Both use the RP2040's USB boot loader, which is in ROM and cannot be overwritten, so a failed or interrupted install can always be repeated.
 
 :::caution[Power from USB only]
 While the Pico 2 is connected to a computer, power it from USB only and leave the power input (7-28VDC) disconnected. On hardware v1.1 and v1.2, USB may not connect while the power input is in use. See [Errata](/dmx-core-pico-2/errata/).
@@ -12,13 +12,15 @@ While the Pico 2 is connected to a computer, power it from USB only and leave th
 ## With the DMX Core USB Utility
 
 1. [Install the utility](/usb-interface/config-utility/#install) and start it.
-2. Hold the **BOOTSEL** button on the Pico 2 and plug it into the computer. The `RPI-RP2` drive appears.
+2. Hold the **BOOTSEL** button on the Pico 2 (next to the USB-C connector, marked on the label) and plug it into the computer. The `RPI-RP2` drive appears.
 3. The utility shows **A board is in its boot loader**. Click **Install firmware…**.
+
+   ![The utility's banner for a board in its boot loader, with the Install firmware button](/assets/usb-interface/bootloader-banner.png)
 4. Pick a version (the latest is selected) and click **Install**. The utility downloads the firmware from GitHub, copies it to the board, and waits for the board to start it.
 
 When it is done, the interface shows up in the utility's main window.
 
-<!-- Screenshot needed: the boot-loader banner in the utility's main window (a board held in BOOTSEL). -->
+![The Firmware dialog for a board in its boot loader, ready to install the latest release](/assets/usb-interface/install-from-bootloader.png)
 
 :::note
 A board in its boot loader only tells the utility its chip type, so the utility asks you to check that it is a DMX Core Pico 2 before it copies anything.
@@ -27,7 +29,7 @@ A board in its boot loader only tells the utility its chip type, so the utility 
 ## By copying the file
 
 1. Download `dmxcore-pico2-usb-interface-<version>.uf2` from [GitHub releases](https://github.com/DMXCore/USBInterface-Public/releases).
-2. Hold the **BOOTSEL** button and plug the Pico 2 into the computer. A drive named `RPI-RP2` appears.
+2. Hold the **BOOTSEL** button (next to the USB-C connector) and plug the Pico 2 into the computer. A drive named `RPI-RP2` appears.
 3. Copy the `.uf2` file onto the drive.
 
 The board restarts with the new firmware. The drive disappears and a new serial port appears.

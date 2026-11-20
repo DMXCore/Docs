@@ -38,17 +38,19 @@ Turn on **a serial port per DMX port** and the Pico 2 shows up as **two interfac
 
 To turn it on, open the [DMX Core USB Utility](/usb-interface/config-utility/), click **Settings…**, then **Advanced…**, and set **Serial ports** to **One per DMX port**. Saving restarts the interface; software that has it open loses its connection while it restarts, and the computer finds the new serial port by itself. The setting is kept across power cycles and firmware updates. See [Settings](/usb-interface/settings/#usb-serial-ports).
 
-<!-- Photo needed: the Pico 2 with port A and port B (and the LEDs) labeled. -->
+![DMX Core Pico 2 from above: DMX A and DMX B on the right, power, BOOTSEL and USB-C on the left](/assets/usb-interface/pico2-labels.jpg)
+
+The label on the case names each connector: **DMX A** and **DMX B** are the two DMX ports, next to the digital **INPUT** terminal. **POWER**, the **BOOTSEL** button and the USB-C connector are on the other side.
 
 ## DMX pin out
 
-Each DMX connector has three terminals:
+Each DMX connector has three terminals. Newer labels say D+, D- and G/C; older ones say A, B and G:
 
 | Terminal | Signal | XLR pin |
 | --- | --- | --- |
-| G | Ground/Common | 1 |
-| B | Data- | 2 |
-| A | Data+ | 3 |
+| G/C (G) | Ground/Common | 1 |
+| D- (B) | Data- | 2 |
+| D+ (A) | Data+ | 3 |
 
 ![XLR-3](/assets/dmx-core-pico-2/xlr3.png)
 
@@ -57,6 +59,8 @@ Each DMX connector has three terminals:
 The same pin out is on the [Pico 2 Pin out](/dmx-core-pico-2/pin-out/) page.
 
 Each port has a fail-safe terminator built in, so there is nothing to switch when a port changes between sending and receiving.
+
+![DMX Core Pico 2 with DMX cables on both ports](/assets/usb-interface/pico2-wired.jpg)
 
 ## Power
 

@@ -32,7 +32,7 @@ On the Pico 2, the USB Interface firmware runs on the same hardware as the [Re-M
 ## What you need
 
 * Supported hardware, such as a [DMX Core Pico 2](https://dmxcore.com/pico)
-* The USB Interface firmware, from [GitHub releases](https://github.com/DMXCore/USBInterface-Public/releases) or through the DMX Core USB Utility. See [Installing the Firmware](/usb-interface/installing-firmware/).
+* The USB Interface firmware, free for every DMX Core Pico 2 owner, from [GitHub releases](https://github.com/DMXCore/USBInterface-Public/releases) or through the DMX Core USB Utility. See [Installing the Firmware](/usb-interface/installing-firmware/).
 * A computer running Windows, macOS or Linux, and a USB cable
 * Recommended: the [DMX Core USB Utility](/usb-interface/config-utility/) to monitor the ports, change settings, update the firmware and use RDM
 
@@ -79,4 +79,4 @@ Details and setup steps for each are on the [Lighting Software](/usb-interface/l
 
 ## Purchase Information
 
-The USB Interface firmware runs on the DMX Core Pico 2. See the [USB Interface page](https://dmxcore.com/usb-interface) on our website, and the [DMX Core Pico 2 product page](https://dmxcore.com/pico) for specs and pricing, or buy it from [dmxprosales.com](https://dmxprosales.com/products/dmx-core-pico2).
+The USB Interface firmware is free and runs on the DMX Core Pico 2. See the [USB Interface page](https://dmxcore.com/usb-interface) on our website, and the [DMX Core Pico 2 product page](https://dmxcore.com/pico) for specs and pricing, or buy it from [dmxprosales.com](https://dmxprosales.com/products/dmx-core-pico2).

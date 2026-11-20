@@ -36,4 +36,4 @@ See the [DMX Core Pico 2 product page](https://dmxcore.com/pico) for specs and p
 
 * Run your own code (developed in Pico C/C++, MicroPython or CircuitPython)
 * Purchase our [Re-Mapper](/dmx-core-pico-2-re-mapper/) software for DMX channel re-mapping
-* Install the [USB Interface](/usb-interface/) firmware to use it as a two-port USB DMX interface with RDM
+* Install the free [USB Interface](/usb-interface/) firmware to use it as a two-port USB DMX interface with RDM
