@@ -278,7 +278,7 @@ export default defineConfig({
             { label: 'Installing the Firmware', slug: 'usb-interface/installing-firmware' },
             { label: 'DMX Core Pico 2 Ports', slug: 'usb-interface/ports-and-wiring' },
             { label: 'Lighting Software', slug: 'usb-interface/lighting-software' },
-            { label: 'DMX Core USB Utility', slug: 'usb-interface/config-utility' },
+            { label: 'DMX Core USB Interface Utility', slug: 'usb-interface/config-utility' },
             { label: 'Settings', slug: 'usb-interface/settings' },
             { label: 'Troubleshooting', slug: 'usb-interface/troubleshooting' },
             { label: 'FAQ', slug: 'usb-interface/faq' },

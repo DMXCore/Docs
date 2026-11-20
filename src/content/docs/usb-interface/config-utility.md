@@ -1,9 +1,9 @@
 ---
-title: DMX Core USB Utility
-description: Install and use the DMX Core USB Utility to check ports, view DMX levels, change settings, update firmware and use RDM
+title: DMX Core USB Interface Utility
+description: Install and use the DMX Core USB Interface Utility to check ports, view DMX levels, change settings, update firmware and use RDM
 ---
 
-The DMX Core USB Utility shows what the interface is doing (ports, DMX levels, RDM), changes its settings, sends test patterns and installs firmware. It runs on **Windows, macOS and Linux**, and updates itself when a new version is published.
+The DMX Core USB Interface Utility shows what the interface is doing (ports, DMX levels, RDM), changes its settings, sends test patterns and installs firmware. It runs on **Windows, macOS and Linux**, and updates itself when a new version is published.
 
 ## Monitoring while your lighting software runs
 

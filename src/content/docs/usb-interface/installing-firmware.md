@@ -3,13 +3,13 @@ title: Installing the Firmware
 description: Put the USB Interface firmware on a DMX Core Pico 2, update it, or go back to the Re-Mapper
 ---
 
-The USB Interface firmware is free for every DMX Core Pico 2 owner, including Re-Mapper owners. It is a single `.uf2` file. You can install it with the [DMX Core USB Utility](/usb-interface/config-utility/), or copy it onto the board yourself. Both use the RP2040's USB boot loader, which is in ROM and cannot be overwritten, so a failed or interrupted install can always be repeated.
+The USB Interface firmware is free for every DMX Core Pico 2 owner, including Re-Mapper owners. It is a single `.uf2` file. You can install it with the [DMX Core USB Interface Utility](/usb-interface/config-utility/), or copy it onto the board yourself. Both use the RP2040's USB boot loader, which is in ROM and cannot be overwritten, so a failed or interrupted install can always be repeated.
 
 :::caution[Power from USB only]
 While the Pico 2 is connected to a computer, power it from USB only and leave the power input (7-28VDC) disconnected. On hardware v1.1 and v1.2, USB may not connect while the power input is in use. See [Errata](/dmx-core-pico-2/errata/).
 :::
 
-## With the DMX Core USB Utility
+## With the DMX Core USB Interface Utility
 
 1. [Install the utility](/usb-interface/config-utility/#install) and start it.
 2. Hold the **BOOTSEL** button on the Pico 2 (next to the USB-C connector, marked on the label) and plug it into the computer. The `RPI-RP2` drive appears.
@@ -38,7 +38,7 @@ The board restarts with the new firmware. The drive disappears and a new serial 
 
 Once the USB Interface firmware is running, you don't need the BOOTSEL button for updates:
 
-1. Open the [DMX Core USB Utility](/usb-interface/config-utility/) and select the interface.
+1. Open the [USB Interface Utility](/usb-interface/config-utility/) and select the interface.
 2. Click **Firmware…**. The dialog shows the installed version and whether an update is available.
 3. Pick a version and click **Install**. The utility puts the interface into its boot loader, copies the firmware, and waits until the interface is back.
 

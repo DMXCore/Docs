@@ -3,7 +3,7 @@ title: Settings
 description: Settings the USB Interface keeps across power cycles, and what each one does
 ---
 
-The interface keeps its settings in its own flash memory, so they stay with the interface when you unplug it, move it to another computer or update the firmware. Change them in the [DMX Core USB Utility](/usb-interface/config-utility/) with **Settings…**. Click **Save** to store them on the interface, or **Defaults** to fill in the factory values.
+The interface keeps its settings in its own flash memory, so they stay with the interface when you unplug it, move it to another computer or update the firmware. Change them in the [DMX Core USB Interface Utility](/usb-interface/config-utility/) with **Settings…**. Click **Save** to store them on the interface, or **Defaults** to fill in the factory values.
 
 The less common settings are under **Advanced…** at the bottom of the dialog.
 

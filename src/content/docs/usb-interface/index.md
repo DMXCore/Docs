@@ -11,11 +11,11 @@ It speaks the Enttec DMX USB Pro protocol, with the DMXking extensions for a sec
 
 ### Watch the DMX while your lighting software runs
 
-The [DMX Core USB Utility](/usb-interface/config-utility/) shows each port's status and its live DMX levels **while your lighting software has the interface open**. The utility talks to the interface over a USB connection of its own, separate from the serial port the lighting software uses, so you don't have to close your show to see what the interface is sending or receiving. RDM works alongside your software too.
+The [DMX Core USB Interface Utility](/usb-interface/config-utility/) shows each port's status and its live DMX levels **while your lighting software has the interface open**. The utility talks to the interface over a USB connection of its own, separate from the serial port the lighting software uses, so you don't have to close your show to see what the interface is sending or receiving. RDM works alongside your software too.
 
 The utility runs on **Windows, macOS and Linux**.
 
-![The DMX Core USB Utility showing port A's live DMX levels while another program has the serial port open](/assets/usb-interface/monitor-while-program-runs.png)
+![The DMX Core USB Interface Utility showing port A's live DMX levels while another program has the serial port open](/assets/usb-interface/monitor-while-program-runs.png)
 
 ### Both ports in one-port software (DMX Core Pico 2)
 
@@ -32,9 +32,9 @@ On the Pico 2, the USB Interface firmware runs on the same hardware as the [Re-M
 ## What you need
 
 * Supported hardware, such as a [DMX Core Pico 2](https://dmxcore.com/pico)
-* The USB Interface firmware, free for every DMX Core Pico 2 owner, from [GitHub releases](https://github.com/DMXCore/USBInterface-Public/releases) or through the DMX Core USB Utility. See [Installing the Firmware](/usb-interface/installing-firmware/).
+* The USB Interface firmware, free for every DMX Core Pico 2 owner, from [GitHub releases](https://github.com/DMXCore/USBInterface-Public/releases) or through the USB Interface Utility. See [Installing the Firmware](/usb-interface/installing-firmware/).
 * A computer running Windows, macOS or Linux, and a USB cable
-* Recommended: the [DMX Core USB Utility](/usb-interface/config-utility/) to monitor the ports, change settings, update the firmware and use RDM
+* Recommended: the [USB Interface Utility](/usb-interface/config-utility/) to monitor the ports, change settings, update the firmware and use RDM
 
 ## Features
 
@@ -48,7 +48,7 @@ On the Pico 2, the USB Interface firmware runs on the same hardware as the [Re-M
 
 * Discovery, GET and SET.
 * Works with RDM-capable lighting software such as OLA, through the Enttec protocol.
-* Works with the RDM tool in the [DMX Core USB Utility](/usb-interface/config-utility/#rdm), on every port.
+* Works with the RDM tool in the [USB Interface Utility](/usb-interface/config-utility/#rdm), on every port.
 * DMX keeps going between RDM requests.
 
 ### Settings kept on the interface
@@ -59,7 +59,7 @@ Port directions, output rate, DMX timing (break and mark after break), full 512-
 
 * USB ID `2E8A:1180`, assigned by Raspberry Pi to this interface, so software can recognize it by its USB ID.
 * Standard USB serial (CDC) driver on Windows, macOS and Linux. Nothing to install.
-* Firmware updates without opening the case: the DMX Core USB Utility puts the interface into its boot loader and installs the new firmware.
+* Firmware updates without opening the case: the USB Interface Utility puts the interface into its boot loader and installs the new firmware.
 
 ## Software compatibility
 

@@ -36,7 +36,7 @@ Turn on **a serial port per DMX port** and the Pico 2 shows up as **two interfac
 * Settings belong to the board, not to a serial port: both serial ports, and the utility, see the same settings.
 * On Windows, the second serial port gets its own COM port number.
 
-To turn it on, open the [DMX Core USB Utility](/usb-interface/config-utility/), click **Settings…**, then **Advanced…**, and set **Serial ports** to **One per DMX port**. Saving restarts the interface; software that has it open loses its connection while it restarts, and the computer finds the new serial port by itself. The setting is kept across power cycles and firmware updates. See [Settings](/usb-interface/settings/#usb-serial-ports).
+To turn it on, open the [DMX Core USB Interface Utility](/usb-interface/config-utility/), click **Settings…**, then **Advanced…**, and set **Serial ports** to **One per DMX port**. Saving restarts the interface; software that has it open loses its connection while it restarts, and the computer finds the new serial port by itself. The setting is kept across power cycles and firmware updates. See [Settings](/usb-interface/settings/#usb-serial-ports).
 
 ![DMX Core Pico 2 from above: DMX A and DMX B on the right, power, BOOTSEL and USB-C on the left](/assets/usb-interface/pico2-labels.jpg)
 
@@ -74,7 +74,7 @@ Power the Pico 2 from the computer's USB port. Leave the power input (7-28VDC) d
 | Port A | On with a short flicker every 8 frames: sending or receiving DMX. Off: idle. |
 | Port B | On with a short flicker every 8 frames: sending DMX. Off: idle. |
 
-The **Identify** button in the [DMX Core USB Utility](/usb-interface/config-utility/) blinks the LEDs for 10 seconds, so you can tell which interface is which.
+The **Identify** button in the [USB Interface Utility](/usb-interface/config-utility/) blinks the LEDs for 10 seconds, so you can tell which interface is which.
 
 ## Digital inputs and outputs
 

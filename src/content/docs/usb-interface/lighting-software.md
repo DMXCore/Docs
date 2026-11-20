@@ -9,7 +9,7 @@ This page lists what has been tested. If you try it with other software, we'd li
 
 ## Monitoring while your software runs
 
-While your lighting software has the interface open, the [DMX Core USB Utility](/usb-interface/config-utility/#monitoring-while-your-lighting-software-runs) can show each port's status and live DMX levels. It uses its own USB connection to the interface, not the serial port, so you can keep both open.
+While your lighting software has the interface open, the [DMX Core USB Interface Utility](/usb-interface/config-utility/#monitoring-while-your-lighting-software-runs) can show each port's status and live DMX levels. It uses its own USB connection to the interface, not the serial port, so you can keep both open.
 
 ## Two ports (DMX Core Pico 2)
 
@@ -33,9 +33,9 @@ Tested: Lightkey finds the interface and sends DMX.
 1. Plug in the interface.
 2. In Lightkey, add a DMX output using Lightkey's option for a generic USB interface.
 
-Lightkey uses one port per interface, so on a DMX Core Pico 2 it drives port A. To use both ports, turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port) in the [DMX Core USB Utility](/usb-interface/config-utility/) (Settings, Advanced). Lightkey then finds two interfaces and drives each from its own universe.
+Lightkey uses one port per interface, so on a DMX Core Pico 2 it drives port A. To use both ports, turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port) in the [USB Interface Utility](/usb-interface/config-utility/) (Settings, Advanced). Lightkey then finds two interfaces and drives each from its own universe.
 
-The DMX Core USB Utility shows port status and DMX levels while Lightkey is using the interface, so you can check what goes out on each port during a show.
+The USB Interface Utility shows port status and DMX levels while Lightkey is using the interface, so you can check what goes out on each port during a show.
 
 Not tested yet: DMX input in Lightkey.
 

@@ -5,7 +5,7 @@ description: Frequently asked questions about the DMX Core Pico 2 USB Interface
 
 ### Is the firmware free?
 
-Yes. The USB Interface firmware is free for every DMX Core Pico 2 owner, including Re-Mapper owners. Download it from [GitHub releases](https://github.com/DMXCore/USBInterface-Public/releases) or install it with the [DMX Core USB Utility](/usb-interface/config-utility/), which is free too.
+Yes. The USB Interface firmware is free for every DMX Core Pico 2 owner, including Re-Mapper owners. Download it from [GitHub releases](https://github.com/DMXCore/USBInterface-Public/releases) or install it with the [DMX Core USB Interface Utility](/usb-interface/config-utility/), which is free too.
 
 ### Which lighting software works with it?
 
@@ -17,7 +17,7 @@ No. It uses the standard USB serial driver built into Windows, macOS and Linux.
 
 ### Can I watch the DMX while my lighting software is running?
 
-Yes. The [DMX Core USB Utility](/usb-interface/config-utility/#monitoring-while-your-lighting-software-runs) shows port status and live DMX levels while your software has the interface open, because it uses its own USB connection rather than the serial port.
+Yes. The [USB Interface Utility](/usb-interface/config-utility/#monitoring-while-your-lighting-software-runs) shows port status and live DMX levels while your software has the interface open, because it uses its own USB connection rather than the serial port.
 
 ### Can I use both DMX ports of a DMX Core Pico 2?
 
@@ -29,7 +29,7 @@ Yes. On the DMX Core Pico 2, on port A, and on port B when each port has its own
 
 ### Does it support RDM?
 
-Yes, on every port. Port A works with RDM-capable lighting software such as OLA, and both ports work with the RDM tool in the [DMX Core USB Utility](/usb-interface/config-utility/#rdm).
+Yes, on every port. Port A works with RDM-capable lighting software such as OLA, and both ports work with the RDM tool in the [USB Interface Utility](/usb-interface/config-utility/#rdm).
 
 ### Does it support Art-Net or sACN?
 
