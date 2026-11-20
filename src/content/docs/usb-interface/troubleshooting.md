@@ -25,7 +25,6 @@ Click **Allow USB access** in the utility and enter your password. If that does 
 
 * Check the [Lighting Software](/usb-interface/lighting-software/) page for your software. QLC+ does not list the interface yet (we're working on getting support added). OLA needs a configuration change on Linux.
 * Close other programs that may have the serial port open. Only one program can open a serial port at a time. (The DMX Core USB Interface Utility does not use the serial port, so it can stay open.)
-* After a firmware update from version 1.0.10 or earlier, the interface has a new USB ID and a new serial (COM) port. Select it again in your software.
 * Software that uses FTDI's D2XX driver does not see the interface. It needs to support the interface as a serial port.
 
 ### Only port A of my DMX Core Pico 2 works

@@ -50,10 +50,6 @@ If the utility cannot find the boot drive after the interface restarts into its 
 
 You can also install an older version from the same list.
 
-:::note
-Releases up to 1.0.10 used a different USB ID. After updating from one of them, the computer sees a new device and gives it a new serial (COM) port, so you may need to select the interface again in your lighting software.
-:::
-
 ## Going back to the Re-Mapper or your own firmware
 
 Copy a different `.uf2` the same way: hold BOOTSEL, plug in, and copy the file onto the `RPI-RP2` drive.
