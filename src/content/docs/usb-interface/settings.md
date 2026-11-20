@@ -30,7 +30,7 @@ Software can set its own frame rate and DMX timing while it has the interface op
 
 Set port A to **Input** when software keeps sending output frames to a port you want to use as an input. A change applies at once.
 
-Port B offers **Input** when it can receive, which is with a [serial port per DMX port](#usb-serial-ports).
+Port B is on two-port hardware such as the DMX Core Pico 2. It offers **Input** when it can receive, which is with [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port).
 
 ### Input rate
 
@@ -70,11 +70,11 @@ The defaults suit almost every fixture. Change them only for equipment that need
 
 ## USB serial ports
 
-Under **Advanced…**.
+Under **Advanced…**. Only on two-port hardware, such as the DMX Core Pico 2.
 
 | Value | What it does |
 | --- | --- |
 | **One for both DMX ports** (default) | One serial port. Port A uses the Enttec messages, port B the DMXking second-port message. |
 | **One per DMX port** | Two serial ports, one per DMX port, each a complete one-port interface (`DMX Core Pico 2 A` and `DMX Core Pico 2 B`). Two programs can each drive a port, software that uses one port per interface can use both, and port B can receive DMX. |
 
-Changing this setting restarts the interface. Software that has it open loses its connection while it restarts. On Windows, the second serial port gets its own COM port number.
+See [A serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port) for how the two serial ports behave. Changing this setting restarts the interface. Software that has it open loses its connection while it restarts. On Windows, the second serial port gets its own COM port number.

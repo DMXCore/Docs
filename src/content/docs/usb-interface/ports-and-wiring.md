@@ -10,11 +10,33 @@ The Pico 2 has two isolated DMX512 ports, **port A** and **port B**, on Phoenix-
 | | Port A | Port B |
 | --- | --- | --- |
 | Send DMX | Yes | Yes |
-| Receive DMX | Yes | With a [serial port per DMX port](/usb-interface/settings/#usb-serial-ports) |
+| Receive DMX | Yes | With [a serial port per DMX port](#a-serial-port-per-dmx-port) |
 | RDM | Yes | Yes |
 | Default behavior | Receives until a program sends to it, then sends | Sends once a program sends to it |
 
 How a port behaves can be changed with its [direction setting](/usb-interface/settings/#port-direction).
+
+## A serial port per DMX port
+
+By default the Pico 2 is one interface with one serial port, and lighting software reaches port B through DMXking's message for a second port. Software that drives only one port per interface, such as Lightkey and other software built on OLA, can then use only port A.
+
+Turn on **a serial port per DMX port** and the Pico 2 shows up as **two interfaces**, one per DMX port:
+
+| | First serial port | Second serial port |
+| --- | --- | --- |
+| DMX port | A | B |
+| Name | DMX Core Pico 2 A | DMX Core Pico 2 B |
+| Ports reported | 1 | 1 |
+| Send and receive DMX | Yes | Yes |
+| RDM | Yes | Yes |
+
+* Each serial port is a complete one-port interface with its own serial number, so software that tells interfaces apart by serial number sees two.
+* Two programs can each drive a port, or one program can drive both from two universes.
+* Port B can receive DMX in this mode.
+* Settings belong to the board, not to a serial port: both serial ports, and the utility, see the same settings.
+* On Windows, the second serial port gets its own COM port number.
+
+To turn it on, open the [DMX Core USB Utility](/usb-interface/config-utility/), click **Settings…**, then **Advanced…**, and set **Serial ports** to **One per DMX port**. Saving restarts the interface; software that has it open loses its connection while it restarts, and the computer finds the new serial port by itself. The setting is kept across power cycles and firmware updates. See [Settings](/usb-interface/settings/#usb-serial-ports).
 
 <!-- Photo needed: the Pico 2 with port A and port B (and the LEDs) labeled. -->
 

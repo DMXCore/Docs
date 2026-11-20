@@ -5,23 +5,27 @@ description: Frequently asked questions about the DMX Core Pico 2 USB Interface
 
 ### Which lighting software works with it?
 
-Lightkey on macOS and OLA on Linux have been tested. QLC+ does not list the interface yet. See [Lighting Software](/usb-interface/lighting-software/).
+Lightkey on macOS and OLA on Linux have been tested. QLC+ does not list the interface yet; we're working on getting support added to QLC+. See [Lighting Software](/usb-interface/lighting-software/).
 
 ### Does it need a driver?
 
 No. It uses the standard USB serial driver built into Windows, macOS and Linux.
 
-### Can I use both DMX ports?
+### Can I watch the DMX while my lighting software is running?
 
-Yes. Software that supports DMXking's two-port interfaces drives both ports over one serial port. For software that uses one port per interface, turn on **a serial port per DMX port** in the [settings](/usb-interface/settings/#usb-serial-ports), and the interface shows up as two interfaces.
+Yes. The [DMX Core USB Utility](/usb-interface/config-utility/#monitoring-while-your-lighting-software-runs) shows port status and live DMX levels while your software has the interface open, because it uses its own USB connection rather than the serial port.
+
+### Can I use both DMX ports of a DMX Core Pico 2?
+
+Yes. Software that supports DMXking's two-port interfaces drives both ports over one serial port. For software that uses one port per interface, such as Lightkey, turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port), and the Pico 2 shows up as two interfaces.
 
 ### Can it receive DMX?
 
-Yes, on port A, and on port B when each port has its own serial port.
+Yes. On the DMX Core Pico 2, on port A, and on port B when each port has its own serial port.
 
 ### Does it support RDM?
 
-Yes, on both ports. Port A works with RDM-capable lighting software such as OLA, and both ports work with the RDM tool in the [DMX Core USB Utility](/usb-interface/config-utility/#rdm).
+Yes, on every port. Port A works with RDM-capable lighting software such as OLA, and both ports work with the RDM tool in the [DMX Core USB Utility](/usb-interface/config-utility/#rdm).
 
 ### Does it support Art-Net or sACN?
 

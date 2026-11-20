@@ -3,9 +3,19 @@ title: DMX Core USB Utility
 description: Install and use the DMX Core USB Utility to check ports, view DMX levels, change settings, update firmware and use RDM
 ---
 
-The DMX Core USB Utility shows what the interface is doing (ports, DMX levels, RDM), changes its settings, sends test patterns and installs firmware. It runs on Windows, macOS and Linux, and updates itself when a new version is published.
+The DMX Core USB Utility shows what the interface is doing (ports, DMX levels, RDM), changes its settings, sends test patterns and installs firmware. It runs on **Windows, macOS and Linux**, and updates itself when a new version is published.
 
-The utility talks to the interface over its own USB connection, not the serial port, so you can use it while lighting software is driving the interface.
+## Monitoring while your lighting software runs
+
+The utility talks to the interface over a USB connection of its own, separate from the serial port your lighting software uses. So while your software has the interface open and is running a show, the utility can still show:
+
+* each port's status: what it is doing, frames sent and received, and whether the program is still sending,
+* the live DMX levels of every channel, sent or received,
+* RDM fixtures, with discovery and settings.
+
+You don't need to close your lighting software to check what the interface is doing. Test sends are the one thing that waits until the software has closed the interface.
+
+<!-- Screenshot needed: the main window while a lighting program drives the interface (Program field showing the program, DMX levels moving). -->
 
 ## Install
 
@@ -44,7 +54,7 @@ Plug in the interface; it shows up by itself. With more than one interface plugg
 
 <!-- Screenshot needed: the main window with a DMX Core Pico 2, both port cards and the DMX levels pane. -->
 
-The top of the window shows the interface's name, serial number, firmware version, and how long it has been running. It also shows whether it has one serial port or one per DMX port, and how many messages it has had from the computer. The buttons:
+The top of the window shows the interface's name, serial number, firmware version, and how long it has been running. It also shows how many messages it has had from the computer and, on a DMX Core Pico 2, whether it has one serial port or one per DMX port. The buttons:
 
 * **Settings…** changes what the interface keeps across power cycles. See [Settings](/usb-interface/settings/).
 * **Firmware…** shows the installed firmware and installs a new one. See [Installing the Firmware](/usb-interface/installing-firmware/#updating).

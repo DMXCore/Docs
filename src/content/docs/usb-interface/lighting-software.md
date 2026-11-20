@@ -7,14 +7,18 @@ The USB Interface shows up on the computer as a USB serial port: a COM port on W
 
 This page lists what has been tested. If you try it with other software, we'd like to hear how it went: [open an issue on GitHub](https://github.com/DMXCore/USBInterface-Public/issues).
 
-## Two ports, one or two serial ports
+## Monitoring while your software runs
 
-By default the interface has **one serial port for both DMX ports**:
+While your lighting software has the interface open, the [DMX Core USB Utility](/usb-interface/config-utility/#monitoring-while-your-lighting-software-runs) can show each port's status and live DMX levels. It uses its own USB connection to the interface, not the serial port, so you can keep both open.
+
+## Two ports (DMX Core Pico 2)
+
+By default the Pico 2 has **one serial port for both DMX ports**:
 
 * Port A uses the standard Enttec messages, so any software that supports an Enttec DMX USB Pro can send and receive on it.
 * Port B uses DMXking's message for a second port. Only software that knows two-port DMXking interfaces sends DMX to it.
 
-Software that drives only one port per interface (Lightkey, and other software built on OLA) can use both ports if you turn on **a serial port per DMX port** in the [settings](/usb-interface/settings/#usb-serial-ports). The interface then shows up as two one-port interfaces, `DMX Core Pico 2 A` and `DMX Core Pico 2 B`, each with its own serial port and serial number. Each one sends and receives on its own DMX port, and two programs can each drive a port.
+Software that drives only one port per interface (Lightkey, and other software built on OLA) can use both ports if you turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port). The Pico 2 then shows up as two one-port interfaces, each with its own serial port, and two programs can each drive a port.
 
 ## Using port A as an input
 
@@ -24,14 +28,14 @@ Some software sends output frames to every port it has open, even when you only 
 
 ## Lightkey (macOS)
 
-Tested: Lightkey finds the interface and sends DMX on port A.
+Tested: Lightkey finds the interface and sends DMX.
 
 1. Plug in the interface.
-2. In Lightkey, add a DMX output using Lightkey's option for a generic USB interface. The interface shows up as **DMX Core**.
+2. In Lightkey, add a DMX output using Lightkey's option for a generic USB interface.
 
-Lightkey uses one port per interface. To use both ports, turn on **a serial port per DMX port** in the [DMX Core USB Utility](/usb-interface/config-utility/) (Settings, Advanced). Lightkey then finds two interfaces and drives each from its own universe.
+Lightkey uses one port per interface, so on a DMX Core Pico 2 it drives port A. To use both ports, turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port) in the [DMX Core USB Utility](/usb-interface/config-utility/) (Settings, Advanced). Lightkey then finds two interfaces and drives each from its own universe.
 
-The DMX Core USB Utility can show port status and DMX levels while Lightkey is using the interface.
+The DMX Core USB Utility shows port status and DMX levels while Lightkey is using the interface, so you can check what goes out on each port during a show.
 
 Not tested yet: DMX input in Lightkey.
 
@@ -52,7 +56,7 @@ sudo udevadm control --reload && sudo systemctl restart olad
 
 Then plug the interface in (again) and patch its port to a universe in OLA's web interface.
 
-OLA uses port A of each interface. To use port B as well, turn on **a serial port per DMX port**; OLA then finds two interfaces.
+OLA uses one port per interface (port A on a DMX Core Pico 2). To use port B as well, turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port); OLA then finds two interfaces.
 
 :::note
 Some RDM fixtures take a moment after a SET (for example a new DMX address) before they answer again, and OLA then reports a timeout. The [RDM pause setting](/usb-interface/settings/#rdm) adds a pause between requests for fixtures like that.
@@ -60,7 +64,7 @@ Some RDM fixtures take a moment after a SET (for example a new DMX address) befo
 
 ## QLC+
 
-Not supported yet. QLC+ only lists USB DMX interfaces whose USB ID is on its own list, and the USB Interface's ID (`2E8A:1180`) is not on that list yet. We will update this page when a QLC+ version that lists the interface is available.
+Not supported yet. QLC+ only lists USB DMX interfaces whose USB ID is on its own list, and the USB Interface's ID (`2E8A:1180`) is not on that list yet. We're working on getting support added to QLC+, and will update this page when a QLC+ version that lists the interface is available.
 
 ## Other software
 
