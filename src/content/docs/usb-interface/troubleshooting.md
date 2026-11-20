@@ -30,7 +30,7 @@ Click **Allow USB access** in the utility and enter your password. If that does 
 
 ### Only port A of my DMX Core Pico 2 works
 
-Port B uses the extension message for a second port, which only some software sends. If your software drives one port per interface, turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port), and the software sees two interfaces.
+Port B uses a two-port extension message, which only some software sends. If your software drives one port per interface, turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port), and the software sees two interfaces.
 
 ### DMX input stops working once the software opens the interface
 

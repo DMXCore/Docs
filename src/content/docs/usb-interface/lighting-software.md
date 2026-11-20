@@ -16,7 +16,7 @@ While your lighting software has the interface open, the [DMX Core USB Interface
 By default the Pico 2 has **one serial port for both DMX ports**:
 
 * Port A uses the standard Enttec messages, so any software that supports an Enttec DMX USB Pro can send and receive on it.
-* Port B uses the extension message for a second port. Only software that supports the two-port extensions sends DMX to it.
+* Port B uses a two-port extension message. Only software that supports two-port extensions sends DMX to it.
 
 Software that drives only one port per interface (Lightkey, and other software built on OLA) can use both ports if you turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port). The Pico 2 then shows up as two one-port interfaces, each with its own serial port, and two programs can each drive a port.
 
