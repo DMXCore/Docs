@@ -9,7 +9,7 @@ Yes. The USB Interface firmware is free for every DMX Core Pico 2 owner, includi
 
 ### Which lighting software works with it?
 
-Lightkey on macOS, Lightjams on Windows and OLA on Linux have been tested. QLC+ does not list the interface yet; we're working on getting support added to QLC+. See [Lighting Software](/usb-interface/lighting-software/).
+Lightkey on macOS, Lightjams and FreeStyler on Windows, and OLA on Linux have been tested. QLC+ does not list the interface yet; we're working on getting support added to QLC+. See [Lighting Software](/usb-interface/lighting-software/).
 
 ### Does it need a driver?
 

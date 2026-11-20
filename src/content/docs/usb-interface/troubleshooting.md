@@ -27,6 +27,17 @@ Click **Allow USB access** in the utility and enter your password. If that does 
 * Close other programs that may have the serial port open. Only one program can open a serial port at a time. (The DMX Core USB Interface Utility does not use the serial port, so it can stay open.)
 * Software that uses FTDI's D2XX driver does not see the interface. It needs to support the interface as a serial port.
 
+### Windows says the COM port is in use or invalid
+
+Lighting software reports an invalid port number, or can't open the COM port, even though nothing else is using the interface. FreeStyler, for example, shows **Error creating output thread. (Invalid port number)**.
+
+This happens when Windows gave the interface a COM number that an old serial device, no longer plugged in, still holds. To fix it:
+
+* In Device Manager, choose **View** > **Show hidden devices**, and under **Ports (COM & LPT)** uninstall the grayed-out serial ports you no longer use. Or:
+* Give the interface a free COM number: in Device Manager, open the interface's port, then **Port Settings** > **Advanced** > **COM Port Number**.
+
+Then unplug the interface and plug it in again.
+
 ### Only port A of my DMX Core Pico 2 works
 
 Port B uses a two-port extension message, which only some software sends. If your software drives one port per interface, turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port), and the software sees two interfaces.

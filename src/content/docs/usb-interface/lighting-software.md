@@ -1,6 +1,6 @@
 ---
 title: Lighting Software
-description: Using the DMX Core Pico 2 USB Interface with Lightkey, Lightjams, OLA, QLC+ and other lighting software
+description: Using the DMX Core Pico 2 USB Interface with Lightkey, Lightjams, FreeStyler, OLA, QLC+ and other lighting software
 ---
 
 The USB Interface shows up on the computer as a USB serial port: a COM port on Windows, `/dev/cu.usbmodem…` on macOS and `/dev/ttyACM…` on Linux. It speaks the Enttec DMX USB Pro protocol, with extensions for a second port. In lighting software, choose the option for an **Enttec DMX USB Pro** (port A only) or a **DMXking ultraDMX** (both ports), whichever the software offers.
@@ -48,6 +48,20 @@ DMX input works too: with a serial port per DMX port, set a universe's **Kind** 
 Tested: Lightjams finds the interface and sends DMX.
 
 Lightjams sends to one USB serial interface only, even when several are connected, so on a DMX Core Pico 2 it drives one DMX port: port A by default. To drive port B instead, turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port) and pick port B's serial port in Lightjams (tested). Lightjams still drives only one of the two at a time. For more universes, use Lightjams' Art-Net or sACN output.
+
+## FreeStyler (Windows)
+
+Tested with FreeStylerX2 on Windows 11: FreeStyler sends DMX on port A.
+
+1. Plug in the interface.
+2. In FreeStyler, open **Setup** > **Interface**.
+3. For Universe 1, choose **EUROLITE USB-DMX512-Pro** and pick the interface's COM port.
+
+Don't choose **Enttec PRO**: that entry only lists interfaces that use FTDI's driver, so it never finds the USB Interface.
+
+Not tested yet: port B. With [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port) turned on, a second **EUROLITE USB-DMX512-Pro** entry for Universe 2 on port B's COM port should drive it.
+
+If FreeStyler reports **Error creating output thread. (Invalid port number)**, see [Windows says the COM port is in use or invalid](/usb-interface/troubleshooting/#windows-says-the-com-port-is-in-use-or-invalid).
 
 ## OLA, Open Lighting Architecture (Linux)
 
