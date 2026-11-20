@@ -47,7 +47,7 @@ Not tested yet: DMX input in Lightkey.
 
 Tested: Lightjams finds the interface and sends DMX.
 
-Lightjams uses one port per interface, like Lightkey, so on a DMX Core Pico 2 it drives port A. With [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port) turned on, the Pico 2 shows up as two interfaces, one per DMX port; we have not tested that with Lightjams yet.
+Lightjams sends to one USB serial interface only, even when several are connected, so on a DMX Core Pico 2 it drives one DMX port: port A. Turning on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port) doesn't change that, because Lightjams still lets you pick only one of the two serial ports. For more universes, use Lightjams' Art-Net or sACN output.
 
 ## OLA, Open Lighting Architecture (Linux)
 

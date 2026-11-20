@@ -68,7 +68,7 @@ Port directions, output rate, DMX timing (break and mark after break), full 512-
 | Software | Platform | Status |
 | --- | --- | --- |
 | Lightkey | macOS | Tested: finds the interface and sends DMX. On a DMX Core Pico 2 with a serial port per DMX port, it finds two interfaces and drives both ports. |
-| Lightjams | Windows | Tested: finds the interface and sends DMX on port A. |
+| Lightjams | Windows | Tested: finds the interface and sends DMX on port A. Lightjams uses only one USB interface, so it drives one port. |
 | OLA (Open Lighting Architecture) | Linux | Tested: works, including RDM, after a small configuration change. |
 | QLC+ | All | Not yet. QLC+ does not list the interface; we're working on getting support added to QLC+. |
 
