@@ -73,5 +73,3 @@ Software that supports an Enttec DMX USB Pro or a DMXking ultraDMX Pro **through
 * Software that uses FTDI's D2XX driver to find interfaces, instead of the serial port, does not see the interface.
 * The interface identifies itself as **DMX Core**, not as Enttec or DMXking. Software that only accepts its own vendor's interfaces won't use it.
 * If the software lists interfaces by USB ID, it needs `2E8A:1180` on its list.
-
-Developers adding support for the interface can [contact us](https://dmxprosales.com/pages/contact-us) for protocol details.
