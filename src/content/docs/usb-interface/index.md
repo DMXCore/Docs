@@ -27,7 +27,7 @@ Some lighting software, such as Lightkey, uses only one port per interface. Turn
 
 | Hardware | DMX ports | Notes |
 | --- | --- | --- |
-| [DMX Core Pico 2](/dmx-core-pico-2/) | 2 (A and B) | Output on both ports, input on port A (and on port B with a serial port per DMX port), RDM on both. See [DMX Core Pico 2 Ports](/usb-interface/ports-and-wiring/). |
+| [DMX Core Pico 2](/dmx-core-pico-2/) | 2 (A and B) | Output and input on both ports, RDM on both. Input on port B needs software that supports two-port input, such as DMX Core 100, or a serial port per DMX port. See [DMX Core Pico 2 Ports](/usb-interface/ports-and-wiring/). |
 
 On the Pico 2, the USB Interface firmware runs on the same hardware as the [Re-Mapper](/dmx-core-pico-2-re-mapper/) and your own code. You can switch between them at any time by copying a different `.uf2` file onto the board.
 
@@ -44,7 +44,7 @@ On the Pico 2, the USB Interface firmware runs on the same hardware as the [Re-M
 
 * **Steady output.** The interface repeats the latest frame on its own at the output rate (up to 40 frames per second, or as fast as the frame allows), whatever the computer is doing.
 * **DMX input**, sent to the computer every frame or only on change. At most 40 received frames per second go to the computer by default, always the newest, so software keeps up with fast consoles.
-* **On the DMX Core Pico 2:** port A sends or receives; port B sends, and also receives with a serial port per DMX port. See [DMX Core Pico 2 Ports](/usb-interface/ports-and-wiring/).
+* **On the DMX Core Pico 2:** both ports send or receive. Port B's input reaches software that supports two-port input, such as DMX Core 100, or any software with a serial port per DMX port. See [DMX Core Pico 2 Ports](/usb-interface/ports-and-wiring/).
 
 ### RDM
 
@@ -79,7 +79,7 @@ Details and setup steps for each are on the [Lighting Software](/usb-interface/l
 
 * Software that talks to interfaces through FTDI's D2XX driver, instead of a serial (COM) port, does not see the interface.
 * No Art-Net or sACN over USB. The interface does DMX and RDM on its own ports.
-* On the DMX Core Pico 2, DMX input on port B needs [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port), and the digital inputs and outputs are not used by this firmware.
+* On the DMX Core Pico 2, DMX input on port B needs software that supports two-port input, such as DMX Core 100, or [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port). The digital inputs and outputs are not used by this firmware.
 
 ## Purchase Information
 

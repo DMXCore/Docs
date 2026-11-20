@@ -16,7 +16,7 @@ While your lighting software has the interface open, the [DMX Core USB Interface
 By default the Pico 2 has **one serial port for both DMX ports**:
 
 * Port A uses the standard Enttec messages, so any software that supports an Enttec DMX USB Pro can send and receive on it.
-* Port B uses a two-port extension message. Only software that supports two-port extensions sends DMX to it.
+* Port B uses a two-port extension message. Only software that supports two-port extensions sends DMX to it, and only software that also supports two-port input, such as DMX Core 100, reads what port B receives.
 
 Software that drives only one port per interface (Lightkey, and other software built on OLA) can use both ports if you turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port). The Pico 2 then shows up as two one-port interfaces, each with its own serial port, and two programs can each drive a port.
 
@@ -62,6 +62,10 @@ Don't choose **Enttec PRO**: that entry only lists interfaces that use FTDI's dr
 FreeStyler drives port A only, unless you turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port). Then choose **EUROLITE USB-DMX512-Pro** for Universe 1 with port A's COM port, and again for Universe 2 with port B's COM port.
 
 If FreeStyler reports **Error creating output thread. (Invalid port number)**, see [Windows says the COM port is in use or invalid](/usb-interface/troubleshooting/#windows-says-the-com-port-is-in-use-or-invalid).
+
+## DMX Core 100
+
+[DMX Core 100](/dmx-core-100/) supports the full two-port extensions, including two-port input. On a DMX Core Pico 2 with the default one serial port, it sends on both ports and reads the input of both at the same time, so it doesn't need a serial port per DMX port.
 
 ## OLA, Open Lighting Architecture (Linux)
 

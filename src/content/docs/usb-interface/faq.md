@@ -29,7 +29,7 @@ Yes. Software that supports two-port extensions drives both ports over one seria
 
 ### Can it receive DMX?
 
-Yes. On the DMX Core Pico 2, on port A, and on port B when each port has its own serial port.
+Yes, on both ports of a DMX Core Pico 2. Any software can read port A. Port B's input reaches software that supports two-port input, such as DMX Core 100, or any software once each port has its own serial port.
 
 ### Does it support RDM?
 

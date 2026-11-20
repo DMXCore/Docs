@@ -24,13 +24,13 @@ Software can set its own frame rate and DMX timing while it has the interface op
 
 | Value | Port A | Port B |
 | --- | --- | --- |
-| **Auto** (default) | Receives until a program sends to it, then sends | Sends once a program sends to it |
-| **Input** | Always receives. Output frames for the port are dropped. | Always receives (needs a serial port per DMX port to reach the computer) |
+| **Auto** (default) | Receives until a program sends to it, then sends | The same as port A. With one serial port, only DMX Core 100 reads what port B receives. |
+| **Input** | Always receives. Output frames for the port are dropped. | Always receives. Only with a serial port per DMX port. |
 | **Output** | Sends once a program sends to it, and keeps sending | The same as Auto |
 
 Set port A to **Input** when software keeps sending output frames to a port you want to use as an input. A change applies at once.
 
-Port B is on two-port hardware such as the DMX Core Pico 2. It offers **Input** when it can receive, which is with [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port).
+Port B is on two-port hardware such as the DMX Core Pico 2. It offers **Input** only with [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port). With one serial port, port B on **Auto** still receives until a program sends to it, but only software that supports two-port input, such as DMX Core 100, reads it.
 
 ### Input rate
 
@@ -75,6 +75,6 @@ Under **Advanced…**. Only on two-port hardware, such as the DMX Core Pico 2.
 | Value | What it does |
 | --- | --- |
 | **One for both DMX ports** (default) | One serial port. Port A uses the Enttec messages, port B a two-port extension message. |
-| **One per DMX port** | Two serial ports, one per DMX port, each a complete one-port interface (`DMX Core Pico 2 A` and `DMX Core Pico 2 B`). Two programs can each drive a port, software that uses one port per interface can use both, and port B can receive DMX. |
+| **One per DMX port** | Two serial ports, one per DMX port, each a complete one-port interface (`DMX Core Pico 2 A` and `DMX Core Pico 2 B`). Two programs can each drive a port, software that uses one port per interface can use both, and any software can read port B's input. |
 
 See [A serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port) for how the two serial ports behave. Changing this setting restarts the interface. Software that has it open loses its connection while it restarts. On Windows, the second serial port gets its own COM port number.

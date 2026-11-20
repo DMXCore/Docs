@@ -10,9 +10,9 @@ The Pico 2 has two isolated DMX512 ports, **port A** and **port B**, on Phoenix-
 | | Port A | Port B |
 | --- | --- | --- |
 | Send DMX | Yes | Yes |
-| Receive DMX | Yes | With [a serial port per DMX port](#a-serial-port-per-dmx-port) |
+| Receive DMX | Yes | Yes. With one serial port, only software that supports two-port input, such as DMX Core 100, reads it; with [a serial port per DMX port](#a-serial-port-per-dmx-port), any software can. |
 | RDM | Yes | Yes |
-| Default behavior | Receives until a program sends to it, then sends | Sends once a program sends to it |
+| Default behavior | Receives until a program sends to it, then sends | The same as port A |
 
 How a port behaves can be changed with its [direction setting](/usb-interface/settings/#port-direction).
 
@@ -32,7 +32,7 @@ Turn on **a serial port per DMX port** and the Pico 2 shows up as **two interfac
 
 * Each serial port is a complete one-port interface with its own serial number, so software that tells interfaces apart by serial number sees two.
 * Two programs can each drive a port, or one program can drive both from two universes.
-* Port B can receive DMX in this mode.
+* Any software can read port B's input in this mode, not only software that supports two-port input.
 * Settings belong to the board, not to a serial port: both serial ports, and the utility, see the same settings.
 * On Windows, the second serial port gets its own COM port number.
 
