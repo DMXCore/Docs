@@ -51,7 +51,7 @@ Lightjams sends to one USB serial interface only, even when several are connecte
 
 ## FreeStyler (Windows)
 
-Tested with FreeStylerX2 on Windows 11: FreeStyler sends DMX on port A.
+Tested with FreeStylerX2 on Windows 11: FreeStyler sends DMX on port A, and on both ports with a serial port per DMX port.
 
 1. Plug in the interface.
 2. In FreeStyler, open **Setup** > **Interface**.
@@ -59,7 +59,7 @@ Tested with FreeStylerX2 on Windows 11: FreeStyler sends DMX on port A.
 
 Don't choose **Enttec PRO**: that entry only lists interfaces that use FTDI's driver, so it never finds the USB Interface.
 
-Not tested yet: port B. With [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port) turned on, a second **EUROLITE USB-DMX512-Pro** entry for Universe 2 on port B's COM port should drive it.
+FreeStyler drives port A only, unless you turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port). Then choose **EUROLITE USB-DMX512-Pro** for Universe 1 with port A's COM port, and again for Universe 2 with port B's COM port.
 
 If FreeStyler reports **Error creating output thread. (Invalid port number)**, see [Windows says the COM port is in use or invalid](/usb-interface/troubleshooting/#windows-says-the-com-port-is-in-use-or-invalid).
 
