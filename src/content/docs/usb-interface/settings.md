@@ -74,7 +74,7 @@ Under **Advanced…**. Only on two-port hardware, such as the DMX Core Pico 2.
 
 | Value | What it does |
 | --- | --- |
-| **One for both DMX ports** (default) | One serial port. Port A uses the Enttec messages, port B the DMXking second-port message. |
+| **One for both DMX ports** (default) | One serial port. Port A uses the Enttec messages, port B the extension message for a second port. |
 | **One per DMX port** | Two serial ports, one per DMX port, each a complete one-port interface (`DMX Core Pico 2 A` and `DMX Core Pico 2 B`). Two programs can each drive a port, software that uses one port per interface can use both, and port B can receive DMX. |
 
 See [A serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port) for how the two serial ports behave. Changing this setting restarts the interface. Software that has it open loses its connection while it restarts. On Windows, the second serial port gets its own COM port number.

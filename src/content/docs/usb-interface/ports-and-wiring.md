@@ -18,7 +18,7 @@ How a port behaves can be changed with its [direction setting](/usb-interface/se
 
 ## A serial port per DMX port
 
-By default the Pico 2 is one interface with one serial port, and lighting software reaches port B through DMXking's message for a second port. Software that drives only one port per interface, such as Lightkey and other software built on OLA, can then use only port A.
+By default the Pico 2 is one interface with one serial port, and lighting software reaches port B through the extension message for a second port. Software that drives only one port per interface, such as Lightkey and other software built on OLA, can then use only port A.
 
 Turn on **a serial port per DMX port** and the Pico 2 shows up as **two interfaces**, one per DMX port:
 

@@ -5,7 +5,7 @@ description: Firmware that turns DMX Core hardware, such as the DMX Core Pico 2,
 
 The USB Interface is firmware for DMX Core hardware. It turns the hardware into a USB-to-DMX interface: plug it into a computer and lighting software sees a USB DMX interface on a serial (COM) port. On a [DMX Core Pico 2](/dmx-core-pico-2/) it is the **DMX Core Pico 2 USB Interface**, with two isolated DMX512 ports.
 
-It speaks the Enttec DMX USB Pro protocol, with the DMXking extensions for a second port, so software that supports an Enttec DMX USB Pro or a DMXking ultraDMX Pro can drive it. It also does RDM, so you can find fixtures and set their DMX address from your computer.
+It speaks the Enttec DMX USB Pro protocol, with extensions for a second port, so software that supports an Enttec DMX USB Pro or a DMXking ultraDMX can drive it. It also does RDM, so you can find fixtures and set their DMX address from your computer.
 
 ## Highlights
 
