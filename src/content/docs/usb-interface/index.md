@@ -9,9 +9,11 @@ It speaks the Enttec DMX USB Pro protocol, with extensions for a second port, so
 
 ## Highlights
 
-### Watch the DMX while your lighting software runs
+### Watch the DMX and use RDM while your lighting software runs
 
-The [DMX Core USB Interface Utility](/usb-interface/config-utility/) shows each port's status and its live DMX levels **while your lighting software has the interface open**. The utility talks to the interface over a USB connection of its own, separate from the serial port the lighting software uses, so you don't have to close your show to see what the interface is sending or receiving. RDM works alongside your software too.
+The [DMX Core USB Interface Utility](/usb-interface/config-utility/) shows each port's status and its live DMX levels **while your lighting software has the interface open**. The utility talks to the interface over a USB connection of its own, separate from the serial port the lighting software uses, so you don't have to close your show to see what the interface is sending or receiving.
+
+**RDM works live, too.** With the show running, the utility can find fixtures, change their DMX address, label or personality, identify them and read their sensors. See [RDM](/usb-interface/config-utility/#rdm).
 
 The utility runs on **Windows, macOS and Linux**.
 

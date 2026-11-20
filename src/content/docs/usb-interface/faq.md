@@ -17,7 +17,11 @@ No. It uses the standard USB serial driver built into Windows, macOS and Linux.
 
 ### Can I watch the DMX while my lighting software is running?
 
-Yes. The [USB Interface Utility](/usb-interface/config-utility/#monitoring-while-your-lighting-software-runs) shows port status and live DMX levels while your software has the interface open, because it uses its own USB connection rather than the serial port.
+Yes. The [USB Interface Utility](/usb-interface/config-utility/#monitoring-and-rdm-while-your-lighting-software-runs) shows port status and live DMX levels while your software has the interface open, because it uses its own USB connection rather than the serial port.
+
+### Can I use RDM while my lighting software is running?
+
+Yes. The [DMX Core USB Interface Utility's RDM tool](/usb-interface/config-utility/#rdm) works while your software has the interface open: find fixtures, change their DMX address, label or personality, and read their sensors without stopping the show. DMX output keeps going between RDM requests. Discovery mutes the fixtures for a moment.
 
 ### Can I use both DMX ports of a DMX Core Pico 2?
 

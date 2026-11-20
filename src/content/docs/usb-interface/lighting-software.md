@@ -9,7 +9,7 @@ This page lists what has been tested. If you try it with other software, we'd li
 
 ## Monitoring while your software runs
 
-While your lighting software has the interface open, the [DMX Core USB Interface Utility](/usb-interface/config-utility/#monitoring-while-your-lighting-software-runs) can show each port's status and live DMX levels. It uses its own USB connection to the interface, not the serial port, so you can keep both open.
+While your lighting software has the interface open, the [DMX Core USB Interface Utility](/usb-interface/config-utility/#monitoring-and-rdm-while-your-lighting-software-runs) can show each port's status and live DMX levels. It uses its own USB connection to the interface, not the serial port, so you can keep both open.
 
 ## Two ports (DMX Core Pico 2)
 

@@ -5,13 +5,13 @@ description: Install and use the DMX Core USB Interface Utility to check ports, 
 
 The DMX Core USB Interface Utility shows what the interface is doing (ports, DMX levels, RDM), changes its settings, sends test patterns and installs firmware. It runs on **Windows, macOS and Linux**, and updates itself when a new version is published.
 
-## Monitoring while your lighting software runs
+## Monitoring and RDM while your lighting software runs
 
-The utility talks to the interface over a USB connection of its own, separate from the serial port your lighting software uses. So while your software has the interface open and is running a show, the utility can still show:
+The utility talks to the interface over a USB connection of its own, separate from the serial port your lighting software uses. So while your software has the interface open and is running a show, the utility can still:
 
-* each port's status: what it is doing, frames sent and received, and whether the program is still sending,
-* the live DMX levels of every channel, sent or received,
-* RDM fixtures, with discovery and settings.
+* show each port's status: what it is doing, frames sent and received, and whether the program is still sending,
+* show the live DMX levels of every channel, sent or received,
+* run RDM: discover fixtures, change their DMX address, label or personality, identify them and read their sensors, without stopping the show.
 
 You don't need to close your lighting software to check what the interface is doing. Test sends are the one thing that waits until the software has closed the interface.
 
