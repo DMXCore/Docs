@@ -58,7 +58,7 @@ Releases up to 1.0.10 used a different USB ID. After updating from one of them, 
 
 Copy a different `.uf2` the same way: hold BOOTSEL, plug in, and copy the file onto the `RPI-RP2` drive.
 
-* **Re-Mapper:** download `dmxcorepico2-remapper.uf2` from the [Re-Mapper releases](https://github.com/DMXCore/Pico2ReMapper-Public/releases). The USB Interface firmware does not touch the part of the flash where the Re-Mapper keeps its mapping and license, so they are still there when you go back.
+* **Re-Mapper:** download `dmxcorepico2-remapper.uf2` from the [Re-Mapper releases](https://github.com/DMXCore/Pico2ReMapper-Public/releases). The USB Interface firmware does not touch the part of the flash where the Re-Mapper keeps its mapping and license, so they are still there when you go back. The license is tied to the board, so if it is ever lost, the Re-Mapper can be activated again. To keep a copy of your mapping, use **Write Mapping to local file** in the [Re-Mapper Config Utility](/dmx-core-pico-2-re-mapper/config-utility/) before you switch.
 * **Your own firmware:** see the Pico 2 [Software](/dmx-core-pico-2/software/) page.
 
 ## Release notes
