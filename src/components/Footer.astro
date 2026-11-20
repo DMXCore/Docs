@@ -1,8 +1,20 @@
 ---
-// Starlight Footer override: the default footer plus the docs copilot widget.
+// Starlight Footer override: the default footer, the copyright and trademark notice, and the docs copilot widget.
 import Default from '@astrojs/starlight/components/Footer.astro';
 import HelpWidget from './HelpWidget.astro';
 ---
 
 <Default><slot /></Default>
+<p class="legal-notice">
+  &copy; 2026 DMX Pro Sales, LLC. All rights reserved. DMX Core is a registered trademark of DMX Pro Sales, LLC.
+  Other product names are trademarks of their respective owners.
+</p>
 <HelpWidget />
+
+<style>
+  .legal-notice {
+    margin-top: 1.5rem;
+    font-size: var(--sl-text-xs);
+    color: var(--sl-color-gray-3);
+  }
+</style>
