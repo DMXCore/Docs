@@ -1,6 +1,6 @@
 ---
 title: FAQ
-description: Frequently asked questions about the DMX Core Pico 2 USB Interface
+description: Frequently asked questions about the DMX Core USB Interface
 ---
 
 ### Is the firmware free?

@@ -1,6 +1,6 @@
 ---
 title: Lighting Software
-description: Using the DMX Core Pico 2 USB Interface with Lightkey, Lightjams, FreeStyler, OLA, QLC+ and other lighting software
+description: Using the DMX Core USB Interface with Lightkey, Lightjams, FreeStyler, OLA, QLC+ and other lighting software
 ---
 
 The USB Interface shows up on the computer as a USB serial port: a COM port on Windows, `/dev/cu.usbmodem…` on macOS and `/dev/ttyACM…` on Linux. It speaks the Enttec DMX USB Pro protocol, with extensions for a second port. In lighting software, choose the option for an **Enttec DMX USB Pro** (port A only) or a **DMXking ultraDMX** (both ports), whichever the software offers.

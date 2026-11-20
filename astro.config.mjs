@@ -272,7 +272,7 @@ export default defineConfig({
         {
           // Shared USB Interface firmware pages (usb-interface/*). Another product that runs
           // this firmware gets its own group with its hardware pages, linking to these.
-          label: 'USB Interface',
+          label: 'DMX USB Interface',
           items: [
             { label: 'Overview', slug: 'usb-interface' },
             { label: 'Installing the Firmware', slug: 'usb-interface/installing-firmware' },

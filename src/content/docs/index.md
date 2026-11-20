@@ -21,7 +21,7 @@ Raspberry Pi Pico-based hardware with two robust, isolated DMX512 ports. Product
 
 Pico 2 with included software for DMX channel re-mapping. Product page: [dmxcore.com/pico](https://dmxcore.com/pico).
 
-### [USB Interface](/usb-interface/)
+### [DMX USB Interface](/usb-interface/)
 
 Free firmware that turns a DMX Core Pico 2 into a two-port USB DMX interface with RDM, for lighting software on Windows, macOS and Linux. Product page: [dmxcore.com/usb-interface](https://dmxcore.com/usb-interface).
 

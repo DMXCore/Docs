@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description: Fixes for common problems with the DMX Core Pico 2 USB Interface
+description: Fixes for common problems with the DMX Core USB Interface
 ---
 
 ### The computer does not see the interface, or the status LED keeps blinking
