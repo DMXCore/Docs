@@ -18,7 +18,7 @@ While the Pico 2 is connected to a computer, power it from USB only and leave th
 
 When it is done, the interface shows up in the utility's main window.
 
-<!-- Screenshot needed: the boot-loader banner in the utility's main window, and the Firmware dialog installing onto a board in its boot loader. -->
+<!-- Screenshot needed: the boot-loader banner in the utility's main window (a board held in BOOTSEL). -->
 
 :::note
 A board in its boot loader only tells the utility its chip type, so the utility asks you to check that it is a DMX Core Pico 2 before it copies anything.
@@ -39,6 +39,8 @@ Once the USB Interface firmware is running, you don't need the BOOTSEL button fo
 1. Open the [DMX Core USB Utility](/usb-interface/config-utility/) and select the interface.
 2. Click **Firmware…**. The dialog shows the installed version and whether an update is available.
 3. Pick a version and click **Install**. The utility puts the interface into its boot loader, copies the firmware, and waits until the interface is back.
+
+![The Firmware dialog showing the installed version and the available releases](/assets/usb-interface/firmware.png)
 
 Keep the interface plugged in until it is back. Settings are kept across updates.
 

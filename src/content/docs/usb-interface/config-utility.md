@@ -15,7 +15,7 @@ The utility talks to the interface over a USB connection of its own, separate fr
 
 You don't need to close your lighting software to check what the interface is doing. Test sends are the one thing that waits until the software has closed the interface.
 
-<!-- Screenshot needed: the main window while a lighting program drives the interface (Program field showing the program, DMX levels moving). -->
+![The utility showing live DMX levels on port A while a program has the serial port open ("COM21: A program has the serial port open")](/assets/usb-interface/monitor-while-program-runs.png)
 
 ## Install
 
@@ -52,7 +52,7 @@ The utility checks for a new version every time it starts. When one is ready, a 
 
 Plug in the interface; it shows up by itself. With more than one interface plugged in, pick one at the top.
 
-<!-- Screenshot needed: the main window with a DMX Core Pico 2, both port cards and the DMX levels pane. -->
+![The main window with a DMX Core Pico 2: port A receiving, port B sending, and port A's DMX levels](/assets/usb-interface/main-window.png)
 
 The top of the window shows the interface's name, serial number, firmware version, and how long it has been running. It also shows how many messages it has had from the computer and, on a DMX Core Pico 2, whether it has one serial port or one per DMX port. The buttons:
 
@@ -106,7 +106,7 @@ For the selected fixture you can:
 
 RDM works while lighting software is using the interface. Discovery still mutes the fixtures for a moment, and the software may run its own RDM at the same time.
 
-<!-- Screenshot needed: the RDM pane with a few fixtures discovered and one selected. -->
+![The RDM pane on port B with two fixtures found and one selected](/assets/usb-interface/rdm.png)
 
 ## Troubleshooting log
 

@@ -7,7 +7,7 @@ The interface keeps its settings in its own flash memory, so they stay with the 
 
 The less common settings are under **Advanced…** at the bottom of the dialog.
 
-<!-- Screenshot needed: the Settings dialog, with Advanced open. -->
+![The Settings dialog with Advanced open](/assets/usb-interface/settings.png)
 
 ## Output
 

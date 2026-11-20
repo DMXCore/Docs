@@ -15,7 +15,7 @@ The [DMX Core USB Utility](/usb-interface/config-utility/) shows each port's sta
 
 The utility runs on **Windows, macOS and Linux**.
 
-<!-- Screenshot needed: the utility's main window showing port status and DMX levels while a lighting program (for example Lightkey) is driving the interface. -->
+![The DMX Core USB Utility showing port A's live DMX levels while another program has the serial port open](/assets/usb-interface/monitor-while-program-runs.png)
 
 ### Both ports in one-port software (DMX Core Pico 2)
 
