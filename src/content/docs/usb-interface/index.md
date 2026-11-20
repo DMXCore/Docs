@@ -35,6 +35,7 @@ On the Pico 2, the USB Interface firmware runs on the same hardware as the [Re-M
 
 * Supported hardware, such as a [DMX Core Pico 2](https://dmxcore.com/pico)
 * The USB Interface firmware, free for every DMX Core Pico 2 owner, from [GitHub releases](https://github.com/DMXCore/USBInterface-Public/releases) or through the USB Interface Utility. See [Installing the Firmware](/usb-interface/installing-firmware/).
+* A one-time [activation](/usb-interface/installing-firmware/#activating) with the USB Interface Utility and an internet connection, if the board isn't activated yet
 * A computer running Windows, macOS or Linux, and a USB cable
 * Recommended: the [USB Interface Utility](/usb-interface/config-utility/) to monitor the ports, change settings, update the firmware and use RDM
 

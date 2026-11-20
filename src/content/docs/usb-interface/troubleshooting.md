@@ -9,6 +9,16 @@ description: Fixes for common problems with the DMX Core USB Interface
 * Try another cable. Some USB-C cables carry power only.
 * Check that the USB Interface firmware is installed. A board with other firmware (the Re-Mapper, your own code, or MicroPython) shows up differently or not at all. [Install the firmware](/usb-interface/installing-firmware/).
 
+### The interface receives DMX but sends nothing
+
+Check the [USB Interface Utility](/usb-interface/config-utility/#activation). If it says **This USB Interface is not activated**, click **Activate** with the computer online. Until it is activated, the board sends no DMX, RDM or test sends.
+
+### Activation fails, or says the board can't be activated
+
+* Check the internet connection and click **Activate** again.
+* If the utility says the board is not a genuine DMX Core or can't be activated, click **Copy** next to the board's unique ID in the banner and [contact us](https://dmxprosales.com/pages/contact-us) with it.
+* If it says the activation could not be saved on the board, the board sends DMX only until it is powered off. Click **Activate** again to save it.
+
 ### The `RPI-RP2` drive does not appear
 
 Hold **BOOTSEL** while you plug in the USB cable, and keep holding it until the drive appears. The same power-input note applies: power from USB only.

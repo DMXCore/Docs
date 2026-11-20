@@ -62,6 +62,14 @@ The top of the window shows the interface's name, serial number, firmware versio
 
 If the interface reports a problem, it is listed under these buttons.
 
+### Activation
+
+The USB Interface sends DMX only once the board is activated. A board that isn't shows a red banner under the buttons: **This USB Interface is not activated, so it sends no DMX.** Click **Activate** with the computer online. The utility sends the board's ID and firmware version to DMX Core, gets the board's activation back and stores it on the board. When it is done, the window says **Activated: this USB Interface sends DMX now.**
+
+You only do this once per board. The activation is kept through firmware updates and power cycles, and the board works without the utility or an internet connection afterward. DMX input, monitoring and settings work before activation too; output, RDM and test sends don't.
+
+The banner also shows the board's **unique ID**, with a **Copy** link. If activation fails, the banner says why. If it says the board can't be activated, [contact us](https://dmxprosales.com/pages/contact-us) with that ID.
+
 ### Port status
 
 Each DMX port has a card:

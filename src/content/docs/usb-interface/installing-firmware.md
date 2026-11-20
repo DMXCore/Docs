@@ -34,6 +34,14 @@ A board in its boot loader only tells the utility its chip type, so the utility 
 
 The board restarts with the new firmware. The drive disappears and a new serial port appears.
 
+## Activating
+
+The USB Interface sends DMX only once the board is activated. Activation is a one-time step: it is tied to the board and stays through firmware updates and power cycles. DMX input works either way.
+
+To check, open the [USB Interface Utility](/usb-interface/config-utility/#activation) with the board plugged in. If the board is already activated, there is nothing to do. If the utility shows **This USB Interface is not activated**, make sure the computer is online and click **Activate**. The utility gets the board's activation from DMX Core and stores it on the board, and DMX output starts right away. After that the board works without the utility and without an internet connection.
+
+Every DMX Core Pico 2 can be activated, including boards that ran the Re-Mapper or older USB Interface releases. Other RP2040 boards, such as a Raspberry Pi Pico, can't be activated.
+
 ## Updating
 
 Once the USB Interface firmware is running, you don't need the BOOTSEL button for updates:
@@ -44,7 +52,7 @@ Once the USB Interface firmware is running, you don't need the BOOTSEL button fo
 
 ![The Firmware dialog showing the installed version and the available releases](/assets/usb-interface/firmware.png)
 
-Keep the interface plugged in until it is back. Settings are kept across updates.
+Keep the interface plugged in until it is back. Settings and the activation are kept across updates.
 
 If the utility cannot find the boot drive after the interface restarts into its boot loader, it saves the `.uf2` file to your **Downloads** folder and tells you to copy it onto the `RPI-RP2` drive yourself.
 
@@ -54,8 +62,8 @@ You can also install an older version from the same list.
 
 Copy a different `.uf2` the same way: hold BOOTSEL, plug in, and copy the file onto the `RPI-RP2` drive.
 
-* **Re-Mapper:** download `dmxcorepico2-remapper.uf2` from the [Re-Mapper releases](https://github.com/DMXCore/Pico2ReMapper-Public/releases). The USB Interface firmware does not touch the part of the flash where the Re-Mapper keeps its mapping and license, so they are still there when you go back. The license is tied to the board, so if it is ever lost, the Re-Mapper can be activated again. To keep a copy of your mapping, use **Write Mapping to local file** in the [Re-Mapper Config Utility](/dmx-core-pico-2-re-mapper/config-utility/) before you switch.
-* **Your own firmware:** see the Pico 2 [Software](/dmx-core-pico-2/software/) page.
+* **Re-Mapper:** download `dmxcorepico2-remapper.uf2` from the [Re-Mapper releases](https://github.com/DMXCore/Pico2ReMapper-Public/releases). The USB Interface firmware does not touch the part of the flash where the Re-Mapper keeps its mapping and license, so they are still there when you go back. The USB Interface's activation is kept too, so it sends DMX again as soon as you go back to it. The Re-Mapper license is tied to the board, so if it is ever lost, the Re-Mapper can be activated again. To keep a copy of your mapping, use **Write Mapping to local file** in the [Re-Mapper Config Utility](/dmx-core-pico-2-re-mapper/config-utility/) before you switch.
+* **Your own firmware:** see the Pico 2 [Software](/dmx-core-pico-2/software/) page. Firmware that uses the end of the flash, such as MicroPython, can erase the activation. If the USB Interface says it is not activated when you go back to it, activate it again.
 
 ## Release notes
 
