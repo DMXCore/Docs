@@ -55,7 +55,7 @@ Only one program can use the Re-Mapper at a time. If the app says another progra
 The top of the window shows the Re-Mapper's serial number, firmware version and serial port. The buttons:
 
 * **Identify** blinks the Re-Mapper's LEDs for 5 seconds, to tell which one you are working on.
-* **Settings…** changes the output settings. See [Settings](#settings).
+* **Settings…** shows the settings the firmware has. Firmware 1.4 has none yet.
 * **Firmware…** shows the installed firmware and installs a new one. See [Updating the firmware](#updating-the-firmware).
 * **About** shows the app's version, checks for updates and opens the log folder.
 
@@ -154,7 +154,7 @@ The app downloads the firmware from GitHub, so the computer needs to be online.
 
 ### Firmware 1.4 or later
 
-Click **Install**. The app restarts the Re-Mapper into its boot loader, copies the firmware and waits until the Re-Mapper is back. Keep it plugged in until then. The mapping, license and settings are kept.
+Click **Install**. The app restarts the Re-Mapper into its boot loader, copies the firmware and waits until the Re-Mapper is back. Keep it plugged in until then. The mapping and license are kept.
 
 If the app cannot find the boot drive after the Re-Mapper restarts, it saves the `.uf2` file to your **Downloads** folder and tells you to copy it onto the `RPI-RP2` drive yourself.
 
