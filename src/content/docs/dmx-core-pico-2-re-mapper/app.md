@@ -1,9 +1,9 @@
 ---
 title: DMX Core Re-Mapper app
-description: Install and use the DMX Core Re-Mapper app to watch the DMX input and output, edit and save the mapping, activate the Re-Mapper and update its firmware
+description: Install and use the DMX Core Re-Mapper app to watch the DMX input and output, edit and save the mapping, test the output, activate the Re-Mapper and update its firmware
 ---
 
-The DMX Core Re-Mapper app is the tool for setting up a DMX Core Pico 2 Re-Mapper. It shows the DMX going in and the re-mapped DMX going out, edits and saves the mapping, activates the Re-Mapper and updates its firmware. It runs on **Windows, macOS and Linux**, and updates itself when a new version is published.
+The DMX Core Re-Mapper app is the tool for setting up a DMX Core Pico 2 Re-Mapper. It shows the DMX going in and the re-mapped DMX going out, edits and saves the mapping, tests the output, activates the Re-Mapper and updates its firmware. It runs on **Windows, macOS and Linux**, and updates itself when a new version is published.
 
 The app works with Re-Mapper firmware 1.4 or later. With older firmware it offers the firmware update first; see [Updating the firmware](#updating-the-firmware).
 
@@ -76,6 +76,10 @@ The line above each side shows the number of channels in the frame, the frame ra
 
 **Digital inputs** at the top right shows the four digital inputs: a dot lights up while its input is on.
 
+**Digital outputs** next to it shows the four digital outputs. They follow input channels 1-4: an output is on while its channel is above 127, once the Re-Mapper is activated. With older firmware that doesn't report them, the app leaves them out.
+
+The **Test** strip on the right edge opens the [Test pane](#testing-the-output).
+
 ## Editing the mapping
 
 ![The Mapping view with four outputs selected and unsaved changes](/assets/dmx-core-pico-2-re-mapper/app-mapping.png)
@@ -120,6 +124,26 @@ A mapping can be kept as a file on the computer, as a backup or to copy it to an
 * **Load from file…** reads a `.yaml` file and sends it to the Re-Mapper. Like any other change it is live right away but not saved: click **Save to device** to keep it, or **Revert** to go back.
 
 The files are the same YAML files the [command-line Config Utility](/dmx-core-pico-2-re-mapper/config-utility/#write-mapping-to-local-file) writes, so files from either tool work in the other. They are plain text and can be edited in any text editor. If a line in a file can't be read, that channel is set to 1:1 and the app tells you which.
+
+## Testing the output
+
+![The Test pane during a test: Red on channels 1-12, the digital outputs switched on, and the Test mode is on banner](/assets/dmx-core-pico-2-re-mapper/app-test.png)
+
+The **Test** pane takes over port B and the four digital outputs, to check fixtures, cabling and relays without changing the console or the mapping. Open it with the **Test** strip on the right edge of the **Monitor** view. It works the same way as the [USB Interface utility's Test send](/usb-interface/config-utility/#test-send).
+
+1. Click **Start test**. The Re-Mapper freezes what it is sending: port B keeps sending the current frame, and the digital outputs keep their current states, whatever comes in on port A.
+2. Change the frame from there:
+   * **Channels** and **Level** set the range and the level for the patterns.
+   * **All** puts every channel in the range at the level. **Red**, **Green** and **Blue** do it for RGB pixels from the first channel of the range (R, G, B, R, G, B…). **Sine** runs a wave across the range, with **Speed** and **Wave** (channels per wave; 0 moves them all together). **Off** puts the range at 0. Channels outside the range keep their frozen levels.
+   * **Outputs 1-4** switch the digital outputs on and off.
+   * Press and hold a channel in the output grid to flash it: it goes to full (255) while you hold it, and back when you let go. Use it to find which fixture is on which channel.
+3. Click **Stop test**. The output goes back to re-mapping the input, and the digital outputs follow input channels 1-4 again.
+
+While a test runs, a **Test mode is on** banner shows in both views, with its own **Stop test** button, and the Monitor shows the test frame on the output side.
+
+A test also stops when you close the pane, switch to another Re-Mapper or close the app. If the app goes away without stopping it, for example when the USB cable is pulled, the Re-Mapper stops the test by itself within 2 seconds. The saved mapping is never changed by a test.
+
+The Re-Mapper has to be [activated](#activation) to test: a Re-Mapper that is not activated sends nothing, also not in a test. The pane needs firmware with test mode; with older firmware the **Test** strip doesn't show. See [Updating the firmware](#updating-the-firmware).
 
 ## Activation
 
@@ -199,6 +223,7 @@ On a system without a graphical password prompt, the app shows a command to run 
 ### No DMX on the output
 
 * Check for a **Not activated** banner. See [Activation](#activation).
+* Check for a **Test mode is on** banner: while a test runs, the output sends the test frame instead of the re-mapped input. Click **Stop test**. See [Testing the output](#testing-the-output).
 * The output follows the input: without DMX on port A nothing is sent, unless the mapping uses the digital inputs. The **Monitor** view shows what comes in.
 
 ### Troubleshooting log
