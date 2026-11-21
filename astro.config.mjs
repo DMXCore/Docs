@@ -263,7 +263,8 @@ export default defineConfig({
           items: [
             { label: 'Overview', slug: 'dmx-core-pico-2-re-mapper' },
             { label: 'FAQ', slug: 'dmx-core-pico-2-re-mapper/faq' },
-            { label: 'Config Utility', slug: 'dmx-core-pico-2-re-mapper/config-utility' },
+            { label: 'Re-Mapper app', slug: 'dmx-core-pico-2-re-mapper/app' },
+            { label: 'Config Utility (command line)', slug: 'dmx-core-pico-2-re-mapper/config-utility' },
             { label: 'Pin out', slug: 'dmx-core-pico-2-re-mapper/pin-out' },
             { label: 'Software', slug: 'dmx-core-pico-2-re-mapper/software' },
             { label: 'Product page', link: 'https://dmxcore.com/pico', attrs: { target: '_blank', rel: 'noopener' } },

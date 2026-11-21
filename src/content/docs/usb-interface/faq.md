@@ -49,7 +49,7 @@ From the computer's USB port. Leave the power input disconnected while the board
 
 ### Can I go back to the Re-Mapper or my own firmware?
 
-Yes. Copy the other `.uf2` file onto the board the same way. A Re-Mapper's mapping and license are kept, and the license is tied to the board, so it can always be activated again. See [Installing the Firmware](/usb-interface/installing-firmware/#going-back-to-the-re-mapper-or-your-own-firmware).
+Yes. Copy the other `.uf2` file onto the board the same way; for the Re-Mapper, the [DMX Core Re-Mapper app](/dmx-core-pico-2-re-mapper/app/#from-the-boot-loader) can install it for you. A Re-Mapper's mapping and license are kept, and the license is tied to the board, so it can always be activated again in the app. See [Installing the Firmware](/usb-interface/installing-firmware/#going-back-to-the-re-mapper-or-your-own-firmware).
 
 ### Is the firmware open source?
 

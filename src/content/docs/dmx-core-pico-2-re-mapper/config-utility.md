@@ -1,7 +1,13 @@
 ---
-title: Config Utility
-description: Instructions on how to use the Config Utility
+title: Config Utility (command line)
+description: The text-menu Config Utility for the Pico 2 Re-Mapper, the command-line alternative to the DMX Core Re-Mapper app
 ---
+
+:::tip[Use the DMX Core Re-Mapper app]
+The [DMX Core Re-Mapper app](/dmx-core-pico-2-re-mapper/app/) is the recommended tool for the Re-Mapper on Windows (64-bit), macOS and Linux. It shows the DMX input and output live, edits the mapping, and activates and updates the Re-Mapper.
+
+The Config Utility on this page is the older command-line alternative. It is still available, and it is the tool to use on 32-bit Windows. Mapping files from either tool work in the other.
+:::
 
 ## Download
 
@@ -43,6 +49,7 @@ YAML mapping files are written to the current working directory. When you launch
 
 The menu options are:
 
+* Activate Online
 * Read DMX
 * Get Mapping
 * Modify Mapping
@@ -55,6 +62,14 @@ The menu options are:
 * Quit
 
 ## Menu options
+
+### Activate Online
+
+Activates the Re-Mapper. The computer needs internet access: the utility gets the Re-Mapper's license from DMX Core and stores it on the Re-Mapper. If the Re-Mapper is already activated, it says so.
+
+You need this once after updating from firmware 1.3 or older to firmware 1.4, which uses a new device license. Until the Re-Mapper is activated again, its DMX output stays off, so do the update where the computer is online. With firmware 1.3 or older, Activate Online tells you to update the firmware first. See [Activation](/dmx-core-pico-2-re-mapper/app/#activation).
+
+The Config Utility does not install firmware. Use the [app](/dmx-core-pico-2-re-mapper/app/#updating-the-firmware), or hold BOOTSEL while plugging in and copy the `.uf2` file onto the `RPI-RP2` drive.
 
 ### Read DMX
 

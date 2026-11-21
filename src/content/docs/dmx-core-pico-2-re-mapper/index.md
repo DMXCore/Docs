@@ -34,11 +34,11 @@ The 4 digital outputs are connected to DMX channels 1-4 on the DMX input. Any ti
 
 ### Configuration
 
-Configuration via a signed, text-based configuration tool on Windows or Mac, connected over USB (see [releases](https://github.com/DMXCore/Pico2ReMapper-Public/releases) and [Config Utility](/dmx-core-pico-2-re-mapper/config-utility/)). Configuration is stored in a dedicated part of the 2MB flash memory. The config utility allows you to download/upload settings and store/load into YML text files locally on your computer.
+Configuration with the [DMX Core Re-Mapper app](/dmx-core-pico-2-re-mapper/app/) for Windows, macOS and Linux, connected over USB. The app shows the DMX input and output live, edits the mapping, and updates the firmware. Configuration is stored in a dedicated part of the 2MB flash memory. The app can also save the mapping to a YAML text file on your computer and load it again. A text-menu [command-line Config Utility](/dmx-core-pico-2-re-mapper/config-utility/) is available as an alternative; see [Software](/dmx-core-pico-2-re-mapper/software/) for all downloads.
 
 ### Hardware
 
-The Re-Mapper solution is software (firmware + configuration tool) that runs on the [DMX Core Pico 2](/dmx-core-pico-2/) hardware. Digital inputs, digital outputs, the USB UF2 bootloader, and the J3 SWD debug header are part of that hardware; see the [Pico 2 pin out](/dmx-core-pico-2/pin-out/) and [software](/dmx-core-pico-2/software/) pages. A [Raspberry Pi Debug Probe](https://www.raspberrypi.com/products/debug-probe/) connects directly to J3.
+The Re-Mapper solution is software (firmware + the Re-Mapper app) that runs on the [DMX Core Pico 2](/dmx-core-pico-2/) hardware. Digital inputs, digital outputs, the USB UF2 bootloader, and the J3 SWD debug header are part of that hardware; see the [Pico 2 pin out](/dmx-core-pico-2/pin-out/) and [software](/dmx-core-pico-2/software/) pages. A [Raspberry Pi Debug Probe](https://www.raspberrypi.com/products/debug-probe/) connects directly to J3.
 
 ### Mounting
 
