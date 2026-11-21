@@ -117,17 +117,6 @@ A mapping can be kept as a file on the computer, as a backup or to copy it to an
 
 The files are the same YAML files the [command-line Config Utility](/dmx-core-pico-2-re-mapper/config-utility/#write-mapping-to-local-file) writes, so files from either tool work in the other. They are plain text and can be edited in any text editor. If a line in a file can't be read, that channel is set to 1:1 and the app tells you which.
 
-## Settings
-
-**Settings…** opens the settings the firmware has:
-
-| Setting | What it does |
-| --- | --- |
-| Output rate limit (frames/s, 0 = no limit) | The most frames per second the output sends, for fixtures that can't keep up with a fast source. The newest levels are always sent. |
-| Always send 512 channels | The output frame is filled up to all 512 channels, for fixtures that need a full frame. A full frame takes longer, so the output rate is about 44 frames per second at most. |
-
-**Apply** sends the changes to the Re-Mapper so you can try them. **Save to device** stores them so they are kept after a power cycle. **Defaults** puts the default values back (not saved until you click **Save to device**).
-
 ## Activation
 
 A Re-Mapper sends DMX only once it is activated. One that is not activated still receives and maps DMX, but its output stays off, and the app shows a **Not activated** banner. You will normally only see it after updating from firmware 1.3 or older; see [below](#after-updating-from-firmware-13-or-older).
