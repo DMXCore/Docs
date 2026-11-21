@@ -7,6 +7,8 @@ Ever needed to re-map DMX channels in an installation? Maybe you don't have acce
 
 Configuration is stored in the onboard non-volatile flash memory and can be easily updated by connecting the controller to your computer via USB-C. Powered via USB-C, or 7-28 VDC. Built on the [DMX Core Pico 2](/dmx-core-pico-2/) so you could even replace the firmware with your own.
 
+![DMX Core Pico 2 Re-Mapper with its two DMX ports, USB-C connector and labeled case](/assets/dmx-core-pico-2-re-mapper/pico2.jpg)
+
 ## Purchase Information
 
 See the [DMX Core Pico product page](https://dmxcore.com/pico) for specs and pricing. You can buy the Re-Mapper from [dmxprosales.com](https://dmxprosales.com/products/dmx-core-pico2-dmx-remapper), and it is also listed on our [Amazon](https://www.amazon.com/DMX-Core-Pico-Raspberry-Re-Mapper/dp/B0CSVFFGQW/) and [eBay](https://www.ebay.com/itm/116047338946) stores.

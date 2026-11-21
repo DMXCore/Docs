@@ -4,6 +4,8 @@ title: Pin out
 
 The Re-Mapper uses the same hardware as the [DMX Core Pico 2](/dmx-core-pico-2/pin-out/). DMX, digital I/O, the J3 SWD debug connector, and jumper J4 are documented there.
 
+![The Re-Mapper from above: DMX A, DMX B and the digital input on the right, power and BOOTSEL on the left](/assets/dmx-core-pico-2-re-mapper/pico2-labels.jpg)
+
 ## DMX pin out
 
 * G - `Ground/Common` - pin 1
