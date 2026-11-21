@@ -60,7 +60,7 @@ The same pin out is on the [Pico 2 Pin out](/dmx-core-pico-2/pin-out/) page.
 
 Each port has a fail-safe terminator built in, so there is nothing to switch when a port changes between sending and receiving.
 
-![DMX Core Pico 2 with DMX cables on both ports](/assets/usb-interface/pico2-wired.jpg)
+![The DMX A and DMX B connectors of a DMX Core Pico 2, next to the digital input terminal](/assets/usb-interface/pico2-dmx-connectors.jpg)
 
 ## Power
 
