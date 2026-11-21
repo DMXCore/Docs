@@ -65,6 +65,8 @@ Under the banners, **Monitor** and **Mapping** switch between the two views.
 
 ### Monitor
 
+![The Monitor view: DMX input and re-mapped output side by side](/assets/dmx-core-pico-2-re-mapper/app-monitor.png)
+
 The **Monitor** view shows the DMX levels of all 512 channels, live, side by side:
 
 * **DMX input (port A)**: what the Re-Mapper receives.
@@ -75,6 +77,8 @@ The line above each side shows the number of channels in the frame, the frame ra
 **Digital inputs** at the top right shows the four digital inputs: a dot lights up while its input is on.
 
 ## Editing the mapping
+
+![The Mapping view with four outputs selected and unsaved changes](/assets/dmx-core-pico-2-re-mapper/app-mapping.png)
 
 The **Mapping** view lists the 512 output channels. For each one, **Kind** and **Source** show where its level comes from:
 
@@ -119,6 +123,8 @@ The files are the same YAML files the [command-line Config Utility](/dmx-core-pi
 
 ## Activation
 
+![The Not activated banner with the Activate online button](/assets/dmx-core-pico-2-re-mapper/app-not-activated.png)
+
 A Re-Mapper sends DMX only once it is activated. One that is not activated still receives and maps DMX, but its output stays off, and the app shows a **Not activated** banner. You will normally only see it after updating from firmware 1.3 or older; see [below](#after-updating-from-firmware-13-or-older).
 
 To activate, make sure the computer is online and click **Activate online**. The app gets the Re-Mapper's license from DMX Core and stores it on the Re-Mapper. The banner goes away and the output starts. After that the Re-Mapper works without the app and without an internet connection, and the activation is kept through power cycles and later firmware updates.
@@ -137,6 +143,8 @@ The mapping is kept through the update. Updates from 1.4 to later versions keep 
 
 ## Updating the firmware
 
+![The Firmware dialog with an update available](/assets/dmx-core-pico-2-re-mapper/app-firmware.png)
+
 Click **Firmware…**. The dialog shows the firmware the Re-Mapper runs, whether an update is available, and the release notes of the version picked under **Available firmware**. The latest version is selected; you can also pick an older one.
 
 The app downloads the firmware from GitHub, so the computer needs to be online.
@@ -149,6 +157,10 @@ If the app cannot find the boot drive after the Re-Mapper restarts, it saves the
 
 ### Firmware 1.3 or older
 
+![The Firmware update required banner](/assets/dmx-core-pico-2-re-mapper/app-firmware-required.png)
+
+![The Firmware dialog on firmware 1.3, with the BOOTSEL steps](/assets/dmx-core-pico-2-re-mapper/app-firmware-bootsel.png)
+
 The app can't work with firmware 1.3 or older. It shows **Firmware update required**, and the Monitor and Mapping views stay hidden until the firmware is updated. Read [After updating from firmware 1.3 or older](#after-updating-from-firmware-13-or-older) first: the Re-Mapper has to be activated again after this update.
 
 Older firmware can't restart itself for an update, so the app asks you to do it:
@@ -160,6 +172,8 @@ Older firmware can't restart itself for an update, so the app asks you to do it:
 5. Click **Activate online**.
 
 ### From the boot loader
+
+![The banner for a board in its boot loader](/assets/dmx-core-pico-2-re-mapper/app-bootloader-banner.png)
 
 If a board is already in its boot loader (BOOTSEL was held while plugging it in, or it has no firmware), the app shows a banner saying a Raspberry Pi Pico is in its boot loader. Click **Install firmware…**, pick a version and click **Install**.
 
