@@ -38,7 +38,7 @@ Turn on **a serial port per DMX port** and the Pico 2 shows up as **two interfac
 
 To turn it on, open the [DMX Core USB Interface Utility](/usb-interface/config-utility/), click **Settings…**, then **Advanced…**, and set **Serial ports** to **One per DMX port**. Saving restarts the interface; software that has it open loses its connection while it restarts, and the computer finds the new serial port by itself. The setting is kept across power cycles and firmware updates. See [Settings](/usb-interface/settings/#usb-serial-ports).
 
-![DMX Core Pico 2 from above: DMX A and DMX B on the right, power, BOOTSEL and USB-C on the left](/assets/usb-interface/pico2-labels.jpg)
+![DMX Core Pico 2 from above: DMX A, DMX B and the digital input on the right, power and BOOTSEL on the left](/assets/usb-interface/pico2-labels.jpg)
 
 The label on the case names each connector: **DMX A** and **DMX B** are the two DMX ports, next to the digital **INPUT** terminal. **POWER**, the **BOOTSEL** button and the USB-C connector are on the other side.
 
