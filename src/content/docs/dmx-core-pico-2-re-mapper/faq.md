@@ -31,6 +31,22 @@ With the [DMX Core Re-Mapper app](/dmx-core-pico-2-re-mapper/app/) for Windows, 
 
 Firmware 1.4 uses a new device license. After updating from firmware 1.3 or older, the Re-Mapper has to be activated again, once, online: click **Activate online** in the [app](/dmx-core-pico-2-re-mapper/app/#activation) on a computer with internet access. Its DMX output stays off until then. The mapping is kept.
 
+### On Linux, the app finds my Re-Mapper but can't open it, even after Allow access
+
+Another program is probably holding the Re-Mapper's serial port. The usual one is the Open Lighting Architecture service (`olad`): its USB serial plugin opens every `/dev/ttyACM` device, the Re-Mapper included, whenever the port is free. The app then says it found a Re-Mapper that Linux does not let it open, and **Allow access** does not change that.
+
+To check, look for a lock file with `ls /var/lock/LCK..ttyACM*`. If there is one, stop OLA while you use the app:
+
+```bash
+sudo systemctl stop olad
+```
+
+The Re-Mapper then shows up in the app within a few seconds. Start OLA again afterwards with `sudo systemctl start olad`.
+
+To keep OLA running without it taking the Re-Mapper, remove the `device_prefix = ttyACM` line from `/etc/ola/ola-usbserial.conf` and restart `olad`. OLA then no longer opens other `ttyACM` devices either.
+
+If there is no lock file and you have not clicked **Allow access** yet, see [Linux: the Re-Mapper does not show up](/dmx-core-pico-2-re-mapper/app/#linux-the-re-mapper-does-not-show-up).
+
 ### Are the digital triggers pulled to GND to activate?
 
 No. Apply 3–24 VDC between the input (`i1`–`i4`) and `C`. For a push button, fit jumper J4 (Connect C to GND) and switch the onboard `3v3` onto the input. See [Pin out](/dmx-core-pico-2/pin-out/#digital-inputs).
