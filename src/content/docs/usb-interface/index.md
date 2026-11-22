@@ -23,6 +23,10 @@ The utility runs on **Windows, macOS and Linux**.
 
 Some lighting software, such as Lightkey, uses only one port per interface. Turn on [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port) and the Pico 2 shows up as two separate interfaces, one per DMX port, so that software can drive both ports, each from its own universe.
 
+### sACN and Art-Net over USB
+
+For lighting software that can't use a USB serial interface but sends sACN or Art-Net, turn on the [USB network](/usb-interface/usb-network/). The interface then also shows up as a USB network adapter and sends sACN and Art-Net out on its DMX ports, each port on its own universe. No network setup is needed.
+
 ## Supported hardware
 
 | Hardware | DMX ports | Notes |
@@ -62,6 +66,7 @@ Port directions, output rate, DMX timing (break and mark after break), full 512-
 
 * USB ID `2E8A:1180`, assigned by Raspberry Pi to this interface, so software can recognize it by its USB ID.
 * Standard USB serial (CDC) driver on Windows, macOS and Linux. Nothing to install.
+* Optional [USB network](/usb-interface/usb-network/) adapter for sACN and Art-Net.
 * Firmware updates without opening the case: the USB Interface Utility puts the interface into its boot loader and installs the new firmware.
 
 ## Software compatibility
@@ -79,7 +84,7 @@ Details and setup steps for each are on the [Lighting Software](/usb-interface/l
 ## Limitations
 
 * Software that talks to interfaces through FTDI's D2XX driver, instead of a serial (COM) port, does not see the interface.
-* No Art-Net or sACN over USB. The interface does DMX and RDM on its own ports.
+* sACN and Art-Net over USB are for output only: no merging, no DMX input to the network and no RDM over Art-Net. See [USB Network](/usb-interface/usb-network/#not-in-this-version).
 * On the DMX Core Pico 2, DMX input on port B needs software that supports two-port input, such as DMX Core 100, or [a serial port per DMX port](/usb-interface/ports-and-wiring/#a-serial-port-per-dmx-port). The digital inputs and outputs are not used by this firmware.
 
 ## Purchase Information

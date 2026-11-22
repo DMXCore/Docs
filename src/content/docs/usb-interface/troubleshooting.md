@@ -68,6 +68,18 @@ The software reads input more slowly than the interface sends it. Lower the [inp
 
 Some fixtures need a moment between RDM requests, especially after a new DMX address. Set an RDM **Pause** in the [settings](/usb-interface/settings/#rdm) (Advanced), for example 100 ms. Check that RDM is on, and that nothing on the DMX line between the interface and the fixture blocks RDM (many DMX splitters and some wireless DMX links do not pass it).
 
+### sACN or Art-Net doesn't come out of the interface
+
+* Open the **USB network** pane in the [USB Interface Utility](/usb-interface/usb-network/#seeing-what-arrives). If your universe shows **Not on any port** under **Received**, the universes don't match. Art-Net counts from 0 and sACN from 1. Click **Use on port A** or **B**, then **Save**.
+* If nothing is received at all, send to the interface's **Device** address, or pick the network adapter with the **Computer** address in your software. On Windows, multicast and broadcast only go to the adapter the software picks.
+* If the license line says it doesn't include the USB network, activate the interface again.
+* A port set to **Input** ignores the network.
+* Another program on the serial port, or a second sender on the same universe, takes turns with it. Use one source per port.
+
+### Art-Net discovery doesn't find the interface on Windows
+
+Windows treats the USB network as Public, and its firewall blocks the replies. Click **Make private** in the utility's **USB network** pane, or allow your lighting software on public networks. Sending DMX works without it.
+
 ### A firmware update did not finish
 
 Unplug the interface and plug it in again. If it does not come back, hold **BOOTSEL** while plugging it in and install the firmware again, from the utility or by [copying the file](/usb-interface/installing-firmware/#by-copying-the-file). The boot loader is in ROM, so this always works.

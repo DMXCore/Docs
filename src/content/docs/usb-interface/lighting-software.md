@@ -94,6 +94,10 @@ Some RDM fixtures take a moment after a SET (for example a new DMX address) befo
 
 Not supported yet. QLC+ only lists USB DMX interfaces whose USB ID is on its own list, and the USB Interface's ID (`2E8A:1180`) is not on that list yet. We're working on getting support added to QLC+, and will update this page when a QLC+ version that lists the interface is available.
 
+## Software without USB serial support
+
+If your software can't use the interface's serial port but sends sACN or Art-Net, turn on the [USB network](/usb-interface/usb-network/) and send to the interface over the same USB cable.
+
 ## Other software
 
 Software that supports an Enttec DMX USB Pro or a DMXking ultraDMX **through a serial (COM) port** may work, but has not been tested. A few things to know:

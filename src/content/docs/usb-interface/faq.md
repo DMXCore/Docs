@@ -41,7 +41,7 @@ Yes, on every port. Port A works with RDM-capable lighting software such as OLA,
 
 ### Does it support Art-Net or sACN?
 
-No. The interface sends and receives DMX on its two ports. Your lighting software can convert to and from Art-Net or sACN if it supports that.
+Yes, from the computer to the DMX ports, over the USB cable. Turn on the [USB network](/usb-interface/usb-network/): the interface also shows up as a USB network adapter and sends sACN and Art-Net out on its DMX ports, each port on its own universe. It is for lighting software that can't use a USB serial interface. It doesn't send DMX input to the network or do RDM over Art-Net.
 
 ### How do I power it?
 

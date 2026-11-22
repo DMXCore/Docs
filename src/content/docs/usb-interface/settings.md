@@ -7,6 +7,8 @@ The interface keeps its settings in its own flash memory, so they stay with the 
 
 The less common settings are under **Advanced…** at the bottom of the dialog.
 
+The [USB network](/usb-interface/usb-network/) switch and each port's sACN universe and Art-Net Port-Address are kept on the interface too. They are set in the utility's **USB network** pane, not in this dialog.
+
 ![The Settings dialog with Advanced open](/assets/usb-interface/settings.png)
 
 ## Output
