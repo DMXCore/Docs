@@ -55,7 +55,7 @@ Only one program can use the Re-Mapper at a time. If the app says another progra
 The top of the window shows the Re-Mapper's serial number, firmware version and serial port. The buttons:
 
 * **Identify** blinks the Re-Mapper's LEDs for 5 seconds, to tell which one you are working on.
-* **Settings…** shows the settings the firmware has. Firmware 1.4 has none yet.
+* **Settings…** shows the settings the firmware has. See [Settings](#settings).
 * **Firmware…** shows the installed firmware and installs a new one. See [Updating the firmware](#updating-the-firmware).
 * **About** shows the app's version, checks for updates and opens the log folder.
 
@@ -144,6 +144,19 @@ While a test runs, a **Test mode is on** banner shows in both views, with its ow
 A test also stops when you close the pane, switch to another Re-Mapper or close the app. If the app goes away without stopping it, for example when the USB cable is pulled, the Re-Mapper stops the test by itself within 2 seconds. The saved mapping is never changed by a test.
 
 The Re-Mapper has to be [activated](#activation) to test: a Re-Mapper that is not activated sends nothing, also not in a test. The pane needs firmware with test mode; with older firmware the **Test** strip doesn't show. See [Updating the firmware](#updating-the-firmware).
+
+## Settings
+
+**Settings…** opens the settings the firmware has. Both are off until you turn them on:
+
+| Setting | What it does |
+| --- | --- |
+| Output rate limit (frames/s, 0 = no limit) | The most frames per second the output sends, for consoles that send far more than the fixtures need. Some consoles send 270 frames per second or more; 30-44 is plenty for most fixtures. The newest levels are always the ones sent. |
+| Always send 512 channels | The output frame is filled up to all 512 channels, for fixtures that need a full frame. A full frame takes longer to send, so the output rate drops to about 38-44 frames per second. |
+
+**Apply** sends the changes to the Re-Mapper so you can try them. **Save to device** stores them so they are kept after a power cycle. **Defaults** puts the default values back (not saved until you click **Save to device**).
+
+Firmware without these settings shows **This firmware has no settings yet.** Update the firmware to get them; see [Updating the firmware](#updating-the-firmware).
 
 ## Activation
 
